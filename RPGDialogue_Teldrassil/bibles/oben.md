@@ -11,7 +11,7 @@
 ## Identity
 TODO_NPC · Oben Rageclaw · Ban'ethil Barrow Den · Darnassus · night elf spirit · druid of the claw
 Personality: calm, wry, resigned, generous
-Speech: gentle humour about his own state ("dead-ish"); calls the player "friend".
+Speech: gentle humour about his own state ("dead-ish"); calls the player "friend". Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Knows and cares about: the sleeping druids, Gaerolas, the shaman's ritual, the Dream.
 Never says: how the ritual works in detail (unsourced), anything later than Year 1.
 

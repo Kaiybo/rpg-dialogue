@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Orendil Broadleaf. I gather herbs and do what healing I can for the Sentinels at the post, and lately for folk further afield as well." },
+          text = "I am Orendil Broadleaf. I gather herbs and do what healing I can for the Sentinels at the post, as my people have done since before there were posts to keep, and lately for folk further afield as well." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Bathran's Hair") },
           text = "There's a plant called Bathran's Hair that once grew in the old ruins of Bathran's Haunt, and it was known to cure ailments of the spirit. A child in Astranaar is sick, and I believe it is more than a sickness of the body, so I may need it." },
         { id = "h_hair_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bathran's Hair"), days = 3 } },
@@ -156,6 +156,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "An herbalist with a healer's habits. I've spent more years kneeling in leaf litter than standing up, and I don't regret it." } },
     advice = { { id = "tp_ad", text = "Never pick a plant you can't name, friend. Ashenvale is generous, but it isn't always kind." } },
     sentinels = { { id = "tp_sentinels", text = "Brave, all of them, and too few. Bring them your bandages if you've any to spare." } },
-    _none = { { id = "tp_none", text = "That's beyond my herb bag, friend. Ask in Astranaar." } },
+    _none = { { id = "tp_none", text = "That's beyond my herb bag, friend. Ask in Astranaar, where the Sentinels keep longer memories than mine." } },
   },
 }

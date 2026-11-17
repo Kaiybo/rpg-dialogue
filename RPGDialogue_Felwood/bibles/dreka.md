@@ -10,7 +10,7 @@
 ## Identity
 Dreka'Sur · Bloodvenom Post, Felwood · Horde · orc, female · quest giver
 Personality: fierce, gruff, grieving, proud
-Speech: blunt, short orders, but whole sentences; anger first, grief underneath.
+Speech: blunt, short orders, but whole sentences; anger first, grief underneath. Orc voice (0.80.0): blunt and proud; honor, blood, deeds over talk; "Lok'tar" sparingly.
 Knows and cares about: her husband, his letters, Overlord Ror, the post's watch.
 Default attitudes: contempt for "sick or not" excuses for furbolgs; respects deeds; Alliance cannot speak to her (Horde NPC).
 Lore anchors: everything in the quest text.

@@ -160,10 +160,10 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! I hope you came to fight, because Ashenvale has no use for anyone who came to watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Foulweald", "Thistlefur" }, min = 40 } },
           text = "My scouts tell me the Foulweald and the Thistlefur have both lost a great many warriors this season, and that you're a good part of the reason. Astranaar sleeps a little easier for it, and so do I." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in Ashenvale. The Warsong have shamans too, and they cheer while their axes bite into our trees. Tell me your spirits grieve for this forest." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in Ashenvale. The Warsong have shamans too, and they cheer while their axes bite into trees older than your kingdom, so tell me your spirits grieve for this forest." },
       },
       again = {
-        { id = "h_again", text = "What else? Korra's getting restless, and so am I." },
+        { id = "h_again", text = "What else? Korra's getting restless, and so am I; Ashenvale has been patient for ten thousand years, and it has run out." },
         { id = "h_again2", text = "Ask away; I have a moment before the scouts report." },
       },
       choices = {
@@ -292,7 +292,7 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "They were peaceful once, even wise. Something poisoned them, and I mean to find out what.", next = "furbolgs" } },
     warsong = { { id = "tp_warsong", text = "Their axes are the sound I hate most in this whole forest." } },
     cenarion_circle = { { id = "tp_circle", text = "The druids could help here, if they'd look up from their arguments in Darnassus. A few have, but not nearly enough." } },
-    _none = { { id = "tp_none", text = "That's not mine to know. Ask a Sentinel, or the trees, if you know how." } },
+    _none = { { id = "tp_none", text = "That's not mine to know. Ask a Sentinel, or ask the trees, if you know how; they remember more than any of us." } },
   },
 }
 
@@ -396,7 +396,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Pelturas Whitemoon. My daughter Relara has a fever no herb can touch and nightmares that make her scream in her sleep, and I will try anything; I have tried most things already." },
+          text = "I am Pelturas Whitemoon. My daughter Relara has a fever no herb can touch and nightmares that make her scream in her sleep, and I have prayed to Elune and tried nearly everything else besides." },
         { id = "h_orendil", tags = { "news" }, when = { questActive = TODO_QUEST("Orendil's Cure") },
           text = "This is from Orendil? His skill with herbs and healing is great, and this cure gives me hope where before I had very little." },
         { id = "h_tear", when = { questActive = TODO_QUEST("Elune's Tear") },
@@ -415,7 +415,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Speak softly, I beg you, because my daughter sleeps lightly and the dreams are bad." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive me, I don't mean to stare, but I have asked every healer who comes through Astranaar to look at Relara." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your order can lay hands on the sick, and I would beg it of you if I thought it would help her." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Please, speak softly, for Relara's sake. A shaman. I have tried nearly every cure there is. Do your spirits know any other?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Please, speak softly, for Relara's sake. You are a shaman, I see, and I have tried nearly every cure my people know, so tell me, do your spirits know another?" },
       },
       again = {
         { id = "h_again", text = "Is there anything else? Forgive me, I keep listening for her." },
@@ -479,7 +479,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I'm Relara's father. That's all I am at the moment, and I can't remember the last time I slept." } },
     advice = { { id = "tp_ad", text = "Hold on to the people you love while you can. I'm learning that at a bedside." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything else right now." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything else right now. Elune forgive me, there is only Relara." } },
   },
 }
 
@@ -616,7 +616,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You've got so much armour! Are you a knight? Papa says knights help people, so you must help people too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Are you a druid? Papa says druids can turn into a bear, and I've never seen it, but I promise I won't be scared." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a little demon? Papa says the bad dreams come from somewhere dark, but yours looks too small to cause anything." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Are you a shaman? Can your spirits fly? I'm going to be a Sentinel, or a hippogryph, whichever gets to fly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Are you a shaman? Can your spirits fly? When I'm better I'm going to be a Sentinel, or a hippogryph, whichever one gets to fly." },
       },
       again = {
         { id = "h_again", text = "Are you still here? Good, then tell me something." },
@@ -776,7 +776,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Faldreas. I keep track of who goes out on the roads and who ought to have come back by now, and the second list is longer than I'd like." },
+        { id = "h_default", text = "I am Faldreas Goeth'Shael. I keep track of who goes out on the roads and who ought to have come back by now, and since the orcs came, the second list is longer than I'd like." },
         { id = "h_edunes", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to Stonetalon Peak") },
           text = "The forest spirits tell me you are brave and willing to travel. Take the Talondeep Path near Mystral Lake into the Stonetalon Mountains, then climb to Stonetalon Peak, where Keeper Albagorm is waiting for you." },
         { id = "h_crossed", when = { metBefore = true }, text = "Three travellers came back yesterday and I crossed them off the list. Crossing names off the right way is the best part of my day." },
@@ -791,7 +791,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walk the roads armoured, which gives me some hope I won't be adding your name to my second list." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You will walk paths I cannot follow, so tell me when you set out, and I will know where to look if you do not come back." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The forest spirits went quiet when you came in, warlock, and they only do that for one kind of traveller. Write your name in my book all the same, because I keep everyone's." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I keep a list of everyone who goes out on the roads, and everyone who should have come back. Will I cross your name off the right way?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I keep a list of everyone who goes out on the roads and everyone who should have come back, so tell me, will I cross your name off the right way?" },
       },
       again = {
         { id = "h_again", text = "What else? I've a list to keep." },
@@ -851,7 +851,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the list of who's out on the roads. It's a small job, until someone doesn't come back." } },
     advice = { { id = "tp_ad", text = "Tell someone where you're going before you go, and tell me, if there's no one else." } },
-    _none = { { id = "tp_none", text = "Raene would know; she knows everything that moves in this forest." } },
+    _none = { { id = "tp_none", text = "Raene would know; she knows everything that moves in this forest, and Elune tells her the rest." } },
   },
 }
 
@@ -960,7 +960,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
+        { id = "h_default", text = "I am Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Elune willing, most of them leave in better shape than they came." },
         { id = "h_relara", when = { heardLine = "pelturas.h_default" },
           text = "So Pelturas told you about Relara. I send broth up for her every night, and she doesn't eat it, but he does, and someone has to look after him." },
         { id = "h_sentinel", when = { metBefore = true }, text = "A Sentinel fell asleep at that table last night, sitting up with her spear still in her hand, and I didn't have the heart to wake her." },
@@ -974,7 +974,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do sit down, and have some broth, because you'll be called to some sickbed or other before the night's out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The scouts will be glad to see you, and so am I, though you'll leave mud on my floors like everyone else." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Sit down by the fire, and if the scouts grumble about the arcane, pay them no mind, because they grumble about my soup as well." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down. I send broth up to a sick child every night. Do your spirits care for the sick?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down, please. I send broth up to a sick child every night, and I wonder whether your spirits care for the sick as Elune does." },
       },
       again = {
         { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
@@ -1041,7 +1041,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the inn on the island. There's not much more to me than a warm bed and a full pot." } },
     advice = { { id = "tp_ad", text = "Sleep when you can and eat when you can, because Ashenvale gives you fewer chances than you'd think." } },
-    _none = { { id = "tp_none", text = "Ask Raene, outside. She'll know, or she'll find out." } },
+    _none = { { id = "tp_none", text = "Ask Raene, outside. She'll know, or she'll find out, as the Sentinels always do." } },
   },
 }
 

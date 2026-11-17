@@ -13,7 +13,7 @@
 ## Identity
 Wynd Nightchaser · Starfall Village, Winterspring · night elf, male · quest giver
 Personality: calm, warm, careful, a little sad about the Highborne
-Speech: unhurried, plain, hospitable ("come in out of the wind").
+Speech: unhurried, plain, hospitable ("come in out of the wind"). Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Knows and cares about: the elven ruins of Winterspring, Kel'Theril, the crystal's fate.
 Relationships: hosts Jaron Stoneshaper; points to Donova Snowden for furbolgs.
 Default attitudes: wary but hospitable to the Horde; cautions mages.

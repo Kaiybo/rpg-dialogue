@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.felwood")
 P:Pool {
   id = "guard_bloodvenom", role = "guard", community = "bloodvenom_post",
   barks = {
-    { id = "b_river", text = "Don't drink from the river, don't wash in it, and don't look at it too long." },
+    { id = "b_river", text = "Don't drink from the river, don't wash in it, and don't look at it too long. The Earth Mother has turned her face from that water." },
     { id = "b_laugh", text = "The Forsaken alchemist is laughing again. Earth Mother, give me patience." },
   },
   greetings = {

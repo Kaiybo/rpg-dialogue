@@ -14,7 +14,7 @@
 ## Identity
 TODO_NPC · Erelas Ambersky · Rut'theran Village · Darnassus · night elf · druid, hippogryph keeper
 Personality: gentle, curious, enthusiastic, patient
-Speech: warm, chatty; "friend"; small jokes about the chicks.
+Speech: warm, chatty; "friend"; small jokes about the chicks. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Curgle Cranklehop (Gadgetzan), Ranshalla, Vesprystus (neighbour).
 Never says: anything later than Year 1; the exact outcome of Ranshalla's altar beyond "guardians of something of Elune's".
 

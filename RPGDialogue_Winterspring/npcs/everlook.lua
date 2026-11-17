@@ -336,7 +336,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, eh? You've got the right hands for fiddly work, and I always need someone to slip a part into somebody's shop when they're not looking, purely for science." },
         { id = "h_default", key = true,
-          text = "Umi Rumplesnicker, engineer! I teach, I tinker, and right now I'm building something wonderful. It's big, it's furry, it's mechanical, and it's going to scare the bolts off every goblin I know." },
+          text = "Umi Rumplesnicker, engineer! I teach, I tinker, and right now I'm building something wonderful that's roughly seventy percent fur, twenty-five percent gears and five percent pure Gnomeregan genius, and it's going to scare the bolts off every goblin I know." },
         { id = "h_yeti", tags = { "news" }, when = { questActive = TODO_QUEST("Are We There, Yeti?") },
           text = "Yeti parts, real fur and real horns! The mechanical bits I've got already, so bring me the rest and we'll make a monster." },
         { id = "h_own", when = { questActive = TODO_QUEST("A Yeti of Your Own") },
@@ -347,7 +347,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You can turn into a bear, can't you? I'm building a yeti, and I'd love to know how a real animal moves, because mine keep falling over on the ice." },
       },
       again = {
-        { id = "h_again", text = "More? Ooh, I love questions, because questions are how pranks start." },
+        { id = "h_again", text = "More? Ooh, I love questions, because questions are how experiments start, and experiments are how pranks start, which is the proper scientific order." },
         { id = "h_again2", text = "Ask away, but quickly, because something on that bench is ticking." },
       },
       choices = {
@@ -393,7 +393,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "Inventor, prankster, engineering trainer by day and menace by night! My friends say menace all day, but they're biased." } },
     advice = { { id = "tp_ad", text = "Always build an off switch, then hide it somewhere you'll remember." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their whole city to their own machines, and I just want to frighten a few people, on a small, responsible scale." } },
-    _none = { { id = "tp_none", text = "Never heard of it, but does it have gears?" } },
+    _none = { { id = "tp_none", text = "Never heard of it, but does it have gears? If it has gears, I can probably make it louder by at least a third." } },
   },
 }
 

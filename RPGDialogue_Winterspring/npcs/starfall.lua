@@ -18,7 +18,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Starfall Village. Come in out of the wind, and tell me what brings you." },
+    { id = "g_default", text = "Ishnu-alah, and welcome to Starfall Village. Come in out of the wind, and tell me what brings you." },
     { id = "g_ivy", when = { questActive = TODO_QUEST("To Winterspring!") }, text = "A friend of Ivy Leafrunner's, all the way from Felwood? Then you're doubly welcome." },
     { id = "g_crystal", when = { questActive = TODO_QUEST("The Crystal of Zin-Malor") }, text = "Keep the crystal wrapped, and don't look into it too long. Darnassus is where it belongs." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the snow has covered your tracks twice over. Welcome back." },
@@ -38,7 +38,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Wynd Nightchaser, and I've spent more years at Starfall than I'd care to count. Winterspring is a harsh land, but it holds a great many old elven ruins, and most of them hold secrets that someone would rather were forgotten." },
+        { id = "h_default", key = true, text = "I am Wynd Nightchaser, and I've spent more years at Starfall than I'd care to count, even by kaldorei reckoning. Winterspring is a harsh land, but it holds a great many old elven ruins, and most of them hold Highborne secrets that someone would rather were forgotten." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("The Ruins of Kel'Theril") },
           text = "Jaron Stoneshaper has been down to Kel'Theril more recently than I have, and he'll tell you what he saw. He's a dwarf, so he'll tell you at length." },
         { id = "h_remorse", tags = { "news" }, when = { questActive = TODO_QUEST("Remorseful Highborne") },
@@ -51,7 +51,7 @@ P:NPC {
           text = "We don't see many of the Horde at Starfall, and I'll not pretend the Sentinels wouldn't frown. But the snow doesn't care who you are, so come in out of it." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? There's always more in this snow." },
+        { id = "h_again", text = "What else would you know? There's always more buried in this snow, some of it from before the Sundering." },
         { id = "h_again2", text = "Go on. I've little to do but talk, between the storms." },
       },
       choices = {
@@ -155,7 +155,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't go to Kel'Theril at night, and don't stay longer than you have to. The spirits there don't forgive company." } },
     highborne = { { id = "tp_hb", text = "Our ancestors, or some of them, and the ones who brought the sea down on all of us. Kel'Theril is one small piece of what they did." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall have gone bad lately, worse than the cold ever made them. Donova Snowden at the hot springs knows more of it than I do." } },
-    _none = { { id = "tp_none", text = "That's beyond the snow I know, I'm afraid. Try Everlook; the goblins hear everything." } },
+    _none = { { id = "tp_none", text = "That's beyond the snow I know, I'm afraid. Try Everlook, where the goblins hear everything and charge for the hearing." } },
   },
 }
 
@@ -174,8 +174,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Aye, what can I do for ye?" },
-    { id = "g_wildkin", when = { questActive = TODO_QUEST("Enraged Wildkin") }, text = "Any sign o' my camp, lad? Or what's left of it?" },
+    { id = "g_default", text = "Aye, what can I do for ye, {g:lad|lass}?" },
+    { id = "g_wildkin", when = { questActive = TODO_QUEST("Enraged Wildkin") }, text = "Any sign o' my camp, {g:lad|lass}? Or what's left of it?" },
     { id = "g_pick", when = { questActive = TODO_QUEST("Troubled Spirits of Kel'Theril") }, text = "Mind my pick, now. It's the only one I've got left after those feathered lunatics." },
     { id = "g_away", when = { away = 14 }, text = "There ye are, back after {away}! I thought the snow had got ye." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've filled out since I last saw ye, and I'd have ye along on any dig now." },
@@ -207,7 +207,7 @@ P:NPC {
           text = "A gnome! Don't touch my pick, it's perfect as it is, and I know that look ye're giving it." },
       },
       again = {
-        { id = "h_again", text = "What else, lad? I've stories enough for a whole winter." },
+        { id = "h_again", text = "What else, {g:lad|lass}? I've stories enough for a whole winter, and ale enough for half of one." },
         { id = "h_again2", text = "Go on, ask. I'm not going anywhere till the wildkin calm down." },
       },
       choices = {
@@ -319,6 +319,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If a wildkin's standing on something, leave it be. I'm living proof, just about." } },
     explorers_league = { { id = "tp_el", text = "Best outfit in the world, if ye ask me, though our pay's poor and our camps keep getting wrecked." } },
     highborne = { { id = "tp_hb", text = "Old elves with more magic than sense, from what I've dug up. Wynd knows the sad parts better than I do." } },
-    _none = { { id = "tp_none", text = "Couldn't tell ye, lad. Ask Wynd; he's been here longer than the snow." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye, {g:lad|lass}. Ask Wynd; he's been here longer than the snow, and that's an elf for ye." } },
   },
 }

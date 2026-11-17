@@ -173,7 +173,7 @@ P:NPC {
     { id = "g_festival", when = { holiday = "lunar" }, text = "Have you honored your elders yet? There's a coin of ancestry waiting with each of them." },
     { id = "g_omen", when = { questActive = TODO_QUEST("Elune's Blessing") }, text = "Omen still stirs under Lake Elune'ara. Gather your friends before you wake him." },
     { id = "g_blessed", when = { questDone = TODO_QUEST("Elune's Blessing") }, text = "You carry Elune's blessing now. Wear it gladly, and remember the hero it came from." },
-    { id = "g_away", when = { away = 14 }, text = "You've come back to us after {away}. Nighthaven is glad of you." },
+    { id = "g_away", when = { away = 14 }, text = "You've come back to us after {away}. Nighthaven is glad of you, and Elune's light has kept your place by the lake." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, and your elders would be proud of it." },
   },
 
@@ -197,7 +197,7 @@ P:NPC {
           text = "Horde and Alliance both come to the festival, and for these few days I ask only that you leave the war at the edge of the glade. Moonglade has always been neutral ground." },
       },
       again = {
-        { id = "h_again", text = "What else would you know of the festival?" },
+        { id = "h_again", text = "What else would you know of the festival? It honours elders whose memories reach back further than most kingdoms." },
         { id = "h_again2", text = "Ask what you like. This is a time for talking." },
       },
       choices = {
@@ -327,11 +327,11 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I fly the Alliance out of Moonglade, to the north and south and back to Rut'theran. The druids have their own birds, but mine will carry anyone who asks politely." },
+        { id = "h_default", key = true, text = "I fly the Alliance out of Moonglade, to the north and south and back to Rut'theran beneath the great tree. The druids have their own birds, but mine will carry anyone who asks politely, as my people always have." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "You could fly with Silva, you know, on the Circle's own birds. But you're welcome to mine, and they'll be pleased you chose them." },
       },
-      again = { { id = "h_again", text = "Anything else, before you fly?" } },
+      again = { { id = "h_again", text = "Anything else, before you fly? Elune's light will guide the bird, so you need only hold on." } },
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why keep your birds out here, away from the village?", next = "edge" },
@@ -372,7 +372,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the birds fed, and they keep me up half the night squabbling. There isn't much more to it." } },
     advice = { { id = "tp_ad", text = "Hold on tight over Felwood, and don't look down. The birds don't like what they see there either." } },
-    _none = { { id = "tp_none", text = "I only know the birds and the sky, I'm afraid. Ask in the village." } },
+    _none = { { id = "tp_none", text = "I only know the birds and the sky, I'm afraid, and the moon that lights them. Ask in the village." } },
   },
 }
 
@@ -391,7 +391,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a flight? The wind riders are fed and ready." },
+    { id = "g_default", text = "Need a flight? The wind riders are fed and ready, and they're as eager to leave this quiet as any orc." },
     { id = "g_quiet", text = "Speak softly here. The druids hear everything in this glade." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back again. The beasts remember your smell." },
   },
@@ -405,11 +405,11 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I fly the Horde out of Moonglade, and I keep my wind riders on this side of the glade where they won't bother the night elves. It's a strange post for an orc, but the Keeper's peace holds, and that's good enough for me." },
+        { id = "h_default", key = true, text = "I fly the Horde out of Moonglade, and I keep my wind riders on this side of the glade where they won't bother the night elves. It's a strange post for an orc who has known the blood of war, but the Keeper's peace holds, and there's honor in keeping it." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid can fly with Bunthen on the Circle's birds, but my wind riders will carry you just the same, and they're faster, whatever he tells you." },
       },
-      again = { { id = "h_again", text = "Anything else, before you go?" } },
+      again = { { id = "h_again", text = "Anything else, before you go? Speak plainly; I'm an orc, not a druid." } },
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "How does an orc fare in Moonglade?", next = "orc" },
@@ -450,6 +450,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A wind rider master, posted in a glade full of elves because the Warchief needs one here. I mind my manners and scrape a lot of droppings." } },
     advice = { { id = "tp_ad", text = "Don't spit on the grass here. They notice." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask one of the druids, if they'll talk to you." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask one of the druids, if they'll talk to you; I'd rather face a charge than one of their riddles." } },
   },
 }

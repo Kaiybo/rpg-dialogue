@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Good day to you. Mind the jars; some of them are not as harmless as they look." },
+    { id = "g_hello", text = "Elune's light on you. Mind the jars, for some of them are not as harmless as they look." },
     { id = "g_mush", when = { questActive = TODO_QUEST("Cave Mushrooms") }, text = "Scaber stalks and a death cap, and a careful look around that cave. Have you been yet?" },
     { id = "g_onu", when = { questActive = TODO_QUEST("Onu") }, text = "Onu is waiting for you at the Grove of the Ancients. The Ancients do not wait lightly, so I would not keep him long." },
     { id = "g_onu_done", when = { questDone = TODO_QUEST("Onu") }, text = "Whatever Onu told you, I hope you listened carefully. He chooses his words over centuries." },
@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Barithras Moonshade. I make potions here in Auberdine, and the one I am working on needs mushrooms that grow in only one place on this whole coast." },
+          text = "I am Barithras Moonshade. I make potions here in Auberdine, as I have for longer than the village has stood, and the one I am working on needs mushrooms that grow in only one place on this whole coast." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Cave Mushrooms") },
           text = "The mushrooms grow in a cave behind Cliffspring Falls, to the east and a little north. I would fetch them myself, but the Grove of the Ancients has warned me away, for they sense a new evil hiding there." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cave Mushrooms"), days = 3 } },

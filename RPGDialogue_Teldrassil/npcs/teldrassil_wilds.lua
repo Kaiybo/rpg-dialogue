@@ -115,10 +115,10 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The timberlings around the lake have become violent, and I would rather you trimmed them than I did." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the timberlings moving through the trees, and you'll have noticed that they move like hunting things now." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at my lake. I'd like you to keep your servant away from the timberlings, because they're strange enough already without a demon setting them off." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The plants of Teldrassil trouble me. Something in them is wrong. Do your earth spirits feel it?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The plants of Teldrassil trouble me, for something in them has grown wrong, and I wonder whether your earth spirits feel it too." },
       },
       again = {
-        { id = "h_again", text = "Is there something more you would ask?" },
+        { id = "h_again", text = "Is there something more you would ask? I have time; the tree grows slowly, and so do my answers." },
         { id = "h_again2", text = "I am listening, though my mind is half on the soil." },
       },
       choices = {
@@ -171,7 +171,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I do not know, friend. The soil and I keep to ourselves." } },
+    _none = { { id = "tp_none", text = "I do not know, friend. The soil and I keep to ourselves, and we have both found it a peaceful arrangement." } },
   },
 }
 
@@ -285,7 +285,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you see the spider that bit me, it was a big one, and it looked very pleased with itself." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. If you have any healing in you I'd welcome it, though the venom is stubborn and Dirania says only her antidote will draw it out." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a demon? Oh, please don't let it near me, I've had quite enough of things with too many teeth today." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Thank you for stopping. The venom burns. Your spirits might ease it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Thank you for stopping, because the venom burns like fire in my blood, and perhaps your spirits could ease it a little." },
       },
       again = {
         { id = "h_again", text = "Is there more? Talking keeps my mind off the pain." },
@@ -357,7 +357,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_cook", text = "Welcome, welcome! Come closer to the fire, for nothing tastes as good as food made where you can smell it." },
+    { id = "g_cook", text = "Ishnu-alah, and welcome! Come closer to the fire, for nothing tastes as good as food made where you can smell it under the open sky." },
   },
 
   start = "hello",
@@ -462,7 +462,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me a good haunch and I'll show you what the kaldorei were doing with one long before Teldrassil grew." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've had herb broth on since dawn, and the Circle's folk are the only ones who can tell me whether the herbs I picked were happy to be picked." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my table. Sit, eat, and keep your servant out of my kitchen, because I've never yet found an old recipe that called for a pinch of brimstone." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I cook the old kaldorei recipes, one pot at a time. Would your spirits like a taste?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I cook the old kaldorei recipes, one pot at a time, as they were cooked in Ashenvale before the world broke, so would your spirits like a taste?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Taste this while you think; I fear it wants a pinch more moonroot." },
@@ -519,6 +519,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I couldn't say, friend. Ask me about food instead." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend. Ask me about food instead, for I know recipes older than most kingdoms." } },
   },
 }

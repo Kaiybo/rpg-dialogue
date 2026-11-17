@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Ah, good, someone who looks like they've held a shovel. Come over, come over." },
+    { id = "g_hello", text = "Ah, good, someone who looks like they've held a shovel. Come over, come over, {g:lad|lass}." },
     { id = "g_trouble", when = { questActive = TODO_QUEST("Trouble in Darkshore?") }, text = "Auberdine, {g:lad|lass}, and look for any sign of my crew. Weeks without a letter isn't like Remtravel, even for Remtravel." },
     { id = "g_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel's safe and his fossil's on its way to Ironforge, thanks to you. I may even forgive him for not writing." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}! Still no letter from Darkshore, so I'm glad of any face that's been somewhere." },
@@ -47,7 +47,7 @@ P:NPC {
           text = "One of the kaldorei, interested in old stones? That's rare. Your people lived atop more history than mine ever dug up, and half of you won't talk about it." },
       },
       again = {
-        { id = "h_again", text = "What else? I've time; the elves don't let me dig in their city, so I've plenty of it." },
+        { id = "h_again", text = "What else? I've time aplenty, since the elves won't let me dig in their city, and a dwarf without a dig is a sorry sight." },
         { id = "h_again2", text = "Go on, go on. Questions are what the League runs on." },
       },
       choices = {
@@ -154,6 +154,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write down where you found a thing before you pick it up. You'll thank me in ten years." } },
     explorers_league = { { id = "tp_league", text = "The finest minds in Ironforge, and a few of the dustiest. We're not treasure hunters, whatever the Wetlands lot say.", next = "warning" } },
     uldaman = { { id = "tp_uldaman", text = "There's a vault in the Badlands that's had the League up all night arguing. I'll say no more in a city of elves." } },
-    _none = { { id = "tp_none", text = "Not my field, I'm afraid. If it's not under a hill, I don't know it." } },
+    _none = { { id = "tp_none", text = "Not my field, I'm afraid. If it's not under a hill or a hundred feet of good stone, I don't know it." } },
   },
 }

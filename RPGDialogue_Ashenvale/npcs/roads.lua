@@ -106,7 +106,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and I'd very much like to know what they mean to do with them." },
+        { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and after the Legion's fel I have no wish to see this forest poisoned again." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, this far east? You'll know better than most what the Forsaken's plagues did to Lordaeron, so you'll understand why I lose sleep over them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You came through the trees without a sound, and my lookouts will hear about it in the morning. Out here a quiet traveller lives longer than a loud one, so I'm glad you're on our side." },
@@ -120,7 +120,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Forest Song, with Demon Fall Canyon just to the south of us. I'd sooner have you where I can see you than down there among the demons." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Felguard", "Mannoroc", "Infernal" }, min = 30 } },
           text = "You've been down into Demon Fall Canyon, and by the count my lookouts keep, a good many demons didn't come back up with you. That's the best news Forest Song has had in a month." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I hold Forest Song with the Forsaken on one side and demons on the other. Your spirits might help me count arrows." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I hold Forest Song with the Forsaken on one side and demons on the other, so perhaps your spirits might help me count arrows." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
@@ -188,7 +188,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a Sentinel officer, and Forest Song is the post nobody else wanted." } },
-    _none = { { id = "tp_none", text = "I couldn't say, and out here I've learned not to guess." } },
+    _none = { { id = "tp_none", text = "I couldn't say, and out here, so close to Felwood, I've learned not to guess." } },
   },
 }
 
@@ -284,7 +284,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Bhaldaran, and I make bows, which is all most people need to know about me. I live out here because the wood's better and the company's quieter." },
+        { id = "h_default", text = "I am Bhaldaran, and I make bows, which is all most people need to know about me. I live out here because the wood's older and the company's quieter, and I prefer both." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, at last, someone who'll appreciate the grain. Have a look at the longbows, and don't let your pet chew on the racks." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You'll be a rogue, then, and rogues always want a bow short enough to hide under a cloak. I'll make you one if you insist, but it'll shoot like it's ashamed of itself." },
@@ -295,7 +295,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll hold a bow like a hammer, I expect, but I'll sell you one if you ask nicely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and by how lightly you walk I'd guess you don't think much of bows. That's fine, because I make mine from fallen wood only, and you can tell the Circle so." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock out here, of all places. You won't want a bow, and I'd thank you to keep that thing of yours away from my drying staves." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Show me how you hold a bow. A shaman, eh? Your spirits won't straighten a crooked grip." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Show me how you hold a bow, because your spirits won't straighten a crooked grip, and the Sentinels never forgive one." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -345,7 +345,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a bowyer, and that's the long and short of it." } },
-    _none = { { id = "tp_none", text = "Don't know, and I can't say I'm curious." } },
+    _none = { { id = "tp_none", text = "Don't know, and I can't say I'm curious. After a few centuries you learn which questions are worth asking." } },
   },
 }
 
@@ -520,7 +520,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I serve the Horde, and Zoram'gar is where it sent me." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask someone who stays indoors more." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask someone who stays indoors more; an orc's work is out here with the blade." } },
   },
 }
 

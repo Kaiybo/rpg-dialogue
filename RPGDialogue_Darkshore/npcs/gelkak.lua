@@ -144,6 +144,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tinker by trainin', pirate by choice, castaway by accident. That's the whole of me, landlubber." } },
     advice = { { id = "tp_ad", text = "Never sail where the water's darker than it ought to be. That's where the Threshadons sleep." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I left before the trouble, and I'm not proud of how glad I am of it. Them as stayed deserved better." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and I've sailed near everywhere. Well, near here, anyhow." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I've sailed near everywhere, by my own reckonin' to three decimal places. Well, near here, anyhow." } },
   },
 }

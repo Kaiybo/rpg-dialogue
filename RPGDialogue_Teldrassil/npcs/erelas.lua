@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Hello, friend. Mind the nest on your left; that one bites, and she's only two weeks old." },
+    { id = "g_hello", text = "Ishnu-alah, friend. Mind the nest on your left; that one bites, and she's only two weeks old." },
     { id = "g_feathers", when = { questActive = TODO_QUEST("Favored of Elune?") }, text = "Any luck in the Hinterlands? Bring the feathers carefully, if you can, and not too bloodied." },
     { id = "g_moon", when = { questActive = TODO_QUEST("Moontouched Wildkin") }, text = "Winterspring feathers, friend, the ones that have fallen in the snow. I can hardly sit still waiting for them." },
     { id = "g_answer", when = { questDone = TODO_QUEST("Wildkin of Elune") }, text = "I still think about what you found at that altar. Elune's own guardians, and we never knew!" },
@@ -54,7 +54,7 @@ P:NPC {
           text = "A druid of the Circle! Then you'll understand why I'd rather raise hippogryphs than argue in the Enclave." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? I can talk and clean nests at the same time." },
+        { id = "h_again", text = "What else, friend? I can talk and clean nests at the same time, for the hippogryphs have kept me humble these many centuries." },
         { id = "h_again2", text = "Go on. The chicks like the sound of voices, I think." },
       },
       choices = {

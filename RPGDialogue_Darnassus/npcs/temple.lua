@@ -158,7 +158,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you bear yourself well. Elune keep you, for you will meet the blows the rest of us only hear about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of the woods, walking under Elune's own light. Praise be to her, {class}, and to every beast you spare." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Praise Elune, a druid in her Temple. The Circle and the Sisterhood have kept faith beside each other since Malfurion first went into the Dream, and you are as welcome here as any of my priestesses." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Elune and the Light both bless the faithful. Your spirits I am less certain of, but I do not condemn them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Elune and the Light both bless the faithful, and though your spirits are less known to me, I have lived long enough not to condemn what I don't understand." },
         { id = "h_novice", when = { origin = "nightelf_priestess" }, text = "One of our own novices, home from the road. I remember the night Elune's light first found you, child, because you were so startled you dropped the water jug in the moonwell, and the elder sisters have never let me forget it." },
       },
       again = {
@@ -489,7 +489,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I do more listening than teaching, as you'll learn, and I think it's the most important thing a priest ever does." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Sentinels bring me their worries after a battle, and I suspect paladins carry theirs a good deal longer." },
-        { id = "h_default", text = "I'm Astarii, one of the priestesses who teach here. Most of what I do is listen, and I'm told I'm better at it than at lecturing." },
+        { id = "h_default", text = "I am Astarii, one of the priestesses who teach here. Most of what I do is listen, and I'm told that after all these centuries I am better at it than at lecturing." },
         { id = "h_prayer", tags = { "news" }, when = { questActive = TODO_QUEST("Prayer to Elune") },
           text = "What brings you to the Temple? Is that gold, under all that soot? Let me see it, gently, because I think I know whose hand wrote this." },
         { id = "h_prayer_done", when = { questDone = TODO_QUEST("Prayer to Elune") },
@@ -501,11 +501,11 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You look like someone who's carried a few things home from the field that weren't wounds." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a quiet one. I like hunters, because they listen nearly as well as I do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, welcome. The Circle teaches that a forest can grow back after any fire, and I've always thought souls are much the same." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. No soul is too far for Elune to hear, and that includes those who speak with spirits. Welcome." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. No soul is too far for Elune to hear, and that includes those who speak with spirits." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry tonight." },
-        { id = "h_again2", text = "Go on; I'm listening." },
+        { id = "h_again2", text = "Go on; I'm listening, and the moon is listening with me." },
       },
       choices = {
         { text = "Train me, please.", next = "BUSINESS", when = { class = "PRIEST" } },
@@ -706,7 +706,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because I can always use another pair of hands that knows how to heal someone who won't stop moving." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You heal and fight both, which means you'll make every mistake my students make, only in heavier armor." },
-        { id = "h_default", text = "Jandria. I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
+        { id = "h_default", text = "I am Jandria, and I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mana's a practical matter, mage, and you burn through it faster than any priest I train. Want some advice for the long fights?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Temple. I teach healing, not banishing, but I've read enough to know what that is at your heel." },
@@ -714,7 +714,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, so you'll be the one at the back, which suits me, because my students can reach you easily." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Good, you heal too, so you know what it's like to keep a Sentinel standing while she's still running at the enemy." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll be the one bleeding behind some Warsong camp one day, so listen while I tell you how to stop it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Prayer is a craft, like archery or bandaging. Do your spirits require practice too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Prayer is a craft, like archery or bandaging, and my sisters have practiced it since before the Well was lost, so tell me, do your spirits require practice too?" },
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
@@ -766,7 +766,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach priests to heal without wasting themselves. That's all there is to me, and it's enough." } },
     advice = { { id = "tp_ad", text = "Save your strongest prayer for the wound that needs it. You'll know it when you see it." } },
     warsong = { { id = "tp_warsong", text = "Orcs with axes in Ashenvale, cutting down a forest older than their whole history. I mend what they leave behind." } },
-    _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask Alathea; she likes questions." } },
+    _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask Alathea, for she likes questions and has had a long time to collect answers." } },
   },
 }
 
@@ -891,14 +891,14 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Come and look at the pool with me a moment, because the moonlight on it tonight is quieter than it was yesterday, and I don't yet know why." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your armor catches the moonlight from across the gardens, {class}, and I'm afraid you've rather spoiled my watching." },
-        { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
+        { id = "h_default", text = "I am Lariia, and I teach here. When I'm not teaching I watch the pool, because Elune's light on it tells you a great deal about the night if you look long enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You chose the darkest corner by the pool, rogue, which is where I'd sit too. The moonlight shows more from there." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "The moonlight bends a little around you, mage, and I'm not sure you even know it does. It's very pretty, and slightly unsettling." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The moonlight on the pool tonight says a fight is coming, though I'll admit it says that most nights." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You watch the way I do, I think, long enough to see what everyone else walks past." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The moonlight on the pool went still when you came in, and it does that for the Circle more often than for anyone else." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The moonlight on the pool went dim when you came in, warlock, and it only does that for a few. Don't worry, I've seen it go dimmer." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I notice things. Your spirits are restless today. The Temple pool shows the moon even on cloudy nights." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and your spirits are restless today; I notice such things. The Temple pool shows the moon even on cloudy nights, so perhaps it can calm them." },
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
@@ -948,7 +948,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I watch more than I speak, so I've gathered a little here and there. Ask, and I'll tell you what the water and the travellers have shown me." } },
     background = { { id = "tp_bg", text = "I teach priests and watch the pool. I'm content with both." } },
     advice = { { id = "tp_ad", text = "Look longer than you think you need to. Most people miss things by being in a hurry." } },
-    _none = { { id = "tp_none", text = "The pool hasn't shown me anything about that. Try Alathea." } },
+    _none = { { id = "tp_none", text = "The pool hasn't shown me anything about that, and I have watched it a long while. Try Alathea." } },
   },
 }
 
@@ -1104,7 +1104,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The priestesses say I'm too familiar with animals, but I can't help being glad to see one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I study out here among the flowers, and I've always wondered whether they say more to one of the Circle than they ever say to me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh! You startled me, coming up through the flowers like that. The priestesses say a quiet step is a gift, though I don't think they meant for sneaking." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The priestesses give me every task as a sacred trust. Do your spirits give you tasks too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The priestesses give me every task as a sacred trust, even the dusting, so I wonder whether your spirits give you tasks too." },
       },
       again = {
         { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
@@ -1215,7 +1215,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_bank", text = "Welcome to the Bank of Darnassus. Do you already have an account with us, {g:sir|ma'am}?" },
+    { id = "g_bank", text = "Ishnu-alah, and welcome to the Bank of Darnassus. Do you already have an account with us, {g:sir|ma'am}?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Your box is exactly where you left it, as always." },
   },
 
@@ -1329,7 +1329,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're depositing hides, I'm afraid they go to the auction house and not to me, whatever you've heard." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your Circle leaves very little in my vaults, I find, though the ones who go into the long sleep do like to know their things will be here when they wake." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I'd ask you not to open any portals inside the vault, because I'd have to write it down, and I've no column for it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your box will be safe, though I must write down the reason for anything that leaves it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your box will be safe beneath the Temple's roof, though I must write down the reason for anything that leaves it, as we always have." },
       },
       again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
@@ -1381,6 +1381,6 @@ P:NPC {
     knows = { { id = "tp_knows", text = "A banker hears a great deal and repeats very little. I can speak to a few matters, if you ask." } },
     background = { { id = "tp_bg", text = "I keep the bank's records and its keys. Both are always in order." } },
     advice = { { id = "tp_ad", text = "Don't carry everything you own into the wilds. The wilds will take a share." } },
-    _none = { { id = "tp_none", text = "I'm afraid that isn't a banking matter." } },
+    _none = { { id = "tp_none", text = "I'm afraid that isn't a banking matter, and the bank has kept to banking for a very long time." } },
   },
 }

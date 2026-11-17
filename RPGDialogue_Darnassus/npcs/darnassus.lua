@@ -19,7 +19,7 @@ P:NPC {
 
   greetings = {
     { id = "g_temple", text = "You stand in the Temple of the Moon, so speak plainly. Elune hears everything said here, and I have little time for what she would not care to hear." },
-    { id = "g_kin", when = { race = "NightElf" }, text = "Child of the kaldorei, Elune's light be on you. Tell me what you need of me." },
+    { id = "g_kin", when = { race = "NightElf" }, text = "Ishnu-alah, child of the kaldorei, and Elune's light be on you. Tell me what you need of me." },
     { id = "g_back", when = { metBefore = true }, text = "So you have returned. Good; those who come back to me usually have something worth saying." },
     { id = "g_light", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
       text = "A priest of the Light, in the house of the Moon. Elune's blessing on you, and your own faith's as well; now tell me why you have come." },
@@ -222,10 +222,10 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk softly, and I notice it, because the Sentinels taught me to. Elune's priestesses have hidden in the dark for ten thousand years, so I don't think less of anyone who does the same for a good cause." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The thing you have bound to you stands in my temple, warlock, and I am letting it. Do not mistake that for welcome." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of Elune's forests. The Sentinels ride with hunters on every border we hold, and I am glad of each bow that joins them." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits. Elune's light falls on you as on all who come in peace, though I confess I have not seen your path among our allies before." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits. Elune's light falls on all who come in peace, though in ten thousand years I have not seen your path among our allies before." },
       },
       again = {
-        { id = "h_again", text = "What else? The Sentinels report at moonrise, and I mean to hear them." },
+        { id = "h_again", text = "What else? The Sentinels report at moonrise, as they have since the night of the Sundering, and I mean to hear them." },
         { id = "h_again2", text = "Speak on. I have little time, but I have not run out of it." },
       },
       choices = {
@@ -501,7 +501,7 @@ P:NPC {
     teldrassil = { { id = "tp_teldrassil", text = "It is our home now. It grew quickly and without the dragons' blessing, and quick things worry me." } },
     cenarion_circle = { { id = "tp_circle", text = "It is Malfurion's order, and in his absence it is Fandral's. I pray that is a short arrangement." } },
     worgen = { { id = "tp_worgen", text = "I have heard of the beasts in the human woods. Ask the druids about them, and watch their faces when you do." } },
-    _none = { { id = "tp_none", text = "That is not a matter for the Temple, though the Sentinels may know." } },
+    _none = { { id = "tp_none", text = "That is not a matter for the Temple of the Moon, though the Sentinels may know, for they hear what the city whispers." } },
   },
 }
 
@@ -692,10 +692,10 @@ P:NPC {
           text = "You again, and no more welcome than the last time. Say what you came to say and let me return to work that matters." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, in the Cenarion Enclave. I hope you came to listen, because there's nothing on these branches worth stealing." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Steel has its uses, I suppose, though Teldrassil was not grown to be defended with it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, playing at what the druids have mastered for ten thousand years. Speak briefly. Your spirits are a crude echo of the Dream." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, playing at what the druids have mastered for ten thousand years. Speak briefly, for your spirits are only a crude echo of the Emerald Dream." },
       },
       again = {
-        { id = "h_again", text = "Well? Something else, or are we finished?" },
+        { id = "h_again", text = "Well? Something else, or are we finished? The kaldorei may have eternity, but I do not have the afternoon." },
         { id = "h_again2", text = "Quickly. The tree does not tend itself, whatever the Temple imagines." },
       },
       choices = {
@@ -861,7 +861,7 @@ P:NPC {
     },
     malfurion = { { id = "tp_malf", text = "My teacher. Ask the Temple about him; they have more patience for the subject." } },
     cenarion_circle = { { id = "tp_circle", text = "Mine to lead, for now. I mean to leave it stronger than I found it, whatever Moonglade thinks." } },
-    _none = { { id = "tp_none", text = "That is not my concern, so ask a Sentinel. They enjoy being asked things." } },
+    _none = { { id = "tp_none", text = "That is not the Circle's concern, so ask a Sentinel. They enjoy being asked things, and they have the patience of the Temple besides." } },
   },
 }
 
@@ -876,7 +876,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young one. The Enclave's doors are open to you, and so is my time." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "Elune-adore, young one. The Enclave's doors are open to you, and so is my time." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "What brings you to the Cenarion Circle, friend? Ask, and I'll answer if I can." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and the Enclave's doors stayed open the whole while. Ask what you came to ask." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I'm glad to see it. The wild teaches faster than any trainer, though it charges more for the lesson." },
@@ -1005,7 +1005,7 @@ P:NPC {
           text = "{companion} is a druid, I think; I felt the bear in them before I saw them. Druids travel well with others, though they'll go quiet for days and then speak to a tree, so be patient." },
         { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Alliance" }, text = "Word came up from Desolace that someone reached the heart of Maraudon and put an end to Princess Theradras. Zaetar was Cenarius's own son, and every druid in this Enclave has grieved for him at some point, so I find I am grateful to you in a very old way." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Cenarion Enclave. Sit, if you like, for I've long wanted to ask one of your order how you decide when to heal and when to strike." },
-        { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
+        { id = "h_default", text = "I am Mathrengyl Bearwalker, and I train the druids of the Enclave. Once I stood at the Archdruid's side, but now I stand with the young ones, and after so many centuries that suits me better." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "You heard the call, and not everyone does. Sit, and we will speak of what it means to walk as more than one creature." },
         { id = "h_claw", when = { questActive = TODO_QUEST("Body and Heart") },
@@ -1024,7 +1024,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and every one of them is growling at you right now in my head." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students could learn a great deal from that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You walk a path close to ours, though you came to it through stone rather than root. Sit, and tell me what the spirits say to you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You walk a path close to ours, though you came to it through stone rather than root, so sit and tell me what the spirits say to you." },
         { id = "h_initiate", when = { origin = "nightelf_druid_initiate" }, text = "You woke with the rest of the Circle, I remember, blinking at a world that had moved on without us. Some of the old druids still wake in the night expecting the Dream, and I tell them what I'll tell you: the waking world is ours too, and it needs us more." },
       },
       again = {
@@ -1125,7 +1125,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I am one of the Archdruid's druids, and a teacher. The young ones keep me honest, and the bear keeps me humble." } },
     advice = { { id = "tp_ad", text = "Learn the bear before the cat, and the cat before you think you know either of them." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle is united, whatever you have heard, for disagreement is not division. The Archdruid has broad shoulders." } },
-    _none = { { id = "tp_none", text = "That's beyond my teaching. Ask in the Temple, perhaps." } },
+    _none = { { id = "tp_none", text = "That's beyond my teaching. Ask in the Temple of the Moon, perhaps, for the priestesses remember what the druids slept through." } },
   },
 }
 
@@ -1291,10 +1291,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, little star, with the forest still clinging to your boots. The Temple is quiet, so let it rest you as well as any glade would." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, little star, with a little moss still on your sleeve. Some say Cenarius was Elune's own son, so you are as much at home in her Temple as any sister." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Little star, you carry a shadow with you, and I can see it is a heavy one. Rest by the pool a while, though I'll ask your companion to wait beyond the Temple doors." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Little star, you walk with spirits. Elune welcomes you, though I sense your spirits are louder than hers. Come, rest by the pool." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Little star, you walk with spirits. Elune welcomes you, though I sense your spirits speak louder than she does, so come and rest by the pool where she can be heard." },
       },
       again = {
-        { id = "h_again", text = "What else, little star?" },
+        { id = "h_again", text = "What else, little star? The moon is in no hurry tonight." },
         { id = "h_again2", text = "Sit as long as you like. The pool doesn't mind company." },
       },
       choices = {
@@ -1391,7 +1391,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Rest when the road lets you. The moon will still be there; you might not be, if you never stop." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We heal, we pray, and we train with the bow. Visitors are always surprised by the third." } },
     cenarion_circle = { { id = "tp_circle", text = "They are our brothers and sisters of the wild. The Temple and the Enclave love each other, mostly, if loudly at times." } },
-    _none = { { id = "tp_none", text = "I couldn't say, little star. The High Priestess might." } },
+    _none = { { id = "tp_none", text = "I couldn't say, little star. The High Priestess might, for she has seen more moons than any of us." } },
   },
 }
 
@@ -1507,7 +1507,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I study creatures that don't belong in this world, and I'm told your order has had a great deal of experience with those." },
-        { id = "h_default", text = "Gracina Spiritmight, priestess and scholar. I study the creatures that belong to this world alone. Lately, the ones that don't seem to belong to it at all." },
+        { id = "h_default", text = "I am Gracina Spiritmight, priestess and scholar, and I study the creatures that belong to this world alone. Lately, Elune help me, I study the ones that don't seem to belong to it at all." },
         { id = "h_pestlezugg", when = { heardLine = "pestlezugg.h_default" },
           text = "A goblin alchemist in Gadgetzan has been asking about my insect studies. A goblin, asking a priestess. Whatever is under the sand must be worse than I feared." },
         { id = "h_silithid", tags = { "news" }, when = { questActive = TODO_QUEST("Rise of the Silithid") },
@@ -1525,7 +1525,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You go places nobody else can, I suppose, and I would give a great deal to know what you've seen in them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Silithid", min = 40 } },
           text = "You've been killing silithid, haven't you? I can smell that sour, dusty reek on your boots, and I'd give a great deal to know what you saw down there in the south." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Tell me, do the spirits know creatures I have not catalogued? I am eager for every account." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Tell me, do the spirits know of creatures I have not catalogued? I have been at this for three centuries, and I am still eager for every account." },
       },
       again = {
         { id = "h_again", text = "Go on, but mind the jar on your left; it bites." },
@@ -1619,7 +1619,7 @@ P:NPC {
       { id = "tp_silinext", text = "Ah, the hive. Sit down, because I have notes.", next = "silithid" },
       { id = "tp_sili", text = "The worst thing my people ever fought, and we've fought demons." },
     },
-    _none = { { id = "tp_none", text = "That's not my field, though if it had six legs, I'd be all ears." } },
+    _none = { { id = "tp_none", text = "That's not my field, though if it had six legs, I'd be all ears. The Highborne once said the same of magic, and look where that led." } },
   },
 }
 
@@ -1634,7 +1634,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rest", text = "Rest a while, traveller. The branches rock a little at night. Most find it soothing." },
+    { id = "g_rest", text = "Ishnu-alah, traveller, and rest a while. The branches rock a little at night, and most find it soothing." },
     { id = "g_home", when = { homeInn = { "Darnassus", "Craftsmen's Terrace" } }, text = "You're home. Elune guard your dreams tonight." },
     { id = "g_away", when = { away = 14 }, text = "You've returned after {away}, traveller. Your bed has rocked with the branches all this while, waiting for someone to sleep in it." },
     { id = "g_away_long", when = { away = 60 }, text = "It has been {away} since you last rested here, and I had begun to wonder whether the world had kept you. Come, the terrace is quiet tonight." },
@@ -1755,18 +1755,18 @@ P:NPC {
           text = "You've a dwarf with you! Tell {companion} the beds don't fold into the walls and the branches don't fall, because the last dwarf who stayed here slept on the floor with his boots on." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The travelers who come up from the boats are often more tired than they'll admit, and a kind word from a healer does them good." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your kind don't come up from the boats often, so forgive the stares on the Terrace, for they're curious rather than rude." },
-        { id = "h_default", text = "Saelienne. I keep the inn on the Craftsmen's Terrace. Travellers come up from the boats looking lost. I make sure they leave looking rested." },
+        { id = "h_default", text = "I am Saelienne, and I keep the inn on the Craftsmen's Terrace. Travellers come up from the boats looking lost among the branches, and I make sure they leave looking rested." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You'll sleep well up here, I think. Your people are used to the ground being a long way down." },
         { id = "h_louder", when = { metBefore = true }, text = "A young Sentinel once asked me what the world below the tree was like, and I told her it was louder. She looked so disappointed." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The city's quietest now. Listen and you'll hear the branches settle, like an old house." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The city is quietest now, beneath Elune's eye. Listen and you'll hear the branches settle, like an old house that has decided to keep you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You've come up the stairs without a sound, so either you're a rogue or the boards have finally stopped creaking. Shall I give you the room by the back window?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A human mage or a gnome one, I can never quite tell from the stairs, but you're both welcome here. Just don't light the candles with a spell, because the last one who tried singed my curtains." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've the look of someone who sleeps with one hand on a hilt. My beds don't bite, I promise, though the branches do creak." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please don't bring anything you've skinned upstairs, because the last guest who did left the room smelling of wet wolf for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be the one guest who doesn't mind the branches swaying at night, I expect, so long as you don't turn into a bear on my good linen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll get a room like anyone else, but your servant sleeps outside on the branch, and I wish it luck." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Do not look down from the terrace, please. My inn rocks gently, and I suspect your spirits will enjoy it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. Please don't look down from the terrace, for my inn rocks gently with the World Tree, and I suspect your spirits will enjoy it more than your stomach." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's moonberry juice, if you're staying." },
@@ -1814,6 +1814,6 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the beds on the Craftsmen's Terrace. Everyone who stays a night tells me their story, and mine is the shortest of them." } },
     advice = { { id = "tp_ad", text = "Take the portal from Rut'theran. There's no other sensible way up, and several foolish ones." } },
-    _none = { { id = "tp_none", text = "I only keep the beds. The Temple knows more." } },
+    _none = { { id = "tp_none", text = "I only keep the beds, traveller. The Temple of the Moon knows more, and it has known it for a long while." } },
   },
 }

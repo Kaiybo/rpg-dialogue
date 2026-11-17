@@ -12,7 +12,7 @@
 ## Identity
 TODO_NPC · Rellian Greenspyre · Darnassus · night elf · druid
 Personality: earnest, troubled, gentle, conscientious
-Speech: plain, a little apologetic; "friend".
+Speech: plain, a little apologetic; "friend". Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Denalan (old friend; "studied together" is authored, not canon); Athridas (he'd write to him).
 Never says: that Teldrassil is cursed outright, Fandral's later fall, anything after Year 1.
 

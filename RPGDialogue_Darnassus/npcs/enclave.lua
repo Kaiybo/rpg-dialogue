@@ -140,7 +140,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the dirt, would you, because I've only just got that pile exactly where I want it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Don't let your beast dig in my piles, because the last one undid three days of my work." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! At last, someone else the druids look down on. Mind the dirt, though, because it's been arranged very carefully." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do not step in the dirt. I am a visionary, you know, held back by lesser minds. Your spirits would understand." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't step in the dirt. I am a visionary, you know, held back by lesser minds for a good few centuries now, and I think your spirits would understand." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all night, and a great deal of dirt." },
@@ -387,10 +387,10 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I don't teach your kind, and you make far too much noise in my alcove." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, which at least means you know how to keep still. That's more than I can say for most who come here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my alcove. You can't learn anything from me, but your Circle ought to be listening harder to what Teldrassil's forests are trying to tell it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak to rogues, not to spirit-callers. Still, the forests suffer. Do your spirits feel it?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak to rogues, not to spirit-callers, but the forests suffer all the same, so tell me whether your spirits feel it." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Be brief." },
+        { id = "h_again", text = "Anything else? Be brief, for the shadows under the tree don't wait on anyone." },
         { id = "h_again2", when = { class = "ROGUE" }, text = "Go on. You've earned a few more questions." },
       },
       choices = {
@@ -630,10 +630,10 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll find no training here, but you may stand and listen if you keep still." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, a keeper of the balance as my hunters are. Yours is the gentler half of the work, though I've seen a druid in cat shape who would shame any hunter of mine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Highborne's magic once tore this world apart, and you'll forgive me if I mention that before anything else." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance is the law of the wild. Do your spirits respect it, or do they upset it?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance is the oldest law of the wild, older than my people's memory, so tell me whether your spirits respect it or upset it." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak; I'm listening." },
+        { id = "h_again", text = "What else? Speak, and I'll listen as the forest listens, without hurry." },
         { id = "h_again2", text = "Another question? Good. Hunters who stop asking stop learning." },
       },
       choices = {
@@ -711,7 +711,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Hunters bring back more than pelts; they bring news from every corner of the forest. Ask, and I'll share what's worth sharing." } },
     background = { { id = "tp_bg", text = "I teach hunters, and I teach them hard. Ask any of them in ten years whether it was worth it." } },
     advice = { { id = "tp_ad", text = "Feed your companion before you feed yourself. It's watching to see whether you will." } },
-    _none = { { id = "tp_none", text = "That's no concern of the hunt. Ask someone else." } },
+    _none = { { id = "tp_none", text = "That's no concern of the hunt, and Elune gave me only so many years to learn the hunt in. Ask someone else." } },
   },
 }
 
@@ -856,7 +856,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Cenarius bless you, warrior. Even those who will never take a shape are welcome in the Enclave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Cenarius bless you, hunter, and whatever walks beside you. You and my students share a love of the wild, though you show it differently." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Cenarius bless you, rogue, even if you walk too quietly for the young druids' comfort. They're used to hearing people coming before they see them." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Cenarius bless you, even though your path is different from ours. The Enclave argues about such things, but I do not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Cenarius bless you, even though your path is different from ours; the Enclave argues about such things, but I have lived too long to bother." },
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },

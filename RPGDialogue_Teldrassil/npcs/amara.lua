@@ -50,8 +50,8 @@ P:NPC {
           text = "You are a long way from your own lands, and this road is not for you. Turn back the way you came, and quickly." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak while we ride, {class}." },
-        { id = "h_again2", text = "Ask, and then let me get back to watching the trees." },
+        { id = "h_again", text = "What else would you ask, {class}? Speak while we ride, and keep one eye on the trees, as every Sentinel learns to." },
+        { id = "h_again2", text = "Ask, and then let me return to watching the trees. The Gnarlpine have learned patience from us, and I would not have them learn more." },
       },
       choices = {
         { text = "Why do you guard this road yourself?", next = "road" },

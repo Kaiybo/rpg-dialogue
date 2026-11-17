@@ -12,7 +12,7 @@
 ## Identity
 Captured Arko'narin · Shadow Hold, Jaedenar, Felwood · night elf, female, young · caged prisoner
 Personality: fierce, proud, loyal, refuses to break in front of anyone
-Speech: low and quick, clipped by fear but in whole sentences; bitter humor.
+Speech: low and quick, clipped by fear but in whole sentences; bitter humor. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Knows and cares about: Trey Lightforge (Knight of the Silver Hand, tortured to death), his sword Lightforge, the Council's demons, Jessir.
 Relationships: Trey's best friend; Jessir's friend.
 Default attitudes: warlocks smell like her captors; paladins remind her of Trey; druids should be burning this place out.

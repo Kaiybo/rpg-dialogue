@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Stand still a moment and let the wind tell me who you are." },
+    { id = "g_default", text = "Stand still a moment and let the wind tell me who you are, as the spirits of my fathers taught." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. The mountain has not finished testing you, then." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Lok'tar. It is good to see the Horde's colours this far from home." },
     { id = "g_after", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "Blade-friend. Sit by my fire whenever you pass; you have earned the warmth." },
@@ -68,7 +68,7 @@ P:NPC {
           text = "A druid. Your kind tends the mountain and mine cleans it, and I think we will get along, if you do not lecture me about the fires." },
       },
       again = {
-        { id = "h_again", text = "Ask what you need. I am listening." },
+        { id = "h_again", text = "Ask what you need. I am listening, and a blademaster's ears are as sharp as his edge." },
         { id = "h_again2", text = "There is more you want to know. Speak plainly; I prefer it." },
       },
       choices = {
@@ -280,6 +280,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Dae'gun, never fight with your back to the open ground. Doomguard come from the sky." } },
     burning_legion = { { id = "tp_bl", text = "They enslaved my people and broke this mountain. I need no other reason." } },
     malfurion = { { id = "tp_malf", text = "The night elves' shaman, whose horn called the wisps. I never saw him, only the light at the summit, and I have never seen anything like it since." } },
-    _none = { { id = "tp_none", text = "I know nothing of that. Ask someone who spends less time with a sword in hand." } },
+    _none = { { id = "tp_none", text = "I know nothing of that. Ask someone who spends less time with a sword in hand and less blood on the snow." } },
   },
 }

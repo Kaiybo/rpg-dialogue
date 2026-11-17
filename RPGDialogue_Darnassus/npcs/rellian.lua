@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Welcome, friend. Mind the seedlings; they are the only healthy things on this table." },
+    { id = "g_hello", text = "Ishnu-alah, friend. Mind the seedlings, for they are the only healthy things on this table." },
     { id = "g_tumors", when = { questActive = TODO_QUEST("Tumors") }, text = "The timberlings at Wellspring Lake, friend, the ones that wander the shore. Bring me the tumors so they can be burned." },
     { id = "g_denalan", when = { questActive = TODO_QUEST("Return to Denalan") }, text = "Go to Denalan quickly. If he has found the cause, I want to hear it from him before nightfall." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've buried three more tumors in the fire pit since. Welcome back." },
@@ -156,6 +156,6 @@ P:NPC {
     fel_moss = { { id = "tp_felmoss", text = "I don't know that the moss on the timberlings and the fel moss on the Gnarlpine are the same thing, but I'd bet my seeds on it." } },
     teldrassil = { { id = "tp_tree", text = "It's young, for a world tree, and young things catch sicknesses. That's what I tell myself, anyway." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle tends the whole world's balance. I tend one lake's worth of timberlings, and some days that feels like too much." } },
-    _none = { { id = "tp_none", text = "I'm afraid that's outside my seed beds, friend. Ask someone at the Enclave." } },
+    _none = { { id = "tp_none", text = "I'm afraid that's outside my seed beds, friend. Ask someone at the Enclave, where the druids have had ten thousand years to learn the answer." } },
   },
 }

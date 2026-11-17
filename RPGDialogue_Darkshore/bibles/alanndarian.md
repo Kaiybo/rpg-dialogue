@@ -13,7 +13,7 @@
 ## Identity
 TODO_NPC · Alanndarian Nightsong · Auberdine · Darnassus · night elf · cook, deer-doctor by necessity
 Personality: warm, brisk, bossy, hospitable, practical
-Speech: uses the player's name; teasing; food metaphors.
+Speech: uses the player's name; teasing; food metaphors. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Dendrite Starblaze (Moonglade), Tharnariun (bears), Auberdine.
 Never says: her post-Cataclysm fate; anything after Year 1.
 

@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Dorion. I teach hunters here at the Enclave, and this is Shadow, who teaches them more than I do. Mind your manners around her, and she'll mind hers around you." },
+          text = "I am Dorion, and I teach hunters here at the Enclave, as I taught them in Ashenvale before the tree was planted. This is Shadow, who teaches them more than I do, so mind your manners around her and she'll mind hers around you." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter. Then sit, and tell me what you've tracked and what's tracked you, and I'll tell you what you did wrong." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -93,6 +93,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter who got too old to range far and too stubborn to stop. So I teach." } },
     advice = { { id = "tp_ad", text = "Watch your companion's ears. They'll hear trouble a full breath before you do." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Shadow might know, but she isn't saying." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. Shadow might know, but she isn't saying, and nightsabers keep their secrets longer than elves do." } },
   },
 }

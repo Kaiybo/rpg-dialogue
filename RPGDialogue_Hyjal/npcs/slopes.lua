@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Watch your step; half of what's green on this slope wants to bite you." },
+    { id = "g_default", text = "Watch your step, for half of what's green on this slope wants to bite you, and the other half remembers the Legion." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The weeds have grown since you left, but then, they always do." },
     { id = "g_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "There's the one who cut down Celastrus. The eastern hollow is greening already; go and look, when you've the time." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the slope has grown back over half the paths you knew, so mind your boots." },
@@ -38,7 +38,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "The mountain is overrun with wild growth, swollen by the fel that rained down on it so long ago. The weeds and the brambles are angry now, poisoned through, and they strangle everything else. They have to be cleared, or the mountain will never regrow." },
+          text = "The mountain is overrun with wild growth, swollen by the fel that rained down on it when Archimonde climbed toward the World Tree. The weeds and the brambles are angry now, poisoned through, and they strangle everything else, so they must be cleared, or Nordrassil's mountain will never regrow." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Celastrus the Bitter") },
           text = "You're going after Celastrus, then. Take friends, take a sharp blade, and bring me its broken frond so I know it's truly finished." },
         { id = "h_recent", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Celastrus the Bitter"), days = 3 } },
@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde or not, a pair of hands is a pair of hands. The brambles don't ask who you're loyal to before they bite." },
       },
-      again = { { id = "h_again", text = "What else? Be quick, or something will have grown over your boots." } },
+      again = { { id = "h_again", text = "What else? Be quick, or something will have grown over your boots; the fel makes even the brambles impatient." } },
       choices = {
         { text = "What is Celastrus?", next = "celastrus" },
         { text = "How did the plants turn so foul?", next = "fel" },
@@ -129,7 +129,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I tend green things. On this mountain, that mostly means killing them." } },
     advice = { { id = "tp_ad", text = "Never sit down on a slope you haven't looked at first." } },
     burning_legion = { { id = "tp_bl", text = "They've been gone for years, and I'm still pulling up what they left behind." } },
-    _none = { { id = "tp_none", text = "Couldn't say. Ask me about weeds, and I'll talk all day." } },
+    _none = { { id = "tp_none", text = "Couldn't say. Ask me about weeds, and I'll talk until the moon sets, for I've been pulling them since the battle." } },
   },
 }
 

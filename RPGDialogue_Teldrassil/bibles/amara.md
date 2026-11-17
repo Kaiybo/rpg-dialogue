@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Moon Priestess Amara · road west of Dolanaar · Darnassus, Sentinels, Sisterhood of Elune · night elf · priestess of the moon
 Personality: stern, watchful, devout, practical
-Speech: brisk and formal; addresses the player by class; short blessings.
+Speech: brisk and formal; addresses the player by class; short blessings. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Nhemai and Yaeliura (her huntresses); the Temple (she prefers the road).
 Default attitudes: welcomes Alliance visitors, cold to the Horde.
 Never says: anything about the Burning of Teldrassil.

@@ -12,7 +12,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Keep your voice low near the cubs, {class}. They remember a loud stranger for a long time." },
+    { id = "g_default", text = "Ishnu-alah. Keep your voice low near the cubs, {class}, for they remember a loud stranger for a long time, as all of Elune's sabers do." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and the cubs didn't hiss at you this time. That's a start." },
   },
 
@@ -115,15 +115,15 @@ P:NPC {
           text = "A rogue. A wintersaber can hear a rogue's step from the far side of the valley, so do not think to sneak up on mine, because they will think you are prey." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. My frostsabers are calm, but they have no love for the arcane, so cast nothing near the pens, please." },
-        { id = "h_default", text = "I am Rivern Frostwind, and the Wintersaber Trainers raise the frostsabers of this valley. The Winterfall furbolgs and the cold give us trouble enough, and we don't hand a saber to anyone who hasn't helped us with both." },
+        { id = "h_default", text = "I am Rivern Frostwind, and the Wintersaber Trainers raise the frostsabers of this valley, as our people have raised sabers since before Darnassus was a dream. The Winterfall furbolgs and the cold give us trouble enough, and we don't hand a saber to anyone who hasn't helped us with both." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A child of Elune, so you'll know what a wintersaber means to our people. They are not horses, and we do not sell them as horses." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, here in the frostsaber valley. The cubs know your kind by scent, I think, and they come to you more readily than to the Sentinels who train beside me." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clad in steel, at the saber pens. My cats think you are a very strange sort of bear, so walk slowly until they know your scent." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The frostsabers are restless, which means they've caught your scent and can't decide what you are." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The frostsabers are restless, which means they've caught your scent and can't decide what you are, and in all my centuries they've rarely been wrong." },
       },
       again = {
-        { id = "h_again1", text = "What else? The cubs need feeding." },
+        { id = "h_again1", text = "What else? The cubs need feeding, and they are as patient as any kaldorei, which is to say not when they're hungry." },
         { id = "h_again2", text = "Ask, then, and quietly." },
       },
       choices = {
@@ -188,7 +188,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I raise frostsabers, and I have done for longer than most humans live." } },
-    _none = { { id = "tp_none", text = "I don't know. The cubs might, but they're not telling." } },
+    _none = { { id = "tp_none", text = "I don't know. The cubs might, but they're not telling, and frostsabers keep their secrets well." } },
   },
 }
 
@@ -512,10 +512,10 @@ P:NPC {
         { id = "h_default", text = "I am Ranshalla, a priestess of Elune, and there are old altars in these hills that have been dark for far too long. I mean to light their torches again, but the wild things guard them now, and I can't go alone." },
         { id = "h_cond", when = { class = "PRIEST" }, text = "A priest! Then you'll feel it too, when we reach the altar, the way the Mother Moon still listens there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The altars I mean to light were raised before the Sundering, and I think the Circle would be glad to see them burning again." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at an altar of Elune? The spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at an altar of Elune? The spirits and the Mother Moon both watch these hills, as they have since before the Sundering, so perhaps you belong here more than I thought." },
       },
       again = {
-        { id = "h_again1", text = "What else, friend?" },
+        { id = "h_again1", text = "What else, friend? Speak, and Elune will hear it as well." },
         { id = "h_again2", text = "Speak, the moon is patient tonight." },
       },
       choices = {
@@ -580,7 +580,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a priestess of the Temple of the Moon, though I've spent more time in the snow than in the temple lately." } },
-    _none = { { id = "tp_none", text = "I don't know that one, but I'll ask Elune tonight, if you like." } },
+    _none = { { id = "tp_none", text = "I don't know that one, but I'll ask Elune tonight, if you like. She has answered stranger questions over ten thousand years." } },
   },
 }
 

@@ -53,7 +53,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper, you've already met the worst welcome this mountain has, so you may as well tell me what you're after." },
+          text = "I am Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper, you've already met the worst welcome this mountain has, and Nordrassil's shadow has seen worse than you, so you may as well tell me what you're after." },
         { id = "h_young", when = { maxLevel = 55 },
           text = "You're young to have climbed this high. The mountain doesn't grade its dangers by who's asking, so stay close to the paths until you know the slopes." },
         { id = "h_feathers", tags = { "news" }, when = { questActive = TODO_QUEST("Feathers in Flight") },
@@ -399,6 +399,6 @@ P:NPC {
     cenarion_circle = { { id = "tp_cc", text = "The Talon answers to the Circle, mostly, when the Circle remembers we're up here." } },
     burning_legion = { { id = "tp_bl", text = "They came up this mountain once and the wisps blew their lord to pieces. The ones who ran are still hiding in the gorge and in Dae'gun, and I want them gone." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall rob my caravans, and the ones in the caves by Malorne's Retreat will have your arm off. Not every tribe has gone bad, but those have." } },
-    _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask the owls; they're terrible gossips." } },
+    _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask the owls; they're terrible gossips, and Elune made them that way on purpose, I'm sure of it." } },
   },
 }
