@@ -632,21 +632,21 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Oh, hi, hello, welcome to the Refuge! Did you come up from the south, and did you see a goblin on the way, skinny and loud, name of Ringo?" },
-    { id = "g_away", when = { away = 14 }, text = "You're back, after {away}, and I was worried about you too, because I worry about everyone who goes down there. Did you see Ringo while you were out, by any chance?" },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Everybody's saying you helped the Refuge, and that makes me feel a little better, because if anyone could find Ringo, it would be someone like you." },
+    { id = "g_hello", text = "Oh, hi, hello, welcome to the Refuge, friend! Did you come up from the south, and did you see a goblin on the way, skinny and loud, name of Ringo, owes me three canteens?" },
+    { id = "g_away", when = { away = 14 }, text = "You're back, after {away}, and I was worried about you too, friend, because I worry about everybody who goes down there, it's practically my second job. Did you see Ringo while you were out, by any chance?" },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everybody's sayin' you helped the Refuge, and that makes me feel a little better, friend, because if anybody could find Ringo, it would be somebody like you." },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "Oh no, you got hurt down there too? Sit down and drink something; everybody keeps getting hurt down there." },
+      text = "Oh no, you got hurt down there too? Sit down and drink something, friend, it's on the expedition's account, because everybody keeps getting hurt down there." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, I don't know anything about demons, but I'd ask the devilsaurs themselves if I thought they'd tell me where he is! Ringo's my dearest friend and he gets lost in his own tent, so out in the crater he must be terrified, and I'm running out of ideas." } },
+      lines = { { id = "xlock_default", text = "I don't know, I don't know anything about demons, but I'd ask the devilsaurs themselves if I thought they'd tell me where he is, and I'd pay 'em, too! Ringo's my dearest friend and he gets lost in his own tent, so out in the crater he must be terrified, and I'm runnin' out of ideas." } },
       choices = {
         { text = "I'll look for him myself. My demon stays leashed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon will find him, whatever it takes.", next = "BACK", fx = { align = { order = -1 } } },
@@ -655,7 +655,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "He's my dearest friend, and he wandered off into the crater after a crystal, and nobody's seen him since. Ringo's always been a wanderer, but he's never been gone this long, and I keep imagining him lost and thirsty somewhere in the ferns." } },
+      lines = { { id = "xapala_default", text = "He's my dearest friend, and he wandered off into the crater after a crystal, because he thought he could sell it, and nobody's seen him since. Ringo's always been a wanderer, but he's never been gone this long, and I keep imagining him lost and thirsty somewhere in the ferns." } },
       choices = {
         { text = "I'll find him, Spraggle, and bring him home safe.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "He chose to wander. You shouldn't worry so much.", next = "BACK", fx = { align = { light = -1 } } },
@@ -664,7 +664,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "We did, a little, but Williden can't spare the guards, and the ones we have are needed on the ridge to keep the raptors out of the Refuge. I keep telling myself that's sensible, and I keep not believing it." } },
+      lines = { { id = "xwarcl_default", text = "We did, a little, but Williden can't spare the guards, and the ones we have are needed on the ridge to keep the raptors out of the Refuge. I keep tellin' myself that's sensible budgeting, friend, and I keep not believing it." } },
       choices = {
         { text = "Holding the ridge is the right call, however hard it is.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Rules be hanged. Someone should have gone after him.", next = "BACK", fx = { align = { order = -1 } } },
@@ -673,7 +673,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Every night, though I'm not sure anyone's listening, because the crater is very loud and my prayers are very small. If yours are bigger, then please aim them south of the Refuge, because that's where he was heading." } },
+      lines = { { id = "xhcast_default", text = "Every night, though I'm not sure anybody's listening, because the crater is very loud and my prayers are very small and very cheap. If yours are bigger, friend, then please aim them south of the Refuge, because that's where he was heading." } },
       choices = {
         { text = "I'll pray for him, and then I'll go and look.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't find him. Only luck and a sharp eye will.", next = "BACK", fx = { align = { light = -1 } } },
@@ -681,7 +681,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Probably, and I've told Williden so, but he says we've come too far to turn back now. Every time I hear a devilsaur stomping through the jungle, I think he's wrong." } },
+      lines = { { id = "dq_default", text = "Probably, and I've told Williden so, but he says we've come too far and spent too much to turn back now. Every time I hear a devilsaur stomping through the jungle, I think he's wrong, and I think we should cut our losses." } },
       choices = {
         { text = "You came to finish the work. Stay the course.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Turn back. No crystal is worth your lives.", next = "BACK", fx = { align = { order = -1 } } },
@@ -690,7 +690,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Because it moves, or the ground round it does, and the fire walks about at night where you can see it from the ledge. Ringo went that way, and I've watched those lights every night since, wondering which one is him with a torch." } },
+      lines = { { id = "xhsham_default", text = "Because it moves, or the ground round it does, and the fire walks about at night where you can see it from the ledge. Ringo went that way, friend, and I've watched those lights every night since, wonderin' which one is him with a torch." } },
       choices = {
         { text = "Fear keeps you alive down there. Trust it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fear keeps you in this cave. Go and look for him.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -699,7 +699,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Quietly, please, because the raptors come running at any noise, and Ringo makes a great deal of noise when he's frightened. But don't be too long about it, because he never carries enough water, and I've told him and told him." } },
+      lines = { { id = "xrogue_default", text = "Quietly, please, because the raptors come running at any noise, and Ringo makes a great deal of noise when he's frightened, which is always. But don't be too long about it, friend, because he never carries enough water, and I've told him and told him and even sold him a second canteen once." } },
       choices = {
         { text = "Quiet is safest. I'll take my time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Speed matters more. I'll cut straight through.", next = "BACK", fx = { align = { order = -1 } } },
@@ -708,7 +708,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Water and somebody sensible, because he isn't, and I mean that kindly. The spring water from the crater brings him round when he faints, but conjured water would do in a pinch, and you'd be my favourite person in the whole Refuge." } },
+      lines = { { id = "xmage_default", text = "Water and somebody sensible, because he isn't, and I mean that kindly. The spring water from the crater brings him round when he faints, but conjured water would do in a pinch and it doesn't cost a copper, and you'd be my favourite person in the whole Refuge." } },
       choices = {
         { text = "I'd help anyone lost out there.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "He should learn to look after himself.", next = "BACK", fx = { align = { light = -1 } } },
@@ -717,7 +717,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "I have to think so, because if I stop thinking so, I'll just sit down and never get up again. He's clever, Ringo is, cleverer than he looks, and if anyone can find water in that crater it's him, but I'd feel better with the Light watching over him too." } },
+      lines = { { id = "xapriest_default", text = "I have to think so, friend, because if I stop thinking so, I'll just sit down and never get up again. He's clever, Ringo is, cleverer than he looks and twice as good at haggling, and if anybody can find water in that crater it's him, but I'd feel better with the Light watching over him too." } },
       choices = {
         { text = "Hold onto hope. The Light hasn't given up on him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayer won't find him. Boots and a waterskin will.", next = "BACK", fx = { align = { light = -1 } } },
@@ -727,31 +727,31 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Pterrordax", min = 20 } },
-          text = "The pterrordax don't circle the Refuge half so much since you started shooting them down, and I can finally sleep without hearing them screech. One of them used to steal my socks off the line, so I'll admit I took that one personally." },
+          text = "The pterrordax don't circle the Refuge half so much since you started shooting 'em down, friend, and I can finally sleep without hearing them screech. One of them used to steal my socks off the line, and socks cost money out here, so I'll admit I took that one personally." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! Oh, could your demon find Ringo, do you think, because it can see things in the dark, can't it, and he's been missing for days." },
+          text = "A warlock! Oh, could your demon find Ringo, do you think, because it can see things in the dark, can't it, and he's been missing for days, and I'd pay whatever it eats." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Would you say a prayer for Ringo, please, any prayer at all, because he's been gone for days and I've run clean out of my own." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you ask the spirits where Ringo is? I know that's probably not how it works, but I'm asking everybody, and you'd be the first who might actually know." },
+          text = "A paladin! Would you say a prayer for Ringo, please, friend, any prayer at all, because he's been gone for days and I've run clean out of my own." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you ask the spirits where Ringo is? I know that's probably not how it works, friend, but I'm asking everybody, and you'd be the first who might actually know." },
         { id = "h_default", key = true,
-          text = "Spraggle Frock, Marshal Expedition! I run supplies, or I did before the camps fell, and now I mostly worry, mostly about Ringo. He went off toward the volcano and he hasn't come back." },
+          text = "Spraggle Frock, Marshal Expedition! I run supplies, or I did before the camps fell and took half the stock with 'em, and now I mostly worry, mostly about Ringo. He went off toward the volcano, friend, and he hasn't come back." },
         { id = "h_lost", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Lost!") }, { questActive = TODO_QUEST("A Little Help From My Friends") } } },
-          text = "You found him, and he's alright? He's dried out like a husk? Oh, that's so Ringo, so please, bring him home." },
+          text = "You found him, and he's all right? He's dried out like a husk? Oh, that's so Ringo, so please, friend, bring him home before he tries to sell the husk." },
         { id = "h_pterrordax", when = { questActive = TODO_QUEST("Beware of Pterrordax") },
-          text = "The pterrordax keep swooping on the supply runs, big angry lizards with wings. Thin them out, please, and the runners can breathe again." },
-        { id = "h_ringo", when = { questDone = TODO_QUEST("A Little Help From My Friends") }, text = "Ringo's back and he won't stop talking about how thirsty he was. I've given him eleven canteens, and he's still talking." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Could you, I don't know, ask a bird whether it's seen Ringo? I'm only half joking, because I've tried everything else." },
+          text = "The pterrordax keep swooping on the supply runs, friend, big angry lizards with wings, and every bag they snatch comes out of my ledger. Thin them out, please, and the runners can breathe again." },
+        { id = "h_ringo", when = { questDone = TODO_QUEST("A Little Help From My Friends") }, text = "Ringo's back and he won't stop talkin' about how thirsty he was. I've given him eleven canteens, friend, and I'm writing every one of them down, and he's still talking." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Could you, I don't know, ask a bird whether it's seen Ringo, friend? I'm only half joking, because I've tried everything else." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "You're the sort who could slip through the ferns without the raptors noticing, aren't you? Oh, I wish Ringo had your feet instead of his own, because he trips over everything." },
+          text = "You're the sort who could slip through the ferns without the raptors noticing, aren't you, friend? Oh, I wish Ringo had your feet instead of his own, because he trips over everything, and he's never once paid for what he breaks." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! Can you conjure water? Ringo never carries enough, and if you find him before I do, he'll be so thirsty that he won't make it back without some." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Would you say a prayer for Ringo, please, any prayer at all, because he's been gone for days and I've run clean out of my own." },
+          text = "A mage! Can you conjure water? Ringo never carries enough, friend, and if you find him before I do, he'll be so thirsty that he won't make it back without some." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Would you say a prayer for Ringo, please, friend, any prayer at all, because he's been gone for days and I've run clean out of my own." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "You're a priest! Could you, I mean, would you say a prayer for Ringo, because he went off toward the volcano days ago and I keep thinking of him out there, all alone and thirsty and maybe hurt?" },
+          text = "You're a priest! Could you, I mean, would you say a prayer for Ringo, friend, because he went off toward the volcano days ago and I keep thinking of him out there, all alone and thirsty and maybe hurt?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior? Oh, please, if you're going down toward the volcano, look for Ringo, and if anything's chasing him, hit it very hard." },
+          text = "A warrior? Oh, please, friend, if you're going down toward the volcano, look for Ringo, and if anything's chasin' him, hit it very hard." },
       },
-      again = { { id = "h_again", text = "Anything else? Sorry, I'm a bit distracted, but I always am." } },
+      again = { { id = "h_again", text = "Anything else, friend? Sorry, I'm a bit distracted, but I always am, it's bad for the books." } },
       choices = {
         { text = "Why does everyone here fear the volcano so much?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is Un'Goro too dangerous for the expedition?", next = "druid_q", when = { class = "DRUID" } },
@@ -771,31 +771,31 @@ P:NPC {
       },
     },
     ringo = {
-      lines = { { id = "r_default", text = "He's my friend, loud and skinny and convinced he knows the way to everywhere. He went toward the volcano to look at something shiny, because he always goes to look at something shiny." } },
+      lines = { { id = "r_default", text = "He's my friend, loud and skinny and convinced he knows the way to everywhere and the price of everything. He went toward the volcano to look at something shiny, because he always goes to look at something shiny, and he always thinks it's worth a fortune." } },
       choices = {
         { text = "Where exactly did he go?", next = "ringo_where" },
         { text = "He'll turn up.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
     ringo_where = {
-      lines = { { id = "rw_default", text = "Towards Fire Plume Ridge, the smoking mountain in the middle, which is hot and dry and full of things made of fire. And he took one canteen, just one!" } },
+      lines = { { id = "rw_default", text = "Towards Fire Plume Ridge, friend, the smoking mountain in the middle, which is hot and dry and full of things made of fire. And he took one canteen, just one, to save on the weight!" } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     supplies = {
-      lines = { { id = "s_default", text = "Down the rim path, past the raptors, round the pterrordax, and up again with whatever's left. It used to be easy. It was never easy." } },
+      lines = { { id = "s_default", text = "Down the rim path, past the raptors, round the pterrordax, and up again with whatever's left, friend. It used to be easy, or I told myself it was, and it was never easy." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gadgetzan = {
-      lines = { { id = "g_default", text = "Steady work, they said, and good pay, they said, but nobody said 'dinosaurs'. I'd have asked more questions if they'd said 'dinosaurs'." } },
+      lines = { { id = "g_default", text = "Steady work, they said, and good pay, they said, but nobody said 'dinosaurs', friend. I'd have asked more questions, and for more money, if they'd said 'dinosaurs'." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     ringo_after = {
-      lines = { { id = "ra_default", text = "He's thirsty, loud and alive, all three at once, all day long, and I've never been happier to be annoyed." } },
+      lines = { { id = "ra_default", text = "He's thirsty, loud and alive, all three at once, all day long, and I've never been happier to be annoyed, friend." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     x_hunter = {
       lines = {
-        { id = "xh_default", text = "Tamed? You want one of those on a leash? They drop out of the sky like falling rocks, and I've lost more supply bags to them than I can count, so if you try it, please do it somewhere far away from my tent." },
+        { id = "xh_default", text = "Tamed? You want one of those on a leash? They drop out of the sky like fallin' rocks, friend, and I've lost more supply bags to them than I can afford, so if you try it, please do it somewhere far away from my tent." },
       },
       choices = {
         { text = "Anything can be tamed, with patience.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -806,11 +806,11 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I hear things on the supply runs, when I'm not worrying, which isn't often! Ask me about any of these." },
+      { id = "tp_knows", text = "I hear things on the supply runs, friend, when I'm not worrying, which isn't often! Ask me about any of these." },
     },
-    background = { { id = "tp_ba", text = "I'm a Gadgetzan girl, a supply runner and a worrier, in that order, and sometimes all at once." } },
-    advice = { { id = "tp_ad", text = "Pack twice the water you think you'll need. Ringo didn't, and look how that went." } },
-    steamwheedle = { { id = "tp_steamwheedle", text = "I came out from Gadgetzan because they said it was steady work, and now I sleep on a ledge above dinosaurs." } },
-    _none = { { id = "tp_none", text = "Sorry, I don't know! Maybe ask Williden; he knows things." } },
+    background = { { id = "tp_ba", text = "I'm a Gadgetzan girl, a supply runner and a worrier, in that order, friend, and sometimes all at once." } },
+    advice = { { id = "tp_ad", text = "Pack twice the water you think you'll need, friend, even if it costs twice as much. Ringo didn't, and look how that went." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "I came out from Gadgetzan because they said it was steady work at good wages, friend, and now I sleep on a ledge above dinosaurs." } },
+    _none = { { id = "tp_none", text = "Sorry, I don't know, friend! Maybe ask Williden, he knows things." } },
   },
 }

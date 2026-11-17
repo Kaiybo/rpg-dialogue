@@ -1451,26 +1451,26 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Beetix Ficklespragg, at your service, and if you've got a strong stomach, I've got work. It's mostly venom sacs, so don't wear your good gloves." },
-    { id = "g_back", when = { metBefore = true }, text = "Hey, it's you! Noggle's still breathing, so you're still my favourite customer." },
-    { id = "g_saved", when = { questDone = TODO_QUEST("Noggle's Last Hope") }, text = "Look at him, sleeping like a baby. A baby who owes me a fortune in antidotes, but still." },
-    { id = "g_away", when = { away = 14 }, text = "Hey, you're back after {away}! Noggle's still breathing, I'm still brewing, and my prices have only gone up a little, so welcome home." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the Hold is you spun somebody a story they bought whole, and as a goblin, I've got to say I'm proud. Just don't try it on me, because I wrote the book." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round today, and that's a skill worth good money, so try it on Noggle and his antidote sometime and I'll call you a genius." },
+    { id = "g_default", text = "Beetix Ficklespragg, at your service, pal, and if you've got a strong stomach, I've got work that pays. It's mostly venom sacs, so don't wear your good gloves, because I don't cover laundry." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, it's you, pal! Noggle's still breathing, so you're still my favourite customer." },
+    { id = "g_saved", when = { questDone = TODO_QUEST("Noggle's Last Hope") }, text = "Look at him, sleeping like a baby, pal. A baby who owes me a fortune in antidotes, but still." },
+    { id = "g_away", when = { away = 14 }, text = "Hey, you're back after {away}! Noggle's still breathing, I'm still brewing, and my prices have only gone up a little, pal, so welcome home." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the Hold is you spun somebody a story they bought whole, and as a goblin, pal, I've got to say I'm proud. Just don't try it on me, because I wrote the book and I sell copies." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked somebody round today, pal, and that's a skill worth good money, so try it on Noggle and his antidote sometime and I'll call you a genius." },
   },
 
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = { "Alchemy" } },
-      text = "Ooh, an alchemist! You can tell by the singed eyebrows. Don't touch anything on the left side of the bench." },
+      text = "Ooh, an alchemist! You can tell by the singed eyebrows, pal. Don't touch anything on the left side of the bench, because the left side is where things go boom." },
     { id = "n_poison", cat = "status", when = { debuffType = "Poison" },
-      text = "You're a funny colour, pal, and I've seen that colour on Noggle. Sit down before you fall down, and don't lick anything." },
+      text = "You're a funny colour, pal, and I've seen that colour on Noggle. Sit down before you fall down, and don't lick anything, because I charge for antidotes." },
   },
 
   start = "hello",
   nodes = {
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Maybe, though I've a suspicion that what he really needs is for someone to fetch the venom samples so I can finish the cure. He's not as sick as he says, but he's not as well as he thinks, either, and the scorpids out there aren't getting any friendlier." } },
+      lines = { { id = "xapala_default", text = "Maybe, pal, though I've a suspicion that what he really needs is for somebody to fetch the venom samples so I can finish the cure. He's not as sick as he says, but he's not as well as he thinks, either, and the scorpids out there aren't getting any friendlier." } },
       choices = {
         { text = "I'll lay hands on him and see what the Light can do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll fetch the samples. Prayer won't mix your potion.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1479,7 +1479,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Something with a stinger and a bad attitude, out north where he had no business picking herbs, and now I'm brewing antidotes at cost, which hurts me nearly as much as the venom hurts him. If you're fighting out there, buy your own antidotes before you go, because I'm not nursing two of you." } },
+      lines = { { id = "xwarcl_default", text = "Somethin' with a stinger and a bad attitude, out north where he had no business picking herbs, and now I'm brewing antidotes at cost, which hurts me nearly as much as the venom hurts him. If you're fighting out there, pal, buy your own antidotes before you go, because I'm not nursing two of you for free." } },
       choices = {
         { text = "Look after your own first. That's what family is for.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "He knew the risks. Let him pay the price.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1489,8 +1489,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Every one, because you can't brew an antidote without the poison, and the poison doesn't come in a jar. A hunter who knows where to cut gets me a clean sac, and a warrior who doesn't gets me a splattered mess I can't use." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the stingers when you're cutting them, though, because I'm already nursing one patient and I don't do animals, whatever Noggle says about my bedside manner." },
+        { id = "xhuntcl_default", text = "Every one, pal, because you can't brew an antidote without the poison, and the poison doesn't come in a jar. A hunter who knows where to cut gets me a clean sac, and a warrior who doesn't gets me a splattered mess I can't use or sell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the stingers when you're cutting them, though, pal, because I'm already nursing one patient and I don't do animals, whatever Noggle says about my bedside manner." },
       },
       choices = {
         { text = "I'll bring you what heals people. That's worth the hunt.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1500,7 +1500,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Only if you start charging, friend, and then we'd have to talk about splitting the market. Between you and me, the venom out of those stingers is nasty stuff, and if your Light or your loa can ease Noggle where my potions can't, I'll call it a fair trade." } },
+      lines = { { id = "xhcast_default", text = "Only if you start charging, pal, and then we'd have to talk about splitting the market. Between you and me, the venom out of those stingers is nasty stuff, and if your Light or your loa can ease Noggle where my potions can't, I'll call it a fair trade and a cheap one." } },
       choices = {
         { text = "I'll tend Noggle for nothing. Keep your potions for others.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My healing has a price too, Beetix. Name your cut.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1509,7 +1509,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The stingers out here feed on things that ought not to be eaten, and the silithid poison whatever they don't eat. I've tested samples from the edge of Hive'Ashi that would fell a thunder lizard, and the closer to the hives they come from, the worse it gets." } },
+      lines = { { id = "xhsham_default", text = "The stingers out here feed on things that oughtn't be eaten, pal, and the silithid poison whatever they don't eat. I've tested samples from the edge of Hive'Ashi that would fell a thunder lizard, and the closer to the hives they come from, the worse it gets and the more it's worth." } },
       choices = {
         { text = "Antidotes won't fix this land. It needs healing.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Venom that strong must be worth something. Sell it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1518,7 +1518,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Bad enough that I'm spending every copper on antidotes, and every hour watching him sleep. If a mage could slow the venom with a frost spell, I'd pay good coin for the experiment, but nobody seems keen." } },
+      lines = { { id = "xmage_default", text = "Bad enough that I'm spendin' every copper on antidotes, and every hour watching him sleep, which is time I could be billing. If a mage could slow the venom with a frost spell, pal, I'd pay good coin for the experiment, but nobody seems keen." } },
       choices = {
         { text = "I'll help Noggle however I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "That's your problem, not mine.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -1527,7 +1527,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, which is why I'm asking, and I'm desperate enough to try anything that won't kill him faster. Mind you, if your trick costs extra, I'll be adding it to Noggle's tab." } },
+      lines = { { id = "xlock_default", text = "I don't know, pal, which is why I'm asking, and I'm desperate enough to try anything that won't kill him faster. Mind you, if your trick costs extra, it's going on Noggle's tab." } },
       choices = {
         { text = "I won't experiment on your cousin. It's too risky.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll try a curse, if you're paying.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1536,7 +1536,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Bad enough that he's started calling me by his mother's name, and Noggle's mother was a terrifying woman, so that's no compliment. I've slowed the venom with every tonic I know, but slowing isn't curing, and I'll take a prayer, a potion or a miracle, whichever turns up first." } },
+      lines = { { id = "xapriest_default", text = "Bad enough that he's started calling me by his mother's name, pal, and Noggle's mother was a terrifying woman who audited her own children, so that's no compliment. I've slowed the venom with every tonic I know, but slowing isn't curing, and I'll take a prayer, a potion or a miracle, whichever turns up first and cheapest." } },
       choices = {
         { text = "Prayer and potions together. Neither should have to work alone.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Trust your tonics. A prayer won't draw venom out.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1545,7 +1545,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Maybe, if your healing's as good as everyone says. The druids here sang over him for an hour and he stopped twitching, but the venom's still in him, so I figure magic slows it and chemistry finishes it, and I'm the chemistry." } },
+      lines = { { id = "xdruid_default", text = "Maybe, pal, if your healing's as good as everybody says. The druids here sang over him for an hour and he stopped twitching, but the venom's still in him, so I figure magic slows it and chemistry finishes it, and I'm the chemistry, at very reasonable rates." } },
       choices = {
         { text = "Work with the druids. Noggle's life matters more than credit.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Keep your own cure. The druids would only take the credit.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1555,34 +1555,34 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Stonelash", min = 20 } },
-          text = "You've been squashing scorpids by the dozen, I hear, which is lovely, because every one you kill is one less that can sting Noggle again. Mind you, he'd find a way." },
+          text = "You've been squashing scorpids by the dozen, I hear, pal, which is lovely, because every one you kill is one less that can sting Noggle again. Mind you, he'd find a way, he always does." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Oh, you're just what I need, because Noggle's been moaning for a miracle all week, and I'd much rather you supplied one than I paid for another potion." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },
+          text = "A paladin! Oh, you're just what I need, pal, because Noggle's been moaning for a miracle all week, and I'd much rather you supplied one than I paid for another potion." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents, pal? Noggle's eating my profits faster than the venom's eating him." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! You don't happen to have a spell for curing scorpid venom, do you? No? Then you're about as useful as a priest who's run dry, and I'll need samples instead." },
+          text = "A mage! You don't happen to have a spell for curing scorpid venom, do you, pal? No? Then you're about as useful as a priest who's run dry, and I'll need samples instead." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! Your kind know poison, don't you, all that curse business? Maybe you'll know a trick I don't for drawing venom out of a goblin." },
+          text = "A warlock! Your kind know poison, don't you, all that curse business? Maybe you'll know a trick I don't for drawing venom out of a goblin, pal, and I'd pay to learn it." },
         { id = "h_default", key = true,
-          text = "My cousin Noggle gathers rare herbs for the alchemists here, or he did until he came back with enough venom in him to drop a kodo. I've slowed it down, but slowing isn't stopping, and I need samples of whatever bit him." },
+          text = "My cousin Noggle gathers rare herbs for the alchemists here, pal, or he did until he came back with enough venom in him to drop a kodo. I've slowed it down, but slowing isn't stopping, and I need samples of whatever bit him." },
         { id = "h_venom", tags = { "news" }, when = { questActive = TODO_QUEST("Deadly Desert Venom") },
-          text = "He came in from the north, so it's stonelash scorpids or sand skitterers, I'd bet my shirt on it. Stingers and fangs, pal, as many as you can carry." },
+          text = "He came in from the north, so it's stonelash scorpids or sand skitterers, pal, and I'd bet my shirt and my shop on it. Stingers and fangs, as many as you can carry." },
         { id = "h_hope", tags = { "news" }, when = { questActive = TODO_QUEST("Noggle's Last Hope") },
-          text = "The first antidote didn't take, which means something nastier got him down south. I need fewer samples this time, but from more kinds of nasty, so this is our last shot." },
+          text = "The first antidote didn't take, pal, which means somethin' nastier got him down south, and that's a whole batch of reagents down the drain. I need fewer samples this time, but from more kinds of nasty, so this is our last shot." },
         { id = "h_satchel", when = { questActive = TODO_QUEST("Noggle's Lost Satchel") },
-          text = "He's awake and already moaning about his bag. If you find it, check the reagents are all there before he does, or I'll never hear the end of it." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and just in time, because Noggle's been moaning about dying all morning, and I'd love a second opinion that doesn't cost me reagents." },
+          text = "He's awake and already moaning about his bag, pal. If you find it, check the reagents are all there before he does, or I'll never hear the end of it, and he'll bill me for the missing ones." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and just in time, pal, because Noggle's been moaning about dying all morning, and I'd love a second opinion that doesn't cost me reagents." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Oh, thank the Cartel, could you look at Noggle? I'll still need the samples, mind, because whatever's in him is too stubborn for one prayer." },
+          text = "A priest! Oh, thank the Cartel, could you look at Noggle, pal? I'll still need the samples, mind, because whatever's in him is too stubborn for one prayer." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! You look tough enough to take a scorpid's sting and walk it off, which is more than my idiot cousin managed." },
+          text = "A warrior! You look tough enough to take a scorpid's sting and walk it off, pal, which is more than my idiot cousin managed." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Bring me venom sacs and stingers, because every bug and scorpid in this desert is a cure for something, eventually." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Perfect, you know poisons from the leaves out, and my cousin Noggle could use whatever trick you've got for silithid venom." },
+          text = "A hunter! Bring me venom sacs and stingers, pal, because every bug and scorpid in this desert is a cure for somethin', eventually, and a cure's worth money." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Perfect, you know poisons from the leaves out, pal, and my cousin Noggle could use whatever trick you've got for silithid venom." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got a pot about to boil over, so make it snappy." },
-        { id = "h_again2", text = "Go ahead. Noggle's not going anywhere." },
+        { id = "h_again", text = "What else, pal? I've got a pot about to boil over, and the last one that boiled over took the tent flap with it, so make it snappy." },
+        { id = "h_again2", text = "Go ahead, pal, ask. Noggle's not going anywhere, and neither is his bill." },
       },
       choices = {
         { text = "Can druid craft cure Noggle where alchemy can't?", next = "xdruid", when = { class = "DRUID" } },
@@ -1605,9 +1605,9 @@ P:NPC {
 
     noggle = {
       lines = {
-        { id = "n_default", text = "He's lying on that bench asking who he is and where he is, which is an improvement on yesterday. The poison's in his blood and I can keep it from his heart, but not forever." },
+        { id = "n_default", text = "He's lying on that bench asking who he is and where he is, pal, which is an improvement on yesterday, when he was asking who I was. The poison's in his blood and I can keep it from his heart, but not forever." },
         { id = "n_saved", when = { questDone = TODO_QUEST("Noggle's Last Hope") },
-          text = "He jumped up off the bench yelling that he was cured, and then fell straight back down again, which I'm calling a success. He'll be weak for a while, but he'll live to annoy me." },
+          text = "He jumped up off the bench yelling that he was cured, and then fell straight back down again, which I'm calling a success, pal. He'll be weak for a while, but he'll live to annoy me and pay me back." },
       },
       choices = {
         { text = "What stung him?", next = "noggle_sting" },
@@ -1616,9 +1616,9 @@ P:NPC {
     },
     noggle_sting = {
       lines = {
-        { id = "ns_default", text = "Something big, he says, when he's making sense. The rest is mumbling about a scorpid and a nest and his satchel." },
+        { id = "ns_default", text = "Somethin' big, he says, when he's making sense, pal. The rest is mumbling about a scorpid and a nest and his satchel, mostly the satchel." },
         { id = "ns_known", when = { questDone = TODO_QUEST("Noggle's Last Hope") },
-          text = "Deathclasp, the big scorpid in the southern mountains, chased him into a whole nest of stonelash flayers. The idiot ran straight from one into the other, and lost his bag doing it." },
+          text = "Deathclasp, the big scorpid in the southern mountains, chased him into a whole nest of stonelash flayers, pal. The idiot ran straight from one into the other, and lost his bag doing it, with a week's herbs inside." },
       },
       choices = {
         { text = "Someone should deal with Deathclasp.", next = "noggle_deathclasp" },
@@ -1626,37 +1626,37 @@ P:NPC {
       },
     },
     noggle_deathclasp = {
-      lines = { { id = "nd_default", text = "Captain Kozus has a poster up about her, and a reward, which is nice. I'd pay extra myself if I didn't need every coin for antidotes." } },
+      lines = { { id = "nd_default", text = "Captain Kozus has a poster up about her, and a reward, which is nice, pal. I'd add to it myself if I didn't need every coin for antidotes." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     work = {
-      lines = { { id = "w_default", text = "Potions for the soldiers, mostly: healing, antivenom, something for the heat. Noggle brings in the herbs from the wild, I turn them into something worth drinking, and the Circle pays on time, which is more than I can say for most." } },
+      lines = { { id = "w_default", text = "Potions for the soldiers, mostly, pal: healing, antivenom, something for the heat. Noggle brings in the herbs from the wild, I turn them into something worth drinkin', and the Circle pays on time, which is more than I can say for most." } },
       choices = {
         { text = "So it's a family business.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     alchemist = {
-      lines = { { id = "al_default", text = "Then you know venom's tricky: every critter brews its own, and the cure has to match. If you've got samples you don't need, I'm buying, and if you've got advice, I'm listening, for once." } },
+      lines = { { id = "al_default", text = "Then you know venom's tricky, pal: every critter brews its own, and the cure has to match. If you've got samples you don't need, I'm buying, and if you've got advice, I'm listening, for once, and for free." } },
       choices = {
         { text = "I'd share what I know for nothing.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Advice costs extra, Beetix.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
     goblin = {
-      lines = { { id = "g_default3", text = "Making money, pal, same as anywhere. The druids need potions, the potions need herbs, and nobody else wanted to come to a desert full of bugs, so the prices are excellent." } },
+      lines = { { id = "g_default3", text = "Making money, pal, same as anywhere. The druids need potions, the potions need herbs, and nobody else wanted to come to a desert full of bugs, so the prices are excellent and the competition's dead, or stung." } },
       choices = {
         { text = "Profit before people, then?", next = "goblin_family" },
         { text = "Something else.", next = "BACK" },
       },
     },
     goblin_family = {
-      lines = { { id = "gf_default", text = "Profit before people, sure, but family before profit, and don't you tell anyone in Gadgetzan I said so. Noggle's an idiot, but he's my idiot." } },
+      lines = { { id = "gf_default", text = "Profit before people, sure, but family before profit, pal, and don't you tell anybody in Gadgetzan I said so. Noggle's an idiot, but he's my idiot." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     x_rogue = {
       lines = {
-        { id = "xr_default", text = "It would, and it'd coat your fingers just as nicely if you hold the vial like that; Noggle's still half green from one sting. I'll sell what I can spare at a fair price, but anything off those southern stingers goes into his antidote first, family before business." },
+        { id = "xr_default", text = "It would, pal, and it'd coat your fingers just as nicely if you hold the vial like that, because Noggle's still half green from one sting. I'll sell what I can spare at the going rate, but anything off those southern stingers goes into his antidote first, family before business." },
       },
       choices = {
         { text = "Family first. I'd do the same.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -1667,10 +1667,10 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Herbs, poisons, who owes who. Pick one." } },
-    background = { { id = "tp_bg", text = "Steamwheedle born, Steamwheedle trained, and stuck in a desert because the money's good. What else is there?" } },
-    advice = { { id = "tp_ad", text = "If something in this desert has a tail, assume the tail's poisoned. You'll be right nine times in ten." } },
-    steamwheedle = { { id = "tp_cartel", text = "The Cartel doesn't run this fort, but it sells to it, which is better: all the profit, none of the bugs." } },
+    knows = { { id = "tp_knows", text = "Herbs, poisons, or who owes who, pal, and that last one's a long list. Pick one." } },
+    background = { { id = "tp_bg", text = "Steamwheedle born, Steamwheedle trained, and stuck in a desert because the money's good, pal. What else is there?" } },
+    advice = { { id = "tp_ad", text = "If somethin' in this desert has a tail, pal, assume the tail's poisoned, and you'll be right nine times in ten." } },
+    steamwheedle = { { id = "tp_cartel", text = "The Cartel doesn't run this fort, pal, but it sells to it, which is better: all the profit, none of the bugs." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and unless it's poisonous or pays well, I don't much care." } },
   },
 }

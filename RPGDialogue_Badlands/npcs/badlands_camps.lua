@@ -211,14 +211,14 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_cook", text = "Hey, hey, you hungry, pal? No? Well, you will be once you smell this." },
+    { id = "g_cook", text = "Hey, hey, you hungry, pal? No? Give it a minute, because one whiff of this grill and you'll be reachin' for your purse." },
   },
 
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Pay? They fight over 'em! Last week an orc and a dwarf nearly came to blows in front of my grill, and I sold 'em both a plate, and they ended up shaking hands over the bones." } },
+      lines = { { id = "xwarcl_default", text = "Pay? They fight over 'em, chum! Last week an orc and a dwarf nearly came to blows in front of my grill, so I sold 'em both a plate at the fightin' price, and they ended up shakin' hands over the bones." } },
       choices = {
         { text = "Your grill's a better peacemaker than any treaty, Rigglefuzz.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Next time, let them fight and sell tickets.", next = "BACK", fx = { align = { light = -1 } } },
@@ -228,8 +228,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Off the cliffs round Angor Fortress, mostly, though the Dark Irons up there don't like me poking about. The big ones nest out by Dustwind Gulch, and they're as mean as they are tasty, which is very." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the grill, would you? It's looking at my buzzards the way my customers do, and I can't afford to feed anybody for free." },
+        { id = "xhuntcl_default", text = "Off the cliffs round Angor Fortress, mostly, though the Dark Irons up there charge me in arrows every time I go poking about. The big ones nest out by Dustwind Gulch, and they're as mean as they are tasty, which works out to about four silver a wing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the grill, would ya? It's lookin' at my buzzards the way my customers do, and pal, I don't run a tab for anything with paws." },
       },
       choices = {
         { text = "I'll bring you buzzards, a fair trade for a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -239,7 +239,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Thank 'em? I'd thank 'em if they flew down here already seasoned. The buzzards out here eat whatever falls over in the heat, so if anybody ought to be thanking somebody, it's them, for me cleaning the place up." } },
+      lines = { { id = "xhsham_default", text = "Thank 'em? I'd thank 'em if they flew down here already seasoned and saved me the pepper. The buzzards out here eat whatever falls over in the heat, so if anybody owes anybody, it's them owin' me a cleaning fee." } },
       choices = {
         { text = "Thank them anyway. Every life taken deserves respect.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Suits me. A buzzard's just a meal waiting for sauce.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -247,7 +247,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Counting this morning? Enough to keep the skies clear over my camp, and not one of 'em has ever complained, which is more than I can say for my customers." } },
+      lines = { { id = "dq_default", text = "Counting this morning, pal? Enough to keep the skies clear over my camp and the books in the black, and not one of 'em has ever filed a complaint, which is more than I can say for my customers." } },
       choices = {
         { text = "Ease up, or there won't be any buzzards left.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Cook the lot. They're only carrion birds.", next = "BACK", fx = { align = { light = -1 } } },
@@ -256,7 +256,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "The ogres, pal, the Dustbelcher ones up in the hills, because they figure anybody waving their hands around is worth clubbing first. Me, I just wave a skewer, and they leave me alone so long as I feed 'em." } },
+      lines = { { id = "xhcast_default", text = "The ogres, pal, the Dustbelcher ones up in the hills, because they figure anybody wavin' their hands around is worth clubbin' first. Me, I wave a skewer, and they leave me alone so long as the wings keep comin', which I call protection money with sauce on it." } },
       choices = {
         { text = "I'll meet them in the open and let them see me coming.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll hit them from cover before they know I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -265,7 +265,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every cook from here to Booty Bay, pal, and a few in Gadgetzan who should know better. I keep it in my head, where nobody can pick the lock, though a Kargath grunt once tried to beat it out of me, and all he got was indigestion." } },
+      lines = { { id = "xrogue_default", text = "Every cook from here to Booty Bay, pal, and a few in Gadgetzan who oughta know better. I keep it in my head where nobody can pick the lock, and a Kargath grunt once tried to beat it outta me, and all he got was indigestion and a bill." } },
       choices = {
         { text = "Your secret's safe. I don't rob honest cooks.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Everything's for sale, Rigglefuzz. Even recipes.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -274,7 +274,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aw, come on, it's practically made of charcoal already! Half the Badlands is on fire anyway, so one more little flame for a good cause can't hurt, and the buzzards sure won't complain." } },
+      lines = { { id = "xlock_default", text = "Aw, come on, it's practically made of charcoal already, and it'd save me a fortune in fuel! Half the Badlands is on fire anyway, so one more little flame for a good cause can't hurt, and the buzzards sure won't complain." } },
       choices = {
         { text = "Fel fire for buzzard wings sounds like a fair trade to me.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Demons aren't toys. I keep mine on a short leash.", next = "BACK", fx = { align = { order = 1 } } },
@@ -283,7 +283,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Why not? A blessing's free, the wings are cheap and the customer walks away happy, which is the whole business model right there. Besides, pal, half the folks who eat my cooking out here could use a little divine help with their stomachs." } },
+      lines = { { id = "xapriest_default", text = "Why not, pal? A blessing's free, the wings are cheap and the customer walks away happy, which is the whole business model right there. Besides, half the folks who eat my cookin' out here could use a little divine help with their stomachs, and I'm not liable for that part." } },
       choices = {
         { text = "The Light isn't a sales gimmick, Rigglefuzz.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Bless away. A hungry traveler won't mind either way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -292,7 +292,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I'd sell to anybody with coin, pal, but a knight eating my wings by the road is the best advertising a cook could ask for. Folks see shining plate at my fire and figure the food must be safe, and mostly it is, mostly." } },
+      lines = { { id = "xapala_default", text = "I'd sell to anybody with coin, pal, but a knight eatin' my wings by the road is advertising I couldn't buy for a hundred gold. Folks see shining plate at my fire and figure the food must be safe, and mostly it is, mostly." } },
       choices = {
         { text = "Cook them properly, and I'll vouch for them honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fine, I'll tell everyone they're delicious, true or not.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -301,31 +301,32 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, pal! You march all day in that plate and you'll want something hot and greasy at the end of it, and I've got buzzard wings that'll stick to your ribs and maybe your armor." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, pal! March all day in that plate and you'll want somethin' hot and greasy at the end of it, and I've got buzzard wings that'll stick to your ribs and maybe your armor, no extra charge for the polish." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "Hey, a priest! You know, pal, Alliance folk on this road ought to pay extra for a meal that's been prayed over, or at least I'm hoping they will once I paint the sign." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp? Could it light my grill? I'll pay in wings, and the little fella looks like he could use a feed." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not after my sauce recipe, are you? Because I've had three offers this month, and one of 'em came with a knife." },
+          text = "Hey, a priest! Listen, pal, Alliance folk on this road oughta pay extra for a meal that's been prayed over, or at least that's what the new sign's gonna say once I paint it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp? Could it light my grill? I'll pay in wings, chum, and the little fella looks like he could use a feed and a steady job." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not after my sauce recipe, are ya? Because I've had three offers this month, pal, and one of 'em came with a knife instead of a down payment." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
-          text = "A shaman! Say, could you call up a bit of fire for my grill? It'd save me on charcoal, and the buzzards don't care how they're cooked." },
+          text = "A shaman! Say, could you call up a bit of fire for my grill? It'd save me a fortune on charcoal, pal, and the buzzards don't care how they're cooked." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid! You're not here to give me grief about the buzzards, are you? Because they're the ugliest birds in the Badlands, and somebody has to eat 'em." },
+          text = "A druid! You're not here to give me grief about the buzzards, are ya? They're the ugliest birds in the Badlands, pal, and somebody's gotta eat 'em, so it might as well be somebody payin'." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
-          text = "A priest, huh? Say a little blessing over these wings for me, pal, because a holy buzzard's gotta sell for double." },
+          text = "A priest, huh? Say a little blessing over these wings for me, pal, because a holy buzzard's gotta sell for double, and I'll split the markup with the Light." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
-          text = "Hey, a mage! If you can conjure up water, pal, you're welcome at my fire, because the sauce needs thinning and the spring's a long walk." },
+          text = "Hey, a mage! If you can conjure up water, pal, you're welcome at my fire, because the sauce needs thinnin' and the spring's a long walk, and walkin' is time I'm not sellin'." },
         { id = "h_default", key = true,
-          text = "Rigglefuzz's the name, and barbecue's the game! I've got a recipe for buzzard wings that'll make me richer than a Steamwheedle baron." },
+          text = "Rigglefuzz's the name, and barbecue's the game! I've got a recipe for buzzard wings that'll make me richer than a Steamwheedle baron, pal, and you're lookin' at the ground floor." },
         { id = "h_wings", when = { questActive = TODO_QUEST("Barbecued Buzzard Wings") },
-          text = "Buzzard wings, as many as you can carry, and don't let 'em go rotten in the sun. The secret's in the sauce, and the sauce needs wings." },
+          text = "Buzzard wings, pal, as many as you can carry, and don't let 'em go rotten in the sun, because I'm not payin' for spoiled stock. The secret's in the sauce, and the sauce needs wings." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! Big appetite, I bet, and nothing builds an appetite like hitting ogres all day, so how about a plate of wings before you go back out?" },
+          text = "A warrior! Big appetite, I bet, and nothin' builds an appetite like hittin' ogres all day, so how about a plate of wings before you go back out, pal? Cash or trade, I'm flexible." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! You must know where the fattest buzzards roost, and if you tell me, I'll owe you a favour forever, or at least till Tuesday." },
+          text = "A hunter! You must know where the fattest buzzards roost, and if you tell me, I'll owe you a favour forever, or at least till the end of the month, when favours get audited." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for you, pal, since time is money?" },
-        { id = "h_again2", text = "Yeah, yeah, what is it?" },
+        { id = "h_again", text = "What else can I do for you, pal? Talk while I turn these, because time is money, friend, and wings burn." },
+        { id = "h_again2", text = "Yeah, yeah, what is it, chum? The grill's hot and the customers aren't gettin' any less hungry." },
+        { id = "h_again3", text = "Still here, pal? Then you're either buyin' or bargainin', and I'm good at both." },
       },
       choices = {
         { text = "How many buzzards have you cooked, Rigglefuzz?", next = "druid_q", when = { class = "DRUID" } },
@@ -345,14 +346,14 @@ P:NPC {
       },
     },
     wings = {
-      lines = { { id = "w_default", text = "Really, really! Tough, sure, but slow-cook 'em with enough pepper and nobody can tell. Trust me, I'm a professional." } },
+      lines = { { id = "w_default", text = "Really, really, pal! Tough, sure, but slow-cook 'em with enough pepper and nobody can tell, and nobody's ever asked for a refund. Trust me, I'm a professional." } },
       choices = {
         { text = "What's in the sauce?", next = "wings_sauce" },
         { text = "Something else.", next = "BACK" },
       },
     },
     wings_sauce = {
-      lines = { { id = "ws_default", text = "That's a trade secret, pal, and I'd have to charge you for it. Let's just say it's got a kick, and some of the kick's legal." } },
+      lines = { { id = "ws_default", text = "That's a trade secret, pal, and the price on that one has more zeros than you've got gold. Let's just say it's got a kick, and some of the kick's even legal." } },
       choices = {
         { text = "Sounds like a swindle. You should be honest with customers.", next = "wings_end", fx = { align = { honor = 1 } } },
         { text = "Ha! If they pay, they pay. Smart business.", next = "wings_end", fx = { align = { honor = -1 } } },
@@ -360,24 +361,24 @@ P:NPC {
       },
     },
     wings_end = {
-      lines = { { id = "we_default", text = "See, you get it, or you don't, but either way you're gonna bring me wings. That's the beauty of business." } },
+      lines = { { id = "we_default", text = "See, you get it or you don't, but either way you're gonna bring me wings, and either way I'm gonna sell 'em. That's the beauty of business, pal." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     buyers = {
-      lines = { { id = "b_default", text = "Anybody with coin and a stomach, pal. Orcs, dwarves, ogres if they pay first, and I don't ask questions." } },
+      lines = { { id = "b_default", text = "Anybody with coin and a stomach, pal: orcs, dwarves, ogres if they pay first, and I don't ask questions, because questions don't pay." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger = {
-      lines = { { id = "d_default", text = "Sure, there's ogres and dragonkin and whatnot, but they've gotta eat too. I figure nobody kills the cook." } },
+      lines = { { id = "d_default", text = "Sure, there's ogres and dragonkin and whatnot, but they've gotta eat too, and a dead cook's a lousy investment. I figure nobody kills the cook while he's still grillin', pal, and so far the numbers agree with me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     goblin = {
-      lines = { { id = "g_default", text = "Sure, pal, your coin's as good as anybody's, and Kargath's full of hungry grunts. Tell your friends where the wings are." } },
+      lines = { { id = "g_default", text = "Sure, pal, your coin's as good as anybody's, and Kargath's full of hungry grunts with wages burnin' holes in their pockets. Tell your friends where the wings are, and tell 'em to bring silver." } },
       choices = { { text = "I'll spread the word.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Dunno, pal. Does it taste good with sauce?" } },
+    _none = { { id = "tp_none", text = "Dunno, pal, and I don't sell what I don't know. Does it taste good with sauce?" } },
   },
 }

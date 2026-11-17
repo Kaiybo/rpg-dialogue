@@ -204,19 +204,19 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a ride out of the crater? Smartest thing anyone's said to me all day, and I haven't even heard you say it yet." },
+    { id = "g_default", text = "Need a ride out of the crater, chum? Smartest thing anybody's said to me all day, and I haven't even heard you say it yet." },
   },
 
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "You're a big one, friend! The flyer will carry you, don't worry, but it'll grumble about it all the way to Gadgetzan." },
+      text = "You're a big one, chum! The flyer will carry you, don't worry, but it'll grumble about it all the way to Gadgetzan, and I might charge by the pound." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
+      lines = { { id = "xlock_default", text = "Not yet, chum, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
       choices = {
         { text = "Fair terms. My imp will sit still.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pay in advance? You don't trust anyone, Gryfe.", next = "BACK", fx = { align = { order = -1 } } },
@@ -225,7 +225,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The pterrordax try it every week, and every week my flyers leave them flapping behind, because I only buy the fast ones. Still, I'd sleep easier knowing a warrior was riding along who could swing at anything that got close." } },
+      lines = { { id = "xwarcl_default", text = "The pterrordax try it every week, chum, and every week my flyers leave 'em flapping behind, because I only buy the fast ones and I pay extra for it. Still, I'd sleep easier knowing a warrior was riding along who could swing at anything that got close." } },
       choices = {
         { text = "On a flyer I'd hold still and let the bird work.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If a pterrordax comes near, I'll swing at it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -235,8 +235,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Not the ones on the ground, because a devilsaur can't climb and a raptor can't jump that high, though I've seen one try. It's the pterrordax that worry me, and a hunter who thinned out their roosts on the ridge would make my whole week." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} from eyeing my flyers' legs before takeoff, will you, because a bird that's been stared at all morning flies sulky and lands worse." },
+        { id = "xhuntcl_default", text = "Not the ones on the ground, chum, because a devilsaur can't climb and a raptor can't jump that high, though I've seen one try. It's the pterrordax that worry me, and a hunter who thinned out their roosts on the ridge would make my whole week and my insurance cheaper." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} from eyein' my flyers' legs before takeoff, will you, chum? A bird that's been stared at all morning flies sulky and lands worse." },
       },
       choices = {
         { text = "Pterrordax hunt to live. Thinning them isn't my place.", next = "BACK", fx = { align = { light = 1 } } },
@@ -246,7 +246,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Every last one, friend, Horde and Alliance alike, and the Forsaken pray loudest, which surprised me, given they've already been dead once. The updrafts off that volcano will make a believer of anybody." } },
+      lines = { { id = "xhcast_default", text = "Every last one, chum, Horde and Alliance alike, and the Forsaken pray loudest, which surprised me, given they've already been dead once. The updrafts off that volcano will make a believer of anybody, and I don't charge extra for the religion." } },
       choices = {
         { text = "I'll bless your beasts, so they bring everyone home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them pray. Fear keeps passengers humble.", next = "BACK", fx = { align = { light = -1 } } },
@@ -254,7 +254,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "That the silithid breed faster than the Circle can burn them out, and the sand's more hive than desert now. I fly them there and I fly them back, and every month there are fewer to bring home." } },
+      lines = { { id = "dq_default", text = "That the silithid breed faster than the Circle can burn them out, chum, and the sand's more hive than desert now. I fly 'em there and I fly 'em back, and every month there are fewer to bring home, which is bad for the return fares and worse for them." } },
       choices = {
         { text = "The Circle must hold. Silithus can't be allowed to fall.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let the Circle handle it. It's their fight.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -263,7 +263,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Hot and lumpy, like flying through soup. The air comes up off the Fire Plume in great gusts, so my beasts have learned to swing wide round the ridge, because the last one that went straight over came back singed and in a very bad mood." } },
+      lines = { { id = "xhsham_default", text = "Hot and lumpy, chum, like flying through soup. The air comes up off the Fire Plume in great gusts, so my beasts have learned to swing wide round the ridge, because the last one that went straight over came back singed and in a very bad mood, and the vet bill was murder." } },
       choices = {
         { text = "Swing wide. Some winds aren't meant to be crossed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fly straight through. Bold winds respect a bold flier.", next = "BACK", fx = { align = { order = -1 } } },
@@ -272,7 +272,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Not if they pay, and not if the Bruisers aren't asking either. Folk come out of the crater with all sorts of reasons to keep quiet, and I've found I fly faster when I don't know any of them." } },
+      lines = { { id = "xrogue_default", text = "Not if they pay, chum, and not if the Bruisers aren't asking either. Folk come out of the crater with all sorts of reasons to keep quiet, and I've found I fly faster when I don't know any of 'em." } },
       choices = {
         { text = "Good. Some business is nobody else's.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You should know who you're carrying.", next = "BACK", fx = { align = { order = 1 } } },
@@ -281,7 +281,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "That's the sweetest thing anybody's said to me this week, friend! Ironforge, Stormwind, Orgrimmar, sure, but out here you need a flyer, and a flyer needs me, and I need your silver." } },
+      lines = { { id = "xmage_default", text = "That's the sweetest thing anybody's said to me this week, chum! Ironforge, Stormwind, Orgrimmar, sure, but out here you need a flyer, and a flyer needs me, and I need your silver." } },
       choices = {
         { text = "You'd charge your own mother for a seat.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Fair trade. You earn your fare.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -290,7 +290,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Gladly, friend, because their gold spends the same as yours and their saddlebags weigh about the same too. I don't pick sides in your wars, I pick routes, and a flight master who starts talking politics ends up with a very quiet roost." } },
+      lines = { { id = "xapala_default", text = "Gladly, chum, because their gold spends the same as yours and their saddlebags weigh about the same too. I don't pick sides in your wars, I pick routes, and a flight master who starts talking politics ends up with a very quiet roost." } },
       choices = {
         { text = "Neutral or not, you should know whose wars you're fueling.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Smart business. Wars end, but coin keeps flying.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -300,26 +300,26 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, eh? I'll fly you anywhere, Horde or Alliance, demon or no demon, but if your imp sets my beast's tail on fire, the price goes up." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! My beasts don't love flying near the volcano, so if you've any pull with the winds round Fire Plume Ridge, put in a good word for them." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Most of my passengers start praying the moment we pass Fire Plume Ridge, so you'll fit right in, and at least you'll know the words." },
+          text = "A warlock, eh? I'll fly you anywhere, chum, Horde or Alliance, demon or no demon, but if your imp sets my beast's tail on fire, the price goes up and stays up." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! My beasts don't love flyin' near the volcano, chum, so if you've any pull with the winds round Fire Plume Ridge, put in a good word for them, and I'll put in a good word for you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Most of my passengers start praying the moment we pass Fire Plume Ridge, chum, so you'll fit right in, and at least you'll know the words." },
         { id = "h_default", key = true,
-          text = "Gryfe, flight master for Marshal's Refuge. I'll fly anybody to Gadgetzan or to Cenarion Hold, Horde or Alliance alike, because coin's the same colour whichever side pays it." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your Circle keeps watch at Cenarion Hold, and I fly folk there most days, so I hear plenty about the bugs in Silithus." },
+          text = "Gryfe, flight master for Marshal's Refuge, and the fastest wings out of this crater, chum! I'll fly anybody to Gadgetzan or to Cenarion Hold, Horde or Alliance alike, because coin's the same colour whichever side pays it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your Circle keeps watch at Cenarion Hold, chum, and I fly folk there most days, so I hear plenty about the bugs in Silithus, and I'd sell you the gossip if it weren't so depressin'." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "You've got the look of someone who'd rather not leave a name on the flight log, friend. Lucky for you, I only write down the coin." },
+          text = "You've got the look of somebody who'd rather not leave a name on the flight log, chum. Lucky for you, I only write down the coin." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "Ah, a mage. Planning to teleport out and save yourself the fare? Go on, break a goblin's heart." },
+          text = "Ah, a mage. Planning to teleport out and save yourself the fare, chum? Go on, break a goblin's heart, see if I care." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! You lot fly heavy, so stand still while I check the straps, because a paladin's armor has made more than one bird regret its career." },
+          text = "A paladin! You lot fly heavy, chum, so stand still while I check the straps, because a paladin's armour has made more than one bird regret its career." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! You fly with me, you strap that axe down tight, because a loose blade in a headwind over Fire Plume Ridge is a very expensive mistake." },
+          text = "A warrior! You fly with me, chum, you strap that axe down tight, because a loose blade in a headwind over Fire Plume Ridge is a very expensive mistake, and you're paying for it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter, and with a beast! Flyers don't mind passengers, but they do mind passengers with claws, so let's have a little talk first." },
+          text = "A hunter, and with a beast! Flyers don't mind passengers, chum, but they do mind passengers with claws, so let's have a little talk first about the deposit." },
       },
       again = {
-        { id = "h_again", text = "What else? The flyer's getting twitchy." },
-        { id = "h_again2", text = "Go on, ask, but don't take too long." },
+        { id = "h_again", text = "What else, chum? The flyer's gettin' twitchy, and twitchy flyers cost me feathers." },
+        { id = "h_again2", text = "Go on, ask, chum, but don't take too long, because the meter's running." },
       },
       choices = {
         { text = "What are the winds like over the crater?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -338,7 +338,7 @@ P:NPC {
       },
     },
     neutral = {
-      lines = { { id = "n_default", text = "Because the Cartel keeps this place running, and the Cartel doesn't take sides. The Bruisers keep everyone civil, and I keep everyone moving, and it's a fine arrangement for all of us." } },
+      lines = { { id = "n_default", text = "Because the Cartel keeps this place running, chum, and the Cartel doesn't take sides, it takes percentages. The Bruisers keep everybody civil, I keep everybody moving, and it's a fine arrangement for all of us." } },
       choices = {
         { text = "More places should work like that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't trust anyone who'd fly my enemies.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -346,22 +346,22 @@ P:NPC {
       },
     },
     safe = {
-      lines = { { id = "s_default", text = "Safer than walking it, friend. Pterrordax come up off the cliffs now and then and take a look at the flyers, but my beasts are faster, and they've got plenty of reason to be." } },
+      lines = { { id = "s_default", text = "Safer than walking it, chum. Pterrordax come up off the cliffs now and then and take a look at the flyers, but my beasts are faster, and they've got plenty of reason to be, since I don't feed the slow ones." } },
       choices = {
         { text = "What's a pterrordax?", next = "safe_ptero" },
         { text = "Something else.", next = "BACK" },
       },
     },
     safe_ptero = {
-      lines = { { id = "sp_default", text = "A flying lizard with a beak like a pickaxe and no manners at all. Spraggle Frock can tell you all about them, since she's been warning people for weeks." } },
+      lines = { { id = "sp_default", text = "A flying lizard with a beak like a pickaxe and no manners at all, chum. Spraggle Frock can tell you all about them, since she's been warning people for weeks and losing supply bags for months." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I go where the flight paths go, and right now they go here. That's the whole story." } },
-    advice = { { id = "tp_ad", text = "Fly over Un'Goro whenever you can, because everything down there wants to eat you, and none of it can catch a flyer." } },
-    steamwheedle = { { id = "tp_cartel", text = "The Cartel pays my wages and keeps the Bruisers here. That's all the politics I need." } },
-    _none = { { id = "tp_none", text = "Don't know. I only know where things are from the air." } },
+    background = { { id = "tp_ba", text = "I go where the flight paths go, chum, and right now they go here, and so does the money. That's the whole story." } },
+    advice = { { id = "tp_ad", text = "Fly over Un'Goro whenever you can, chum, because everything down there wants to eat you, and none of it can catch a flyer." } },
+    steamwheedle = { { id = "tp_cartel", text = "The Cartel pays my wages and keeps the Bruisers here, chum. That's all the politics I need, and all I can afford." } },
+    _none = { { id = "tp_none", text = "Don't know, chum. I only know where things are from the air, and what it costs to get there." } },
   },
 }

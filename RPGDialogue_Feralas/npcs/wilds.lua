@@ -190,14 +190,14 @@ P:NPC {
     third = "{name} met Zorbin Fandazzle, a goblin on the Forgotten Coast of Feralas.",
   },
   greetings = {
-    { id = "g_main", text = "Customer! Or contractor! I'm not picky, come on over." },
-    { id = "g_back", when = { metBefore = true }, text = "My favorite adventurer's back! Got another job, if you've got the nerve." },
+    { id = "g_main", text = "Customer! Or contractor! I'm not picky, boss, come on over and let's talk numbers." },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite adventurer's back! Got another job, boss, if you've got the nerve and I've got the coin." },
   },
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Because a giant you fight is a giant that steps on you, and a giant you shrink is a giant you can study, sell or put in a jar! Mind you, I still need someone big and brave to get close enough to zap them, which is where you come in." } },
+      lines = { { id = "xwarcl_default", text = "Because a giant you fight is a giant that steps on you, boss, and a giant you shrink is a giant you can study, sell or put in a jar! Mind you, I still need somebody big and brave to get close enough to zap 'em, which is where you come in, at a very competitive rate." } },
       choices = {
         { text = "I'd sooner face a giant honestly than zap it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Shrink it, then smash it. The easy way works fine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -207,8 +207,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Not as far as I know, which isn't far, because they tend to stomp off in a very small rage. But the thought of a hunter with a pocket-sized giant at heel keeps me up at night, in a good way, mostly." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not that {pet} needs replacing, mind, because it looks like a fine beast, but think of its face if you came home with a giant the size of a cat." },
+        { id = "xhuntcl_default", text = "Not as far as I know, boss, which isn't far, because they tend to stomp off in a very small rage. But the thought of a hunter with a pocket-sized giant at heel keeps me up at night, in a good way, mostly, because I can smell the market." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not that {pet} needs replacing, mind, because it looks like a fine beast, but think of its face if you came home with a giant the size of a cat, and think what I'd charge for one." },
       },
       choices = {
         { text = "Giants aren't toys. Leave them as nature made them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -217,7 +217,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Must I? Friend, my crates belonged on this beach until one of those giants sat on them, so yes, I must. You druids can talk to nature all you like, but nature has never once paid its bills." } },
+      lines = { { id = "dq_default", text = "Must I? Pal, my crates belonged on this beach until one of those giants sat on them, so yes, I must, and I've got the invoice to prove it. You druids can talk to nature all you like, but nature has never once paid its bills." } },
       choices = {
         { text = "Shrink only the ones that threaten you, then.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Nature doesn't pay bills. Shrink away.", next = "BACK", fx = { align = { light = -1 } } },
@@ -226,7 +226,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I know it works, friend, and that's the important part. The giants shrink when you zap them, and I'd like to know if it's magic or engineering, because it changes which licensing board I have to pay." } },
+      lines = { { id = "xmage_default", text = "I know it works, pal, and that's the important part. The giants shrink when you zap 'em, and I'd like to know if it's magic or engineering, because it changes which licensing board I have to pay off." } },
       choices = {
         { text = "You shouldn't use what you don't understand.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If it works, it works. Use it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -235,7 +235,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because I'm the brains of this operation, friend, and brains don't get stepped on. You're the feet, and quiet feet at that, so you're the one who gets close enough to zap, and I'm the one who counts what's left." } },
+      lines = { { id = "xrogue_default", text = "Because I'm the brains of this operation, boss, and brains don't get stepped on. You're the feet, and quiet feet at that, so you're the one who gets close enough to zap, and I'm the one who counts what's left." } },
       choices = {
         { text = "I'll do it. Someone has to be brave.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Brave is for fools. Pay me double.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -244,7 +244,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Necessary is a strong word, friend, but those giants are pulling up the coast like weeds, and the shore's where I do my business. Besides, the zapper doesn't kill them, it shrinks them, and a shrunken giant is a lot easier to have a sensible conversation with." } },
+      lines = { { id = "xapriest_default", text = "Necessary is a strong word, pal, but those giants are pulling up the coast like weeds, and the shore's where I do my business. Besides, the zapper doesn't kill 'em, it shrinks 'em, and a shrunken giant is a lot easier to have a sensible conversation with, or a sensible negotiation." } },
       choices = {
         { text = "Mercy suits even giants. Better shrunk than slaughtered.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Shrinking them is too gentle. They've earned worse.", next = "BACK", fx = { align = { light = -1 } } },
@@ -253,7 +253,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "They walk off, mostly, a little confused and a lot smaller. I won't lie to you, I'd like to sell the gizmo to anybody who has a giant problem, but in the meantime the coast is safer, and that's got to count for something with your sort." } },
+      lines = { { id = "xapala_default", text = "They walk off, mostly, a little confused and a lot smaller. I'll be straight with you, boss, I'd like to sell the gizmo to anybody who has a giant problem, but in the meantime the coast is safer, and that's got to count for somethin' with your sort." } },
       choices = {
         { text = "Shrinking is kinder than killing. I'll help you.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A smaller giant is still a giant. Better to end them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -262,25 +262,25 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Zorbin Fandazzle, goblin of commerce and science, mostly commerce. The giants on these islands and shores have been tearing up the coast, and I've got a gizmo that'll do something about it." },
-        { id = "h_c0", when = { questActive = TODO_QUEST("Zapped Giants") }, text = "Use the zapper on the giants, and bring back what's left when they shrink down. Don't ask me how it works, because the instructions fell in the ocean." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, huh? You turn into animals, right, so tell me, could you turn into something big enough to scare off a giant? I'm asking for business reasons." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Say, can you ask the earth why the giants keep stomping my coast? I've got a gizmo, but I'd love a second opinion." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Great, so if my gizmo goes wrong and the giants come stomping, you'll patch me up, right? That's practically insurance." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Say, does your little friend there work for food, or is it more of a contract arrangement? I'm always on the lookout for cheap labor." },
+        { id = "h_default", key = true, text = "Zorbin Fandazzle, goblin of commerce and science, mostly commerce, boss. The giants on these islands and shores have been tearing up the coast and my profits with it, and I've got a gizmo that'll do something about it." },
+        { id = "h_c0", when = { questActive = TODO_QUEST("Zapped Giants") }, text = "Use the zapper on the giants, boss, and bring back what's left when they shrink down. Don't ask me how it works, because the instructions fell in the ocean along with my deposit." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, huh? You turn into animals, right, so tell me, could you turn into somethin' big enough to scare off a giant? I'm asking for business reasons, boss." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Say, can you ask the earth why the giants keep stomping my coast? I've got a gizmo, pal, but I'd love a second opinion, especially a free one." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Great, so if my gizmo goes wrong and the giants come stomping, you'll patch me up, right, boss? That's practically insurance, and cheaper than the real thing." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Say, does your little friend there work for food, or is it more of a contract arrangement? I'm always on the lookout for cheap labour, boss, and it looks very cheap." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! Maybe you can tell me how this zapper works, because I've got no idea, and the instructions are somewhere at the bottom of the sea." },
+          text = "A mage! Maybe you can tell me how this zapper works, pal, because I've got no idea, and the instructions are somewhere at the bottom of the sea with my last shipment." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! Perfect, because I need someone who can get close to a giant without being stepped on, and that's a rarer skill than you'd think." },
+          text = "A rogue! Perfect, boss, because I need somebody who can get close to a giant without bein' stepped on, and that's a rarer skill than you'd think, and pricier." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Great, because if my zapper goes off wrong again, I'm going to need someone who can grow my eyebrows back." },
+          text = "A priest! Great, pal, because if my zapper goes off wrong again, I'm gonna need somebody who can grow my eyebrows back." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! You look like the sort who'd walk right up to a giant and hit it in the ankle, and that's exactly the sort I'm looking for." },
+          text = "A warrior! You look like the sort who'd walk right up to a giant and hit it in the ankle, boss, and that's exactly the sort I'm looking for and payin' for." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Ever thought of taming something that used to be forty feet tall? After my zapper, there's a few around here that are just the right size." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now before you start with the righteous fury, I want to point out that a shrunken giant is a giant that isn't stomping anybody." },
+          text = "A hunter! Ever thought of taming something that used to be forty feet tall? After my zapper, boss, there's a few around here that are just the right size, and I'm not even chargin' a finder's fee." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now before you start with the righteous fury, pal, I want to point out that a shrunken giant is a giant that isn't stomping anybody, which is basically charity with a profit margin." },
       },
-      again = { { id = "h_again", text = "What else? Clock's ticking." }, { id = "h_again2", text = "More questions? Sure, those are free." } },
+      again = { { id = "h_again", text = "What else, boss? Clock's tickin', and every tick costs me a copper." }, { id = "h_again2", text = "More questions? Sure, pal, those are free, which is the only free thing on this beach." } },
       choices = {
         { text = "Must you shrink the giants, Zorbin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's this about giants?", next = "b1_1" },
@@ -300,36 +300,36 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "Big ones, out by the coast and the Twin Colossals, smashing anything that looks like it might be worth money. I had a shipment, past tense, because a giant stepped on it." } },
+      lines = { { id = "b1_1_l", text = "Big ones, boss, out by the coast and the Twin Colossals, smashing anything that looks like it might be worth money. I had a shipment, past tense, because a giant stepped on it, and that's eight hundred gold I'm never seein' again." } },
       choices = { { text = "Shrinking giants? Really?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "So I built a little device that zaps them down to a more reasonable size. A small giant is still angry, but at least it's angry at your knees instead of your house." } },
+      lines = { { id = "b1_2_l", text = "So I built a little device that zaps 'em down to a more reasonable size, boss. A small giant is still angry, but at least it's angry at your knees instead of your house, and knees are cheaper to fix." } },
       choices = { { text = "And what do I get?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "What you bring me from them pays for the next shipment, and the next shipment pays for you. That's business." } },
+      lines = { { id = "b1_3_l", text = "What you bring me from them pays for the next shipment, and the next shipment pays for you, boss. That's business, and it's beautiful." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Safe is relative, friend. It's safe compared to a giant, and that's the only comparison that matters out here." } },
+      lines = { { id = "b2_1_l", text = "Safe is relative, pal. It's safe compared to a giant, and that's the only comparison that matters out here, so I'd call it a bargain." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
-      lines = { { id = "b3_1_l", text = "Nobody else is here, and that means nobody else is selling! The ocean's full of trade and the coast is full of trouble, and trouble is where the money hides." } },
+      lines = { { id = "b3_1_l", text = "Nobody else is here, boss, and that means nobody else is selling! The ocean's full of trade and the coast is full of trouble, and trouble is where the money hides." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "A gnome? Well, sure, every gnome says that, and then the thing explodes. Tell you what, you zap the giants and I'll keep the blueprints." } },
+      lines = { { id = "x_1_l", text = "A gnome? Well, sure, every gnome says that, and then the thing explodes and takes the workshop with it. Tell you what, pal, you zap the giants and I'll keep the blueprints." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "Hey, I'm not a philosopher, I'm a businessman. They stepped on my crates first, and fair's fair." } },
+      lines = { { id = "s_1_l", text = "Hey, I'm not a philosopher, pal, I'm a businessman. They stepped on my crates first, and a debt's a debt." } },
       choices = { { text = "They wreck the coast. Someone has to stop them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "They were here first. You're the trespasser.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "If I knew, I'd sell the answer, pal. They wade up out of the sea and smash anything that's built, which includes my business, so whatever's bothering them is bothering me twice as much." } },
+      lines = { { id = "xhcast_default", text = "If I knew, I'd sell the answer, pal. They wade up out of the sea and smash anything that's built, which includes my business, so whatever's botherin' them is bothering me twice as much and costing me three times." } },
       choices = {
         { text = "Point the gizmo at them and let's be done with it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Maybe they're defending something. Find out before you fight.", next = "BACK", fx = { align = { order = 1 } } },
@@ -338,7 +338,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Not a clue, and as a goblin of science that bothers me. My guess is something under the coast has them riled, and my gizmo doesn't care why, which is the beauty of a gizmo." } },
+      lines = { { id = "xhsham_default", text = "Not a clue, boss, and as a goblin of science that bothers me. My guess is something under the coast has 'em riled, and my gizmo doesn't care why, which is the beauty of a gizmo: no questions, no wages." } },
       choices = {
         { text = "Find out why first. Blind fixes cause new trouble.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Who cares why? If the gizmo works, use it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -346,7 +346,7 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, friend, and if it doesn't pay, I've got no time to learn." } } },
+  topics = { _none = { { id = "tp_none", text = "No idea, pal, and if it doesn't pay, I've got no time to learn." } } },
 }
 
 P:NPC {

@@ -10,14 +10,14 @@ P:NPC {
     third = "{name} met Noggle Ficklespragg, a poisoned goblin at Cenarion Hold in Silithus.",
   },
   greetings = {
-    { id = "g_main", text = "Ugh, another visitor. Unless you've got an antidote, keep your voice down." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Tell me you've brought something that'll make me feel less like death." },
+    { id = "g_main", text = "Ugh, another visitor. Unless you've got an antidote to sell, buddy, keep your voice down, because my head's charging me interest." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, buddy! Tell me you've brought somethin' that'll make me feel less like death, and tell me it's cheap." },
   },
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because it's a very good soul, thank you, and everyone says warlocks are always looking for them! But if you've a curse to spare for those scorpids out in the sand, I'd consider that a fair trade, and I'd not even charge you for the idea." } },
+      lines = { { id = "xlock_default", text = "Because it's a very good soul, thank you, and I've been told it's worth a fortune on the open market! But if you've a curse to spare for those scorpids out in the sand, buddy, I'd call that a fair trade, and I'd not even charge you for the idea." } },
       choices = {
         { text = "Your soul is safe, Noggle. I'll deal with the scorpids.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Careful what you offer a warlock, goblin.", next = "BACK", fx = { align = { light = -1 } } },
@@ -26,7 +26,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Well, maybe not dying, exactly, but I've been stung by every scorpid in Silithus and they all had opinions about me! Beetix says she needs samples to finish the cure, but I don't see why I should wait for a potion when you've got the Light right there in your gauntlets." } },
+      lines = { { id = "xapala_default", text = "Well, maybe not dyin', exactly, but I've been stung by every scorpid in Silithus and they all had opinions about me! Beetix says she needs samples to finish the cure, but I don't see why I should wait for a potion, buddy, when you've got the Light right there in your gauntlets for free." } },
       choices = {
         { text = "I'll do what I can, Noggle. Rest easy now.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You'll live. Fetching samples is better than coddling you.", next = "BACK", fx = { align = { light = -1 } } },
@@ -35,7 +35,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I'd rather you went and fought all of it, every stinger in the desert, but I'll settle for you bringing back the bits I need. The thing that got me came out of the sand so fast I never saw it, so keep your shield low and your boots moving." } },
+      lines = { { id = "xwarcl_default", text = "I'd rather you went and fought all of it, every stinger in the desert, but I'll settle for you bringing back the bits I need, buddy. The thing that got me came out of the sand so fast I never saw it, so keep your shield low and your boots moving, and don't end up on the bench next to mine." } },
       choices = {
         { text = "I'll bring back what you need. Nobody should suffer like this.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "You picked a fight with the desert. You'll heal or you won't.", next = "BACK", fx = { align = { light = -1 } } },
@@ -45,8 +45,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I was picking herbs with my head down, and then my leg was on fire and something was skittering off into the dunes. Beetix says scorpid, the druids say worse, and I say whatever it was, I hope a hunter's beast eats it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Can {pet} smell the venom on me? Because if it can, take it out and follow the stink back to whatever did this, and I'll be grateful, even if I'm too broke to show it." },
+        { id = "xhuntcl_default", text = "I was picking herbs with my head down, countin' what they'd fetch, and then my leg was on fire and something was skittering off into the dunes. Beetix says scorpid, the druids say worse, and I say whatever it was, buddy, I hope a hunter's beast eats it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Can {pet} smell the venom on me? Because if it can, take it out and follow the stink back to whatever did this, buddy, and I'll be grateful, even if I'm too broke to show it." },
       },
       choices = {
         { text = "Next time take a guard. The desert punishes the careless.", next = "BACK", fx = { align = { order = 1 } } },
@@ -56,7 +56,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Once, when a shipment of mine fell off a zeppelin, and it never came back, so I've not bothered since. But I'll make an exception today, because this venom's got me seeing things, and one of them looked a lot like a bill from Beetix." } },
+      lines = { { id = "xhcast_default", text = "Once, when a shipment of mine fell off a zeppelin, and it never came back, and neither did my deposit, so I've not bothered since. But I'll make an exception today, buddy, because this venom's got me seeing things, and one of them looked a lot like a bill from Beetix." } },
       choices = {
         { text = "I'll pray for you anyway, Noggle. Rest now.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Pain teaches better than prayer. You'll heal when you've learned.", next = "BACK", fx = { align = { light = -1 } } },
@@ -65,7 +65,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "A stinger the size of a wagon, out in the dunes, and I'd only stopped to pick one herb. If you see any of them out there, take their venom sacs, and maybe I'll cure myself before Beetix finishes worrying me to death." } },
+      lines = { { id = "xrogue_default", text = "A stinger the size of a wagon, out in the dunes, buddy, and I'd only stopped to pick one herb worth maybe two silver. If you see any of them out there, take their venom sacs, and maybe I'll cure myself before Beetix finishes worrying me to death or invoicing me to death." } },
       choices = {
         { text = "I'll get those sacs. You'll be fine.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You should have watched your step.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -74,7 +74,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "There's one, if someone brings me enough venom sacs to brew an antidote. It's slow work, and I'm a terrible patient, but I'll get it done, and then I'm leaving this desert and never coming back." } },
+      lines = { { id = "xmage_default", text = "There's one, buddy, if somebody brings me enough venom sacs to brew an antidote. It's slow work, and I'm a terrible patient and a worse customer, but I'll get it done, and then I'm leaving this desert and never comin' back." } },
       choices = {
         { text = "I'll help you brew it. Hang on.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe you'll learn some patience.", next = "BACK", fx = { align = { light = -1 } } },
@@ -84,22 +84,22 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You're not here to take my soul, are you, because I'm still using it, and I've already been stung half to death this week." },
+          text = "A warlock! You're not here to take my soul, are you, buddy? Because I'm still using it, and I've already been stung half to death this week, and it's not for sale at these prices." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Oh, perfect, put your hands on my forehead and do the glowy thing, because I'm dying, honestly I am, and Beetix won't believe me." },
+          text = "A paladin! Oh, perfect, put your hands on my forehead and do the glowy thing, buddy, because I'm dying, honestly I am, and Beetix won't believe me, and the glowy thing doesn't cost reagents." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! You know poisons, don't you? Tell me honestly, how long have I got, because my cousin keeps saying I'll be fine and she's a terrible liar." },
+          text = "A rogue! You know poisons, don't you? Tell me honestly, buddy, how long have I got, because my cousin keeps sayin' I'll be fine and she's a terrible liar, which is a real handicap for a goblin." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! Can you magic this venom out of me? No? Then what good is all that study, I ask you, when a goblin can't even get a decent cure?" },
-        { id = "h_default", key = true, text = "Noggle Ficklespragg, and yes, I'm related to Beetix, and no, I don't want to talk about it. I got stung by something nasty out in the desert, and now I'm stuck here until somebody brings me the makings of a cure." },
-        { id = "h_c0", when = { questActive = TODO_QUEST("Noggle's Last Hope") }, text = "The venom sacs, friend, from the stingers out there. Bring me enough and I can brew my own cure, and then I'm leaving Silithus forever." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Finally, somebody who can fix me without making me drink anything, so lay on hands, or chant, or whatever it is you lot do, and be quick about it." },
+          text = "A mage! Can you magic this venom out of me? No? Then what good is all that study, I ask you, when a goblin can't even get a decent cure at a decent price?" },
+        { id = "h_default", key = true, text = "Noggle Ficklespragg, and yes, I'm related to Beetix, and no, I don't want to talk about it, buddy. I got stung by somethin' nasty out in the desert, and now I'm stuck here until somebody brings me the makings of a cure, and every day on this bench is a day I'm not earning." },
+        { id = "h_c0", when = { questActive = TODO_QUEST("Noggle's Last Hope") }, text = "The venom sacs, buddy, from the stingers out there. Bring me enough and I can brew my own cure and cut out the middle-goblin, and then I'm leaving Silithus forever." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Finally, somebody who can fix me without makin' me drink anything, so lay on hands, or chant, or whatever it is you lot do, buddy, and be quick about it." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior? Great, more muscle wandering past my bed while I lie here sweating out poison. Don't suppose you've got a stinger in your pocket?" },
+          text = "A warrior? Great, more muscle wanderin' past my bed while I lie here sweating out poison and money. Don't suppose you've got a stinger in your pocket, buddy?" },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter, eh? You lot know where the nasty things nest, so maybe you can tell me what bit me, because nobody else here will." },
+          text = "A hunter, eh? You lot know where the nasty things nest, buddy, so maybe you can tell me what bit me, because nobody else here will, not even for a fee." },
       },
-      again = { { id = "h_again", text = "What else? Talking hurts, so make it quick." }, { id = "h_again2", text = "Ask, if you must." } },
+      again = { { id = "h_again", text = "What else, buddy? Talkin' hurts, and hurtin' should cost extra, so make it quick." }, { id = "h_again2", text = "Ask, if you must, buddy, but every question's another minute I'm not gettin' better." } },
       choices = {
         { text = "What happened to you?", next = "b1_1" },
         { text = "How's Beetix?", next = "b2_1" },
@@ -117,35 +117,35 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "I was out collecting samples for a little side business, and one of those big silithid things got me in the leg. Next thing I know, I'm shaking, sweating, and seeing things." } },
+      lines = { { id = "b1_1_l", text = "I was out collecting samples for a little side business, buddy, and one of those big silithid things got me in the leg. Next thing I know, I'm shakin', sweating, seeing things, and owing my cousin money." } },
       choices = { { text = "Something goblin?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "The druids here have done what they can, but their nature magic only slows it down. I need something stronger, something goblin." } },
+      lines = { { id = "b1_2_l", text = "The druids here have done what they can, and they don't even charge, which makes me suspicious, but their nature magic only slows it down. I need somethin' stronger, buddy, somethin' goblin." } },
       choices = { { text = "I'll help.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "So I'm brewing my own cure, or I would be if I could get out of this bed. That's where you come in." } },
+      lines = { { id = "b1_3_l", text = "So I'm brewing my own cure, buddy, or I would be if I could get out of this bed. That's where you come in, and I'll owe you, which is a big thing for a goblin to say." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Beetix is fine, Beetix is always fine, Beetix never gets stung. Ask her yourself; she's around the Hold somewhere." } },
+      lines = { { id = "b2_1_l", text = "Beetix is fine, Beetix is always fine, Beetix never gets stung, buddy. Ask her yourself, she's around the Hold somewhere countin' what I owe her." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
-      lines = { { id = "b3_1_l", text = "Money, what else? The silithids have all kinds of interesting bits, and the right buyers pay for them. I just didn't account for the stinging." } },
+      lines = { { id = "b3_1_l", text = "Money, what else, buddy? The silithids have all kinds of interesting bits, and the right buyers pay for them, by the ounce. I just didn't put the stinging in the budget." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "It helps, it really does, thank you. But it'll come back, so I still need those sacs." } },
+      lines = { { id = "x_1_l", text = "It helps, buddy, it really does, thank you. But it'll come back, so I still need those sacs, and I'm good for the debt, mostly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "I'd have told you yes a week ago. Lying here, I'm not so sure anymore, but I'll probably go back out anyway." } },
+      lines = { { id = "s_1_l", text = "I'd have told you yes a week ago, buddy. Lying here, I'm not so sure anymore, but the margins are too good, so I'll probably go back out anyway." } },
       choices = { { text = "Your health matters more than gold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "No risk, no profit. That's the goblin way.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, friend, and right now I don't care." } } },
+  topics = { _none = { { id = "tp_none", text = "No idea, buddy, and right now I don't care unless it's an antidote." } } },
 }
 
 P:NPC {
