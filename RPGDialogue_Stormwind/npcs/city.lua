@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_shaw = {
+      big = true,
+      lines = { { id = "xpt_shaw_default", text = "Because trust is how the Defias got into this city in the first place, through masons the nobles were happy to cheat and then forgot about. I don't doubt your friends, {name}; I doubt everyone, which is what the king's coin pays me for." } },
+      choices = {
+        { text = "I'll keep trusting them. A company without trust breaks first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right. I'll mind what I say around them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_stocks = {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Enough to know the Brotherhood's reach goes higher than Westfall, and not enough to name a name in front of the House of Nobles. Prisoners talk when they think they'll live, and Thredd stopped thinking that the day the riot started." } },
@@ -85,6 +94,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_shaw", tags = { "news" }, when = { party = true },
+          text = "You travel with company, and company talks, so choose yours carefully. I've had good agents undone by a friend's loose tongue in a Goldshire tavern, and I'd rather it didn't happen to you." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "Thredd's dead and the riot's over, which leaves one less Defias mouth in the Stockade for me to question. Next time you go down there, come to me first, because a living prisoner is worth ten dead ones to SI:7." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand makes poor spies and honest witnesses, and I've a use for honest witnesses now and then." },
@@ -146,6 +157,7 @@ P:NPC {
         { text = "Does SI:7 keep a file on the night elves, Master Shaw?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does SI:7 really keep a file on every shaman?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thredd's dead. Did SI:7 get anything out of him first?", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
+        { text = "My companions are trustworthy, Master Shaw. Why so suspicious?", next = "xpt_shaw", when = { party = true } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -952,6 +964,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_allison = {
+      big = true,
+      lines = { { id = "xpt_allison_default", text = "Badly, love, and loudly. I've seen friends of ten years stop speaking over a single green ring, and I've seen a dwarf give away a whole sword because his friend looked at it the right way." } },
+      choices = {
+        { text = "Equal shares, counted fairly. That's the only way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let each take what they can. That's how the road works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Newly rich, newly poor, and everything between, love. A dwarf who talks to the wind is hardly the strangest, but you might be the politest." } },
@@ -1040,6 +1061,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_allison", tags = { "news" }, when = { party = true },
+          text = "Oh, a whole party of you, love! Wipe your boots, the lot of you, and if you're going to argue about how to split the takings, do it at the corner table where the bankers can't hear." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit down, you look like you've been up with the sick all night, and I've a pot of something hot on." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love, in the Gilded Rose! Mind the doorframe with that hammer, and don't you go starting any fights with my regulars." },
         { id = "h_default", text = "Allison. The Gilded Rose, between the bank and the auction house, which means everyone who comes in has either just got rich or just got poor. I feed both." },
@@ -1078,6 +1101,7 @@ P:NPC {
         { text = "Would you keep a room with the window open for a druid, Allison?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do warlocks stay at the Gilded Rose, Allison?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you get many strange guests at the Gilded Rose, Allison?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "How do companies usually split their takings here?", next = "xpt_allison", when = { party = true } },
         { text = "Just passing through.", next = "END" },
       },
     },

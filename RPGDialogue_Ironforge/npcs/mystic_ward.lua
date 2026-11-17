@@ -37,6 +37,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_rohan = {
+      big = true,
+      lines = { { id = "xpt_rohan_default", text = "The Light does, if you let it, and a pint and a good night's sleep do the rest. I've seen healers pour themselves out for their friends until there was nothing left, and the Light never asked that of them; they asked it of themselves." } },
+      choices = {
+        { text = "I'll rest when I must, and trust the Light for the rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll lean on my own strength. Faith doesn't turn a blade.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Light favours anyone who stands between the weak an' the dark, an' warriors do that more often than most priests. I've healed a great many warriors in this Hall, an' I've never yet met one who wasnae braver than he looked." } },
@@ -86,6 +95,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_rohan", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
+          text = "You're the only one in your company who mends, aren't you? I can tell by how you stand, a little behind and watching everyone, and I'll tell you what I tell my acolytes: watch yourself too, because nobody else will." },
         { id = "h_default", key = true,
           text = "Rohan, High Priest o' the Hall o' Mysteries. I walk this floor from mornin' tae night, because the young priests ask better questions when they have tae keep up." },
         { id = "h_fear", tags = { "news" }, when = { questActive = TODO_QUEST("A Lack of Fear") },
@@ -134,6 +145,7 @@ P:NPC {
         { text = "What have the gnome mages taught your priests?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Light favour warriors, High Priest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you like to know about the high snows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who mends the mender, High Priest?", next = "xpt_rohan", when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
         { text = "Light keep you, High Priest.", next = "END" },
       },
     },

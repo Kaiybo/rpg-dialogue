@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_maginor = {
+      big = true,
+      lines = { { id = "xpt_maginor_default", text = "That they will read every book you find before you can sell it, and that they will be right about the dangerous ones, so let them. A mage in a company is worth a great deal, provided someone else is minding the door while they're thinking." } },
+      choices = {
+        { text = "Every tome we find should go to the Quarter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What we find, we sell. Scholars can bid like anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_sfk = {
       big = true,
       lines = { { id = "xcl_sfk_default", text = "They will, because a summoning outlives its summoner far more often than students like to believe. He meant to save Lordaeron from the Scourge, and he reached for something older and wilder than he understood, and there's the whole lesson of magic in one man's ruin." } },
@@ -114,6 +123,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_maginor", tags = { "news" }, when = { party = { class = "MAGE" } },
+          text = "Your companion {companion} is one of ours, I see; I'd know those singed cuffs anywhere. Do keep them from setting anything alight in the Quarter, because the last time a visiting mage lost their temper here we spent a month replacing the gutters." },
         { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep" },
           text = "Arugal is dead, I hear, and you were the one standing over him in Silverpine. I knew his name from Dalaran long before I knew what he'd become, so forgive me if I don't call it a victory." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Sanctum. You draw your power from without, and we from within, and I've always found the comparison instructive, if you'll indulge me." },
@@ -157,6 +168,7 @@ P:NPC {
         { text = "Would you call my people's ancient mages reckless, Master Dumas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is shamanism dangerous, Master Dumas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Arugal is dead, Master Dumas, but his worgen still prowl Silverpine.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep" } },
+        { text = "What should I know about travelling with a mage?", next = "xpt_maginor", when = { party = { class = "MAGE" } } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },

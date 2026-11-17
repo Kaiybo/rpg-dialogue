@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_farley = {
+      big = true,
+      lines = { { id = "xpt_farley_default", text = "More than any inn in the kingdom, friend, and I've sent them off to the Fargodeep and Jasperlode and the Deadmines with a good meal in them. Some came back rich and some came back limping, and a few I still keep a candle for." } },
+      choices = {
+        { text = "Then let's drink to the ones who didn't come back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Those who didn't come back should have planned better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It's older than these walls, friend. My grandfather poured for soldiers in the First War. A dwarf shaman at my bar would have made him choke on his pipe." } },
@@ -90,6 +99,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_farley", tags = { "news" }, when = { party = { size = { min = 2 } } },
+          text = "A whole company! Well, I've rooms upstairs and a floor that's seen worse, and the Lion's Pride has never turned a party away yet, so come in and shut the door behind you." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The rowdy ones sit up straighter when there's plate at the bar, so stay as long as you like." },
         { id = "h_default", key = true, text = "My family's kept the Lion's Pride since the first King Llane's day, and we've never watered a drink. Ask anyone!" },
         { id = "h_falkhaan", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
@@ -137,6 +148,7 @@ P:NPC {
         { text = "Do you see many wounded come through the Lion's Pride, Farley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Brother Wilhelm keep the peace in your inn, Farley?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has the Lion's Pride always been in your family, Farley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Has the Lion's Pride seen many companies like ours?", next = "xpt_farley", when = { party = true } },
         { text = "Just stopping in.", next = "END" },
       },
     },

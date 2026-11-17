@@ -454,6 +454,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_vanhowzen = {
+      big = true,
+      lines = { { id = "xpt_vanhowzen_default", text = "Sometimes, and I've seen a priest close a wound I'd given up on, so I don't scoff at it. But prayer won't tell you why a whole patrol came back from the Wyrmbog with the same rash, and a good physician will, so I'd want both of us in the room." } },
+      choices = {
+        { text = "The Light should come first, Doctor. Medicine is only a crutch.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust what you can test, Doctor. Faith can come second.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "What's ailing the soldiers now, Doctor?", next = "xpt_vanhowzen2" },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xpt_vanhowzen2 = {
+      lines = { { id = "xpt_vanhowzen2_default", text = "Swamp fever, mostly, and the bites of things that crawl out of the water at night. I've written to Stormwind for supplies twice this season, and the second letter was considerably less polite than the first." } },
+      choices = {
+        { text = "I see. Let me ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "In speed, certainly. But spirits can fall silent and priests tire, and a bandage never does, so I'd have every healer in Theramore learn both." } },
@@ -513,6 +529,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_vanhowzen", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
+          text = "You've a priest with you, I see. Good, because {companion} will save me a great deal of bandaging, and the marsh fevers don't care how strong your sword arm is." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. You'll be the one I see most of, then, so let me tell you now: come in when it's a scratch, not when it's a stump." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -547,6 +565,7 @@ P:NPC {
         { text = "Do you ever treat beasts as well as soldiers, Doctor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do mages often come to you hurt, Doctor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is a shaman's healing so different from yours, Doctor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Could the Light do more for the sick than your medicines, Doctor?", next = "xpt_vanhowzen", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
         { text = "Goodbye, Doctor.", next = "END" },
       },
     },

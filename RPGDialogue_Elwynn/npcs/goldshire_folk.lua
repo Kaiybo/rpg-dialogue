@@ -24,6 +24,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xpt_dobbins = {
+      big = true,
+      lines = { { id = "xpt_dobbins_default", text = "Same as keeping a tavern together, friend: pour the first round yourself, and never ask anyone how the last job went until they've finished their drink. The companies that last are the ones that know when to stop talking about the dead." } },
+      choices = {
+        { text = "Better to talk about the dead. That's how we honour them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right. Some things are better left in the cup.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I forget everything folk say after the third mug. A barkeep's work is forgetting, and I'd wager a shaman remembers far too much." } },
@@ -109,6 +118,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_dobbins", tags = { "news" }, when = { party = true },
+          text = "A table for the lot of you, then? Sit where you like, but I'd keep away from the corner by the stairs, because the folk who sit there tend to be the sort who leave without paying." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want water, I'd guess, or a quiet corner, and we've one of each, though the corner's damp." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit near the door, if you would, because the rowdy ones settle when there's plate in the room." },
         { id = "h_default", key = true, text = "Dobbins. When Farley shouts my name I fetch, and when he doesn't I pour, and it's a good life." },
@@ -145,6 +156,7 @@ P:NPC {
         { text = "Is there trouble in the inn I should know about?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's Zaldimar like as a lodger, Dobbins?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do you forget most, Dobbins?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What's the secret to keeping a company together?", next = "xpt_dobbins", when = { party = true } },
         { text = "Not tonight.", next = "END" },
       },
     },

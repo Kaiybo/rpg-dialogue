@@ -37,6 +37,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_anduin = {
+      big = true,
+      lines = { { id = "xpt_anduin_default", text = "Not really, because everyone wants something from me, even the ones who are nice about it. Lady Prestor says a king doesn't need friends, only loyal servants, but my father had Uncle Bolvar, so I don't think she's right." } },
+      choices = {
+        { text = "Lady Prestor is right. A king must keep himself apart.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find friends anyway, Your Majesty. Some rules are meant to bend.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "One book said the orcs listened to the land before they listened to demons. I liked that part, but my tutor said I should not repeat it at court." } },
@@ -75,6 +84,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_anduin", tags = { "news" }, when = { party = true },
+          text = "Are all of these your friends? I'm not allowed to go anywhere with friends, only with guards, and the guards are very kind, but they won't play anything." },
         { id = "h_default", text = "I'm the king, at least until my father comes home. Everyone's been very kind about it, though I don't think I'm very good at it yet." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "You're a paladin. Bolvar says paladins are the Light's hands. Do your hands feel any different?" },
@@ -112,6 +123,7 @@ P:NPC {
         { text = "Would you like to see a little magic, Your Majesty?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you know what a warlock is, Your Majesty?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did your books say anything good about shamans, Your Majesty?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do you have friends of your own, Your Majesty?", next = "xpt_anduin", when = { party = true } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

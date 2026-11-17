@@ -677,6 +677,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_anton = {
+      big = true,
+      lines = { { id = "xpt_anton_default", text = "Because the Crusade is the only order that never stopped fighting the Scourge, while the Silver Hand scattered and argued over who should lead it. Our methods are hard, I'll grant you, but the dead don't negotiate, and neither do we." } },
+      choices = {
+        { text = "Hard methods in the Light's name are still wrong, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Crusade does what must be done. I respect that.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some brothers do, and loudly. I've seen what the Scourge does with the souls of the dead, so I can't blame them for distrusting anyone who speaks to spirits, but I'm willing to be proven wrong." } },
@@ -746,6 +755,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_anton", tags = { "news" }, when = { party = { class = "PALADIN" }, faction = "Alliance" },
+          text = "A paladin rides with you! I'd hoped to see one of the Silver Hand out here, so tell {companion} that the Crusade has need of every true servant of the Light." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! The Crusade has a place for a strong arm and a sound heart, and the Scourge have never once been turned back by anything softer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -776,6 +787,7 @@ P:NPC {
         { text = "Raleigh read your letter, Brother.", next = "raleigh",
           when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
         { text = "Does the Crusade truly welcome those who don't follow the Light?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why should a paladin join the Scarlet Crusade, Brother?", next = "xpt_anton", when = { party = { class = "PALADIN" }, faction = "Alliance" } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Would the Crusade take a warlock, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
         { text = "What would the Crusade want with someone like me, Brother?", next = "xrogue", when = { class = "ROGUE" } },

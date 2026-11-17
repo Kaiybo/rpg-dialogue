@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_mekkatorque = {
+      big = true,
+      lines = { { id = "xpt_mekkatorque_default", text = "Because we've nowhere else to be, I'm sorry to say, since Gnomeregan fell, and a gnome without a workshop will make one out of whatever company will have them. Your friend is carrying a city on their back, you know, so do help them carry it." } },
+      choices = {
+        { text = "We'll help them take Gnomeregan back, High Tinker.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Gnomeregan is gone. Better to build something new elsewhere.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "A puzzle, and a welcome one. If you can truly hear the stone, you might hear what's happening under Gnomeregan without anyone walking back into that radiation. I'd never ask you to go, of course, but I'd dearly like to know what the earth says about the troggs, and about whoever let them in." } },
@@ -86,6 +95,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mekkatorque", tags = { "news" }, when = { party = { race = "Gnome" } },
+          text = "Is that a gnome in your company? Splendid! {companion} will be the one who fixes everything, I expect, and you'll be the one who explains to everybody else why it's now on fire." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, because I've a great many plans for Gnomeregan and every one of them has a little box marked 'someone very brave goes first'." },
         { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
           text = "Word is you went all the way down to the Engineering Labs and Thermaplugg won't be ruling anyone again. I drew up a plan to celebrate, and then I put it in the drawer, because there are still a great many gnomes down there." },
@@ -128,6 +139,7 @@ P:NPC {
         { text = "Could a druid help cleanse the poison from Gnomeregan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does Gnomeregan make of dwarven shamans, High Tinker?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Gnomeregan, High Tinker.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
+        { text = "Why do gnomes make such good companions on the road?", next = "xpt_mekkatorque", when = { party = { race = "Gnome" } } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -743,6 +755,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_magellas = {
+      big = true,
+      lines = { { id = "xpt_magellas_default", text = "One who can read the old runes, one who can fight the troggs, and one who knows when to stop digging, and that last one is the rarest. I've lost more crews to curiosity than to anything with teeth." } },
+      choices = {
+        { text = "Better to stop in time and bring the crew home.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to dig deeper and learn the truth, whatever it costs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one of them, and I worry about each one, for the Badlands have troggs, Loch Modan has troggs, and Uldaman has things worse than troggs. A warrior at a dig lets my Prospectors dig instead of looking over their shoulders, and lets me sleep, occasionally." } },
@@ -822,6 +843,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_magellas", tags = { "news" }, when = { party = { size = { min = 2 } } },
+          text = "A full digging crew, by the look of you! If any of your friends knows a pick from a trowel, send them up to me, because the League always needs more hands in the Badlands and more eyes in Uldaman." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Hall of Explorers! Do mind the cases, and if you could tell me whether that relic on my desk is cursed, I'd sleep a great deal better." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Excellent, because my Prospectors keep running into Dark Irons and troggs at the dig sites, and they'd much rather run into you." },
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
@@ -869,6 +892,7 @@ P:NPC {
         { text = "Do you worry about what the League digs up, High Explorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Which dig needs protecting most, High Explorer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I stood in Archaedas's chamber in Uldaman, High Explorer.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
+        { text = "What makes a good crew for the Explorers' League?", next = "xpt_magellas", when = { party = true } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -1300,6 +1324,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_stonehallow = {
+      big = true,
+      lines = { { id = "xpt_stonehallow_default", text = "Because the Senate prefers to argue about the quarry from a warm room in the High Seat, and I prefer to be cold and right. If it weren't for wandering companies like yours, Gol'Bolar would have been lost to the troggs a season ago." } },
+      choices = {
+        { text = "The Senate should send soldiers. That's what it's for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Companies like ours get it done faster than any Senate.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Today, curiosity, an' I'll hear about it from my colleagues. The old Senate families think the Titans shaped the stone an' left it tae us, so it's ours tae carve an' no' ours tae chat with. The League's seen too much in Uldaman an' the deep places tae be so sure, an' I'm no' sure o' anything anymore, which makes me a poor senator." } },
@@ -1385,6 +1418,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_stonehallow", tags = { "news" }, when = { party = true },
+          text = "You've brought friends to the quarry, which is more than the Senate ever does. If any of them can swing an axe, the troggs are on the lower shelf, and I'll not complain if you thin them out on your way through." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my quarry! Well, ye'll find plenty tae mend, for the troggs bite an' my diggers bleed, an' the Senate sends nothin' but letters." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's somethin' the Senate never sends me, though I've asked, in writin', three times." },
         { id = "h_default", text = "Senator Mehr Stonehallow, o' Ironforge's Senate, an' a League man besides. I could be debatin' in the warm, but instead I'm countin' heads in a quarry, because someone has to." },
@@ -1428,6 +1463,7 @@ P:NPC {
         { text = "Have your diggers lost many to the troggs, Senator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Senate send soldiers to Gol'Bolar, Senator?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which wins, Senator: the Senate's caution or the League's curiosity?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why doesn't the Senate send help to the quarry?", next = "xpt_stonehallow", when = { party = true } },
         { text = "Good luck, Senator.", next = "END" },
       },
     },
@@ -1554,6 +1590,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_firebrew = {
+      big = true,
+      lines = { { id = "xpt_firebrew_default", text = "A band of four once swore to me they'd routed a whole Dark Iron war party with a single keg of Thunderbrew and a lit candle, and the worst of it is I half believe them. The second best was a gnome who said he'd been swallowed by a basilisk and complained that it was boring." } },
+      choices = {
+        { text = "Stick to what happened. The truth is story enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good story beats the truth in a tavern.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A mountaineer once swore he held the Algaz pass alone against a hundred Dragonmaw wi' nothin' but a fryin' pan an' a bad temper. By the third keg it was two hundred, an' by closin' time the fryin' pan was enchanted." } },
@@ -1632,6 +1677,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_firebrew", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Five of ye! Now that's a proper party, and the Stonefire's the place for it. Sit yourselves down by the big hearth, and the first one who tells a lie about a dragon has to tell a better one after." },
+        { id = "h_pt_firebrew2", tags = { "news" }, when = { party = { size = { min = 1, max = 3 } } },
+          text = "Brought some friends, have ye? Good, the Stonefire's too quiet with only the regulars, and they've told all their stories twice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Stonefire! Ye'll forgive the noise, I hope, for my patrons sing louder than any choir, an' worse." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's somebody who'll add tae the noise, for yer sort always tell the best war stories, an' they're half true, which is better than most." },
         { id = "h_default", text = "Firebrew, an' I keep the Stonefire. The beer's strong an' the fire's stronger, an' the stories get taller as the kegs get lighter." },
@@ -1666,6 +1715,7 @@ P:NPC {
         { text = "Do your patrons ever ask a priest for comfort, Firebrew?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you like paladins' stories, Firebrew? Are they ever true?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your regulars mind a warlock at the bar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What's the best story a company ever told in here?", next = "xpt_firebrew", when = { party = true } },
         { text = "Just a drink.", next = "END" },
       },
     },

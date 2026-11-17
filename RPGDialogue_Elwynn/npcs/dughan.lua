@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_dughan = {
+      big = true,
+      lines = { { id = "xpt_dughan_default", text = "Because Stormwind's soldiers are guarding Stormwind, and the rest are in Redridge or on the road to Lakeshire, or watching the Stockade. So I've a handful of guards and whatever good-hearted adventurers wander through, and you'd be surprised how far that goes." } },
+      choices = {
+        { text = "The Crown should do its duty and garrison Elwynn properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Folk like us do the job better than any garrison.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_stocks = {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Some of them will, when their sentences run out, because a cell never cured a hungry man of stealing. I've a handful of guards for a whole county, and I'd rather folk believed the Defias are a nuisance than a war, since a frightened town is harder to keep than an angry one." } },
@@ -99,6 +108,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_dughan", tags = { "news" }, when = { party = true },
+          text = "Ah, a proper party. Good, because I've been sending lone farmhands after the gnolls for weeks and I'm running out of farmhands, so if you and your friends have a spare afternoon, Elwynn has a spare gnoll or two." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "I sent a good many of Goldshire's thieves to that Stockade, so I'm glad to hear you've put the riot down. Keep the tale short at the inn, if you would, because Elwynn has enough nerves about the Defias as it is." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because Josetta upstairs at the inn could use someone to share the wounded with, and my men keep finding new ways to get hurt." },
@@ -177,6 +188,7 @@ P:NPC {
         { text = "Where would a paladin do the most good in Elwynn, Marshal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you trust a shaman to fight for Goldshire, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Stockade's quiet now, Marshal. Your prisoners won't trouble Goldshire.", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
+        { text = "Why doesn't Stormwind send more soldiers to Goldshire?", next = "xpt_dughan", when = { party = true } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },

@@ -223,6 +223,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_bera = {
+      big = true,
+      lines = { { id = "xpt_bera_default", text = "Every day, and twice when the sandstorms come, because there's no wind under the mountain and no sand in your ale. But the gryphons need someone who knows them, and a dwarf goes where the work is and complains about it later." } },
+      choices = {
+        { text = "Duty first. Home will still be there when the work's done.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Life's too short, Bera. Go home and let someone else do it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Every day. Gryphons were made for mountain air, and this wind's full of sand and goblin smoke. If you've any pull with it, tell it we're only passing through." } },
@@ -308,6 +317,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_bera", tags = { "news" }, when = { party = { race = "Dwarf" }, faction = "Alliance" },
+          text = "Is that a dwarf in your company? {companion} is welcome at my roost, because it's nice to hear a proper accent among all these goblins." },
         { id = "h_default", key = true,
           text = "Bera Stonehammer, gryphon master for the Alliance in Gadgetzan. I'll get you back to Theramore or Feathermoon, or wherever else your road runs, and if you're Horde, the orc with the wind riders is over there." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -346,6 +357,7 @@ P:NPC {
         { text = "How do your gryphons get on with hunters' beasts, Bera?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Will your gryphons carry a warlock at all, Bera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the desert wind trouble your gryphons, Bera?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do you miss Ironforge out here, Bera?", next = "xpt_bera", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1233,6 +1245,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_yehkinya = {
+      big = true,
+      lines = { { id = "xpt_yehkinya_default", text = "The ones about the Soulflayer, and how the Atal'ai tried to call him back with blood until the green dragons drowned their temple. A young troll should know those stories, so they know which gods to leave sleeping." } },
+      choices = {
+        { text = "Some gods should be forgotten. They brought only ruin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Old gods are still gods. Troll tradition should be kept.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "Then the Atal'ai have fewer voices to sing with, and a god with no singers is a god who sleeps. But listen to Yeh'kinya, mon, because the Gurubashi built more than one altar to the Soulflayer, and the ones in Stranglethorn are older and bigger than that drowned temple." } },
@@ -1333,6 +1354,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_yehkinya", tags = { "news" }, when = { party = { race = "Troll" } },
+          text = "Yeh'kinya sees you walk with a troll, mon, and {companion} has the look of someone who still knows the old stories." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "You have been down in the Sunken Temple, mon, all the way to the bottom where the Atal'ai sing, and you came back up. The spirits told Yeh'kinya before you did, and for once they sounded frightened." },
         { id = "h_default", key = true,
           text = "Yeh'kinya, they call me, and I sit here by the water and study the old gods of my people. My eyes are tired and my hands shake from the drink, but the spirits still talk to me, mon." },
@@ -1381,6 +1404,7 @@ P:NPC {
         { text = "Why study Hakkar if he's so dangerous, Yeh'kinya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are all your people's gods terrible, Yeh'kinya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I've been to the bottom of the Sunken Temple, Yeh'kinya.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
+        { text = "What stories should a troll know, Yeh'kinya?", next = "xpt_yehkinya", when = { party = { race = "Troll" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

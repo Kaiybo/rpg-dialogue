@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_brandur = {
+      big = true,
+      lines = { { id = "xpt_brandur_default", text = "Heal them before they ask, and never tell them they'd have died without you, because they'll know, and that does more than any lecture. If they still strut after that, put a little salt in their ale." } },
+      choices = {
+        { text = "I'll tell them plainly when they're wrong. Friends should.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet hints work better. Let them think it was their idea.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I think anythin' that tells folk tae be kind tae each other gets along fine, whatever name it answers to. The priests'll argue the details, but I've never seen a sermon stop a trogg." } },
@@ -98,6 +107,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_brandur", tags = { "news" }, when = { party = { class = "PALADIN" } },
+          text = "There's a paladin in your company, I see, and {companion} wears it well, beard or no beard. Mind you keep them humble; the young ones forget the Light shines on the whole company, not just whoever's holding the hammer." },
         { id = "h_default", text = "Brandur Ironhammer, an' I train the Light's young ones here in Ironforge. Dwarves I send on tae Tiza Battleforge an' humans tae Duthorian Rall, for the Light's no' fussy about beards." },
         { id = "h_dwarf", when = { race = "Dwarf", class = "PALADIN" },
           text = "Ye've a dwarf's stubbornness an' a paladin's oath. That's a fine pair, as long as the oath wins the arguments." },
@@ -133,6 +144,7 @@ P:NPC {
         { text = "Do paladins and priests ever argue about faith, Brandur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you think the Light and Elune get along, Brandur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the Light have any use for rogues, Brandur?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How do I keep a paladin humble, sir?", next = "xpt_brandur", when = { party = { class = "PALADIN" } } },
         { text = "Farewell.", next = "END" },
       },
     },

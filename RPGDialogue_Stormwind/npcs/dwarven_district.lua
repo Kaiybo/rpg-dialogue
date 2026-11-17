@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_therum = {
+      big = true,
+      lines = { { id = "xpt_therum_default", text = "Because we've had to, {g:lad|lass}, ever since the Second War, when Lothar's men and Ironforge's hammers held the same line. Humans are quick and we're stubborn, and between quick and stubborn there's not much an orc could ever find to break." } },
+      choices = {
+        { text = "The bond of hammer and sword should never be broken.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Alliances last as long as they're useful, and no longer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "My old masters in Ironforge would say the stone and the fire are titan-made and need no spirits. But I've known shamans who could make a forge sing." } },
@@ -107,6 +116,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_therum", tags = { "news" }, when = { party = { race = "Dwarf" } },
+          text = "There's a dwarf in your company, I see, and {companion} has the good sense to wear proper Ironforge steel. Bring them by if their armour ever needs work, because I'll not have one of my own folk walking about Stormwind in human tin." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a customer worth the coal, for I've fitted plate tae the Silver Hand since afore ye were born, an' I'll fit ye too." },
         { id = "h_default", text = "Therum Deepforge, armourer tae the House o' Wrynn, though these days that means fittin' guards more than kings. If ye want tae learn the hammer, I'll teach ye, an' if ye don't, mind the sparks." },
         { id = "h_priest", when = { class = "PRIEST" },
@@ -142,6 +153,7 @@ P:NPC {
         { text = "Does it trouble you, digging so much iron out of the hills, Therum?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you forge something for a warlock, Therum?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think a shaman could learn the forge, Therum?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why do dwarves and humans fight so well together?", next = "xpt_therum", when = { party = { race = "Dwarf" } } },
         { text = "I'll mind the sparks.", next = "END" },
       },
     },
