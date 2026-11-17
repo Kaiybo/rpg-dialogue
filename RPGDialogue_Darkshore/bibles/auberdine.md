@@ -65,3 +65,6 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Tharnariun or anyone naming the bears' sickness's source (the game doesn't). No druid flight form (Classic has none).
 ### Authored, not canon
 Tharnariun sitting with the caged bear each evening, the sickness worse at the dark of the moon, his friendly argument with Terenthis; Elissa's doubts about outsiders and "one crate at a time"; Caylais's hippogryph Feather-in-the-Mist, "lean left", the birds refusing to fly when the moonkin are restless. Shaussiy (0.37.0): seasick guests from Menethil, her word to Elune at the fire.
+
+## Prejudices (0.80.0, authored, not canon)
+- Sentinel Glynda Nal'Shea distrusts dwarves (`prejudice` Dwarf 10): Remtravel's diggers carry carvings out of Ameth'Aran and Mist's Edge, and she once found her mother's door lintel propping up a dwarf's cookpot at the dig. Earned affinity wins her round.

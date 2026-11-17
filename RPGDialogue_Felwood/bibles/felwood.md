@@ -60,3 +60,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 - none: service NPCs.
 ### Voices (authored, not canon)
 - Mishellena: soft, grieving, moonwell water only for her birds. Brakkar: gruff, carries clean water to his riders by hand; flies Trull's messages. Bale: slow, gentle tauren; nothing in Felwood fit to eat; the Emerald Sanctuary's druids are his hope.
+
+## Prejudices (0.80.0, authored, not canon)
+- Arathandris Silversky fears warlocks carry the curse back into Felwood (`prejudice` WARLOCK 12); she once tended an ash grove near Jaedenar that the satyrs and the fel ruined.

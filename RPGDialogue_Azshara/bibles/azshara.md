@@ -103,3 +103,6 @@ Persuade/Intimidate/Deceive: what a success reveals (authored, not canon, unless
 - none: service NPCs.
 ### Voices (authored, not canon)
 - Kurll: stubborn; sells milk and juice and no grog because drunk sentries die (matches Jediga's complaint). Gruul: gruff, every blade is for Rimtori's elves; heavy weapons for naga.
+
+## Prejudices (0.80.0, authored, not canon)
+- Archmage Xylem looks down on druids (`prejudice` DRUID 10): the Circle grew moss over Zin-Azshari's learning, and a Cenarion druid once spent a month undoing his wards and leaving acorns on his desk.

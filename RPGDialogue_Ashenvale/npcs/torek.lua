@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "torek", id = TODO_NPC("Torek"), name = "Torek",
   bible = "bibles/torek.md", role = "soldier", tier = "quest",
+  prejudice = { race = "Scourge", amount = 8, why = "an orc who fights for scars and songs; the Forsaken fight without joy and keep vats under their city, so he doesn't trust them" },
   communities = { "splintertree" }, temper = { "eager", "boisterous" }, values = { "glory", "loyal" },
   notices = { "soldier", "class" },
   impression = {
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_dead", when = { prejudiced = true }, text = "A Forsaken in my raiding camp. Thrall says you're Horde, so I'll say it too, but a warrior who can't bleed can't earn a scar, and I don't trust anyone who has nothing left to lose." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "There you are! I've been telling the raiders you fight like an orc with a grudge, and they laughed, so I made them stop. I was wrong about the Forsaken, or at least about you." },
     { id = "g_hello", text = "Hey, {class}, come here! I've got a fight that needs one more blade." },
     { id = "g_active", when = { questActive = TODO_QUEST("Torek's Assault") }, text = "Ready? My raiders are itching, and the elves won't wait forever to notice us." },
     { id = "g_done", when = { questDone = TODO_QUEST("Torek's Assault") }, text = "Silverwing burned, and Duriel Moonfire fell! I'm still picking splinters out of my arm, and I couldn't be happier." },
@@ -31,6 +34,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_torek = {
+      lines = { { id = "pj_torek_default", text = "Plainly, then. An orc fights to be remembered, and every scar is a story his children will tell, but you dead fight like you're clearing a field, with no joy in it at all. And the grunts say the apothecaries brew things under your city that a warrior shouldn't touch." } },
+      choices = {
+        { text = "What have the grunts heard about the apothecaries?", next = "pj_torek2" },
+        { text = "A fight's a fight. I'll earn your respect on the field.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Joy doesn't win wars, orc. Patience and poison do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I see why we unsettle you. Give it time.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_torek2 = {
+      lines = { { id = "pj_torek2_default", text = "Only what gets said round the fire, that the Forsaken keep vats of sickness under the Undercity and don't like questions about them. Maybe it's grunt talk, but I've never known a grunt invent something that frightened him." } },
+      choices = {
+        { text = "I'll keep my own eyes open. Thanks for the warning.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,6 +76,7 @@ P:NPC {
         { text = "Thrall wants peace. Is this wise?", next = "thrall" },
         { text = "I'm a warrior too. What's your plan?", next = "warrior_t", when = { class = "WARRIOR" } },
         { text = "I'm with you.", next = "BUSINESS" },
+        { text = "You don't trust the Forsaken, Torek. Say it plainly.", next = "pj_torek", when = { prejudiced = true } },
         { text = "Not today, Torek.", next = "END" },
       },
     },

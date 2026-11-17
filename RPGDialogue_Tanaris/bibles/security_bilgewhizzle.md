@@ -27,3 +27,6 @@ Shades the truth about contracts.
 
 ## Topics
 background, advice, steamwheedle, _none.
+
+## Prejudices (0.80.0, authored, not canon)
+- Security Chief Bilgewhizzle reads rogues as dock thieves (`prejudice` ROGUE 10), though the worst theft on his books was his brother-in-law's two crates of Noggenfogger.

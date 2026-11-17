@@ -32,3 +32,6 @@ Honest, understates himself.
 
 ## Topics
 background, advice, _none.
+
+## Prejudices (0.80.0, authored, not canon)
+- Nat Pagle is wary of gnomes on his dock (`prejudice` Gnome 6): a gnome's humming brass fish-caller once brought a rowboat-sized crocolisk that took half the dock.

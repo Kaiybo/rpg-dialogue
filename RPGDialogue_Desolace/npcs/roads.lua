@@ -652,16 +652,35 @@ P:NPC {
 P:NPC {
   key = "vahlarriel", id = TODO_NPC("Vahlarriel Demonslayer"), name = "Vahlarriel Demonslayer",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
+  prejudice = { class = "WARLOCK", amount = 15, why = "years on the Burning Blade's trail; every cultist she caught began by calling the demon a tool" },
   impression = {
     first = "Vahlarriel Demonslayer keeps her watch at Nijel's Point with the stillness of a hunter who has been tracking the same prey for years.",
     third = "{name} met Vahlarriel Demonslayer, a night elf demon hunter of the Burning Blade's trail, at Nijel's Point.",
   },
   greetings = {
+    { id = "g_pj_lock", when = { prejudiced = true }, text = "A warlock, at Nijel's Point. I have spent years following the Burning Blade across this waste, and every one of them began as somebody who promised the demon was only a tool." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I've watched how you use your demon, and I've watched how the Burning Blade use theirs, and they aren't the same. I didn't want to see it, but I'm not so stubborn that I can't." },
     { id = "g_main", text = "Ishnu-alah. You walked in from the hills, so you've seen what Desolace has become." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good; I've more work than allies." },
   },
   start = "hello",
   nodes = {
+    pj_vahl = {
+      lines = { { id = "pj_vahl_default", text = "Not yet, but I count everyone who bargains with demons as one step from it. The Blade didn't begin as a cult; it began as fighters who wanted a little more strength, and the Legion was glad to lend it until the debt came due." } },
+      choices = {
+        { text = "How would you know where that step is?", next = "pj_vahl2" },
+        { text = "I hold the leash, and I'll never kneel to what's on it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strength is strength. Your fear only slows you down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Watch me, then. I'd rather be watched than blindly trusted.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_vahl2 = {
+      lines = { { id = "pj_vahl2_default", text = "I don't, and that's what keeps me awake at night. The cultists I've questioned couldn't tell me when they crossed it either; they simply woke one morning on their knees." } },
+      choices = {
+        { text = "Then I'll keep an eye on my own step.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "We trust deeds. The Burning Blade bargain with demons in that fortress, and if your spirits help bring Dalinda home, that's all the trust I need." } },
@@ -768,6 +787,7 @@ P:NPC {
         { text = "How do the Burning Blade's fighters compare, Vahlarriel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How long have you hunted the Burning Blade, Vahlarriel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the kaldorei trust a dwarf who speaks to elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You'd count me with the Burning Blade, Demonslayer?", next = "pj_vahl", when = { prejudiced = true } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -7,6 +7,7 @@ P:NPC {
   key = "security_bilgewhizzle", id = TODO_NPC("Security Chief Bilgewhizzle"), name = "Security Chief Bilgewhizzle",
   title = "Water Co. Security",
   bible = "bibles/security_bilgewhizzle.md", role = "soldier", tier = "quest",
+  prejudice = { class = "ROGUE", amount = 10, why = "a dock security chief who reads every light-footed visitor as a crate thief" },
   communities = { "steamwheedle_port" }, temper = { "harried", "sharp" }, values = { "profit", "dutiful" },
   notices = { "stealth", "trophy" },
   impression = {
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_rogue", when = { prejudiced = true }, text = "Hold it right there, pal, and keep your hands out of your sleeves. I know a pickpocket's walk when I see one, and the Water Company doesn't pay me to give anybody the benefit of the doubt." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Oh, it's you, and I didn't even check my coin purse, which tells you somethin'. I had you down in the book as a liability, buddy, and I've moved you over to assets." },
     { id = "g_default", text = "We're here to make a profit, pal, and having our goods stolen is no way to make one. What do you want, and is it going to cost me?" },
     { id = "g_shake", when = { questActive = TODO_QUEST("Southsea Shakedown") }, text = "Back so soon? I hope you taught those Southsea hoodlums something they won't forget, like the price of crossing the Cartel." },
     { id = "g_shake_done", when = { questDone = TODO_QUEST("Southsea Shakedown") }, text = "My favourite deputy! The Cartel's been off my back for days, and I've been sleeping like a baby, a baby with a cudgel under the pillow." },
@@ -32,6 +35,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_bilge = {
+      lines = { { id = "pj_bilge_default", text = "That's the job, buddy. Every crate that goes missing comes out of my budget, and nine times in ten the fellow who took it walked just like you, light on the feet and looking at everything but me. I'm not sayin' you're a thief; I'm sayin' I can't afford to guess." } },
+      choices = {
+        { text = "And the tenth time?", next = "pj_bilge2" },
+        { text = "Then watch me. I've nothing to hide on your dock.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart. A good thief never looks like a thief, Chief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd do the same in your boots, Chief.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_bilge2 = {
+      lines = { { id = "pj_bilge2_default", text = "My brother-in-law, sorry to say, and he didn't walk light at all, he walked like a fellow carrying two crates of Noggenfogger, which he was. Family's a liability too, pal, and I've got the invoices to prove it." } },
+      choices = {
+        { text = "So rogues aren't your only problem. Good to know.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Security Chief Bilgewhizzle, Water Company security, and the only thing between this port and every thief on the coast, on a budget you wouldn't believe. The Cartel wants the impossible from me, and they want it by Tuesday." },
@@ -58,6 +77,7 @@ P:NPC {
         { text = "I know a thing or two about pirates' habits.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Some of those pirates were just dock workers.", next = "dockers", when = { questDone = TODO_QUEST("Southsea Shakedown") } },
         { text = "What do you need, Chief?", next = "BUSINESS" },
+        { text = "You watch me like I'm about to rob the dock, Chief.", next = "pj_bilge", when = { prejudiced = true } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },

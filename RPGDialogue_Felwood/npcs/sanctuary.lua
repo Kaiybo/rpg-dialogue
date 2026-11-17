@@ -695,6 +695,7 @@ P:NPC {
 P:NPC {
   key = "arathandris", id = TODO_NPC("Arathandris Silversky"), name = "Arathandris Silversky",
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
+  prejudice = { class = "WARLOCK", amount = 12, why = "the fel that poisoned Felwood came from demon-callers; she fears warlocks carry the curse back in" },
   communities = { "emerald_sanctuary" }, temper = { "determined" }, values = { "protective", "devout" },
   notices = { "craft" },
 
@@ -704,6 +705,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_lock", when = { prejudiced = true }, text = "Stay on the path, warlock, and keep your demon at your heel. This forest was poisoned by things like the one beside you, and the salve can't undo whatever you might carry back in." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I've been watching where you walk, and the plants you passed are as clean as the ones you didn't. I was wrong to think the curse followed you, and I'm sorry for it." },
     { id = "g_hello", text = "These woods were beautiful, once. Help me make them so again." },
   },
 
@@ -714,6 +717,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_arath = {
+      lines = { { id = "pj_arath_default", text = "No, but the ones who did spoke with demons as easily as you do, and they thought they had them leashed as well. I've seen what fel does to roots, and I can't make myself trust anyone who carries it on purpose." } },
+      choices = {
+        { text = "What did you see it do?", next = "pj_arath2" },
+        { text = "A leash is all it takes. I master what I summon.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fel is only power. Your fear does more harm than it does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep my demon away from the sanctuary.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_arath2 = {
+      lines = { { id = "pj_arath2_default", text = "There was a grove near Jaedenar that I tended when I was young, ash trees older than any city we have now, and when I came back after the satyrs took it, the bark wept green and the birds had no eyes. I salve a plant a day because I couldn't save one tree then." } },
+      choices = {
+        { text = "I'm sorry. I'll help where I can, demon or no.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and you'd say the spirits are sick, and I think we're describing the same wound." } },
@@ -872,6 +891,7 @@ P:NPC {
         { text = "Why watch a single flower for a whole morning, Arathandris?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will you accept a Forsaken paladin's help, Arathandris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Does the curse here go deeper than the trees?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I'm not the one who poisoned Felwood, Arathandris.", next = "pj_arath", when = { prejudiced = true } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },
       },
     },

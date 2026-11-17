@@ -31,3 +31,6 @@ Honest but one-sided about Warsong's logging.
 
 ## Topics
 background, advice, warsong, sentinels, _none.
+
+## Prejudices (0.80.0, authored, not canon)
+- Torek distrusts the Forsaken (`prejudice` Scourge 8): they fight without joy and can't earn scars, and the grunts' fireside rumour of plague vats under the Undercity (dramatic irony only) feeds it.

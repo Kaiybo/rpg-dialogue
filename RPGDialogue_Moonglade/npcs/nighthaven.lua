@@ -1030,6 +1030,7 @@ P:NPC {
 P:NPC {
   key = "loganaar", id = TODO_NPC("Loganaar"), name = "Loganaar",
   bible = "bibles/nighthaven.md", role = "trainer", tier = "service",
+  prejudice = { race = "Scourge", amount = 12, why = "a druid of balance who feels the Forsaken as a crack in the cycle of life and death" },
   communities = { "nighthaven" }, temper = { "calm" }, values = { "balance", "kind" },
   notices = { "class" },
   impression = {
@@ -1038,6 +1039,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_dead", when = { prejudiced = true }, text = "One of the Forsaken, in Nighthaven. Honesty sits easier here than politeness, so I'll say it: everything that lives goes back to the soil, and you didn't, and I can't look at you without feeling the cycle has a crack in it." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I was unkind to you once, in my head if not aloud. I've thought about it since, and I think the crack in the cycle was never yours to mend, so sit, if you like." },
     { id = "g_calm", text = "Peace, friend. Even inside these stone walls it's there, if you stop long enough to find it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "{g:Brother|Sister}, come in. If you're ready to learn, then I'm ready to teach." },
     { id = "g_initiate", when = { origin = "nightelf_druid_initiate" }, text = "Peace, initiate. You still move like someone half in the Dream, careful of a world that might change while you blink, and that's no bad thing, but sit, because Moonglade at least will stay put while you learn it." },
@@ -1052,6 +1055,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_logan = {
+      lines = { { id = "pj_logan_default", text = "Do I? Then I'm worse at hiding it than I'd hoped. Balance means a thing is born, lives and goes back to the earth, and a druid feels it go back, but with you I feel nothing go anywhere, and that frightens me more than any beast." } },
+      choices = {
+        { text = "Is it me you fear, or what was done to me?", next = "pj_logan2" },
+        { text = "Then teach me what the cycle asks of the dead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The cycle broke. I'll make my own way outside it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I don't blame you. I flinch at mirrors myself.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_logan2 = {
+      lines = { { id = "pj_logan2_default", text = "What was done to you, I think, though the two are hard to pull apart from where I sit. The plague was made by someone, and someone meant it, and I suppose I look at you and see their work instead of your face." } },
+      choices = {
+        { text = "My face is the one you'll be dealing with, druid.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "It means knowing when to be the storm and when to be the still water, and accepting that you won't always choose right. You shamans speak to the elements, and we become a part of them, but both of us have to listen far more than we speak, and that's the hardest lesson there is." } },
@@ -1172,6 +1191,7 @@ P:NPC {
         { text = "Do hunters and druids share any of the same wisdom?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would I want to set down my certainty, Loganaar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does balance mean to a druid, Loganaar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You flinch when you look at me, Loganaar.", next = "pj_logan", when = { prejudiced = true } },
         { text = "Farewell.", next = "END" },
       },
     },

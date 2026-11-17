@@ -7,6 +7,7 @@ P:NPC {
   key = "pozzik", id = TODO_NPC("Pozzik"), name = "Pozzik",
   rivals = { "fizzle", "wizzle" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
+  prejudice = { race = "Gnome", amount = 12, why = "Fizzle's crew copied his exhaust and his paint job; every gnome is a spy until proven otherwise" },
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "ambitious", "proud" },
   notices = { "craft", "status" },
 
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_gnome", when = { prejudiced = true }, text = "Whoa, whoa, a gnome in my pit! Keep your hands where I can see 'em, pal, because the last gnome who wandered in here just to look walked off with my fuel ratios in his hat." },
+    { id = "g_pj_gnome2", when = { prejudiced = true, metBefore = true }, text = "Back again, huh? I had the boys count the spanners after your last visit and they're all here, which is either honest or very, very clever, and I'm still decidin' which." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Listen, I'll say this once and deny it at the next heat: you're the only gnome I'd let near my engine, kid, and that's worth more than a sponsorship, so don't spend it all at once." },
     { id = "g_race", text = "Hey hey, kid, here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat, and the betting window's open now." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, kid, so bet again, and bet bigger." },
     { id = "g_away", when = { away = 14 }, text = "My favorite spectator, back after {away}! You missed a dozen races, and we won most of them, so bet on us again." },
@@ -32,6 +36,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_pozzik = {
+      lines = { { id = "pj_pozzik_default", text = "Because every gnome I've met is a spy, kid, or an engineer, which on this track is the same thing with better gloves. Fizzle's crew have copied my exhaust twice and my paint job once, and you want me to take a gnome at face value? Face value's the worst rate in the business." } },
+      choices = {
+        { text = "They copied your paint? What happened?", next = "pj_pozzik2" },
+        { text = "Judge me by what I do, not by Fizzle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Maybe I am a spy. You'd better make me a better offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm only here to watch the race, Pozzik.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_pozzik2 = {
+      lines = { { id = "pj_pozzik2_default", text = "Red with yellow stripes, my own mix, and the very next heat their car rolls out red with yellow stripes and a little gnome smile painted on the nose. I lost three wagers because the punters cheered the wrong car, so it's in the ledger as a gnome debt, with interest." } },
+      choices = {
+        { text = "That's petty, but it's funny. I'm not with them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_pozzik = {
       big = true,
       lines = { { id = "xpt_pozzik_default", text = "The goblin car, obviously, because it's built by people who know what speed is for, which is getting paid. The gnomes build to show off, and they'll keep losing to us until they learn the difference." } },
@@ -152,6 +172,7 @@ P:NPC {
         { text = "Does your crew need strength more than brains, Pozzik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have any beasts ever raced on your track, Pozzik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who do you think will win the next race, Pozzik?", next = "xpt_pozzik", when = { party = { size = 4 } } },
+        { text = "You treat every gnome like a spy, Pozzik.", next = "pj_pozzik", when = { prejudiced = true } },
         { text = "Good luck out there.", next = "END" },
       },
     },

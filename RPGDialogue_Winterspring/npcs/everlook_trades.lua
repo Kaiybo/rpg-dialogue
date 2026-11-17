@@ -195,6 +195,7 @@ P:NPC {
 P:NPC {
   key = "wixxrak", id = TODO_NPC("Wixxrak"), name = "Wixxrak", title = "Weaponsmith & Gunsmith",
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
+  prejudice = { race = "Dwarf", amount = 8, why = "a gunsmith's trade grudge: every dwarf tells him Ironforge does it better, and Ironforge powder cost a cousin his eyebrows" },
   communities = { "everlook" }, temper = { "eager" }, values = { "profit", "craft" },
   notices = { "class" },
 
@@ -204,6 +205,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_dwarf", when = { prejudiced = true }, text = "A dwarf, in my shop. Lemme guess, pal, you're gonna pick up my best rifle, squint down the barrel and tell me Ironforge does it better, and then you're gonna buy it anyway." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "My favourite dwarf! I never thought I'd say those words, so I wrote 'em in the ledger in case I needed proof, but you've never once said Ironforge to me, and that's worth a line item." },
     { id = "g_default", text = "Blades, guns, shot and powder, pal, all of it kept warm by the stove! Cold steel's a saying, friend, not a selling point, and it's sure not my selling point." },
   },
 
@@ -216,6 +219,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_wixx = {
+      lines = { { id = "pj_wixx_default", text = "Against their mouths, sure. Every dwarf who comes through Everlook tells me the Ironforge stock is better, the Ironforge powder's drier and the Ironforge barrels are straighter, and then they walk out with my rifle anyway and tell their friends they got robbed." } },
+      choices = {
+        { text = "Is Ironforge powder really better?", next = "pj_wixx2" },
+        { text = "Your guns speak for themselves. I won't run them down.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll say whatever gets me a better price, Wixxrak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Show me what you've got, and I'll judge the steel.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_wixx2 = {
+      lines = { { id = "pj_wixx2_default", text = "Drier, maybe, because Dun Morogh's cold is a dry cold and ours comes off the snowfields wet, but better? My cousin lost both eyebrows to a keg of Ironforge powder that went off sealed, so don't tell me those dwarves know everything about keeping a charge quiet." } },
+      choices = {
+        { text = "So the grudge is about eyebrows. I can respect that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Because demons are fickle, friend, and steel isn't. I sold a lovely dagger to a warlock last winter who swore he'd never need it, and he came back a month later, without his voidwalker, to thank me personally, and he bought a second one in case." } },
@@ -337,6 +356,7 @@ P:NPC {
         { text = "What's so special about your gun oil?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you sell to the hunters who chase the frostsabres?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why would a warlock need one of your daggers, Wixxrak?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You've got something against dwarves, Wixxrak?", next = "pj_wixx", when = { prejudiced = true } },
         { text = "Goodbye.", next = "END" },
       },
     },
