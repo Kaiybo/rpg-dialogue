@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.78.0 (2026-11-17)
+A new conversation in Stormwind's Old Town. **New file: restart the game fully (a /reload won't load it).**
+
+### New conversation (Stormwind, Old Town)
+- **Nikova Raskol**, grandmother of Mac, the fourteen-year-old Stockade guard the Defias prisoners killed. Before, during and after "The Color of Blood": who Mac was, how a boy ended up guarding the Stockade, what she does with the bandanas, the Defias, Warden Thelwater, and Old Town. Former city guards, Stonemasons' children, priests and anyone who has cleared the Stockade get their own replies.
+
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
 
