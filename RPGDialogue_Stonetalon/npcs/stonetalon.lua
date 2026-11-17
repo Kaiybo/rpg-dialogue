@@ -235,6 +235,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help keep them.", next = "BACK", fx = { affinity = 1, learn = { "venture_company" } } },
+        { text = "And the Grimtotem on these roads?", next = "grimtotem_op" },
         { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } },
       },
     },
@@ -286,6 +287,32 @@ P:NPC {
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Tauren" }, { trait = "kind" } } } },
           fail = { next = "after_wall", fx = { affinity = -1 } } },
       },
+    },
+    grimtotem_op = {
+      lines = { { id = "gt_default", text = "The Grimtotem walk these hills too, and they call Cairne's peace with the orcs a weakness. Magatha sits on the Elder Rise smiling at him while her clan kills travelers on my roads, so tell me what you think should be done about them." } },
+      choices = {
+        { text = "Cairne should cast Magatha out of Thunder Bluff.", next = "gt_cast", fx = { affinity = 1, align = { light = -1 }, opinion = { grimtotem = "lost", cairne = "too_patient" } } },
+        { text = "Cairne's patience is right. Some may still come home.", next = "gt_patient", fx = { align = { light = 1 }, opinion = { grimtotem = "redeemable", cairne = "admire" } } },
+        { text = "Kill the ones on the roads and leave Magatha to Cairne.", next = "gt_roads", fx = { affinity = 2, trait = { stern = 1 }, opinion = { grimtotem = "lost" } } },
+        { text = "They shame every tauren. I'd face them myself.", next = "gt_tauren", when = { race = "Tauren" }, fx = { affinity = 2, opinion = { grimtotem = "hate" } } },
+        { text = "That's Thunder Bluff's business, chieftain.", next = "BACK" },
+      },
+    },
+    gt_cast = {
+      lines = { { id = "gtc_default", text = "I've said the same, louder than I should have, and it's part of why I'm out here instead of on the bluff. You'll find others who agree with us, and a few who'd report you for saying it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_patient = {
+      lines = { { id = "gtp_default", text = "That's Cairne's own answer, near enough. I'm trying to learn it, but it's hard to be patient when you've buried braves the Grimtotem killed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_roads = {
+      lines = { { id = "gtr_default", text = "A soldier's answer, and one I can act on. Kaya Flathoof walked that road to Camp Aparaje with an escort for exactly that reason." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_tauren = {
+      lines = { { id = "gtt_default", text = "Then do it with your eyes open, because they wear the same hides and paint as we do. That's what makes them dangerous, and what makes it hurt." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     cairne = {
       lines = {
@@ -488,9 +515,36 @@ P:NPC {
         { id = "v_default", text = "The Venture Company, chasing lumber, and the war that came with them, and then the fire spirits they angered. Greed and war together will wreck any land; it takes the Earth Mother's blessing to cure it." },
       },
       choices = {
-        { text = "Then the Venture Company has a lot to answer for.", next = "BACK", fx = { learn = { "venture_company" }, trait = { stern = 1 } } },
+        { text = "Then the Venture Company has a lot to answer for.", next = "BACK", fx = { learn = { "venture_company" }, trait = { stern = 1 }, opinion = { venture_company = "hate" } } },
+        { text = "Can goblins ever be trusted on this mountain?", next = "goblins_op" },
         { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } },
       },
+    },
+    goblins_op = {
+      lines = { { id = "gb_default", text = "I want to say yes, because the Ratchet goblins are kind enough when they trade for my seeds. But when I walk past the stumps at Windshear Crag, I find it hard, so tell me, friend: are the goblins all alike?" } },
+      choices = {
+        { text = "The Venture Company isn't all goblins. Ratchet's are different.", next = "gb_mixed", fx = { affinity = 2, align = { light = 1 }, opinion = { goblins = "mixed", venture_company = "hate" } } },
+        { text = "A goblin is a goblin. They'd all strip this mountain for coin.", next = "gb_all", fx = { affinity = -1, opinion = { goblins = "distrust" } } },
+        { text = "The Horde needs goblin trade, whatever it costs the hills.", next = "gb_trade", fx = { affinity = -2, align = { light = -1 }, opinion = { goblins = "useful" } } },
+        { text = "The trees will outlast every saw. Plant, and wait them out.", next = "gb_wait", when = { class = "DRUID" }, fx = { affinity = 2, opinion = { venture_company = "temporary" } } },
+        { text = "I don't know, Tammra.", next = "BACK" },
+      },
+    },
+    gb_mixed = {
+      lines = { { id = "gbm_default", text = "I hope so. I'll keep trading with the Ratchet ones, then, and I'll try not to flinch when I hear an engine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gb_all = {
+      lines = { { id = "gba_default", text = "Maybe, but a seed doesn't care who plants it, so I try not to care who sells me the sack. It's harder some days than others." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gb_trade = {
+      lines = { { id = "gbt_default", text = "Then I hope the Horde gets something better for it than stumps and fire spirits. That's what it got last time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gb_wait = {
+      lines = { { id = "gbw_default", text = "That's what I tell myself every morning, and it helps to hear a druid say it back to me. Thank you, friend." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     why = {
       lines = {
@@ -690,8 +744,35 @@ P:NPC {
       lines = { { id = "g2_default", text = "It is a grudge, and a very old one. Old grudges are the only kind worth keeping." } },
       choices = {
         { text = "How old?", next = "temple" },
+        { text = "And who do you think is right about magic?", next = "arcane_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    arcane_op = {
+      lines = { { id = "ao_default", text = "No, you tell me, {class}, since you've walked both sides of this mountain. Is magic a gift to be used, or a fire to be feared, as the druids on the peak would have it?" } },
+      choices = {
+        { text = "A gift. Anyone who fears it is weak.", next = "ao_gift", fx = { affinity = 2, align = { light = -1 }, opinion = { arcane_magic = "gift" } } },
+        { text = "The druids are right. Magic broke the world once.", next = "ao_fear", fx = { affinity = -2, align = { light = 1 }, opinion = { arcane_magic = "dangerous", druidism = "respect" } } },
+        { text = "A tool like any other. The hand matters more.", next = "ao_tool", fx = { affinity = 1, opinion = { arcane_magic = "tool" } } },
+        { text = "I feel it too. Life without it would be grey.", next = "ao_mage", when = { class = "MAGE" }, fx = { affinity = 3, opinion = { arcane_magic = "need" } } },
+        { text = "I'll keep my own counsel.", next = "BACK" },
+      },
+    },
+    ao_gift = {
+      lines = { { id = "aog_default", text = "Then we understand each other, which is more than I can say for most who climb up to Sun Rock. Come and talk with me again when the druids have tried to lecture you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ao_fear = {
+      lines = { { id = "aof_default", text = "The world broke because of what was done with magic, not because magic was in it. I've heard your answer from far older mouths than yours, and I liked it no better then." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ao_tool = {
+      lines = { { id = "aot_default", text = "A careful answer. A tool you can set down, though, and I've never met anyone who truly set this one down." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ao_mage = {
+      lines = { { id = "aom_default", text = "Yes, grey, exactly that. Mind you don't let anyone shame you out of it, least of all a druid with leaves in her hair." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     magic = {
       lines = {
@@ -707,8 +788,8 @@ P:NPC {
         { id = "r_default", text = "Because life without magic coursing through your veins is a pale, grey mockery of living. The kaldorei spurn that gift and call themselves wise for it, and I'll never understand them." },
       },
       choices = {
-        { text = "Some would call that hunger.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = 1 } } },
-        { text = "I know the feeling.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some would call that hunger.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = 1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "I know the feeling.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, opinion = { arcane_magic = "gift" } } },
       },
     },
     temple = {
@@ -1125,6 +1206,12 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Weapons down, boots off, and tell me who you've been fighting. I don't care what you pray to." },
         { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and that's the job." },
+        { id = "h_op_magatha", tags = { "news" }, when = { gossip = { topic = "grimtotem", stance = "lost" } },
+          text = "Maggran says you'd see the Grimtotem gone from the bluff. Keep your voice down about Magatha in here, because you never know which of my guests paints their face at night." },
+        { id = "h_op_arcane", tags = { "news" }, when = { gossip = { topic = "arcane_magic", stance = "gift" } },
+          text = "Braelyn's been almost cheerful since you two talked about magic, and I'd like to know what you said, because nobody else has managed it in years." },
+        { id = "h_op_goblins", tags = { "news" }, when = { gossip = { topic = "goblins", stance = "useful" } },
+          text = "Tammra came in quiet tonight and said someone told her the Horde needs goblin trade whatever it costs. I'm not saying it was you, but you've the look." },
         { id = "h_harpies", when = { metBefore = true }, text = "The harpies screamed all night, the braves screamed back, and nobody slept. Breakfast?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know the wind howling round this inn isn't angry, only talkative, and you can tell the other guests so." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, take your boots off, and tell me who you've been patching up, because the braves who come in here never tell me the whole story." },
@@ -1479,7 +1566,34 @@ P:NPC {
       choices = {
         { text = "I'll stand with your kin.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, standing = { stonetalon_peak = 1 } } },
         { text = "Do the druids choke their magic?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "What would you have the Horde do, Keeper?", next = "forest_op" },
       },
+    },
+    forest_op = {
+      lines = { { id = "fo_default", text = "I would rather hear what you would have it do, little one. The orcs who cut Ashenvale say they need timber to live, and my kin say every tree is sacred, so tell an old tree what you believe." } },
+      choices = {
+        { text = "The orcs have no right to these forests. Drive them out.", next = "fo_drive", fx = { affinity = 2, align = { light = 1 }, opinion = { ashenvale = "defend", warsong = "hate" } } },
+        { text = "Trees grow back. The Horde's need comes first.", next = "fo_need", fx = { affinity = -2, align = { light = -1 }, opinion = { ashenvale = "necessary" } } },
+        { text = "Let them take deadfall and leave the living trees.", next = "fo_dead", fx = { affinity = 1, opinion = { ashenvale = "compromise" } } },
+        { text = "My people have guarded these forests for ten thousand years.", next = "fo_elf", when = { race = "NightElf" }, fx = { affinity = 2, opinion = { night_elves = "proud" } } },
+        { text = "I'm not wise enough to answer that, Keeper.", next = "BACK" },
+      },
+    },
+    fo_drive = {
+      lines = { { id = "fod_default", text = "Spoken like a Sentinel, and the Sentinels will thank you. I only hope you have the patience to keep driving, for the orcs are as stubborn as the stone they build with." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_need = {
+      lines = { { id = "fon_default", text = "Trees grow back, yes, in a hundred years, and the creatures who lived in them do not wait. I will not argue, little one, but I will remember." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_dead = {
+      lines = { { id = "fodd_default", text = "A gentle answer, and an old one. My kin offered something like it, long ago, and no one on either side was listening." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_elf = {
+      lines = { { id = "foe_default", text = "We have, and the trees know it. Guard them with patience, child of Elune, not only with glaives." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     den = {
       lines = {

@@ -50,6 +50,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "That's what I ask everyone who climbs this far. Should the Talon keep watching and writing, the way the Skylord wants, or should we be out there burning the fel off this mountain? Be honest; the owls already know what I think." },
+      },
+      choices = {
+        { text = "Act. Every day you wait, the fel spreads.", next = "op_r1", fx = { affinity = 2, align = { order = -1 }, trait = { brave = 1 }, opinion = { talon_caution = "act" } } },
+        { text = "Omnuron is right. Rush in and you'll spread it further.", next = "op_r2", fx = { affinity = -1, align = { order = 1 }, trait = { cautious = 1 }, opinion = { talon_caution = "wait" } } },
+        { text = "Do both. Scout first, then burn it hard.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { talon_caution = "both" } } },
+        { text = "A druid acts, Thisalee. Watching is for owls.", next = "op_r4", fx = { affinity = 1, opinion = { talon_caution = "act" } }, when = { class = "DRUID" } },
+        { text = "That's between you and the Skylord.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Yes! Thank you! I'm going to write that down and leave it on the Skylord's perch, unsigned." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "You sound exactly like him, and the worst of it is that you might both be right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Well, that's what I've been doing, more or less, I just haven't told anyone about the second part." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Careful, the owls will hear you, and they're terribly sensitive about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -234,6 +263,7 @@ P:NPC {
       },
       again = { { id = "om_again", text = "Anything else about the Skylord? Careful, though; the owls carry gossip." } },
       choices = {
+        { text = "Should the Talon keep watching, or start acting?", next = "op_ask" },
         { text = "You don't agree with him.", next = "omnuron_disagree" },
         { text = "What do you really think of his caution?", tag = "Persuade", next = "omnuron_secret",
           check = { pass = { any = { { disposition = { min = 65 } }, { trait = "brave" }, { class = "DRUID" }, { questDone = TODO_QUEST("Yashiro's Windwalk") } } } },

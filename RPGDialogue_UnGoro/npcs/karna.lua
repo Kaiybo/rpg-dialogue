@@ -31,6 +31,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_gnomeregan = {
+      lines = {
+        { id = "opg_q", text = "Some folks say gnomes should have stopped tinkering after Gnomeregan, which is silly, but I hear it a lot. What do you think, should we go back for it, or let it go?" },
+      },
+      choices = {
+        { text = "Take it back. It's your home, and the troggs don't deserve it.", next = "op_gnomeregan_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { gnomeregan = "reclaim" } } },
+        { text = "Let it go. The radiation's not worth more gnome lives.", next = "op_gnomeregan_r2", fx = { affinity = -1, align = { honor = -1 }, trait = { cautious = 1 }, opinion = { gnomeregan = "lost" } } },
+        { text = "Your people poisoned it themselves. Be careful what you build next.", next = "op_gnomeregan_r3", fx = { trait = { stern = 1 }, opinion = { gnomes = "reckless" } } },
+        { text = "Gnomeregan will be ours again, Karna. I'll see to it.", next = "op_gnomeregan_r4", fx = { affinity = 2, opinion = { gnomeregan = "reclaim" } }, when = { race = "Gnome" } },
+        { text = "That's for the gnomes to decide, Karna.", next = "BACK" },
+      },
+    },
+    op_gnomeregan_r1 = {
+      lines = {
+        { id = "op_gnomeregan_r1", text = "That's what I think too! A-Me 01 would help, if she weren't busy getting dented in the jungle." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_gnomeregan_r2 = {
+      lines = {
+        { id = "op_gnomeregan_r2", text = "Maybe you're right, and that's a sad thing to say. I still dream about the lifts, though." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_gnomeregan_r3 = {
+      lines = {
+        { id = "op_gnomeregan_r3", text = "Ouch, but fair, I suppose. I've been very careful with A-Me 01's power cells, I promise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_gnomeregan_r4 = {
+      lines = {
+        { id = "op_gnomeregan_r4", text = "Oh, I'll hold you to that! Bring me something from the old workshops when you go, would you?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Karna Remtravel, engineer with the Marshal Expedition! Have you seen all the wonderful things in Un'Goro? Not as wonderful as what I can build, of course, but for being all natural, it's not too bad." },
@@ -77,6 +121,7 @@ P:NPC {
     uncle = {
       lines = { { id = "u_default", text = "My uncle Remtravel loves old things and lost cultures, the older and more lost the better. I'm following in his footsteps, kind of, only with more gears and fewer cave-ins." } },
       choices = {
+        { text = "Do you ever think about Gnomeregan?", next = "op_gnomeregan" },
         { text = "Fewer cave-ins?", next = "uncle_cave" },
         { text = "Something else.", next = "BACK" },
       },

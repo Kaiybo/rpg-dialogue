@@ -32,6 +32,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_magni = {
+      lines = {
+        { id = "opn_magni_q", text = "Magni? He's a fine dwarf for one who lives in a hole, an' he's never once flown, which tells ye most o' what ye need tae know. Our grandfathers fell out over Grim Batol an' we've been politely annoyed ever since. But ye've stood in his hall, so tell me what ye think o' him." },
+      },
+      choices = {
+        { text = "A good king. Your clans should stand closer together.", next = "opn_magni_r", fx = { affinity = -1, align = { order = 1 }, opinion = { magni = "respect", wildhammer = "kin" } } },
+        { text = "Stuffy, and too fond of his Senate. Your sky suits me better.", next = "opn_magni_r", fx = { affinity = 2, align = { order = -1 }, opinion = { magni = "stuffy", wildhammer = "admire" } } },
+        { text = "He keeps his word to the Alliance. Can you say the same?", next = "opn_magni_r", fx = { affinity = -1, trait = { stern = 1 }, opinion = { magni = "loyal" } } },
+        { text = "He's grieving, Thane. Muradin's loss sits heavy on him.", next = "opn_magni_r", when = { heardLine = "magni.bl_default" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { magni = "respect" } } },
+        { text = "I'll keep out of dwarf feuds, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r = {
+      lines = {
+        { id = "opn_magni_r_respect", when = { opinion = { topic = "magni", stance = "respect" } }, text = "Closer! Ha, ye sound like a Bronzebeard envoy. I'll stand beside 'em in a war, an' I have, but I'll no' stand under their mountain." },
+        { id = "opn_magni_r_stuffy", when = { opinion = { topic = "magni", stance = "stuffy" } }, text = "Ha! That's the truest thing a flatlander's said in my hall this season. Thulfram, a mug for this one, an' put it on the Bronzebeards' tab!" },
+        { id = "opn_magni_r_loyal", when = { opinion = { topic = "magni", stance = "loyal" } }, text = "Careful. The Wildhammer bled for the Alliance in the Second War an' sent Kurdran through the Portal wi' it, so dinnae lecture me on keepin' faith." },
+        { id = "opn_magni_r_default", text = "Wise. Dwarf feuds outlast everyone who starts 'em, an' most who finish 'em too." },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
     xpt_dwarf = {
       big = true,
       lines = { { id = "xpt_dwarf_default", text = "Odds is a strong word for brothers who argue at the same table, though we've been arguing since the War of the Three Hammers and we'll argue long after this one. Ironforge digs and counts and we ride and drink, and each of us thinks the other forgot what it means to be a dwarf." } },
@@ -196,6 +219,7 @@ P:NPC {
       big = true,
       lines = { { id = "a_default", text = "We fought for it an' bled for it, then came home an' decided we'd rather answer tae our own sky. We're friends tae any who prove themselves, so prove yerself." } },
       choices = {
+        { text = "What do you make of Magni and his Bronzebeards?", next = "opn_magni" },
         { text = "That's fair.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
         { text = "The Alliance needs every hammer it can get.", next = "BACK", fx = { affinity = -1, align = { order = 2 } } },
         { text = "You miss the riders who flew off with the Alliance.", tag = "Persuade", next = "kurdran",
@@ -519,6 +543,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_trolls = {
+      lines = {
+        { id = "opn_trolls_q", text = "The riders say so, an' they've buried enough friends tae say it loud. The spirits say different, but the spirits are kinder than most dwarves. The Revantusk on the coast never bled a gryphon on an altar, as far as I know. What d'ye think, then?" },
+      },
+      choices = {
+        { text = "A troll is a troll. They'll all turn on you.", next = "opn_trolls_r", fx = { align = { light = -1 }, opinion = { trolls = "hate" } } },
+        { text = "The Vilebranch are the enemy. Leave the coast tribe be.", next = "opn_trolls_r", fx = { affinity = 1, align = { light = 1 }, opinion = { trolls = "some_good" } } },
+        { text = "They're bleeding the spirits as much as us. I pity them.", next = "opn_trolls_r", fx = { trait = { kind = 1 }, opinion = { trolls = "pity" } } },
+        { text = "The spirits answer trolls too. That's enough for me.", next = "opn_trolls_r", when = { class = "SHAMAN" }, fx = { affinity = 2, opinion = { trolls = "some_good", the_elements = "respect" } } },
+        { text = "I can't say, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r = {
+      lines = {
+        { id = "opn_trolls_r_hate", when = { opinion = { topic = "trolls", stance = "hate" } }, text = "Ye'll be welcome at the bar wi' that, an' I'll no' argue wi' a dwarf's grief. But the spirits dinnae care whose blood it is on the altar, an' I'd rather ye listened tae them than tae the riders." },
+        { id = "opn_trolls_r_some_good", when = { opinion = { topic = "trolls", stance = "some_good" } }, text = "Aye. Dinnae say it too loud near Talonaxe, but aye. The spirits'll be glad o' ye, an' so am I." },
+        { id = "opn_trolls_r_pity", when = { opinion = { topic = "trolls", stance = "pity" } }, text = "Pity's a heavy thing tae carry intae Jintha'Alor, {g:lad|lass}. Carry it anyway, but carry an axe beside it." },
+        { id = "opn_trolls_r_default", text = "Nor can I, most days. My eyes are bad an' my heart's worse at it." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
     xpt_shaman = {
       big = true,
       lines = { { id = "xpt_shaman_default", text = "Some of us never let them go, friend, for the Wildhammer kept to the sky and the storm when Ironforge went down into the stone. It does me good to see a dwarf of any clan call on the wind again, though I'd not say so too loudly in the Great Forge." } },
@@ -666,6 +713,7 @@ P:NPC {
       big = true,
       lines = { { id = "a_default", text = "Blood, an' bindin', an' callin' on things that should stay asleep. The Vilebranch think the spirits answer them, an' somethin' answers, but it isnae the spirits." } },
       choices = {
+        { text = "Are all the trolls here the same, Fraggar?", next = "opn_trolls" },
         { text = "Then the altars must fall.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
         { text = "If something answers them, maybe it's worth hearing out.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
@@ -714,6 +762,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_magni_stuffy", tags = { "news" }, when = { gossip = { topic = "magni", stance = "stuffy" } },
+      text = "Here's the one who told the Thane that Magni's stuffy! He's had me pour ye a mug on the Bronzebeards' tab every night since, an' the Bronzebeards dinnae know they've a tab." },
+    { id = "o_trolls_hate", tags = { "news" }, when = { gossip = { topic = "trolls", stance = "hate" } },
+      text = "Fraggar says ye'd see every troll in these hills gone, Revantusk an' all. The riders cheered it, an' Fraggar went quiet, an' that's never a good sign wi' him." },
     { id = "g_inn", text = "Come in, come in, an' pull up a bench! There's ale, there's stew, an' there's a fire hot enough tae thaw a gryphon." },
     { id = "g_home", when = { homeInn = { "Aerie Peak", "Wildhammer Keep" } }, text = "Home again! Yer bed's warm an' yer mug's full. What more could a body want?" },
     { id = "g_away", when = { away = 14 }, text = "Back after {away} away! Pull up yer bench, for the stew's been on since ye left, near enough, an' it's only got better." },

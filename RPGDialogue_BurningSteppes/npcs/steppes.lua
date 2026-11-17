@@ -27,6 +27,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_blackflight = {
+      lines = {
+        { id = "opb_default", text = "Fear them? Oh, mortal, I would never tell you what to feel, only that it would be wise. But I'm curious what a creature like you makes of the true lords of these mountains." },
+      },
+      choices = {
+        { text = "Your masters are tyrants, and they'll fall like any other.", next = "op_bf_hate", fx = { affinity = -1, align = { honor = 1 }, opinion = { black_dragonflight = "hate" } } },
+        { text = "Power is its own right. I respect it.", next = "op_bf_respect", fx = { affinity = 1, align = { honor = -1 }, opinion = { black_dragonflight = "respect" } } },
+        { text = "The red flight was chained at Grim Batol. No dragon is untouchable.", next = "op_bf_hate", fx = { opinion = { black_dragonflight = "hate", dragons = "pity" } }, when = { race = "Orc" } },
+        { text = "I'll keep my thoughts out of your hearing.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    op_bf_hate = {
+      lines = {
+        { id = "opbh_default", text = "How brave, and how short-lived. Do give my regards to the marshal at the Vigil when you run back to him, and tell him the mountain heard you." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_bf_respect = {
+      lines = {
+        { id = "opbr_default", text = "Now that is an answer worth the walk. Remember it when you are next in Morgan's Vigil, and see how much respect they show you for it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Against me, quite useless, but against my enemies in this land, perhaps not. The Flight has use for a strong arm that does what it is told and asks for payment afterwards, if it lives to ask." } },
@@ -141,6 +164,7 @@ P:NPC {
       lines = { { id = "wo_default", fx = { learn = { "blackrock" } },
         text = "The Blackrock carry what they're given and attack whatever they're pointed at, which is what they're for. They think they serve their own warchief, and we let them think it." } },
       choices = {
+        { text = "And what of your masters? Should I fear them too?", next = "op_blackflight" },
         { text = "You're telling me a great deal.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_ug_danger", when = { gossip = { topic = "ungoro", stance = "dangerous" } }, text = "Spark tells me you agreed Un'Goro's a death trap with nice flowers. Don't encourage him, please, because he already thinks I'm mad for staying." },
     { id = "g_refuge", text = "Welcome, welcome! You made it up the rim in one piece, which puts you ahead of most of my expedition." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece! The crater must like you, and it doesn't like many." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'll confess I looked over the rim more than once, wondering whether the crater had finally had you. Welcome back to the Refuge." },
@@ -32,6 +33,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_explorers = {
+      lines = {
+        { id = "ope_q", text = "The Explorers' League sent word they'd like our notes, once we've finished paying for them in blood. You've seen how they work, I expect, so what do you make of the League?" },
+      },
+      choices = {
+        { text = "They've done more for history than anyone in Azeroth.", next = "op_explorers_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Glory-hunters. Let them pay for their own dead.", next = "op_explorers_r2", fx = { affinity = 2, align = { order = -1 }, opinion = { explorers_league = "distrust" } } },
+        { text = "Dig up what you like, but leave the dead where they lie.", next = "op_explorers_r3", fx = { trait = { cautious = 1 }, opinion = { explorers_league = "wrong" } } },
+        { text = "I'm a dwarf, and the League's the pride of Ironforge.", next = "op_explorers_r4", fx = { affinity = -1, opinion = { explorers_league = "loyal" } }, when = { race = "Dwarf" } },
+        { text = "I've no opinion on them, Williden.", next = "BACK" },
+      },
+    },
+    op_explorers_r1 = {
+      lines = {
+        { id = "op_explorers_r1", text = "They have, and I'd be lying if I said I didn't once want to join them. Maybe they'll let me, after this, if I bring back enough crystals." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r2 = {
+      lines = {
+        { id = "op_explorers_r2", text = "Ha! I'll put it more politely in my letter to Ironforge, but that's about the size of it. Thank you, friend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r3 = {
+      lines = {
+        { id = "op_explorers_r3", text = "That's a fair rule, and I wish more of us kept it. Un'Goro has a way of making you careful about what you dig up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r4 = {
+      lines = {
+        { id = "op_explorers_r4", text = "Of course it is, and I'd never say a word against it in your hearing. Just mind they share the credit when they print the maps." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_williden = {
       big = true,
       lines = { { id = "xpt_williden_default", text = "The crater happened, mostly; the raptors took the base camps and the devilsaurs took whatever the raptors left. A company is the only sensible way to cross Un'Goro, but even a company has to remember that this place was here long before us, and it doesn't care whose map it's on." } },
@@ -160,6 +205,7 @@ P:NPC {
     purpose = {
       lines = { { id = "p_default", text = "Crystals, rare plants, a few answers, and honestly a bit of money, because expeditions don't pay for themselves. Discovery's the best part, but funding's the necessary part." } },
       choices = {
+        { text = "What do you make of the Explorers' League?", next = "op_explorers" },
         { text = "Was it worth it?", next = "purpose_worth" },
         { text = "Something else.", next = "BACK" },
       },
@@ -244,6 +290,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_gn_reclaim", when = { gossip = { topic = "gnomeregan", stance = "reclaim" } }, text = "Karna says you want to take back some place called Gnomeregan! It sounds familiar somehow, and I'd like to help, if you'll let me bring my sword." },
     { id = "g_hello", text = "Hello, traveler! I'm sure I know something important, only I can't remember what. Have we met?" },
     { id = "g_back", when = { metBefore = true }, text = "You! I remember you, and that's a good sign, isn't it? I'm remembering things!" },
     { id = "g_away", when = { away = 14 }, text = "You! You've been gone {away}, haven't you, and I remembered you the whole time, which I think is the longest I've remembered anything. Isn't that wonderful?" },

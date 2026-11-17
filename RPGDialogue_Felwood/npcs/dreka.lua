@@ -32,8 +32,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "There are orcs in Jaedenar who still bend the knee to demons, what's left of the Shadow Council, and once the whole Horde marched to that tune. What do you think of warlocks who make bargains with that filth?" },
+      },
+      choices = {
+        { text = "Any who call on demons are traitors to the Horde.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 }, opinion = { demons = "hate" } } },
+        { text = "Power is power. Use the demon, then break it.", next = "op_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { demons = "useful" } } },
+        { text = "Thrall allows warlocks. I'll trust his judgment.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { demons = "tolerate", warchief = "trust" } } },
+        { text = "I command my demons, Dreka. They don't command me.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "I've no stomach for that talk.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Then you and I would have hanged half the Horde in the old days. I'm glad there are fewer of them left to hang." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That's what the Shadow Council said, every last one of them, right up until the demons wore them like cloaks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Warchief trusts them to fight, and he watches them while they do it. Watch them too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "That's what they all say, warlock. Come back in ten years and say it to me again." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_forsaken_distrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "distrust" } },
+          text = "Trull says you don't trust the Forsaken either. Good; nobody at this post does, though most are too polite to say it near the alchemist." },
         { id = "h_default", key = true, text = "I am Dreka'Sur, and my husband fought his way across Felwood for the honor of our clan. He cheated death more times than I could count, and then a druid asked him for help against a befouled furbolg called Overlord Ror, and neither of them came back." },
         { id = "h_active", when = { questActive = TODO_QUEST("A Husband's Last Battle") },
           text = "Ror is to the south, near the Ashenvale border, where the Deadwood are thickest. Bring me its clawed hand, and I don't care how you get it." },
@@ -47,6 +78,7 @@ P:NPC {
         { id = "h_again2", text = "You're still here. Ask, then." },
       },
       choices = {
+        { text = "What do you think of the orcs in Jaedenar?", next = "op_ask" },
         { text = "Tell me about your husband.", next = "husband" },
         { text = "Who was the druid he went with?", next = "druid" },
         { text = "What do you know about Overlord Ror?", next = "ror" },

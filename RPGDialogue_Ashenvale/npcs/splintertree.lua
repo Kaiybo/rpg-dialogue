@@ -316,7 +316,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "o_ashenvale_wrong", tags = { "news" }, when = { gossip = { topic = "ashenvale", stance = "wrong" } },
-          text = "Senani says you think the logging's wrong. I count the logs. I'd count fewer if you had your way, and I'd still count them." },
+          text = "Senani says you think the logging's wrong. I count the logs, and I'd count fewer if you had your way, but I'd still count them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You lot talk to everything, I hear, so maybe you can talk my wagon wheels out of the mud on the Splintertree road." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you can pray over the next wagon the elves set fire to, because I've run out of things to say to them." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and I suppose you'll want to know where the caravans are headed. Don't light anything near the timber, that's all I ask, because a burning wagon is a great deal of counting." },

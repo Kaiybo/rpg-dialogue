@@ -42,8 +42,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "My kind are hated by the Watchers and scorned by the priestesses, and we hunt the Legion anyway. You have seen me fight, so tell me what you think of those who take a demon's power to kill demons." },
+      },
+      choices = {
+        { text = "You do what must be done. I respect that.", next = "op_r1", fx = { affinity = 1, align = { order = -1 }, opinion = { demon_hunters = "respect" } } },
+        { text = "You've let the enemy inside you. That's how it starts.", next = "op_r2", fx = { align = { order = 1 }, trait = { cautious = 1 }, opinion = { demon_hunters = "distrust" } } },
+        { text = "Illidan's followers belong in the Watchers' chains.", next = "op_r3", fx = { affinity = -2, align = { order = 1 }, trait = { stern = 1 }, opinion = { demon_hunters = "hate" } } },
+        { text = "We both bargain with demons. We're not so different.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful", demon_hunters = "kin" } }, when = { class = "WARLOCK" } },
+        { text = "I'll keep my judgment to myself.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Respect is rare and cheap at the same time. Keep yours until you have seen me hungry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "It started ten thousand years ago, mortal. I am only what was left over when it ended." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Watchers agree with you, and they have had ten thousand years of practice with chains. Leave me to the Legion and leave the chains to them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "I do not bargain, warlock. I take, and I never let what I took speak back to me, so pray that you can say the same." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_talon_caution_act", tags = { "news" }, when = { gossip = { topic = "talon_caution", stance = "act" } },
+          text = "The druid says you favour burning over watching. Then you understand my way better than hers." },
+        { id = "o_burning_legion_beaten", tags = { "news" }, when = { gossip = { topic = "burning_legion", stance = "beaten" } },
+          text = "The orc says you think the Legion is finished. It is never finished; it is only elsewhere." },
         { id = "h_default", key = true,
           text = "Maerion Thaelemaches. They call this place the Cradle of Tranquility, and I suppose it is tranquil, if you ignore what lies under the mountain and what still hides on its slopes. If this is what we call a victory, you would not want to know the full breadth of a defeat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -199,6 +232,7 @@ P:NPC {
         { id = "ya_default", text = "The orc is a good hunter and a better killer, and his grief makes him careless with his own life. I have watched him from the ridge; we want the same thing, and neither of us would say so to the other." },
       },
       choices = {
+        { text = "Does everyone distrust you the way Yashiro does?", next = "op_ask" },
         { text = "You should hunt together.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let him take the risks. You watch.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -288,8 +322,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The kaldorei grew a new tree on Teldrassil without the Aspects' blessing, while Nordrassil stands wounded above us. The mountain has an opinion, and so do I. What is yours?" },
+      },
+      choices = {
+        { text = "Teldrassil gives the kaldorei a home. That matters most.", next = "op_r1", fx = { align = { order = 1 }, opinion = { teldrassil_tree = "home" } } },
+        { text = "They should have healed Nordrassil before planting another.", next = "op_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { teldrassil_tree = "wrong" } } },
+        { text = "Fandral's ambition will cost them, sooner or later.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { fandral = "distrust" } } },
+        { text = "I have no opinion on trees.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "A home grown in pride is still a home, I suppose. The mountain remembers which tree came first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "So say the wild gods, in our way. The Archdruid did not come to ask us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Ambition is a seed like any other. What it grows into depends on who waters it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_demon_hunters_respect", tags = { "news" }, when = { gossip = { topic = "demon_hunters", stance = "respect" } },
+          text = "You told the demon hunter you respect his kind. I allow him in the Cradle, and that is not the same thing as respect." },
         { id = "h_default", key = true,
           text = "I am Jereman, and the Cradle rests under my wings. Below me the slopes are still sick, and above me the great tree is still burned, and here, for a little while, there is quiet. Ask what you came to ask." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "A {g:son|daughter} of the stars, returned to the mountain at last. Your people once came to the Cradle to rest; now they send only those they have cast out." },
@@ -297,6 +357,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Another question. Ravens are patient, little one; ask it." } },
       choices = {
+        { text = "What do the wild gods make of Teldrassil?", next = "op_ask" },
         { text = "What is the Cradle of Tranquility?", next = "cradle" },
         { text = "Why do you allow the demon hunter here?", next = "maerion" },
         { text = "What did you see when the Legion came?", next = "legion" },

@@ -167,8 +167,8 @@ P:NPC {
       lines = {
         { id = "o_orcs_pity", tags = { "news" }, when = { opinion = { topic = "orcs", stance = "pity" } },
           text = "I hear you've a soft word for the orcs, {class}. Keep it soft, because my Sentinels have hard ears today." },
-        { id = "o_ashenvale_war", tags = { "news" }, when = { opinion = { topic = "ashenvale", stance = "war" } },
-          text = "Word came down from Darnassus that you want every Warsong camp driven out. Good, because I've a list, and it starts at the lumber camp." },
+        { id = "o_ashenvale_war", tags = { "news" }, when = { faction = "Alliance", opinion = { topic = "ashenvale", stance = "war" } },
+          text = "Word reached me you want every Warsong camp driven out. Good, because I've a list, and it starts at the lumber camp." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "My scouts on the Zoram Strand say you went into Blackfathom Deeps and came out past whatever waited at the bottom. Good, because I have no one to spare for that water, and it has been gnawing at Ashenvale's coast for years." },
         { id = "h_default", key = true,
           text = "I am Raene Wolfrunner, and I command the scouts of Astranaar. The furbolgs are going mad to the north and the Horde is cutting the forest to the east, and I would rather face them all alone than watch another tree fall." },
@@ -994,8 +994,8 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "o_forsaken_pity", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "pity" } },
-          text = "Kayneth sent word that you pity the Forsaken. He means it as a warning, I think, though with Kayneth it's hard to tell." },
+        { id = "o_forsaken_pity", tags = { "news" }, when = { opinion = { topic = "forsaken", stance = "pity" } },
+          text = "Word is you pity the Forsaken. Kayneth at Forest Song would call that a warning sign, though with Kayneth everything is a warning sign." },
         { id = "h_default", text = "I'm Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
         { id = "h_relara", when = { heardLine = "pelturas.h_default" },
           text = "So Pelturas told you about Relara. I send broth up for her every night, and she doesn't eat it, but he does, and someone has to look after him." },

@@ -29,6 +29,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "opd_default", text = "Everyone, which is how I know it works. But you've been watching my circles with a particular look, so I'll ask: do you fear what I call up, or do you envy it?" },
+      },
+      choices = {
+        { text = "I fear it, and you should too.", next = "op_dem_fear", fx = { align = { light = 1 }, opinion = { demons = "fear" } } },
+        { text = "I envy it. Power is power, however it's fed.", next = "op_dem_envy", fx = { affinity = 1, align = { light = -1 }, opinion = { demons = "useful" } } },
+        { text = "Neither. I've an imp of my own, and it's better behaved.", next = "op_dem_envy", fx = { trait = { witty = 1 }, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "I'm only here for the altar, Mor'zul.", next = "BACK" },
+      },
+    },
+    op_dem_fear = {
+      lines = {
+        { id = "opdf_default", text = "Fear is the beginning of wisdom and the end of most warlocks, so I'll take it as a compliment. Do watch the circle's edge on your way out." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dem_envy = {
+      lines = {
+        { id = "opde_default", text = "Envy! How refreshing, after all the trembling. Come back when you've stopped pretending you'd never try it yourself, and we'll talk about the price." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -63,6 +86,7 @@ P:NPC {
         { id = "al_default", text = "Where the old Horde's warlocks worked their darkest rites, in the days of the Shadow Council, and the stones still remember it. The air here is thin between worlds, which makes it the finest workroom in the Steppes, if you don't mind the dragons overhead." },
       },
       choices = {
+        { text = "Does what you summon frighten anyone here?", next = "op_demons" },
         { text = "The Shadow Council worked here?", next = "altar_council" },
         { text = "Something else.", next = "BACK" },
       },

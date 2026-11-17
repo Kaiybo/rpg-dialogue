@@ -37,8 +37,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Precious little, and most of it out of date by the time a druid remembers to tell me. You've come from the human lands more recently than I have, I'd wager, so what do you make of Stormwind these days, with the King gone?" },
+      },
+      choices = {
+        { text = "Bolvar holds it together. He's a good man.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { bolvar = "trust" } } },
+        { text = "Something's rotten at court. Lady Prestor sits too close.", next = "op_r2", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "The nobles let Westfall starve and cheated the stonemasons.", next = "op_r3", fx = { align = { honor = -1 }, opinion = { stormwind = "distrust", defias = "pity" } } },
+        { text = "The King's gone, and nobody's looking hard enough.", next = "op_r4", fx = { trait = { brave = 1 }, opinion = { varian = "missing" } } },
+        { text = "I've been away too long to say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Fordragon? Good. I read his name in the old war rolls, and I hoped he'd grow into the job." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Prestor? The name means nothing to me, which is either reassuring or very worrying, given how much I read." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Ah, the old trouble. Cities always forget who built them, and the builders never forget being forgotten." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "A king who walks out of the world usually walks into a story. I'll keep an eye on the shelves for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_twilights_hammer_dangerous", tags = { "news" }, when = { gossip = { topic = "twilights_hammer", stance = "dangerous" } },
+          text = "Rabine says you think the Twilight's Hammer answers to someone. Good instinct; I've three shelves on old cults, and not one of them ends well." },
         { id = "h_default", key = true, text = "If you want something the Cenarion Circle has archived, then I'm the one to talk to, though you'll need to know what you're looking for before I can help you find it. See how that works? Brilliant!" },
         { id = "h_layo", tags = { "news" }, when = { questActive = TODO_QUEST("Umber, Archivist") },
           text = "Well, great monkey toads, what have you got there? It's sort of book-shaped, under all that crust. Layo sent you all the way from Silithus? I've only heard hushed rumblings about what's going on out there, and I don't care for anything bug-like, so I'll stay here with the books." },
@@ -54,6 +85,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, go on. I'm listening, mostly." },
       },
       choices = {
+        { text = "How much news reaches you from the human kingdoms?", next = "op_ask" },
         { text = "How did a human end up here?", next = "human" },
         { text = "What do you keep in the archive?", next = "archive" },
         { text = "What was in the chitin?", next = "journal", when = { questDone = TODO_QUEST("Under the Chitin Was...") } },
@@ -325,14 +357,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Faustron and I share a field and a water trough, and we have never come to blows, which not everyone outside the glade would believe. What do you make of the Horde?" },
+      },
+      choices = {
+        { text = "A threat. Moonglade's truce is the exception.", next = "op_r1", fx = { align = { honor = -1 }, trait = { cautious = 1 }, opinion = { horde = "enemy" } } },
+        { text = "People like us, mostly. Their leaders want peace.", next = "op_r2", fx = { affinity = 1, align = { honor = 1 }, opinion = { horde = "respect" } } },
+        { text = "I am the Horde, and I'm standing politely in your field.", next = "op_r3", fx = { affinity = 1, trait = { witty = 1 }, opinion = { horde = "proud" } }, when = { faction = "Horde" } },
+        { text = "I'd rather not say here.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "It is an exception, and I treasure it all the more for that. I've seen what the threat looks like in Ashenvale too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Thrall wants it, I think. I'm less sure about the ones he sends to Ashenvale." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "So you are, and I am standing politely in mine. It's a good start." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_night_elves_distrust", tags = { "news" }, when = { gossip = { topic = "night_elves", stance = "distrust" } },
+          text = "Faustron tells me you've no love for my people. My birds will carry you all the same, because they have no politics." },
         { id = "h_default", key = true, text = "I fly the Alliance out of Moonglade, to the north and south and back to Rut'theran. The druids have their own birds, but mine will carry anyone who asks politely." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "You could fly with Silva, you know, on the Circle's own birds. But you're welcome to mine, and they'll be pleased you chose them." },
       },
       again = { { id = "h_again", text = "Anything else, before you fly?" } },
       choices = {
+        { text = "What do you make of the Horde, sharing this field?", next = "op_ask" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why keep your birds out here, away from the village?", next = "edge" },
         { text = "Do Horde and Alliance really share this place?", next = "peace" },
@@ -403,14 +462,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "I fly my wyverns beside elf hippogryphs here and nobody draws steel, and out in Ashenvale those same elves shoot at my riders. Tell me, what do you think of the kaldorei?" },
+      },
+      choices = {
+        { text = "Proud tree-huggers. They'd see the Horde starve.", next = "op_r1", fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Brave folk defending their home. I respect that.", next = "op_r2", fx = { affinity = 1, align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "We are not your enemy, flight master. The Warsong are.", next = "op_r3", fx = { trait = { brave = 1 }, opinion = { night_elves = "proud", warsong = "hate" } }, when = { race = "NightElf" } },
+        { text = "I've no quarrel to air here.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Some of them would, I'll grant you. The ones here feed my wyverns when I'm late, though, so I can't hate the lot of them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Respect's the right word. The Warchief said the same of them after Hyjal, and he was there to see it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Maybe so, elf. I don't cut trees, I fly wyverns, and the sky's wide enough for both of us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_horde_enemy", tags = { "news" }, when = { gossip = { topic = "horde", stance = "enemy" } },
+          text = "Sindrayl says you call us a threat. I'll fly you anyway, friend, since gold is the same colour on both sides of a war." },
         { id = "h_default", key = true, text = "I fly the Horde out of Moonglade, and I keep my wind riders on this side of the glade where they won't bother the night elves. It's a strange post for an orc, but the Keeper's peace holds, and that's good enough for me." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid can fly with Bunthen on the Circle's birds, but my wind riders will carry you just the same, and they're faster, whatever he tells you." },
       },
       again = { { id = "h_again", text = "Anything else, before you go?" } },
       choices = {
+        { text = "How do you get on with the kaldorei here?", next = "op_ask" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "How does an orc fare in Moonglade?", next = "orc" },
         { text = "Do you trust the Keeper's truce?", next = "truce" },

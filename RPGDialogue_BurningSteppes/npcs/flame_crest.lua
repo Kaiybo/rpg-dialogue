@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_blackrock", when = { gossip = { topic = "blackrock_clan", stance = "redeemable" } }, text = "Vahgruk says ye think some o' the Blackrock could come home. Ye've no' seen them close, have ye, for I have, an' I ran." },
     { id = "g_default", text = "What'll ye be wantin', then? *hic* Pardon me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye must like my stories, or my ale, and I'll take either one as a compliment." },
     { id = "g_found", when = { questDone = TODO_QUEST("Marshal Windsor") }, text = "Ye found him, didn't ye? I told 'em he weren't dead, and nobody listens to old John." },
@@ -1089,6 +1090,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_quel", when = { gossip = { topic = "high_elves", stance = "distrust" } }, text = "Mathredis says you called his hunger a sickness, right to his face! He's been stalking around the camp ever since, pal, and I've had to charge double for my nerves." },
     { id = "g_default", text = "Welcome, welcome to Kibler's Exotic Pets, my friend! How can you help me today, and how much can you help me?" },
     { id = "g_back", when = { metBefore = true }, text = "My favourite supplier's back! Opus, say hello, and say it nicely, because this one pays." },
     { id = "g_away", when = { away = 14 }, text = "My favourite supplier, back after {away} away! Business has been terrible without you, buddy, so let's fix that before Opus eats the profits." },
@@ -1319,6 +1321,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_quel = {
+      lines = {
+        { id = "opq_default", text = "Pity, mostly, and distaste, from people who never drank from the Sunwell and never lost it. You have an opinion of us written on your face, {race}, so say it aloud." },
+      },
+      choices = {
+        { text = "Your people deserved better than what Arthas gave them.", next = "op_quel_pity", fx = { align = { light = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "Your hunger is a sickness. I'll keep my distance.", next = "op_quel_distrust", fx = { align = { light = -1 }, opinion = { high_elves = "distrust" } } },
+        { text = "Magic is no sin. Starving for it isn't your fault.", next = "op_quel_pity", fx = { affinity = 1, opinion = { high_elves = "pity", arcane_magic = "useful" } }, when = { class = "MAGE" } },
+        { text = "I've no opinion worth your time.", next = "BACK" },
+      },
+    },
+    op_quel_pity = {
+      lines = {
+        { id = "opqp_default", text = "Deserved is such a soft word from someone with a full belly. Keep your pity, {race}, and bring me an arcanum's spill instead; it would do more good." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_quel_distrust = {
+      lines = {
+        { id = "opqd_default", text = "Then keep it, and keep your purse close, and see how long your own virtues last when the thing you live on is torn out of the world." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very little, I'm afraid, though my people's rangers held the forests of Quel'Thalas for thousands of years with nothing more than bow and blade. They held right up until the Scourge came, which I suppose makes my point for me." } },
@@ -1442,6 +1467,7 @@ P:NPC {
     quelthalas = {
       lines = { { id = "q_default", text = "The Scourge came through it like a fire through dry grass, and what it didn't kill, it scattered. I will not describe it to someone who'll only nod and say how sad." } },
       choices = {
+        { text = "What do others make of your people now?", next = "op_quel" },
         { text = "Then I won't say it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1517,6 +1543,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_blackrock = {
+      lines = {
+        { id = "opb_default", text = "They were, and Blackhand led us all once, before his son went to the mountain and took the dragon's coin. Some say the Blackrock can be brought home when Rend falls, and some say they should all be put down. What do you say?" },
+      },
+      choices = {
+        { text = "Some of them could come home, if Rend fell.", next = "op_br_home", fx = { affinity = 1, align = { light = 1 }, opinion = { blackrock_clan = "redeemable" } } },
+        { text = "They chose Rend. Put every one of them down.", next = "op_br_down", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { blackrock_clan = "hate" } } },
+        { text = "My clan or theirs, we all drank the blood once.", next = "op_br_home", fx = { affinity = 1, opinion = { blackrock_clan = "pity" } }, when = { race = "Orc" } },
+        { text = "I'll decide when I'm standing in the Spire.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    op_br_home = {
+      lines = {
+        { id = "opbh_default", text = "The Warchief thinks so, or he'd not have sent an army to Kargath instead of an executioner. I hope you're both right, though I've seen what comes down off that mountain." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_br_down = {
+      lines = {
+        { id = "opbd_default", text = "Hard words, and I've said them myself after a bad flight. My riders will carry you to Kargath either way, and the Blackrock will find out what you think of them soon enough." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The Horde, if you'll fight for it, and the Undercity, if you won't. I've flown the dead and the living both, and you're the first who's asked me that, so maybe you're still deciding." } },
@@ -1653,6 +1702,7 @@ P:NPC {
           text = "They're no friends of the Horde, if that's what you're asking. Rend Blackhand would see Thrall dead, and you too, so we have that much in common." },
       },
       choices = {
+        { text = "The Blackrock were orcs of the Horde once. What now?", next = "op_blackrock" },
         { text = "Then he'll fall.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } }, when = { faction = "Horde" } },
         { text = "Something else.", next = "BACK" },
       },

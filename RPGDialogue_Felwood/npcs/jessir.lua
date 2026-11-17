@@ -35,6 +35,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Arko'narin went into Shadow Hold because the Sentinels sent her, and nobody came after her but me. You've met the High Priestess's people. Do you think Darnassus cares what happens to its soldiers this far out?" },
+      },
+      choices = {
+        { text = "Tyrande cares. She's just stretched too thin.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { tyrande = "trust" } } },
+        { text = "No. They spend soldiers like copper.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { tyrande = "distrust" } } },
+        { text = "It doesn't matter. We go after them anyway.", next = "op_r3", fx = { affinity = 2, trait = { brave = 1 }, opinion = { sentinels = "loyal" } } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "I want to believe that, and some nights I do." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That's harsh, and I've said it myself after a bad week. Don't say it in front of Arko'narin, though, because she'd still die for the High Priestess." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Yes. That's the only answer that's ever brought anyone out of Shadow Hold." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jessir Moonbow, and I came from Darnassus to meet two friends here, Arko'narin and a paladin named Trey Lightforge. They went into Jaedenar to see whether the Shadow Council has really returned, and they should have been back days ago." },
@@ -56,6 +80,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Della and I aren't going anywhere." },
       },
       choices = {
+        { text = "Does Darnassus care what happens to its soldiers out here?", next = "op_ask" },
         { text = "Tell me about your friends.", next = "friends" },
         { text = "What is the Shadow Council?", next = "council" },
         { text = "What do you know about Jaedenar?", next = "jaedenar" },

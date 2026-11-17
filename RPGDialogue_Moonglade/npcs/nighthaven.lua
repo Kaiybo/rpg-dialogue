@@ -41,6 +41,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "In this glade, orc and kaldorei sleep under the same moon and draw no blade, and outside it they kill one another over trees. You walk in both worlds, mortal. Do you think the peace of Moonglade could ever spread beyond it?" },
+      },
+      choices = {
+        { text = "Yes, if leaders like Thrall and Tyrande met here.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { peace = "peace" } } },
+        { text = "No. The war is older than any truce.", next = "op_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { peace = "war" } } },
+        { text = "It holds because the Circle enforces it, nothing more.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { cenarion_circle = "respect" } } },
+        { text = "The balance asks for war and peace both, Keeper.", next = "op_r4", fx = { trait = { curious = 1 }, opinion = { druidism = "balance" } }, when = { class = "DRUID" } },
+        { text = "I don't know, Keeper.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "My father would have liked to see that meeting. I would like to see it too, though I have learned to want things patiently." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Older than you, mortal, though not older than me. I have seen wars end that everyone swore would never end." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "It holds because those who come here want it to hold. The Circle only reminds them, gently at first, and then less gently." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Well said, young druid, and dangerously said. Be sure the balance you speak of is the forest's, and not merely your own convenience." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_remulos = {
       big = true,
       lines = { { id = "xpt_remulos_default", text = "Because a company of adventurers moves through the world like a storm, and a druid among them is the one who remembers that the world has to recover afterward. I have seen many heroes leave scorched ground behind their victories, and it is usually the druids who come back to replant it." } },
@@ -171,6 +200,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_ashenvale_wrong", tags = { "news" }, when = { opinion = { topic = "ashenvale", stance = "wrong" } },
+          text = "I am told you think the felling of Ashenvale is wrong. Many say so in this glade, and fewer say it where the axes can hear." },
+        { id = "o_cenarion_circle_distrust", tags = { "news" }, when = { opinion = { topic = "cenarion_circle", stance = "distrust" } },
+          text = "There are those who call the Circle's neutrality cowardice, and I am told you are among them. Sit, then, and I will tell you what our neutrality has cost us." },
         { id = "h_pt_remulos", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "{companion} wears the Circle's teaching lightly, but I can see it, and I'm glad you travel with a druid. Moonglade is quieter when a sister or brother of the Circle walks in it." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "Something in the Dream eased tonight, little one, and I think it was your doing. You have walked to the bottom of the Sunken Temple, where Eranikus's green children keep their long and unhappy watch." },
@@ -211,6 +244,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, little one. The trees are listening too, so ask kindly." },
       },
       choices = {
+        { text = "Could the peace of this glade ever spread beyond it?", next = "op_ask" },
         { text = "What is the Cenarion Circle?", next = "circle" },
         { text = "What troubles you, Keeper?", next = "troubles" },
         { text = "You are Cenarius's son. Tell me of your family.", next = "family" },
@@ -481,6 +515,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Their cultists turn up in Blackfathom and in Silithus with the same strange words on their lips, and the Circle is divided on how much to fear them. How do you see the Twilight's Hammer?" },
+      },
+      choices = {
+        { text = "Madmen in robes. A few blades will end them.", next = "op_r1", fx = { align = { light = -1 }, trait = { brave = 1 }, opinion = { twilights_hammer = "contempt" } } },
+        { text = "They're dangerous. Someone is giving them their orders.", next = "op_r2", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { twilights_hammer = "dangerous" } } },
+        { text = "Every cult is a cry for help. Talk to them.", next = "op_r3", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { twilights_hammer = "pity" } } },
+        { text = "I'll leave that to the Circle.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "I hope so. I've seen madmen end a great many blades, though, when they had enough of them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That is my fear too, and I don't like whoever I imagine at the end of that chain. Tell Umber; he'll find you a book that frightens you properly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "You are kind, {class}, and I hope kindness keeps you alive in Blackfathom, because the cultists there are not kind at all." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_rabine = {
       big = true,
       lines = { { id = "xpt_rabine_default", text = "It is, because the Keeper wills it and the Circle keeps it, and nobody who has broken that peace has been welcomed back. I've watched sworn enemies share the same bridge here without a word between them, and it is the most hopeful thing I know." } },
@@ -594,6 +652,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
+          text = "The Keeper says you don't believe the glade's peace could ever travel. A little advice from the den mother: keep that thought outside the village." },
         { id = "h_pt_rabine", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, all at once, in the Keeper's own glade. Keep your voices low and your weapons sheathed, because Moonglade has been at peace since long before any of your kingdoms were born." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
@@ -704,6 +764,7 @@ P:NPC {
         { id = "si_default", text = "Silithus, west of Un'Goro, where our people fought a war long ago against something alien and terrible. It was sealed away, and now we suspect someone is trying to stir it." },
       },
       choices = {
+        { text = "How much should the Circle fear the Twilight's Hammer?", next = "op_ask" },
         { text = "Who watches it for you?", next = "layo" },
         { text = "Something else.", next = "BACK" },
       },

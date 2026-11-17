@@ -34,6 +34,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_wildhammer = {
+      lines = {
+        { id = "opn_wildhammer_q", text = "Otho says we bleed them until they leave us be, and Markhor says we hunt the Vilebranch and let the dwarves come to us. My mate sits in a Vilebranch cage, mon, and I be tired of choosin' which enemy to hate first. Tell me what you would do in my place." },
+      },
+      choices = {
+        { text = "Strike Aerie Peak. They hunt you from the sky.", next = "opn_wildhammer_r", fx = { affinity = 1, align = { honor = -1 }, opinion = { wildhammer = "war" } } },
+        { text = "Free your mate first. The Vilebranch come before any grudge.", next = "opn_wildhammer_r", fx = { affinity = 1, align = { honor = 1 }, opinion = { wildhammer = "wait" } } },
+        { text = "Talk to the dwarves. Show them you aren't Vilebranch.", next = "opn_wildhammer_r", fx = { affinity = -1, trait = { kind = 1 }, opinion = { wildhammer = "parley" } } },
+        { text = "The Darkspear have dwarf enemies too. Stand with the Horde first.", next = "opn_wildhammer_r", when = { race = "Troll" }, fx = { opinion = { wildhammer = "war", darkspear = "kin" } } },
+        { text = "That's your choice, Primal.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r = {
+      lines = {
+        { id = "opn_wildhammer_r_war", when = { opinion = { topic = "wildhammer", stance = "war" } }, text = "Otho will love you for that, and Otho loves nobody. One day, mon, one day, but not while Hexx still breathes." },
+        { id = "opn_wildhammer_r_wait", when = { opinion = { topic = "wildhammer", stance = "wait" } }, text = "My mate first. Yes, that be what Malkhor would say, and he was always right about the order of things." },
+        { id = "opn_wildhammer_r_parley", when = { opinion = { topic = "wildhammer", stance = "parley" } }, text = "Talk? With dwarves who kill my hunters from gryphons and don't ask their tribe first? You be a strange one. Maybe a brave one too, but mostly strange." },
+        { id = "opn_wildhammer_r_default", text = "It is, and it sits on me heavy. Go, and come back with Vilebranch blood on you." },
+      },
+      choices = {
+        { text = "Something else, Primal.", next = "BACK" },
+      },
+    },
     xpt_troll = {
       big = true,
       lines = { { id = "xpt_troll_default", text = "The Darkspear be jungle trolls and we be forest trolls, so we argue about everything from the loa to the proper way to cook a raptor. But they kept faith with Thrall and so do we, and that makes us closer kin than the Vilebranch who share our blood." } },
@@ -248,6 +271,7 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "The dwarves at Aerie Peak hate all trolls the same, Revantusk or Vilebranch, and their gryphons kill our hunters in the hills. Otho wants to send them messages in blood; Markhor wants their birds. I want my mate back first, and then we see." } },
       choices = {
+        { text = "What should the Revantusk do about the dwarves?", next = "opn_wildhammer" },
         { text = "The Wildhammer fight the Vilebranch too. Use that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Enemies of the Horde are enemies. Strike them now.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -556,6 +580,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_elves = {
+      lines = {
+        { id = "opn_elves_q", text = "The elves of Quel'Thalas took the Amani forests and called them theirs, and now the dead have taken Quel'Thalas, so the loa got a sense of humour. The Highvale elves still sit at Quel'Danil, though, keepin' trolls in cages. What you think of the long-ears, mon?" },
+      },
+      choices = {
+        { text = "They stole troll land. They got what was coming.", next = "opn_elves_r", fx = { affinity = 2, align = { light = -1 }, opinion = { high_elves = "hate" } } },
+        { text = "Nobody deserves what the Scourge did to them.", next = "opn_elves_r", fx = { affinity = -1, align = { light = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "Proud and dangerous. I'd keep my distance.", next = "opn_elves_r", fx = { trait = { careful = 1 }, opinion = { high_elves = "distrust" } } },
+        { text = "I was one of them, once. Choose your words.", next = "opn_elves_r", when = { race = "Scourge", origin = "forsaken_dalaran_apprentice" }, fx = { affinity = -1, opinion = { high_elves = "kin" } } },
+        { text = "I'd rather hear about the loa.", next = "BACK" },
+      },
+    },
+    opn_elves_r = {
+      lines = {
+        { id = "opn_elves_r_hate", when = { opinion = { topic = "high_elves", stance = "hate" } }, text = "Heh. You talk like Zul'jin, mon, or like Markhor after three cups. The loa like you a little more today." },
+        { id = "opn_elves_r_pity", when = { opinion = { topic = "high_elves", stance = "pity" } }, text = "Pity for the long-ears? Then you never met one with a bow. Still, the dead don't ask who deserves it, and that be true for trolls too." },
+        { id = "opn_elves_r_distrust", when = { opinion = { topic = "high_elves", stance = "distrust" } }, text = "Distance be wise, mon. Their arrows reach further than their manners." },
+        { id = "opn_elves_r_kin", when = { opinion = { topic = "high_elves", stance = "kin" } }, text = "You were, eh? Then you know the forest better than you want to. I choose my words, and you choose your powders, and we both get along." },
+        { id = "opn_elves_r_default", text = "Loa be easier to talk about, mon. They at least answer." },
+      },
+      choices = {
+        { text = "Something else, Mystic.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Good, because his priests were buyin' up every scrap of mojo from here to Booty Bay, and I sold them nothin', though they asked twice. Zul'jin would have spat on a jungle god that made slaves of its own people, and the Amani always had more sense than to bleed for somethin' that hungry." } },
@@ -702,7 +750,10 @@ P:NPC {
     },
     zuljin_back = {
       lines = { { id = "zb_default", text = "I believe it, and Markhor believes it, and half the village burns a candle for it. Believin' costs nothin', mon, and it keeps a small tribe standin' straight." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "And the elves he fought? What of them?", next = "opn_elves" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     goods = {
       lines = { { id = "go_default", text = "Powders for the priests and the shaman, candles for the ones who call on darker things, and herbs I won't name to a stranger. Everything you need, and a few things you shouldn't." } },
@@ -1318,6 +1369,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_wildhammer_war", tags = { "news" }, when = { gossip = { topic = "wildhammer", stance = "war" } },
+      text = "The Primal says you told her to hit Aerie Peak, mon! Finally, somebody with sense, and Otho don't say that often, so enjoy it." },
+    { id = "o_wildhammer_parley", tags = { "news" }, when = { gossip = { topic = "wildhammer", stance = "parley" } },
+      text = "Talk to the dwarves, you said to the Primal? Otho heard. Otho will talk to them too, mon, right after the arrow." },
     { id = "g_default", text = "You hungry, mon, or you lookin' for trouble? I sell for the first and I got plans for the second." },
     { id = "g_back", when = { metBefore = true }, text = "There you be, mon. You ready to make some dwarves very unhappy?" },
     { id = "g_away", when = { away = 14 }, text = "There you be, mon, after {away} away. I kept the good fish on the side, and my plans for the dwarves be ready too." },
@@ -1331,6 +1386,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_revenge = {
+      lines = {
+        { id = "opn_revenge_q", text = "More gryphons, less gryphons, they come either way, mon. Otho wants them to come scared. The Primal got her mind on her mate in that cage, so Otho asks you plain: do the Revantusk hit back or not?" },
+      },
+      choices = {
+        { text = "Hit back. A tribe that won't bleed its enemies dies.", next = "opn_revenge_r", fx = { affinity = 2, align = { light = -1 }, opinion = { hl_revenge = "strike" } } },
+        { text = "Not yet. Your tribe is too small for two wars.", next = "opn_revenge_r", fx = { trait = { practical = 1 }, opinion = { hl_revenge = "wait" } } },
+        { text = "Revenge feeds itself. Break the circle, Otho.", next = "opn_revenge_r", fx = { affinity = -2, align = { light = 1 }, opinion = { hl_revenge = "stop" } } },
+        { text = "Never mind.", next = "BACK" },
+      },
+    },
+    opn_revenge_r = {
+      lines = {
+        { id = "opn_revenge_r_strike", when = { opinion = { topic = "hl_revenge", stance = "strike" } }, text = "Now that be talk Otho understands. Come back when you ready, and we start with the elves." },
+        { id = "opn_revenge_r_wait", when = { opinion = { topic = "hl_revenge", stance = "wait" } }, text = "Too small. Otho hears that every day, mon, and every day the tribe stays small, 'cause nobody let it grow teeth." },
+        { id = "opn_revenge_r_stop", when = { opinion = { topic = "hl_revenge", stance = "stop" } }, text = "Circle? You sound like the Mystic. Otho don't break circles; Otho breaks gryphons." },
+        { id = "opn_revenge_r_default", text = "Then go away and think, mon, and think faster." },
+      },
+      choices = {
+        { text = "Something else, Otho.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Frighten them? Mon, they'd fall off their gryphons! They think the Light be on their side by right, and a Forsaken carryin' it would make them wonder whose side it be on, and that be the best message Otho could ever send." } },
@@ -1463,7 +1540,10 @@ P:NPC {
     },
     dwarves_elves = {
       lines = { { id = "de_default", text = "The Highvale elves at Quel'Danil, old friends of the dwarves. Elves and trolls been killin' each other since before the dwarves crawled out of their mountains, so it be no surprise to me who they side with." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Hitting back only brings more gryphons, Otho.", next = "opn_revenge" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     message = {
       big = true,
