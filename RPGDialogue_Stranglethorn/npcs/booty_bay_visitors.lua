@@ -1,0 +1,690 @@
+-- Booty Bay visitors and newcomers: the Zandalarian Emissary (Zandalar Tribe, patch 1.7),
+-- Dudd Fizzlescroll (scrolls, maps and "treasure maps") and Rix Xizzix (Lost and Found, Pix's brother).
+-- Voice: bibles/booty_bay_visitors.md
+local P = RPGDialogueAPI:Pack("rpgd.stranglethorn")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+------------------------------------------------------------------------
+-- Zandalarian Emissary: an elder tribe's voice in a goblin port
+------------------------------------------------------------------------
+P:NPC {
+  key = "zandalari_emissary", id = 15076, name = "Zandalarian Emissary",
+  bible = "bibles/booty_bay_visitors.md", role = "citizen", tier = "quest",
+  communities = { "booty_bay" }, temper = { "proud", "calm" }, values = { "proud", "devout" },
+  notices = { "race", "class" },
+
+  impression = {
+    first = "The Zandalarian Emissary stands in Booty Bay like a temple stands in a marketplace, tall and patient and not quite part of it. He spoke of Hakkar the way other people speak of a coming storm.",
+    third = "{name} met the Zandalarian Emissary in Booty Bay, an envoy of the Zandalar Tribe calling for heroes to march on Zul'Gurub.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Come closer, stranger. De Zandalar do not shout across a crowded dock." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, and de loa have not taken you yet. Dat is a good sign, though I would not lean on it." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Zul'Gurub has not slept one night of it. Tell me you have been sharpening your blade, at least." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "You march with de Warchief, I see. Good, for his people have learned dat a blood god is no friend to anyone." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "A child of de northern kingdoms comes to speak with a troll, and freely. De world has changed more than my elders believed." },
+  },
+
+  notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" }, place = "before",
+      text = "Ah, a troll, and one who wears de Horde's colours. Stand straight, young one, for you speak with your eldest kin." },
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "You carry de smell of prayer about you. Whatever god you kneel to, you know dat gods listen, and dat is more than most in dis port understand." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "De spirits walk close beside you, shaman. They are restless near dis coast, because they can feel what stirs in de jungle." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "We, de Zandalarian trolls, sailed here from our distant islands, because we cannot ignore de danger dat now faces your world. Our leader Molthor has made camp on Yojamba Isle, and he gathers brave heroes to go into de old city of Zul'Gurub." },
+        { id = "h_troll", when = { race = "Troll" },
+          text = "A troll stands before me in a goblin harbour, wearing orcish leather and speaking orcish words. Still, de blood remembers what de tongue forgets, so listen well, cousin, for Zul'Gurub calls to you most of all." },
+        { id = "h_rep", when = { reputation = { faction = "Zandalar Tribe", min = "honored" } },
+          text = "Molthor speaks your name on Yojamba Isle, and my people do not speak a stranger's name lightly. Sit with me a while, friend of de Zandalar." },
+        { id = "h_heart", when = { questDone = TODO_QUEST("The Heart of Hakkar") },
+          text = "You are one of those who brought down de Soulflayer and carried his heart to Molthor. When his cry went up, every Zandalari on dis coast raised de Spirit of Zandalar over de land, and I raised it with dem." },
+        { id = "h_low", when = { maxLevel = 50 },
+          text = "You are young yet for Zul'Gurub, stranger, and de priests there would make a small meal of you. Still, listen, for one day you will be ready, and Molthor will still be waiting." },
+      },
+      again = {
+        { id = "h_again", text = "Ask, then. My people have kept de histories since before your kingdoms had names." },
+        { id = "h_again2", text = "What more? De tide is slow tonight, and so am I." },
+        { id = "h_again3", text = "Speak. I have crossed an ocean to be listened to, so I will listen in return." },
+      },
+      choices = {
+        { text = "Who are the Zandalar, exactly?", next = "zandalar" },
+        { text = "What threat has brought you all this way?", next = "hakkar" },
+        { text = "Tell me about Molthor and Yojamba Isle.", next = "molthor" },
+        { text = "What waits inside Zul'Gurub?", next = "zg" },
+        { text = "Why stand here, among goblins and pirates?", next = "bay" },
+        { text = "You call me cousin. The Darkspear owe you nothing.", next = "k_dark", when = { race = "Troll" } },
+        { text = "Why would a troll ask the Alliance for help?", next = "k_alliance", when = { faction = "Alliance" } },
+        { text = "Is Hakkar a loa, then, like the others?", next = "x_loa", when = { class = { "PRIEST", "SHAMAN" } } },
+        { text = "May your elders guide you well.", next = "END" },
+      },
+    },
+
+    zandalar = {
+      lines = {
+        { id = "zd_default", text = "We are de first tribe, de one all de others came from, long before Zul'Aman or Zul'Gurub raised a single stone. Our islands lie far to de south and west, and there our priests have kept de oldest histories of de troll race since de world was young." },
+        { id = "zd_horde", when = { faction = "Horde" }, text = "We are de first tribe, from which every other troll is sprung, Darkspear and Gurubashi and Amani alike. Our priests have kept de histories of our race on our islands far to de south, and we rarely leave them." },
+      },
+      choices = {
+        { text = "Why leave your islands now, after so long?", next = "zandalar_leave" },
+        { text = "First tribe? The other trolls must resent that.", next = "zandalar_rank" },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
+    zandalar_leave = {
+      lines = { { id = "zl_default", text = "Because a priest of de old ways reads de signs, and de signs have turned red. When de Gurubashi priests called Hakkar back into de world, every loa who still loves de trolls cried out, and de Zandalar heard them across de whole sea." } },
+      choices = {
+        { text = "Then tell me about this Hakkar.", next = "hakkar" },
+        { text = "Something else, Emissary.", next = "BACK" },
+      },
+    },
+    zandalar_rank = {
+      big = true,
+      lines = { { id = "zr_default", text = "Some do, and dat is dere foolishness to carry. A child may resent his grandfather, but it is still de grandfather who remembers where de family buried its dead, and which gods it must never wake." } },
+      choices = {
+        { text = "Then the elders should lead, and the younger tribes should listen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No tribe owes another obedience, however old it is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do the younger tribes ever listen?", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    hakkar = {
+      lines = {
+        { id = "hk_default", text = "Hakkar de Soulflayer, de blood god, who once ruled de Gurubashi empire through his Atal'ai priests and fed on its people. De tribes rose against him and drove de Atal'ai into de swamps to de north, and for a long time we believed he was gone from dis world." },
+      },
+      choices = {
+        { text = "What happened to the Atal'ai?", next = "atalai" },
+        { text = "So how did he return?", next = "hakkar_return" },
+        { text = "Enough of blood gods for now.", next = "BACK" },
+      },
+    },
+    atalai = {
+      lines = { { id = "at_default", text = "De Atal'ai built a temple to him in de Swamp of Sorrows, and they tried to call him back, until de green dragons sank it beneath de mire. They are still down there, praying in de dark, and they are not de only ones who never stopped." } },
+      choices = {
+        { text = "Who else kept praying?", next = "hakkar_return" },
+        { text = "A temple under a swamp. Let us talk of other things.", next = "BACK" },
+      },
+    },
+    hakkar_return = {
+      big = true,
+      lines = { { id = "hr_default", text = "De high priests of Zul'Gurub, de last proud Gurubashi, who thought they could make de Soulflayer serve dem. Now he walks in their city and they are his hands, and if he is not stopped there, he will cross into de rest of de world and drink it dry." } },
+      choices = {
+        { text = "The Gurubashi called him. Let them burn with him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Their common folk didn't choose this. Spare who can be spared.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then he must be stopped. Where do I begin?", next = "molthor" },
+      },
+    },
+
+    molthor = {
+      lines = {
+        { id = "ml_default", text = "Molthor leads our expedition, and he has made his camp on Yojamba Isle, off de northern coast of dis jungle, not far from de orc port at Grom'gol. Go to him, and he will teach you what my people know of de city and its priests." },
+      },
+      choices = {
+        { text = "Why Yojamba Isle?", next = "yojamba" },
+        { text = "What does Molthor ask of those who come?", next = "molthor_ask" },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
+    yojamba = {
+      lines = { { id = "yj_default", text = "Because it is close enough to see de smoke of Zul'Gurub's fires and far enough dat de priests' servants must swim to reach us. Water has always been kind to de Zandalar, stranger, and it keeps de jungle honest." } },
+      choices = { { text = "Something else, Emissary.", next = "BACK" } },
+    },
+    molthor_ask = {
+      lines = { { id = "ma_default", text = "Proof, first, in de coins and bijous of de Gurubashi you cut down, so he knows you have been inside. Then courage, because when you are ready, he will ask you to bring him de heart of de Soulflayer himself." } },
+      choices = {
+        { text = "And what happens when Hakkar falls?", next = "spirit" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirit = {
+      lines = { { id = "sp_default", text = "Then Molthor lifts his voice from Yojamba, and every Zandalari across dis land answers him, and we call down de Spirit of Zandalar on all who stand near. Even here on dis dock, de goblins will feel it, and they will not know why they are suddenly brave." } },
+      choices = { { text = "I'd like to see that.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    zg = {
+      lines = {
+        { id = "zg_default", text = "De greatest city de Gurubashi ever built, and now de Soulflayer's own house. His high priests have taken on de aspects of de old beasts, de bat and de snake and de spider and de panther and de tiger, and they guard de way to him." },
+      },
+      choices = {
+        { text = "Who stands closest to Hakkar?", next = "jindo" },
+        { text = "How many does it take to break in?", next = "zg_many" },
+        { text = "Something else, Emissary.", next = "BACK" },
+      },
+    },
+    jindo = {
+      lines = { { id = "jd_default", text = "Jin'do de Hexxer, a witch doctor whose ambition was bigger than his wisdom. He did more than any other to bring Hakkar into Zul'Gurub, and he will curse you, twist your mind and set your own friends against you if you let him." } },
+      choices = {
+        { text = "Then I'll make sure he dies first.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zg_many = {
+      lines = { { id = "zgm_default", text = "Not one hero, and not five, but many together, all of dem seasoned in battle. Molthor will tell you dat a war band of twenty is a small thing to send against a god, but it is what dis world can spare." } },
+      choices = { { text = "Something else, Emissary.", next = "BACK" } },
+    },
+
+    bay = {
+      lines = {
+        { id = "by_default", text = "Because every ship in de South Seas puts in at dis harbour, and every ship carries heroes, or fools who will become heroes if dey live. De goblins charge me a docking fee to stand still, which my people find very strange, but we pay it." },
+      },
+      choices = {
+        { text = "What do you make of the goblins?", next = "bay_goblins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bay_goblins = {
+      lines = { { id = "bg_default", text = "They worship coin de way de Gurubashi worship blood, but coin at least does not eat your soul. De Baron has been courteous, and his cannons point at de sea and not at us, which is all a guest can ask." } },
+      choices = { { text = "Something else, Emissary.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+    },
+
+    k_dark = {
+      big = true,
+      lines = { { id = "kd_default", text = "Owe us? No, little cousin, but you came from de Gurubashi once, before de jungle tribes drove you to de Echo Isles, and you ran with de orcs because no troll offered you a better home. De Zandalar do not forget dat, and we do not blame you for it, though we wonder sometimes what you have traded away." } },
+      choices = {
+        { text = "The Darkspear traded nothing. We chose our own path.", next = "k_dark2", fx = { affinity = -1 } },
+        { text = "What do the Zandalar think we lost?", next = "k_dark2" },
+      },
+    },
+    k_dark2 = {
+      lines = { { id = "kd2_default", text = "De old words, de proper rites, de long memory of who your grandfathers' grandfathers were. Still, when Hakkar falls, I would be glad to see a Darkspear blade among those dat brought him down, for dat would teach de Gurubashi something about family." } },
+      choices = { { text = "Then you'll see one, cousin.", next = "BACK", fx = { affinity = 1, learn = { "echo_isles" } } } },
+    },
+    k_alliance = {
+      lines = { { id = "ka_default", text = "Your kingdoms and de trolls have fought since de days of Arathor, and I have no love for your banners. But Hakkar does not care whose blood he drinks, and a wise people takes allies where de gods send them." } },
+      choices = {
+        { text = "Old wars should stay buried when a god is waking.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "We'll help, but the Alliance won't forget the Troll Wars.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_loa = {
+      lines = {
+        { id = "xl_default", text = "A loa, yes, but a fallen one, a god who learned to love blood more than he loved de trolls who fed him. De true loa give and take in balance, and my people serve them as priests have always served, with respect and with care." },
+        { id = "xl_sham", when = { class = "SHAMAN" }, text = "You speak to de spirits of earth and wind, shaman, so you know dat a spirit can be honoured or it can be bound. Hakkar is a loa who chose to be fed rather than honoured, and now he cannot stop feeding." },
+      },
+      choices = {
+        { text = "My faith is the Light. Your loa are not gods to me.", next = "BACK", fx = { affinity = -1 }, when = { faction = "Alliance" } },
+        { text = "Then the loa themselves want him gone?", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "My people have kept de histories of de trolls since before your oldest city was a village, so ask, and I will tell you what is fit for an outsider to hear." } },
+    background = { { id = "tp_bg", text = "I am de voice of de Zandalar in dis harbour, sent by Molthor to find heroes for Zul'Gurub. My name is for my own people.", next = "zandalar" } },
+    advice = { { id = "tp_ad", text = "When you face Jin'do, kill his shades before dey whisper in your friends' ears. A hex is only a hex until it turns your own blade on you." } },
+    echo_isles = { { id = "tp_echo", text = "De Darkspear's islands, off de coast of Durotar. A small home for a small tribe, but dey hold it bravely." } },
+    _none = { { id = "tp_none", text = "Dat is not in de histories of my people, stranger, and so it does not concern me." } },
+  },
+}
+
+------------------------------------------------------------------------
+-- Dudd Fizzlescroll: scrolls, maps, and maps of a more speculative nature
+------------------------------------------------------------------------
+P:NPC {
+  key = "dudd", id = TODO_NPC("Dudd Fizzlescroll"), name = "Dudd Fizzlescroll",
+  bible = "bibles/booty_bay_visitors.md", role = "vendor", tier = "quest",
+  communities = { "booty_bay" }, temper = { "smooth", "chatty" }, values = { "trade", "clever" },
+  notices = { "class", "purse" },
+
+  impression = {
+    first = "Dudd Fizzlescroll sells scrolls and maps from a stall that smells of ink and lamp oil, and he calls everyone scholar whether they can read or not. Some of his treasure maps are certainly forgeries, and he seems proud of the penmanship.",
+    third = "{name} met Dudd Fizzlescroll, a goblin scroll-seller in Booty Bay who used to copy bills of lading for the Steamwheedle Cartel.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Ah, a scholar! I can always tell, it's in the eyes, so step over and browse, and mind the ink, because it's still wet." },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite scholar returns! I've restocked since you were here, and I've drawn three new maps, one of which is very nearly accurate." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, scholar, and I was startin' to think you'd followed one of my treasure maps, which I'd advise against, legally speaking." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde scholars are still scholars, and your gold reads the same as anybody's. Come in, come in, I've got scrolls in Orcish too, mostly." },
+  },
+
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage, oh, a real reader! Don't look too close at the lettering on my Intellect scrolls, scholar, just enjoy how they make you feel." },
+    { id = "n_poor", cat = "purse", when = { money = { max = 1000 } },
+      text = "Your purse is a little light, scholar, but don't you worry, because a single scroll of Stamina costs less than the bandages you'll need without it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Dudd Fizzlescroll, purveyor of scrolls, maps and documents of every kind, scholar. Agility, Strength, Protection, Spirit, a good map of the Cape for a fair price, and treasure maps for an even fairer one, which you'll understand is a different thing entirely." },
+        { id = "h_rogue", when = { class = "ROGUE" },
+          text = "One of Strom's quiet friends, if I'm any judge, and you'll want a Scroll of Agility for those fingers, scholar. Don't try lifting one, though, because I count my stock twice an hour and I count it in ink." },
+        { id = "h_warrior", when = { class = "WARRIOR" },
+          text = "Now here's a scholar with arms like ship's cable! A Scroll of Strength on top of all that would be gilding the cannon, but I sell gilt too, so let's talk." },
+        { id = "h_cortello", when = { questDone = TODO_QUEST("Cortello's Riddle") },
+          text = "Word is you followed old Cortello's riddle all the way to the end, scholar, and there was a real chest at the bottom. Do you know what that does to my business, having a real one out there making mine look bad?" },
+      },
+      again = {
+        { id = "h_again", text = "What else, scholar? Ask away, because questions are free and answers are priced to sell." },
+        { id = "h_again2", text = "Go on, scholar, I've got a whole drawer of answers and most of 'em are in alphabetical order." },
+        { id = "h_again3", text = "Still browsing? A scholar after my own heart, and my own stock, I hope." },
+      },
+      choices = {
+        { text = "Do your scrolls actually work?", next = "scrolls" },
+        { text = "Tell me about these treasure maps.", next = "maps" },
+        { text = "How does a goblin become a scroll seller?", next = "past" },
+        { text = "Who are your customers around here?", next = "customers" },
+        { text = "Do you sell anything for magic users?", next = "x_caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "Can you read Gnomish, Dudd?", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "I'll come back when my purse is heavier.", next = "END" },
+      },
+    },
+
+    scrolls = {
+      lines = {
+        { id = "sc_default", text = "Every one of 'em, scholar, by my last quill, and they're scribed by proper hands in Gadgetzan, not by me, which is the best guarantee I can offer. You read it, it crumbles, and for a little while you're quicker, stronger or tougher, and then it wears off and you buy another, which is the beautiful part." },
+      },
+      choices = {
+        { text = "You don't write them yourself?", next = "scrolls_who" },
+        { text = "What sells best around here?", next = "scrolls_best" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scrolls_who = {
+      lines = { { id = "sw_default", text = "Not the magic ones, no, because the last time I tried, the ink caught fire and so did my desk, my sleeve and a very nice ledger. I've got a cousin who buys his blasting powder from Crazk Sparks, and even he said I should stick to copying." } },
+      choices = { { text = "Something else, Dudd.", next = "BACK" } },
+    },
+    scrolls_best = {
+      lines = { { id = "sb_default", text = "Protection, scholar, by a long way, because anybody going up the jungle road wants a little extra between them and a raptor. Spirit sells to the priests and Intellect sells to the mages, and Agility sells to Strom's crowd, though they always want to pay in favours." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    maps = {
+      lines = {
+        { id = "mp_default", text = "Ah, now, my treasure maps are what I'd call aspirational documents, scholar. Every one is drawn from a real rumour told to me by a real sailor in the Salty Sailor, and if the rumour was wrong, well, I just wrote it down." },
+      },
+      choices = {
+        { text = "So you're selling forgeries.", next = "maps_forgery" },
+        { text = "Has anyone ever found treasure with one?", next = "maps_found" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    maps_forgery = {
+      big = true,
+      lines = { { id = "mf_default", text = "Forgeries? A forgery pretends to be somethin' it ain't, and mine say treasure map right on the top, in very nice letters. Whether there's treasure at the X is between the customer and the jungle, and it's all in the small print, which I write extra small so it fits." } },
+      choices = {
+        { text = "That's cheating desperate people. You should stop.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Anyone fool enough to buy one deserves the walk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How small is the small print?", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    maps_found = {
+      lines = { { id = "mfd_default", text = "Once, scholar, and it nearly ruined me, because a dwarf dug at one of my Xs and hit a Bloodsail chest that nobody'd buried on purpose. Now every sailor in the Bay thinks my maps are real, and I have to draw 'em even more carefully wrong." } },
+      choices = { { text = "Something else, Dudd.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+
+    past = {
+      lines = {
+        { id = "ps_default", text = "I was a clerk for the Steamwheedle Cartel, scholar, copying bills of lading in the Baron's counting house, twelve hours a day with a quill in each hand. Then one day I misfiled a ship, and that's a long story with a short ending, which is me out on the dock with a crate of ink." },
+      },
+      choices = {
+        { text = "How do you misfile a whole ship?", next = "past_ship" },
+        { text = "Do you miss the counting house?", next = "past_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past_ship = {
+      lines = { { id = "psh_default", text = "Wrote it down as arriving when it was departing, and the Bruisers spent a whole night waiting to unload a ship that was halfway to Ratchet. The Baron said I'd cost him forty gold in overtime, so I paid it off by copying contracts for free, and then I took my handwriting somewhere it'd be appreciated." } },
+      choices = { { text = "Something else, Dudd.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+    },
+    past_miss = {
+      lines = { { id = "pm_default", text = "I miss the paper, scholar, real Cartel paper, thick as a hide and stamped with the seal. What I don't miss is a supervisor countin' my blots and chargin' me a copper apiece, and on my mother's ledger, there were a lot of blots." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    customers = {
+      lines = {
+        { id = "cu_default", text = "Everybody needs paper sooner or later, scholar. Krazek buys my maps of the jungle trails for his errand-runners, Sly Garrett buys blank vellum and won't say why, and Markel Smythe reads every contract I sell over my shoulder, which is very bad for business." },
+      },
+      choices = {
+        { text = "What's wrong with Smythe reading them?", next = "cust_smythe" },
+        { text = "Why does Sly Garrett want blank vellum?", next = "cust_garrett" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cust_smythe = {
+      lines = { { id = "cs_default", text = "He's honest, scholar, which is a terrible thing to stand next to while you're selling. He once read my small print aloud to a dwarf, and the dwarf bought the map anyway, so I can't tell if Smythe's my enemy or my best salesman." } },
+      choices = { { text = "Something else, Dudd.", next = "BACK" } },
+    },
+    cust_garrett = {
+      lines = { { id = "cg_default", text = "I don't ask, scholar, because a goblin who asks questions about Shady Goods ends up a footnote. My guess is letters of passage, the kind with a seal that looks very much like a Stormwind one if you don't hold it near a lamp." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    x_caster = {
+      lines = { { id = "xc_default", text = "Intellect for the mages, Spirit for the priests, and for the warlocks I've got paper that doesn't scream when you write on it, which you'd be surprised how hard that is to find. All Cartel-certified, scholar, and none of it has whispered to me yet." } },
+      choices = { { text = "Something else, Dudd.", next = "BACK" } },
+    },
+    x_gnome = {
+      lines = { { id = "xg_default", text = "I can read the numbers, scholar, and in Gnomish that's most of it, but the rest looks like somebody spilled a box of gears on the page. If you ever want to sell me a gnomish map, I'll pay well for one that I can sell upside down." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know paper, scholar, and everything that's ever been written on it in this port, including some things that shouldn't have been." } },
+    background = { { id = "tp_bg", text = "Ex-clerk of the Steamwheedle Cartel, now an independent man of letters, with a stall and a very good pen.", next = "past" } },
+    advice = { { id = "tp_ad", text = "Read the scroll before the fight, scholar, not during it, because a raptor won't wait for you to find the right page." } },
+    steamwheedle = { { id = "tp_steam", text = "The Cartel's paper is the best in the world, and they'll charge you for every sheet you ruin, which I know from experience." } },
+    _none = { { id = "tp_none", text = "Never had it in writing, scholar, and if it's not in writing, it might as well not exist." } },
+  },
+}
+
+------------------------------------------------------------------------
+-- Rix Xizzix: Lost and Found, Pix's brother, eyebrows still pending
+------------------------------------------------------------------------
+P:NPC {
+  key = "rix", id = TODO_NPC("Rix Xizzix"), name = "Rix Xizzix", title = "Lost and Found",
+  bible = "bibles/booty_bay_visitors.md", role = "vendor", tier = "quest",
+  communities = { "booty_bay" }, temper = { "eager", "cheerful" }, values = { "trade", "inventive" },
+  notices = { "purse", "race" },
+
+  impression = {
+    first = "Rix Xizzix runs a Lost and Found that sells adventurers their own lost treasures back at a handsome price. His eyebrows are only half grown back, and he still talks about rockets as if he might build one any minute.",
+    third = "{name} met Rix Xizzix, Pix's brother, who worked off a stolen fortune hauling crates and now runs Booty Bay's Lost and Found.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hey, sport, lose somethin'? Everybody loses somethin', and sooner or later it all washes up here." },
+    { id = "g_back", when = { metBefore = true }, text = "Sport! Back again, and I bet you've lost somethin' else since I saw you, because everybody does." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, sport, which means you've dropped, sold or misplaced somethin' important by now, so let's check the shelves." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde or Alliance, sport, everybody leaves their rings on a vendor's counter eventually, and I don't care whose they were." },
+  },
+
+  notice = {
+    { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
+      text = "That's a heavy purse, sport, and I've got a shelf full of things you probably regret selling, so let's see if they're still yours at heart." },
+    { id = "n_goblin", cat = "race", when = { race = "Goblin" },
+      text = "Another goblin! Then you know the rule, sport: nothing's ever lost, it's just in somebody else's inventory for a while." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Rix Xizzix, Lost and Found, and if an adventurer ever earned it and then lost it, sold it or left it in a tavern, I've probably got it, sport. Rings, trinkets, fancy cloaks from grateful mayors, all here, all reasonably priced for what they are." },
+        { id = "h_money_done", when = { questDone = TODO_QUEST("Show Me The Money!") },
+          text = "Hey, you're the one who got our chest back from those pirates! Pix won't shut up about you, sport, and Frix has been tryin' to sell you a policy ever since." },
+        { id = "h_money", tags = { "news" }, when = { questActive = TODO_QUEST("Show Me The Money!") },
+          text = "Pix sent you after the pirates who took our chest? Bring it back, sport, and I'll stop havin' nightmares where I'm still haulin' crates." },
+        { id = "h_engineer", when = { profession = { name = "Engineering", min = 1 } },
+          text = "You're an engineer, sport, I can smell the powder on you from here! Tell me about rockets, any rockets, and I'll stand here and listen all day." },
+      },
+      again = {
+        { id = "h_again", text = "What else, sport? The shelves ain't goin' anywhere, but my patience has a price." },
+        { id = "h_again2", text = "Go on, sport, I've got time, and nobody's come in to lose anything in an hour." },
+        { id = "h_again3", text = "Ask me anything, sport, except where my eyebrows went, because I'm still sore about it." },
+      },
+      choices = {
+        { text = "How does a Lost and Found work, exactly?", next = "shop" },
+        { text = "You're Pix's brother?", next = "family" },
+        { text = "What happened to your eyebrows?", next = "rocket" },
+        { text = "Where does all this stuff come from?", next = "sources" },
+        { text = "Do you still want to build rockets?", next = "dream" },
+        { text = "Fellow goblin here. How's business, really?", next = "x_goblin", when = { race = "Goblin" } },
+        { text = "I'll keep a better eye on my things.", next = "END" },
+      },
+    },
+
+    shop = {
+      lines = {
+        { id = "sp_default", text = "Simple, sport: you finish some big job for some important person, they hand you a ring, and two weeks later you sell it to a vendor for three silver because it don't match your boots. Then you come cryin' to me, and I sell it back to you, with a modest retrieval fee." },
+      },
+      choices = {
+        { text = "How modest is the retrieval fee?", next = "shop_fee" },
+        { text = "Has anyone ever come back for something special?", next = "shop_story" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop_fee = {
+      big = true,
+      lines = { { id = "sf_default", text = "Modest for a hero, sport, which is a lot for anybody else. I paid for it, I stored it, I kept the damp off it, and the vendors charge me plenty, so if I ask a bit more than you sold it for, well, that's what regret costs." } },
+      choices = {
+        { text = "Charging people for their own rewards is just wrong.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "They sold it. It's yours now, so charge what you like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Regret costs a lot in Booty Bay.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    shop_story = {
+      lines = { { id = "ss_default", text = "A dwarf came in last month, sport, and bought back a ring his captain gave him, and he cried right there on my counter. I charged him full price, because business is business, but I gave him a cloth for his face, and that cloth was free." } },
+      choices = { { text = "That was kind of you, in a way.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+
+    family = {
+      lines = {
+        { id = "fm_default", text = "Pix is my sister, and Frix is my twin, though I'm the handsome one, at least when I've got eyebrows. We came over from Undermine with a chest full of start-up money and a lot of big plans, and pirates rowed off with the chest before we'd even unpacked." },
+        { id = "fm_done", when = { questDone = TODO_QUEST("Show Me The Money!") }, text = "Pix is my sister, and Frix is my twin, and you know the rest, sport, since you're the one who got our chest back from the pirates. On my mother's ledger, I owe you a rocket, if I ever build one that lands where I aim it." },
+      },
+      choices = {
+        { text = "How did you pay the money back?", next = "family_debt" },
+        { text = "What's Frix doing these days?", next = "family_frix" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family_debt = {
+      lines = { { id = "fd_default", text = "Pix said the chest went missing on my watch, sport, which is technically true, so I hauled crates on the docks for the Bruisers until my arms were longer than my legs. I paid off every copper, and with what was left, I opened this place, because I'd spent so long picking up other people's stuff that I figured I'd start charging for it." } },
+      choices = {
+        { text = "You worked it off. That's honest.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Rix.", next = "BACK" },
+      },
+    },
+    family_frix = {
+      lines = { { id = "ff_default", text = "Still sellin' insurance, sport, mostly against my rockets, and he's got half the docks signed up. He says my Lost and Found is bad for his business, because people don't claim on a ring they can just buy back from me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    rocket = {
+      lines = {
+        { id = "rk_default", text = "My first rocket, sport, on the ship down from Undermine, and it went up beautifully, right through the roof of our cabin. Nobody got hurt except my eyebrows, and they're growin' back slow, so I'm thinking of charging them rent." },
+      },
+      choices = {
+        { text = "Did you ever try again?", next = "dream" },
+        { text = "What did Pix say?", next = "rocket_pix" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rocket_pix = {
+      lines = { { id = "rp_default", text = "She said gear doesn't explode, sport, which she's been sayin' ever since, and she's got a point. Then Frix tried to sell the ship's captain a policy against roofs, and that's when they put us ashore with our luggage." } },
+      choices = { { text = "Something else, Rix.", next = "BACK" } },
+    },
+
+    dream = {
+      lines = { { id = "dr_default", text = "Every day, sport! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks says the wharf ain't big enough for two of us, which I take as a compliment." } },
+      choices = {
+        { text = "Crazk sounds worried.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    sources = {
+      lines = {
+        { id = "so_default", text = "Vendors, mostly, sport, because adventurers sell 'em anything shiny for pocket money. Some comes from the Salty Sailor, left under tables, and some comes up the beach after a ship goes down, and that I don't ask about." },
+      },
+      choices = {
+        { text = "Do you ever buy from pirates?", next = "sources_pirates" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sources_pirates = {
+      lines = { { id = "sop_default", text = "Not after what they did to our chest, sport, not ever, and I check every seller's coat for a red sash. Graves at the auction house sends me the odd lot nobody claims, and he's the most honest supplier I've got." } },
+      choices = { { text = "Something else, Rix.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+
+    x_goblin = {
+      lines = { { id = "xgb_default", text = "Between you and me, sport, it's the best business in the Bay, because heroes are the worst at keepin' track of stuff. Every time somebody saves a village, I know they'll be back in a month, cryin' about a ring." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know where things go when nobody's watchin' 'em, sport, and who comes back to cry about it." } },
+    background = { { id = "tp_bg", text = "Came from Undermine with my sister and my twin, lost our money to pirates, hauled crates till it was paid, and now I run Lost and Found.", next = "family" } },
+    advice = { { id = "tp_ad", text = "Don't sell anything a mayor gave you, sport, because you'll want it back, and it'll cost you." } },
+    bloodsail = { { id = "tp_blood", text = "Those red-sash thieves took everything we had, sport, so if you see one, kick him off a pier for me." } },
+    _none = { { id = "tp_none", text = "Never seen it, sport, and nobody's ever lost one, so I can't sell it to you." } },
+  },
+}
+
+------------------------------------------------------------------------
+-- Privateer Bloads: a Booty Bay letter of marque, a fast sloop and a hunger for reeds
+------------------------------------------------------------------------
+P:NPC {
+  key = "bloads", id = 2494, name = "Privateer Bloads",
+  bible = "bibles/booty_bay_visitors.md", role = "questgiver", tier = "quest",
+  communities = { "booty_bay", "blackwater" }, temper = { "jovial", "brisk" }, values = { "free", "practical" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "Privateer Bloads is a broad, sunburnt human who sails against the Bloodsail under a Booty Bay letter of marque and laughs at his own name before anyone else can. He wants reeds, of all things, and a great many of them.",
+    third = "{name} met Privateer Bloads, a human privateer in Booty Bay who hunts the Bloodsail under the Baron's commission and buys Akiris reed by the bundle.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Ahoy, shipmate! Come stand in the shade before the sun cooks you like it cooked me." },
+    { id = "g_back", when = { metBefore = true }, text = "There's my shipmate again! You've still got all your fingers, so the reeds haven't bitten you yet." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, shipmate, and I'd half written you off as fish food, so you've cheered me up just by walking in." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde, is it? My letter's against the Bloodsail, not the Warchief, so come aboard and talk, shipmate." },
+  },
+
+  notice = {
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "A Stormwind accent! I left Westfall when I was fourteen, shipmate, and I've not been back, but I'd know that sound in any port." },
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "You walk like a boarder, shipmate, light on the deck and ready to go over the rail. I could use a few like you on the next run." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Privateer Bloads, master of the sloop Saltpenny, sailing under the Baron's letter of marque against anything that flies a red sash. And yes, shipmate, I've heard every joke about my name, so you'll have to find a new one." },
+        { id = "h_akiris", tags = { "news" }, when = { questActive = TODO_QUEST("Akiris by the Bundle") },
+          text = "You're after the Akiris reed for me, shipmate? Mind the murlocs in the shallows, because they guard those beds like they're full of gold, and to a sailor they very nearly are." },
+        { id = "h_akiris_done", when = { questDone = TODO_QUEST("Akiris by the Bundle") },
+          text = "My favourite reed-cutter! Every bundle you've brought me is in the Saltpenny's seams right now, keeping the sea out where it belongs." },
+        { id = "h_sailor", when = { class = "WARRIOR" },
+          text = "You've a good pair of shoulders for hauling line, shipmate, and a better pair for swinging a cutlass. If the reeds don't keep you busy, the Bloodsail will." },
+      },
+      again = {
+        { id = "h_again", text = "What else, shipmate? The tide's not turning for an hour yet." },
+        { id = "h_again2", text = "Go on, ask, shipmate. I've stories enough to fill a hold." },
+        { id = "h_again3", text = "Still here? Good, I like company that doesn't need paying." },
+      },
+      choices = {
+        { text = "What do you want with Akiris reed?", next = "reed" },
+        { text = "A letter of marque? What does that mean here?", next = "marque" },
+        { text = "Tell me about the Saltpenny.", next = "ship" },
+        { text = "Bloads. Is that really your name?", next = "name" },
+        { text = "What do you think of the Blackwater Raiders?", next = "raiders" },
+        { text = "Do you ever miss Westfall?", next = "x_human", when = { race = "Human" } },
+        { text = "Fair winds, Bloads.", next = "END" },
+      },
+    },
+
+    reed = {
+      lines = {
+        { id = "rd_default", text = "Akiris reed grows in the warm shallows along this coast, shipmate, and once it's dried and twisted, there's no better stuff for caulking a hull. Pitch cracks in this heat and oakum rots, but a seam packed with Akiris stays tight through a whole season." },
+        { id = "rd_done", when = { questDone = TODO_QUEST("Akiris by the Bundle") }, text = "You know it better than I do now, shipmate! It grows in the warm shallows, the murlocs hate sharing it, and the Saltpenny's seams drink it up faster than I can buy it." },
+      },
+      choices = {
+        { text = "Why don't you cut it yourself?", next = "reed_why" },
+        { text = "Why do you need so much of it?", next = "reed_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reed_why = {
+      lines = { { id = "rw_default", text = "Because the beds are crawling with murlocs, shipmate, and worse things further out, and a captain who loses a hand cutting reeds is a captain who can't hold a wheel. Besides, my crew are sailors, and you couldn't pay a sailor to wade where he can't see the bottom." } },
+      choices = { { text = "Something else, Bloads.", next = "BACK" } },
+    },
+    reed_more = {
+      lines = { { id = "rm_default", text = "Every time the Saltpenny trades shots with a Bloodsail brig, she comes home with a dozen new leaks, shipmate. I've caulked her so often that she's more reed than oak by now, and I'll keep buying bundles as long as you keep bringing them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    marque = {
+      lines = {
+        { id = "mq_default", text = "It's a paper with the Baron's seal on it, shipmate, saying that what I take from the Bloodsail is lawful prize and not piracy. The Baron gets his cut, the Bruisers don't hang me, and every red sash on the sea is fair game." },
+      },
+      choices = {
+        { text = "So you're a pirate with permission.", next = "marque_pirate" },
+        { text = "How did you earn the Baron's seal?", next = "marque_earn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marque_pirate = {
+      big = true,
+      lines = { { id = "mp_default", text = "That's what the Bloodsail call me, and I'll own it on a dark night. But I don't burn villages or sell prisoners, shipmate, and the paper says so, and I keep to every line of it." } },
+      choices = {
+        { text = "The paper's what makes it right. Keep to it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Paper or no paper, you're still a pirate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who decides what counts as lawful prize?", next = "marque_earn" },
+      },
+    },
+    marque_earn = {
+      lines = { { id = "me_default", text = "I brought in a Bloodsail cutter with her hold full of the Baron's own stolen rum, shipmate, and I didn't drink a drop on the way home. He said a man that honest was either a fool or useful, and he's still deciding which." } },
+      choices = { { text = "Something else, Bloads.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+
+    ship = {
+      lines = {
+        { id = "sh_default", text = "The Saltpenny, shipmate, a sloop small enough to slip through the reefs where the big Bloodsail brigs can't follow, and fast enough to run when there's three of them. I named her for the first coin I ever earned at sea, which I still keep sewn in my hat." },
+      },
+      choices = {
+        { text = "Why keep the coin?", next = "ship_coin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ship_coin = {
+      lines = { { id = "sc_default", text = "To remind me I started with one penny and a bad name, shipmate. Anything I've got beyond that is the sea's to take back, and knowing that makes a man braver than he's got any right to be." } },
+      choices = { { text = "Something else, Bloads.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    name = {
+      lines = { { id = "nm_default", text = "It's my father's name, shipmate, though the crew swear it's because I bring home boat loads of prize. I let them believe it, because a crew that thinks its captain is lucky works twice as hard." } },
+      choices = {
+        { text = "Then let's hope your luck holds.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Boat loads? That's terrible.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    raiders = {
+      lines = { { id = "rr_default", text = "Good sailors and hard drinkers, shipmate, and we're on the same side, mostly. Fleet Master Seahorn runs a tighter ship than I do, though, and he'd sooner I sailed under his flag than under my own paper." } },
+      choices = {
+        { text = "Why not join them?", next = "raiders_join" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raiders_join = {
+      lines = { { id = "rj_default", text = "Because a Blackwater crew answers to Seahorn, and the Saltpenny answers to me, shipmate. I've had masters before, and I left Westfall to be done with them." } },
+      choices = { { text = "Something else, Bloads.", next = "BACK" } },
+    },
+
+    x_human = {
+      lines = { { id = "xh_default", text = "I miss the harvests, shipmate, and the smell of the fields after rain, but I don't miss being hungry. From what I hear, Westfall's worse now than when I left, with the Defias in every farmhouse, so I'll stay where the sea feeds me." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know the coast from the Cape to the Wild Shore, shipmate, and every Bloodsail sail I've seen on it." } },
+    background = { { id = "tp_bg", text = "Westfall farm boy turned sailor, now master of the Saltpenny under the Baron's letter of marque.", next = "marque" } },
+    advice = { { id = "tp_ad", text = "Never wade where you can't see your feet, shipmate, not on this coast." } },
+    bloodsail = { { id = "tp_blood", text = "Red sashes, black hearts and leaky brigs, shipmate, and every one of them's lawful prize to me." } },
+    _none = { { id = "tp_none", text = "Never heard of it, shipmate, and I've heard most things said in a port tavern." } },
+  },
+}
