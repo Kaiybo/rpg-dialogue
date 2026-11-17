@@ -8,8 +8,8 @@
 
 ## Identity
 Angela Curthas · Warrior Trainer · War Quarter · Undercity · Forsaken · tier service
-Personality: blunt, warm, dutiful
-Speech: watchman's shorthand in whole sentences
+Personality: blunt, warm, dutiful; always on shift
+Speech: watchman's shorthand in whole sentences (post, shift, roster)
 Knows and cares about: shields, holding lines
 Relationships: her recruits
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,6 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - City watch at the palace gate during the plague; held two days.
+- Keeps a duty roster of every recruit by the door with a note: steady, careless, drops left.
+- A shield is a door you carry; twelve years a gatekeeper.
+- Likes Fowler but would not put him on a gate.
