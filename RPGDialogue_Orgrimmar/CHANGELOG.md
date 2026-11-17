@@ -11,6 +11,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.23.0 (2026-11-17)
 - Prejudices (0.80.0): Overlord Runthak (the Forsaken) and Kardris Dreamseeker (orc warlocks). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.23.0 (2026-11-17)
+- New: Galthuk, weapons merchant, calls the Forsaken "the corpses Thrall let in the door" and sneers at troll voodoo. Forsaken and trolls get their own conversations; a [Persuade] finds the brother he buried in Lordaeron.
+- New file: needs a full game restart, not /reload.
+
 ## 1.22.0 (2026-11-17)
 - 24 new people: Brakgul Deathbringer, Kildar, Shenthul, Dran Droffers, and the trainers and merchants of the Valley of Honor, the Cleft of Shadow, the Drag and the Valleys of Spirits and Wisdom. New files: restart the game fully (a /reload won't load them).
 - Thrall asks what you make of the Apothecarium's new plague, and remembers your answer.

@@ -22,3 +22,4 @@ npcs\cleft_of_shadow.lua
 npcs\spirits_and_wisdom.lua
 npcs\the_drag.lua
 npcs\valley_of_honor.lua
+npcs\galthuk.lua

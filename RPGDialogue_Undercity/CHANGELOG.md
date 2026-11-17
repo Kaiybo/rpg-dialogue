@@ -8,6 +8,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.21.0 (2026-11-17)
 - Prejudices (0.80.0): Royal Overseer Bauhaus (the living). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.21.0 (2026-11-17)
+- New: Gordon Wendham, weapon merchant, holds every living thing in contempt, Horde allies included, since his apprentice joined the Scarlets and shot him. Undead players get a warmer welcome; a [Persuade] can crack him.
+- New file: needs a full game restart, not /reload.
+
 ## 1.20.0 (2026-11-17)
 - 24 new people: Carendin Halgar, Jeremiah Payson, Aelthalyste, and the trainers, merchants and banker of every quarter. New files: restart the game fully (a /reload won't load them).
 

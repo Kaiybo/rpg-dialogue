@@ -23,3 +23,4 @@ npcs\magic_quarter.lua
 npcs\rogues_quarter.lua
 npcs\trade_quarter.lua
 npcs\war_quarter.lua
+npcs\gordon.lua

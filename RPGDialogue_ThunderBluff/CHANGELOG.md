@@ -8,6 +8,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.24.0 (2026-11-17)
 - Prejudices (0.80.0): Magatha Grimtotem (orcs, trolls and the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.24.0 (2026-11-17)
+- New: Kaga Mistrunner, meat vendor, despises the Forsaken apothecaries, the Venture Company and orc warlocks. A [Persuade] gets out who really saved her son's leg, and your advice changes her next visit.
+- New file: needs a full game restart, not /reload.
+
 ## 1.23.0 (2026-11-17)
 - 24 new people: Sage Truthseeker, Eyahn Eagletalon, Auld Stonespire, Veren Tallstrider, Rahauro, Bashana Runetotem, Mosarn, and the trainers of all three rises. New files: restart the game fully (a /reload won't load them).
 

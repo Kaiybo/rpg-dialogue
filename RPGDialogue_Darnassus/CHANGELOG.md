@@ -8,6 +8,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.20.0 (2026-11-17)
 - Prejudices (0.80.0): Fandral Staghelm (mages) and Jeen'ra Nightrunner (humans). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.20.0 (2026-11-17)
+- New: Erion Shadewhisper (rogue trainer) distrusts humans as short-lived oath-breakers, and Firodren Mooncaller (herbalism trainer) resents dwarves for digging up Darkshore. Humans and dwarves get their own conversations, and a [Persuade] can soften each of them for good.
+- New file: needs a full game restart, not /reload.
+
 ## 1.19.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

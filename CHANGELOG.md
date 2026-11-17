@@ -111,6 +111,18 @@ Prejudices. Some people now hold something against your race, your faction, your
   - **Out in the world:** Shandris Feathermoon and Vahlarriel Demonslayer on warlocks, Falstad Wildhammer on Ironforge dwarves (Wildhammer origins are spared), Nathanos Blightcaller on trolls, Mystic Yayo'jin on the Forsaken who cheated Bwonsamdi, Pozzik and Krazek on gnomes, Archmage Xylem on druids, and Nat Pagle on the gnome whose fish-caller brought a crocolisk.
 - For pack authors: NPCs take `prejudice = { race, faction, class, origin, exceptOrigin, amount, why }`; lines can check `prejudiced = true` or `"overcome"`.
 
+## 0.80.0 (2026-11-17)
+People with grudges. Nine townsfolk across seven packs now carry an old prejudice of their own, and who you are decides how they treat you. **New files: a full game restart is needed, not /reload.**
+
+- **Stormwind:** Osric Strang (Limited Immunity, Old Town) hates orcs after the First War and his years guarding a camp, and has no patience for night elves.
+- **Ironforge:** Senator Barin Redstone hates the Dark Iron, blames gnomes for Gnomeregan and scorns the Wildhammer.
+- **Darnassus:** Erion Shadewhisper distrusts humans as short-lived oath-breakers; Firodren Mooncaller resents dwarves for digging up Darkshore.
+- **Orgrimmar:** Galthuk calls the Forsaken "the corpses Thrall let in the door" and sneers at troll voodoo.
+- **Thunder Bluff:** Kaga Mistrunner despises the Forsaken apothecaries, the Venture Company and orc warlocks.
+- **Undercity:** Gordon Wendham holds the living in contempt, his own Horde allies included.
+- **Hillsbrad:** Hal McAllister of Southshore hates the Forsaken; Christoph Jeffcoat of Tarren Mill, Southshore-born, hates orcs and the town that turned him away.
+- Play the race they dislike and you get a colder, different conversation. Agree with them or push back (both count toward your alignment), and a [Persuade] digs out the story behind the grudge, which softens them on later visits.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
