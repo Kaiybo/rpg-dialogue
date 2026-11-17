@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_winds", text = "Winds be with you." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "A guest, and we have few. Winds be with you all the same." },
     { id = "g_back", when = { metBefore = true, race = "Skyborne" }, text = "Back again, child? The Council can spare me a moment, barely." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Council has argued about a great deal in that time, though I'll spare you most of it. Winds be with you, and welcome back to Valanaar." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I had begun to wonder whether the winds had carried you off for good. I'm glad they didn't, and I'll say so plainly." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I'd be lying if I said the Council hadn't noticed. They'll want to put you to use, so choose carefully what you agree to." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you left someone on the isle in a fury, and Zephras is small enough that I hear these things by supper. I won't judge it unheard, but I'd like it mended." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The isle has been speaking well of you, and I've heard your name from more than one elder this week, which doesn't happen often, so take it as the compliment it is." },
   },
 
   notice = {

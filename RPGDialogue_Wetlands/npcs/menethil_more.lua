@@ -20,6 +20,10 @@ P:NPC {
     { id = "g_default", text = "Report, or move along. The keep's no place for loiterin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece. That's more than most o' my reports manage." },
     { id = "g_algaz", when = { questActive = TODO_QUEST("The Algaz Gauntlet") }, text = "Come through Algaz, did ye? Then sit, an' tell me what ye saw, all of it." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' back in one piece. Sit, an' tell me what ye saw on the roads, all of it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a deal tougher since last ye reported tae me. I'd send ye through Algaz alone now, an' I wouldnae say that lightly." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word reached the keep that ye were caught in a lie in the harbor. I live on reports, so the ones ye give me had best be true." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear ye've been leanin' on the harbor folk. They've the Dragonmaw at the gate already, so they've no need o' more fright from ye." },
   },
 
   notice = {
@@ -648,6 +652,10 @@ P:NPC {
     { id = "g_default", text = "Ah, a likely soul! Have you ever thought about the sea, friend? Kalimdor's waiting!" },
     { id = "g_back", when = { metBefore = true }, text = "Still on dry land? Shame on you, with Kalimdor just a voyage away!" },
     { id = "g_active", when = { questActive = TODO_QUEST("Fiora Longears") }, text = "Fiora's waiting across the water! Off you go, and give her my love." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I'd hoped you'd finally taken ship for Kalimdor! Still on dry land, friend, or have you a sea tale to tell me?" },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into a proper adventurer since you first stood on my dock! Kalimdor could use a soul like you, and so could the sea." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the harbor round to your view! You'd make a fine ship's recruiter, friend, and I mean that as high praise." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody on the docks has been singing your praises like a sea shanty! I always said you had the makings of a legend." },
   },
 
   notice = {

@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_helped", when = { questDone = TODO_QUEST("Friend of the Kirin Tor") },
       text = "Ah, {name}. You're always welcome in these halls, after what you did for us." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You're here because I allowed it. Let's both remember that." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been away {away}, and the city kept rebuilding without you, though more slowly than I'd like. It's good to see you on these stairs again." },
+    { id = "g_away_long", when = { away = 60 }, text = "After {away} away I wondered whether you'd forgotten us, and I'd not have blamed you. Dalaran is glad of you, even if the council won't say so." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown in power since we last spoke, and I can feel it from here. Do be careful near the wards, for they notice that sort of thing before I do." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone in the city caught you in a falsehood. Dalaran has had enough secrets from its own council, so I'd ask you not to add to them." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word reaches even the Citadel that you've done the city a kindness. The council won't thank you aloud, so I shall." },
   },
 
   notice = {
@@ -331,6 +336,9 @@ P:NPC {
     { id = "g_default", text = "Yes? Be quick, please; I'm very busy." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Is it urgent, or merely interesting?" },
     { id = "g_helped", when = { questDone = TODO_QUEST("Friend of the Kirin Tor") }, text = "Ah, the mote-bearer. Come in, but mind the circle on the floor." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the wards have not been quiet once in that time. Is it urgent, then, or merely a visit?" },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you frightened someone in the streets. This city has had enough of fear, so please take yours outside the walls." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Someone in the city was misled, I'm told, and your name came up. I am very busy, but not too busy to remember that." },
   },
 
   notice = {
@@ -511,6 +519,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Supply and logistics, at your service, such as it is." },
     { id = "g_back", when = { metBefore = true }, text = "Back to see if the stock has changed? Sometimes it has." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and yes, the stock has changed, though mostly by getting smaller. Cloth and metal go to the scaffolds first, I'm afraid." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping the city, which is more than most wizards manage for my ledgers. Do have a look round; it's the least a quartermaster can offer." },
   },
 
   notice = {

@@ -22,6 +22,7 @@ local NUMBERS = {
   level = true, npcLevel = true, hour = true, drunk = true, durability = true, money = true,
   deaths = true, timesTalked = true, daysSince = true, affinity = true, light = true, order = true,
   honor = true, taint = true, insanity = true, npcID = true, townStanding = true,
+  away = true, levelsSince = true,
 }
 
 local SETS = { debuffTypes = true, auras = true, holiday = true, outOfPlace = true }

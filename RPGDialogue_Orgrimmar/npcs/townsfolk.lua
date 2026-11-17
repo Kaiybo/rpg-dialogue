@@ -735,6 +735,10 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Keep moving, citizen, and keep your weapon sheathed in the Warchief's city." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still in one piece, I see. Good; the Horde needs you that way." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, citizen, and nobody filed a report. Next time you vanish from the Warchief's city, at least tell a guard." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "The last time I saw you, you couldn't hold a shield level, and now you walk like a veteran. The Horde makes warriors out of the ones who keep at it." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you stared somebody down in the city and they backed off. Good; a soldier of the Horde should be able to settle things without drawing steel inside these walls." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word in the Valley is that you told somebody a lie and got caught at it. I'll be watching you, and I don't miss much." },
   },
 
   notice = {

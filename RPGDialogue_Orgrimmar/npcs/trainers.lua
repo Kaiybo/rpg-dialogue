@@ -14,6 +14,9 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Into the Valley of Honor, are you? Then stand like you mean it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I'll wager your arms have gone soft. Pick up a blade and show me I'm wrong." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When you first came to my yard you were all elbows, and now look at you. Somebody's been knocking you around out there, and it's done you good." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made somebody in the city back down without throwing a punch. That's a warrior's trick too, though I still prefer the punch." },
   },
   start = "hello",
   nodes = {
@@ -499,6 +502,8 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Welcome to the Cleft. The shadows here are friendlier than the faces above, I promise you." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still in one piece, I see. The Cleft keeps a student's place for as long as the student keeps their nerve." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "The city whispers that someone took one of your tales for the truth. That's a useful skill for a student of shadow, provided you remember who you must never lie to." },
   },
   start = "hello",
   nodes = {

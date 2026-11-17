@@ -21,6 +21,10 @@ P:NPC {
     { id = "g_hero", when = { minLevel = 50 }, text = "I know that face; half the Alliance does by now. Come, sit, an' tell me how the world's been treatin' ye." },
     { id = "g_incursion", when = { questDone = TODO_QUEST("Old Ironforge Incursion") },
       text = "There's the one who went down under my hall an' came back up again. Come in, come in." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone from the mountain {away}, an' the forges kept singin' without ye. Welcome back tae Ironforge all the same." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "Ha! Ye've been away {away}, an' ye've come back carryin' yerself like a proper warrior o' the Alliance. Whatever ye've been fightin', I'd wager it fared worse than ye." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me ye've been lendin' a hand about the city these past days. That's the sort o' news a king likes tae hear over his supper." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear ye've been throwin' yer weight about among my folk. Ironforge doesnae take kindly tae bullies, friend, so mind yerself in my hall." },
   },
 
   notice = {

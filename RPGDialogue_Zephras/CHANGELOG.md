@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-17)
+- The town's leading people greet you differently when you come back after a fortnight or more, notice how far you've come since they last saw you, and have heard what you did with their neighbours. Needs RPG Dialogue 0.67.0.
+
 ## 1.7.0 (2026-11-17)
 - Ten new people to talk to, written from the zone's documented story: in Thendal Village, Rorian the Dayseeker, Aetheen of the Gales, the rangers Myriaal Mistwake and Halaan Hawk-Eye, Ventaari Brightwish of the Windshapers and Falorne Fallwind of the High Order; in Valanaar, the Ban'aethal refugee Ealaane Nimbuswalker, "Swimmers" Starfeather and Donaal Downbreeze at the Calmbreeze Inn, and Nyalah Brightfire the cook. Visitors from Dalaran and Mulgore get their own reactions, by race and class.
 - High Elder Talaanis Shadowsong now tells the story as it happened (the Shal'nan's abdication, the wards and Lorthuna's beacon, who stood against Rohash), and can talk about Lorthuna, the refugees, the relics of the fallen and what Valanaar makes of mainlanders.

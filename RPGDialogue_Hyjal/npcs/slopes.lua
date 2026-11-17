@@ -17,6 +17,9 @@ P:NPC {
     { id = "g_default", text = "Watch your step; half of what's green on this slope wants to bite you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The weeds have grown since you left, but then, they always do." },
     { id = "g_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "There's the one who cut down Celastrus. The eastern hollow is greening already; go and look, when you've the time." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the slope has grown back over half the paths you knew, so mind your boots." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you were last on this slope, and not the way the thorns do, which is a relief, because strong things that stay healthy are rare up here." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word on the mountain is that you've been helping, and I've seen the proof of it in a few greener hollows, so keep it up." },
   },
 
   notice = {

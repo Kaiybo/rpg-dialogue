@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_letters", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "Why are you still standing in my hall? Take the letter to Westfall, and go quickly." },
     { id = "g_hero", when = { townStanding = { town = "lakeshire", min = 55 } }, text = "Ah, Lakeshire's champion. Sit, if you like; you're the only visitor I don't mind." },
     { id = "g_distrust", when = { townStanding = { town = "lakeshire", max = -20 } }, text = "The court has heard your name, and not kindly." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and in that time I've written Stormwind four more letters. None has been answered, so do sit down." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "The court notes you've returned after {away}, and rather more formidable than you left. Lakeshire could use formidable, so you are welcome in this hall." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "It has come to the court's attention that you were caught in a falsehood in this town. I'll have the truth in my hall, or I'll have nothing at all." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The court has heard you've done Lakeshire real service these past days. It is noted, and I note very few things kindly." },
   },
 
   notice = {

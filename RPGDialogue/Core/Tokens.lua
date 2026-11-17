@@ -1,5 +1,7 @@
 -- Text tokens. They decorate a line; they never carry it.
 --   {name} {npc} {race} {class} {g:lad|lass} {pet} {zone} {subzone} {town} {title} {home} {rank} {guild}
+--   {away} (0.67.0): how long you were gone ("a month"), from your return to the town, else
+--     from when you last spoke with this person. {source} (0.67.0): who the line's `word` came from.
 --   {companion} (0.59.0): the party member the line's `party` condition picked out, else the first one.
 local _, ns = ...
 
@@ -52,6 +54,15 @@ local simple = {
   end,
   rank = function(ctx) return ctx.pvpRankName or "soldier" end,
   guild = function(ctx) return ctx.guild or "your company" end,
+  away = function(ctx, env)
+    local T = ns.Towns
+    if not T then return "a while" end
+    local town = env and env.info and env.info.communities and env.info.communities[1]
+    local back = T.Back(town, (env and env.now) or ns.Compat.Now(), ctx.level)
+    if back then return T.AwayWords(back.days) end
+    local last = env and env.mem and env.mem.last
+    return T.AwayWords(last and ((ns.Compat.Now() - last) / 86400) or nil)
+  end,
   killer = function()
     local d = ns.char and ns.char.deaths[#ns.char.deaths]
     return (d and d.killer and d.killer.name) or "something"
@@ -70,6 +81,11 @@ function Tokens.Render(text, ctx, env, when)
   if text:find("{companion}", 1, true) then
     text = text:gsub("{companion}", (companion(ctx, when):gsub("%%", "%%%%")))
   end
+  if text:find("{source}", 1, true) then
+    local spec = type(when) == "table" and when.word or nil
+    local w = spec and ns.Towns and ns.Towns.FindWord(spec, env)
+    text = text:gsub("{source}", ((ns.Towns and ns.Towns.SourceName(w) or "someone"):gsub("%%", "%%%%")))
+  end
   text = text:gsub("{g:([^|}]*)|([^}]*)}", function(male, female)
     return ctx.gender == "female" and female or male
   end)
@@ -82,4 +98,4 @@ function Tokens.Render(text, ctx, env, when)
 end
 
 Tokens.KNOWN = { "name", "npc", "race", "class", "pet", "zone", "subzone", "town", "title", "home", "g",
-  "deaths", "deathplace", "killer", "rank", "guild", "companion" }
+  "deaths", "deathplace", "killer", "rank", "guild", "companion", "away", "source" }

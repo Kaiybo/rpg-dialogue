@@ -17,6 +17,9 @@ P:NPC {
     { id = "g_default", text = "Hands off the walls, pal; I built those." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Spending today, or just admiring?" },
     { id = "g_engineer", when = { profession = "Engineering" }, text = "A fellow engineer! That's lovely, but touch nothing anyway." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, pal, and in that time I've put up two new walls, so keep your hands off those too." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the port is you sold somebody a story and they paid full price for it, which is good business, I gotta say. Just don't try it on me, because I own the building you'd be lying in." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round down at the port, kid, and talent like that's worth coin, so I'd hate to see you give it away for free." },
   },
 
   notice = {
@@ -297,6 +300,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Another explorer! Come in, come in, and mind the smell; it's the sea, mostly." },
     { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready! I aired it out, but the air came back in, so it smells like fish again." },
+    { id = "g_away", when = { away = 14 }, text = "You're back after {away}, explorer, and right on time, because I aired your room this morning and only the fish smell came back." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word off the boat is somebody caught you in a fib, explorer, and in this port a rumor gets round faster than Argo's sea monsters, so I'd lie low a while." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody sat at the bar tonight grinning about something you'd said, explorer, and good moods sell stew, so come in and say something nice to me too." },
   },
 
   notice = {

@@ -17,6 +17,9 @@ P:NPC {
     { id = "g_default", text = "What'll ye be wantin', then? *hic* Pardon me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye must like my stories, or my ale, and I'll take either one as a compliment." },
     { id = "g_found", when = { questDone = TODO_QUEST("Marshal Windsor") }, text = "Ye found him, didn't ye? I told 'em he weren't dead, and nobody listens to old John." },
+    { id = "g_away", when = { away = 14 }, text = "Well, I'll be, ye're back after {away} away! *hic* Sit down, for I've a new story, or an old one I've forgot tellin' ye." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've come on a fair way since we last talked, ain't ye? *hic* Ye'll be in my stories one day, an' I'll tell 'em right." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Folk round the fire say ye got caught tellin' a tall tale. *hic* Nobody tells 'em like old John, so leave it to the expert." },
   },
 
   notice = {
@@ -868,6 +871,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Supplies in hot demand at rock-bottom prices! Well, rock-bottom for a volcano." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Of course you are, everybody runs out of blasting powder up here." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and blasting powder's gone up twice since! For you, though, I'll only charge the first increase." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is somebody up here got taken for a ride, and your name came up. I don't judge, pal, but I do count my coins twice." },
   },
 
   notice = {
@@ -1083,6 +1088,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to Kibler's Exotic Pets! How can you help me today?" },
     { id = "g_back", when = { metBefore = true }, text = "My favourite supplier's back! Opus, say hello, and say it nicely." },
+    { id = "g_away", when = { away = 14 }, text = "My favourite supplier, back after {away} away! Business has been terrible without you, so let's fix that." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round to your side of a deal, and I like that in a supplier. Just don't use it on me, because Opus bites." },
   },
 
   notice = {

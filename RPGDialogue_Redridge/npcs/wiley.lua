@@ -18,6 +18,10 @@ P:NPC {
     { id = "g_corner", text = "You're in my light." },
     { id = "g_gryan", when = { questActive = TODO_QUEST("The Defias Brotherhood") }, text = "Stoutmantle sent you; I can smell Westfall on you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit, if you're staying, and stand somewhere else if you're not." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you've come back to stand in my light again. Some things never change." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown teeth since Stoutmantle first sent you to my corner. Sit down, because that's worth a few words." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Heard you pulled the wool over somebody's eyes in town. Not bad, though I'd see it coming a mile off, so don't try it here." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word is somebody in town caught you lying. Sloppy, and sloppy gets people in my line of work killed." },
   },
 
   notice = {

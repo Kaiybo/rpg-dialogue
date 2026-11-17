@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_door", text = "Wipe your feet; I've just done that floor. Well, somebody has." },
     { id = "g_tommy", when = { questActive = TODO_QUEST("Speak with Gramma") }, text = "The boy sent you. I know that face; it's the face of someone sent." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "There's my accomplice! Come in, come in and sit down." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and not so much as a letter for an old woman. Sit down anyway, since you're here." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've filled out since you last came by, and you've the look of someone who's seen a thing or two. Good, because the young are no use until they have." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear somebody round here swallowed a tall tale of yours. I'm too old to be fooled that way, so don't bother trying." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone's been saying nice things about you, and I didn't even have to pry. Well, not much." },
   },
 
   notice = {

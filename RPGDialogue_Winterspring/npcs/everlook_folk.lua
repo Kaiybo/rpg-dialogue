@@ -18,6 +18,9 @@ P:NPC {
     { id = "g_default", text = "Cold enough for you? I've had three cups of something hot and I still can't feel my ears." },
     { id = "g_scared", when = { questRecent = { TODO_QUEST("Are We There, Yeti?"), days = 7 } },
       text = "Don't you come near me with anything furry, you hear? I know it was you, and I know who put you up to it." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, it's you, back after {away}, and I've still not got any feeling in my ears! You didn't bring anything furry back with you, did you?" },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Darling, I hear you told someone in town a whopper and they swallowed it whole, and I'm not saying I'm impressed, but I'm not saying I'm not." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked somebody round today, darling, which is more than I've ever managed with Umi, so go and tell her that yeti isn't funny, would you?" },
   },
 
   notice = {
@@ -201,6 +204,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Careful, careful! Nothing on that bench is finished, and some of it is cold enough to take your skin off." },
     { id = "g_horns", when = { questActive = TODO_QUEST("Chillwind Horns") }, text = "Horns, uncracked horns! Tell me you didn't drop any of them on the way here." },
+    { id = "g_away", when = { away = 14 }, text = "Careful, careful, you've been gone {away} and the bench is in a different order now! Don't touch anything until I tell you what's frozen." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round in town, and if you've a knack for that, you might try it on Tinkee, who still thinks I'm slow. Mind the bench while you think about it." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word is somebody caught you out in a fib, and I'll say I prefer my measurements honest and my customers likewise. Mind the bench." },
   },
 
   notice = {
@@ -900,6 +906,10 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "The snow carries tracks a long way. Have you come to hunt, or to watch?" },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and the snow has covered your old tracks, but I am glad to see you making new ones." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since we last spoke, and I think now you would stand your ground when the bear charges, which is the only measure I trust." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made someone in Everlook afraid, and fear is a hunter's tool, but not one to use on the people around the fire." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The traders say you have helped Everlook, and I have heard it from more than one of them. That is a good track to leave behind you." },
   },
 
   notice = {

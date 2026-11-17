@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_tent", text = "Captain Nials. Make it quick; the highlands don't wait, and neither do I." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the hills, are you? What did you find?" },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and the highlands haven't got any quieter. Tell me you're back to stay a while." },
+    { id = "g_away_long", when = { away = 60 }, text = "I'd stopped expecting you after {away} away, and I'm glad I was wrong. The Pointe needs everyone it can get, so get your kit squared away." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened up since we last spoke, I can see it. Good, because the Syndicate and the ogres haven't softened any." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you leaned on someone here at the Pointe. Do that to the Syndicate all you like, but my people are on your side." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word around the Pointe is you've been pulling your weight for us. Keep that up and I'll stop asking what took you so long." },
   },
 
   notice = {
@@ -250,6 +255,10 @@ P:NPC {
   greetings = {
     { id = "g_fort", text = "You're in Hammerfall, where we fight now and soon we'll prosper. Which are you here for?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves." },
+    { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Hammerfall kept fighting without you. Now you're back, so fight with us." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here, I can see it in your stance. The hills will notice it too." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The grunts say you've done good work for Hammerfall. That's how a stranger earns a place by our fire." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I've heard you were caught lying to one of mine. Hammerfall was a prison once, and we don't forget who speaks false to us." },
   },
 
   notice = {
@@ -767,6 +776,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come, rest. Hammerfall is hard stone, but there's a soft hide by my fire." },
     { id = "g_home", when = { homeInn = { "Hammerfall" } }, text = "Welcome back to Hammerfall. Your place by the fire is waiting." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, you be back after {away} away! Come sit by the fire, mon, because the stone don't get any softer while you be gone." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in Hammerfall been smilin' all day after talkin' with you. That be rare in this hard place, so Adegwa thank you for it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody here be sour about you, mon, after whatever you said. Adegwa don't take sides, but maybe you sit with your back to the wall tonight." },
   },
 
   notice = {

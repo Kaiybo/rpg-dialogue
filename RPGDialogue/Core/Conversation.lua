@@ -874,6 +874,19 @@ function Conv.Choose(index)
   Effects.Apply(fx, env)
   Effects.Journal(journal, ctx, env)
   s.pendingNote = Conv.ChoiceNote(choice, checkResult, fx, dispBefore)
+  -- Word gets around (0.67.0): the rest of their town hears what you did.
+  local town = s.info and s.info.communities and s.info.communities[1]
+  local kind = ns.Towns and town and ns.Towns.WordKind(choice, checkResult, fx)
+  if kind then
+    ns.Towns.Word(town, kind, s.info, env.now or C.Now())
+    s.wordTold = s.wordTold or {}
+    if ns.Towns.WORD_NOTE[kind] and not s.wordTold[town] and ns.db.settings.approval ~= false then
+      s.wordTold[town] = true
+      local t = ns.Data.towns[town]
+      local line = L.WORD_SPREADS:format(t and t.name or town)
+      s.pendingNote = s.pendingNote and (s.pendingNote .. "  " .. line) or line
+    end
+  end
   -- What you said, shown quietly above their answer (authored [tags] left off).
   s.said = (choice.text or ""):gsub("^%[[^%]]*%]%s*", "")
   Conv.Log("you", s.said)

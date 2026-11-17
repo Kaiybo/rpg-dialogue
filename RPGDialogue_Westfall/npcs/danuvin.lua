@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_line", text = "Fall in or move along." },
     { id = "g_paws", when = { questActive = TODO_QUEST("Patrolling Westfall") }, text = "Paws, is it? Count them out on the table, and if it isn't eight, back out you go." },
     { id = "g_after", when = { questDone = TODO_QUEST("Patrolling Westfall") }, text = "You patrol like you mean it, and that's rarer than you'd think." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the gnolls didn't take a holiday while you were away. Fall in, then." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened up since you were counting paws for me. I'd put you at the front of the line now, and I don't say that to many." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "Word on the hill is you've been throwing your weight around. Save it for the Defias, because my farmers have been bullied enough." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been earning your keep around the hill. Good, because that's the only kind of soldier I've time for." },
   },
 
   notice = {

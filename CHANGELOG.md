@@ -2,6 +2,20 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.67.0 (2026-11-17)
+Coming home, and a town that talks. No new files: /reload is enough if you have 0.65.0's packs in.
+
+### "You've been away"
+- **Towns remember when you were last there.** Walk back into a town after a week or more (logging out counts) and its people notice for a few hours: a guard at the gate, the innkeeper whose room has been let twice since, Bolvar, Thrall, Cairne, Jaina and about 290 others in every pack.
+- **They notice how far you've come.** Mentors, trainers and quest givers who sent you out green remark on it once you've gained eight levels or more since you last spoke, and leaders notice when you come back from a long absence stronger.
+
+### Word gets around
+- **What you do with one person, the town hears.** When someone approves or disapproves of you strongly, when you win a Persuade, Intimidate or Deceive check, when a lie is seen through, or when you finish a quest for the town, everyone else there hears it, and the towns nearby hear it a day later.
+- **They say so.** Townsfolk, guards and named people greet you with what they've heard for two weeks after, warm or wary depending on what it was.
+- **It moves your standing a little.** Leaning on people or getting caught lying costs you a bit with the town, and winning someone over earns a bit. The note under the answer says "Word of this will get around Goldshire."
+
+Packs: every pack gets a minor version (World 1.30.0).
+
 ## 0.66.0 (2026-11-17)
 Bug fixes and quality control. No new files: /reload is enough.
 

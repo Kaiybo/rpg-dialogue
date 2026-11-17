@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You've come back from the desert, which is more than I can say for many. Sit, if you have a moment." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The hives are loudest at night. I find I listen for them now, whether I want to or not." },
     { id = "g_after", when = { questDone = TODO_QUEST("Into The Maw of Madness") }, text = "Ah, it's you. Forgive me if I don't smile; I'm glad to see you, all the same." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away from the Hold {away}, and the hives have not been idle in that time. Sit, if you have a moment, and tell me what you've seen beyond the desert." },
+    { id = "g_away_long", when = { away = 60 }, text = "It's been {away}, and you walk back into the Hold as though the desert simply let you go. It rarely lets anyone go, and I find I'm more glad of it than I can easily say." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since we first spoke, and the Hold has need of that strength, closer to the hives than I once dared to send you." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I'm told you parted from one of the Hold's people on bitter terms, and the Hold is too small and too beset for quarrels. I would ask you to make it right." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Hold speaks well of you, and I've heard your name at the fires more than once this week, which matters in a place where so few come back to be thanked." },
   },
 
   notice = {
@@ -431,6 +436,9 @@ P:NPC {
     { id = "g_default", text = "Mind the crates, friend; half of them are full of rocks, and the other half are full of more interesting rocks." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Come and listen to this sample and tell me I'm imagining things." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's quieter at night, so ye can hear it properly. Shh, now." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the hum's grown louder in that time, I'd swear it on my hammer. Come an' listen, an' tell me I'm wrong." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit since ye last came by my crates, an' I can feel it the way I feel a seam o' good ore. The crystals might take notice o' ye now, so mind yerself near them." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked someone at the Hold round tae yer view, which is more than I've managed wi' the Circle about my crystals. Mebbe ye could put in a word for a dwarf wi' a feelin'." },
   },
 
   notice = {
@@ -953,6 +961,10 @@ P:NPC {
     { id = "g_default", text = "You climbed all these stairs to talk to me? Then talk." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; the last one who climbed up here wanted directions to the privy." },
     { id = "g_deathclasp", when = { questDone = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") }, text = "The southern patrols came back whole this week. I counted twice." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and your footsteps on these stairs haven't changed a bit. Come up and talk, then." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You climb those stairs heavier than you used to, and I don't mean you've been eating Calandrath's cakes, because you've grown stronger and I can hear it in every step." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody down in the Hold caught you lying, and I hear everything from up here sooner or later. Don't try it on a blind man, because we listen too closely." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "Word climbed the tower that you frightened one of the Hold's people, and fear has a sound I know well, so save yours for the bugs." },
   },
 
   notice = {
@@ -1193,6 +1205,9 @@ P:NPC {
     { id = "g_default", text = "Oh, look at you, sand from head to foot! Come in out of the sun." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to the oasis, dear. Your usual corner's free." },
     { id = "g_dumplings", when = { questDone = TODO_QUEST("Kitchen Assistance") }, text = "The dumplings are a hit, you know. I haven't told anyone where the recipe came from." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, you've been gone {away}, dear, and you've brought half the desert back in your hair again! Come in out of the sun, and I'll find you a bowl of something." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came in today all smiles and said it was something you'd told them, and smiles are rarer than shade in Silithus. Thank you, dear." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole Hold's been talking about how you helped, and I've heard it over every bowl of worm stew I served today. Sit down and have a bowl yourself, dear." },
   },
 
   notice = {
@@ -1439,6 +1454,9 @@ P:NPC {
     { id = "g_default", text = "Beetix Ficklespragg, at your service, and if you've got a strong stomach, I've got work." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, it's you! Noggle's still breathing, so you're still my favourite customer." },
     { id = "g_saved", when = { questDone = TODO_QUEST("Noggle's Last Hope") }, text = "Look at him, sleeping like a baby. A baby who owes me a fortune in antidotes, but still." },
+    { id = "g_away", when = { away = 14 }, text = "Hey, you're back after {away}! Noggle's still breathing, I'm still brewing, and my prices have only gone up a little, so welcome home." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the Hold is you spun somebody a story they bought whole, and as a goblin, I've got to say I'm proud. Just don't try it on me, because I wrote the book." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round today, and that's a skill worth good money, so try it on Noggle and his antidote sometime and I'll call you a genius." },
   },
 
   notice = {

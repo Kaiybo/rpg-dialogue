@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_expected", text = "Ah, there you are, {name}. The stars said you would come; they did not say you would be so late." },
     { id = "g_back", when = { metBefore = true }, text = "Sit, please. The cards have been restless since you left." },
     { id = "g_comb", when = { questActive = TODO_QUEST("Return the Comb") }, text = "You have seen Blind Mary; it is written on your face. Give me the comb, child." },
+    { id = "g_away", when = { away = 14 }, text = "You were gone {away}, child, and the cards would not stop turning up the Wanderer. Now sit, and let us see what the road has written on you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "The stars spoke of a small thing grown great, and I see now they meant you. Your fate has thickened since we last met, child." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you bent someone's will in Darkshire with nothing but words. The cards admire a silver tongue, though they charge for the admiring." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone saw through one of your lies, I am told. The cards see through all of them, child, so speak truly at my table." },
   },
 
   notice = {

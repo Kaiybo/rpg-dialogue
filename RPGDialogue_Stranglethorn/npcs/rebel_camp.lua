@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_halt", text = "Stop there and state your business. If you're one of the Colonel's, you won't be walking out of this camp." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. We've few enough friends this far from Stormwind." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd wondered if Kurzen had you. We've few enough friends out here, so I'm glad to be wrong." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown harder since we last spoke, and it shows. That's what this jungle does to the ones it doesn't kill." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "My men say you were caught in a lie in this camp. We left the Colonel because of lies, so you'll understand why I'm asking you not to." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you put the fear into one of my men. They had enough of that from Kurzen, so ease off." },
   },
 
   notice = {

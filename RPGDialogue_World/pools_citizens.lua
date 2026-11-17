@@ -19,6 +19,9 @@ P:Pool {
     { id = "g3", text = "Good day to you, stranger. You look like you've come a long way to stand in front of me." },
     { id = "g4", when = { timeOfDay = "night" }, text = "It's late for a chat, but I'm not sleeping anyway, so go on." },
     { id = "g5", when = { timeOfDay = "dawn" }, text = "You're up early. Either you've work to do or you haven't been to bed, and I won't ask which." },
+    { id = "g_away", when = { away = 7 }, text = "You've been away {away}, haven't you? I thought I hadn't seen your face about." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk round here say you've done the town a good turn, so I'm glad to meet you properly." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I've heard someone caught you out in a lie. I'll mind what you tell me, then, if it's all the same." },
   },
   lines = {
     { id = "l1", text = "I'm only going about my day, the same as everyone. Nothing much to tell, I'm afraid." },
@@ -47,6 +50,9 @@ P:Pool {
     { id = "g2", when = { timesTalked = { min = 2 } }, text = "Back again? People will think we're old friends, and I suppose by now we nearly are." },
     { id = "g3", when = { timeOfDay = "night" }, text = "Evening. You'd do well to find a fire soon; the roads aren't kind after dark, these days." },
     { id = "g4", text = "Hello there. You've the look of someone who's seen more of the world than I have, which isn't hard." },
+    { id = "g_away", when = { away = 7 }, text = "Light keep you, you're back after {away}! I was beginning to wonder whether the roads had got you." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I had it from {source} that you talked them round to your way of thinking. You must have a gift for it." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "There's talk that you leaned on someone hard, not long ago. I'd rather we kept things friendly, if you don't mind." },
   },
   lines = {
     { id = "l1", text = "Everything costs more since the war. Bread, boots, lamp oil, the lot of it, and nobody's wages have kept up." },
@@ -81,6 +87,9 @@ P:Pool {
     { id = "g2", when = { timesTalked = { min = 2 } }, text = "You again. Good; I was starting to think nobody else in the Horde could hold a conversation." },
     { id = "g3", when = { timeOfDay = "night" }, text = "It's late, and the fires are banked. Speak quietly and I'll listen." },
     { id = "g4", text = "Well met. The Horde's a big family, and most of us don't get to talk to the ones who wander." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. Good; I'd wondered whether the road had taken you." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you said something that pleased {source} greatly. Throm-ka; good words are worth hearing." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear someone here was angered by your words. Mind your tongue, because a grudge in the Horde lasts a long time." },
   },
   lines = {
     { id = "l1", text = "My father spent ten years in a human camp, and now I sleep under my own roof in a land the Warchief found for us. Some days I can hardly believe it." },
@@ -132,6 +141,11 @@ P:Pool {
     { id = "g_dwarf", when = { subzone = "Dwarven District" }, text = "Hear that hammering? The smiths in this district never stop, and after a while you can't sleep without it." },
     { id = "g_mage", when = { subzone = "Mage Quarter" }, text = "Don't touch anything that glows in the Mage Quarter. I learned that the hard way, and my eyebrows took a month to grow back." },
     { id = "g_park", when = { subzone = "The Park" }, text = "Lovely in the Park today, isn't it? It's the only place in the city where you can hear the birds over the carts." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back in Stormwind after {away} away, are you? The canals haven't changed, but the price of bread has, and not in your favor." },
+    { id = "g_away_long", when = { away = 45 }, text = "Light bless me, it's you! You've been gone {away}, and I'd half heard you'd taken ship for Kalimdor and never come back." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk in the Trade District are saying you did the city a good turn while I wasn't looking. Stormwind needs more of that, and fewer speeches." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I had it from {source} that you were caught telling a tale that didn't hold water. I'll take what you say with a pinch of salt, if you don't mind." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "There's talk along the canal that you leaned on somebody hard, harder than a guest of the King ought to. I'll keep my distance, if it's all the same to you." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -234,6 +248,11 @@ P:Pool {
     { id = "g_tinker", when = { subzone = "Tinker Town" }, text = "Mind yer head in Tinker Town. The gnomes build everythin' at their own height, an' then act surprised when we bang into it." },
     { id = "g_explorers", when = { subzone = "Hall of Explorers" }, text = "Shh, keep it down, will ye? The scholars in the Hall get awful twitchy about noise, an' they've got the longest memories in the mountain." },
     { id = "g_forge", when = { subzone = "The Great Forge" }, text = "Stand a bit closer tae the Forge, go on. Ye look like ye came in off the snow, an' there's no shame in it." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been gone {away}, an' the Great Forge kept burnin' the whole while wi'out ye. Come warm yer hands, then." },
+    { id = "g_away_long", when = { away = 45 }, text = "Well, I'll be! It's been {away}, an' I'd half reckoned the Deeprun Tram had swallowed ye whole." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Word in the Commons is ye said somethin' that pleased {source} no end. That's no' easy under this mountain, so well done." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear ye got under somebody's beard down the Commons, an' properly too. Dwarves have long memories, so mind how ye go." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "They say ye talked {source} round tae yer way o' thinkin'. Ye must have a silver tongue, for we're a stubborn lot in Ironforge." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -290,6 +309,11 @@ P:Pool {
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Elune's light is on the water tonight. This is the hour my people love best, so forgive me if I am in no hurry." },
     { id = "g_temple", when = { subzone = "Temple of the Moon" }, text = "Hush, please, for the priestesses are at their devotions. The moonwell answers to quiet voices." },
     { id = "g_enclave", when = { subzone = "Cenarion Enclave" }, text = "The druids are arguing again, if you can call it arguing when nobody raises their voice. Did you come to see the Arch Druid?" },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}, and the tree has hardly noticed, though I confess that I did." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away} since you walked these branches. For my people that is nothing at all, yet you look as though it has been a great deal longer." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There is a murmur among the branches that you told {source} something untrue, and were believed. Truth is slow to grow back, traveler, so tend it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Sentinels speak well of you; I am told you did Darnassus a true service while I was at my prayers. Elune sees such things, and so do we." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I am told you spoke falsely to someone in the city, and that they saw through it. Forgive me if I listen more carefully than I did before." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
@@ -345,6 +369,11 @@ P:Pool {
     { id = "g_night", when = { timeOfDay = "night" }, text = "The fires are low, and the city sleeps with one eye open. What brings you through the valleys at this hour?" },
     { id = "g_drag", when = { subzone = "The Drag" }, text = "You came down to the Drag on purpose? Hold on to your coin, then, and to anything else you'd like to keep." },
     { id = "g_spirits", when = { subzone = "Valley of Spirits" }, text = "Welcome to the trolls' corner, mon. The smoke's from the shaman's fires, not the cooking, so don't go tasting it." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the Drag hasn't missed you, but I did, a little. Sit down." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away} since I saw your face in the Valley of Strength! I thought the Barrens had finally swallowed you." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word in the Drag is you put the fear into someone, and they've not stopped talking about it. Strength is respected here, but don't try it on me." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I had it from {source} that you spoke well, and that it was worth hearing. That's not said often in this city, so wear it proudly." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They say you did the Warchief's city a good turn. Lok'tar, friend; the Horde remembers those who work for it." },
   },
   notice = {
     { id = "n_priest_troll", cat = "class", when = { class = "PRIEST", race = "Troll" },
@@ -397,6 +426,11 @@ P:Pool {
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The stars are close up here at night, closer than anywhere in Mulgore. Sit with me a while, if you like." },
     { id = "g_elder", when = { subzone = "Elder Rise" }, text = "Speak softly on the Elder Rise, please. The old ones are listening, and they always have something to say about it." },
     { id = "g_spirit", when = { subzone = "Spirit Rise" }, text = "You've come to the Spirit Rise. The Pools of Vision lie below us, and the ancestors are very close here." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "The wind told me you had gone, and now it brings you back after {away}. Sit, and let the bluffs remember you." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away} since you stood on these bluffs, and you have grown in that time, I think. The Earth Mother is patient with wanderers." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Folk on Elder Rise say you brought {source} round with patient words. That is the tauren way, and I'm glad to hear it from a guest." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear someone on the bluffs was much angered by what you said. Words are like stones dropped in the river, friend, and they are not easily taken back." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "The wind carries a story that your words were found false, not long ago. The tauren forgive much, but we remember what is true." },
   },
   notice = {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
@@ -444,6 +478,11 @@ P:Pool {
     { id = "g_hero", when = { townStanding = { town = "undercity", min = 55 } }, text = "Ah, the one the Deathguard keep mentioning. You've been useful to the Dark Lady, and in this city that's the warmest welcome there is." },
     { id = "g_apoth", when = { subzone = "The Apothecarium" }, text = "Breathe through your mouth in the Apothecarium, if you still breathe. The smell is the least dangerous thing in here." },
     { id = "g_trade", when = { subzone = "The Trade Quarter" }, text = "Buying or selling? Everyone in the Trade Quarter is doing one or the other, even the ones who look like they're standing still." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. Time is a thing we have rather too much of down here, so I can't say it felt long." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you're still in one piece, I see. Most of what leaves this city comes back in a much worse condition." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There's a rumor in the Trade Quarter that you fooled someone very neatly. I admire the craft, but I'll be keeping a closer eye on my own pockets." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I had it from {source} that you frightened someone badly, not long ago. That's hard to manage in a city of corpses, so I'll be civil." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Deathguard say you've done the Dark Lady's city some service. In the Undercity that's as close to gratitude as anyone comes, so enjoy it." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "Scourge" },
@@ -489,6 +528,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Afternoon! If you're looking for a bed, the Lion's Pride is the yellow one with the noise coming out of it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You're out late. Folk round here lock their doors after dark now, which my father would never have believed." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}! The Lion's Pride hasn't changed, though there are more kobolds in the Fargodeep than ever." },
+    { id = "g_away_long", when = { away = 45 }, text = "Well, look at you, back in Goldshire after {away}! You've grown into your boots since you last passed through, I'll say that." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk at the Lion's Pride say you did Goldshire a good turn. We don't forget that sort of thing here, small as we are." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you put someone's nose out of joint over at the inn. It's a small town, so everyone knows by now, I'm afraid." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", maxLevel = 15 },
@@ -523,6 +566,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Light's blessing, friend. You'll be one of the new recruits, then? Everyone is, this time of year." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "Good morning! The brothers have been at their prayers for an hour already, and the bells will start any moment now." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}, friend. The brothers kept you in their prayers, or so I like to think." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and look how far you've come! You walk into the valley like a veteran now." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the brothers was saying you spoke very kindly to him, and he's still smiling about it. The Light shows itself in small things, doesn't it?" },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I heard {source} caught you in a falsehood. The abbey frowns on that, and I'd say a prayer about it, if I were you." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -557,6 +604,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Lakeshire, friend. Mind the bridge; it's been half built for longer than my youngest has been walking." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be out. If you hear drums up in the hills, don't stand about listening to them; get inside." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back in Lakeshire after {away}? The bridge is still half built, if you were wondering." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and here you are, still in one piece! We'd feared the Blackrock up in the hills had got you." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everyone at the inn's saying you've done Lakeshire a real service. With the orcs and the gnolls about, we'll take all the help we can get." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you leaned hard on somebody in town. We've enough bullies in the hills already, so go gently here." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -589,6 +640,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "A living face! Come into the lamplight where I can see you properly, and forgive me for asking." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get off the road, friend, and quickly. The howling starts at this hour, and it's not far off tonight." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You're back after {away} away! I'd prayed you weren't lying in the fields by Raven Hill, and here you are." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}. In Duskwood that's long enough for us to start counting someone among the lost, so forgive me for staring." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There's a whisper going round that you tricked {source} with a fine story. We've enough ghosts in this wood without lies to add to them." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They say you've done Darkshire a good turn, and in this town a kindness is remembered longer than the daylight lasts." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -624,6 +679,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Sentinel Hill. It's not much, but it's what Westfall's got left that isn't Defias." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Keep to the hill tonight. The scarecrows walk the fields after dark, and I'm not joking, though I wish I were." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the Defias haven't. The fields are just as sorry as you left them." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away} since you were on the hill! Westfall's still Westfall, but we're still here, so that's something." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The People's Militia say you did right by Westfall. Gryan Stoutmantle doesn't hand out praise, so if it reached me, it's earned." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "Somebody on the hill caught you in a lie, so they're saying. Folk here have been lied to enough by the Brotherhood, and they won't take it from you." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -656,6 +715,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Mind the planks, friend; half this harbor is under the bay and the other half is thinking about it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The last ship's in, and the docks are quiet. Well, quiet apart from the murlocs, and you stop hearing them after a while." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You're back, and after {away}! The harbor's a few planks lower than when you left, so mind your step." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I thought you'd taken ship for Theramore and stayed. Plenty do, and I can't say I'd blame them." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I had it from {source} that you talked them round to your way of thinking. That's no easy thing with Menethil folk, who'd argue with the tide." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "There's talk on the docks that you put someone in a black mood. Sailors carry a grudge further than cargo, so watch yourself." },
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -688,6 +751,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Southshore, friend. It's a quiet town, or it would be, if not for the neighbors." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be wandering. Folk here keep their shutters closed at night, on account of what lives up the road in Tarren Mill." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. Not much changes in Southshore, except the arguments with Tarren Mill." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and look at you! You've the look of someone who's seen a great deal more than Hillsbrad." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk at the inn are saying you've done the town a kindness. That's welcome news, for it's mostly bad news that comes up the road." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word in town is that you frightened someone half to death. We've enough fright with the Forsaken up the road, so ease off, will you?" },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -720,6 +787,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome tae Thelsamar! Good beer, good fishin', an' troggs in every hill, so ye'll never be bored." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late, is it? The Stoutlager's still open, an' that's where any sensible dwarf would be on a night like this." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been away {away}, an' the troggs haven't, more's the pity. Come an' have a pint at the Stoutlager." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! I'd heard ye'd gone tae Kalimdor, or tae the bottom o' Loch Modan, an' I wasnae sure which." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in town was tellin' how ye'd said just the right thing tae them, an' they're still grinnin' about it. Ye've a knack, so ye have." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I had it from {source} that ye tried a tall tale on them an' it fell flat. Thelsamar's a small town, so we'll all be listenin' close now." },
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -754,6 +825,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Come in out o' the snow, will ye? Ye're lettin' the cold in just standin' there." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Cold enough tae freeze yer beard tae yer chin tonight. Get yerself intae the Thunderbrew afore ye turn intae a statue." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been gone {away}, an' it's snowed near every day of it. Come in an' shut the door behind ye." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, an' ye've grown broader in the shoulder, if I'm any judge. The cold kept us here, but ye've had a proper journey, eh?" },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word in the Thunderbrew is ye got somebody's dander right up. Make it right afore long, for Dun Morogh's a cold place tae be out o' favor." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They're sayin' in Kharanos ye did us a fine turn. Good on ye; the mountain'll no' forget it, an' neither will I." },
   },
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -791,6 +866,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Ishnu-alah. The boats are at the piers, and the sea is calm today, which is more than can be said for the land." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Stay near the lamps after dark. The furbolgs come closer than they used to, and they are not the gentle folk they were." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}. The sea has been calm and the land less so, but you will have heard." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away} since you walked these piers, traveler. Darkshore has grown no kinder in that time, but you have grown stronger, I see." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There is a whisper on the piers that you deceived someone, and cleverly. My people have long memories, so take care which stories you tell." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I am told you brought {source} round to your view with patient words. That is a rare gift, and I'm glad to hear it used well." },
   },
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
@@ -825,6 +904,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Astranaar, traveler. We are an island in the lake and an island in the war, and you'll find both are true." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Stay on the island tonight. The satyrs walk the shore after dark, and they laugh while they hunt." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}, and still the war goes on in the forest. Be welcome back on the island." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away}, and the Horde's axes have cut deeper into Ashenvale since you left. You've come back in time to see it, I'm afraid." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "There is talk on the island that you frightened someone into doing as you wished. We have enough fear in Ashenvale, so I hope it was deserved." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Sentinels say you have done Astranaar a true service. Elune keep you; the island does not forget its friends." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -859,6 +942,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Ishnu-alah, young one. Dolanaar is peaceful, mostly, and the moonwell is just there if you need to rest." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune's light on you. The forest is quiet tonight, and I hope it stays that way." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been gone {away}, and the moonwell has been quiet without you. Be welcome back." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away}, and you are not the same traveler who left Dolanaar. Teldrassil will be glad of you, and so am I." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the village was greatly pleased by what you said to them; I heard it at the moonwell. Kind words grow well here." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I am told someone saw through a falsehood of yours. Teldrassil is young, and we would rather it grew up honest." },
   },
   notice = {
     { id = "n_new", cat = "class", when = { race = "NightElf", maxLevel = 10 },
@@ -893,6 +980,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Theramore! Watch your step on the docks; they're always wet, and the fog comes in fast." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be out. The marsh is louder at night, and most of what's making the noise has teeth." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back in Theramore after {away}! The fog hasn't lifted once since you left, I'm sure of it." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I'd assumed the marsh had swallowed you. Welcome back; Lady Proudmoore's isle is glad of familiar faces." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word on the docks is that you talked {source} round. Theramore's built on making peace with stubborn folk, so you'll fit in well." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you set someone in town against you, and properly. Theramore's a small isle, friend, so you'll keep bumping into them." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -924,6 +1015,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "A new face! We don't get many out here, so forgive me for staring. What brings anyone to Desolace on purpose?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Keep inside the walls once the sun's gone. The centaur ride by night, and they don't stop to read your tabard." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and Desolace is just as desolate. We're glad of any face that comes back at all." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! Most who leave Nijel's Point don't come back, so you'll forgive me for being surprised." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They're saying you did the Point a real service. Out here, that's the sort of thing folk remember until they're old." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "There's talk you leaned on somebody in camp, and hard. We've the centaur for that sort of thing, so please don't add to it." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -955,6 +1050,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Feathermoon. You came by boat, I hope, because the swimming is not something I would recommend." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The stars are bright over the sea tonight. The Sentinels call it a good omen, though they say that about most clear nights." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}, and the sea has brought you back. It does not always, so I am glad." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away} since you last came to Feathermoon. Feralas has grown wilder, and so, I think, have you." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I am told someone here believed a story of yours that was not true. The Sentinels will learn of it, as they learn of everything." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the Sentinels was pleased by your words, I hear, and they do not please easily. Be welcome, then." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -991,6 +1090,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Refuge Pointe. It's tents and stubbornness, mostly, but we're still here, and that counts for something." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Keep close to the fires tonight. The Syndicate creep about the hills after dark, and the trolls are worse." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}, and we're still here, tents and all. That's what stubbornness buys you." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I'd heard nothing of you in all that time. The Highlands aren't kind to the lost, so welcome back." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I hear {source} caught you out in a lie. We've the Syndicate for liars, friend, so don't make us mistake you for one of them." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk at the Pointe are saying you did us a real good turn. Out here that's worth more than gold, though we'd not say no to gold either." },
   },
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human" },
@@ -1023,6 +1126,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome tae Aerie Peak, friend! Keep yer fingers away from the gryphons' beaks, for they're no' fussy about whose fingers." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The stars are out over the Hinterlands, an' the gryphons are settlin' in their roosts. It's the best hour o' the day, if ye ask me." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been gone {away}, an' the gryphons have been askin' after ye. Well, squawkin', but it's the same thing." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! I'd thought the trolls had got ye, or worse, that ye'd gone back tae Ironforge for good." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word at the roosts is ye put the fear o' the storm intae somebody. We Wildhammer respect a bold heart, but no' a bully's." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I had it from {source} that ye've a fine way wi' words. Ye've pleased a Wildhammer, an' that's rarer than gold." },
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -1053,6 +1160,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "You've reached Chillwind. Keep your weapon close and your wits closer, because the dead don't rest in these lands." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get to the fires before full dark. The Scourge walk more boldly at night, and the plague seems worse for it." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the plague hasn't. It's good to see you still breathing." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you made it back. Out here we count that as a victory, and we drink to it when we can." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've made an enemy in camp. We can't spare grudges with the Scourge so close, so make your peace if you can." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp's saying you did us a good turn. Every day the Scourge are held back is a good day, and you've given us one." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -1086,6 +1197,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "You've made it to Morgan's Vigil. Welcome, and keep your head below the wall, because the Blackrock have archers." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The mountain glows red at night, and the orcs beat their drums until dawn. You get used to it, or you go home." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the orcs are still beating their drums. It's good to have you back below the wall." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! We'd heard nothing, and down here no word usually means bad word." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "They say you talked {source} round. A level head is worth two swords at the Vigil, so I'm glad you've got one." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "Somebody here caught you out in a falsehood, so I'm told. On the wall, a soldier needs to know who'll tell him the truth." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1120,6 +1235,11 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Booty Bay, pal! Everything here's for sale and everything's got a price, so I hope you brought your purse." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The taverns are just getting going, so mind your pockets, and mind the edge of the pier on your way home." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Hey, look who's back after {away}! Prices went up while you were gone, but that's just the market, pal." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I figured the sharks got you. Glad to be wrong, since dead customers don't buy anything." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word on the pier is you sold somebody a story and they bought every word. Smooth work, but I'm keeping a hand on my purse, no offense." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folks are saying you did the Bay a good turn. That's good for business, and what's good for business is good for you, pal." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you leaned on somebody down by the docks. The Bloodsail do enough leaning around here, so let's keep it friendly, eh?" },
   },
   notice = {
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
@@ -1156,6 +1276,11 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Gadgetzan! It's hot, dry and expensive, but the water's clean and the Cartel keeps the peace." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Gets cold in the desert at night, which nobody believes until they try it. Stay inside the walls, because the bandits like the dark." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back in Gadgetzan after {away}! The sand's still hot and the water's still dear, so you haven't missed a thing." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! I figured the Wastewander bandits got you, and I'd already started telling the story at the bar." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I had it from {source} that you talked them into seeing things your way. You'd make a fine salesman, pal, and I mean that as a compliment." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word around the bank is you got somebody real steamed. The bruisers notice that sort of thing, so watch yourself in town." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They're saying you did the town a good turn. The Cartel likes folks who keep the peace, and so do I." },
   },
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -1188,6 +1313,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Everlook, and I hope you brought a coat! The Cartel built a town in the snow, and we're all still wondering why." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "It's freezing tonight, so get yourself indoors, or you'll be an icicle with boots on by morning." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back in Everlook after {away}, and you didn't freeze! That's good for you and good for business." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I figured the yetis got you. Glad to see you, pal, because customers are scarce up here." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "Word is somebody caught you in a fib. Up here a bad name sticks like frost to a window, so keep your stories straight." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you made somebody real happy with your talking. Happy folks spend money, so keep it up, will you?" },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1219,6 +1348,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "You've come to Light's Hope. Whatever banner you fly, you can leave it at the gate; here the living stand together." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay near the chapel tonight, and pray the bell keeps quiet. When it rings after dark, it means the dead are close." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}, and the dead pressed closer while you were gone. The Light be thanked that you've come back." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}. In the Plaguelands that's long enough to give someone up for lost, and yet here you stand." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They say you've done the chapel a great service. Every banner here owes you something, and they'll remember it." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you told someone here a story that was not true. We stand together at Light's Hope, and we cannot do that on falsehoods." },
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -1250,6 +1383,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome tae Thorium Point. Aye, I'm Dark Iron, but I'm the kind that left, so ye can take yer hand off yer hammer." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The Gorge glows red at night, an' the smoke never stops risin'. Ye get used tae it, or ye leave, an' most folk leave." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been gone {away}, an' the Gorge is no prettier for it. Still, it's good tae see a face that came back." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! I'd reckoned the Dark Irons had dragged ye under the mountain, an' I was ready tae drink tae yer memory." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word at the Point is ye frightened somebody near out o' their boots. There's enough fear in the Gorge, so take it easy here." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I had it from {source} that ye talked them round. That's no' a small thing among this lot, who'd argue wi' a slag heap." },
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -1281,6 +1418,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to the Refuge! We've been stuck down in this crater for months, so any new face is a fine one." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay close to the fire tonight. The big lizards hunt after dark, and some of them could step on you without noticing." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and we're still stuck in this crater. Welcome back down." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you look like you've seen half the world! We've seen the same three devilsaurs, so tell us everything." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk round the fire say you did the Refuge a good turn. Down here, every good turn might be the one that gets us all home." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you got someone round the fire properly upset. There's no room to avoid each other in a crater, so you'd best make peace." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1312,6 +1453,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Nighthaven. Weapons stay sheathed and voices stay soft here, for the Circle keeps the peace in the glade." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The moon is on the lake tonight. Walk softly, please; the village sleeps lightly, and the druids sleep more lightly still." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}. The Circle keeps the glade as it was, so you will find little changed." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away}, and the moon has turned many times over the lake. You have changed with it, I think, as all things do." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "The druids say someone in the glade saw through a falsehood of yours. Moonglade is a place of truth, so speak plainly here." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I am told you said something that pleased {source} greatly. Kind words carry far in a quiet place like this." },
   },
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
@@ -1348,6 +1493,11 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka, traveler. Drink from the well before you do anything else; the Barrens dries you out before you notice." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get inside the palisade before full dark. The centaur ride at night, and they shoot at anything that moves." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the Barrens is just as dry. Drink from the well first, then tell me where you've been." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! The caravans said nothing of you, and I'd begun to think the centaur had you." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "The caravan guards say you frightened somebody badly. Strength is good, but the Crossroads lives by trade, and trade doesn't like fear." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word at the well is you did the Crossroads a good turn. Throm-ka; the Horde's roads are safer for it." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I had it from {source} that you were caught in a lie. A warrior's word should be iron, friend, and I'm told yours bent." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1380,6 +1530,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka. You'll be heading for the capital, or away from it; everyone in Razor Hill is doing one or the other." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Inside, quickly, before the light's gone. The cultists in the canyons grow bolder once the sun goes down." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and Durotar's as red and dry as ever. Throm-ka, and welcome back." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! You've grown since you last walked through Razor Hill, and you've the look of a proper veteran now." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you made someone in town very angry. Razor Hill's a small place, and orcs don't forget an insult." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked {source} round with words instead of an axe. That's rarer in Durotar than it should be." },
   },
   notice = {
     { id = "n_new", cat = "class", when = { maxLevel = 10 },
@@ -1411,6 +1565,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Brill. It was a human town once, and now it's ours, so mind where you step; some of the floorboards remember the old owners." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "It's always gloomy in Tirisfal, but at night the Scarlet patrols creep closer, so keep your eyes on the tree line." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. Tirisfal hasn't changed, of course; it never does, which is one of its charms." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you've come back. The living usually don't, once they've seen enough of Tirisfal." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There's a whisper at the Gallows' End that you fooled someone neatly. I do admire competence, but I'll be wary of you now." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Deathguard say you've done Brill some service. We don't do gratitude in Tirisfal, but we do remember." },
   },
   notice = {
     { id = "n_undead", cat = "race", when = { race = "Scourge", maxLevel = 10 },
@@ -1442,6 +1600,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Tarren Mill. It's quiet here, mostly, except when the humans from Southshore come calling with torches." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Hillsbrad is darker than it looks after sunset, and the Syndicate creep about in it. Stay close to the town." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}. The humans in Southshore haven't, sadly, so nothing's changed." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you still have all your limbs. That's more than many of us can say." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is that you frightened someone here quite badly. That takes effort with the Forsaken, so I'm almost impressed." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I had it from {source} that your tongue slipped and they caught it. We remember such things, even with what's left of our memories." },
   },
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Skyborne" } },
@@ -1473,6 +1635,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Be welcome in Bloodhoof Village. The grass is tall and the kodo are fat this season, so the Earth Mother is pleased with us." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Come and sit by the fire, traveler. The plains are peaceful at night, but it's wiser to be peaceful near a fire." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}, and the kodo grew fat while you were gone. Welcome back to Mulgore, traveler." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away}, and the grass has grown tall and been cut again. You have grown too, I think, and the plains can see it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The village is saying you've done Bloodhoof a kindness. The Earth Mother sees such things, and so does every tauren here." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear someone in the village was much angered by your words. Sit with them by the fire if you can, because anger cools best there." },
   },
   notice = {
     { id = "n_new", cat = "race", when = { race = "Tauren", maxLevel = 10 },
@@ -1506,6 +1672,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Freewind Post. Mind the edges of the mesa, because the drop is long and the wind is not your friend." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The stars are very close up here at night. Sit a while if you like; the lift will wait for you." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}, and the wind kept blowing the whole time. Welcome back up the lift." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away} since you stood on the mesa. You've come a long way, and not only on the lift." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "They say you brought {source} round with patient words. That is the tauren way, and you've learned it well." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "The wind says you frightened someone on the mesa. Up here a careless push sends a person a long way down, so be gentle." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1537,6 +1707,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Welcome to Camp Taurajo. The quilboar are south of us and the centaur west, so keep your weapon where you can reach it." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay near the fires tonight, traveler. The southern Barrens grow dangerous once the light goes." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, traveler, and the quilboar are still south of us. It's good to see you return." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away}, and you look as though you've walked the whole Barrens and back. Sit by the fire and rest." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I hear someone here caught you in a lie. The tauren are slow to anger, but we are slower still to trust again." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the hunters was greatly pleased by what you said to them, I hear. Good words travel well across the plains." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1567,6 +1741,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka. Watch the mud by the gate, because it's deeper than it looks and it keeps whatever it takes." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The swamp sings at night: frogs, mostly, and some things that aren't frogs. Stay close to the walls." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the swamp's swallowed two more carts since. Welcome back to Stonard." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! I'd thought the swamp had you, and I'd stopped looking for your face at the gate." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "They say in the barracks you told somebody a fine tale, and they swallowed it whole. Don't try it on me, because I've lived in this swamp too long to believe anything." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word is you did Stonard a real service. Throm-ka; we don't get many of those out here." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -1597,6 +1775,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka, and welcome to Kargath. You'll want water, and then shade, and then a good reason to stay." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay inside the walls after dark. The Dark Irons come down out of the mountain at night, and they don't come to trade." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the Badlands are as dry as you left them. Get some water before you say anything." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! Out here a long silence usually means a grave, so I'm glad to be wrong." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word around Kargath is you threw your weight about and scared someone. Strength is good, but save it for the Dark Irons." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I had it from {source} that you talked them round to your thinking. That's no small feat with the grunts here, who'd sooner settle things with an axe." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1628,6 +1810,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka. Keep your eyes on the trees while you're here, because the trees have eyes of their own in Ashenvale." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The Sentinels hunt at night, and they hunt quietly. Stay close to the fires and don't wander off to relieve yourself." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}, and the Sentinels haven't stopped watching us. Welcome back to the post." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you made it through the forest alive. In Ashenvale, that's worth a cheer." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you made someone at the post very angry. We've enough enemies in these trees, so try not to make more inside the walls." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The grunts say you did Splintertree a good turn. We'll need every axe we can get with the elves so close." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1659,6 +1845,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "You've found the Sepulcher. We were buried here once, some of us, and now we keep the place tidy." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Keep within the walls once the light fades. The beasts of Silverpine hunt after dark, and they're always hungry." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. The Sepulcher has kept quiet, as it does, and the worgen have kept hungry." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}. I'd assumed you had gone the way of all flesh, or to Shadowfang Keep, which is much the same thing." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "Somebody here saw straight through a story of yours, I'm told. The dead are good at spotting lies, because we tell so many ourselves." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you pleased {source} rather a lot. That's an achievement among the dead, who find very little pleasing." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1689,6 +1879,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka. Welcome to Grom'gol, where the zeppelins come and go and the jungle stays exactly where it is, all around us." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The jungle's loud after dark, with raptors, tigers and trolls all hunting at once. Stay inside the stakes." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the zeppelin's been late every day since. Welcome back to the jungle." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! The jungle swallows plenty of folk, so I'm glad it spat you back out." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word at the camp is you put the fear into someone. The trolls do enough of that around here, so ease up." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They say you did Grom'gol a good turn. The jungle's no place for a lone camp, so we're glad of the help." },
   },
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
@@ -1719,6 +1913,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Be welcome in Camp Mojache. The forest is green and good, but it's full of danger, so walk carefully." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay near the fires tonight, traveler. The ogres hunt in the dark, and they're loud about it." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}, and the forest grew greener while you were gone. Welcome back to the camp." },
+    { id = "g_away_long", when = { away = 45 }, text = "It has been {away}, and Feralas has missed you, I think, as much as a forest misses anyone. Sit and rest." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you turned {source} to your way of thinking with gentle words. That is a good gift, so use it well." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the camp was angered by your words, I hear. The ogres are angry enough without the tauren joining them." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1750,6 +1948,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka. You're standing in Hammerfall, where orcs were caged once and aren't any longer." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Listen, and you'll hear the troll drums in the hills. They drum most nights, and most nights we let them." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the trolls are still drumming. Welcome back to Hammerfall." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! You've the look of someone who's fought a great deal since you left the Highlands." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I hear you were caught in a lie. In Hammerfall we were lied to by human jailers for years, so we don't take it kindly." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word is you did Hammerfall a good turn. Lok'tar; the Horde remembers." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -1780,6 +1982,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka, and welcome to Brackenwall. The marsh is wet and the crocolisks are hungry, so watch where you put your feet." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The marsh is louder at night than in the day, and none of it is singing for joy. Stay close to the fires." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the marsh hasn't dried out. Welcome back to Brackenwall." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! The crocolisks didn't get you, then, and I'd have bet a week's pay they would." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There's talk you spun someone a fine tale and they believed it. The marsh is full of tricks already, so don't add yours." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I had it from {source} that you said something worth hearing. Throm-ka; that's rare in a swamp." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1811,6 +2017,10 @@ P:Pool {
   greetings = {
     { id = "g_day", text = "Throm-ka. You've found the one Horde camp in Felwood, so stay close to the fire and don't touch anything green." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Felwood's worse after dark, when the trees start whispering. Stay by the fires and don't answer them." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and Felwood's no cleaner for it. Welcome back to the fire." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you haven't turned green, so I'm glad to see you." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you scared someone at the post half to death. Felwood does enough of that on its own, so go easy." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word is you did the post a good turn. We'll take any help we can get out here, and we won't forget it." },
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },

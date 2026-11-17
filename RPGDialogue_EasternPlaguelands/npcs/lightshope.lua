@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_rare", text = "I don't often receive visitors. You'll forgive me if I'm out of practice." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Few return from the Plaguelands twice, and fewer bother to call on me." },
+    { id = "g_away", when = { away = 14 }, text = "I hadn't expected to see you again after {away} away, and I'm glad to be mistaken. The chapel's doors remain open to you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown formidable since we last spoke. The Dawn needs exactly that, and I'll not pretend otherwise." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone at the chapel caught you in an untruth. The Dawn stands on trust between people who have little else, so I'd ask you to guard it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word around the chapel speaks well of the help you've given. The Dawn keeps careful records, and your name is in the good ones." },
   },
 
   notice = {
@@ -288,6 +292,9 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Don't be alarmed by my face. The Light still hears me, whatever I've become." },
+    { id = "g_away", when = { away = 14 }, text = "You've returned after {away} away, and the Light kept you, as I prayed it would. Sit, and don't mind my face." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone here carries anger from a talk with you. Anger is a poor thing to bring into a chapel, so perhaps you'll seek them out." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you brought someone at the chapel a little gladness. In this land that is a kind of miracle, and I don't use the word lightly." },
   },
 
   notice = {

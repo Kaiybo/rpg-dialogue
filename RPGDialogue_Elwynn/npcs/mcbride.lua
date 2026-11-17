@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_dusk", when = { timeOfDay = "dusk" }, text = "Keep your voice down, recruit. The brothers are at their prayers." },
     { id = "g_count", when = { questObjective = { TODO_QUEST("Kobold Camp Cleanup"), left = { min = 1 } } }, text = "Count's not done, recruit." },
     { id = "g_echo", when = { questObjective = { TODO_QUEST("Skirmish at Echo Ridge"), left = { min = 1 } } }, text = "Echo Ridge isn't going to clear itself." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, recruit, and you came back on your own feet. That's more than I can say for some." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been gone {away}, and you don't walk like a recruit any longer. I'll keep calling you one, mind, because that's my privilege." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way from the kobold camps since we last spoke, recruit. Northshire trained you well, and I'll take a little of the credit." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone in the valley caught you in a lie, recruit. Report to me straight, because a soldier who lies in his reports gets people killed." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The brothers tell me you've been pulling your weight around the Abbey. Good work, recruit, so keep it up." },
   },
 
   notice = {

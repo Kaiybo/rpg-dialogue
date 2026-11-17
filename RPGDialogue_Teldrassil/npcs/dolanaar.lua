@@ -15,6 +15,9 @@ P:NPC {
 
   greetings = {
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and in that time the third well has not grown any sweeter. Listen to it with me, and tell me I'm wrong." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you last carried water for me. Strong enough, I hope, to face whatever is fouling the wells." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you have given offence to someone in Dolanaar. We have trouble enough in the wells without trouble between us, so mend it." },
   },
 
   notice = {
@@ -196,6 +199,10 @@ P:NPC {
 
   greetings = {
     { id = "g_druid", text = "Speak plainly, friend. The forest has troubles enough, and I've no patience for riddles today." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Gnarlpine have not grown any gentler. Speak plainly, then, because I've no time for anything else." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since I first sent you among the Gnarlpine, and it shows. I hope the forest taught you that strength isn't the same as cruelty." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear you've been frightening folk in Dolanaar. We've corrupted furbolgs for that, and I'll not have our own guests doing it too." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in the village caught you in a lie, I'm told. I've no patience for riddles, and I have even less for lies." },
   },
 
   notice = {
@@ -395,6 +402,10 @@ P:NPC {
 
   greetings = {
     { id = "g_groves", text = "Good to see the young taking a hand in guarding the groves. Come, I've work for willing hands." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the groves have missed your willing hands. Good to see you back on the path." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since you first took work from me, young one. I'm proud, if you'll allow an old elf to say so." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk around Dolanaar, and quietly too. That's exactly the kind of work I like to see done." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is someone in the village took a story of yours for truth. Some things are best handled quietly, but honestly as well." },
   },
 
   notice = {
@@ -775,6 +786,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Rest a while; the inn is yours for as long as you need it." },
     { id = "g_home", when = { homeInn = { "Dolanaar" } }, text = "Welcome home. The fire's low and warm, the way you like it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you look as though the road took its toll. Sit, and the tea will be ready in a moment." },
+    { id = "g_away_long", when = { away = 60 }, text = "It's been {away} since you last rested here, and I'm glad the road has brought you back. Your fire's still low and warm, the way you like it." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk in the village have been speaking kindly of you over their tea. I always thought you were good company." },
   },
 
   notice = {

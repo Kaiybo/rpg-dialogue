@@ -15,6 +15,9 @@ P:NPC {
   greetings = {
     { id = "g_road", text = "Fresh off the road, are you? Good. The Horde has room for you, if you earn it." },
     { id = "g_back", when = { metBefore = true }, text = "Still in the valley? Then you've still got work to do, so go on." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the valley's had a dozen new recruits through since. Go on and show them what one looks like after the road." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "I remember you walking into this valley with nothing, and look at you now. Somebody greeted you right, I'd say." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The recruits say you've been helping around the valley. That's how it starts; you earn your place in the Horde one chore at a time." },
   },
 
   notice = {
@@ -202,6 +205,9 @@ P:NPC {
   greetings = {
     { id = "g_den", text = "Stand up straight, recruit. The valley is watching you, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "You're back on your feet, and that's the first lesson. Most never learn it." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? You're still on your feet, so the lesson stuck." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walked out of my Den a whelp and now you're carrying scars worth having. Don't let it go to your head, because the next lesson is harder." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "The recruits say you made someone in the valley back down. A hard stare is a good tool, but don't mistake it for strength." },
   },
 
   notice = {
@@ -376,6 +382,8 @@ P:NPC {
   greetings = {
     { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark, and I'd rather they didn't. Help me with that." },
     { id = "g_back", when = { metBefore = true }, text = "You've been north? Tell me what you saw, all of it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade has been busy in that time. Tell me you've seen something useful." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the valley went away furious after talking with you. I don't much care who you anger, so long as it isn't the people fighting the Blade." },
   },
 
   notice = {

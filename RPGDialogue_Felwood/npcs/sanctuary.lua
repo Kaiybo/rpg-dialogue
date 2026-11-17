@@ -16,6 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_green", text = "Welcome, traveler. Look past the sickness, if you can, for there's still green under it." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to Felwood, when most don't once they've seen it. Thank you." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and while you were gone three of my seeds came up green, which I'll count as a welcome. Thank you for coming back to Felwood." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you were last here, and I mean that the way I'd say it of a sapling, with gladness. Felwood needs those who grow stronger instead of sicker." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the Circle came back from speaking with you smiling, and there's little enough to smile at in Felwood. Whatever you said was a small green thing in all this sickness." },
   },
 
   notice = {
@@ -258,6 +261,9 @@ P:NPC {
   greetings = {
     { id = "g_welcome", text = "The Emerald Circle welcomes you. Stay on the path, and don't touch anything that glows." },
     { id = "g_back", when = { metBefore = true }, text = "Still clean? Good; Felwood gets into people, so watch for it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd like a look at your eyes before you come any closer, because Felwood has a way of following people home." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone here caught you in a lie, and that's the first thing I watch for, because the forest's rot often starts with a small one. Stay honest, and stay on the path." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "Word is you put fear into someone at the sanctuary, and I'll ask you plainly not to do it again, because we have enough frightened things in Felwood already." },
   },
 
   notice = {

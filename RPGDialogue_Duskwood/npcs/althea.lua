@@ -20,6 +20,10 @@ P:NPC {
     { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You're one of mine now, or near enough, so report." },
     { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "There's the reason half my watchers are still alive. Sit down, if only for a moment." },
     { id = "g_ladim", when = { questActive = TODO_QUEST("Mor'Ladim") }, text = "If you're going after Mor'Ladim, take friends with you, and I mean that." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the woods haven't got any quieter. Report, then, and tell me what you saw on the road." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way since I first put your name near the roster. I'd trust you with a watch post now, and I trust very few with those." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "One of my watchers says you've been putting the fear into folk in town. They're frightened enough of what's in the woods, so leave that work to the woods." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone in Darkshire caught you in a lie. The Watch lives on honest reports, so mind you give me nothing else." },
   },
 
   notice = {

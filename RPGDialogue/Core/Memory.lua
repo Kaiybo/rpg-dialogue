@@ -33,6 +33,7 @@ function Memory.End(rec, lastLine)
   rec.first = rec.first or now
   rec.last = now
   rec.times = (rec.times or 0) + 1
+  rec.lvl = C.Level("player") or rec.lvl     -- 0.67.0: your level when you last spoke
   if lastLine then rec.lastLine = lastLine end
 end
 

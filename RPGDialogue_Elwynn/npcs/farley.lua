@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_welcome", text = "Welcome to the Lion's Pride! Sit anywhere the dog isn't." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! Your usual corner's free." },
     { id = "g_home", when = { homeInn = { "Goldshire", "Lion's Pride Inn" } }, text = "Home again! Boots off by the fire, if you please." },
+    { id = "g_away", when = { away = 14 }, text = "Well, look who's come home! You've been gone {away}, and Dobbins has been asking after you, so sit down and let me pour you something." },
+    { id = "g_away_long", when = { away = 60 }, text = "By my grandfather's beard, you've been gone {away}! The corner's still yours, and I'd never water a drink for a friend come home." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in town has been telling the whole common room how decent you are! I said I knew it the minute you walked through my door." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word in the common room is that you rubbed somebody in Goldshire the wrong way. Keep the peace under my roof, friend, and we'll say no more about it." },
   },
 
   notice = {

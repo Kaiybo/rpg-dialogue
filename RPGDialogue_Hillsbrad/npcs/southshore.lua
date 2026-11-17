@@ -17,6 +17,11 @@ P:NPC {
   greetings = {
     { id = "g_hall", text = "Southshore. We're small, we're stubborn, and we're still here. State your business." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you're back. Southshore's short of hands that stay." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "Back after {away} away, are you? The Forsaken didn't take the holiday you did, so I hope you're rested." },
+    { id = "g_away_long", when = { away = 60 }, text = "I'd nearly written you off after {away} away, and I'm glad I didn't. Southshore's short of hands that come back, so welcome home." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way since we last spoke, and it shows in how you carry yourself. Southshore could use that up the Mill road." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word in town is you told someone a story that didn't hold water. Southshore's small, and a lie walks round it faster than you do." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've done a good turn for Southshore while I wasn't looking. That's the sort of thing a marshal remembers." },
   },
 
   notice = {
@@ -417,6 +422,9 @@ P:NPC {
 
   greetings = {
     { id = "g_office", text = "Sit, sit, and don't mind the papers. The Syndicate keep me in reading." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, if my ledger's right, and it usually is. Sit down, for the Syndicate certainly didn't take any time off." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "A complaint crossed my desk suggesting someone in town was talked into something they now regret. I won't ask if it was you, but I'll be reading the fine print while you're here." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I'm told you talked someone round to your way of thinking. Most useful, and if you can do the same for the treasury, my door is always open." },
   },
 
   notice = {
@@ -1467,6 +1475,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Shut the door, the rain gets in. Is it a bed, food or both? Both, by the look of you." },
     { id = "g_home", when = { homeInn = { "Southshore" } }, text = "Your room's dry, mostly, though the corner leaks. All the corners leak, if I'm honest." },
+    { id = "g_away", when = { away = 14 }, text = "Come in and shut the door, because it's been {away} and the rain hasn't stopped once in all that time. Your room's still there, and so is the leak." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last stayed, and I don't mean your feet. Sit down, and I'll find you the room that leaks the least." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk in the common room have been saying you did right by Southshore. The first mug's on the house, then, though only the first." },
   },
 
   notice = {

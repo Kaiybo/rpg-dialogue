@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-17)
+- Townsfolk, guards, innkeepers, children, trainers and the other trades notice when you come back to their town after a week or more away, and pass on what the town has been saying about you. Needs RPG Dialogue 0.67.0.
+
 ## 1.29.1 (2026-11-17)
 - The spirit healer no longer repeats a full greeting when you come back to the questions. Townsfolk from near Dalaran know its shield is down.
 

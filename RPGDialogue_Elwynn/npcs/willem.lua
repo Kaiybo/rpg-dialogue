@@ -16,6 +16,10 @@ P:NPC {
     { id = "g_morning", when = { timeOfDay = { "dawn", "day" } }, text = "Morning! Keep to the road and you'll keep your purse." },
     { id = "g_tally", when = { questObjective = { TODO_QUEST("Brotherhood of Thieves"), left = { min = 1 } } }, text = "More bandanas for the tally? You're short a few yet." },
     { id = "g_piece", text = "Still in one piece? Good, see that you keep it that way." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in one piece! I'd heard nothing, and I hear about everything in this valley, so you must have been well out of it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come up in the world since you were collecting bandanas for my tally! I'll bet the Defias run when they see you coming now." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Somebody in the valley says they caught you telling a fib. I keep careful count of things like that, friend, so mind yourself." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk around the Abbey. That's the kind of news I like adding to my tally!" },
   },
 
   notice = {

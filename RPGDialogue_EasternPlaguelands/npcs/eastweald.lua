@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_river", text = "A visitor, out here? Mind Mirador; he's old, and he doesn't like strangers. Neither did I, once, but I've had time to change." },
     { id = "g_back", when = { metBefore = true }, text = "Back by the river? Sit with me; the fish don't bite, but the water's still pleasant to watch." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been away {away}, and the river hasn't changed a bit, nor have I. Sit a while, if you've the time." },
+    { id = "g_away_long", when = { away = 60 }, text = "I'd begun to wonder if the Plaguelands had taken you, after {away} away. I'm glad they didn't, and glad you remembered an old man by the river." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since we last talked, I can see it in how you stand. Use it gently, as well as bravely." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Even out here by the river I hear things, and I hear you've done good work for folk who needed it. The Light sees that, whatever any order says." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word reached me that someone left a talk with you angry. I've done that myself, and it took me years to mend, so don't let it wait." },
   },
 
   notice = {

@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_default", text = "You walk into the Cradle as if it were safe. Nothing on this mountain is safe, least of all me." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Either you are brave, or you have not yet understood what I am." },
     { id = "g_warm", when = { disposition = { min = 70 } }, text = "Sit, if you like. Your company is less tiresome than most." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and the mountain did not miss you, though I find that I noticed. Nothing that walks away from Hyjal comes back unchanged." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry more power than when we last spoke, and I can smell what some of it cost you, so be careful with it, because I know better than anyone where that road ends." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told someone on this mountain caught you in a lie, and I am the last who should judge a deceiver, though the others will remember it longer than I will." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "Word on the mountain is that you frightened someone into giving way, and I recognize the method, because fear works well enough, though it builds no trust, as I have learned." },
   },
 
   notice = {

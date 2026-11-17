@@ -17,6 +17,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hey there, neighbour! Lotta ruckus today, huh?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! Still lookin' around, or lookin' for me?" },
+    { id = "g_away", when = { away = 14 }, text = "Hey, neighbour, back after {away} away! I've rescued a whole lotta stuff since you left, and some of it's even for sale." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you pulled a fast one on somebody upstairs, sweetheart. A fellow Dalaranian after my own heart, that's what you are." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you sweet-talked somebody in the city round to your way of thinkin'. Nice work, pal, but don't try it on me, 'cause I'm the one who taught the city how." },
   },
 
   notice = {

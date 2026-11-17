@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.16.0 (2026-11-17)
+- The town's leading people greet you differently when you come back after a fortnight or more, notice how far you've come since they last saw you, and have heard what you did with their neighbours. Needs RPG Dialogue 0.67.0.
+
 ## 1.15.1 (2026-11-17)
 - Grosk at Razor Hill no longer repeats his full greeting when you come back to his questions.
 

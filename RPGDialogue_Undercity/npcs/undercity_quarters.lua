@@ -17,6 +17,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "The bats are hungry and restless, which means they're ready to fly. Where to?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The bats remember you, which is either a compliment or a warning." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? The bats remembered you before I did, which tells you something about one of us." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk in the city say you've been doing them good turns. The bats can't stand most people, but they've stopped hissing at you, so perhaps it's catching." },
   },
 
   notice = {
@@ -368,6 +370,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Don't touch anything on the tables. Some of it bites, and some of it does worse." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still alive, I see, which means you've been careful." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nothing on these tables got any safer while you were away. Don't touch anything." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone took one of your stories for truth. Clever of you, and careless of them, which is how most of my experiments end." },
   },
 
   notice = {

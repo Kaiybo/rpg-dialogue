@@ -17,6 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Need a bird out of the Gorge? Wise, because there's more ash than air in this place, and the gryphons cough all night." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend. Your orc is just over there with the wind riders, and she'll see you right." },
+    { id = "g_away", when = { away = 14, faction = "Alliance" }, text = "You've been gone {away}, and the gryphons have been coughing ash the whole time. They'll be glad of a flight out with you." },
   },
 
   notice = {
@@ -188,6 +189,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Wind riders are fed and ready. Where are you going, and how fast do you want to get there?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind riders for the Alliance. The dwarf with the gryphons is over there, if you want a bird." },
+    { id = "g_away", when = { away = 14, faction = "Horde" }, text = "Back after {away} away, then. The wind riders still know your smell, so climb on whenever you're ready." },
   },
 
   notice = {

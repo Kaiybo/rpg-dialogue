@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You return. The valley is quieter when you are in it, which tells me something about you." },
     { id = "g_magram", when = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Return to Orgrul") } } }, text = "Welcome back to the valley, Magram." },
     { id = "g_gelkis", when = { killed = { name = "Gelkis", min = 30 } }, text = "There is Gelkis blood on you, and plenty of it. Good; come closer." },
+    { id = "g_away", when = { away = 14 }, text = "Outsider, you have been gone {away}, and the bones did not wait for you, but the valley noticed your absence, which is more than it does for most." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You are stronger than when you last came to the valley, and since the Magram respect only strength, I would rather have you walking than in the dirt." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the valley's people give way to you, outsider, and I will not pretend that displeases me, because strength is the only law in Shen'dralas." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear you were caught lying in the valley, outsider, and a lie that fails is only weakness wearing a mask, so be strong or be silent." },
   },
 
   notice = {
@@ -387,6 +391,9 @@ P:NPC {
     { id = "g_default", text = "This is the front, outsider. Make yourself useful or make yourself scarce." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; the pigs have not stopped, so I have not stopped needing hands." },
     { id = "g_bristle", when = { killed = { name = "Bristleback", min = 25 } }, text = "You smell of quilboar, outsider, which means you have been busy. Good." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, outsider, and the pigs did not stop while you were away, so make yourself useful again." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry more strength than you did when you last came to the front, outsider, which means the pigs will learn your name the hard way." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made someone in the valley back down, outsider, and that is the only kind of talk I respect, so do the same to the quilboar." },
   },
 
   notice = {
@@ -544,6 +551,9 @@ P:NPC {
     { id = "g_default", text = "Keep your voice low, outsider. The Magram have ears in the bones." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Good; there is still more to see in that valley than I like." },
     { id = "g_magram", when = { killed = { name = "Magram", min = 30 } }, text = "You have been thinning the Magram, I see. The Earth Mother will remember it." },
+    { id = "g_away", when = { away = 14 }, text = "You came back after {away}, outsider, and the Magram have raised more bones in that time than I like to count, so keep your voice low and listen." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word among the Gelkis is that you helped us, outsider, and the Earth Mother remembers such things, as do I." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked one of our people round, outsider, which is more than I can do with my own elders, so perhaps you should speak to Uthek for me." },
   },
 
   notice = {

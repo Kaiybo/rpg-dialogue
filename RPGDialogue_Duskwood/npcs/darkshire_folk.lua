@@ -20,6 +20,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, and in Duskwood that counts as a reference." },
     { id = "g_answered", when = { questDone = TODO_QUEST("Answered Questions") }, text = "Sit down; you've earned a chair in this house, and I don't offer many." },
     { id = "g_light", when = { class = { "PRIEST", "PALADIN" } }, text = "Glory under the Light, {class}. Come in." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and still breathing. In Duskwood that's worth a nod, so here's mine." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you first came to my door, and I can see it in how you stand. The dead out there will notice it too." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone in town caught you lying. I watch hands and I watch faces, so keep yours honest in this house." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word is you've set someone in Darkshire against you. We stand together here or we don't stand at all, so mend it." },
   },
 
   notice = {

@@ -17,6 +17,11 @@ P:NPC {
   greetings = {
     { id = "g_forest", text = "Ashenvale needs you, truly. The forest needs every blade it can get, and every pair of eyes." },
     { id = "g_back", when = { metBefore = true }, text = "Home from the trees! Tell me what you saw out there, every bit of it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted the days, because in Ashenvale too many people simply stop coming back. Sit, and tell me what the rest of the world has been doing while our forest burns." },
+    { id = "g_away_long", when = { away = 60 }, text = "{name}! After {away} away I had half decided the forest had taken you, and I'd already grieved a little, so forgive me for staring. Ashenvale has lost more trees since you left, and I'm glad it hasn't lost you as well." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've changed since I last saw you, and I can see it in how you stand, like someone the Warsong would think twice about. Teronis carried himself like that, and I'd be glad of more of it at my side." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Half of Astranaar is talking about what you did for us, and I won't pretend I'm not pleased to hear it. The forest needs friends who finish what they start." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone here left a talk with you looking like a storm cloud, and in a town this small I hear about it before supper. I'll judge you for myself, but I'd rather the forest's friends weren't at odds with each other." },
   },
 
   notice = {
@@ -862,6 +867,10 @@ P:NPC {
   greetings = {
     { id = "g_rest", text = "You look worn through, body and spirit both. Rest here a while, and may Elune keep your dreams gentle." },
     { id = "g_home", when = { homeInn = { "Astranaar" } }, text = "Your bed's ready, and the island's quiet tonight; the lake keeps the worst of the forest out." },
+    { id = "g_away", when = { away = 14 }, text = "There you are, after {away} away, and thinner than when you left, I'd wager. Sit down and let me bring you something warm before you tell me anything at all." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry yourself differently now, as if the road taught you a great deal while you were gone. I hope it let you rest now and then, because strength without sleep doesn't last." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came by tonight still smiling about a talk they'd had with you, and smiles have been scarce in Astranaar lately. Thank you for that, truly." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear things over the broth pot, and what I heard today was that someone caught you in an untruth. I won't scold you, but Astranaar is small, and trust here is hard to win twice." },
   },
 
   notice = {

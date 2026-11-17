@@ -16,6 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_watch", text = "From up here I see the centaur long before they see us. That is why we built on the mesas." },
     { id = "g_back", when = { metBefore = true }, text = "The canyon gave you back, good. It keeps more than it returns." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the canyon gave you back, which is more than it does for most. I watched for you from up here more than once." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came up to Freewind a youngster, and now you look like someone the centaur ought to worry about. The canyon has made you hard, and I'm glad of it." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone on the mesas back down with a look. Save it for the centaur, because they're the ones who need to learn it." },
   },
 
   notice = {
@@ -337,6 +340,8 @@ P:NPC {
   greetings = {
     { id = "g_study", text = "Ah, a visitor. Forgive the mess; I've been staring at centaur carvings since dawn." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! I hoped you might, because I've had questions piling up." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and my questions have been piling up the entire time! Sit down, please, I've a dozen carvings to ask you about." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I heard you talked someone round to your way of thinking, which is a fine scholarly skill. I wish you could persuade the centaur to let me see their carvings up close." },
   },
 
   notice = {
@@ -554,6 +559,8 @@ P:NPC {
   greetings = {
     { id = "g_egg", text = "You haven't seen an egg, have you, a very large one? No? Ah, well, it was worth asking." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I've been waiting to tell somebody, anybody, really." },
+    { id = "g_away", when = { away = 14 }, text = "There you are after {away}! I've been waiting to tell somebody about the egg, anybody really, and you'll do nicely." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone at Freewind was saying very nice things about you, and I nearly forgot about the egg for a moment. Nearly." },
   },
 
   notice = {
@@ -768,6 +775,8 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Sit if you like, but don't expect me to be good company." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Have you come with news, or just for the stew?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nothing has changed here, which is about what I expected. Sit if you like." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I heard one of your lies was found out at the post. I've no patience for lies any more, not since the Grimtotem told so many." },
   },
 
   notice = {
@@ -986,6 +995,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Rest here, traveler. The wind sings over the mesa at night; most guests find it soothing." },
     { id = "g_home", when = { homeInn = { "Freewind Post" } }, text = "Back to your own bed above the canyons. I kept the blankets dry." },
+    { id = "g_away", when = { away = 14 }, text = "Back above the canyons after {away}, traveler! I kept your blankets dry, and the wind's been singing every night." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I'd started to wonder if the canyon had kept you. Rest now, and don't look down on your way to bed." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everyone at Freewind is talking about the help you've given us. Your bed's the one nearest the wind tonight, because it sings the sweetest there." },
   },
 
   notice = {

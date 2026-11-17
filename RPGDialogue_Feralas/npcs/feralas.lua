@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_isle", text = "Welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back across the water, good. Now report." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone from the isle {away}, and the naga have tested our shores more than once in that time. Report, and then rest, because I'll need you sharp." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I had begun to count you among those the forest kept, as Feralas keeps so many. I'm glad to be wrong, and the High Priestess will be glad to hear it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since you last stood on this isle, and I can see it in how you carry your weapon. I have harder errands than the ones I gave you before, if you want them." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word on the isle is that one of my people caught you in a lie, and Sentinels share such things quickly. Speak truly to me, or don't speak at all." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you frightened one of the Feathermoon folk, and I won't have our own people cowed on our own island. Turn that temper on the Gordunni instead." },
   },
 
   notice = {
@@ -488,6 +493,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in from the rain. Feralas is always wet; at least here it's warm and wet." },
     { id = "g_home", when = { homeInn = { "Feathermoon Stronghold" } }, text = "You've returned to the island. Your bed is ready, and the tea is fresh." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, and here you are dripping on my floor as though you never left. Sit by the fire, and I'll put the kettle on." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the Sentinels came in tonight smiling, and she said it was something you'd told her. That's rare enough on this island that I made her a second cup." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone on the isle came in tonight quite cross after speaking with you, and drank her tea far too quickly. I hope it was a misunderstanding, because the island is small." },
   },
 
   notice = {
@@ -655,6 +663,10 @@ P:NPC {
 
   greetings = {
     { id = "g_camp", text = "You want to help the Horde in Feralas? Good, then kill ogres; that's how." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the ogres didn't stop breeding while you were away, so get your blade ready." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You hit harder than you did when I last saw you, and I can tell that just by looking. Good, then the Gordunni will learn to fear you, and I can send you deeper north." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the camp folk back down, and I'll allow it, once. Save that for the ogres, because they deserve it and our own people don't." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've done good work for Mojache, and I listen when the camp agrees on something. Keep killing ogres, and they'll keep saying it." },
   },
 
   notice = {
@@ -949,6 +961,9 @@ P:NPC {
 
   greetings = {
     { id = "g_ore", text = "You look like someone who can carry rocks: valuable rocks, mysterious rocks!" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! Did you bring rocks, because a friend who comes back after that long usually brings rocks, or at least I like to think so." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you talked somebody in camp into believing something they shouldn't have, and I have to say I'm impressed! Never on me, of course, because I'm a goblin, and we invented that trick." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone round to your view, and I'd love to know how, because I've been trying to sell this camp on my ore for months and nobody's bought a single stone." },
   },
 
   notice = {
@@ -1164,6 +1179,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here, it's just warm." },
     { id = "g_home", when = { homeInn = { "Camp Mojache" } }, text = "Welcome home to Mojache. The hides are dry and the kettle's on." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's come back after {away}! Shake off the rain and sit down, because the stew's been waiting nearly as long as I have." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the braves came in grinning tonight and said it was because of you, and I've never seen that one grin before. Whatever you told him, you have my thanks." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole camp's been talking about how you helped Mojache, and they've been talking about it loudly, over my stew. Sit down, because they'll want to hear it from you." },
   },
 
   notice = {

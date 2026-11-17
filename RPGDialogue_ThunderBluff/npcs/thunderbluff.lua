@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_chief", text = "The High Rise greets you, young one. The Earth Mother's wind blows strong up here, so stand firm." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "Tauren-born! The plains go with you wherever you walk; I see them in your step." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you've come again. An old bull likes faces he knows." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, young one, and the wind on the High Rise has missed you. Come closer, and let an old bull see how the road has treated you." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you stood on this rise, and you return with the weight of many battles on your shoulders. The Earth Mother has kept you, and I'm grateful to her for it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When we first met you were a calf with a weapon, and now you stand like a warrior of the plains. I've lived long enough to know how rare that is." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The people of Thunder Bluff speak well of the help you've given them. That is the truest honour our tribes can give, and you've earned it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I'm told someone in this city went away from you angry. Our people have known enough strife, young one, so mend it if you can." },
   },
 
   notice = {
@@ -280,6 +285,9 @@ P:NPC {
   greetings = {
     { id = "g_rise", text = "Peace, traveller. You're on Elder Rise, so speak softly; the old ones are thinking." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Another druid! Come, come; every one of you is a gift, when not so long ago there were none of us at all." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, traveller, and I'm glad to see you back on Elder Rise. Sit, and tell me what the wild places showed you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I can see it as plainly as a sapling grown to an oak. It gladdens an old druid's heart." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone on the rises spoke very warmly of you, and kindness travels quickly in a city this small. It's good to hear it of you." },
   },
 
   notice = {
@@ -519,6 +527,8 @@ P:NPC {
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young druid. Keep your mind clear and your heart strong, and the Great Balance will keep a place for you." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "Balance in all things, friend. Even in a city built on cliffs." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and I hope you kept your balance out there. Come and tell me how the land is faring." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your words was found false here in the city. Balance is practised daily, friend, and honesty is part of the practice." },
   },
 
   notice = {
@@ -722,6 +732,9 @@ P:NPC {
   greetings = {
     { id = "g_crone", text = "Hm. Another one come to stare at the old crone. Well, stare, and then be useful or be gone." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "A child of the plains, good. You at least have the sense to be born tauren." },
+    { id = "g_away", when = { away = 14 }, text = "So you've been gone {away}, and now you've crawled back up to Elder Rise. Well, I hope you've brought something more useful than your face." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone in this city swallowed a story of yours whole. How clever of you, child, and how very foolish of them." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "They say you made someone back down without lifting a hand. Fear is a fine tool, child, and the Grimtotem know it better than most." },
   },
 
   notice = {
@@ -957,6 +970,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "In out of the wind with you. There's always room by my fire." },
     { id = "g_home", when = { homeInn = { "Thunder Bluff", "Lower Rise" } }, text = "Your blanket's by the fire, love. I aired it out this morning." },
+    { id = "g_away", when = { away = 14 }, text = "There you are, love! You've been gone {away}, and I kept your blanket aired the whole time, just in case." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, love, and I'd started to worry myself sick over you. Sit by the fire, and I'll bring you a bowl before you say a word." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everyone at the Cat and the Shaman is talking about how you've helped the city, and I couldn't be prouder if you were my own. Eat up, it's on me tonight." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard you left someone cross with you, love, and they came in here sulking about it. Make it right if you can, because a grudge spoils the stew." },
   },
 
   notice = {

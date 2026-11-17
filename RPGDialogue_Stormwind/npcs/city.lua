@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You've wandered into the wrong building. Wander out the same way." },
     { id = "g_si7", when = { questActive = TODO_QUEST("Seek out SI: 7") }, text = "Sylvius sent you, and she thinks you're promising, though she's said that before." },
     { id = "g_back", when = { metBefore = true }, text = "Back already. You took the stairs more quietly this time. Progress." },
+    { id = "g_away", when = { away = 14 }, text = "You've been out of the city {away}, and you thought nobody was counting. Somebody in this building always is." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come along since I last saw you, and someone here made a note of it. I haven't decided yet what the note says." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone in the city swallowed a story of yours whole. Tidy work, though if it had been sloppier we'd be having a different conversation." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "One of the city's people caught you in a lie, I'm told. Don't try one on me, because I won't need to catch it." },
   },
 
   notice = {
@@ -953,6 +957,10 @@ P:NPC {
   greetings = {
     { id = "g_rose", text = "In you come. The Gilded Rose has a bed for every tired pair of boots." },
     { id = "g_home", when = { homeInn = { "Stormwind City", "Gilded Rose" } }, text = "Welcome home. Your room's aired and the fire's lit." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's back! You've been gone {away}, love, and your boots look every mile of it, so sit and I'll bring you something hot." },
+    { id = "g_away_long", when = { away = 60 }, text = "Well, I'd half given you up, love, after {away} without a word. Come in and tell me everything over supper." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone was singing your praises at my bar the other night, love, and I told them I'd always known you were a good one." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard you put someone's back up in the city, love. Whatever it was, leave it at the door, because my common room's for resting." },
   },
 
   notice = {

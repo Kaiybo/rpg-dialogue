@@ -18,6 +18,9 @@ P:NPC {
   greetings = {
     { id = "g_race", text = "Hey hey! Here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, so bet again." },
+    { id = "g_away", when = { away = 14 }, text = "My favorite spectator, back after {away}! You missed a dozen races, and we won most of them, so bet on us again." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the track is somebody fell for one of your stories, and I respect that. Half of racing is getting the other guy to believe something, ask any gnome." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody into seeing things your way out here. You ever want to sell race tickets, kid, you've got a job waiting." },
   },
 
   notice = {

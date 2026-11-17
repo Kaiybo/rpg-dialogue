@@ -373,6 +373,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Come in and sit down, you look half frozen. The soup's hot, and nothing dead gets past these walls." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I always worry, you know, when people walk out that gate." },
+    { id = "g_away", when = { away = 14 }, text = "You came back, and after {away} away too! I always worry when people walk out that gate, and you were gone so long." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, you've come on so far since you last sat by my fire. You'll still have soup, though, because heroes get hungry too." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everyone in the common room's been talking about what you did for the chapel. Sit down, and the soup's on me." },
   },
 
   notice = {

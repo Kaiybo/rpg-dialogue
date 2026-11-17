@@ -18,6 +18,9 @@ P:NPC {
     { id = "g_records", text = "Records, permits and deeds, all in order. Which form are you here to fill in wrong?" },
     { id = "g_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") }, text = "The Mistmantle file again, is it? Mind the dust, because I'm fairly sure it's load-bearing." },
     { id = "g_back", when = { metBefore = true }, text = "You again! I've given you a line in the register, several lines, actually." },
+    { id = "g_away", when = { away = 14 }, text = "Oh! You've been gone {away}, and I very nearly filed you under missing, presumed wolf. I'm delighted to have to cross it out." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown rather formidable since I last wrote you into the register. I'll need a new line for that, possibly a new column." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I've recorded that you've been helping folk in town, and it's the nicest entry I've written all week. Most of mine are about wolves." },
   },
 
   notice = {

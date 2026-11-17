@@ -18,6 +18,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece. The mountain hasn't eaten you yet, then." },
     { id = "g_warm", when = { disposition = { min = 70 } }, text = "There you are! I was hoping you'd come back up this way; I've got opinions to share and nobody worth sharing them with." },
     { id = "g_cold", when = { disposition = { max = 34 } }, text = "Oh, it's you. Say your piece, and then let me get back to work." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd started to think the mountain had eaten you after all, so don't just stand there, tell me what you saw." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, you've grown a lot stronger since you were last up here, and about time, because this mountain needs people who can keep up." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round on the mountain, which takes more patience than I've got, because I'd have told them they were wrong and walked off." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody up here's furious with you, I hear, and I don't much care why, but the Talon's got enough trouble without people squabbling, so sort it out, would you?" },
   },
 
   notice = {

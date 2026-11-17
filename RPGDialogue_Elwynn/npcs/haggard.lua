@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_squint", text = "Who's that there? Come a little closer, no, closer still... ah, I don't know you at all." },
     { id = "g_back", when = { metBefore = true }, text = "That voice I know! Come up, come up and sit." },
     { id = "g_badge", when = { questDone = TODO_QUEST("Dead-Tooth Jack") }, text = "There's the one who brought my badge home. Stand straight; I'm told I'm wearing it." },
+    { id = "g_away", when = { away = 14 }, text = "That step on my stair sounds familiar, though I've not heard it for {away}. Come up and let an old man hear what you've been about." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk heavier than you used to, and I mean that kindly. That's the step of someone who's been in real fights since we last spoke." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I've heard you've been putting the fear into folk around Eastvale. I ran the Guard long enough to know that's no way to win a town." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The lads at the camp tell me you've been doing good work round the vale. I can't see you, but I'll stand straighter for hearing it." },
   },
 
   notice = {

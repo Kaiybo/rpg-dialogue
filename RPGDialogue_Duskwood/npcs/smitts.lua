@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back in out of the fog, are you? Your stool's free." },
     { id = "g_home", when = { homeInn = { "Darkshire", "Scarlet Raven Tavern" } }, text = "Home from the woods! Put your boots by the fire and they'll be dry by midnight." },
     { id = "g_indoors", when = { timeOfDay = "night" }, text = "In you come, and shut the door behind you. It's best to stay indoors these nights." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in out of the fog! Your stool's still free, friend, and the fire's as warm as it ever gets in Duskwood." },
+    { id = "g_away_long", when = { away = 60 }, text = "Well, I'd nearly written you into the book of folk who walked into the woods and didn't come back, after {away}. I'm glad to cross that line out." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in town has been speaking warmly of you by my fire, and warm words are rare enough in Darkshire that I remember them." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There's talk round the tables that someone swallowed a story of yours whole. I collect stories, friend, so I'll be listening closely to mine." },
   },
 
   notice = {

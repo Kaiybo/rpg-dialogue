@@ -18,6 +18,9 @@ P:NPC {
     { id = "g_plans", text = "Careful of the plans. Those are the Mage Quarter's new drains." },
     { id = "g_letter", when = { questActive = TODO_QUEST("The Unsent Letter") }, text = "A letter, for me, and from whom? Let me sit down before I open it." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Unsent Letter") }, text = "You. Yes. I've thought about that letter every day since." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and in that time I've redrawn the Mage Quarter's drains twice. This city never stops needing mending." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown harder since we last spoke, and I know the look. I've seen it on men who built walls and then had to stand on them." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been doing honest work for the city these past days. Honest work goes unpaid more often than not in Stormwind, so you'll at least have my thanks." },
   },
 
   notice = {

@@ -17,6 +17,10 @@ P:NPC {
   greetings = {
     { id = "g_heat", text = "Hot, hot, hot, every single day it's hot! Come in out of the sun, come in, because I've got something to tell you about." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite partner in progress! Well, partner's a strong word, so let's say associate, or customer at the very least!" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and it's been hot every single day of it, you'll be shocked to hear! Come in, come in, because I've made improvements since you left, mostly to the side effects." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, you've grown into a proper adventurer since we last spoke, and that's exactly the sort of person who needs an elixir. Stronger customers make braver test subjects, I always say." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around town is that you sold somebody a story they bought whole, and in Gadgetzan that's practically a trade license. Just remember my bruisers keep the peace, and the peace includes my customers." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round in town, and that's a talent I respect, because half my business is persuasion and the other half is the elixir, and the elixir's the easy part." },
   },
 
   notice = {
@@ -326,6 +330,9 @@ P:NPC {
 
   greetings = {
     { id = "g_kitchen", text = "Hello, sweetie! You look like someone who hasn't eaten anything that tasted good in a week." },
+    { id = "g_away", when = { away = 14 }, text = "Sweetie, you've been gone {away}, and look at you, you're all bones and sunburn! Sit down and let me fix you something that sticks." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, haven't you grown since you were last in my kitchen, sweetie, and I don't mean taller. You'll be wanting a bigger plate now, so I'll find one." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody came by the kitchen today just beaming about you, sweetie, and I do love good news with my baking. Whatever you told them, it went down better than my scorpid stew." },
   },
 
   notice = {
@@ -550,6 +557,8 @@ P:NPC {
 
   greetings = {
     { id = "g_water", text = "Water Company business only, please. If you're here about the pressure, take a number." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, it's you, back after {away}. The pressure dropped twice while you were gone, so if you've come to complain about the water, you're late, and you'll have to take a number." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word reached the office that you helped the town while I had my head in a pipe, and I appreciate it. Gadgetzan runs on water and favors, and both are in short supply." },
   },
 
   notice = {
@@ -1203,6 +1212,9 @@ P:NPC {
 
   greetings = {
     { id = "g_shifty", text = "What do I do? A bit of this and a bit of that, all of it profitable, and you can't have any." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away} and come back again, and I'd bet you didn't bring me anything worth buying, so prove me wrong if you can." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you pulled one over on somebody in town, and I'll admit I'm impressed, though I'm counting my coins while we talk, because professional courtesy only goes so far." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked some fool in town round to your way of thinking, and I'd like to know what you charge for that. I wouldn't pay it, mind, but I like to know the going rate." },
   },
 
   notice = {
@@ -1452,6 +1464,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Welcome to the Road Warrior! Grab a stool, grab a drink, shake the sand out of your boots." },
     { id = "g_home", when = { homeInn = { "Gadgetzan", "The Road Warrior" } }, text = "You again! Your room's ready and the sand's been swept out of it, mostly." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}! I kept your stool warm, or the sun did, which in this town amounts to the same thing." },
+    { id = "g_away_long", when = { away = 60 }, text = "Well, I'll be, you've been gone {away} and you walk back in like you only stepped out for air. Sit down, because there's sand in everything and a whole lot of gossip you've missed." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word at the bar is that somebody caught you in a fib, and nothing travels faster in Gadgetzan except sand and debts. I'd keep my head down a while if I were you." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you leaned on somebody hard enough to make them squeak, and they were complaining about it at table four all night. Do it outside next time, because the Bruisers frown on that sort of thing indoors." },
   },
 
   notice = {

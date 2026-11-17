@@ -15,6 +15,10 @@ P:NPC {
   greetings = {
     { id = "g_hut", text = "Come, come, Gadrin don't bite. Not anymore, anyway; the teeth be too old." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you visit the old man again. Sit; the fire be warm." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, you been gone {away}, and the old man worried a little, though he won't tell you how much. Sit by the fire, mon." },
+    { id = "g_away_long", when = { away = 60 }, text = "You been away {away}, mon, and Gadrin started to fear he lost another student. Sit, and let the old man have a look at you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You got stronger since we last talk, mon, and Gadrin can see it in how you stand. A teacher likes that, even when it's not his teaching." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "The village say somebody caught you in a lie. Gadrin had a student once who lied with a smile, so forgive him if he watches your face a while." },
   },
 
   notice = {

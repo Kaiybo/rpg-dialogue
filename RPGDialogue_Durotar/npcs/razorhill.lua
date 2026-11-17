@@ -15,6 +15,10 @@ P:NPC {
   greetings = {
     { id = "g_barracks", text = "Speak quickly. Razor Hill has work, and work doesn't wait for conversation." },
     { id = "g_back", when = { metBefore = true }, text = "Report, and keep it short." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Razor Hill kept its watch without you. Now you're back, so make yourself useful." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You left here a recruit and came back looking like a soldier. Good, because I have harder work for you now." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you put the fear into somebody around here without spilling blood. Durotar respects that, and so do I." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The grunts tell me you've been doing work for Razor Hill, and doing it properly. Keep that up and you'll have a name here." },
   },
 
   notice = {
@@ -202,6 +206,9 @@ P:NPC {
   greetings = {
     { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade hasn't rested in that time, so neither have I. Tell me what you saw out there." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your stories didn't hold up in Razor Hill. The Blade lie for a living, and I've learned to listen hardest to the ones who smile." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round recently, which is a useful talent. Use it on the right people and you'll make a fine hunter of cultists." },
   },
 
   notice = {
@@ -376,6 +383,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Sit and eat. Razor Hill is safe enough to sleep in, which is more than you can say for most of Durotar." },
     { id = "g_home", when = { homeInn = { "Razor Hill" } }, text = "Your bed's where you left it, and it's scorpid-free; I checked." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? Your bed's still here, and I've shaken the scorpids out of it at least once." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody came through here grumbling about you, and they drank a good deal while they did it. Whatever you said to them, keep it outside my door." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk say you've been doing good work around Razor Hill, and that's worth a free mug. Only the one, mind." },
   },
 
   notice = {

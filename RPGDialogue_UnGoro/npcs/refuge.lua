@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_refuge", text = "Welcome, welcome! You made it up the rim in one piece, which puts you ahead of most of my expedition." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece! The crater must like you, and it doesn't like many." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'll confess I looked over the rim more than once, wondering whether the crater had finally had you. Welcome back to the Refuge." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}! I'd added your name to the list of folk the crater kept, and I'm delighted to scratch it off again, because that list is far too long already." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since you last came up the rim, and the devilsaurs will notice even if you don't. Un'Goro respects strength, though it never stops testing it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole Refuge has been talking about what you did for us, and it's done more for morale than any supply cart from Gadgetzan. Thank you, truly." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone up here was in a foul temper after talking with you, and we're too few on this ridge to carry grudges. I'd take it as a kindness if you'd smooth it over." },
   },
 
   notice = {
@@ -241,6 +246,9 @@ P:NPC {
   greetings = {
     { id = "g_hello", text = "Hello, traveler! I'm sure I know something important, only I can't remember what. Have we met?" },
     { id = "g_back", when = { metBefore = true }, text = "You! I remember you, and that's a good sign, isn't it? I'm remembering things!" },
+    { id = "g_away", when = { away = 14 }, text = "You! You've been gone {away}, haven't you, and I remembered you the whole time, which I think is the longest I've remembered anything. Isn't that wonderful?" },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You look stronger than I remember, though I admit I'm not the best judge of what I remember. Still, I'm sure of it this time, and being sure of something feels very good." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone at the Refuge told me you'd made them very happy, and I thought, I know that person! It's a lovely feeling, knowing someone." },
   },
 
   notice = {
@@ -625,6 +633,8 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Oh, hi, hello, welcome to the Refuge! Did you come up from the south, and did you see a goblin on the way, skinny and loud, name of Ringo?" },
+    { id = "g_away", when = { away = 14 }, text = "You're back, after {away}, and I was worried about you too, because I worry about everyone who goes down there. Did you see Ringo while you were out, by any chance?" },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everybody's saying you helped the Refuge, and that makes me feel a little better, because if anyone could find Ringo, it would be someone like you." },
   },
 
   notice = {

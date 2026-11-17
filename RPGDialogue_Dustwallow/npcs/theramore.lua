@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_tower", text = "Welcome to Theramore, and speak freely; I'd rather hear bad news early than good news late." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, good. I have few enough people I can rely on outside these walls." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I wondered more than once whether the marsh had swallowed you. Welcome back to Theramore, and tell me what you've seen of the world outside it." },
+    { id = "g_away_long", when = { away = 60 }, text = "{name}, it's been {away}, and a great deal has happened on this island since you left, little of it restful. I'm glad you've come back to Theramore, because I could use someone I already trust." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I can see it plainly, because Dalaran taught me to recognize power when it walks into a room. I hope it hasn't cost you more than it should." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you had harsh words with one of my people, and Theramore is too small and too fragile for grudges. I'd ask you to mend it, because this city only works when we trust one another." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Half the city is talking about what you did for Theramore, and I wanted to thank you myself before the stories grew any larger. People like you are what keep this peace standing." },
   },
 
   notice = {
@@ -617,6 +622,9 @@ P:NPC {
   greetings = {
     { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down; if not, be quick." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Tell me you found something." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the inn case hasn't moved an inch in that time. I'm glad you're back, because I've run out of people who look for evidence instead of culprits." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in the city tells me you were caught in a lie, and I'll be honest about what that means to me. I build cases on testimony, so from now on I'll be checking yours twice." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you put the fear into one of our citizens, and I'll remind you that threats are the Guard's business in Theramore, not yours. Keep it outside the walls." },
   },
 
   notice = {
@@ -843,6 +851,9 @@ P:NPC {
 
   greetings = {
     { id = "g_records", text = "Name, unit, business? Sorry, that's habit; I keep the Guard's records, and everyone's a form to me." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? I'd file you as returned if there were a form for it, and I'm half tempted to write one." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word reached the records office that you helped the city, and I've already noted it, because good deeds deserve paperwork as much as bad ones do." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I've heard someone left a conversation with you thoroughly displeased, and I hear most complaints sooner or later. Nothing's on paper yet, so let's keep it that way." },
   },
 
   notice = {
@@ -1045,6 +1056,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in out of the damp. Dustwallow gets into your bones; a hot meal gets it out again." },
     { id = "g_home", when = { homeInn = { "Theramore Isle", "Theramore" } }, text = "Back home on the isle! Your room's dry, and in Dustwallow, that's a promise worth making." },
+    { id = "g_away", when = { away = 14 }, text = "There you are, after {away} away, and I kept your stool by the fire in case you came back hungry, which I can see from here that you did." },
+    { id = "g_away_long", when = { away = 60 }, text = "Goodness, you've been gone {away}, and I'd nearly given your room to the soldiers when the guard rotated. Sit down right now and eat, and then you can tell me everything." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came in today positively glowing after a chat with you, and I do love seeing that in this damp old town. Whatever you said, keep saying it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole inn's been talking about how you helped the town, and I've heard it told three different ways already, each bigger than the last. Sit down and tell me which one is true." },
   },
 
   notice = {

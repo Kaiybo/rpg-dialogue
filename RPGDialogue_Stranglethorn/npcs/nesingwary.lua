@@ -19,6 +19,9 @@ P:NPC {
     { id = "g_camp", text = "Quiet, now, ye'll scare the game. Sit, if ye must, an' then make yerself useful." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer limbs, good. The jungle doesnae give many second chances." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? That doesnae matter, for a good shot's a good shot, whatever colors it's wearin'." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the game's been jumpy the whole while. Sit quiet, now, an' tell me what ye bagged out there." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've become a far better hunter since we last spoke, I can see it in how ye hold yer weapon. Ye'll make the list yet." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp's been sayin' ye've done right by us. That's a trophy o' sorts, an' one I'd hang on the wall." },
   },
 
   notice = {

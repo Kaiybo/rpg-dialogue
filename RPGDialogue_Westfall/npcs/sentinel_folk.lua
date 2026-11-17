@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_inn", text = "In off the road with you. Dust on the mat, please, not on my floor. It's the one clean thing in Westfall." },
     { id = "g_home", when = { homeInn = { "Sentinel Hill" } }, text = "Your bed's made, and I've shaken the grit out of the blankets, though it'll be back by morning. It always is." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's late for the road. Sit down before the militia mistakes you for a bandit; it happens more than they'd admit." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you've brought half of Westfall back on your boots. Mat first, then sit, and I'll find you something warm." },
+    { id = "g_away_long", when = { away = 60 }, text = "Well, I'd thought we'd lost you, after {away} without a word up the hill. Your bed's had more dust in it than guests, but I'll shake it out." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody on the hill has been speaking well of you over supper, and that doesn't happen much in Westfall. Sit down and enjoy it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard you put someone's nose out of joint on the hill. We've enough grit in the air without stirring up more, so mind how you go." },
   },
 
   notice = {

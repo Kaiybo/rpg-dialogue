@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Moonglade |cff8a8a8a1.14.0|r
+## Title: RPG Dialogue: Moonglade |cff8a8a8a1.15.0|r
 ## Notes: Nighthaven and the Cenarion Circle: Keeper Remulos, the druids' trials, and a bear who says nothing at all.
 ## Author: RPG Dialogue
-## Version: 1.14.0
+## Version: 1.15.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.moonglade

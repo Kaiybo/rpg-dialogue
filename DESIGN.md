@@ -267,6 +267,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `reputation` {faction,min,max} (faction names in `World.FACTION_IDS`, standings hated..exalted) · `profession` {name,min} · `pvpFlagged` · `honorKills` / `dishonorKills` {min,max} · `guild` true/false/name(s) · `guildRank` name(s) · `carrying` itemID / {ids} / {id, min} (bags and worn; 0.54.0) | 15 | hinge |
 | World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
+| Coming back & word (0.67.0) | `away` N days / {min, max, levels, town} (just back in this NPC's town after N+ days; holds 4 h; `levels` = gained while gone) · `levelsSince` N / {min,max} (levels since you last spoke with this NPC) · `word` kind / list / {kind, days (14), town, self, near} (someone else in this town, or a related one a day later, saw you: `pleased`, `angered`, `persuaded`, `intimidated`, `deceived`, `caughtLying`, `helped`) | 30 | hinge |
 | Party | `party` true / {race, class, gender, kin, sameClass, size (n or {min,max}, others only), ["not"] = true} (0.59.0; `{companion}` names the member it matched) | 25 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` | 5 | hinge |
 | Story (M4) | `gossip` {topic, stance, delay, chance} (30) · `contradiction` topic (40) · `lieCaught` claim (60) · `money` {min,max} (10) | 10–60 | hinge |
@@ -303,7 +304,7 @@ Pacing systems are **inferred** from condition keys: `alignment`/`title` → ali
 
 ### 2.10 Tokens
 
-`{name}` (with Total RP 3 loaded and its setting on: your roleplay title and first name, e.g. "Sir Aldric"), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}` (your RPG Dialogue alignment title), `{home}`, `{rank}` (honor rank name, "soldier" without one), `{guild}` ("your company" without one), `{companion}` (the party member the line's `party` condition matched, else the first; 0.59.0), and for spirit healers `{deaths}`, `{deathplace}`, `{killer}`.
+`{name}` (with Total RP 3 loaded and its setting on: your roleplay title and first name, e.g. "Sir Aldric"), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}` (your RPG Dialogue alignment title), `{home}`, `{rank}` (honor rank name, "soldier" without one), `{guild}` ("your company" without one), `{companion}` (the party member the line's `party` condition matched, else the first; 0.59.0), and for spirit healers `{deaths}`, `{deathplace}`, `{killer}`. `{away}` (0.67.0): how long you were gone ("a month"), from your return to the NPC's town, else from your last talk with them. `{source}` (0.67.0): who the line's `word` came from (a name, or "a stormwind city guard" for pooled people).
 
 **Tokens decorate. They never carry a line.** The voice checker flags lines built around `{race}` or `{class}`.
 

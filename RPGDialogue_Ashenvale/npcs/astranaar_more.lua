@@ -17,6 +17,10 @@ P:NPC {
   greetings = {
     { id = "g_watch", text = "Elune's light on you. Astranaar's gates are open to friends of the kaldorei, and the Sentinels decide who those are." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and in one piece. That's a habit I like to see in the people I send out." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I had marked your name as unaccounted for. I'll strike that now, and you can tell me where the forest took you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Your bearing has changed since I last sent you anywhere, and I notice such things for a living. You would hold a harder place on the line now, and I may ask you to." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word reached me that someone in Astranaar caught you in a lie, and the Sentinels remember such things. Speak plainly with me, and we will have no trouble." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I'm told you leaned on one of our people until they gave way, so I'll say this only once. Astranaar's folk are under the Sentinels' protection, and that includes protection from our friends." },
   },
 
   notice = {

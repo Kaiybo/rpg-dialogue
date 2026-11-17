@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_post", text = "Another sword for Nijel's Point, good. I've more ground to hold than men to hold it." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the valley? Which clan did you run into this time?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and in that time the Kolkar moved twice and the Gelkis once, so you've some catching up to do. Sit down and I'll show you the map." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I'd struck you off my list of swords, which I don't do lightly with so few to hold this ridge. I'll gladly write you back on, if you're staying." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since we last talked, and I can see it from here. A fighter like you is worth a squad on this ridge, and I mean to use you that way." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone at the Point round to your way of thinking, and I'd like that knack on my side when I next deal with the clans. The Gelkis enjoy a good argument, and the Magram don't." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word on the ridge is that someone caught you in a lie, and I play enough games with the centaur to know what that costs. Lie to them if you must, but don't lie to the people holding this post with you." },
   },
 
   notice = {
@@ -475,6 +480,9 @@ P:NPC {
 
   greetings = {
     { id = "g_busy", text = "Got a lot on out here, friend. Wrecks to pick, reagents to fetch, an' only the one of me." },
+    { id = "g_away", when = { away = 14 }, text = "Well, look who's back! Ye've been gone {away}, an' I've picked three new wrecks clean that ye missed, so ye'll have tae make do wi' the stories." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk round the Point say ye've been doin' right by us, an' I'm glad tae hear it, because there's no' many as bother. Ye're welcome at my stall whenever ye like." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear ye've a silver tongue, friend, an' someone at the Point swallowed every word ye said. Mind ye don't try it on old Kreldig, because I've haggled wi' the Reclaimers an' lived." },
   },
 
   notice = {
@@ -887,6 +895,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Rest here. There's little enough comfort in Desolace; take what this roof can give." },
     { id = "g_home", when = { homeInn = { "Nijel's Point" } }, text = "You've come back to the Point. Your bed's made, though the dust got in anyway." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the dust has had all that time to settle in your room, though I swept it as often as I could. Come in, and rest." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came in this evening still smiling about a talk with you, and that's rare enough at the Point that I noticed. Whatever you said, it helped." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "One of our folk has been sour since speaking with you, and sat by the fire muttering half the night. I won't ask what happened, but I'd mend it if I were you." },
   },
 
   notice = {
@@ -1049,6 +1060,9 @@ P:NPC {
 
   greetings = {
     { id = "g_post", text = "You're in Desolace now, and the demons' servants are thick here. Are you here to fight them?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Burning Blade did not rest while you were away. If you're here to fight, there are more of them now than when you left." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since we last spoke, and I've no use for small talk about it. Thunder Axe Fortress is where I'd see that strength spent." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you put fear into someone at the post, and I don't mind that, so long as it was the right someone. Save your threats for the cultists, because they've earned them." },
   },
 
   notice = {
@@ -1315,6 +1329,9 @@ P:NPC {
   greetings = {
     { id = "g_post", text = "Desolace isn't such a bad place, once you stop expecting it to grow anything. Sit down." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Are the centaur still out there? They always are." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, you've been gone {away}, and the fish have been biting the whole time, which is how I measure such things. Sit down and tell me where you went." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last sat together, and I'm glad the road was good to you. I've only grown older, and a little better at fishing." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in camp told me you gave them good words and a lighter heart, and I was glad to hear it, because Desolace has little enough of either." },
   },
 
   notice = {

@@ -17,6 +17,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Food, drink and shot, and all of it hauled up from Gadgetzan, so don't ask why it costs what it costs." },
     { id = "g_back", when = { metBefore = true }, text = "Back up the hill in one piece, are ye? Good, I hate losing a customer to a lizard." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye're still walkin', which is more than I'd have wagered. I'd started tae wonder whether a devilsaur had made a meal o' ye." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody up here caught ye tellin' a tall one, an' word travels fast on a ridge this small. Mind ye pay honest coin, at least, because I count it twice." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "Word is ye put the fear intae somebody up here, an' I'll tell ye now I don't scare, so don't bother tryin' it on me." },
   },
 
   notice = {

@@ -17,6 +17,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Antiques, old and odd. Look all ye like." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "Well, a beard in Dalaran! Come in, come in, and mind the shelves." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' I've three new old things in since, if ye follow me. Have a look, an' I'll give ye an honest price." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear somebody in the city got taken in by a smooth tongue. I sell honest antiques at honest prices, friend, an' I'd like it tae stay that way in here." },
   },
 
   notice = {
@@ -151,6 +153,8 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Good day. Mind the fresh paving." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the street's had two new stretches of paving in that time. Mind them, please, for they're still fresh." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you've been kind to someone in the city. These streets are coming back slowly, and a kind word helps them along." },
   },
 
   start = "hello",

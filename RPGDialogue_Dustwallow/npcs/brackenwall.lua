@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_boss", text = "You're here because the Warchief wants answers, and so do I. Talk." },
     { id = "g_back", when = { metBefore = true }, text = "Back, good. What did you find?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the marsh hasn't gotten any quieter while you were away. Tell me you found something worth the wait." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when I first sent you out, and that's good, because what I need from you now is harder." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you scared someone in camp half to death, and I don't care unless it gets back to Theramore. Keep your fists for the people I point you at." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you talked circles around somebody in the camp and they believed every word, which is a useful skill, so long as you never try it on me." },
   },
 
   notice = {
@@ -347,6 +351,9 @@ P:NPC {
 
   greetings = {
     { id = "g_watch", text = "The Alliance smiles from its island. I keep count of the smiles, and of the knives behind them." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted the Alliance patrols while you were away, as I always do. There were more of them than before, which I'm sure is a coincidence." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone here caught you in a lie, and I keep count of liars just as I keep count of smiles. You're on my list now, so give me a reason to take you off it." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in camp round to your view, and I'd like to know what you told them, because a tongue like that would be useful on the road to Theramore." },
   },
 
   notice = {

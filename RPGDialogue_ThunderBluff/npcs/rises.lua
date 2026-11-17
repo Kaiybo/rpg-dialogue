@@ -14,6 +14,9 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Do come in, and don't mind the smell. The tauren tell me it's an acquired tolerance." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and you're still breathing, which is more than I can say for most of my samples. Do come in." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "The tauren are whispering that one of them believed a tale of yours, and I find that terribly amusing. They're such trusting creatures, aren't they?" },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your fibs was seen through up on the rises. A pity, really, because a lie should be handled with the same care as any other poison." },
   },
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -361,6 +364,9 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Stand firm, young one. The bluffs are high, and the wind is not kind to the unsteady." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, young one, and I hope you kept your stance while you were gone. Show me." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since you first stood in my yard, and you hold yourself steadier on the bluffs now. Remember that strength is for protecting the herd." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone in the city back down. Strength that frightens our own people protects no one, so be careful with it." },
   },
   start = "hello",
   nodes = {

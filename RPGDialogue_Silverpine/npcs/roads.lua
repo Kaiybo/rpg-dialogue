@@ -14,6 +14,8 @@ P:NPC {
 
   greetings = {
     { id = "g_road", text = "Quietly, please. Every tree in this forest has ears, and some of them have teeth as well." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've walked these roads alone the whole time, which I didn't enjoy one bit. Quietly now, though; the trees are listening." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone back down at the Sepulcher. I wish you'd come along at night and do the same to the worgen." },
   },
 
   notice = {

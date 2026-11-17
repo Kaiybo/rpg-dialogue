@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_home", text = "Make yourself at home at the Crossroads, and mind your own business while you do." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the road, I see. The Crossroads is glad of you, so don't let it go to your head." },
+    { id = "g_away", when = { away = 14 }, text = "You've been off the roads for {away}, and the Crossroads held without you, as it always does. Still, it's good to see you back." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first came through this gate, and the Barrens has noticed even if you haven't. Go and put it to use." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've done honest work for the Crossroads. I don't hand out thanks lightly, so take this as one." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your lies was caught out in this town. I hold these roads by trust as much as by steel, so don't make a habit of it here." },
   },
 
   notice = {
@@ -244,6 +248,9 @@ P:NPC {
   greetings = {
     { id = "g_road", text = "You're new here. Good; the Barrens eats the timid, and you don't look timid to me. Now prove it." },
     { id = "g_back", when = { metBefore = true }, text = "You made it back. Most do, the first few times, and then the Barrens gets serious." },
+    { id = "g_away", when = { away = 14 }, text = "Well, look who's back after {away}! I had a bet going on whether the Barrens would keep you, and I've just lost it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When I first sent you out you were as green as spring grass, and now look at you. The Barrens didn't eat you, so it must have taught you something." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Somebody tells me you stared down one of our own and they blinked first. I like that, just don't make a habit of it inside the walls." },
   },
 
   notice = {
@@ -448,6 +455,8 @@ P:NPC {
     { id = "g_horizon", text = "Hm? Oh, it's you. Stand aside, I'm watching the horizon, and if they come I want to see them first." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Did you see the pigs out there? Did you see any sign of her?" },
     { id = "g_after", when = { questDone = TODO_QUEST("Lost in Battle") }, text = "She's found, and I know where she lies now. It isn't enough, but it's something." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've stood on this wall the whole while, because what else is there for me to do?" },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone down there back off without lifting a weapon. I used to be able to do that, before I stopped caring who backed down." },
   },
 
   notice = {
@@ -659,6 +668,9 @@ P:NPC {
   greetings = {
     { id = "g_calm", text = "Peace, friend. The land is restless lately. All the more reason for us not to be." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Druid-kin, good. I need eyes that see the land the way I do, so sit, and I'll tell you what's wrong with it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the land hasn't healed in that time, I'm sorry to say. Sit, and I'll tell you what has changed." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard you left someone here angry not long ago. The land is troubled enough, friend, so I'd ask you not to add to it." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone at the Crossroads spoke warmly of you, and warm words are rare enough out here. The Earth Mother notices kindness, and so do I." },
   },
 
   notice = {
@@ -865,6 +877,9 @@ P:NPC {
   greetings = {
     { id = "g_samples", text = "Hands! Living ones, even, which is excellent. Mine shake a little, these days." },
     { id = "g_back", when = { metBefore = true }, text = "Back with something for me? The Barrens is full of things worth bottling." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still breathing, which is more than my samples can say. Do you have anything for me?" },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since I sent you out for those first samples. Stronger hands mean bigger jars, so I'm delighted." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone here believed a tale you spun them. How delightful; the living are so trusting, and I do enjoy watching them learn." },
   },
 
   notice = {
@@ -1401,6 +1416,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Rest your hooves, or your feet, or whatever you've got. Everyone's welcome under this roof." },
     { id = "g_home", when = { homeInn = { "The Crossroads" } }, text = "Back to the Crossroads! Your bedroll's where you left it. I swept the dust off twice." },
+    { id = "g_away", when = { away = 14 }, text = "Back to the Crossroads after {away}! I swept your corner a few times while you were out, and the stars kept coming in through the roof." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, friend, and I was starting to worry the road had swallowed you whole. Sit down and let me find you something hot." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole common room's been talking about the help you've given this town. Supper's on me tonight, and don't argue." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone came in here with a sour face, grumbling about you. I won't ask what happened, but under my roof everyone gets along." },
   },
 
   notice = {

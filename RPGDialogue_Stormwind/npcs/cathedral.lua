@@ -20,6 +20,10 @@ P:NPC {
     { id = "g_peace", text = "Peace, child. The Cathedral is open to everyone. Even the tired." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "One of ours. Sit, if you've a moment, because you rarely will, later." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Duthorian's latest, I suspect, and he speaks well of very few. Welcome." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, child, and I wondered now and then where the road had taken you. Come in and rest a while." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, child, and I can see the road has asked a great deal of you. I hope it left you some kindness to bring home." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words passed between you and one of our neighbors. I won't ask what was said, child, but the Light is patient with those who mend things." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the city has been speaking warmly of you, child, and it did an old man good to hear it." },
   },
 
   notice = {

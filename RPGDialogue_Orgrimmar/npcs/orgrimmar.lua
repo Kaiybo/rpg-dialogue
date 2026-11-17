@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_warchief", text = "Lok'tar. Speak freely, warrior. In this hall, every voice of the Horde is heard." },
     { id = "g_orc", when = { race = "Orc" }, text = "{g:Brother|Sister}, we were slaves once, and now we have a home. Never let anyone make us forget either." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and the Horde is stronger for every warrior who comes back. Sit with me a while." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the city kept turning without you, but I'm glad to see you walk back through the gate. Sit, and tell me what the world looks like beyond Durotar." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you last stood in this hall, and you carry yourself like someone who has seen a great deal of fighting since. The Horde grows stronger every time a warrior like you comes home." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When we first spoke you were barely blooded, and now I can see the battles on you. You've grown into the kind of warrior I hoped this Horde would make." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've been doing honest work for Orgrimmar, and I hear of it more often than you'd think. That kind of name is worth more than any title I could give you." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone in this city caught you in a lie not long ago. I was a slave to men who lied to me every day of my youth, so understand that I'll be listening carefully." },
   },
 
   notice = {
@@ -321,6 +326,10 @@ P:NPC {
     { id = "g_hall", text = "Come, sit. The Warchief talk to everybody, but Vol'jin only talk to the interesting ones, so let's see which you be." },
     { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Stand up straight, mon. You carry the tribe's name everywhere you walk now." },
     { id = "g_back", when = { metBefore = true }, text = "You come back, good. That mean you still alive, and still interesting." },
+    { id = "g_away", when = { away = 14 }, text = "You been gone {away}, mon, and Vol'jin was starting to wonder if the jungle ate you. Sit, and tell me something interesting." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, mon, you grown some teeth since we last talk. Vol'jin likes it when the interesting ones get dangerous too." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "The talk in the city says somebody believed a story you told them, and maybe they shouldn't have. Vol'jin don't judge, mon, but he do count his rings after you leave." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in Orgrimmar been saying good things about you, and these orcs don't say good things for free. Maybe you be more interesting than Vol'jin thought." },
   },
 
   notice = {
@@ -554,6 +563,9 @@ P:NPC {
   greetings = {
     { id = "g_cleft", text = "The Cleft of Shadow welcomes you. Don't be alarmed by the dark; it keeps the curious out, and the useful in." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, my capable friend. I was hoping you'd return. I have more work for capable friends." },
+    { id = "g_away", when = { away = 14 }, text = "My capable friend, you've been away {away}, and I confess I missed having someone useful to talk to. Come in out of the light." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round to your way of thinking not long ago, and quite neatly too. A persuasive tongue is a rare gift, and the Cleft always has room for rare gifts." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your little untruths was seen through recently, which is a pity, because a lie that gets caught does nobody any good. Do be more careful, my friend." },
   },
 
   notice = {
@@ -802,6 +814,10 @@ P:NPC {
   greetings = {
     { id = "g_tusk", text = "Sit, warrior. Food first, then you tell me who you fought. That's the price of a seat at the Tusk." },
     { id = "g_home", when = { homeInn = { "Orgrimmar", "Valley of Strength" } }, text = "The Tusk missed you! Your bed's warm and there's a haunch on the spit, so your timing's good." },
+    { id = "g_away", when = { away = 14 }, text = "There you are! You've been gone {away}, and I was starting to think something out there ate you before I could feed you, so sit down while the spit's turning." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've gone {away} without a hot meal from the Tusk, and look at you, you're all gristle. Sit, and you're not getting up until you've eaten and told me every fight." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Half the Tusk has been talking about the work you've done for the city, so your first plate's on the house tonight. Then you can tell me the stories yourself." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard you put somebody's back up in the city not long ago, and they came in here grumbling about it. Whatever it was, you leave it at the door of my inn." },
   },
 
   notice = {
@@ -984,6 +1000,8 @@ P:NPC {
   greetings = {
     { id = "g_sigh", text = "Oh, hello. You're not going to hit me, are you? Everyone hits me, and I've stopped asking why." },
     { id = "g_low", when = { maxLevel = 5 }, text = "Another young one. Let me guess: you heard there's a tauren in the inn you can beat up. There is, but please don't." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, it's you again, after {away}. Nobody else stops to talk instead of hitting me, so I noticed you were gone." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "People in the inn say you've been helping folk around the city. I wish somebody had done that for me, back when I could still stand up straight." },
   },
 
   notice = {

@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_keep", text = "Ha! A visitor tae Wildhammer Keep! Come in, come in, an' tell me ye're here tae fight trolls!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good! I like a face that keeps comin' back, for it means the trolls didnae get it." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "Ha, there ye are, after {away} away! I'd started tae think the trolls had finally got ye, an' I'm glad tae be wrong." },
+    { id = "g_away_long", when = { away = 60 }, text = "Well, look what the wind blew back tae the Keep after {away} away! Sit doon an' tell me every fight ye've had, for I'll wager there were plenty." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've come on a fair bit since we last spoke, I can see it in yer shoulders. The Witherbark'll see it too, an' I'd like tae be there watchin'." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear ye put a proper fright intae someone at the Peak. That's grand for trolls, but go easy on my own lads." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Half the Peak's been sayin' good things about ye, an' a Wildhammer doesnae praise lightly. Come in, then, for ye've earned yer welcome." },
   },
 
   notice = {
@@ -296,6 +301,8 @@ P:NPC {
 
   greetings = {
     { id = "g_aviary", text = "Aye, what is it? I'd rather be up in the air than down here talkin', but the gryphons won't take orders from the ground, so somebody has tae." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the gryphons noticed before I did, which tells ye somethin'. Right, what is it?" },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked someone at the Peak intae somethin'. Dinnae try it wi' me, for I answer tae gryphons, an' they dinnae listen tae reason either." },
   },
 
   notice = {
@@ -500,6 +507,9 @@ P:NPC {
 
   greetings = {
     { id = "g_spirits", text = "Sit, friend. My eyes are no' what they were, but I hear the land well enough, an' it's no' happy." },
+    { id = "g_away", when = { away = 14 }, text = "Is that you, friend? I'd know that step even after {away} away, an' the land's been askin' where ye went." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye sound heavier on yer feet than ye did, an' I don't mean yer belly. Ye've grown strong since we last spoke, an' the spirits mark it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody at the Peak's carryin' a hot temper about ye. The winds bring me all sorts, an' that one came sour." },
   },
 
   notice = {
@@ -706,6 +716,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in, come in, an' pull up a bench! There's ale, there's stew, an' there's a fire hot enough tae thaw a gryphon." },
     { id = "g_home", when = { homeInn = { "Aerie Peak", "Wildhammer Keep" } }, text = "Home again! Yer bed's warm an' yer mug's full. What more could a body want?" },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away} away! Pull up yer bench, for the stew's been on since ye left, near enough, an' it's only got better." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole common room's been toastin' ye for what ye did for the Peak. Yer first mug's poured already, so drink up." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word round the tables is somebody caught ye spinnin' a tale. I'll still pour for ye, but keep yer stories tae the ones about trolls." },
   },
 
   notice = {

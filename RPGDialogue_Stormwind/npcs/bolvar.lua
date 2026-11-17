@@ -18,6 +18,10 @@ P:NPC {
     { id = "g_court", text = "Speak plainly. The court has enough of the other kind." },
     { id = "g_hero", when = { townStanding = { town = "stormwind", min = 55 } }, text = "Ah. I've read your name in more reports than I can count. Good reports, mostly." },
     { id = "g_distrust", when = { townStanding = { town = "stormwind", max = -20 } }, text = "The Watch has spoken of you. Be brief, and be careful." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away from the city {away}, and the reports kept coming without you. It's good to see you back in the Keep." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "You've been gone {away}, and you come back carrying yourself like a veteran. Whatever you faced out there, it seems you met it squarely." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I'm told you've been doing honest work for the city's people these past days. That's the kind of report I'm glad to read." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word reached the Keep that someone in the city caught you in a lie. Speak plainly with me, then, because I've no patience left for the other kind." },
   },
 
   notice = {

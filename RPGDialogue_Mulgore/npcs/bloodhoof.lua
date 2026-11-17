@@ -15,6 +15,10 @@ P:NPC {
   greetings = {
     { id = "g_tent", text = "Be welcome in Bloodhoof Village. My father keeps the bluffs; I keep the plains below them." },
     { id = "g_back", when = { metBefore = true }, text = "Friend, sit with me a moment; the village can spare me." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away from the plains {away}, friend, and the village asked after you more than once. Sit with me a moment and tell me where the road took you." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you walked these plains, and you come back carrying yourself like a seasoned warrior. My father will want to hear of it, and so do I." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The village has been telling me of the help you've given us, and I'm grateful for every bit of it. Bloodhoof does not forget its friends." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard that someone here was left angry after speaking with you. I would rather we settled our quarrels with patience, so I hope it can be mended." },
   },
 
   notice = {
@@ -259,6 +263,9 @@ P:NPC {
   greetings = {
     { id = "g_spirit", text = "Peace, young one. Baine tends the village in this world. I tend it in the other." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back to the spirit lodge. The spirits remember your step." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, young one, and the spirits noticed your absence before I did. They are quieter now that your step is back on the plain." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "The village says one of your words was found to be false. The spirits hear what is spoken in this lodge, so I would speak plainly here." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the village was warmed by what you said to them, and the spirits are restless children who like a kind word too. Come, sit a while." },
   },
 
   notice = {
@@ -420,6 +427,8 @@ P:NPC {
 
   greetings = {
     { id = "g_plains", text = "Watch the sky over Mulgore for a while. You'll see what I mean about the swoops." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the sky over Mulgore has changed its mind a dozen times since. My knees could have told you it would." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the village round to your way of thinking. That's a rarer thing among tauren than you'd guess, because we're stubborn as old kodo." },
   },
 
   notice = {
@@ -573,6 +582,8 @@ P:NPC {
 
   greetings = {
     { id = "g_rain", text = "Rain's coming; I can smell it on the wind. It's good for the grass, and bad for tracking." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the rain has come and gone a few times while you were gone. The tracks are fresh now, if you've a mind to hunt." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since we last spoke, and you walk like a hunter now instead of a calf. Perhaps one day you'll see that hide before I do." },
   },
 
   notice = {
@@ -1039,6 +1050,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on." },
     { id = "g_home", when = { homeInn = { "Bloodhoof Village" } }, text = "Your sleeping hide is aired and ready. The wind is kind tonight." },
+    { id = "g_away", when = { away = 14 }, text = "You've been out on the grass {away}, and I kept a pot on for you most nights anyway. Come in from the wind and eat." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole village talks of the help you've given us, so tonight the stew is yours for nothing. Don't tell the bluff folk." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone came through grumbling about you, and they left my stew half eaten. Whatever passed between you, the inn is a peaceful place." },
   },
 
   notice = {
