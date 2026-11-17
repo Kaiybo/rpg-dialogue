@@ -13,18 +13,18 @@ P:NPC {
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
   },
   greetings = {
-    { id = "g_hi", text = "Hey, hey, a new face in my town! You buying, selling, or just admiring the view?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again! Good, repeat customers are the backbone of this whole operation." },
+    { id = "g_hi", text = "Hey, hey, a new face in my town, and new faces are my favourite kind of customer! So what is it, pal, are you buying, selling, or just standing there admiring the real estate?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Good, good, because repeat customers are the backbone of this whole operation, and I've got the ledgers to prove it." },
   },
   notice = {
     { id = "n_goblin", cat = "race", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } },
-      text = "Alliance, huh? Don't sweat it, pal, because in Ratchet your gold's the same color as everybody else's." },
+      text = "Alliance, huh? Don't sweat it, pal, because in Ratchet your gold's the same color as everybody else's, and I count it just as fast." },
   },
   start = "hello",
   nodes = {
     xpt_gazlowe = {
       big = true,
-      lines = { { id = "xpt_gazlowe_default", text = "Ratchet loves crews, pal, as long as they pay their tabs and keep their quarrels off my docks. Crews from both sides come through here, and the only rule I care about is that nobody starts a war where my boats can see it." } },
+      lines = { { id = "xpt_gazlowe_default", text = "Ratchet loves crews, pal, as long as they pay their tabs and keep their quarrels off my docks. Crews from both sides come through here, and the only rule I care about is that nobody starts a war where my boats can see it, because wars do terrible things to the insurance." } },
       choices = {
         { text = "Neutral ground is worth protecting. We'll keep the peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If trouble starts, we'll finish it, docks or not.", next = "BACK", fx = { align = { order = -1 } } },
@@ -33,7 +33,7 @@ P:NPC {
     },
     xcl_dm = {
       big = true,
-      lines = { { id = "xcl_dm_default", text = "Yeah, and I'll tell you what bugs me about it. VanCleef was a builder, same as me, and he and his masons rebuilt Stormwind and never got paid, so they took their tools and went to war. I built Orgrimmar for Thrall, and he paid me on time every time, which is why I'm running a port and not hiding in a mine with a rag over my face." } },
+      lines = { { id = "xcl_dm_default", text = "Yeah, and I'll tell you what bugs me about it, pal. VanCleef was a builder, same as me, and he and his masons rebuilt Stormwind and never saw a copper of the bill, so they took their tools and went to war. I built Orgrimmar for Thrall, and he paid me on time every time, which is why I'm running a port and not hiding in a mine with a rag over my face." } },
       choices = {
         { text = "Always pay the builders. Stormwind had it coming.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "VanCleef was owed, Gazlowe, but that doesn't make him right.", next = "BACK", fx = { align = { order = 1 } } },
@@ -41,12 +41,12 @@ P:NPC {
       },
     },
     xcl_dm2 = {
-      lines = { { id = "xcl_dm2_default", text = "Not a chance, pal. They were freelancers and Venture Company leftovers, the kind of goblins who'd build a cannon for anyone with gold and never ask where it's pointed, and they give the rest of us a bad name." } },
+      lines = { { id = "xcl_dm2_default", text = "Not a chance, pal, not on my mother's ledger. They were freelancers and Venture Company leftovers, the kind of goblins who'd build a cannon for anyone with gold and never ask where it's pointed, and they give the rest of us a bad name and worse credit." } },
       choices = { { text = "Sounds like the Cartel has standards after all, Gazlowe.", next = "BACK" } },
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Ratchet welcomes coin. I've built for orcs, sold to humans and haggled with pirates, so a dead paladin is barely a novelty. Just don't go smiting anybody on my docks, because the Cartel charges for cleanup, and it's not cheap." } },
+      lines = { { id = "xfpala_default", text = "Ratchet welcomes coin, whoever's carrying it. I've built for orcs, sold to humans and haggled with pirates, so a dead paladin is barely a novelty, pal. Just don't go smiting anybody on my docks, because the Cartel bills for cleanup by the hour, and it ain't cheap." } },
       choices = {
         { text = "I'll keep the peace on your docks, Gazlowe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll smite whoever deserves it, docks or not.", next = "BACK", fx = { align = { order = -1 } } },
@@ -55,7 +55,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Pay? Pal, I'd put you on retainer if the Cartel let me, because every sailor the Southsea pirates carve up is a sailor I'm not shipping cargo with. Heal 'em quick and heal 'em cheap, and we'll get along fine." } },
+      lines = { { id = "xhpriest_default", text = "Pay? Pal, I'd put you on retainer if the Cartel let me, because every sailor the Southsea pirates carve up is a sailor I'm not shipping cargo with, and that's money walking right off the pier. Heal 'em quick and heal 'em cheap, and we'll get along fine." } },
       choices = {
         { text = "I don't heal for coin, Gazlowe. I heal because they're hurt.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "My prayers cost the same as anyone's work. Name a price.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -64,7 +64,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Southsea pirates keep raiding my ships off the coast, and the Venture Company keeps making eyes at my docks, and neither of 'em understands polite letters. You go knock a few heads together on the beach, and Ratchet stays open for business, which is good for everybody, pal." } },
+      lines = { { id = "xwarcl_default", text = "The Southsea pirates keep raiding my ships off the coast, and the Venture Company keeps making eyes at my docks, and neither of 'em answers polite letters, so I've stopped paying for the stamps. You go knock a few heads together on the beach, and Ratchet stays open for business, which is good for everybody's bottom line, pal." } },
       choices = {
         { text = "I'll protect Ratchet's docks for the honest traders.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll knock heads for whoever pays the best rate.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -74,8 +74,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Good hunting? Pal, there's crocolisks in the water, raptors in the hills and pirates on the beach, and I'd pay to see fewer of all three. The crocolisk hides sell nice down at the docks, too, so if you're out there anyway, you might as well turn a profit." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks hungry, and I know that look, pal. Feed it before it comes down to the fish market, alright?" },
+        { id = "xhuntcl_default", text = "Good hunting? Pal, there's crocolisks in the water, raptors in the hills and pirates on the beach, and I'd pay good coin to see fewer of all three. Crocolisk hides sell nice down at the docks, too, so if you're out there anyway, you might as well turn a profit, right?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks hungry, pal, and I know that look, because I see it on my dockhands every payday. Feed it before it comes down to the fish market and starts runnin' up a tab, alright?" },
       },
       choices = {
         { text = "I'll hunt to keep the roads safe, Gazlowe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "He talked to 'em plenty, sure, but the walls went up because my crews worked double shifts, and he paid us, which I respect. He said the earth there was willing, whatever that means, and I'll take willing earth over a lazy goblin any day." } },
+      lines = { { id = "xhsham_default", text = "He talked to 'em plenty, sure, but the walls went up because my crews worked double shifts, and he paid us the overtime, which I respect more than any spirit. He said the earth there was willing, whatever that means, and I'll take willing earth over a lazy goblin any day, because willing earth never asks for a raise." } },
       choices = {
         { text = "A spirit's blessing holds a city up better than mortar.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Walls are walls, and coin and labor built them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Now you're talking my language, pal! Somebody on my own docks is tipping off the Southsea about which boats carry what, and I'd love to know who, though the bruisers won't lay a hand on anybody without proof, so bring me something better than a hunch." },
+        { id = "xrogue_default", text = "Now you're talking my language, pal! Somebody on my own docks is selling the Southsea a list of which boats carry what, and I'd pay real money to know who, but the bruisers won't lay a hand on anybody without proof, so bring me something better than a hunch." },
       },
       choices = {
         { text = "Leave it to me. Nobody will even know I was looking.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -106,7 +106,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Expensive is the best word in the language, pal, and I respect a professional. The last mage who worked my docks froze a Southsea boarding party solid and then froze half my pier along with 'em, so if you want work around here, you aim better than he did." },
+        { id = "xmage_default", text = "Expensive is the best word in the language, pal, and I respect a professional who charges for it. The last mage who worked my docks froze a Southsea boarding party solid and then froze half my pier along with 'em, and I'm still payin' off the carpenters, so if you want work around here, you aim better than he did." },
       },
       choices = {
         { text = "I'll be careful with your pier. Precision is the job.", next = "BACK", fx = { align = { order = 1 } } },
@@ -117,7 +117,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "The bruisers care about one thing, which is whether you start trouble on my docks. Your demon's welcome to stand around looking scary for all I care, but if it sets fire to so much as one crate, you're paying for the crate, the fire and the bruiser who puts it out." },
+        { id = "xwarlock_default", text = "The bruisers care about one thing, pal, which is whether you start trouble on my docks. Your demon's welcome to stand around looking scary for all I care, but if it sets fire to so much as one crate, you're paying for the crate, the fire, the bruiser who puts it out and the paperwork after." },
       },
       choices = {
         { text = "Fair rules. My demon won't touch a crate.", next = "BACK", fx = { align = { order = 1 } } },
@@ -127,7 +127,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Sure, every time the fish get scarce, because empty nets cost me money. I'm a businessman, not a monster, so I keep the worst of the dumping out past the point where nobody swims, and I call that a compromise." } },
+      lines = { { id = "xdruid_default", text = "Sure, every time the fish get scarce, because empty nets cost me money. I'm a businessman, not a monster, so I keep the worst of the dumping out past the point where nobody swims, and in my line of work, pal, that's what we call a generous compromise." } },
       choices = {
         { text = "Trade can be clean. You owe this coast better than that.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A port is a port. The sea can take a little filth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -137,18 +137,18 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
-          text = "A whole crew! Now that's good business, because five of you need five times the repairs, five times the bandages and five times the boat tickets, and Ratchet sells all of it." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, in my town! Keep that hammer sheathed on the docks like everyone else, and we'll get along fine, glow or no glow." },
+          text = "A whole crew! Now that's good business, because five of you need five times the repairs, five times the bandages and five times the boat tickets, and wouldn't ya know it, Ratchet sells all of it." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, in my town! Keep that hammer sheathed on the docks like everybody else, pal, and we'll get along fine, glow or no glow." },
         { id = "h_default", key = true,
-          text = "Name's Gazlowe, and Ratchet's my town, so whatever you need, it goes through me eventually. Keep your blades sheathed on the docks and we'll get along just fine." },
+          text = "Name's Gazlowe, and Ratchet's my town, so whatever you need, it goes through me eventually and pays a little toll on the way. Keep your blades sheathed on the docks, pal, and we'll get along just fine." },
         { id = "h_pirates", when = { questActive = TODO_QUEST("Southsea Freebooters") },
-          text = "Those Southsea freebooters are camped right down the coast, bleeding my shipping dry. Thin 'em out for me, and Ratchet breathes easier." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The big guy, Thrall, is one of you, and I'll tell you what I told him, which is that lightning's great but a good crane is better for building a city." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Look, I know the look you're about to give me about the docks and the smoke, so I'll tell you up front that Ratchet's cleaner than any port the pirates run." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, huh? Great, I've always got work for somebody who hits hard and doesn't ask me why." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Keep that beast of yours off my docks, pal, because the last one ate half a crate of fish and I'm still getting complaints." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Great, because Ratchet's always got somebody bleeding on the docks, and the pirates sure aren't paying for bandages." },
-        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "The Deadmines" }, text = "Heard you went down into the Deadmines and put VanCleef out of business. Can't say I'm crying, pal, but whoever built that juggernaut down there knew what they were doing." },
+          text = "Those Southsea freebooters are camped right down the coast, bleeding my shipping dry one crate at a time. Thin 'em out for me, pal, and Ratchet breathes easier, and so do my accounts." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The big guy, Thrall, is one of you, and I'll tell you what I told him, pal, which is that lightning's great but a good crane is better for building a city, and the crane doesn't need asking nicely." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Look, pal, I know the look you're about to give me about the docks and the smoke, so I'll save us both the time and tell you up front that Ratchet's cleaner than any port the pirates run." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, huh? Great, because I've always got work for somebody who hits hard, bills fair and doesn't ask me why." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Keep that beast of yours off my docks, pal, because the last one ate half a crate of fish and I'm still gettin' complaints from the buyer." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Great, because Ratchet's always got somebody bleeding on the docks, and the pirates sure aren't paying for the bandages." },
+        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "The Deadmines" }, text = "Heard you went down into the Deadmines and put VanCleef out of business, pal. Can't say I'm crying, but whoever built that juggernaut down there knew what they were doing, and I'd have paid good gold for a look at the blueprints first." },
       },
       choices = {
         { text = "Did Thrall use the spirits to build Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -176,20 +176,20 @@ P:NPC {
         { text = "I'll see you around, Gazlowe.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "What else, pal? Time's money, but I'll spot you a little." },
-        { id = "h_again2", text = "Still here? Good, ask away, the first questions are free." },
+        { id = "h_again", text = "What else, pal? Time's money, but I'll spot you a little on account." },
+        { id = "h_again2", text = "Still here? Good, ask away, because talking's the one thing in Ratchet I don't charge for." },
       },
     },
     orgrimmar = {
-      lines = { { id = "o_default", text = "Me and my crew, sure, back when Thrall first landed with a bunch of orcs and no idea how to raise a wall that didn't fall over. We built him a city, and he paid us, and then he let us keep this little harbor besides." } },
+      lines = { { id = "o_default", text = "Me and my crew, sure, back when Thrall first landed with a bunch of orcs and no idea how to raise a wall that didn't fall over. We built him a city on schedule and near enough on budget, and he paid us, and then he let us keep this little harbor besides." } },
       choices = { { text = "And you've been here since?", next = "orgrimmar_since" } },
     },
     orgrimmar_since = {
-      lines = { { id = "os_default", text = "Ratchet was nothing but sand and a broken pier when I got here. Now look at it: a bank, a boat to Booty Bay, and every caravan from the Crossroads to the coast pays a toll somewhere along the way." } },
+      lines = { { id = "os_default", text = "Ratchet was nothing but sand and a broken pier when I got here, pal. Now look at it: a bank, a boat to Booty Bay, and every caravan from the Crossroads to the coast pays a toll somewhere along the way, with my name on the receipt." } },
       choices = { { text = "Do you miss building?", next = "orgrimmar_miss" } },
     },
     orgrimmar_miss = {
-      lines = { { id = "om_default", text = "Building's fine, but owning is better, pal, and I learned that with a lien on my favourite boat. Still, I'd take another big job if the Warchief came asking and the price was right." } },
+      lines = { { id = "om_default", text = "Building's fine, but owning is better, pal, and I learned that the hard way with a lien on my favourite boat. Still, I'd take another big job if the Warchief came asking and the price was right, and between you and me, I've kept the scaffolding." } },
       choices = {
         { text = "A deal's a deal. Thrall was right to pay you fairly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "You should have squeezed him for twice as much.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -197,15 +197,15 @@ P:NPC {
       },
     },
     pirates = {
-      lines = { { id = "p_default", text = "The Southsea Freebooters think anything floating off my coast belongs to them. They've cost me cargo, crews and two very nice boats, and I'm running out of patience and polite words." } },
+      lines = { { id = "p_default", text = "The Southsea Freebooters think anything floating off my coast belongs to them, pal. They've cost me cargo, crews and two very nice boats, and I've run out of patience, polite words and insurance, in that order." } },
       choices = { { text = "I'll handle them.", next = "BACK", fx = { affinity = 2 } } },
     },
     town = {
-      lines = { { id = "t_default", text = "Wharfmaster Dizzywig keeps the docks, Mebok Mizzyrix is always cooking up some deal, and Sputtervalve, well, he lost a very important gizmo and won't shut up about it." } },
+      lines = { { id = "t_default", text = "Wharfmaster Dizzywig keeps the docks and counts every crate twice, Mebok Mizzyrix is always cooking up some deal, and Sputtervalve, well, he lost a very important gizmo and won't shut up about it. Good people, pal, and every one of 'em pays rent on time." } },
       choices = { { text = "Good to know.", next = "BACK" } },
     },
     neutral = {
-      lines = { { id = "n_default", text = "Easy: the bruisers on the docks hit anybody who starts trouble, Horde or Alliance, and nobody wants to lose the only decent harbor on this coast. Business keeps the peace better than any treaty." } },
+      lines = { { id = "n_default", text = "Easy, pal: the bruisers on the docks hit anybody who starts trouble, Horde or Alliance, and nobody wants to lose the only decent harbor on this coast. Business keeps the peace better than any treaty, because a treaty doesn't send you a bill when you break it." } },
       choices = {
         { text = "Peace bought with gold is still peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Peace that's for sale can be bought out from under you.", next = "BACK", fx = { align = { order = -1 } } },
@@ -214,10 +214,10 @@ P:NPC {
     -- 0.71.0 depth: the Cartel, the big bosses, and the people who wash up in Ratchet.
     cartel = {
       hub = true,
-      lines = { { id = "ca_default", text = "The Steamwheedle Cartel's the biggest outfit on the water, pal: Booty Bay, Gadgetzan, Everlook and my own Ratchet, and every one of us stays neutral because war's terrible for repeat customers. Ask away, the brochure's free." } },
+      lines = { { id = "ca_default", text = "The Steamwheedle Cartel's the biggest outfit on the water, pal: Booty Bay, Gadgetzan, Everlook and my own Ratchet, and every one of us stays neutral because war's terrible for repeat customers. Ask away, the brochure's on the house." } },
       again = {
-        { id = "ca_again", text = "What else about the Cartel? I've got a speech for every question." },
-        { id = "ca_again2", text = "Keep 'em coming, pal, I love talking shop." },
+        { id = "ca_again", text = "What else about the Cartel? I've got a speech for every question and a price list for every speech." },
+        { id = "ca_again2", text = "Keep 'em coming, pal, because talking shop beats counting losses any day." },
       },
       choices = {
         { text = "Who runs Booty Bay?", next = "c_revilgaz" },
@@ -231,14 +231,14 @@ P:NPC {
       },
     },
     c_revilgaz = {
-      lines = { { id = "cr_default", text = "Baron Revilgaz, up on his balcony over the Salty Sailor, counting coins and yelling at the Bloodsail, and he's the only goblin I know who could out-haggle me on a good day. We run the boat back and forth, we split the gossip, and we both pretend the other guy's port is smaller." } },
+      lines = { { id = "cr_default", text = "Baron Revilgaz, up on his balcony over the Salty Sailor, counting coins and yelling at the Bloodsail, and by my last copper, he's the only goblin I know who could out-haggle me on a good day. We run the boat back and forth, we split the gossip, and we both pretend the other guy's port is smaller." } },
       choices = {
         { text = "Sounds like a friendly rivalry.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     c_venture = {
-      lines = { { id = "cv_default", text = "The Venture Company's what you get when a goblin decides contracts are for suckers. They strip a hill bare, foul the water and shoot the locals, and then they wonder why nobody wants to trade with goblins, so every tauren who spits on my boots is really spitting at them." } },
+      lines = { { id = "cv_default", text = "The Venture Company's what you get when a goblin decides contracts are for suckers, pal. They strip a hill bare, foul the water and shoot the locals, and then they wonder why nobody wants to trade with goblins, so every tauren who spits on my boots is really spitting at them, and I'm the one paying to have the boots cleaned." } },
       choices = {
         { text = "Aren't you all goblins, though?", next = "c_venture2" },
         { text = "Something else.", next = "BACK" },
@@ -254,7 +254,7 @@ P:NPC {
     },
     c_race = {
       lines = {
-        { id = "crc_default", text = "Down at the Shimmering Flats, the Cartel's racing team and the gnomes blow each other up for the honor of going fastest. I find parts for our boys, I used to work on a rig myself, and I owe 'em a prototype fuel regulator, which I'll get to just as soon as somebody stops shooting at my boats." },
+        { id = "crc_default", text = "Down at the Shimmering Flats, the Cartel's racing team and the gnomes blow each other up for the honor of going fastest, and I've lost good money betting on both. I find parts for our boys, I used to work on a rig myself, and I owe 'em a prototype fuel regulator, which I'll get to just as soon as somebody stops shooting at my boats." },
         { id = "crc_gnome", when = { race = "Gnome" }, text = "Your people and mine race rockets across the salt down at the Shimmering Flats, and lately your team's been getting faster with the same designs, which I'll only admit because you'll hear it anyway. I find parts for our boys, and I owe 'em a fuel regulator I haven't built yet, so don't tell 'em you saw me." },
       },
       choices = {
@@ -263,7 +263,7 @@ P:NPC {
       },
     },
     c_race2 = {
-      lines = { { id = "crc2_default", text = "Depends who you ask and how many pieces they found afterwards. The gnomes build slow and blow up less, our boys build fast and blow up spectacular, and the crowd pays to watch both, so frankly, pal, the Cartel wins every single race." } },
+      lines = { { id = "crc2_default", text = "Depends who you ask and how many pieces they found afterwards. The gnomes build slow and blow up less, our boys build fast and blow up spectacular, and the crowd pays admission to watch both, so frankly, pal, the Cartel wins every single race." } },
       choices = {
         { text = "Spoken like a true bookie.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -280,7 +280,7 @@ P:NPC {
       },
     },
     d_owed = {
-      lines = { { id = "do_default", text = "He said WHAT? I don't owe Revilgaz a copper, pal, it's the racing team I owe, and if the Baron's telling people I'm behind on payments, the Cartel's gonna start asking about Ratchet's books. And since the Southsea started hitting my boats, I've been padding the dock fees a little to cover the losses, so the books really don't want to be asked about." } },
+      lines = { { id = "do_default", text = "He said WHAT? Sparks and sprockets, I don't owe Revilgaz a copper, pal, it's the racing team I owe, and if the Baron's telling people I'm behind on payments, the Cartel's gonna start asking about Ratchet's books. And since the Southsea started hitting my boats, I've been padding the dock fees a little to cover the losses, so the books really don't want to be asked about." } },
       choices = {
         { text = "Your secret's safe with me, Gazlowe.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "Revilgaz never said a word, by the way.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
@@ -292,9 +292,9 @@ P:NPC {
     },
     bosses = {
       hub = true,
-      lines = { { id = "bo_default", text = "The big bosses? Pal, I've built for some of 'em, sold to the rest and been yelled at by all of 'em, so I've got opinions. Pick one, and I'll tell you what I'd never say to their faces." } },
+      lines = { { id = "bo_default", text = "The big bosses? Pal, I've built for some of 'em, sold to the rest and been yelled at by all of 'em, so I've got opinions to spare. Pick one, and I'll tell you what I'd never say to their faces." } },
       again = {
-        { id = "bo_again", text = "Who else? I've got plenty of opinions left." },
+        { id = "bo_again", text = "Who else? I've got plenty of opinions left, pal, and no shortage of grudges." },
         { id = "bo_again2", text = "Next boss, pal. This is the fun part." },
       },
       choices = {
@@ -323,7 +323,7 @@ P:NPC {
       },
     },
     b_theramore = {
-      lines = { { id = "bth_default", text = "Lady Proudmoore runs a tidy town and pays her freight on time, which puts her ahead of most kings. Her soldiers up at Northwatch Hold, now, they're another story, sitting up the coast glaring at my docks like I'm hiding orcs in the crates." } },
+      lines = { { id = "bth_default", text = "Lady Proudmoore runs a tidy town and pays her freight on time, which puts her ahead of most kings I've ever invoiced. Her soldiers up at Northwatch Hold, now, they're another story, sitting up the coast glaring at my docks like I'm hiding orcs in the crates." } },
       choices = {
         { text = "Are you hiding orcs in the crates?", next = "b_theramore2" },
         { text = "Something else.", next = "BACK" },
@@ -385,9 +385,9 @@ P:NPC {
   topics = {
     knows = {
       { id = "tp_knows", text = "Pal, every rumor on this coast comes through my docks sooner or later, and half of 'em pay a toll on the way. Ask me about any of these, and the first answer's on the house." },
-      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because answers are cheap, but don't expect me to throw in the good stuff for somebody I don't trust yet." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, pal, because answers are cheap, but the good stuff's for customers with a little credit built up, and you ain't there yet." },
     },
-    _none = { { id = "tp_none", text = "Never heard of it, and if I haven't heard of it, it isn't making anybody any money." } },
+    _none = { { id = "tp_none", text = "Never heard of it, pal, and if I haven't heard of it, it isn't making anybody a single copper." } },
   },
 }
 
@@ -401,17 +401,17 @@ P:NPC {
     third = "{name} met Sputtervalve, a fretful goblin tinker in Ratchet.",
   },
   greetings = {
-    { id = "g_hi", text = "Oh! A customer, or a helper, or maybe both, which would be best of all, really." },
+    { id = "g_hi", text = "Oh! A customer, or a helper, or maybe both, which would be best of all, pal, because a helper who pays is the rarest part in any workshop." },
   },
   notice = {
     { id = "n_eng", cat = "class", when = { class = { "MAGE", "WARLOCK" } },
-      text = "A spellcaster, huh? You folks never appreciate a good gear, but I won't hold that against you." },
+      text = "A spellcaster, huh? You folks never appreciate a good gear, buddy, but I won't hold it against you, mostly, since your money spends the same." },
   },
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Probably not, but I'd love to try, mostly. I once tried to make a lamp that runs on prayer, and it exploded, which I think means it worked a little. You wouldn't happen to want to pray at my Samophlange, if I ever find it?" } },
+      lines = { { id = "xfpala_default", text = "Probably not, but I'd love to try, mostly. I once built a lamp that runs on prayer, and it blew the roof off my shed, which I think means it worked a little, so you wouldn't happen to want to pray at my Samophlange, if I ever find it?" } },
       choices = {
         { text = "The Light isn't a tool for gadgets, Sputtervalve.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If it pays, I'll pray at your contraption.", next = "BACK", fx = { align = { light = -1 } } },
@@ -420,7 +420,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Well, I don't know how prayer works, exactly, or at all, but I've tried wrenches and maps and shouting, so it can't do any worse! If your loa or your shadow or whatever you've got happens to see a big brass contraption out in the Barrens, you'd tell me, wouldn't you?" } },
+      lines = { { id = "xhpriest_default", text = "Well, I don't know how prayer works, exactly, or at all, but I've tried wrenches and maps and shouting, so it can't do any worse! If your loa or your shadow or whatever you've got happens to see a big brass contraption out in the Barrens, you'd tell me first, wouldn't you, before anybody tries to sell it back to me?" } },
       choices = {
         { text = "I'll pray for it with you, Sputtervalve. It can't hurt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The gods have better things to find than your contraption.", next = "BACK", fx = { align = { light = -1 } } },
@@ -429,7 +429,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Oh, they're fine, mostly, though one of them still can't hear on his left side. The Venture Company boys at the Sludge Fen are worse, though, because they've got shredders and guards, and somebody with a big axe could get my Samophlange back a lot quicker than I could." } },
+      lines = { { id = "xwarcl_default", text = "Oh, they're fine, mostly, though one of 'em still can't hear on his left side and keeps billing me for it. The Venture Company boys at the Sludge Fen are worse, though, because they've got shredders and guards, and somebody with a big axe could get my Samophlange back a lot quicker and cheaper than I could." } },
       choices = {
         { text = "I'll get your Samophlange back, Sputtervalve.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll keep whatever the Venture Company has worth taking.", next = "BACK", fx = { align = { order = -1 } } },
@@ -439,8 +439,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Troubled them? A raptor ate a whole fuel regulator last month, and it was the only one I had! The beasts of the Barrens are curious about anything that rattles, so if you see something out there that looks like a bit of a machine, it's probably mine." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from my workbench, please. I'm sure it's lovely, but the last beast that sniffed it set off a very small explosion." },
+        { id = "xhuntcl_default", text = "Troubled them? A raptor ate a whole fuel regulator last month, pal, and it was the only one I had, and do you know what those cost from Booty Bay? The beasts of the Barrens chew on anything that rattles, so if you see something out there that looks like a bit of a machine, it's probably mine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from my workbench, please, pal. I'm sure it's lovely, but the last beast that sniffed it set off a very small explosion, and I'm still paying for the window." },
       },
       choices = {
         { text = "I'll bring back any of your parts I find.", next = "BACK", fx = { align = { order = 1 } } },
@@ -450,7 +450,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Anger them? I hope not, but now that you mention it, the Samophlange did spark something terrible right before I lost it. That was probably just the coil, though, wasn't it? Please say it was the coil." } },
+      lines = { { id = "xhsham_default", text = "Anger them? I hope not, but now that you mention it, the Samophlange did spark somethin' terrible right before I lost it. That was probably just the coil, though, wasn't it, buddy? Please say it was the coil." } },
       choices = {
         { text = "Respect the elements, and your machines will fare better.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It was the coil. Gears need no spirit's permission.", next = "BACK", fx = { align = { order = -1 } } },
@@ -460,7 +460,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Would I! The Venture Company boys out at the Sludge Fen have it, I'm almost certain, and they'll have it locked up tighter than a gnome's toolbox, so if you can slip in without blowing anything up, which is more than I've ever managed, you'll be the best friend a tinker ever had." },
+        { id = "xrogue_default", text = "Would I! The Venture Company boys out at the Sludge Fen have it, I'm almost certain, and they'll have it locked up tighter than a gnome's toolbox, so if you can slip in without blowing anything up, which is more than I've ever managed, you'll be the best friend and the best investment a tinker ever had." },
       },
       choices = {
         { text = "I'll take it back quietly. They stole it first.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -470,7 +470,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Oh, I couldn't, I really couldn't, because there's a year of my work in it and most of my eyebrows. But if something has nested in it I'll move the nest very gently, or I'll find someone who knows how, which might be you." } },
+      lines = { { id = "xdruid_default", text = "Oh, I couldn't, pal, I really couldn't, because there's a year of my work in it, most of my savings and most of my eyebrows. But if something has nested in it I'll move the nest very gently, or I'll find someone who knows how, which might be you." } },
       choices = {
         { text = "Your work matters. Bring it home, nest or no nest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If the Barrens claimed it, let the Barrens keep it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -479,16 +479,16 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Fascinating, absolutely fascinating, mostly. Does the Light run on anything? Gears? Faith? Something I could build?" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Fascinating, absolutely fascinating, mostly. Does the Light run on anything, pal, gears or faith or somethin' I could build and sell by the crate?" },
         { id = "h_default", key = true,
-          text = "Sputtervalve, inventor and tinker, at your service, mostly. You wouldn't happen to have seen a Samophlange lying around out in the Barrens, would you?" },
+          text = "Sputtervalve, inventor and tinker, at your service, mostly, and at reasonable rates. You wouldn't happen to have seen a Samophlange lying around out in the Barrens, would you, pal?" },
         { id = "h_samo", when = { questActive = TODO_QUEST("Samophlange") },
-          text = "The Samophlange is still out there, and every day it sits in the dust I lose another year off my life. Please hurry, and please don't drop it." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you don't happen to know a spirit who finds lost things, do you, because the Samophlange is still out there and I've asked everyone else already." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Oh, you wouldn't know whether the Samophlange counts as part of nature now, would you, because it's been lying out in the grass so long that something's probably nesting in it." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Oh, splendid, you look sturdy enough to stand next to my experiments, which is more than my last three assistants could say." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, how marvellous! Tell me, does your beast ever chase things that go bang? Because I've had some trouble with that." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, a real one, which is good, because I've been saying a little prayer for my Samophlange every night and I'm not sure I've been doing it right." },
+          text = "The Samophlange is still out there, pal, and every day it sits in the dust I lose another year off my life and another week off my lease. Please hurry, and please, please don't drop it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you don't happen to know a spirit who finds lost things, do you, because the Samophlange is still out there and I've asked everyone else already, and I'd pay a spirit's going rate, whatever that is." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Oh, you wouldn't know whether the Samophlange counts as part of nature now, would you, pal, because it's been lying out in the grass so long that something's probably nesting in it and charging the rest of the grass rent." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Oh, splendid, you look sturdy enough to stand next to my experiments, which is more than my last three assistants could say, and they all got hazard pay." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, how marvellous! Tell me, buddy, does your beast ever chase things that go bang? Because I've had some trouble with that, and some expensive trouble at that." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, a real one, which is good, because I've been saying a little prayer for my Samophlange every night, and I'm not sure I've been doing it right or whether I've been tithing enough." },
       },
       choices = {
         { text = "Do your machines ever anger the elements, Sputtervalve?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -504,18 +504,18 @@ P:NPC {
         { text = "Could you build something with the Light, Sputtervalve?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with it.", next = "END" },
       },
-      again = { { id = "h_again", text = "More questions? I love questions, almost as much as I love gears, almost." } },
+      again = { { id = "h_again", text = "More questions? I love questions, pal, almost as much as I love gears, and they don't cost me a copper, mostly." } },
     },
     samo = {
-      lines = { { id = "s_default", text = "It's a pressure-regulating, flow-correcting, all-purpose mechanical marvel, and it's the heart of a very big project. I can't tell you what the project is, because it isn't finished and I'm superstitious." } },
+      lines = { { id = "s_default", text = "It's a pressure-regulating, flow-correcting, all-purpose mechanical marvel, pal, and it's the heart of a very big and very profitable project. I can't tell you what the project is, because it isn't finished and I'm superstitious about counting coins before they're minted." } },
       choices = { { text = "Can you give me a hint?", next = "samo_hint" } },
     },
     samo_hint = {
-      lines = { { id = "sh_default", text = "Let's just say there's oil under the Barrens, and the Venture Company isn't the only outfit that knows it. A goblin with the right machine could make a fortune, and keep it out of the wrong hands besides." } },
+      lines = { { id = "sh_default", text = "Let's just say there's oil under the Barrens, and the Venture Company isn't the only outfit that knows it. A goblin with the right machine could make a fortune, buddy, and keep it out of the wrong hands besides." } },
       choices = { { text = "Out of the Venture Company's hands?", next = "samo_venture" } },
     },
     samo_venture = {
-      lines = { { id = "sv_default", text = "Those thugs would drill the whole plain dry and leave the tauren nothing but holes. I'm greedy, sure, but I'm a Steamwheedle goblin, and we like our customers alive." } },
+      lines = { { id = "sv_default", text = "Those thugs would drill the whole plain dry and leave the tauren nothing but holes and an invoice. I'm greedy, sure, but I'm a Steamwheedle goblin, and we like our customers alive and paying." } },
       choices = {
         { text = "Better you than the Venture Company, then.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The land isn't anyone's to drill, goblin.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -523,20 +523,20 @@ P:NPC {
       },
     },
     lost = {
-      lines = { { id = "l_default", text = "I was testing it in the field, and then there were centaur, and then there was running, and then there wasn't a Samophlange anymore. It's not the most dignified story." } },
+      lines = { { id = "l_default", text = "I was testing it in the field, and then there were centaur, and then there was running, and then there wasn't a Samophlange anymore. It's not the most dignified story, pal, and it's the most expensive one I've got." } },
       choices = { { text = "I'll keep an eye out.", next = "BACK" } },
     },
     ratchet = {
-      lines = { { id = "r_default", text = "Good enough! Gazlowe keeps the peace and the boats bring parts from Booty Bay, though they charge me a fortune for every bolt." } },
+      lines = { { id = "r_default", text = "Good enough! Gazlowe keeps the peace and the boats bring parts from Booty Bay, though they charge me a fortune for every bolt, and a little extra for the ones that fit." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     magic = {
-      lines = { { id = "m_default", text = "Sure, until it doesn't, and then you've got nothing but a headache and a puff of smoke. A gear you can fix, but try fixing a fireball after it's gone off." } },
+      lines = { { id = "m_default", text = "Sure, until it doesn't, and then you've got nothin' but a headache and a puff of smoke. A gear you can fix and resell, pal, but try fixing a fireball after it's gone off." } },
       choices = { { text = "Fair point.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Never heard of that, but if it's got moving parts, bring it by and I'll take a look." } },
+    _none = { { id = "tp_none", text = "Never heard of that, pal, but if it's got moving parts, bring it by and I'll take a look, and I'll only charge you for the look." } },
   },
 }
 
@@ -550,7 +550,7 @@ P:NPC {
     third = "{name} met Mebok Mizzyrix, a goblin peddler of tonics in Ratchet.",
   },
   greetings = {
-    { id = "g_hi", text = "Step right up, friend, because Mebok Mizzyrix has exactly what you need, even if you don't know it yet." },
+    { id = "g_hi", text = "Step right up, friend, step right up, because Mebok Mizzyrix has exactly what you need, even if you don't know it yet, and the price is a steal, mostly for me." },
   },
   start = "hello",
   nodes = {
@@ -585,7 +585,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Crocolisk eyes, zhevra hooves and the odd plainstrider gizzard, if you're not too squeamish. The beasts of the Barrens are full of useful things, as long as somebody else does the collecting, and that somebody could be you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could sniff out a good ingredient. I don't suppose it'd like a job? No, I didn't think so." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could sniff out a good ingredient, chum. I don't suppose it'd take a job on commission? No, I didn't think so, they never read the contract." },
       },
       choices = {
         { text = "I'll only take what the beast can spare.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -595,7 +595,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Anger them? Friend, I give those raptors a second life in a bottle, which is more than the Barrens ever gave them. The tauren don't see it that way, of course, but the tauren don't pay my rent either." } },
+      lines = { { id = "xhsham_default", text = "Anger them? Friend, I give those raptors a second life in a bottle at a very reasonable markup, which is more than the Barrens ever gave them. The tauren don't see it that way, of course, but the tauren don't pay my rent either." } },
       choices = {
         { text = "A beast killed for its horn deserves better than a sales pitch.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Dead raptors need no apology. Business is business.", next = "BACK", fx = { align = { light = -1 } } },
@@ -646,14 +646,14 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now there's a customer with special needs. My tonics refresh the living, but I'm sure I can find something for you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now there's a customer with special needs, and special needs mean special prices. My tonics refresh the living, sweetheart, but I'm sure I can find something for you." },
         { id = "h_default", key = true,
-          text = "Mebok Mizzyrix, purveyor of fine tonics and quality refreshment. I'm always looking for a few special ingredients, and the Barrens is full of them, if you've got the stomach to collect." },
+          text = "Mebok Mizzyrix, purveyor of fine tonics and quality refreshment at prices that'll make you weep, with joy, naturally. I'm always looking for a few special ingredients, and the Barrens is full of 'em, if you've got the stomach to collect." },
         { id = "h_horns", when = { questActive = TODO_QUEST("Raptor Horns") },
-          text = "Raptor horns, friend, the bigger the better! The thunderheads and stormsnouts out west have the good ones." },
+          text = "Raptor horns, friend, the bigger the better, because I pay by the horn and charge by the swallow! The thunderheads and stormsnouts out west have the good ones." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now there's a customer who appreciates a tonic with a little lightning in it, and I happen to have exactly that, if you take my meaning." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! A customer like you knows herbs, so you'll appreciate that every one of my tonics is made from the finest things the Barrens has to offer, more or less." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You'll be wanting a little something to steady the nerves before a fight, and I've got just the thing." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You'll be wanting a little somethin' to steady the nerves before a fight, chum, and by my last copper, I've got just the thing." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now you're exactly the sort of customer I like, because you go places I wouldn't, and you bring back interesting bits." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Now there's a customer who appreciates a good restorative, and I've got tonics that'll put a bit of zip back in your prayers." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now there's a customer with interesting tastes, and I've got a tonic for nearly every taste there is." },
@@ -677,15 +677,15 @@ P:NPC {
       again = { { id = "h_again", text = "Another question, friend? Mebok's always happy to talk, especially about Mebok, and the first five minutes are only a small consulting fee. Kidding! Mostly." } },
     },
     horns = {
-      lines = { { id = "h1_default", text = "Ground fine, they put a little kick in a drink that the customers just love. Don't ask me why it works, because I'm a businessman, not an alchemist." } },
+      lines = { { id = "h1_default", text = "Ground fine, they put a little kick in a drink that the customers just love, and the markup's lovely too. Don't ask me why it works, pal, because I'm a businessman, not an alchemist." } },
       choices = { { text = "And who buys them?", next = "horns_who" } },
     },
     horns_who = {
-      lines = { { id = "h2_default", text = "Sailors, mostly, and caravan guards, and anybody who wants to feel ten feet tall after a long day. A few orcs from the Crossroads come in on the quiet, too." } },
+      lines = { { id = "h2_default", text = "Sailors, mostly, and caravan guards, and anybody who wants to feel ten feet tall after a long day and pay for the privilege. A few orcs from the Crossroads come in on the quiet, too, and they tip better than the sailors." } },
       choices = { { text = "And it's safe?", next = "horns_safe" } },
     },
     horns_safe = {
-      lines = { { id = "h3_default", text = "Safe is a strong word, friend, and I'm a careful man with strong words. Nobody's complained yet, and the ones who might have aren't in any shape to." } },
+      lines = { { id = "h3_default", text = "Safe is a strong word, friend, and I'm a careful man with strong words, on account of the liability. Nobody's complained yet, and the ones who might have aren't in any shape to." } },
       choices = {
         { text = "People deserve to know what they're drinking.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
         { text = "If they buy it, that's their lookout.", next = "BACK", fx = { affinity = 2, align = { light = -1 } } },
@@ -706,7 +706,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Can't say I know it, friend, but if it sells, Mebok will learn quick." } },
+    _none = { { id = "tp_none", text = "Can't say I know it, friend, but if it sells, Mebok will learn it quick and charge you double for the lesson." } },
   },
 }
 
@@ -720,13 +720,13 @@ P:NPC {
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {
-    { id = "g_hi", text = "Mind the crates, mind the ropes, and mind the edge, because I'm not fishing anybody out today, and the sharks in this harbour bill by the limb." },
+    { id = "g_hi", text = "Mind the crates, mind the ropes and mind the edge, pal, because I'm not fishing anybody out today, and the sharks in this harbour bill by the limb." },
   },
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I doubt it, but the pirates do take the crates, and I'd love to see a paladin explain to them that stealing is wrong. They'd laugh, and then you'd hit them, and then I'd get my crates back. That's my kind of sermon." } },
+      lines = { { id = "xfpala_default", text = "I doubt it, but the pirates do take the crates, and I'd pay good coin to watch a paladin explain to 'em that stealing is wrong. They'd laugh, and then you'd hit 'em, and then I'd get my crates back, and that's the only kind of sermon that ever balanced a ledger." } },
       choices = {
         { text = "Then I'll give the pirates a sermon they won't forget.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll find your crates, for a share of them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -735,7 +735,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Three of my dockhands came back from a run past the Southsea pirates with cuts I didn't want to look at, and I had to mark them down as 'damaged' like a split crate. If you've any healing left in you, they're resting in the warehouse, and I'd write that down as a kindness." } },
+      lines = { { id = "xhpriest_default", text = "Three of my dockhands came back from a run past the Southsea pirates with cuts I didn't want to look at, and I had to mark 'em down as damaged goods like a split crate. If you've any healing left in you, they're resting in the warehouse, and I'd log it as a kindness in the credit column." } },
       choices = {
         { text = "Point me to your dockhands. They'll be mended today.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your dockhands are a goblin problem, Wharfmaster, not mine.", next = "BACK", fx = { align = { light = -1 } } },
@@ -744,7 +744,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Southsea pirates, mostly, and somebody right here in Ratchet, I'd wager, because some crates go missing before they're even unloaded. If you see anybody hauling cargo up the beach at night, stand in their way and ask them nicely, and if that doesn't work, ask them less nicely." } },
+      lines = { { id = "xwarcl_default", text = "The Southsea pirates, mostly, and somebody right here in Ratchet, I'd wager my pension, because some crates go missing before they're even unloaded. If you see anybody hauling cargo up the beach at night, stand in their way and ask 'em nicely, and if that doesn't work, ask 'em less nicely." } },
       choices = {
         { text = "I'll guard the docks and turn the thieves over to you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll guard them, if I get a cut of what I recover.", next = "BACK", fx = { align = { order = -1 } } },
@@ -754,8 +754,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hides and teeth go to Booty Bay, and the crocolisk skins fetch the best prices, though the pirates like them too. Keep your crates labelled and your manifest honest, and I'll make sure your goods reach the boat, or at least that I know who took them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} isn't going on any boat without a proper manifest, before you ask. I've had to write up a monkey once, and it wasn't pretty." },
+        { id = "xhuntcl_default", text = "Hides and teeth go to Booty Bay, pal, and the crocolisk skins fetch the best prices, though the pirates like 'em too. Keep your crates labelled and your manifest honest, and I'll see your goods reach the boat, or at least I'll know who took 'em and what they owe." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} isn't going on any boat without a proper manifest and a passage fee, before you ask. I had to write up a monkey once, and the customs paperwork wasn't pretty." },
       },
       choices = {
         { text = "I'll keep my manifest honest, wharfmaster.", next = "BACK", fx = { align = { order = 1 } } },
@@ -765,7 +765,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The orc crews do, and they tip a cup of grog overboard before they cast off, which comes out of my stores, so I log it. The goblin crews call it a waste, and the goblin crews lose more cargo, and I've started to wonder whether those two things are related." } },
+      lines = { { id = "xhsham_default", text = "The orc crews do, and they tip a cup of grog overboard before they cast off, which comes out of my stores, so I log it at cost plus handling. The goblin crews call it a waste, and the goblin crews lose more cargo, and I've started to wonder whether those two things are related." } },
       choices = {
         { text = "Then log the offering as a proper cost of business.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No ledger will ever strike a bargain with the sea.", next = "BACK", fx = { align = { order = -1 } } },
@@ -775,7 +775,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "No, they don't, and I've got a whole page in my ledger for crates that walked off with somebody's help. Half go to the Southsea, but the other half go missing right here between the ship and my scales, and that tells me somebody in Ratchet knows how to lift a lid quietly." },
+        { id = "xrogue_default", text = "No, they don't, pal, and I've got a whole page in my ledger for crates that walked off with somebody's help. Half go to the Southsea, but the other half go missing right here between the ship and my scales, and that tells me somebody in Ratchet knows how to lift a lid quietly." },
       },
       choices = {
         { text = "Then I'll help you catch them, wharfmaster.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -786,7 +786,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Have you seen what a mage does to a crate of eggs when he teleports it? The boat to Booty Bay works fine and the sea never sends me a bill, so I'll keep my cargo on the water where I can count it." },
+        { id = "xmage_default", text = "Have you seen what a mage does to a crate of eggs when he teleports it, pal? Scrambled, every one, and no refunds! The boat to Booty Bay works fine and the sea never sends me a bill, so I'll keep my cargo on the water where I can count it." },
       },
       choices = {
         { text = "Eggs and magic don't mix. Keep your boats.", next = "BACK", fx = { align = { order = 1 } } },
@@ -796,7 +796,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "The Southsea pirates, most likely, though the ledger can't prove it and the Cartel wants proof before it spends a single copper. I've been keeping my own count of their sails off the coast, and it goes up every time a shipment goes missing." } },
+      lines = { { id = "xdruid_default", text = "The Southsea pirates, most likely, though the ledger can't prove it and the Cartel won't spend a single copper without proof in triplicate. I've been keeping my own count of their sails off the coast, and it goes up every time a shipment goes missing." } },
       choices = {
         { text = "Get the proof first. The Cartel is right to want it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Forget the ledger. Board their ships and take the crates back.", next = "BACK", fx = { align = { order = -1 } } },
@@ -806,7 +806,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "A demon that watches crates? It'd eat the crates, or the dockhands, and then I'd have to write it all down. No, my shipments go missing on the coast south of town, where the Southsea pirates camp, so if you want to help, take your demon there and leave my docks alone." },
+        { id = "xwarlock_default", text = "A demon that watches crates? It'd eat the crates, or the dockhands, and then I'd have to write it all down and file a claim. No, my shipments go missing on the coast south of town where the Southsea pirates camp, so if you want to help, pal, take your demon there and leave my docks alone." },
       },
       choices = {
         { text = "I'll get your shipments back, wharfmaster.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -816,17 +816,17 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Let me guess: you've come to find my missing crates through the power of the Light. That would be a first." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Let me guess, pal, you've come to find my missing crates through the power of the Light, and I suppose you'll want a finder's fee for it too." },
         { id = "h_default", key = true,
-          text = "Wharfmaster Dizzywig, and every crate that comes through Ratchet goes through my ledger first. Lately too many of them have been going missing before they ever reach it." },
+          text = "Wharfmaster Dizzywig, and every crate that comes through Ratchet goes through my ledger first, weighed, counted and taxed. Lately too many of 'em have been going missing before they ever reach it, and missing crates don't pay their tolls." },
         { id = "h_ship", when = { questActive = TODO_QUEST("The Missing Shipment") },
-          text = "That shipment should have come in days ago, and the only thing the sea brought back was rumors. Find out what happened to it, would you?" },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. If you can talk to the sea, ask it where my shipments went, because it's taken nine crates since the spring and it hasn't filed a single report." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. If you've a way of talking to the gulls, I'd like to know whether they've seen my missing crates, because the gulls see everything that floats past this dock." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You've got the look of somebody who could stand on my docks and make crates stop wandering off." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll be shipping hides out of Ratchet, I expect, and every one of them will go through my ledger." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Unless you can pray my missing crates back onto the dock, I'm afraid I've no time for blessings, though I'll note your visit in the ledger." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock on my docks. Keep that imp of yours off the cargo, because I've no column in the ledger for things set on fire by imps." },
+          text = "That shipment should've come in days ago, pal, and the only thing the sea brought back was rumors, and I can't sell rumors by the pound. Find out what happened to it, would you?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. If you can talk to the sea, ask it where my shipments went, because it's taken nine crates since the spring and it hasn't filed a single claim form." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. If you've a way of talking to the gulls, pal, I'd like to know whether they've seen my missing crates, because the gulls see everything that floats past this dock and they never pay a toll either." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You've got the look of somebody who could stand on my docks and make crates stop wandering off, and I'd log that as money saved." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll be shipping hides out of Ratchet, I expect, and every one of 'em will go through my ledger and pay its toll like everything else." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Unless you can pray my missing crates back onto the dock, pal, I've no time for blessings, though I'll note your visit in the ledger, free of charge." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock on my docks. Keep that imp of yours off the cargo, pal, because I've no column in the ledger for things set on fire by imps, and the insurance has a clause about it." },
       },
       choices = {
         { text = "Do your sailors ask the sea spirits for safe passage?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -844,18 +844,18 @@ P:NPC {
         { text = "Can the Light help find your crates, Dizzywig?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll let you work.", next = "END" },
       },
-      again = { { id = "h_again", text = "What else? Make it quick, because the tide doesn't wait and neither do my crews." } },
+      again = { { id = "h_again", text = "What else? Make it quick, pal, because the tide doesn't wait and every hour the crews stand around costs me wages." } },
     },
     missing = {
-      lines = { { id = "m_default", text = "Somewhere along the coast between here and the southern isles, and I'd bet my ledger the Southsea pirates have something to do with it. They know our schedules better than some of my own dockhands." } },
+      lines = { { id = "m_default", text = "Somewhere along the coast between here and the southern isles, and I'd bet my ledger the Southsea pirates have somethin' to do with it. They know our schedules better than some of my own dockhands, and that's an expensive kind of knowing." } },
       choices = { { text = "Someone on the docks is talking?", next = "missing_spy" } },
     },
     missing_spy = {
-      lines = { { id = "ms_default", text = "I didn't say that, and I'd rather you didn't say it either, not loud. But somebody's selling our sailing times, and when I find out who, Gazlowe will want a word." } },
+      lines = { { id = "ms_default", text = "I didn't say that, pal, and I'd rather you didn't say it either, not loud. But somebody's selling our sailing times, and when I find out who, Gazlowe will want a word and an itemized apology." } },
       choices = { { text = "What will Gazlowe do?", next = "missing_gaz" } },
     },
     missing_gaz = {
-      lines = { { id = "mg_default", text = "Docked wages, a swim with the sharks, or a job in the Venture Company's mines, depending on his mood. Gazlowe doesn't forgive people who cost him money." } },
+      lines = { { id = "mg_default", text = "Docked wages, a swim with the sharks, or a job in the Venture Company's mines, depending on his mood. Gazlowe forgives a lot of things, pal, but he doesn't forgive anybody who costs him money." } },
       choices = {
         { text = "A thief on the docks gets what he deserves.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Sharks seem a bit much for loose lips.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -863,19 +863,19 @@ P:NPC {
       },
     },
     boats = {
-      lines = { { id = "b_default", text = "The big run is to Booty Bay, across the sea to Stranglethorn, and it's the only boat in Kalimdor that takes Horde and Alliance alike. Everything else is coastal hauling and fishing." } },
+      lines = { { id = "b_default", text = "The big run is to Booty Bay, across the sea to Stranglethorn, and it's the only boat in Kalimdor that takes Horde and Alliance alike, at the same fare and no questions. Everything else is coastal hauling and fishing, which pays in fish." } },
       choices = { { text = "Good to know.", next = "BACK" } },
     },
     dock = {
-      lines = { { id = "d_default", text = "Since Gazlowe drove the first pile into the mud, and I've hauled more cargo than you've seen in your life. I've never lost a crate I could blame on myself, either." } },
+      lines = { { id = "d_default", text = "Since Gazlowe drove the first pile into the mud, pal, and I've hauled more cargo than you've seen in your life. I've never lost a crate I could blame on myself, either, and I've got the ledgers to prove it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fair = {
-      lines = { { id = "f_default", text = "Harder, if you want the truth, because your lot sneak more contraband. But I take your coin the same, and that's as fair as Ratchet gets." } },
+      lines = { { id = "f_default", text = "Harder, if you want the truth, because your lot sneak more contraband. But I take your coin the same, and a copper's a copper, which is as fair as Ratchet gets." } },
       choices = { { text = "That's about what I expected from Ratchet.", next = "BACK" } },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "If it isn't in my ledger, it doesn't exist as far as I'm concerned." } },
+    _none = { { id = "tp_none", text = "If it isn't in my ledger, pal, it doesn't exist and it doesn't pay tolls, so as far as I'm concerned it can stay that way." } },
   },
 }

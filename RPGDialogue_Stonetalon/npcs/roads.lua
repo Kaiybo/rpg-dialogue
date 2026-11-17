@@ -13,7 +13,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Psst, over here, and keep it down! The Venture boys have ears like bats and tempers like trolls, and one of 'em still owes me six silver for a gearbox." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back, and nobody followed you, right? Good, because I'm not set up for visitors with axes." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and nobody followed you, right, pal? Good, because I'm not set up for visitors with axes, and the last ones broke a very expensive door." },
   },
 
   start = "hello",
@@ -50,7 +50,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Pray for Venture Company goons? Well, between you and me, the poor slobs on the shredders get worked half to death, so I suppose a prayer wouldn't cost me anything." } },
+      lines = { { id = "xapriest_default", text = "Pray for Venture Company goons? Well, between you and me, pal, the poor slobs on the shredders get worked half to death for a copper a day and docked for lunch, so I suppose a prayer wouldn't cost me anything." } },
       choices = {
         { text = "I'll pray for them. They're workers, not villains.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They chose their masters. They get no prayer from me.", next = "BACK", fx = { align = { light = -1 } } },
@@ -68,22 +68,22 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Name's Ziz Fizziks, freelance engineer and a man of vision, and that vision is the Venture Company's Super Reaper 6000. Their operators carry the blueprints, so if you happen to take some off them, I'll make it worth your while." },
+        { id = "h_default", text = "Name's Ziz Fizziks, pal, freelance engineer and a man of vision, and that vision is the Venture Company's Super Reaper 6000. Their operators carry the blueprints, so if you happen to take some off 'em, I'll make it worth your while, with a percentage to be negotiated." },
         { id = "h_cond", when = { race = "Gnome" }, text = "A gnome! Now you'd appreciate a good set of shredder schematics, wouldn't you? Don't answer that, I don't want any competition." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you get the ground to swallow a Venture Company operator or two? I'm asking for a friend, and the friend is me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out here? If you've got a prayer that makes the Venture Company forget this hut exists, I'd love to hear it, pal, because mine sure aren't working." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, huh? You know what's a lot like magic? Engineering, except it works every time, mostly, and no offense meant, pal." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Great, terrific, just keep the imp away from the blueprints, will ya, because imps and paper don't mix and I've only got the one copy." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Now you're my kind of customer, pal. Those Venture operators carry their blueprints right on their belts, and nobody's quicker than a pair of hands that don't want to be noticed." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, huh? Big, loud, likes hitting things, and that's exactly the kind of help I need with the Venture Company, pal." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, huh? Big, loud, likes hittin' things, and that's exactly the kind of help I need with the Venture Company, pal, at very competitive day rates." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You see that wildlife out there? The Venture Company's been chopping its home down for months, so it's real cranky, and that's useful to a guy like me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Don't suppose you've got a blessing for a goblin's bank account, because the Venture Company's been bleeding mine dry." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now you look like someone who doesn't mind roughing up a few Venture Co. thugs for a good cause, and I've got a good cause right here." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, huh? Look, pal, I don't cut down any trees myself, I just want the plans for the machine that does, and that's a whole different thing." },
       },
       again = {
-        { id = "h_again1", text = "What else? Make it quick, the shift changes soon." },
-        { id = "h_again2", text = "Anything else, pal?" },
+        { id = "h_again1", text = "What else, pal? Make it quick, because the shift changes soon and those goons count heads." },
+        { id = "h_again2", text = "Anything else, pal? Talk's cheap, but I'm still on the clock." },
       },
       choices = {
         { text = "What's the Super Reaper 6000?", next = "reaper" },
@@ -103,7 +103,7 @@ P:NPC {
     },
     reaper = {
       lines = {
-        { id = "reaper_default", text = "Only the finest tree-chopping shredder ever built, and the Venture Company's using it to strip Stonetalon bare. Me, I'd put it to better uses, and sell it to the highest bidder, naturally." },
+        { id = "reaper_default", text = "Only the finest tree-chopping shredder ever built, pal, and the Venture Company's using it to strip Stonetalon bare for a lumber contract I'd kill to see. Me, I'd put it to better uses, and sell it to the highest bidder, naturally." },
       },
       choices = {
         { text = "Better uses? You'd sell it too.", next = "reaper2" },
@@ -111,7 +111,7 @@ P:NPC {
     },
     reaper2 = {
       lines = {
-        { id = "reaper2_default", text = "Course I would, I'm a goblin! The druids say the machines are killing the mountain, and the Venture boys say it's only business, and I say both can be true at once." },
+        { id = "reaper2_default", text = "Course I would, pal, I'm a goblin! The druids say the machines are killing the mountain, and the Venture boys say it's only business, and I say both can be true at once and one of 'em pays better." },
       },
       choices = {
         { text = "The mountain matters more than profit.", next = "BACK", fx = { align = { order = 1 }, trait = { kind = 1 } } },
@@ -120,7 +120,7 @@ P:NPC {
     },
     venture = {
       lines = {
-        { id = "venture_default", text = "Hate's a strong word, pal, I just don't like being fired. I built half their gears, and they sacked me without so much as a copper bonus." },
+        { id = "venture_default", text = "Hate's a strong word, pal, I just don't like being fired. I built half their gears, and they sacked me without so much as a copper bonus, and then they billed me for the toolbox." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -128,7 +128,7 @@ P:NPC {
     },
     crag = {
       lines = {
-        { id = "crag_default", text = "Sure it is, but nobody looks for a goblin right under their own noses. Besides, the view of the burning forest is very inspiring, for an engineer." },
+        { id = "crag_default", text = "Sure it is, pal, but nobody looks for a goblin right under their own noses, and the rent's free. Besides, the view of the burning forest is very inspiring, for an engineer." },
       },
       choices = {
         { text = "Something else, then.", next = "BACK" },
@@ -136,7 +136,7 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gnome_default", text = "A peek, he says, as if a gnome ever stopped at a peek! Fine, bring me the blueprints and you can look, but no taking notes." },
+        { id = "gnome_default", text = "A peek, he says, as if a gnome ever stopped at a peek! Fine, bring me the blueprints and you can look, pal, but no taking notes, because I've got the patent pending in my head." },
       },
       choices = {
         { text = "Deal. Something else.", next = "BACK" },
@@ -153,7 +153,7 @@ P:NPC {
     },
     xhrogue = {
       big = true,
-      lines = { { id = "xhrogue_default", text = "More than they need and fewer than they think, which is the Venture Company all over. The operators knock off for lunch at the same time every day like clockwork, so if you were a clever sort, that's when you'd go in." } },
+      lines = { { id = "xhrogue_default", text = "More than they need and fewer than they think, pal, which is the Venture Company all over, cutting wages and cutting corners. The operators knock off for lunch at the same time every day like clockwork, so if you were a clever sort, that's when you'd go in." } },
       choices = {
         { text = "I'll take whatever else isn't nailed down too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll take the plans and leave the workers alone.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -172,7 +172,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I'm an engineer, between employers, with very big plans." } },
+    background = { { id = "tp_bg", text = "I'm an engineer, pal, between employers, with very big plans and a very small hut." } },
     _none = { { id = "tp_none", text = "Couldn't tell ya, pal, and I don't do anything for free, including not knowing things." } },
   },
 }

@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_race", text = "Hey hey! Here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat." },
-    { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, so bet again." },
+    { id = "g_race", text = "Hey hey, kid, here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat, and the betting window's open now." },
+    { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, kid, so bet again, and bet bigger." },
     { id = "g_away", when = { away = 14 }, text = "My favorite spectator, back after {away}! You missed a dozen races, and we won most of them, so bet on us again." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the track is somebody fell for one of your stories, and I respect that. Half of racing is getting the other guy to believe something, ask any gnome." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody into seeing things your way out here. You ever want to sell race tickets, kid, you've got a job waiting." },
@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
-      text = "An engineer! Ever thought about rockets, or about bigger rockets? We should talk." },
+      text = "An engineer! Ever thought about rockets, kid, or about bigger rockets? Sparks and sprockets, we should talk, and I'll buy the first round of fuel." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
       text = "Alliance, huh? Bet you're cheering for the gnomes, and that's fine; cheer loud, it makes winning sweeter." },
   },
@@ -63,7 +63,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Disturb them? There's nothing out here but salt, scorpids and vultures, and the vultures love us, because every crash is lunch. The flats were dead long before I built a track on them." } },
+      lines = { { id = "dq_default", text = "Disturb them? There's nothin' out here but salt, scorpids and vultures, kid, and the vultures love us, because every crash is lunch. The flats were dead long before I built a track on them, and now at least they turn a profit." } },
       choices = {
         { text = "Even salt flats have life. Race with care.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Dead ground is fair ground. Race all you like.", next = "BACK", fx = { align = { light = -1 } } },
@@ -72,7 +72,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Shame, because I've got a list. Still, honest folk are good for the track, and goblins don't need sabotage when we've got better engineering anyway." } },
+      lines = { { id = "xrogue_default", text = "Shame, because I've got a list, and the list pays. Still, honest folk are good for the track, kid, and goblins don't need sabotage when we've got better engineering anyway." } },
       choices = {
         { text = "Cheating ruins racing. Win fairly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A good racer uses every trick.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -112,9 +112,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Pozzik. I built this raceway with that gnome, Fizzle, to settle whose engineers are better, and the answer's goblins. We just have to prove it every day." },
         { id = "h_load", when = { questActive = TODO_QUEST("Load Lightening") },
-          text = "Vulture bones: light, strong, and the flats are covered in vultures. Bring me a sack and I'll pay a fair price, fair for me." },
+          text = "Vulture bones, kid: light, strong, and the flats are covered in vultures. Bring me a sack and I'll pay a fair price, fair for me, which is the only kind of fair worth paying." },
         { id = "h_pilot", when = { questActive = TODO_QUEST("The Eighteenth Pilot") },
-          text = "Razzeric's our pilot, the eighteenth, if you're counting, and he does his own modifications. Try not to look surprised when you meet him." },
+          text = "Razzeric's our pilot, the eighteenth, if you're counting, and the other seventeen are mostly fine. He does his own modifications, so try not to look surprised when you meet him, or at his eyebrows." },
         { id = "h_rizzle", when = { questActive = TODO_QUEST("Rizzle's Schematics") },
           text = "Rizzle's plans! Let me see them, for safety reasons; our safety, from losing." },
         { id = "h_ore", when = { questActive = TODO_QUEST("Indurium Ore") },
@@ -132,7 +132,7 @@ P:NPC {
           text = "A paladin at my raceway! Don't look at the gnomes' car like that, look at mine, because ours is the one built with real goblin genius." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk fast, the next heat's in ten minutes." },
+        { id = "h_again", text = "What else, kid? Talk fast, because the next heat's in ten minutes and every minute's a wager I'm not taking." },
         { id = "h_again2", text = "Still here? Good, because spectators who stay, bet." },
       },
       choices = {
@@ -172,11 +172,11 @@ P:NPC {
     },
     why = {
       big = true,
-      lines = { { id = "y_default", text = "Because some arguments you can't win talking. You need a mile of salt, two rockets and a crowd, plus wagers, mostly wagers." } },
+      lines = { { id = "y_default", text = "Because some arguments you can't win talking, kid. You need a mile of salt, two rockets and a crowd, plus wagers, mostly wagers." } },
       choices = { { text = "Makes a strange kind of sense.", next = "BACK", fx = { affinity = 2, learn = { "mirage_raceway" } } } },
     },
     faster = {
-      lines = { { id = "f_default", text = "Every bit counts: tension coils, power output, weight. We use vulture bones for the small frame work, because they're light and strong, and the sky here rains vultures." } },
+      lines = { { id = "f_default", text = "Every bit counts, kid: tension coils, power output, weight. We use vulture bones for the small frame work, because they're light and strong and cost nothin', and the sky here rains vultures." } },
       choices = {
         { text = "What about fuel?", next = "faster_fuel" },
         { text = "Something else.", next = "BACK" },
@@ -205,7 +205,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 3 } } },
     },
     spy = {
-      lines = { { id = "s_default", text = "A gnome spy would've stolen the plans already, not walked up and asked, unless that's the trick. Is that the trick? Stand over there, just in case." } },
+      lines = { { id = "s_default", text = "A gnome spy would've stolen the plans already, not walked up and asked, unless that's the trick. Is that the trick, pal? Stand over there, just in case, where I can see your hands and my wallet." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
     x_tauren = {
@@ -242,11 +242,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know everything worth knowing about these flats, and most of it's about engines! Ask me about any of these." },
     },
-    background = { { id = "tp_ba", text = "I grew up with grease under my nails and a stopwatch in my hand, and now I own half a racetrack, the better half." } },
+    background = { { id = "tp_ba", text = "I grew up with grease under my nails and a stopwatch in my hand, kid, and now I own half a racetrack, the better half and the half that sells the tickets." } },
     advice = { { id = "tp_ad", text = "Never bet against a goblin on a straight line. Corners, maybe, but straight lines, never." } },
     mirage_raceway = { { id = "tp_raceway", text = "Best thing ever built on a salt flat! Also the only thing, but that counts." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel likes anything that sells tickets. We sell tickets." } },
-    _none = { { id = "tp_none", text = "Does it go fast? If not, I don't follow it." } },
+    _none = { { id = "tp_none", text = "Does it go fast? If not, kid, I don't follow it and I don't bet on it." } },
   },
 }
 

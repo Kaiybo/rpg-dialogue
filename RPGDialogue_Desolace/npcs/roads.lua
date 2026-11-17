@@ -339,8 +339,8 @@ P:NPC {
     third = "{name} met the goblin Smeed Scrabblescrew at his camp near the Kodo Graveyard in Desolace.",
   },
   greetings = {
-    { id = "g_main", text = "Hey, hey! A fresh face, and you look like someone who can handle a kodo. Come here, I've got a business opportunity." },
-    { id = "g_back", when = { metBefore = true }, text = "My favorite contractor's back! Got time for a little roundup work?" },
+    { id = "g_main", text = "Hey, hey, buddy! A fresh face, and you look like someone who can handle a kodo, so come here, come here, because I've got a business opportunity and the paperwork's already drawn up." },
+    { id = "g_back", when = { metBefore = true }, text = "My favorite contractor's back! Got time for a little roundup work, buddy? The rates haven't changed, which in Desolace is practically a gift." },
   },
   start = "hello",
   nodes = {
@@ -421,15 +421,15 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! Perfect, because kodos are big and kodos are grumpy, and I need somebody who can take a kick and keep walking." },
+          text = "A warrior! Perfect, buddy, because kodos are big and kodos are grumpy, and I need somebody who can take a kick, keep walking and not bill me for the bruise." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now you'll understand the business, because you tame beasts for a living and I'm just trying to do it at a profit." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Now don't go looking at me like that, because I'm not robbing any graves, I'm just rounding up the live kodos before they lie down and join the dead ones, which is practically a mercy if you think about it." },
-        { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and I've got the buyers." },
-        { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap. Then lead the tame ones back here and I'll do the rest." },
+        { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur, buddy. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and by my last copper, I've got the buyers." },
+        { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap, buddy. Then lead the tame ones back here and I'll do the rest, which is the part with the money." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid? Look, before you start, the kodos don't mind the Kombobulator, or at least none of them has ever complained to me about it." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a kodo over for me? I've got buyers waiting, and the blasted things won't come when I whistle." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a kodo over for me, pal? I've got buyers waiting, and the blasted things won't come when I whistle, and every day they don't come costs me feed." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, huh? The tauren get awful touchy about this place, so if you can say a word over the bones that keeps them off my back, I'd call it a public service." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Can you shrink a kodo, by any chance? Because the shipping costs on these things are murder." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Ah, a professional! You've got the look of someone who knows how to slip a rope round something big without it noticing, and that's a skill I pay for." },
@@ -458,7 +458,7 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "Kodos are the trucks of Kalimdor, friend. Caravans, armies and tauren villages all need beasts that'll carry a ton of goods and not complain, and the Graveyard draws them in like flies." } },
+      lines = { { id = "b1_1_l", text = "Kodos are the wagons of Kalimdor, friend, and I'm the wagon dealer. Caravans, armies and tauren villages all need beasts that'll carry a ton of goods and not complain, and the Graveyard draws 'em in like flies." } },
       choices = { { text = "That's a grim trade.", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
@@ -470,7 +470,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "A goblin marvel! It calms a kodo right down so it follows you like a lost puppy, mostly. Don't point it at your own face, and don't ask what happened to the last guy who did." } },
+      lines = { { id = "b2_1_l", text = "A goblin marvel, buddy! It calms a kodo right down so it follows you like a lost puppy, mostly. Don't point it at your own face, and don't ask what happened to the last guy who did, because the settlement's still being argued." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
@@ -504,7 +504,7 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Never heard of it, but if it's for sale, I'm interested." } } },
+  topics = { _none = { { id = "tp_none", text = "Never heard of it, buddy, but if it's for sale, I'm interested, and if it ain't, I'm still interested in why not." } } },
 }
 
 P:NPC {

@@ -950,8 +950,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hot food, hot drink, hotter than anywhere north of Felwood, guaranteed! Well, mostly guaranteed, and the bits floating in it are mostly turnip." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more, eh? Nobody leaves Himmik's hungry, or at least not for long." },
+    { id = "g_default", text = "Hot food, hot drink, hotter than anywhere north of Felwood, guaranteed, chum! Well, mostly guaranteed, read the small print, and the bits floating in it are mostly turnip." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more, eh, chum? Nobody leaves Himmik's hungry, or at least not for long, and never with a full purse." },
   },
 
   start = "hello",
@@ -978,7 +978,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A little, I'll admit, like eating a snowball with gristle in it, but the customers love it because it's local. Mind you, local in Winterspring means something that tried to freeze you first, so I charge extra for the danger." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} hungry? Don't answer that, I can see it is, and I can see it looking at my soup pot like it's an old friend." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} hungry? Don't answer that, chum, I can see it is, and I can see it looking at my soup pot like an old friend who owes it money." },
       },
       choices = {
         { text = "I'll sell you only what I kill cleanly and quickly.", next = "BACK", fx = { align = { light = 1 } } },
@@ -997,7 +997,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "They eat in the corner with their backs to the wall, and they tip better than anybody, probably because they don't want to be remembered. The Cartel says no fighting in Everlook, so you can eat in peace here." } },
+      lines = { { id = "xrogue_default", text = "They eat in the corner with their backs to the wall, and they tip better than anybody, probably because they don't want to be remembered, and I've got a terrible memory for a good tipper. The Cartel says no fighting in Everlook, chum, so you can eat in peace here." } },
       choices = {
         { text = "Neutral ground is worth keeping.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules are only as good as the bruisers enforcing them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1006,7 +1006,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I wouldn't know, and I'm not letting it near my pots to find out. Last time someone fed an imp my stew, it set fire to the bench, and I'm still finding scorch marks under the counter." } },
+      lines = { { id = "xlock_default", text = "I wouldn't know, chum, and I'm not letting it near my pots to find out. Last time someone fed an imp my stew, it set fire to the bench, and I'm still finding scorch marks under the counter and still waiting on the fella to pay for 'em." } },
       choices = {
         { text = "I'll keep my imp out of your kitchen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My imp eats what it likes.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -1052,28 +1052,28 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Sit down, sit down, because nobody marches through Winterspring in a full suit of plate without wanting a hot bowl of soup, and mine's practically blessed already." },
+          text = "A paladin! Sit down, sit down, chum, because nobody marches through Winterspring in a full suit of plate without wanting a hot bowl of soup, and mine's practically blessed already, which is why it costs a little extra." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! You'll want a double helping, I can tell, because nobody empties a bowl faster than someone who's been swinging an axe at furbolgs all day." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! You don't bring me meat, do you? Because I'd pay for good chimaera steaks, and the last hunter who sold me some swore they don't taste of frost." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting something hot, I'll bet, because no spirit I ever heard of can make a stew in this cold." },
+          text = "A hunter! You don't bring me meat, do you, chum? Because I'd pay good coin for chimaera steaks, and the last hunter who sold me some swore they don't taste of frost, and he was lyin', but they sold anyway." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting somethin' hot, I'll bet, chum, because no spirit I ever heard of can make a stew in this cold, and none of 'em work for my wages." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You look like you've been crouching in a snowbank all day, so let me get you a bowl of something hot before your fingers freeze to your daggers." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! You want soup? Good, because your little friend looks hungry too, though I'm not sure what imps eat and I'd rather not find out." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! Can you warm a pot with a spell? Everyone asks, and I keep forgetting to ask a mage myself." },
-        { id = "h_default", text = "Himmik's the name, food and drink's the game, and in Everlook that's the most important trade there is. Everything I sell has to come over the pass or through the tunnels, so believe me, the prices are a bargain." },
-        { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! You'll want something that sticks to the ribs, and I've got a stew that'll hold up a mine shaft." },
+          text = "A mage! Can you warm a pot with a spell, chum? Everyone asks, and I keep forgetting to ask a mage myself, and think what I'd save on firewood." },
+        { id = "h_default", text = "Himmik's the name, food and drink's the game, and in Everlook that's the most important trade there is, chum. Everything I sell has to come over the pass or through the tunnels, so believe me, at these prices I'm practically robbing myself." },
+        { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! You'll want somethin' that sticks to the ribs, chum, and I've got a stew that'll hold up a mine shaft, and costs less than the timber." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Say a little grace over the soup, would you? Business has been slow, and I'll take any blessing I can get on the pot." },
+          text = "A priest! Say a little grace over the soup, would you, chum? Business has been slow, and I'll take any blessing I can get on the pot, especially the kind that brings in customers." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow needs soup more than most, and mine's practically a miracle itself." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll want something hearty too, I'd say, because turning into a bear in this weather must take a lot out of you." },
       },
       again = {
-        { id = "h_again1", text = "What else? The soup's getting cold." },
-        { id = "h_again2", text = "Anything else for you?" },
+        { id = "h_again1", text = "What else, chum? The soup's getting cold, and cold soup don't sell." },
+        { id = "h_again2", text = "Anything else for you, chum, a bowl, a loaf, a second bowl?" },
       },
       choices = {
         { text = "Does the cold up here ever spoil your stores, Himmik?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1095,7 +1095,7 @@ P:NPC {
     },
     food = {
       lines = {
-        { id = "food_default", text = "The bread's fresh, the cheese is aged, and the meat, well, it was walking last week, which is about as fresh as Winterspring gets. Everything tastes better in the cold, that's what I always say." },
+        { id = "food_default", text = "The bread's fresh, the cheese is aged, and the meat, well, it was walking last week, which is about as fresh as Winterspring gets, chum. Everything tastes better in the cold, that's what I always say, and it sells better too." },
       },
       choices = {
         { text = "I'll take your word for it.", next = "BACK" },
@@ -1120,7 +1120,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I'm Steamwheedle through and through, and I feed Everlook." } },
-    _none = { { id = "tp_none", text = "No idea, friend, but have you tried the soup?" } },
+    background = { { id = "tp_bg", text = "I'm Steamwheedle through and through, chum, and I feed Everlook at a modest profit, which is the best kind." } },
+    _none = { { id = "tp_none", text = "No idea, chum, but have you tried the soup? Because that I can sell you." } },
   },
 }

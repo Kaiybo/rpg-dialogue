@@ -5,16 +5,16 @@ P:Pool {
   id = "guard_everlook", role = "guard", community = "everlook",
   barks = {
     { id = "b_cold", text = "Can't feel my ears and can't feel my toes, but I can still feel my paycheck, barely." },
-    { id = "b_yeti", text = "If you hear a yeti in town, it's probably one of Umi's... probably." },
+    { id = "b_yeti", text = "If you hear a yeti in town, pal, it's probably one of Umi's, probably, and I'm not paid enough to find out which." },
   },
   greetings = {
-    { id = "g_everlook", text = "This is Everlook, and it's Cartel ground, so Horde, Alliance or whoever you are, you trade here and fight somewhere else." },
+    { id = "g_everlook", text = "This is Everlook, pal, and it's Cartel ground, so Horde, Alliance or whoever you are, you trade here, you pay your fees here, and you fight somewhere else." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Furbolgs, or frostsabers? Either way your gear's in pieces, and the smith's inside, where it's warm." },
+      text = "Furbolgs, or frostsabers? Either way your gear's in pieces, chum, and the smith's inside where it's warm, charging cold-weather rates." },
   },
-  react = { { id = "r_form", on = "form", when = { form = "bear" }, text = "Another bear, is it? Fine, just don't track snow into the inn." } },
+  react = { { id = "r_form", on = "form", when = { form = "bear" }, text = "Another bear, is it? Fine, pal, just don't track snow into the inn, because Vizzie bills for mopping." } },
   lines = {
     { id = "l_default", text = "We keep the peace and the yetis out, or mostly the peace, since the yetis do what they like. One got into the inn's larder last winter and ate a wheel of cheese, rind and all." },
   },
@@ -24,13 +24,13 @@ P:Pool {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Stamp the snow off your boots before you go inside, and keep your weapons on your back while you're in town. What do you want, pal?" },
+        { id = "h_default", text = "Stamp the snow off your boots before you go inside, and keep your weapons on your back while you're in town, because the Cartel charges for damages. What do you want, pal?" },
         { id = "h_horde", when = { faction = "Horde" }, text = "Horde, all the way up here? The wind doesn't care whose side you're on and neither does the Cartel, so keep your axe cold and your coin warm. What do you need?" },
         { id = "h_alliance", when = { faction = "Alliance" }, text = "Alliance, all the way up here? The wind doesn't care whose side you're on and neither does the Cartel, so keep your sword cold and your coin warm. What do you need?" },
         { id = "h_rep", when = { reputation = { faction = "Everlook", min = "honored" } }, text = "Hey, it's Everlook's favourite visitor! Folks inside say good things about you, which is more than they say about me, so what can I do for you?" },
       },
       again = {
-        { id = "a_cold", text = "What else? Talk fast, my teeth are chattering." },
+        { id = "a_cold", text = "What else? Talk fast, buddy, my teeth are chattering and I'm not paid by the word." },
         { id = "a_feet", text = "Anything else? I'd stamp my feet while I listen, if I could still feel them; I think the left one's frozen to the sock." },
       },
       choices = {
@@ -140,7 +140,7 @@ P:Pool {
     },
     sides = {
       lines = {
-        { id = "si_default", text = "Not in town they don't, because we don't let them, and it's too cold to fight properly anyway." },
+        { id = "si_default", text = "Not in town they don't, pal, because we don't let 'em, and it's too cold to fight properly anyway, and fighting's bad for business." },
         { id = "si_horde", when = { faction = "Horde" }, text = "They come up through the Timbermaw tunnel same as you, frozen and grumpy, and they glare at you the way you glare at them. Nobody draws in Everlook, though, because everybody's too busy trying to get warm." },
         { id = "si_alliance", when = { faction = "Alliance" }, text = "They come up through the Timbermaw tunnel same as you, frozen and grumpy, and they glare at you the way you glare at them. Nobody draws in Everlook, though, because everybody's too busy trying to get warm." },
       },
@@ -168,7 +168,7 @@ P:Pool {
     },
   },
   topics = {
-    steamwheedle = { { id = "t_steamwheedle", text = "Same Cartel as Booty Bay and Gadgetzan, only colder, a lot colder." } },
-    _none = { { id = "t_none", text = "Ask inside, friend, because my jaw's frozen." } },
+    steamwheedle = { { id = "t_steamwheedle", text = "Same Cartel as Booty Bay and Gadgetzan, pal, only colder, a lot colder, and the prices are higher to match." } },
+    _none = { { id = "t_none", text = "Ask inside, friend, because my jaw's frozen and talkin' isn't in my contract." } },
   },
 }

@@ -1136,11 +1136,11 @@ P:NPC {
     third = "{name} met Ironzar, the goblin weaponsmith of Ratchet.",
   },
   greetings = {
-    { id = "g_shop", text = "Weapons! The finest in Ratchet, and maybe the finest in the Barrens. Let's talk prices!" },
+    { id = "g_shop", text = "Weapons, friend, weapons! The finest in Ratchet and maybe the finest in the Barrens, so step on in and let's talk prices before somebody else buys your sword." },
   },
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 100000 } },
-      text = "Now that's a heavy purse, friend, and I can hear it from here. Let me show you the good stock, the stuff I keep in the back." },
+      text = "Now that's a heavy purse, friend, and I can hear it jinglin' from here. Let me show you the good stock, the stuff I keep in the back for valued customers." },
   },
   start = "hello",
   nodes = {
@@ -1185,7 +1185,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Does it? Sure, probably, but I'm not an engineer. What I know is that shamans pay extra for anything that sounds like it'll help with the sparks, and I'm not in the business of arguing with paying customers." } },
+      lines = { { id = "xhsham_default", text = "Does it? Sure, probably, but I'm not an engineer, pal. What I know is that shamans pay extra for anything that sounds like it'll help with the sparks, and I'm not in the business of arguing with paying customers." } },
       choices = {
         { text = "A merchant should sell honestly, Ironzar.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If they believe it, it's their coin to waste.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1206,7 +1206,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Oh no? Then why does every mage who comes in here end up buying a staff, pal? A spell runs out when your mana does, and that's when you'll wish you had something heavy to hit the raptor with." },
+        { id = "xmage_default", text = "Oh no? Then why does every mage who comes in here end up buying a staff, pal? A spell runs out when your mana does, and that's when you'll wish you'd invested in something heavy to hit the raptor with." },
       },
       choices = {
         { text = "Fair. A wise mage plans for empty mana.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1226,7 +1226,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Because demons get sent home at the worst moment, friend, and your spells take a breath to cast that a raptor won't give you. This dagger here came off a ship from Booty Bay, and every warlock who bought one before you is still alive, as far as I know." },
+        { id = "xwarlock_default", text = "Because demons get sent home at the worst moment, friend, and your spells take a breath to cast that a raptor won't give you. This dagger here came off a ship from Booty Bay, and every warlock who bought one before you is still alive and still a customer, as far as I know." },
       },
       choices = {
         { text = "Fair price, fair blade. I'll pay what it's worth.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1236,14 +1236,14 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. Now I've got a hammer here with a story, and the story just got more expensive, because you're going to love it." },
-        { id = "h_default", key = true, text = "Ironzar's the name, and weapons are my game. Swords, axes, maces, you name it, and I've got it, and if I don't, I can get it for you for a price." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll want a mace with a good copper core, because copper carries the lightning, or so I tell every shaman, and they all buy it." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now I've got a hammer here with a story, pal, and the story just got more expensive, because you're going to love it." },
+        { id = "h_default", key = true, text = "Ironzar's the name and weapons are my game, friend: swords, axes, maces, you name it, I've got it, and if I don't, I can get it for you for a price that'll only sting a little." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll want a mace with a good copper core, because copper carries the lightning, or so I tell every shaman, and by my last copper, they all buy it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, I know you can grow your own claws, pal, but trust me, a nice staff with a little iron on the end says more about a person than any old claw." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Now we're talking, pal, because I've got axes so sharp they'll cut you just for looking at 'em." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! I've got arrows, bullets and a few knives for when the beast gets too close, pal." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Now we're talkin', pal, because I've got axes so sharp they'll cut you just for looking at 'em, and I'll only charge you for the ones you buy." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! I've got arrows, bullets and a few knives for when the beast gets too close, pal, and a bundle price if you're buyin' all three." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Now, I know you lot like a staff, and I've got a few that'd make the Razormane think twice, for the right price, of course." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, a warlock doesn't need a blade, I know, but a warlock with a good dagger is a warlock who doesn't panic when the imp dies." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, a warlock doesn't need a blade, I know, chum, but a warlock with a good dagger is a warlock who doesn't panic when the imp dies, and that's what I call an investment." },
       },
       choices = {
         { text = "Does copper really carry lightning, Ironzar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1260,14 +1260,14 @@ P:NPC {
         { text = "What's the hammer's story, Ironzar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else, friend? Time is money, you know." } },
+      again = { { id = "h_again", text = "Anything else, friend? Time is money, you know, and right now it's your money." } },
     },
     where = {
-      lines = { { id = "w_default", text = "Here and there, friend, from the forges in Booty Bay and Gadgetzan, and sometimes from the pirates who wash up on the Merchant Coast. I don't ask questions, and you shouldn't either." } },
+      lines = { { id = "w_default", text = "Here and there, friend, from the forges in Booty Bay and Gadgetzan, and sometimes from the pirates who wash up on the Merchant Coast with somethin' to sell cheap. I don't ask questions, and you shouldn't either, because questions spoil a bargain." } },
       choices = { { text = "Pirates? Are they dangerous?", next = "where_pirates" } },
     },
     where_pirates = {
-      lines = { { id = "wp_default", text = "The Southsea Freebooters? Dangerous enough, and they keep attacking the Steamwheedle ships along the coast. Bad for business, so Gazlowe would love it if someone cleaned them out." } },
+      lines = { { id = "wp_default", text = "The Southsea Freebooters? Dangerous enough, pal, and they keep hitting the Steamwheedle ships along the coast, which drives up the price of everything, including my swords. Gazlowe would love it if someone cleaned 'em out, and so would my margins." } },
       choices = {
         { text = "I'll help with the pirates.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Pirates are just goblins without a cartel.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -1275,11 +1275,11 @@ P:NPC {
       },
     },
     who = {
-      lines = { { id = "wh_default", text = "Everyone, friend: Horde, Alliance, mercenaries and the occasional pirate who's been very nice to me. In Ratchet, the only side that matters is the side with the gold." } },
+      lines = { { id = "wh_default", text = "Everyone, friend: Horde, Alliance, mercenaries and the occasional pirate who's been very nice to me. In Ratchet, the only side that matters is the side with the gold, and I keep my shop on that side." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Don't know, friend, but for the right price, I can find out. Just kidding, ask Gazlowe." } },
+    _none = { { id = "tp_none", text = "Don't know, friend, but for the right price, I can find out. Just kidding, ask Gazlowe, he charges less for gossip than I do." } },
   },
 }
