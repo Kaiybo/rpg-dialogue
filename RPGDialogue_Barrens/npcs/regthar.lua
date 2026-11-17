@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_won", when = { questDone = TODO_QUEST("Counterattack!") }, text = "Krom'zar's banner hangs in my burrow now. I look at it every morning, and the morning goes better." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone. The Kolkar weren't, so you've some catching up to do." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into a proper killer since you first came to my camp. The centaur have noticed, believe me." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "Thork's people tell me you've been making enemies at the Crossroads. Save it for the Kolkar, {class}." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word reached me that you've made somebody angry. Save that temper for the Kolkar, {class}." },
   },
 
   notice = {

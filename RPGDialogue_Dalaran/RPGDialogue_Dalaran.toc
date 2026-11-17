@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Dalaran |cff8a8a8a1.3.1|r
+## Title: RPG Dialogue: Dalaran |cff8a8a8a1.4.0|r
 ## Notes: Dalaran under repair behind its opened dome, and the Alterac roads around it.
 ## Author: RPG Dialogue
-## Version: 1.3.1
+## Version: 1.4.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.dalaran
@@ -16,3 +16,5 @@ npcs\violet_citadel.lua
 npcs\sky_enclave.lua
 npcs\streets.lua
 npcs\underbelly.lua
+npcs\bathrah.lua
+npcs\av_headland.lua

@@ -45,7 +45,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("A Daughter's Love") },
           text = "Lay the ring on his grave, past the house on the hill. Maybe he'll know that I'm all right, and that none of us hold him responsible." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Daughter's Love"), days = 3 } },
-          text = "You heard him? He said my name? Then he knows, and he can rest. Thank you, more than I can say properly." },
+          text = "You heard him say my name? Then he knows, and he can rest, and I can't thank you properly for that." },
         { id = "h_killed", when = { questDone = TODO_QUEST("Mor'Ladim"), questBefore = TODO_QUEST("The Daughter Who Lived") },
           text = "You're the one who put him down. I don't know whether to thank you or hate you, so I'll do neither for now." },
       },

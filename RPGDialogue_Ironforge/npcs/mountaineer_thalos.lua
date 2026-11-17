@@ -19,11 +19,11 @@ P:NPC {
     { id = "g_pass", text = "Hold there. Nobody goes through the pass without a reason, an' a good one." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still alive, I see, which is more than I can say fer some who've gone through." },
     { id = "g_obs", when = { questActive = TODO_QUEST("Senir's Observations") }, text = "Grelin's report fer Senir? Then ye've a reason, an' I'll no' stand in yer way." },
-    { id = "g_adv", when = { questActive = TODO_QUEST("The Adventurer") }, text = "Ye've the bundle? Good. The fellow's camped just outside Kharanos, an' he'll be glad o' it." },
+    { id = "g_adv", when = { questActive = TODO_QUEST("The Adventurer") }, text = "Ye've got the bundle, then. The fellow's camped just outside Kharanos, an' he'll be glad o' it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the tunnel hasn't got any friendlier. Welcome back tae the valley." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "I near turned ye back the first time ye came up tae this pass, an' now I'd send ye through it alone. Funny how that goes." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word from Anvilmar is ye've been doin' good work in the valley. That counts fer somethin' at this tunnel." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear ye spun somebody a tale. Ye'll find I'm harder tae fool than most, so give me the plain truth." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "They tell me ye spun somebody a tale. Ye'll find I'm harder tae fool than most, so give me the plain truth." },
   },
 
   notice = {

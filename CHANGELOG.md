@@ -3,11 +3,16 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## 0.74.0 (2026-11-17)
-Fixes for the new conversations added in 0.73.0. No new files: /reload is enough.
+69 more new people to talk to, and fixes for the characters added in 0.73.0. **New files: restart the game fully (a /reload won't load them).**
 
+### New conversations
+- **69 more characters**: Azuregos, Itharius and High Priest Thel'danis (each with a Persuade check); Duke Zverenhoff, Caretaker Alen and Egan at Light's Hope; the Alterac Valley recruiters and Bath'rah; Brohann Caskbelly, Collin Mauren and Angus Stern in Stormwind; Mennet Carkad, Andron Gant, Bauhaus and Bel'dugur in the Undercity; Galvan, Yohwa, Unbagwa and Princess Poobah in Stranglethorn; Zephras's Yala, Elatrell, Valreaa and Dalia; and more in Ashenvale, Azshara, Darkshore, Desolace, Hinterlands, Riverglades, Silithus, Stonetalon, Thousand Needles, Un'Goro and others.
+- **Fixed:** eleven 0.73.0 characters missing from their pack's file list (Gelkak, Gubber, Barithras, Lars, Bartolo, Itharius, Thund, the Haughty Modiste, Luglunket, Melor, Nara).
+
+### Fixes
 - **Two Harlos were one person.** Harlo Wigglesworth in Everlook and Harlo Barnaby in Menethil shared an internal name, so the addon merged them: shared memory of you and conversations that could cross over. They're separate now (Wigglesworth's memory of you starts fresh).
 - **Sergeant De Vries's "you look done in"** never showed (it checked something the addon doesn't track). He now says it when your gear is badly worn.
-- **Questions that shifted alignment.** Three replies (Archmage Celindra in Dalaran, Do'gol in Dustwallow, Orgrul among the Magram) were worded as questions but changed your leanings. They're statements now, as the rules intend.
+- **Questions that shifted alignment.** Four replies (Archmage Celindra in Dalaran, Do'gol in Dustwallow, Orgrul among the Magram, Galvan in Stranglethorn) were worded as questions but changed your leanings. They're statements now, as the rules intend.
 - **A one-sided choice.** Aetheen on Zephras offered only one stance in "the peace below the clouds"; there's now an opposing one.
 - Checked that every new character from 0.73.0 is listed in its pack and loads.
 

@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. I'd started to think the Defias had found you, so I'm glad they hadn't." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way since you were poking about Addle's Stead for me. I hardly need to warn you about the woods now." },
     { id = "g_word_helped", when = { word = "helped" }, text = "People in Darkshire say you've been a help. That's good; just don't let them say you had help from me." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear you were caught out in a lie. In my line of work that gets people killed, so learn from it." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "They tell me you were caught out in a lie. In my line of work that gets people killed, so learn from it." },
   },
 
   notice = {

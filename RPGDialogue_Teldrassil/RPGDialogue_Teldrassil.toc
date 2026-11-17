@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Teldrassil |cff8a8a8a1.16.0|r
+## Title: RPG Dialogue: Teldrassil |cff8a8a8a1.16.1|r
 ## Notes: Shadowglen and Dolanaar: young druids and Sentinels under Aldrassil, sick furbolgs, a dream eater, and a camp by the road.
 ## Author: RPG Dialogue
-## Version: 1.16.0
+## Version: 1.16.1
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.teldrassil

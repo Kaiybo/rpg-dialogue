@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_done", when = { questDone = TODO_QUEST("Weapons of Spirit") }, text = "How dat weapon sit in your hand, mon? It remember every beast you caught for it." },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and da muisek in my jars been restless da whole time. Maybe dey missed you." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Da camp says you been useful, and Uzer'i has a use for useful people." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you told somebody a story dat wasn't true. Careful, mon; da spirits hear lies too, and dey hold grudges." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Da camp says you told somebody a story dat wasn't true. Careful, mon; da spirits hear lies too, and dey hold grudges." },
   },
 
   notice = {

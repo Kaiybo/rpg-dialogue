@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_flag", when = { questDone = TODO_QUEST("Horde Presence") }, text = "The flag still flies in the Talon Den, my scouts say. Good. Let them look at it every morning." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}? The rampart held without you, but barely, so don't make a habit of it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you ran my reports. The Warsong could use more like you in Ashenvale." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Thork's people speak well of you down at the Crossroads. Up here, we'll see for ourselves." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Word from the south says folk speak well of you. Up here, we'll see for ourselves." },
   },
 
   notice = {

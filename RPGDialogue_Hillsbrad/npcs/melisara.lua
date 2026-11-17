@@ -37,7 +37,7 @@ P:NPC {
           text = "I am Melisara, lieutenant to Sharlindra and servant of the Dark Lady. You'll find I don't waste much time with idle chatter, so ask what you came to ask." },
         { id = "h_sent", tags = { "news" }, when = { questActive = TODO_QUEST("The Crown of Will") },
           text = "Sharlindra sent you? Very well. Mug'thol is an irritant, and we will deal with him quickly, thoroughly and without incident." },
-        { id = "h_heads", when = { questDone = TODO_QUEST("The Crown of Will"), questBefore = TODO_QUEST("The Crown of Will") },
+        { id = "h_heads", when = { questRecent = { TODO_QUEST("The Crown of Will"), days = 5 } },
           text = "His lieutenants first, then Mug'thol himself, crown and all. When it's done, their heads go on pikes above Alterac, a fitting monument to those who defy the Dark Lady." },
         { id = "h_grave", when = { questActive = TODO_QUEST("The Grave Knight") },
           text = "A necromancer hides in the underbelly of the mage city, raising an army of undeath under the Kirin Tor's noses. I care nothing for the wizards, but he spits on everything the Forsaken stand for, so end him." },

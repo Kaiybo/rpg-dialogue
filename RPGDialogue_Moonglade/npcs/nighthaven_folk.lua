@@ -44,7 +44,7 @@ P:NPC {
           text = "Well, great monkey toads, what have you got there? It's sort of book-shaped, under all that crust. Layo sent you all the way from Silithus? I've only heard hushed rumblings about what's going on out there, and I don't care for anything bug-like, so I'll stay here with the books." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Uncovering Past Secrets") },
           text = "I'm still working on that shell, and it's tougher than it looks. Go and check in with Rabine, our den mother, and never keep him waiting, unless you want to be doused in honey." },
-        { id = "h_journal", tags = { "news" }, when = { questActive = TODO_QUEST("Under the Chitin Was...") },
+        { id = "h_journal", tags = { "news" }, when = { questRecent = { TODO_QUEST("Under the Chitin Was..."), days = 3 } },
           text = "It's you again! I mean you, the one who found it. Let me start over: that thing from Silithus was a book, a journal written in a very old dialect of Darnassian, and it's going to take me ages, and I'm delighted." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "A night elf who isn't a druid, or perhaps you are, I can never tell until you turn into something. Either way, welcome to the archive, such as it is." },

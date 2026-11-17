@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
-      text = "I hear you, mon, though not by much. The centaur would not have heard you at all." },
+      text = "Quiet steps, mon, but these old ears still catch them. The centaur would not have heard you at all." },
     { id = "n_hunter", cat = "class", when = { class = { "HUNTER", "ROGUE" } },
       text = "You got the quiet feet, I see. Good, because Kolkar Crag be no place for loud ones." },
   },

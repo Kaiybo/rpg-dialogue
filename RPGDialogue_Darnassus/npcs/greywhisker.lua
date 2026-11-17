@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel's safe and his fossil's on its way to Ironforge, thanks to you. I may even forgive him for not writing." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}! Still no letter from Darkshore, so I'm glad of any face that's been somewhere." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've a bit more weight in your stride than when I sent you off to Auberdine. The League could use a {class} like you, if you ever fancy a dig." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you've been making friends among the elves, which is more than I've managed in a year. Teach me the trick sometime." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Word is you've been making friends among the elves, which is more than I've managed in a year. Teach me the trick sometime." },
   },
 
   notice = {
@@ -38,7 +38,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Trouble in Darkshore?") },
           text = "I sent a crew to Darkshore under Prospector Remtravel, and I've not heard a word from them in weeks. Would a {class} like you travel to Auberdine and look for any clue to where they've got to?" },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Trouble in Darkshore?"), days = 5 } },
-          text = "You went! Good. Hollee's at Auberdine, you say, and Remtravel is off in the south of Darkshore with golems crawling up out of his own dig? That's him to the bone." },
+          text = "You went, and good for you! Hollee's at Auberdine, you say, and Remtravel is off in the south of Darkshore with golems crawling up out of his own dig? That's him to the bone." },
         { id = "h_found", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Absent Minded Prospector"), days = 5 } },
           text = "Remtravel found you useful and didn't even ask your name, which is the warmest compliment he's capable of. That fossil had better be as mysterious as he claims." },
         { id = "h_young", when = { maxLevel = 11 },

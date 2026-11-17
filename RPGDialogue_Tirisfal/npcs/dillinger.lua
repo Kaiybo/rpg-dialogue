@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the Scourge kept coming the whole time. Pick up where you left off, and somebody take that leg off the fence post, because it isn't mine." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were a fresh corpse with a rusty blade when you first stood here, and now you look like something the Scourge should worry about. Good." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word along the street is that you've been useful in Brill. I don't hand out praise, but I'm told others do." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you put someone's back up in town. Save the bad temper for the Scourge, because they've earned it and Brill hasn't." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word is you put someone's back up in town. Save the bad temper for the Scourge, because they've earned it and Brill hasn't." },
   },
 
   notice = {
