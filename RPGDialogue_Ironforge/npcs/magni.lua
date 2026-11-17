@@ -70,8 +70,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then the Dark Iron have lost their emperor, an' I've lost the one enemy I could put a name tae. But naebody's brought my Moira through that gate yet, so maybe she's hurt, or maybe she's hidin' her face for shame, an' if it's shame she's a fool, for there's nothin' I wouldnae forgive her." } },
+      choices = {
+        { text = "I'll go back down and find her myself, Your Majesty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I went down for Thaurissan, Your Majesty, not for a princess.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What will you do if she won't come home?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "Then I'll go an' fetch her, crown or no crown, an' the Senate can shout at an empty throne for a week. She's a Bronzebeard, whatever happened tae her down there, an' Bronzebeards come home." } },
+      choices = {
+        { text = "Then I hope she comes home soon, Your Majesty.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
+          text = "They tell me ye went down intae the Depths an' Thaurissan didnae come back up. I've waited a long while tae hear that, an' I've no' yet decided what I feel about it." },
         { id = "h_default", key = true, text = "Magni Bronzebeard, King o' Ironforge. We pledged our axes tae the Alliance after the Second War, an' we've no' regretted it, mostly." },
         { id = "h_grelin", when = { heardLine = "grelin.h_default" },
           text = "Ye've met the Whitebeard brothers, then. The Senate sends 'em to count trolls. I'd send an army, but the Senate likes countin'." },
@@ -121,6 +138,7 @@ P:NPC {
         { text = "Why have your guards been arresting the Hidden Circle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How do you see the gnome mages in your city?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you ever hunt in the high snows, Your Majesty?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Thaurissan is dead, Your Majesty. I was there.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

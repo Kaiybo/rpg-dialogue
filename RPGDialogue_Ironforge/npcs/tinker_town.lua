@@ -114,10 +114,27 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xcl_gnome = {
+      big = true,
+      lines = { { id = "xcl_gnome_default", text = "Then you walked past everything we built and left behind, the drill rigs, the clean rooms and the great machines in the engineering halls. Thermaplugg turned every one of them against us, which is the cruellest thing you can do to an engineer, because a machine only ever does what it's told." } },
+      choices = {
+        { text = "Then the machines can be forgiven, and the gnomes who built them too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then scrap them, Tinkmaster, every last one of them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do you think happened to Techbot?", next = "xcl_gnome2" },
+      },
+    },
+    xcl_gnome2 = {
+      lines = { { id = "xcl_gnome2_default", text = "I don't know for certain, and that's what keeps me at my blueprints all night. He was still in the city when the troggs came and the radiation went up, and something got into his logic that shouldn't have, so now he goes on being helpful in all the wrong ways." } },
+      choices = {
+        { text = "I'm sorry about Techbot, Tinkmaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive my melodrama, but if you've a prayer for Techbot, I'd be grateful, even if he is only a machine, which he isn't, not to me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've always wanted to build a self-polishing breastplate for your sort, but the prototype polished the wearer as well, quite vigorously." },
+        { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
+          text = "You've been to the very bottom of Gnomeregan and come back! Forgive my melodrama, but I must sit down, and then I must ask whether you saw Techbot on the way." },
         { id = "h_default", key = true,
           text = "Tinkmaster Overspark, master of gnomish engineering, the one true discipline. Forgive my melodrama, but our situation is dire, and dire situations deserve a bit of drama." },
         { id = "h_techbot", tags = { "news" }, when = { questActive = TODO_QUEST("Tinkmaster Overspark") },
@@ -159,6 +176,7 @@ P:NPC {
         { text = "Should Techbot be destroyed or repaired, Tinkmaster?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a rogue would steal gnomish secrets?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What would you ask the earth about Gnomeregan, Tinkmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I came back from the bottom of Gnomeregan, Tinkmaster.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -606,10 +624,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_gnome = {
+      big = true,
+      lines = { { id = "xcl_gnome_default", text = "Then you've seen what the radiation does to good gnomish steel, all pitted and green and humming when it oughtn't. I'd love to study it, truly, but the High Tinker's forbidden anyone to bring the tainted metal up to Tinker Town, and I suppose he's right, though it pains me terribly." } },
+      choices = {
+        { text = "The High Tinker is right. Some things should stay down there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Study it anyway, Klockmort. Knowledge is worth a little risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "What would that metal teach you?", next = "xcl_gnome2" },
+      },
+    },
+    xcl_gnome2 = {
+      lines = { { id = "xcl_gnome2_default", text = "Whether an alloy can be made to shrug off poison the way Furen's gauntlets shrug off a hammer, that's what! If I could crack that, the next gnome city wouldn't fall to a few barrels of something nasty, and I'd call that worth some singed eyebrows." } },
+      choices = {
+        { text = "Then I hope you crack it someday, and safely.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh my, you'll forgive the mess, I'm sure, because priests forgive everything, or so I've heard, and my workshop needs a great deal of forgiving." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your plate's lovely, but I'll wager I could make it lighter and stronger, if you've a few months and don't mind being a test subject." },
+        { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
+          text = "Somebody said you'd gone right through Gnomeregan to the very end! Did you pass the artificial extrapolators, and were any of them still ticking? Oh my, I do hope so." },
         { id = "h_default", key = true,
           text = "Klockmort Spannerspan, smith and seeker! I'm on a quest for new alloys and harder metals for the greatest invention of all, and every bit of metal you bring me gets me a little closer." },
         { id = "h_notes", tags = { "news" }, when = { questActive = TODO_QUEST("Klockmort Spannerspan") },
@@ -649,6 +684,7 @@ P:NPC {
         { text = "What would you build if you found your perfect alloy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really use fel fire at your forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you have a shaman find ore for your alloys, Klockmort?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been through Gnomeregan to the end, Klockmort.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },

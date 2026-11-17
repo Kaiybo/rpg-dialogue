@@ -69,9 +69,26 @@ P:NPC {
         { text = "Something else, High Tinker.", next = "BACK" },
       },
     },
+    xcl_gnome = {
+      big = true,
+      lines = { { id = "xcl_gnome_default", text = "And you came back up, which is more than the radiation lets most of us do! With Thermaplugg gone, the poor sick gnomes down there have nobody left giving them orders, and some of them were my neighbours once, so I'd like to think a few still remember their names." } },
+      choices = {
+        { text = "Then we go back for them. Nobody should be left behind.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The ones still down there are lost, High Tinker. Seal it and start over.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Could Gnomeregan ever be taken back now?", next = "xcl_gnome2" },
+      },
+    },
+    xcl_gnome2 = {
+      lines = { { id = "xcl_gnome2_default", text = "Not this year, and not the next, I'm afraid, because the radiation's soaked into the very bolts. But a city without Thermaplugg in it is a city that can be planned for, and planning is the one thing gnomes have never been short of." } },
+      choices = {
+        { text = "Then plan well, High Tinker. I'd like to see it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, because I've a great many plans for Gnomeregan and every one of them has a little box marked 'someone very brave goes first'." },
+        { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
+          text = "Word is you went all the way down to the Engineering Labs and Thermaplugg won't be ruling anyone again. I drew up a plan to celebrate, and then I put it in the drawer, because there are still a great many gnomes down there." },
         { id = "h_default", key = true,
           text = "Gelbin Mekkatorque, High Tinker of Gnomeregan, and elected, I'll have you know. Gnomeregan isn't fit to live in just now, so we tinker in Ironforge, by the King's kindness." },
         { id = "h_betrayal", tags = { "news" }, when = { questActive = TODO_QUEST("The Grand Betrayal") },
@@ -110,6 +127,7 @@ P:NPC {
         { text = "What would you ask of a paladin, High Tinker?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a druid help cleanse the poison from Gnomeregan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does Gnomeregan make of dwarven shamans, High Tinker?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been to the bottom of Gnomeregan, High Tinker.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -489,9 +507,26 @@ P:NPC {
         { text = "Tell me something else, Historian.", next = "BACK" },
       },
     },
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then ye've closed a book that opened with his ancestor, the sorcerer-thane who called up Ragnaros in the War of the Three Hammers and burned his own people's land to cinders. Every emperor since has served the Firelord and none ever found the courage to stop, so I'll not pretend to mourn this one." } },
+      choices = {
+        { text = "Even Thaurissan was a dwarf once. I take no joy in it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He made his choice, Historian, and he got what he earned.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who rules the Dark Iron now?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "I can't say, and that's what worries me. A people who've knelt to fire for more than two hundred years don't learn to stand in a day, and whoever picks up that crown will have Ragnaros breathing down his neck." } },
+      choices = {
+        { text = "Then your histories have another chapter coming.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin; I can hear the plate, an' the way ye stand when ye stop. The Silver Hand has a chapter in my histories, an' it's not a short one." },
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
+          text = "They tell me Emperor Thaurissan is dead, slain on his own throne in the Depths. I've kept his family's story most of my life, and I never thought I'd live to hear the end of it." },
         { id = "h_default", text = "Archesonus, historian to the King. My eyes went long ago, but my memory didn't, so ask me anything about Ironforge and I'll tell ye more than ye wanted." },
         { id = "h_thaurissan", tags = { "news" }, when = { questActive = TODO_QUEST("The Smoldering Ruins of Thaurissan") },
           text = "Sit, and I'll tell ye of Thaurissan, the Dark Iron city that stood where the Burning Steppes are now. Mind, it's not a short story, and it doesn't end well for anyone." },
@@ -529,6 +564,7 @@ P:NPC {
         { text = "Which warriors does Ironforge's history remember best, Historian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the histories speak of dwarven hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do your histories say of the Silver Hand's dwarves?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I was there when Thaurissan fell, Historian.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -769,10 +805,27 @@ P:NPC {
         { text = "Good luck with your work.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "Then you've stood where the titans' own keeper stood guard, and you've seen more of where we come from than any Prospector of mine. The discs say the earthen were shaped from stone and that we dwarves are their children, and there are those in this city who'd rather not hear it, but I'd rather know." } },
+      choices = {
+        { text = "The League should share what the discs say, whoever it upsets.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some truths should wait until the King decides how to tell them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Did Archaedas guard the place, or just sleep there?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "Both, I think, and that frightens me a little. He woke when the vault was disturbed and raised the stone keepers around him, so whatever the titans left in Uldaman was meant to be found only by someone they'd have approved of." } },
+      choices = {
+        { text = "I hope they'd have approved of me.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Hall of Explorers! Do mind the cases, and if you could tell me whether that relic on my desk is cursed, I'd sleep a great deal better." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Excellent, because my Prospectors keep running into Dark Irons and troggs at the dig sites, and they'd much rather run into you." },
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
+          text = "You've been to the bottom of Uldaman, past Archaedas himself, I'm told! Sit down, please, because I want every detail, and I want them in order." },
         { id = "h_default", key = true,
           text = "Muninn Magellas, High Explorer of the Explorers' League. We map the world, catalogue what lives in it and dig up what used to, and while my Prospectors do the digging, I do the worrying." },
         { id = "h_discs", tags = { "news" }, when = { questActive = TODO_QUEST("The Platinum Discs") },
@@ -815,6 +868,7 @@ P:NPC {
         { text = "Do your Prospectors need warriors out in the field?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you worry about what the League digs up, High Explorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Which dig needs protecting most, High Explorer?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I stood in Archaedas's chamber in Uldaman, High Explorer.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -1066,10 +1120,27 @@ P:NPC {
         { text = "Sorry to bother you.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "So I hear, an' I'll want it written down, for the League doesnae run on hearsay. There's carvin's in that vault I've only ever seen in rubbin's, an' if ye remember even half o' them right, ye've saved me a year o' squintin'." } },
+      choices = {
+        { text = "I'll write it all down properly for the League.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I went down there to fight, Prospector, not to take notes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's in those carvings that matters so much?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "The old titan script, an' the dwarven runes that came after it, cut intae the same wall. Put the two together an' ye've a key tae half the ruins in Khaz Modan, which is why I've no time for chat." } },
+      choices = {
+        { text = "Then I'll leave you to your ciphers.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll no' be wantin' tae bless my books, I hope, for I'm busy, an' they're fine as they are." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye'll be wantin' somethin', I expect, so say it quick, for I've three ciphers on my desk an' none o' them are readin' themselves." },
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
+          text = "Ye've been down tae Archaedas an' back, I hear. Good; now Baelog's lot can stop askin' me what's at the bottom." },
         { id = "h_default", key = true, text = "Stormpike, Prospector, of the Explorers' League. That's my name, my job an' my lodge, an' that's all the chat ye're gettin' today." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Report to Ironforge") },
           text = "A report, is it? About time; hand it here, an' don't read it tae me, for I can read." },
@@ -1106,6 +1177,7 @@ P:NPC {
         { text = "Do the League's diggers need protecting, Prospector?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Should the League be digging up kaldorei history at all?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What are the League's opinions about dwarf shamans, Prospector?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been to the bottom of Uldaman, Prospector.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Sorry to bother you.", next = "END" },
       },
     },

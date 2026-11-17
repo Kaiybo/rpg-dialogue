@@ -94,6 +94,22 @@ P:NPC {
         { text = "Something else, Warlord.", next = "BACK" },
       },
     },
+    xcl_lbrs = {
+      big = true,
+      lines = { { id = "xcl_lbrs_default", text = "Good. Those were orcs in there once, Blackrock clan, the same blood as the warriors in my camp, and they bent the knee to a dragon instead of the Warchief. When I tell Thrall what you found, I want to tell him it was done cleanly." } },
+      choices = {
+        { text = "They chose the dragon, Warlord. They deserve no mercy.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "They were orcs once. Some could still be brought home.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Who truly rules the Spire now, Warlord?", next = "xcl_lbrs2" },
+      },
+    },
+    xcl_lbrs2 = {
+      lines = { { id = "xcl_lbrs2_default", text = "Rend Blackhand sits in the upper halls calling himself Warchief, and behind him a black dragon in a general's armour. I've read the papers you brought down, and I don't like what they say about whose voice is giving Rend his orders." } },
+      choices = {
+        { text = "Then the Horde should march on the Spire itself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let Rend and the dragons bleed each other dry, Warlord.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Kargath's walls have seen plenty of wounded since the Dark Irons started pushing, and too few hands to mend them, so you're welcome on my tower." },
@@ -102,6 +118,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I've always wished I could send someone up the Spire road who didn't clank, because my grunts sound like a smithy falling down the stairs." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid at Kargath! Can you smell the Spire from here, druid? I swear I can on the hot days, and it smells of the old Horde and older lies." },
+        { id = "h_cl_lbrs", tags = { "news" }, when = { cleared = "Lower Blackrock Spire", faction = "Horde" },
+          text = "Wyrmthalak is dead in his own citadel, and they say your hand was in it. The Spire will be quieter for a while, and I mean to use every hour of it." },
         { id = "h_default", key = true,
           text = "I am Warlord Goretooth, and Kargath is mine to hold. Up the road sits Blackrock Spire, full of orcs who call themselves the true Horde, and I sit here watching, and waiting, and getting old." },
         { id = "h_kos", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves") }, { questActive = TODO_QUEST("KILL ON SIGHT: High Ranking Dark Iron Officials") } } },
@@ -140,6 +158,7 @@ P:NPC {
         { text = "What do the Blackrock use their worgs for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you need healers at Kargath, Warlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does a Forsaken paladin trouble you, Warlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Wyrmthalak is dead, Warlord. I've seen the lower Spire.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire", faction = "Horde" } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },
@@ -635,6 +654,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then the Dark Irons have lost the dwarf who held their whole bargain with the Firelord together, and that bargain is what I came here to study. The heat in that mountain doesn't come from forges, you know, it comes from Ragnaros himself, and I'd dearly like to know who answers his call now." } },
+      choices = {
+        { text = "Ragnaros's fire should be stamped out, not studied.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Learn everything you can from it. Power is power.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Who does answer Ragnaros now?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "His own servants, I expect, deeper down, where the stone runs molten and nobody sensible goes. The Dark Irons only ever borrowed his fire, and now there's nobody left at the top to answer for the loan." } },
+      choices = {
+        { text = "Then I'll keep my distance from the molten parts.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Oh! You came up behind me and I didn't even hear you, which is exactly what I'd expect of a rogue, so I'm not startled at all." },
@@ -642,6 +676,8 @@ P:NPC {
           text = "A shaman! Oh, how fortunate, because I've been taking apart elemental cores all week and I'd love to know whether they mind." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest! Splendid, because if anything in these essence jars ever escapes, I'll want someone close by who knows a prayer, and I'm perfectly composed about that, naturally." },
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Horde" },
+          text = "Thaurissan is dead! Do you know what this means for my research? Every jar of essence in the Depths is suddenly that much easier to reach, and I'm perfectly calm about it." },
         { id = "h_default", key = true,
           text = "Shadowmage Vivian Lagrave, of the Kargath Expeditionary Force. I study the things in the mountain that the Dark Irons would rather we didn't, which is thrilling work, though mostly dust." },
         { id = "h_element", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Element") },
@@ -677,6 +713,7 @@ P:NPC {
         { text = "I could steal that Thunderbrew recipe for you, Vivian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does a Shadowmage need from a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Does the Light on me interest a shadowmage, Vivian?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Emperor Thaurissan is dead, Shadowmage. I was in the throne room.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1 } },
       },
     },

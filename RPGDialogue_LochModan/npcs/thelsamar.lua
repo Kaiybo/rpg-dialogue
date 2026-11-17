@@ -101,8 +101,25 @@ P:NPC {
         { text = "Something else, Kadrell.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "Aye, an' ye came back, which is the part folk forget tae do. The Mountaineers have been fightin' troggs on this road since before the dam was finished, so anythin' that thins them at the source is good news for Thelsamar." } },
+      choices = {
+        { text = "The Mountaineers should march on the trogg dens while they're weak.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave the troggs their holes, Kadrell. Just guard the road.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where do the troggs come from, really?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "Out o' the deep stone, that's all anyone knows for certain. The League says they were down there before us, sleepin' in the dark, an' that the diggin' woke them, so ye'll understand why I'm no' fond o' diggin'." } },
+      choices = {
+        { text = "Diggers and troggs both, then. I'll remember that.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
+          text = "I hear ye went down intae Uldaman an' came out the far end. Half the troggs in my hills are the same breed as the ones in there, so ye've my thanks, an' the thanks o' every farmer on the loch." },
         { id = "h_default", key = true,
           text = "Mountaineer Kadrell, an' I watch the road through Thelsamar for the King. There's troggs in the hills, a Dark Iron spy somewhere about an' kobolds in the foothills, so it's never dull." },
         { id = "h_stout", tags = { "news" }, when = { questActive = TODO_QUEST("Stout to Kadrell") },
@@ -147,6 +164,7 @@ P:NPC {
         { text = "What should be done with the Dark Iron spy once he's caught?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a warlock might be your Dark Iron spy, Kadrell?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the earth tell me where your Dark Iron spy is hiding?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I went down into Uldaman, Kadrell.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -342,8 +360,25 @@ P:NPC {
         { text = "Something else, Ironband.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "Then ye've been where my wee dig in the hills is only scratchin' at, an' I'll admit I'm jealous. The League reckons the troggs came up out o' those deep halls, so if somethin' at the bottom's been put tae rest, mayhap they'll stop pourin' out over my hills." } },
+      choices = {
+        { text = "Agmond died for this. Keep digging and finish his work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "No relic is worth another Agmond, Ironband. Close the dig.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Do you think the troggs will stop now?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "I doubt it, if I'm honest, for there's thousands o' them in the deep places an' they breed like rabbits. But a dwarf can hope, an' ye've given me a wee reason tae." } },
+      choices = {
+        { text = "Then I'll keep an eye on the hills for you.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
+          text = "They say ye went right down intae Uldaman, past all the stone keepers. My idols an' Agmond's urns all point that way, so I'd dearly like tae hear what ye saw." },
         { id = "h_default", key = true,
           text = "Darteus Ironband, Explorers' League, an' this is my dig. It's slow work, an' I'll no' pretend otherwise, but it'll pick up, an' when it does ye'll hear about it in Ironforge." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Excavation Progress Report") },
@@ -383,6 +418,7 @@ P:NPC {
         { text = "Has anyone been lost on this dig, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the League keep digging while the troggs are so close?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has your dig found anything a warlock should worry about?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I went to the bottom of Uldaman, Ironband.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Good luck with the dig.", next = "END" },
       },
     },
