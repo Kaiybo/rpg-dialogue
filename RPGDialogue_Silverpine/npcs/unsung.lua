@@ -23,11 +23,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Some of them are safe for anyone, some are safe only for the dead, and the rest I keep under the counter for the apothecaries. Eat a few of the safe ones before you go out into the forest, and you'll have something in your stomach besides worry." } },
+      choices = {
+        { text = "I'll stick to the ones you say are safe, Gwyn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll try the ones under the counter. I'm not afraid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Under the fallen pines, where the worgen won't bother digging, and in the damp caves where the spiders spin. Bring me any you're not sure of, and I'll tell you whether they'll feed you or finish you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Under the fallen pines and in the damp caves, and {pet} will sniff them out quicker than I ever could. Just don't let it eat any, because I couldn't tell you which ones would agree with it." },
+      },
+      choices = {
+        { text = "I'll bring them to you, Gwyn, and leave guessing to experts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll taste them myself. That's half the fun.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Gwyn Farrow, and I sell mushrooms to the Sepulcher. They grow well in the dark and the damp, which is the only thing this forest has more of than worgen." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll know which mushrooms the spirits like, I expect, and I'd love to know, because I've three here I can't put a name to." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come to see my mushrooms! I keep them in the dark under the stairs, and they grow better here than anything I tried to grow in life." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll be hungry after the worgen, I'd wager, and I've a few mushrooms that won't hurt you even if you're still breathing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll walk past more mushrooms in a day than I find in a week, so look down now and then, would you?" },
       },
       choices = {
         { text = "Shall I tell you which caps are safe for the living, Gwyn?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -37,6 +60,8 @@ P:NPC {
         { text = "Why mushrooms, of all things?", next = "why" },
         { text = "Which of your mushrooms would a rogue want, Gwyn?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mushrooms grow where demons have walked, Gwyn?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Are your mushrooms safe for a warrior to eat, Gwyn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Where do the best mushrooms grow in Silverpine, Gwyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, dear? I've got all night, and so do the mushrooms." } },
@@ -127,11 +152,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A proper shirt under the mail, so it doesn't chafe, and a cloak that isn't held together with worgen hair. I can't make you plate, but I can make you look as though you meant to come out of the house today." } },
+      choices = {
+        { text = "Fair enough. I'll look the part, Andrea.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mail and blood are all a warrior needs to wear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Nothing you'd wear, since you're all leather and mail, but a good cloak keeps the rain off and the forest smell out. Silverpine's damp gets into everything, and I mean everything, so wrap up before you go back out." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nothing for you, I'm afraid, and certainly nothing for {pet}, who has just shed on my best bolt of linen. A good cloak keeps the rain off, though, and Silverpine's damp gets into everything." },
+      },
+      choices = {
+        { text = "I'll wipe my boots next time, Andrea.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mud's part of the hunt, Andrea. Get used to it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andrea Boynton, clothier, and I sell robes and cloth armor to the Sepulcher's mages and priests. Most of them come to me looking like they dressed in the dark, which I suppose they did." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in mail and furs with totems knocking about your belt? Come here and let me at least fix how all that's tied on." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You change shape, I'm told, so tell me, what happens to the robe?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I don't sell anything you'd wear, {class}, but I'll say this much: that tabard needs mending, and badly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, tracking mud across my floor. Your lot are always the worst, because you've been crawling through the undergrowth for days." },
       },
       choices = {
         { text = "What's wrong with how I dress, Andrea?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -141,6 +189,8 @@ P:NPC {
         { text = "Where do you get cloth out here?", next = "cloth" },
         { text = "These robes should hold an enchantment well, Andrea.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "My demon keeps scorching my robes, Andrea.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does a warrior need anything from a clothier, Andrea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is there anything here for a hunter, Andrea?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick, I have hems to finish." } },
@@ -229,11 +279,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Food, water and someone watching your back, in that order, because the worgen fight dirty and the forest makes you tired before they do. I sell the first two, and the third you'll have to find yourself." } },
+      choices = {
+        { text = "I'll find a shieldmate before I go in.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I go alone, Harly. Fewer mouths to feed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some of it, if you cook it long, and none of it if it's been near the Dead Fields, where the gnolls leave their sick. Buy my bread for the road and save your kills for your beast, because it won't mind the taste." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some of it, if you cook it long, and {pet} won't mind the taste either way. Stay clear of anything from the Dead Fields, where the gnolls leave their sick, and buy my bread for yourself." },
+      },
+      choices = {
+        { text = "I'll buy your bread, Harly. No point taking chances.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll eat what I catch. I've a strong stomach.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Edwin Harly, and I keep the supplies for the Sepulcher. Silverpine is a forest that eats travelers, so everything I sell is meant to help you get out of it alive, or as alive as you were when you came in." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want water and food like any of the living, and I've both, though the water tastes of the crypt." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be going into the forest, I expect, so buy what you need now, because the forest won't sell you anything." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll need more than a sword to get through Silverpine, {class}, so buy rations and water before you start swinging." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll eat off the land, I expect, and I'd advise against it, because half the land in Silverpine is trying to eat you." },
       },
       choices = {
         { text = "Could the spirits clean your water, Harly?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -243,6 +316,8 @@ P:NPC {
         { text = "Where should I go from here?", next = "roads" },
         { text = "What does Dalaran owe this forest, Harly?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which way through Silverpine keeps me out of sight?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What does a warrior need most out here, Harly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is the game in Silverpine safe to eat, Harly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, or can I get back to counting what the last cart brought in?" } },

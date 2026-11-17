@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Half of them this season, and the other half arrive late and short. The Sentinels can't guard every cart, so when a warrior's going the same way I ask, and most of them are good enough to say yes." } },
+      choices = {
+        { text = "I'll guard your carts. Astranaar needs its bread.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'm no cart guard. Hire someone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scarcer every season, because the logging drives the stags deeper and the wolves follow them. The hunters who bring meat to Astranaar walk twice as far as they used to, and I don't know how much farther they can go." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, at least, so you must know where the game's gone. Keep it close on the roads, because the Warsong have no love for elven beasts." },
+      },
+      choices = {
+        { text = "I'll hunt farther so Astranaar eats.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Scarce game means better prices for me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "No, but I've learned not to guess, and a wise shopkeeper counts the shelves either way. If you want to be useful, find out which of the Warsong scouts has been watching my carts on the eastern road, and I'll count you a friend." } },
@@ -51,6 +72,8 @@ P:NPC {
           text = "I keep my eye on the satchels when your sort come in, no offence meant, because a shop under siege can't spare a single loaf. If you're buying, though, you're as welcome as anyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, and you'll travel light, I expect, though even mages need thread and a good bag. If you know a spell that keeps the Warsong off my eastern road, you'd be the most popular person in Astranaar." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're heading out on the roads, you could do worse than keep an eye on my supply carts while you're at it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want food for the road, and something for your companion, and I've both." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away." },
@@ -62,6 +85,8 @@ P:NPC {
         { text = "Is Astranaar safe?", next = "safe" },
         { text = "Do you really think I'd rob a village under siege?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there a spell that could help your carts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have the Warsong been raiding your supply carts, Haljan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is game scarce now the Warsong are cutting the forest?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Haljan.", next = "END" },
       },
     },
@@ -127,6 +152,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Something long, because an orc axe is short and brutal, and a warrior with reach can keep it off you. Strike at the hands that hold the axe, and they'll stop cutting trees soon enough." } },
+      choices = {
+        { text = "I'll drive them out, not slaughter them all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every orc in this forest dies. No exceptions.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They hunt anything that moves near their camps and leave the rest to burn when the trees come down. A hunter who's seen what a Warsong clearing looks like doesn't need me to tell them why I sell good blades." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would tear an orc apart, I'd wager, and I'd be glad to see it. Keep it clear of their camps, though, because the Warsong keep wolves of their own." },
+      },
+      choices = {
+        { text = "I'll serve where the Sentinels send me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt the orcs on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not much, though the Sentinels tell me I should, since they fight in the open under Elune's eye. The orcs who killed my friends at the lumber camps didn't give them a fair fight, so I won't weep if you don't give them one." } },
@@ -152,6 +198,8 @@ P:NPC {
           text = "You carry yourself like a rogue, and that suits me, because an orc can't swing an axe at what he never sees coming. I've daggers in the back sharp enough for the work." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage won't buy my blades, but I'll speak with one all the same, because frost stops an orc's charge as well as steel does." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good, because every blade I sell a warrior is one more between the Warsong and the trees." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting a blade for when the orcs get close, because they always get close." },
       },
       again = {
         { id = "h_again", text = "What else? I've blades to sharpen." },
@@ -163,6 +211,8 @@ P:NPC {
         { text = "What weapon suits Ashenvale?", next = "suits" },
         { text = "Do you care how an orc dies, Xai'ander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you trust a mage beside your Sentinels?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What blade would you give a warrior facing the Warsong?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the Warsong hunt the forest's beasts as well?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -225,6 +275,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not as it does now, because the forest was quiet and the Sentinels kept it so with very little steel. I remember when Astranaar's Sentinels wore silk under their armor for the beauty of it, and nobody needed to tell me what a Warsong axe looked like." } },
+      choices = {
+        { text = "I'll fight so the forest can be quiet again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The forest was never safe. You just didn't see it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The stags walked into Astranaar some mornings, bold as anything, and the hunters left them alone out of courtesy. Now they hide deep in the forest, and I can't blame them, because I'd hide too if I could." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has beautiful fur, and I'm a seamstress, so I'm allowed to notice. Don't worry, I only work with cloth." },
+      },
+      choices = {
+        { text = "I'll help bring those mornings back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The past is gone. I hunt what's here now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Often enough, because my people turned from the arcane after the Sundering, and some of them have never stopped flinching at it. I think it's sad that something so beautiful should frighten us, but I wasn't alive when the Well drowned, so perhaps I don't understand." } },
@@ -250,6 +321,8 @@ P:NPC {
           text = "You'll want a robe with deep sleeves for your reagents, I expect, and I've a few with good hems for these wet paths. I sewed for the moon festivals once, so I know how to make a mage look lovely, though the Sentinels may still stare." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I've a deep violet cloth that hides scorch marks well, if you're looking for something dark to wear. Forgive me, but your imp keeps looking at my silks, and I'd rather it didn't." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My robes won't stop an axe, but I've a few sturdy cloaks, if you'd like something to keep the rain off your mail." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen how the forest looked before the Warsong cut into it, I hope." },
       },
       again = {
         { id = "h_again", text = "Something else?" },
@@ -260,6 +333,8 @@ P:NPC {
         { text = "What was Ashenvale like before the war?", next = "before" },
         { text = "Where does your cloth come from?", next = "cloth" },
         { text = "Do the Sentinels stare at mages often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Did Ashenvale need warriors before the orcs came?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Was the hunting better in Ashenvale before the orcs came?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my craft frighten you, Aeolynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Aeolynn.", next = "END" },
       },
@@ -323,6 +398,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Never well enough, because they're always in a hurry and they think hunger keeps them sharp. I tell them an empty stomach makes them slow, and the ones who listen come back to tell me I was right." } },
+      choices = {
+        { text = "You're right. I'll eat before I fight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hunger keeps me sharp. I'll eat later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Whatever it likes, so long as it's fresh and there's plenty of it, because a hungry beast is a cross beast. The cheese is for you and not for it, mind, because cheese does terrible things to a cat." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is looking at my bread as if it's never been fed in its life, the poor thing. Feed it properly before you go, dear." },
+      },
+      choices = {
+        { text = "My companion eats first. Always.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It hunts its own. That keeps it sharp.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Every one of them, and they come back from the eastern woods so hungry I could weep, though they never say where they've been. I pack them honey cakes for the road, because a scout lying still in the ferns for half a day needs more than water." } },
@@ -348,6 +444,8 @@ P:NPC {
           text = "You crept in so quietly I nearly dropped the bread, dear, and you're far too thin for someone who sneaks about for a living. Sit down and eat something before you vanish again." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You've been living on that conjured bread, I can tell by your cheeks, dear. Sit down and have something that came out of a proper oven." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and too thin for the work, I'd say. Eat something before you go and fight the orcs, dear." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, dear, and your companion's thinner than you are. That simply won't do." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? There's more in the oven." },
@@ -359,6 +457,8 @@ P:NPC {
         { text = "How do you keep the shop stocked?", next = "stock" },
         { text = "Do the scouts who watch the Warsong camps eat here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's wrong with conjured bread, Maliynn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the Sentinels eat well before they go to the front?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should I feed my companion on the road, Maliynn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Maliynn.", next = "END" },
       },
     },

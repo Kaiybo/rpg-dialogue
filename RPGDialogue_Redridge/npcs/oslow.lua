@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Guarding the crew while they work, because every time I turn my back the gnolls make off with another load of tools. I'd finish this bridge before the rains if I had one good fighter at the far end." } },
+      choices = {
+        { text = "I'll guard your crew. The bridge needs finishing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go after the gnolls, not stand around watching masons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Foreman.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The gnolls' dogs do, digging under the stone piles, and a great boar knocked over two scaffolds last week as though they were made of straw. I'd pay a hunter in thanks, which is all I've got, to keep them off." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks better behaved than the gnolls' dogs, {class}, but I'd still rather it stayed off my scaffolding." },
+      },
+      choices = {
+        { text = "I'll keep the beasts away from your bridge.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your scaffolding's your problem. I've bigger game.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Foreman.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "No, they didn't, and I've a fair idea the gnolls had them, but if you think one of my lads is skimming, you'd best bring proof. I trust my crew the way I trust a good keystone." } },
       choices = {
@@ -73,6 +94,8 @@ P:NPC {
         { id = "h_bridge", when = { metBefore = true }, text = "Laid another span yesterday, straight as a ruler, and I stood on it a while. Don't tell the crew, or they'll think I've gone soft about bridges." },
         { id = "h_stonemason", when = { origin = "human_stonemason_child" },
           text = "Your hands say you grew up around a mason's yard. Then you'll know I pay my crew every week, on time, because I've seen what happens in this kingdom when the masons don't get paid." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Unless you're carrying a hammer, keep walking, but if you're carrying a sword, stop, because I've a job for one." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Keep that beast off my scaffolding, because the last dog that climbed it brought down a whole morning's work." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask, by all means; the measuring line won't run off." },
@@ -88,6 +111,8 @@ P:NPC {
         { text = "Dwarven masons could have that bridge up in a month.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Your missing tools didn't walk off on their own, Foreman.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A wizard could finish your bridge in a week.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What job do you have for a warrior, Foreman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do beasts trouble your building site, Foreman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I could put something in the water to frighten the orcs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the rains.", next = "END" },
       },

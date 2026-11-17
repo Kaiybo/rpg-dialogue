@@ -31,10 +31,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "We need friends more than we need blades, but a friend with a blade is welcome at Gev'rek. The plains are new to us, and the gnolls and the goblins do not care whose guests we are, so a warrior who stands with us honours the welcome Thunder Bluff gave us." } },
+      choices = {
+        { text = "I'll stand with Gev'rek, Elder, as the Horde does.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your people should learn to guard themselves, Elder.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Very strange, and very beautiful. The kodo walk so slowly that the young ones laughed at first, until they saw one charge, and now they watch the herds with as much respect as any tauren, which is a lesson I hope we keep." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fine creature. The young ones will want to follow it about the camp, and I hope you'll forgive them." },
+      },
+      choices = {
+        { text = "Respect the herds, and the plains will welcome you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The herds are food, Elder. That's all they are.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Ayessa Dawnsinger, and I lead the Windshapers. The Earthen Ring answered when we called, and the Horde gave us a place to stand." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warrior. The Horde gave us a place to stand, and its warriors are the reason that place stays standing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A hunter, with a beast that walks beside you. These plains hold creatures I'm still learning to name." },
       },
       choices = {
         { text = "Why did you leave Skywall?", next = "skywall" },
@@ -44,6 +67,8 @@ P:NPC {
         { text = "I chose the blade over the trials. Is that a failing?", next = "warrior", when = { race = "Skyborne", class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "I'm a druid. Does that set me apart from the Windshapers?", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The Earthen Ring trained me too.", next = "ring", when = { race = { "Orc", "Troll", "Tauren" }, class = "SHAMAN" } },
+        { text = "Do the Windshapers need warriors, Elder?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Are the beasts of the plains strange to your people, Elder?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },
       },
       again = {

@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I flew wi' the gryphon riders in the Second War, an' I carried many a warrior tae the front wi' an axe across his knees. A gryphon will carry ye anywhere, but it'll no' carry a coward twice." } },
+      choices = {
+        { text = "I'd never ask a gryphon to fly where I wouldn't walk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A gryphon's handy for landing behind the enemy's line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A gryphon's no pet, friend, for it chooses ye as much as ye choose it, an' if it decides ye're no' worth carryin' ye'll know it. Yer beasts an' my birds have that much in common: ye cannae fool them for long." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep yer {pet} on the ground side o' the roost, mind, for my birds would take it for supper an' feel no shame about it." },
+      },
+      choices = {
+        { text = "Trust is earned slowly, with birds and beasts alike.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Any beast can be broken to the saddle, given time.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Aye, they do, an' they tell me most o' it in their own way. I'd no' try sneakin' up on a gryphon, friend, for they've noses like hounds an' tempers like a cave bear wi' a sore head." },
@@ -51,6 +72,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Thorgrum Borrelson, gryphon master o' Thelsamar. From here my birds fly tae Ironforge an' over the mountains tae Menethil Harbor, an' they fly it faster than any road." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? My birds like warriors, for ye sit heavy an' still, an' ye don't scream on the landin'." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand the birds better than most, for ye know what it is tae trust a beast." },
       },
       again = {
         { id = "h_again", text = "What else? The birds are restless, so I'll keep one eye on the roost." },
@@ -63,6 +86,8 @@ P:NPC {
         { text = "How do you train them?", next = "train" },
         { text = "Your gryphons must see everything from up there.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll have a teleport to Ironforge soon, but I'd rather fly.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Did your gryphons ever carry warriors into battle, Thorgrum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How does a gryphon compare with a hunter's beast, Thorgrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Thorgrum.", next = "END" },
       },
     },
@@ -132,6 +157,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Riveted rings, doubled at the shoulders, for a trogg swings his club overhead like he's choppin' wood, an' he hits like it too. Ye'll curse the weight on the road an' bless it in the fight, an' that's my whole trade in a sentence." } },
+      choices = {
+        { text = "Heavier mail, then. I'll stand and take the blows.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd sooner be quick and not get hit at all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A good mail shirt, light enough tae shoulder a rifle in, for the dwarven hunters I know won't give up their guns for anythin'. Bears an' troggs both go for the chest, so that's where I put the iron." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could use a collar, now I look at it, though I'll admit I've never made one an' ye'd be my first." },
+      },
+      choices = {
+        { text = "I'll take the heavier shirt. The hills are no place for chances.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Lighter's better. A hunter stays safe by staying unseen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Quieter? Mail's meant tae be heard, so the trogg knows he's in for a fight. If ye want somethin' that won't clink, ye want leather, an' that means a leatherworker an' no' a smith." },
@@ -157,6 +203,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Morhan Coppertongue, metalsmith, an' the mountaineers o' Thelsamar wear my mail when they go out after troggs. That's the best advertisement I could ask for, for none o' them has complained yet." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's a customer who knows what mail's for, so come an' feel the weight o' this coat." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want somethin' lighter than my mountaineers wear, but ye'll still want somethin', for bears have claws." },
       },
       again = {
         { id = "h_again", text = "What else can I talk ye intae, friend?" },
@@ -169,6 +217,8 @@ P:NPC {
         { text = "Do the mountaineers really never complain?", next = "complain" },
         { text = "Your mail's too noisy for my work. Got anything quieter?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could your forge use an extra hand with the fire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What mail would you put on a warrior facing troggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would you sell a hunter who walks the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Morhan.", next = "END" },
       },
     },
@@ -238,6 +288,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A loaf apiece an' a twist o' Vidra's sausages, for the patrols up tae the towers go out for days at a time. I've seen grown mountaineers fight over the last heel o' bread, so I always bake an extra." } },
+      choices = {
+        { text = "I'd give the last heel to the youngest soldier.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The last heel goes to whoever fights for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Dark bread, baked hard, for it'll last a week in a pack an' it'll no' crumble when ye're crouched in the bracken waitin' on a boar. Bring me back a nice haunch, an' Vidra will turn it intae somethin' worth comin' home for." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' a crust for yer {pet}, if it'll eat bread, though most o' the beasts I've met would rather have the sausage." },
+      },
+      choices = {
+        { text = "I'll share whatever I bring back with the inn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll sell the haunch to whoever pays best.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Is it? Well, it's Thelsamar, an' the worst that walks in is a hungry mountaineer after a loaf. Ye're no' plannin' tae take one yerself, are ye?" },
@@ -264,6 +335,8 @@ P:NPC {
           text = "Honni Goldenoat, baker at the Stoutlager Inn, an' I've had flour on my hands since before the sun came up. If ye're hungry, ye've come tae the right counter." },
         { id = "h_dawn", when = { timeOfDay = "dawn" },
           text = "Mornin'! Ye're up early, so ye get the first loaf, still too hot tae hold, so mind yer fingers." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be wantin' bread, then, for ye cannae swing an axe on an empty stomach." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll be out in the hills for days, so ye'll want somethin' that keeps." },
       },
       again = {
         { id = "h_again", text = "Anythin' else, love?" },
@@ -276,6 +349,8 @@ P:NPC {
         { text = "Who comes in for your bread?", next = "who" },
         { text = "Your back door's unlocked, you know.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "My imp likes the warmth of your ovens.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the mountaineers take with them on patrol, Honni?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What bread keeps best out in the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Honni.", next = "END" },
       },
     },
@@ -345,6 +420,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Silver Stream's full o' kobolds, an' the troggs have Stonesplinter Valley an' half the hills around it. Clear either one, an' ye'll have a dozen miners buyin' ye ale." } },
+      choices = {
+        { text = "I'll clear them so the miners can go home.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll clear them, and keep whatever ore I find.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Mo'grosh, up in the north-east, for the ogres there would sooner eat ye than look at ye. Everywhere else it's bears an' boars an' the odd spider, an' ye'll handle those wi' a steady rifle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} looks like it could handle a bear, though I'd no' send it intae Mo'grosh either." },
+      },
+      choices = {
+        { text = "I'll stay clear of Mo'grosh until I'm ready.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ogres or not, I'll hunt where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "So does a crowbar, an' I'll no' sell ye one if that's what ye're after. Picks are for the hills, an' if I hear o' one goin' through a strongbox in Thelsamar, I'll know where it was bought." },
@@ -370,6 +466,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Karm Ironquill, minin' supplies. If ye're goin' intae the hills tae dig, ye'll want a good pick an' a better reason, for it's no' safe out there these days." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; the mines need clearin' more than diggin' these days." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know the hills, then, an' ye'll want tae know which ones tae stay out o'." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -382,6 +480,8 @@ P:NPC {
         { text = "What brings you to Thelsamar?", next = "why" },
         { text = "A good pick opens more than rock, I find.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you stock anything for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Which mines need clearing most, Karm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Which hills should a hunter stay out of, Karm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Karm.", next = "END" },
       },
     },

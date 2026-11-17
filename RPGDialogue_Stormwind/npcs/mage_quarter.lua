@@ -40,6 +40,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Respect, not fear, and know when to close the distance before the spell is finished. The orc warlocks of the Second War were stopped by soldiers who learned to charge through the fire instead of fleeing it." } },
+      choices = {
+        { text = "I'll respect magic, and stand with those who wield it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic is just one more thing to cut down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A great deal, and very little of it safe. The ley lines run under Elwynn and Duskwood both, and the beasts that live on them can grow strange, which is why the Sanctum keeps a close eye on reports from the woods." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} seems untouched by any of it, which is good. Keep it well away from the Sanctum's reagents, though, because it may not stay that way." },
+      },
+      choices = {
+        { text = "I'll report anything strange in the woods to the Sanctum.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What happens in the wild is no business of mages.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Maginor Dumas, Master Mage of the Sanctum. My advice to you is this: as you travel the world, be wary of magic, for it will burn the untrained, and most of the world is untrained." },
@@ -55,6 +76,8 @@ P:NPC {
           text = "One of the Quarter's own apprentices, grown up and come back through the front door. Your old masters still mention Dalaran at every supper, I'm afraid; some habits outlive cities." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in the Sanctum. You'll find our doors open and our books chained, and I'd ask you to remember the difference between the two." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Sanctum. You'll be wary of magic, I hope, because the untrained always are, and the ones who aren't tend to burn." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've spent your days in the wild, so you'll know the world is full of power, much of it untrained and most of it dangerous." },
       },
       again = {
         { id = "h_again", text = "Is there more? I have students waiting, but they can wait." },
@@ -70,6 +93,8 @@ P:NPC {
         { text = "Gnomeregan's mages need a new home, Master Dumas.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "Does the Sanctum know what goes on under the Lamb?", next = "lamb", when = { class = "WARLOCK" } },
         { text = "Why chain the books, Master Dumas?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Should a warrior fear magic, Master Dumas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is there magic in the wild, Master Dumas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },
@@ -217,6 +242,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Sentinels, who have guarded our forests for ten thousand years, and they move with a patience your soldiers would find maddening. They wait in the trees for hours, and then a battle is over in a breath." } },
+      choices = {
+        { text = "Patience is a weapon too. I'll learn it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting is wasted time. Strike first and strike hard.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every day, and every night more so, because these human streets have no stars in them. The hunters of my people say the forest is a teacher and the beast a student, and I have come to think the same of magic." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a kind look, though it is restless among all this stone. Take it out into Elwynn often; it will thank you for it." },
+      },
+      choices = {
+        { text = "The wild should be guarded, like the Sentinels guard it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The wild is a resource. It should be used.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Elsharin. I teach the apprentices of the Sanctum their first spells, and I try to teach them patience, which is harder. Humans are always in such a hurry." },
@@ -228,6 +274,8 @@ P:NPC {
           text = "You walk very quietly, and I notice it because my apprentices walk like a herd of goats. Do you need something from the Sanctum?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I can feel the fel on you, faint as old smoke, and I won't pretend it doesn't trouble me. Even so, I'd rather talk to you than about you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind always arrives in such a rush, with your armour clanking and your hand on your sword, as if the room might attack." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the hunters walk beside the Sentinels and the night sabers walk beside them, so I feel a little less far from home." },
       },
       again = {
         { id = "h_again", text = "Yes? There is no hurry." },
@@ -242,6 +290,8 @@ P:NPC {
         { text = "Do you teach gnomes differently?", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "What do you think of the other teachers here?", next = "others" },
         { text = "Do your apprentices ever try to sneak out?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the kaldorei have warriors as well, Elsharin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you miss the forests of Teldrassil, Elsharin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my kind of magic frighten you, Elsharin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -369,6 +419,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Twice, during the war, and both times they came out the other side sick as a dog and ready to fight. I'll grant you this: your sort don't panic when the world folds, because you're used to things hitting you." } },
+      choices = {
+        { text = "We go where we're needed, however we get there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll walk, thank you. Portals are for mages.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It confuses them terribly, because they smell one place and then suddenly another, without any of the road between. I've seen a hound come through a portal from Theramore and sit down and refuse to move for an hour." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would hate it, I'm sure. Walk it, or fly it, and spare it the experience." },
+      },
+      choices = {
+        { text = "I'll spare my pet the discomfort and take the road.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My pet will get used to it. It has to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Larimaine Purdue. I teach the conjuring of portals, which is to say I teach a select few mages how to fold the world in half and step across the crease. I don't believe you're one of them." },
@@ -378,6 +449,8 @@ P:NPC {
           text = "A rogue, and so not a portal mage, whatever you may hope. I'll answer you briefly, if you'll keep your fingers off the focusing stones." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in a portal mage's tower. I'll be civil, but you'll forgive me if I watch what you do with your hands." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You don't need a portal; you need a road and a pair of good boots, and I suspect you already have both." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I suppose you'd like to know whether your beast can come through a portal. It can, but it won't like it." },
       },
       again = {
         { id = "h_again", text = "Something further? Concisely, please." },
@@ -387,6 +460,8 @@ P:NPC {
         { text = "How does a portal work?", next = "how" },
         { text = "Why so sure I couldn't learn it?", next = "acuity" },
         { text = "Could a thief ever make use of your portals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have you ever sent warriors through a portal, Larimaine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does a portal do to an animal, Larimaine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Surely your portals and my summonings aren't so different?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
@@ -465,6 +540,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Nothing at all, and that's rather the point. My colleagues prefer their guests quiet and their soldiers absent, and I prefer that nobody causes a scene I'll have to tidy up." } },
+      choices = {
+        { text = "I'll keep the peace while I'm here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I find something rotten down here, I'll make a scene.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Sulphur, old blood and a little fear, I'd imagine; the cellar's work leaves traces. A beast's nose is the one thing my wards can't silence, which is why I don't care for them at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash, if you please. The last animal that came down here wandered into a circle and came out rather less of an animal." },
+      },
+      choices = {
+        { text = "If something's wrong down here, I'll find out.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your business is your own. I'll leave it alone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Zardeth, of the Black Claw. I attend to the cellar's more delicate affairs, so that my colleagues may attend to their studies undisturbed. You'd be surprised how often studies are disturbed." },
@@ -480,6 +576,8 @@ P:NPC {
           text = "A rogue, and one who found the stairs. Shaw's people come down here now and again to count us, and they always leave having counted wrong." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage from upstairs, slumming in the cellar. The Sanctum sends someone down to disapprove of us every few months, and I've grown rather fond of the visits." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the cellar. How unexpected. Do keep your hands away from the circles; they're more delicate than they look, and so, I suspect, are you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast is sniffing the air, I notice. It smells what I'd rather it didn't." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all evening." },
@@ -493,6 +591,8 @@ P:NPC {
         { text = "I'm one of the cellar's own. What do you need?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Does SI:7 watch the Lamb's cellar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why does Master Dumas tolerate you down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What would the Black Claw want with a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does my pet smell down here, Zardeth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -614,6 +714,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because the things beyond this world are drawn to steel that has tasted blood, and they like to whisper to it. Most warriors are deaf to it, which makes them better company than you'd think." } },
+      choices = {
+        { text = "Nothing whispers to my blade. My will is my own.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If a blade sings of power, I'd listen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, though they would sooner die than say so. A demon will obey you to the end of the world, but it will never fetch your slippers out of affection." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching me very carefully, and it is right to. Animals always know which of us has the most to hide." },
+      },
+      choices = {
+        { text = "Affection is stronger than any binding.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Obedience is all that matters, in the end.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ursula Deline. I teach discipline to those who would command what lies beyond the world. The darkness doesn't embrace everyone, so if it doesn't embrace you, I'd ask you to leave before it notices." },
@@ -625,6 +746,8 @@ P:NPC {
           text = "A rogue on my stairs, which means Shaw is curious again or you're lost. Either way, keep to the lamplight and don't touch the circles." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, come down from the Sanctum to see how the other half studies. Look all you like, though you'll find our discipline is stricter than yours." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among warlocks. You may stay, but if your sword begins to sing, I'd advise you to put it down and leave quickly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You bind beasts, and we bind demons. The difference, they tell me, is that yours love you, and mine merely obey." },
       },
       again = {
         { id = "h_again", text = "More? Be brief." },
@@ -639,6 +762,8 @@ P:NPC {
         { text = "What do you think of Gakin?", next = "gakin" },
         { text = "Why would SI:7 care what you teach?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Stricter than the Sanctum's? How so?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would my sword sing down here, Ursula?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do warlocks envy a hunter's bond, Ursula?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -746,6 +871,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By being a great deal of nothing in exactly the right place, which I think is very elegant. I've always said a good warrior and a good voidwalker have a lot in common, except the warrior can be reasoned with, mostly." } },
+      choices = {
+        { text = "Give me a living shield over a demon any day.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A shield that never tires sounds useful to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I tried, once, with my cousin's dog, and it learned to sit very still and stare at me in a disquieting way. I don't think it was the grimoire, honestly; I think it was just a very clever dog." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a much better listener than any imp I've known, I'll tell you that! Imps are dreadful listeners, and they bite." },
+      },
+      choices = {
+        { text = "Beasts deserve better than demon tricks.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it works on an imp, it might work on my pet.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Spackle Thornberry, purveyor of fine grimoires! Each one teaches a demon a new trick, which I'm sorry to say is only of any use to warlocks, but I'll happily talk about them to anyone." },
@@ -757,6 +903,8 @@ P:NPC {
           text = "Oh, a rogue! I had a rogue customer once who wanted a grimoire to teach his lockpicks to talk, and I had to tell him, very sadly, that no such book exists." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Don't look so stern; my grimoires are perfectly respectable by the standards of this cellar, and they're very well bound." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, I'm afraid none of my grimoires will do anything for you, unless you'd like to read about how a voidwalker blocks a sword. It's fascinating, really." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I sell grimoires for demons, not beasts, but I've always thought the principles were rather similar, haven't you?" },
       },
       again = {
         { id = "h_again", text = "What else? I love a good chat between customers." },
@@ -771,6 +919,8 @@ P:NPC {
         { text = "What do the other trainers make of you?", next = "others" },
         { text = "Do you get many thieves down here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Sanctum know what you sell down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How does a voidwalker block a sword, Spackle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a beast learn tricks from a grimoire, Spackle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Spackle.", next = "END" },
       },
     },

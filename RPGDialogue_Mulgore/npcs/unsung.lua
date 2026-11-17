@@ -29,13 +29,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because one day a beast will charge you after your companion falls, and on that day you'll need to plant your feet and hold. The battleboars of Narache charge straight at anything that moves, and learning to stand against them is the first lesson every young one learns, warrior or hunter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} stands well, I'll give it that. Perhaps it could teach my young braves a thing or two about patience." },
+      },
+      choices = {
+        { text = "I'll learn to stand firm, as the braves do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll stay back and let my beast hold the line.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Harutt Thunderhorn, and I teach the young braves of Narache to stand firm. A tauren is strong from birth, but strength without patience only breaks things." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Your arms are thicker than when you came to me, young one, and your stance is better. Are you ready to learn more?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems on your belt, young one, and that is a heavy load for a brave. Carry it as patiently as you would carry a spear." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter comes to the warrior's fire. Sit, and let me tell you why a hunter should stand as firm as any brave." },
       },
       choices = {
+        { text = "Why should a hunter learn to stand firm, Harutt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Must a shaman be as strong as a warrior, Harutt?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does patience have to do with fighting?", next = "patience" },
@@ -103,6 +117,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior should, because the earth holds his feet and the air fills his lungs when he charges. The young braves who train with Harutt come to my fire before their first fight, and those who listen for the earth's rumble hear the quilboar coming sooner." } },
+      choices = {
+        { text = "I'll thank the earth before I fight, Meela.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My strength is my own, Meela, not the earth's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Thunder before it rolls and the earth before it shakes, and every shift of the wind that carries a scent. The beasts of Mulgore live closer to the elements than any shaman, so watch them closely, and they'll teach you as much as I ever could." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} lifts its head when the wind turns. That is the air speaking, {class}, and your companion is listening." },
+      },
+      choices = {
+        { text = "I'll learn to listen as my beast does.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Beasts hear scent and noise, nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarlock = {
       big = true,
       lines = {
@@ -129,6 +164,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Meela Dawnstrider, and I teach the young shaman of Narache to hear the earth, fire, water and air. The elements are not tools, and the first lesson is learning to listen before you ask them for anything." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "You have been listening to the spirits, I can tell, because you walk more softly than you did. Are you ready for a new lesson?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The earth holds you up, though you may never have thanked it for that." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast hears the elements better than you do, so watch its ears when the wind changes." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
@@ -137,6 +174,8 @@ P:NPC {
         { text = "I'm an orc shaman. Is our way different?", next = "orc", when = { race = "Orc" } },
         { text = "Your elements don't fear my demon, do they?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is the arcane so different from the elements?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Should a warrior thank the elements, Meela?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What does my companion hear, Meela?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Meela.", next = "END" },
       },
       again = {
@@ -189,13 +228,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, because a druid in bear form stands in front of the quilboar the same as any warrior. The difference is that a bear knows when the fight is over, and I'd wish that wisdom on every warrior who walks through Narache." } },
+      choices = {
+        { text = "I'll know when the fight is over, Gart.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The fight's over when the enemy's dead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Both begin with listening to the beasts, though the druid walks further down that road than most hunters wish to. The Earth Mother gave the beasts their forms and gave us the means to understand them, so whatever path you walk, walk it with care." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks content. I've always believed a content beast is the mark of a good hunter." },
+      },
+      choices = {
+        { text = "I'll walk with care, as the Earth Mother wishes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Earth Mother made the beasts for us to use.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Gart Mistrunner, and I teach the young druids of Narache. We learn to take the shapes of the beasts and to heal the land, as the Earth Mother wishes." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Each time you come back, I can see more of the wild in you. What will you learn this time?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The creatures of Mulgore grow calmer when one of your kind walks among them, and I wonder if you've noticed." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You remind me of the young druids when they first take the bear's form, all strength and no stillness." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast who trusts you. That trust is the first step on the druid's path as well as yours." },
       },
       choices = {
+        { text = "What does a druid know of fighting, Gart?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is the hunter's path like the druid's, Gart?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who taught the tauren to be druids?", next = "history" },
         { text = "What does a druid do for Mulgore?", next = "land" },
@@ -266,6 +330,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because a hunter who knows where the warriors will stand knows where to shoot, and where not to. Since Cairne joined the Horde, our braves fight beside orc hunters and troll hunters both, and the ones who learn each other's ways come home together." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will need to know the shield-wall too. Bring it to the training ground, and we'll see if it can hold its place." },
+      },
+      choices = {
+        { text = "I'll learn to fight beside the warriors.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I fight my own way. The warriors can adapt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -292,6 +368,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Krang Stonehoof, and I train the warriors of Bloodhoof Village. Since Cairne joined the Horde, our braves fight beside orcs and trolls, and they must learn to fight as well as any of them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? The orcs taught us that a shaman can fight as hard as any warrior, and I'll expect you to prove it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The orcs and trolls fight beside us now, and so must our hunters and warriors, so come and learn how a shield-wall works." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -299,6 +376,7 @@ P:NPC {
         { text = "What threats does Mulgore face?", next = "threats" },
         { text = "What do you think of the Horde?", next = "horde" },
         { text = "Your warriors fight in the open. I prefer the flanks.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why should a hunter learn the shield-wall, Krang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "A warlock fights for the Horde too, Krang.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
@@ -355,6 +433,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A great axe the smiths on the bluffs made from the iron of a broken goblin drill, and it's so heavy most orcs can barely lift it. The tauren braves swing it like a stick, though, and I'm told it splits a centaur's shield and the centaur behind it." } },
+      choices = {
+        { text = "I'll buy a weapon I can wield with skill.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The heavier the better. Skill is overrated.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A light axe or a short spear, something you can swing one-handed when the arrows are no use. The prairie wolves of Mulgore come in close and fast, and a hunter with nothing but a bow learns that lesson only once." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks fierce enough to keep most things off you, but even the fiercest beast tires. Buy the axe, friend." },
+      },
+      choices = {
+        { text = "I'll carry a blade, and use it well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My beast is my blade. I need no other.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -382,6 +481,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Mahnott Roughwound, and I sell weapons to the braves of Bloodhoof. Most of what I have is heavy, because a tauren with a little dagger looks like a kodo wearing a hat." },
         { id = "h_small", when = { race = { "Troll", "Scourge" } }, text = "I am Mahnott Roughwound, and I sell weapons, though most of mine are made for tauren hands. Look anyway, because I keep a few smaller ones for our friends from the Horde." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, eh? Then you'll want a good mace or a heavy axe, and I have both, because a totem alone won't stop a charging quilboar." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! At last, somebody who'll appreciate a proper weapon, heavy enough to fell a kodo in one swing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want something for close work, then, and I've axes light enough for a hunter's arm." },
       },
       choices = {
         { text = "What weapon suits a shaman of the plains, Mahnott?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -390,6 +491,8 @@ P:NPC {
         { text = "What weapon would you choose for me?", next = "advice" },
         { text = "So you don't sell daggers, then, Mahnott?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'd want a staff, Mahnott, and a light one.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What's the heaviest weapon you sell, Mahnott?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What should a hunter carry for close work, Mahnott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, or are you ready to buy something heavy?" } },
@@ -444,6 +547,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every one of them, and some take a loaf in their packs for the road as well. A brave who fights on an empty belly fights badly, and the centaur aren't kind to those who falter, so I bake enough for every one of them and a few besides." } },
+      choices = {
+        { text = "Thank you for feeding the braves, Jhawna.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bread is soft. Warriors should eat what they kill.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Plainstrider pies and kodo stew bread, mostly, though I once made a wolf-and-wheat pie that nobody would eat twice. The hunters of Bloodhoof bring me what's left of their hunts, and I make sure nothing goes to waste, as the Earth Mother would wish." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And I've a crust or two for your {pet}, if it likes bread. Most beasts do, though they pretend they don't." },
+      },
+      choices = {
+        { text = "Nothing wasted. That's the right way to hunt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Leftovers are for scavengers. I take only the best cuts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -470,6 +594,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Jhawna Oatwind, and I bake for Bloodhoof Village. The wheat comes from the farms around us, and if you have ever wondered why Mulgore smells so sweet in the morning, it's my ovens." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The old ones used to sing over the first wheat of the season, and I always thought the bread tasted better for it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You look like you've been living on jerky and pride, and that's no way for anyone to fight." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have plainstrider meat to trade, I hope, because I'd love to try a new pie." },
       },
       choices = {
         { text = "Do the old songs over the wheat still matter, Jhawna?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -479,6 +605,8 @@ P:NPC {
         { text = "I can cook too.", next = "cook", when = { profession = "Cooking" } },
         { text = "Your bread cart could feed a whole thieves' camp, Jhawna.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A conjured loaf is lighter to carry than yours.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the braves eat your bread before battle, Jhawna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do you bake with a hunter's game, Jhawna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Jhawna.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, little one? The ovens are warm, and so am I." } },

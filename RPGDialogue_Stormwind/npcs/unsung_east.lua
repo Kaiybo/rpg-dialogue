@@ -43,6 +43,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Good mail, first and foremost, fitted at the shoulders, and a sturdy helm before you spend a copper on gauntlets. I've seen young warriors spend their wages on a fancy breastplate and walk around Westfall with their heads bare." } },
+      choices = {
+        { text = "I'll buy sensibly and protect what matters first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll buy whatever looks the most impressive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "When you're strong enough not to notice the weight, and not a day before, because mail on a young hunter just slows the draw. Theresa says I'll talk you out of a sale, and she's right, but I'd rather sell to someone who comes back alive." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its own armour, doesn't it, in a manner of speaking? Thick fur and good teeth, and it never needs refitting." },
+      },
+      choices = {
+        { text = "I'll wait until I'm ready, as you say.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I want mail now. I'll grow into it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Agustus Moulaine. Theresa sells the robes for the clergy, and I sell the plate and mail for those who stand in front of them. Between us, we dress the whole Cathedral." },
@@ -52,6 +73,7 @@ P:NPC {
           text = "A rogue, so you'll not want my plate, because it clanks louder than a cathedral bell. Theresa might have something quieter for you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in the Cathedral district. You're within the law, and I'll serve you within the law, but the paladins next door will look at you sideways." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, at the plate counter! You'll be wanting mail when you're seasoned, I suppose, and I'll have something waiting." },
       },
       again = {
         { id = "h_again", text = "Ask, friend, while the Cathedral bells are quiet and I can hear you." },
@@ -62,6 +84,8 @@ P:NPC {
         { text = "Why call it Righteous Plates?", next = "name" },
         { text = "Who buys your armour?", next = "buyers" },
         { text = "Do rogues ever buy from you, Agustus?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Which armour should a warrior buy first, Agustus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "When should a hunter start wearing mail, Agustus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the paladins give your customers trouble?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Agustus.", next = "END" },
       },
@@ -132,6 +156,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "All the time, and I always sell the priest a robe and Agustus sells the warrior a breastplate, and then they go off together to Westfall. Mind you, it's usually the priest who comes back to buy a new robe first." } },
+      choices = {
+        { text = "Then I'll make sure my priest comes back in one piece.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The priest can look after themselves. That's their job.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A good wool cloak for the cold nights, and that's about it, because Agustus has the mail and Lisbeth has the hunting greens. Still, I like to see a hunter come in, because you always bring the smell of the woods with you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} shedding on my robes? Oh, never mind, the priests won't notice, and if they do, I'll tell them it's a blessing." },
+      },
+      choices = {
+        { text = "A good cloak is all I need, honestly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it's not armour, I don't want it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Theresa Moulaine. I sell robes for the clergy and the scholars, and Agustus sells the plate, so between us we dress the faithful from the altar to the front line." },
@@ -140,6 +185,8 @@ P:NPC {
           text = "A mage! I sell more robes to the Sanctum than to the Cathedral these days, because priests mend theirs and mages simply burn through them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. You'll want something dark, I suppose, and I've a few in black, though I keep them at the back so the clergy don't fret." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the robe rack! Are you buying for a priest, perhaps? Agustus has the plate on the other side, love." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I'm afraid robes aren't much use in a bramble patch, but I've a cloak or two that might suit." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you'd like?" },
@@ -151,6 +198,8 @@ P:NPC {
         { text = "How do you know Agustus?", next = "agustus" },
         { text = "Who do you see go out to the front?", next = "front", when = { class = "PRIEST" } },
         { text = "Do priests and mages wear the same robes?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors and priests travel together often, Theresa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you sell anything for hunters, Theresa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the clergy fret about black robes?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Light keep you, Theresa.", next = "END" },
       },
@@ -223,6 +272,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Their horses, aye, an' some o' the dwarves keep rams, but a warrior's not a hunter, an' a beast knows the difference. A hunter's pet will follow them intae fire; a warrior's horse will only follow them intae a stable." } },
+      choices = {
+        { text = "A good warrior earns a beast's trust the same as anyone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Horses are for riding. Leave the bonding to hunters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jenova Stoneshield, stable master. I keep the hunters' beasts when they've too many to take on the road, and I treat every one as if it were me own." },
@@ -232,6 +290,7 @@ P:NPC {
           text = "A rogue, aye, I can tell by how quiet ye came in. The beasts heard ye anyway, mind, for there's no sneakin' past a stable full o' noses." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Hold there, the beasts are restless, an' I'd wager it's whatever's followin' at yer heels. Keep it back from the pens, if ye please." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the stables! Ye've no beast tae leave wi' me, so I'll guess ye just like the smell o' hay. Most warriors do, deep down." },
       },
       again = {
         { id = "h_again", text = "What else? The ram in the third stall wants his supper." },
@@ -243,6 +302,7 @@ P:NPC {
         { text = "Why keep stables in Stormwind?", next = "why" },
         { text = "Any advice for my pet?", next = "advice", when = { class = "HUNTER" } },
         { text = "Can a rogue ever sneak past a beast?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors ever keep animals, Jenova?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your beasts fear my demons, Jenova?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Jenova.", next = "END" },
       },
@@ -317,6 +377,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Of course it would, as long as you remember which button is which! The real secret is that a warrior and a gadget both work best when someone smarter is planning the fight, which is why Lilliam does all the planning." } },
+      choices = {
+        { text = "I'll leave the clever plans to Lilliam, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll plan my own fights, thank you very much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Mostly, and the ones that don't work make a very loud noise, which frightens the beast away, which is also a kind of working. The dwarves use rifles, and the elves use bows, but a gnome uses everything at once!" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, please keep {pet} away from my stock, because some of it is armed and none of it is labelled very well." },
+      },
+      choices = {
+        { text = "A trap should be clean and quick. No needless suffering.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever brings the beast down works for me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Billibub Cogspinner! If you insert tab A into slot B, then of course it goes boom, so let me show you what I have, and then go and ask Lilliam how to put it together so it doesn't." },
@@ -325,6 +406,8 @@ P:NPC {
           text = "A mage! Did you know an arcane focus and a gnomish capacitor are nearly the same thing? Lilliam says they aren't, but she's wrong about that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! You'll be wanting blasting powder for doors, I expect, and I'm not supposed to ask what doors, so I won't." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I have just the thing for you: a gnomish shield attachment that goes boom when you get hit. Oh, it's not finished, but it does go boom!" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have you ever thought about a gnomish trap? They go snap and then boom, which is twice as effective as just snap!" },
       },
       again = {
         { id = "h_again", text = "What else? I've a gyromatic thingamajig that needs looking at." },
@@ -336,6 +419,8 @@ P:NPC {
         { text = "Why sell in Stormwind, not Ironforge?", next = "why" },
         { text = "Is engineering just magic for people without spells?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who usually buys your blasting powder?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would a gnomish gadget really help a warrior, Billibub?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do gnomish traps really work on beasts, Billibub?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Billibub.", next = "END" },
       },
     },

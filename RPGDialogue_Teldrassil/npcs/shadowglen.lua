@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Too many young nightsabers and too many grell, mostly, for the balance here tips quickly when it tips at all. A warrior's blade can set it right, so long as you remember that the cats are part of the glade too, and take only what you must." } },
+      choices = {
+        { text = "Only what I must. I'll keep the balance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they threaten the glade, I'll clear them out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Some of us did. The Highborne, Queen Azshara's court, drew on the Well of Eternity until they called the Burning Legion into the world, and the Well's destruction tore the land apart. That is why you will find few here glad to see a mage, though I will try to be one of them." },
@@ -72,6 +81,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Elune's light on the glade. This is the hour I remember why I asked to keep it." },
         { id = "h_grown", when = { minLevel = 20 },
           text = "You've grown since the glade last saw you. Out there in the world, is the balance kept any better than in here?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in Shadowglen! The glade is lovely, but even lovely places need someone to stand between them and harm." },
       },
       again = {
         { id = "h_again", text = "What else? The light's moving; walk with me a little." },
@@ -86,6 +96,7 @@ P:NPC {
         { text = "Must I cull beasts when my companion is one of them?", next = "hunter_i", when = { class = "HUNTER" } },
         { text = "I hear the kaldorei once ruled through magic.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Shadowglen's creatures never hear me coming.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What threatens Shadowglen, Conservator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Thank you, Conservator.", next = "END" },
       },
     },
@@ -166,6 +177,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It minds noise, I think, and it remembers the war against the Legion even if the young ones don't. Train where you must, warrior, but sheathe your blade when you pass the roots, as a courtesy to an old friend." } },
+      choices = {
+        { text = "I'll sheathe it as I pass. A courtesy costs nothing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A tree can't hear steel. I'll train where I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the nightsabers and thistle boars of the glade are neighbors rather than targets, until the balance tips and the Conservator asks for them to be thinned. Take what he asks and no more, and the glade will keep feeding you all your life." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of something that grew up beneath good roots. Bring it past Aldrassil now and then, for I think the old tree likes the company." },
+      },
+      choices = {
+        { text = "Only what the Conservator asks, and no more.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The forest has plenty. I'll take what I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     rogue_m = {
       lines = {
         { id = "rm_default", text = "Of course you can; you're quiet enough to hear it, which is more than I can say for most of the young warriors. The tree doesn't care what you do in the dark, only whether you listen to it in the daylight." },
@@ -184,6 +216,8 @@ P:NPC {
         { id = "h_hum", when = { metBefore = true }, text = "Aldrassil hums when the wind is right, so put your ear to the bark one day and listen. Tenaron finds it undignified, but Tenaron is wrong." },
         { id = "h_moss", when = { questDone = TODO_QUEST("The Woodland Protector") },
           text = "Fel Moss on the grells. Tarindrella was right to come. If it's in them, I fear it's in the Gnarlpine too." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Lower your voice near the roots, please, because Aldrassil has heard enough clashing steel for one age." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The young ones of Aldrassil learn the bow and the beast together, and I'm glad to see one who has stuck with it." },
       },
       again = {
         { id = "h_again", text = "Ask on. Aldrassil's in no hurry." },
@@ -196,6 +230,8 @@ P:NPC {
         { text = "Teach me what you know.", next = "druid_m", when = { class = "DRUID" } },
         { text = "Even a rogue can feel Aldrassil hum.", next = "rogue_m", when = { class = "ROGUE" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
+        { text = "Does Aldrassil mind warriors training beneath it?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should a young hunter of Shadowglen learn first?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     kin = {
@@ -503,6 +539,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Please don't charge in, because the spiders are thick in that cave and Iverron is already sick from their venom. Find him on the path near the cave and help him get his antidote, and if anything with eight legs comes for you on the way, then you can swing." } },
+      choices = {
+        { text = "I'll find him first and fight only if I must.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better to clear the cave so it never happens again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More every day, and they've started taking the small animals from the edge of the glade, which they never used to do. I keep thinking one of them will take Iverron next, and he will insist on walking that way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} close if you go near the cave, because the webs are strong enough to hold a cat. I've seen it happen and I don't want to see it again." },
+      },
+      choices = {
+        { text = "I'll drive the spiders back from the glade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spiders hunt like anything else. Leave them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     rogue_d = {
       lines = {
         { id = "rd_default", text = "Do you? Then you'll know that spider venom is quick at first and slow afterwards, and that Iverron hasn't got much of the slow part left. Please don't tell me how you learned it; just help me make the antidote." },
@@ -523,6 +580,8 @@ P:NPC {
         { id = "h_saved", when = { questDone = TODO_QUEST("Iverron's Antidote") }, text = "Iverron's on his feet already, and talking about going back into the cave. Some friends you have to keep saving. Thank you for this time." },
         { id = "h_bitten", tags = { "news" }, when = { questActive = TODO_QUEST("A Friend in Need") },
           text = "Bitten by Githyiss? I've warned him about those spiders more times than I can count! All right, then, we can make an antidote." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, good, because my friend Iverron went too near the spider cave, and I'm not much use with a blade." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know spider tracks when you see them, and there are far too many near the cave today." },
       },
       again = {
         { id = "h_again", text = "What else? Sorry, I keep looking toward the cave." },
@@ -534,6 +593,8 @@ P:NPC {
         { text = "Where do I find what the antidote needs?", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
         { text = "I know a thing or two about poisons.", next = "rogue_d", when = { class = "ROGUE" } },
         { text = "I'll help him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Should I go into the Webwood after him, Dirania?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Are the Webwood spiders coming out of their cave?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     iverron = {
@@ -594,6 +655,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Quickly, and with your mouth closed, because the venom is in the bite and the webs are in everything else. I can tell you a great deal about how they hunt from a safe distance, and none of it will help you once you're inside." } },
+      choices = {
+        { text = "I'll learn what you know first, then go in.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go in. The studying can come after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Count them, please, and mind where you step, for the webs feel you before the spiders do. Your quiet will serve you well in there, though venom doesn't care how quiet you are." },
@@ -635,6 +705,7 @@ P:NPC {
           text = "Tenaron is asking for you, at the very top of the tree. He is a patient elf, but I wouldn't test it." },
         { id = "h_shipped", when = { questDone = TODO_QUEST("Webwood Egg") },
           text = "The egg has gone to Darnassus with the venom, and I'll follow when I'm done here, or when it hatches, whichever comes first." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to study the Webwood spiders up close, I suppose, which is the opposite of my method." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm only sitting, after all." },
@@ -648,6 +719,7 @@ P:NPC {
         { text = "My companion could take a spider's measure for you.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "I could slip into the spider cave and count the eggs.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A little fire would clear that cave.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What's the best way to fight the Webwood spiders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },

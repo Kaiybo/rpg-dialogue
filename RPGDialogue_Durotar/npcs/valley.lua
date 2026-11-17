@@ -24,6 +24,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a mottled boar will knock you flat if you stand wrong, and that's the first lesson every warrior needs. Gornek will put you to work, and once the boars stop knocking you over, the scorpids and the Burning Blade in the caves will teach you the rest." } },
+      choices = {
+        { text = "Then I'll start with boars and learn properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Boars are beneath me. Send me to the caves now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Whatever stands still long enough to let you, honestly, though most start with a boar because a boar forgives mistakes. The scorpids are tougher but meaner, and Thotar in Razor Hill will tell you when you're ready to try either." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it's still learning too. You'll learn together, which is how all the good pairs start." },
+      },
+      choices = {
+        { text = "I'll earn a beast's trust when the time comes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the strongest beast I can catch.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -65,6 +86,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, walking into the valley. When I came off the ship there wasn't an orc among us who'd talk to the spirits, and now the Warchief sends your kind to me by the dozen." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, fresh to the Valley. Don't try your tricks on Gornek, because he catches every one, and he'll make you carry water for it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, fresh to the Valley. You'll want Un'Thuwa in Sen'jin village eventually, but every recruit starts with Gornek." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, fresh in the valley! Every one of you thinks you'll lead a warband by the end of the week, and every one of you starts with boars." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, new to the valley. You'll walk alone for now, but the day will come when a beast walks with you, and you'll wonder how you managed without it." },
       },
       choices = {
         { text = "What was it like when the orcs had no shamans?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -74,6 +97,8 @@ P:NPC {
         { text = "I was born in the camps too.", next = "campborn", when = { origin = "orc_camp_born" } },
         { text = "Does the Horde truly have a place for rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the orcs here trust the arcane at all?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why do warriors start with boars, Kaltunk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What should a new hunter tame first, Kaltunk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'm on my way.", next = "END" },
       },
       again = {
@@ -281,6 +306,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Cultists, imps and Yarrog Baneshadow, if I'm right about who leads them, and I usually am. They chant over their fires and call imps in the dark, so go in with your blade ready, and don't let any of them finish a spell." } },
+      choices = {
+        { text = "I'll cut them down for the Horde's honour.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take what they've hoarded and leave the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Where the imps go at night, mostly, because they slip out of the caves and come back with things in their claws. A tracker could follow them up the ridges and tell me if the Burning Blade have another way in, and that would be worth more to me than a dozen dead cultists." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} quiet up on the ridge. Imps squeal at the smell of a beast, and then the whole cave knows you're there." },
+      },
+      choices = {
+        { text = "I'll follow the imps and report back, nothing more.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Why follow them? I'll kill them where they stand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -315,6 +361,8 @@ P:NPC {
           text = "Your time in the valley is done. Go south to Sen'jin and find Master Gadrin, and try not to embarrass us." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Good, because the Burning Blade have sentries in the caves and I need someone who can get past them unseen." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here watching the caves with me? Your magic is a cleaner thing than the Blade's, and I'll be glad of it beside me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Burning Blade in the caves to the north won't fall to watching, so you're exactly what I needed." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, with sharp eyes, I hope. I've watched those caves for days, and I could use someone who notices what I've missed." },
       },
       choices = {
         { text = "Who are the Burning Blade?", next = "blade" },
@@ -322,6 +370,8 @@ P:NPC {
         { text = "The spirits here feel sick near those caves.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "What do you need from inside the Blade's caves?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could the arcane help you fight the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What waits in the Burning Blade caves, Zureetha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What have you missed in the caves, Zureetha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll go north.", next = "END" },
       },
       again = {
@@ -392,6 +442,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bother them? The peons sleep through boar charges, which tells you everything. The beasts leave my workers alone because they're too dull to be worth biting, so the only thing that wakes them is me shouting, and even that's wearing off." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could make itself useful, you know. One good snarl and half my lumber crew would be on their feet." },
+      },
+      choices = {
+        { text = "Treat the peons kindly, Foreman, and they'll work harder.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Set my beast on them, then. That'll teach them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -435,6 +497,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Could you wake up my peons with a spell? A small fire, perhaps, or a cold breeze? I'm only half joking." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I'd rather they were awake than trembling." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? If your beast could wake a sleeping peon, I'd hire it on the spot." },
       },
       choices = {
         { text = "Shouldn't the spirits be called for better things than peons?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -442,6 +505,7 @@ P:NPC {
         { text = "I know a few things about blackjacks, Foreman.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Want me to shout them awake instead?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Would you really want me to frighten your peons?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the beasts here bother your peons, Foreman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the peons fear warlocks more than you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll wake them.", next = "END" },
       },
@@ -493,6 +557,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Scorpid meat, boar ribs and whatever the recruits bring back that isn't too charred to eat. A warrior who fights on an empty belly fights badly, so every one of Gornek's grunts gets a bowl before he goes out, whether he thanks me or not." } },
+      choices = {
+        { text = "Thank you for the meal, Galgar. It matters.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cooks don't win battles. I'll eat what I find.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -534,6 +607,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you know fire better than I do, so don't tell me how to cook with it, and I won't tell you how to call it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You can conjure your own bread, I hear, so you won't be wanting my cooking. Your loss, because my scorpid tail is famous." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, keep that imp away from my pot. The last one spat in my stew, and the grunts haven't forgiven me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll eat twice what a hunter does and complain half as much, which makes you my favourite kind of customer." },
       },
       choices = {
         { text = "Do you ever thank the fire spirits for your cookfire?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -542,6 +616,7 @@ P:NPC {
         { text = "Have you got anything my pet would eat?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Do tauren even eat scorpid?", next = "tauren", when = { race = "Tauren" } },
         { text = "Do you mind that mages can conjure their own food?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What do you feed the recruits, Galgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Would you still feed a warlock, Galgar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Thanks, Galgar.", next = "END" },
       },
@@ -598,6 +673,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Arrows, a spare bowstring and something sharp for when the boar gets past your beast, which it will. The recruits drop their weapons in the scrub all day long, but hunters lose arrows faster than anyone, so buy more than you think you'll need." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing my crates. There's nothing to eat in there, I promise, unless it likes leather straps." },
+      },
+      choices = {
+        { text = "I'll gather my arrows back. Waste helps no one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Arrows are cheap. I'll shoot and move on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -639,12 +726,14 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you'll want a mace, not one of those training axes the recruits keep losing. I'll sell you one, but you'll pay full price like everyone else." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in my shop. I'll not sell you an axe, because you'll drop it, so how about a staff?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, your imp's eyeing my blades. Tell it I'll sell to you, not to it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your arrows in the quiver and your beast out of my stock, and we'll get along fine." },
       },
       choices = {
         { text = "Do shamans bring you many weapons to mend?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What should a warrior carry out of this valley?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do mages really drop their weapons so often?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What does a hunter need from you, Kzan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you sell to warlocks as freely as anyone?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll find them.", next = "END" },
       },

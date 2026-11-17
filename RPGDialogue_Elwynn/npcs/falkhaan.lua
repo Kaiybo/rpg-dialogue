@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because they fight everything between Northshire and Goldshire, the wolves, the kobolds and each other, and nobody told them a wolf can be walked around. Rest well, and pick your fights tomorrow." } },
+      choices = {
+        { text = "I'll rest tonight and choose my fights more carefully.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it's in my way, I'll fight it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More every season, and I can tell them by their boots, since a hunter walks the edges and never the road. The wolves have learned to keep off the road too, so you'll find them in the trees." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a creature that's walked far today. Get it fed before yourself, and you'll both sleep better." },
+      },
+      choices = {
+        { text = "I'll leave the road wolves be unless they come near.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take every wolf in those trees, near or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a body that sleeps in hedges wakes up stiff and slow, and slow is the last thing your trade can afford. Rest properly at the Lion's Pride and you'll be sharper for it, and Farley won't ask what you do for a living." } },
@@ -70,6 +91,8 @@ P:NPC {
           text = "You look like someone who sleeps in hedges and calls it an inn. The Lion's Pride has beds, you know, and real ones." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you're the sort who forgets to sleep, I can see it in your eyes. Reading by candlelight again, were you?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road. You've had a hard day of it, I'd wager; the Lion's Pride has a bed with your name on it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast in tow and mud to the knees. Farley lets animals sleep by the fire, so long as they don't eat the cat." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The road's quiet just now, and I've time." },
@@ -87,6 +110,8 @@ P:NPC {
         { text = "My people sleep beneath the stars, not under roofs.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Why should a rogue pay for a bed in town?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is a little lost sleep so bad for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do warriors always look so tired on this road?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you see many hunters on this road?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },

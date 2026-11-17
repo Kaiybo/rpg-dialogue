@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They hire anyone who can swing a weapon and keep their mouth shut, and most warriors can do one of those. Stoutmantle would pay you better, but the Brotherhood pays sooner, and some folk prefer that." } },
+      choices = {
+        { text = "I'll fight for Stoutmantle. The Defias get nothing from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sooner pay sounds better. I'll hear their offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wiley.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the gnolls know them better than the guard does, and the Blackrock know them better than the gnolls. A hunter who can track a gnoll back to its camp could learn a great deal, and I'd pay to hear it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its eye on my drink, {class}, and it can have the rest, because I don't like the look of it either." },
+      },
+      choices = {
+        { text = "I'll take what I learn to the Marshal, not to you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the price is right, I'll tell you everything.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wiley.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Pillagers, they call them, with more fire than sense and a habit of singeing their own boots. I could tell you which of them matter, but nothing I know comes free." } },
       choices = {
@@ -69,6 +90,8 @@ P:NPC {
           text = "You again. I don't sell to people I don't like, and you've been working hard to make the list." },
         { id = "h_canal", when = { origin = "human_canal_pickpocket" },
           text = "Canal rat, aren't you. I can tell by the way you came in, with your back to the wall and one eye on the purses, and I'll thank you to keep your hands where I can see them." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You walked in like you were looking for something to hit, so I'll save you the trouble: it's not me." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours is in my light as well, and it's bigger than you, so I'll let it stay." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice down, the floor's thin." },
@@ -84,6 +107,8 @@ P:NPC {
         { text = "The Defias drove my family off our farm.", next = "farm", when = { origin = "human_westfall_farmhand" } },
         { text = "You're not the only one who sits quietly and watches.", next = "nightelf", when = { race = "NightElf" } },
         { text = "The Defias must have a spellcaster or two in their pay.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the Defias hire warriors, Wiley?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What do you know about the hills of Redridge, Wiley?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "You're in my light, Wiley.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Enjoy your corner.", next = "END" },
       },

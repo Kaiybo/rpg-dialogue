@@ -33,6 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone who'll hold the ground while the rest of us do the burning. Skeletons and ghouls come in numbers out of Raven Hill, and they don't tire, so I need a fighter who doesn't either." } },
+      choices = {
+        { text = "I'll hold the ground. Nothing gets past me to your people.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight, but I won't die covering anyone's retreat.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jonathan.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Living things, yes, and the worgs leave tracks a child could follow, which worries me more than if they hid them. The dead are harder, because they wander, but they all wander back toward Raven Hill in the end." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} on the near side of the lamps after dark. The things out there have learned to take a beast first and its master after." },
+      },
+      choices = {
+        { text = "I'll track them to their lairs and finish them there.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll track them, but I'll choose my own fights.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jonathan.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "So can the things we hunt, which is why I watch hands before faces. If you mean to come out with my household, you'll stay where I can see you, because a shadow I can't account for gets an arrow." } },
       choices = {
@@ -69,6 +90,8 @@ P:NPC {
           text = "A priest, so you know what we fight for. Glory under the Light: say it with me, or tell me why you won't." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin, and the Light walks with you, so walk it out past the lamps where it's needed. The Watch has candles enough." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good. What walks past the lamps doesn't care for speeches, only for steel, and you look as though you carry plenty." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know a track when you see one, then, and that's worth more out here than a dozen lanterns." },
       },
       again = {
         { id = "h_again", text = "Well? I haven't all night, and nobody in this house has." },
@@ -85,6 +108,8 @@ P:NPC {
         { text = "My arts could serve your hunt.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I can move past the lamps unseen, Jonathan.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fire works well on the dead, I hear.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does your household need from a warrior, Jonathan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can anything living be tracked in this wood, Jonathan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -243,6 +268,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the worgs circle a post three times before they rush it, and the spiders hang their webs just above head height. A hunter with sharp eyes could have saved me a few good men." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches the trees the way I used to. Trust it, because a beast's nose is better than any watchman's eyes out here." },
+      },
+      choices = {
+        { text = "I'll put those lessons to use and keep the roads safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll put them to use for myself first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Calor.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Then you've the sense to stay alive, which is more than half the Watch I served with. Just know the dead at Raven Hill don't turn their backs, so you'll need another trick." } },
       choices = {
@@ -281,6 +318,7 @@ P:NPC {
           text = "An elf, with good eyes, I'd guess, so use them in the trees. The worgen are grey on grey, and they'll be on you before you've drawn breath." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Out here the Light needs hands as much as it needs voices, so have you got hands?" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, then, and not a soldier. That's fine; in this wood the one who sees the worg first lives longer than the one who swings hardest." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, because I'm due back out." },
@@ -296,6 +334,7 @@ P:NPC {
         { text = "I've stood a watch or two myself.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I've swung at plenty, Calor, usually from behind.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I've never needed a blade, Calor. Spells serve me fine.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What did you learn about the wood from your Watch post, Calor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The dead at Raven Hill could serve me instead.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Later, Calor.", next = "END" },
       },
@@ -441,6 +480,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oh, plenty, and I've read about every one of them twice. The Ebonlockes held this town against trolls long before the Watch existed, and most of them died with a sword in their hand, which the records consider very proper." } },
+      choices = {
+        { text = "Then I'll try to earn a line in your histories.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Histories are for the dead. I'd rather stay out of them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Sirra.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Deer and boar, mostly, and Elwynn-sized wolves, according to the old game rolls. Then the wood went dark, the wolves grew larger and meaner, and the deer simply stopped appearing in anyone's accounts." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my bookshelf with the look of something hungry, {class}. Please assure me it doesn't eat vellum." },
+      },
+      choices = {
+        { text = "I'll help the wood recover what it lost.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The wood's changed. I'll hunt what's in it now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sirra.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Easy to take and impossible to find again, since I'm the only one who knows where anything is. If you steal a page from this pile, you'll have stolen the one thing in Darkshire nobody else wants." } },
       choices = {
@@ -474,6 +534,8 @@ P:NPC {
           text = "Shen'dorei! Do you know, I've no books on your people at all, not one? I'd be terribly grateful for a word or two of your tongue, if you'd allow it." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Do they still teach the old liturgies at the abbey? Some of the older stones at Raven Hill quote them, and nobody but me reads them now." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've got the shoulders for it. Do try not to knock anything over; the shelf behind you holds three centuries of Darkshire." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do keep that beast away from my papers, I beg you; the last one ate a land deed from the reign of King Barathen." },
       },
       again = {
         { id = "h_again", text = "Yes? Another question? Splendid, since questions are the only thing in this town that keep." },
@@ -490,6 +552,8 @@ P:NPC {
         { text = "Ironforge's explorers would kill for your library.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll give you a word of my people's tongue.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Your papers would be easy to slip a page from.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Has Darkshire ever had warriors of note, Sirra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What did Duskwood's wildlife look like before the darkness came?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your histories must mention necromancers. Morbent Fel, for one.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
@@ -669,6 +733,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I need a guard when I breathe in this forest, friend. The worgs think my lens is a shiny thing worth stealing, and I can't tell a star's position and a wolf's at the same time." } },
+      choices = {
+        { text = "I'll stand watch while you work. Science deserves a guard.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stargazing in Duskwood is your problem, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Viktori.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The worgs do, I'm almost certain of it, because they howl loudest on the nights the clouds part. I've half a theory that the dark changed the animals here, and I'd dearly love a hunter's notes to prove it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking up when I do, and I find that wonderful. Perhaps beasts remember the sky better than the townsfolk." },
+      },
+      choices = {
+        { text = "I'll keep notes for you. Your theory deserves an answer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt beasts, Viktori. I don't study them for anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Viktori.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Valuable, delicate and quite useless to anyone who doesn't know the stars, so I'd thank you to keep your hands in your pockets. If you're curious, I'll show you how it works, and that's more than a thief ever gets." } },
       choices = {
@@ -700,6 +785,8 @@ P:NPC {
           text = "A priest, and I expect you'll tell me the dark is a test of faith. Maybe it is, but tests have instruments, and I'm building one." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You lived above the clouds, truly? What did the stars look like with nothing in the way... no, don't tell me, yes, tell me!" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be no use to my telescope, but you might keep the worgs off it while I use it, and I'd count that a fine collaboration." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I'd wager you can see further in the dark than most. Tell me, do the beasts here still notice the stars?" },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, if there's cloud coming." },
@@ -715,6 +802,8 @@ P:NPC {
         { text = "I can turn you a true tube.", next = "engineer", when = { profession = "Engineering" } },
         { text = "My people have watched these stars for ages.", next = "nightelf", when = { race = "NightElf" } },
         { text = "That device of yours looks valuable.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you need a guard when you watch the stars, Viktori?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the beasts of Duskwood still follow the moon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some of what's up there isn't stars at all.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the fog.", next = "END" },
       },
@@ -851,6 +940,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Something hot, something heavy, and something you can still taste the next morning, so stew, friend! I've fed the Night Watch for years, and the ones who eat well come back more often than the ones who don't." } },
+      choices = {
+        { text = "Then feed the Watch first. I'll eat what's left.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Feed me first. I'm the one doing the killing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Grual.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Ah, now that's a secret, my favourite, and even a quiet one like you won't sneak it out of my kitchen. Let's say it's mostly meat and a little bit of courage, and leave it there." } },
       choices = {
@@ -880,6 +978,7 @@ P:NPC {
           text = "That fellow up the hill watched something awful, didn't he? You can tell by how a man eats, and he ate like it was the last thing he'd ever be sure of." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Would you bless the stew? It's had a long week, the poor stew." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a double helping, then, because nobody swings a sword in this wood on an empty stomach, not twice anyway." },
       },
       again = {
         { id = "h_again", text = "What else? Taste this while you think, and no, don't ask what it is." },
@@ -895,6 +994,7 @@ P:NPC {
         { text = "I could bring you fresh game from the woods.", next = "hunter", when = { class = "HUNTER" } },
         { text = "What's really in the stew, Grual?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could conjure you a perfect loaf, Grual.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does a warrior eat before facing Duskwood's dead, Grual?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Just smelling, thanks.", next = "END" },
       },
     },
@@ -1020,6 +1120,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not one, and I have the replies to prove it, all six of them politely declining. The Night Watch is shopkeepers and farmers, so a trained warrior here is worth more than every letter the House of Nobles ever sealed." } },
+      choices = {
+        { text = "Then I'll fight for Darkshire, since Stormwind won't.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stormwind has its reasons. I won't speak against the crown.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Councilman.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It would if the treasury held anything but moths, I'm sorry to say. Stormwind's taxes leave us little enough for lamp oil, but the farmers would thank you, and their thanks costs the council nothing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours is a better watchman than half the council, {class}, and I'd say so in a letter if anyone in Stormwind still read mine." },
+      },
+      choices = {
+        { text = "I'll hunt them anyway. The farmers need it more than I need coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No bounty, no hunt. Tell the council that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Councilman.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Quieter routes! I've tried the loud ones and the polite ones and the ones with wax seals the size of my palm. If you know a way to put a letter on a nobleman's pillow, I'll pretend I never asked how." } },
       choices = {
@@ -1057,6 +1178,8 @@ P:NPC {
           text = "Your people are with the Alliance now? Then you'll learn soon enough how it goes: you write to Stormwind, and you wait, and then you write again." },
         { id = "h_noble", when = { origin = "human_minor_noble" },
           text = "A noble's child, in my town hall! Do sit, because I've waited years to say a few things to one of you, and I'll be brief, though I won't be kind." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'd write to Stormwind asking for a hundred of you, and I have, and they sent nobody, so I'll take the one who walked in." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The wolves are taking our livestock and Stormwind is taking our taxes, and I know which one I'd rather you hunted." },
       },
       again = {
         { id = "h_again", text = "Next item, then, and you understand I'm putting all this in the minutes." },
@@ -1072,6 +1195,8 @@ P:NPC {
         { text = "Have you written to Ironforge as well?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Your letters could reach the nobles by quieter routes.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Stormwind's mages could help Darkshire, if anyone asked them.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has Stormwind truly sent no soldiers to Darkshire, Councilman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does the council pay for worg pelts, Councilman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your council could use someone who frightens Stormwind.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Councilman.", next = "END" },
       },
@@ -1213,6 +1338,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Once, two winters back, and Smitts held the door with a chair until the Watch came. We sleep easier with a fighter under the roof, so if you're staying, I'd put you nearest the door." } },
+      choices = {
+        { text = "Put me by the door. Your guests will sleep sound.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I paid for a bed, not a watch post.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Trelayne.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Into the edges, yes, sniffing round the stables and the bins behind the kitchen. A good beast that barks at them is worth more to me than another lock on the door." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the rug by the fire, {class}, so long as it warns us before the wolves do." },
+      },
+      choices = {
+        { text = "I'll hunt the ones that come too close to town.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Watch can deal with wolves. I'm here to rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Trelayne.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "It suits the worgen too, which is why I tell folk to stay out of the lit doorways and the dark ones both. Sit by the fire with your back to the wall like everybody else, and you'll sleep easier." } },
       choices = {
@@ -1242,6 +1388,8 @@ P:NPC {
         { id = "h_default", text = "I'm Trelayne. Smitts keeps the bar and I keep the beds, and between us we keep people indoors after dark, which is the whole job here." },
         { id = "h_smitts", when = { heardLine = "smitts.m_default" },
           text = "So Smitts told you about the murders; he tells everyone eventually, so let him. It's the only thing he's never been able to put down." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You're welcome to a bed, but leave the blade where you can reach it, because in Darkshire the night doesn't always knock." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep by the hearth if it's clean, and it can keep an ear on the shutters while it's there." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've beds to turn down." },
@@ -1253,6 +1401,8 @@ P:NPC {
         { text = "Shall I bless the shutters?", next = "priest", when = { class = "PRIEST" } },
         { text = "A dark doorway suits me fine, Trelayne.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could light the whole inn without a single candle.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has anything ever broken into the inn, Trelayne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the wolves come into Darkshire at night, Trelayne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your guests would sleep safer with something of mine at the door.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
@@ -1321,6 +1471,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "You oil it every night, because Duskwood's damp eats steel faster than the ghouls eat flesh, and you sharpen it after every fight whether it needs it or not. Gavin will sell you the blade and Morg the plate, but the care is on you." } },
+      choices = {
+        { text = "I'll tend it every night. A warrior's gear is his life.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll just buy new when it rusts. Coin's easier than care.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Clarise.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Broad and heavy at the tip, with a good barb, and I've made hundreds for the Watch's bowmen. A worg takes three soft arrows to drop, but one good one in the right place does the job." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has better claws than anything I could forge, {class}, though I'd not tell Morg I said so." },
+      },
+      choices = {
+        { text = "One good arrow, cleanly placed. That's how I hunt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take three soft ones. Quantity wins most fights.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Clarise.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Every blade needs the hammer, whatever size it ends up, and a dagger you didn't beat out properly will snap in a worgen's ribs. Stand back from the sparks and watch how it's done." } },
       choices = {
@@ -1342,6 +1513,8 @@ P:NPC {
         { id = "h_default", text = "I'm Clarise Gnarltree, and I teach the craft. Gavin does the blades and Morg does the armour, so between the three of us there's a Gnarltree for every bit of you." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elf-built, with a light frame and a long reach. If you ever take up the hammer, choke up on the handle, and you'll thank me for it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a proper one by the look of you! Mind where the sparks land, and show me that blade before you get yourself killed with it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting arrowheads that bite into worg hide, then, and they've a thick hide, I promise you." },
       },
       again = {
         { id = "h_again", text = "Something else? Talk over the hammer, because I won't stop." },
@@ -1352,6 +1525,8 @@ P:NPC {
         { text = "What do you make, mostly?", next = "work" },
         { text = "Daggers don't need a heavy hammer, Clarise.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I don't need armour, Clarise. I need a staff.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How do you keep a warrior's gear alive in this wood, Clarise?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can you forge arrowheads that'll pierce worg hide, Clarise?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },

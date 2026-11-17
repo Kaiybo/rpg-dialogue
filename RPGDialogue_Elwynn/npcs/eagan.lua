@@ -35,6 +35,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "From behind, and in pairs, the way hungry ones always do. One shows you its teeth while the other goes for your legs, so watch the one you can't see and let the noisy one wait." } },
+      choices = {
+        { text = "I'll watch my back and fight them properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll charge the noisy one and be done fast.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Clean, and close to the ridge, before they're down among the recruits. A hungry wolf's a sad thing, but it'll still take a lamb from the Abbey's fold, so I don't let it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a good nose. Let it find their trail and keep it off the ones still nursing." },
+      },
+      choices = {
+        { text = "I'll take the hungry ones and spare the young.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A wolf's a wolf. I'll take every one on the ridge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "It would, because the young ones scatter before a man gets within a stone's throw of them, and then they come back for my drying racks after dark. If you can get close enough to see the whites of their eyes, you'll do better than most of the Abbey's recruits." } },
@@ -74,6 +95,8 @@ P:NPC {
           text = "You walk light, like a hunter who's learned not to step on twigs. Good; the wolves on the ridge hear everything else." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Keep whatever that is on a short leash, because the wolves smell it and it puts them in a temper." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, by the look of those shoulders. The wolves won't care how hard you swing, so keep your back to a tree." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in Northshire. Good; the wolves pushing over the ridge need thinning by someone who knows the job." },
       },
       again = {
         { id = "h_again", text = "Something else? Be quick about it; the traps don't check themselves." },
@@ -88,6 +111,8 @@ P:NPC {
         { text = "Would you skin me, if I were a bear?", next = "druid", when = { class = "DRUID" } },
         { text = "Could a quiet step help with your wolves?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your wolves truly sense a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How do wolves fight a warrior, Eagan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How would you have a hunter take these wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

@@ -160,6 +160,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That you face the quilboar of Brambleblade Ravine and come back with your strength proven. My father led the hunts before me, and one day I'll lead this camp, so I watch every warrior who walks up that ravine to see what kind of brave they'll become." } },
+      choices = {
+        { text = "I'll face the Rite with honour, Grull.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rites are old customs. Strength speaks for itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -173,11 +182,13 @@ P:NPC {
         { id = "h_note", when = { questActive = TODO_QUEST("Verdant Note") },
           text = "Your trainer wants you, so go; the Hawkwind will still be here." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, because the hunt goes better when the wind is on our side, and you can ask it nicely." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be facing the Rite of Strength, then, because every brave of Narache must prove themselves before they go down to Bloodhoof." },
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },
         { text = "Can my beast hunt beside your braves?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Should a shaman hunt, Grull, or only bless the hunters?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does the Rite of Strength ask of a warrior, Grull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {

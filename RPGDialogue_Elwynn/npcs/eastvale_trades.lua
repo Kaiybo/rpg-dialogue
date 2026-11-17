@@ -26,6 +26,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "To bring one bear to you instead of three, which is the whole trick in these woods. Shoot the nearest from far off, let it come, and the others stay asleep. The loggers who learned that are still logging." } },
+      choices = {
+        { text = "I'll pull them one at a time, like you say.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather walk in and take all three at once.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "A short bow is a quiet thing, quieter than a thrown knife if you know how to loose it, and plenty of scouts carry one for the long shots. I'll string you one, but don't tell Drake I took his custom." } },
@@ -54,6 +63,7 @@ P:NPC {
           text = "You've a rogue's way of looking at a room, checking the windows first and the shelves second. Most rogues buy throwing knives from Drake, not bows from me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in a bowyer's shop. You'll be after a staff, I expect, and I'll tell you now I only make them when the wood tells me to." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at a bowyer's bench! You'll want a bow for pulling something toward you, I expect, and that's a fair use of one." },
       },
       again = {
         { id = "h_again", text = "What else? I'm only rubbing oil into this stave, so I can listen while I work." },
@@ -68,6 +78,7 @@ P:NPC {
         { text = "I worked the timber here once.", next = "woodsman", when = { origin = "human_eastvale_woodsman" } },
         { text = "Would a rogue have any use for one of your bows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How does the wood tell you what it wants to be?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would a warrior bother with a bow?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Good day, Rallic.", next = "END" },
       },
     },
@@ -148,6 +159,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Food and linen, every time. They buy a sharpening stone and think that's them ready, and then they're out by the bears with an empty pack and a sharp sword they can't eat." } },
+      choices = {
+        { text = "I'll buy the linen and the bread, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll buy the stone and take my chances.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Meat and bread, which your beast will eat, and that's about the end of it. Rallic next door will tell you which arrows fly straight, and I'll tell you which ones are cheaper, which isn't always the same thing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at my dried meat. I've counted that as well, so you know." },
+      },
+      choices = {
+        { text = "I'll pay for good arrows. A clean shot's worth the coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the cheap ones. A shot's a shot.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because a man who overcharges a mage gets a reputation, and a man with a reputation for honesty sells everything else in the house. I'd rather lose your reagents than lose your trust." } },
@@ -175,6 +207,8 @@ P:NPC {
           text = "A mage, and you'll be wanting reagents, I suppose. I carry a few, but the tower charges less, which is the one thing I'll never say in front of a customer." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in Eastvale. I'll tell you now that I don't carry anything your trade needs." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a whetstone and some linen, and I've both, counted twice." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are on the right, shot on the left, and before you ask, I've counted those too." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a cart to unload before dark." },
@@ -187,6 +221,8 @@ P:NPC {
         { text = "Who else should I know in Eastvale?", next = "camp" },
         { text = "Why would you send customers to the tower?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you sell to a warlock if you did carry it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do warriors forget to buy before they leave Eastvale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you sell anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Drake.", next = "END" },
       },
     },
@@ -252,6 +288,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "With an axe, once, and I don't recommend it, because an axe for trees isn't an axe for bears. I ran, and the bear ate my lunch, and Raelen docked me the morning anyway." } },
+      choices = {
+        { text = "Next time I'll stand between you and the bear.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Running was smart. I'd have done the same.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Terry.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bad enough that the lads won't go past the ridge without three of them together. The wolves aren't much better, mind, but the bears are the ones that sit on a bundle and won't give it back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} looks like it could take a bear by itself. Could you lend it to me for a day?" },
+      },
+      choices = {
+        { text = "I'll clear the bears so your lads can work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt the bears for their hides, not your lads.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Around these loggers, yes, because they've been jumpy since the Defias started cutting our timber at night and selling it in Westfall. A man with an axe and a fright is the most dangerous thing in this camp." } },
@@ -280,6 +337,7 @@ P:NPC {
           text = "You came in so quiet I nearly put my axe through you thinking you were a stump. Make a noise next time, will you?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There's a chill come in with you that I don't like, and it's not the weather. Keep your distance from the mill, if you would." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Are you here for the bears? Say you're here for the bears, because I've a stack of bundles out in the woods with my name on them." },
       },
       again = {
         { id = "h_again", text = "What else? I'm meant to be stacking, so ask quickly." },
@@ -292,6 +350,8 @@ P:NPC {
         { text = "I know this work. I was a woodsman here.", next = "woodsman", when = { origin = "human_eastvale_woodsman" } },
         { text = "Should a rogue really make noise around loggers?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why keep a warlock away from the mill?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have you ever had to fight off the bears yourself?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How bad are the bears around the mill?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

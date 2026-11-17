@@ -30,6 +30,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oh, a great deal, for the troggs that poured out of the deep have spread all over Dun Morogh, and someone has to watch where they go. A hunter who could track them back to the city's outer tunnels would save my engineers a great many dangerous guesses." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! Splendid creature; I once designed a mechanical one, but it kept trying to fetch the furniture." },
+      },
+      choices = {
+        { text = "I'll track them and report every tunnel, High Tinker.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll track them, but I'll deal with them my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -46,6 +58,7 @@ P:NPC {
           text = "A priest, splendid! Gnomes never kept priests of our own, we kept wrenches, so the dwarves in the Hall of Mysteries have had to be very patient with us." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you eat properly out there? I only ask because my people forget to, and you look as though you'd forget too." },
       },
       again = {
         { id = "h_again", text = "Where were we? I've lost the thread again; I lose a lot of threads, so I keep them in a drawer." },
@@ -63,6 +76,7 @@ P:NPC {
         { text = "I studied magic in Gnomeregan, before.", next = "mage", when = { race = "Gnome", class = "MAGE" } },
         { text = "I've been back down into the city, High Tinker.", next = "rogue", when = { race = "Gnome", class = "ROGUE" } },
         { text = "I held the line when we ran.", next = "rear", when = { race = "Gnome", class = "WARRIOR" } },
+        { text = "Could a hunter be of any use to Gnomeregan, High Tinker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -386,6 +400,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The ones who held, not the ones who charged, for a dwarven wall is worth more than a dwarven hero. In the War o' the Three Hammers it was a shield line that turned the Dark Irons back from our gates, and I may be the last who still reads its captains' names." } },
+      choices = {
+        { text = "A shield line deserves more honour than any hero.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Lines hold, but it's heroes who win wars.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They do, for the first rams ever ridden in Khaz Modan were tamed by hunters in the high snows, long before the Three Hammers fell out. A hunter with a rifle on a ram's back is as old an Ironforge picture as a smith at the Forge, whatever the smiths tell ye." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I can hear yer {pet} breathin' at yer heel, slow an' easy, which tells me it trusts ye." },
+      },
+      choices = {
+        { text = "Then I'll carry that tradition with pride.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old traditions don't hunt for me. My own way does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "More than the heroes would like tae admit, for half o' what we know about the Dark Iron came from dwarves who crept intae Thaurissan's halls an' crept back out. Their names are seldom written down, which is the price o' that sort o' work." } },
@@ -429,6 +464,8 @@ P:NPC {
           text = "Ye walked in so softly I nearly missed ye, an' a historian should miss nothin'. Have ye come tae read, or tae listen at doors?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at my door! I hope ye've come tae ask about Thaurissan, for there's no better lesson in what happens when power is summoned carelessly." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior; I can hear it in the way ye stand, all weight and no hurry." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, by the smell o' the hills on ye; my nose has grown sharp since my eyes went." },
       },
       again = {
         { id = "h_again", text = "Where were we? Ah, I remember; I always remember." },
@@ -446,6 +483,8 @@ P:NPC {
         { text = "What do your histories say of the Wildhammer?", next = "wildhammer", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Have spies ever served the history of Ironforge?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What does Thaurissan teach a mage, Historian?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Which warriors does Ironforge's history remember best, Historian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the histories speak of dwarven hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -624,6 +663,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every one of them, and I worry about each one, for the Badlands have troggs, Loch Modan has troggs, and Uldaman has things worse than troggs. A warrior at a dig lets my Prospectors dig instead of looking over their shoulders, and lets me sleep, occasionally." } },
+      choices = {
+        { text = "I'll guard a dig site, if the League asks it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Guarding scholars is dull work. I'll need good pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "We've hired worse, an' some o' my Prospectors are no' above pocketin' a relic for themselves. If ye scout for the League, ye bring what ye find back tae the Hall o' Explorers, an' ye'll be paid fair for it." } },
@@ -681,6 +729,7 @@ P:NPC {
           text = "A mage! My Prospectors keep bringin' home relics that hum, an' I'd dearly love someone who can tell me whether they're dangerous before I put them on a shelf." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in the Hall o' Explorers? I'll ask ye no' tae touch anythin', for some o' these relics have opinions about yer sort o' magic." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Don't touch anything with a label, please, and especially don't lean on it." },
       },
       again = {
         { id = "h_again", text = "What else? The catalogue can wait, as it always does." },
@@ -699,6 +748,7 @@ P:NPC {
         { text = "Would the Explorers' League hire someone like me?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have your Prospectors found many enchanted relics?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do relics really react to warlocks, High Explorer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your Prospectors need warriors out in the field?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -884,6 +934,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Enough. Troggs in Loch Modan, Dark Irons in the Badlands, an' I've scars from both, though I'll no' be showin' them. If ye're offerin' tae guard a dig, speak tae Magellas, for I've no time tae hire anyone." } },
+      choices = {
+        { text = "I'll offer my axe to the League properly, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't need a ledger to guard a dig.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out, which is three uses more than most o' the folk Magellas sends me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} looks like it'd dig as fast as my crew, which isnae sayin' much." },
+      },
+      choices = {
+        { text = "I'll scout for the League, and gladly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll scout, if the finds are shared with me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Circles burned intae the floor, an' bones arranged in ways nobody honest would arrange them. I'll grant there's warlocks in the Alliance who fight on our side, but I've learned tae watch what's under my boots." } },
@@ -908,6 +979,8 @@ P:NPC {
           text = "So ye saw Khaz'mul's chamber. Baelog was right an' I had my doubts, but don't repeat that tae him." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Ye've a warlock's look about ye, an' I've seen what yer kind left behind in some o' the old ruins. Mind yerself in the Hall." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. State yer business; I've a page tae finish." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Fine; mind yer beast doesnae chew the maps." },
       },
       again = {
         { id = "h_again", text = "What is it now, then?" },
@@ -921,6 +994,8 @@ P:NPC {
         { text = "I met a Mountaineer Stormpike at Algaz.", next = "clan", when = { questDone = TODO_QUEST("Mountaineer Stormpike's Task") } },
         { text = "Mages read ciphers too, Prospector.", next = "mage", when = { class = "MAGE" } },
         { text = "What have you seen warlocks leave in the ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have you seen much fighting on your digs, Prospector?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a hunter be of use on a League dig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Sorry to bother you.", next = "END" },
       },
     },
@@ -1043,6 +1118,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Too many, an' risin' every time I count, for they've dug up from somewhere deep under the quarry an' they're no' stoppin'. The Senate wants a report, but I'd sooner send them a quarry wi' no troggs in it, an' that's where ye come in." } },
+      choices = {
+        { text = "I'll clear them, and the Senate can have the credit.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Mention my name in that report, Senator.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Better than a clerk, for ye'll know the difference between a trogg's track an' a bear's, an' my clerks wouldnae. Tell me where they go at night, an' I'll tell the Senate somethin' worth hearin' for once." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could flush them out o' the rocks, I imagine, which would make the countin' a great deal quicker." },
+      },
+      choices = {
+        { text = "I'll give you an honest count, Senator.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A bigger number will get the Senate moving faster.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Every government does, an' anyone who tells ye otherwise is either a fool or one o' them. Stormwind has its SI:7, an' we've our own ways, but I'll no' discuss them in a hall wi' this many echoes." } },
@@ -1095,6 +1191,8 @@ P:NPC {
           text = "A mage, an' I'll wager ye've an opinion about the Mystic Ward's funding. Everyone does, an' every one o' them comes tae me." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll be plain, warlock, for I've no' the time tae be anythin' else: there's members o' this Senate who'd like yer kind banned from the city." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; I've plenty o' troggs tae count, an' I'd rather ye helped reduce the number." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know how tae count a herd, which is more than most o' the Senate's clerks can." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quick, now, for the troggs don't take recess." },
@@ -1113,6 +1211,8 @@ P:NPC {
         { text = "Does the Senate truly use spies, Senator?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Senate fund the Mystic Ward, Senator?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why does Ironforge still train warlocks at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How many troggs are in the quarry, Senator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a hunter help you count the troggs, Senator?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck, Senator.", next = "END" },
       },
     },
@@ -1239,6 +1339,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A mountaineer once swore he held the Algaz pass alone against a hundred Dragonmaw wi' nothin' but a fryin' pan an' a bad temper. By the third keg it was two hundred, an' by closin' time the fryin' pan was enchanted." } },
+      choices = {
+        { text = "The truth is better than tall tales, to my mind.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Give me a keg, and I'll top it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The loudest, anyway, for every bear grows a foot taller wi' every pint, an' I've heard o' rams that could leap the Great Forge. I like a hunter's story, though, for there's usually a true one hidin' underneath." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll wager yer {pet} has a story or two o' its own, if only it could talk an' drink." },
+      },
+      choices = {
+        { text = "My stories stay the size they were.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pour another, and the bear grows another foot.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Ever since the Hidden Circle started usin' my back room tae talk business, aye. I've told them tae take it elsewhere, but they tip well, an' I've a tavern tae keep." } },
@@ -1278,6 +1399,8 @@ P:NPC {
           text = "If ye're here tae lighten anyone's purse, ye'll find the patrons o' the Stonefire Tavern drink wi' one hand on their coin." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! I'll have ye know the hearth in the Stonefire burns on good coal, so ye'll no' need tae add anythin' fancy tae it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grab a stool, then, for every warrior in the Stonefire has a tale, an' I'm sure ye've a taller one." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The Stonefire's full o' fish stories, but a good bear story beats them all, if ye've got one." },
       },
       again = {
         { id = "h_again", text = "Another? Story or ale, ye're welcome either way." },
@@ -1291,6 +1414,8 @@ P:NPC {
         { text = "A shaman's toast: to the fire under the mountain.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Do the Stonefire's patrons watch their purses that closely?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do mages often try to improve your hearth?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What's the tallest warrior's tale you've heard, Firebrew?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters tell the best stories in the Stonefire?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just a drink.", next = "END" },
       },
     },

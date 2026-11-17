@@ -17,6 +17,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than the Marshal wants to hear, and more every week, camped around Stonewatch Keep and the old tower on the ridge. A warrior who knew where to strike could do more than a whole company knocking on the front gate." } },
+      choices = {
+        { text = "I'll tell the Marshal everything you've seen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll strike where I please. Marshals talk too much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Ariena.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because the Blackrock shoot at anything that flies, and they've got black dragon whelps nesting in the hills above the falls. A gryphon knows a dragon when it smells one, even a small one, and it'll turn back every time." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has my gryphons nervous, {class}, but they're nervous of everything lately, so don't take it personally." },
+      },
+      choices = {
+        { text = "I'll clear the whelps so your birds can fly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fly higher, then. Dragons aren't my problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ariena.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Impossible, friend, they hear a boot on gravel from the far end of the roost and scream about it. That's why nobody steals a gryphon in Lakeshire, though a gnoll tried once and went home short a hand." } },
       choices = {
@@ -37,6 +58,8 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Ariena Stormfeather. I fly the mail and the wounded out of Lakeshire, and my birds carry anyone else who can pay the fare." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! Your kin taught mine to fly these beasts, so you'll find no complaints from me about Wildhammer manners." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds will carry you, and I'll tell you now, from the air I've seen the Blackrock gathering near Stonewatch, and there's a lot of them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know a frightened animal when you see one, and you'll understand why my gryphons won't fly low over Stonewatch." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting restless." },
@@ -48,6 +71,8 @@ P:NPC {
         { text = "Are the gryphons ever afraid?", next = "b" },
         { text = "Gryphons must be hard to sneak up on.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I can teleport to Stormwind on my own.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How many Blackrock have you seen from the air, Ariena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why won't your gryphons fly low over Stonewatch, Ariena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Ariena.", next = "END" },
       },
     },
@@ -92,10 +117,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only the ones who've learned that a sword doesn't reach a gnoll on a ridge. A warrior with a short bow and a dozen arrows can thin a pack before it closes, and then the sword does the rest." } },
+      choices = {
+        { text = "I'll keep to the sword. Facing the foe is honest work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take a bow. Any edge in a fight is worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kimberly.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Hundreds a week, and half of them stuck in trees, because the gnolls duck better than you'd think. A hunter who shoots clean and picks up after himself is worth twice as much to me as one who doesn't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is chewing my fletching, {class}, and those are goose feathers, so get it away before it costs you." },
+      },
+      choices = {
+        { text = "I'll recover every arrow I can. Waste helps no one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll buy more. Fetching arrows is for beggars.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kimberly.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kimberly Hiett, fletcher. The watch shoots arrows into the gnolls faster than I can feather them, so if you've come to buy, you've come at a busy time." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter! You'll know good fletching when you see it, so I'll not bother telling you mine's the best in Redridge. It is, though." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want arrows, I suppose, but if you'd tell the gnolls to stop being shot so often, I'd be grateful for the rest." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a customer, and I'll tell you before you ask: yes, I've got arrows, and no, I don't have enough." },
       },
       again = {
         { id = "h_again", text = "What else? I've feathers to trim." },
@@ -105,6 +153,8 @@ P:NPC {
         { text = "Show me your arrows.", next = "BUSINESS" },
         { text = "Why can't you keep up?", next = "a" },
         { text = "Who buys the most from you?", next = "b" },
+        { text = "Do warriors ever buy your arrows, Kimberly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How many arrows does the watch go through, Kimberly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -149,10 +199,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Plenty of dwarves do, and they're the best fighters I know, so I'll say yes. A blunderbuss to open the fight and an axe to finish it is how the Ironforge mountaineers do it, and they've not lost a pass yet." } },
+      choices = {
+        { text = "I'll stick to steel. A blade never misfires.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell me a blunderbuss. I'll open every fight with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Rifle, every time, because a goretusk's skull will turn an arrow and it won't turn a ball of good dwarven lead. Measure your powder to the grain, mind, or you'll blow your own hand off instead of the boar's head." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't flinch at a gunshot, {class}, I can tell, and that's a well-trained beast. Most of them bolt." },
+      },
+      choices = {
+        { text = "I'll measure every grain. Care is half of good shooting.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll pack it heavy. More powder, more punch.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Henry Chapal, gunsmith. I keep the watch in shot and the hunters in rifles, and I've never once blown up the shop, which in my trade counts as a fine record." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf, in my shop! Your people make the finest powder in the world, and I'll argue with any human who says otherwise." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? You've no use for a rifle, I'd wager, but you might have use for a pistol, if you've ever had an orc come at you from two sides." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I'll wager you've a good rifle on your back, or you've come to buy one, and either way I'm glad to see you." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the powder kegs." },
@@ -162,6 +235,8 @@ P:NPC {
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "Where does your powder come from?", next = "a" },
         { text = "Do the guns help against the gnolls?", next = "b" },
+        { text = "Should a warrior carry a gun, Henry?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Rifle or bow for the hills of Redridge, Henry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Henry.", next = "END" },
       },
     },

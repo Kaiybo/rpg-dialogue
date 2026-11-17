@@ -35,6 +35,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because you'll be bleeding in a field somewhere one day, with no priest about, and a handful of the right leaves will do more than any prayer. The soldiers who listen come back; the ones who don't, I don't see again." } },
+      choices = {
+        { text = "Every warrior should learn to heal themselves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That's what priests and potions are for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Silverleaf and peacebloom in Elwynn, briarthorn along the roads into Westfall, and mageroyal where the ground is damp. A hunter who knows them can feed and heal themselves for weeks without coming near a town." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine nose; some of the old herbalists used hounds to find truffles and roots. Train it, and it'll find you more than game." },
+      },
+      choices = {
+        { text = "I'll take what grows and leave the roots to grow again.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pick it all. Someone else will if I don't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Tannysa. I teach herbalism to any who will listen, though in this city most would rather buy their herbs than gather them." },
@@ -43,6 +64,8 @@ P:NPC {
           text = "You walk softly, as the Sentinels do, though I suspect you learned it in a different forest. Mind the seedlings, because they cannot hear you coming." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "One who studies the arcane. My people learned long ago what comes of loving that power too much, and I hope yours have learned it too." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You might think herbs are for the gentle folk, but a warrior who knows peacebloom from nightshade lives longer than one who doesn't." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now here's someone who walks past more herbs in a day than most of my students see in a month." },
       },
       again = {
         { id = "h_again", text = "Ask away while I sort these cuttings; the earthroot won't mind waiting." },
@@ -54,6 +77,8 @@ P:NPC {
         { text = "What grows best in Elwynn?", next = "b" },
         { text = "Do the herbs of Elwynn hide any poisons, Tannysa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What did your people learn about the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why should a warrior learn herbalism, Tannysa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What herbs should a hunter watch for, Tannysa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Tannysa.", next = "END" },
       },
     },
@@ -116,6 +141,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Tight above the cut and clean below it, and never with the cloth you've been wearing for a week. I've seen soldiers survive the sword and die of the bandage, so learn it properly from me before you learn it the hard way." } },
+      choices = {
+        { text = "I'll learn it properly. My comrades depend on me too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take my chances. Priests handle that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Mostly, though a beast doesn't hold still and thank you for it the way a soldier does. The principles are the same: stop the bleeding, keep it clean, and keep it calm, which is the hard part." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} hurt? No? Good, but if it ever is, bring it here; I've bandaged a wolf, two hounds and one very cross cat." },
+      },
+      choices = {
+        { text = "My pet's wounds come before my own.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My pet will heal on its own. Save the bandages for me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Shaina Fuller. I teach first aid to anyone with two hands and a little patience, because the priests can't be everywhere at once." },
@@ -124,6 +170,7 @@ P:NPC {
           text = "You'll need this lesson more than most, I'd guess, because knife wounds bleed worse than you'd think and they're always in awkward places." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Warlocks always come to me with burns they won't explain, and I always bandage them without asking, so let me see your hands." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be patching up your beast as often as yourself, I'd wager, so you'll be wanting to learn properly." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've linen to roll." },
@@ -134,6 +181,8 @@ P:NPC {
         { text = "Who do you bandage most?", next = "a" },
         { text = "What's the first thing to learn?", next = "b" },
         { text = "What's the worst wound you've seen, Shaina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How should a warrior bandage a wound in the field, Shaina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does first aid work on a hunter's pet, Shaina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many warlocks come to you for bandages?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Shaina.", next = "END" },
       },
@@ -197,6 +246,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior should, if you ask me, because charging a gnoll archer across an open field is no way to die. A short bow on your back and a quiver of good arrows, and you can pull them in close where you like them." } },
+      choices = {
+        { text = "A warrior should be ready for any fight, near or far.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Real warriors close the distance. Bows are for hunters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Good yew, seasoned at least a year, and a draw that suits your arm, not your pride. I've seen young hunters buy a bow they can barely pull because it looked mighty, and then miss everything in Elwynn." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will want you to shoot straight, since it's the one in the thick of things. Treat it well and pick a bow you can hold steady." },
+      },
+      choices = {
+        { text = "I'll choose the bow that suits me, not the grand one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I want the biggest bow you've got.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Frederick Stover, at your service. I sell bows to hunters, arrows to everyone, and advice for free, though most of it's about yew." },
@@ -205,6 +275,7 @@ P:NPC {
           text = "You'll be wanting a short bow for the road, I expect, or a good crossbow, because your trade's always had more use for range than people think." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You won't want a bow, I suppose, though I sold arrows to a mage once, and he set every one alight before he loosed it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a bow stall! Plenty of soldiers carry a bow for when the enemy won't come close enough, so don't be shy." },
       },
       again = {
         { id = "h_again", text = "Ask what you like; I've a moment between passengers, and the ledgers can wait." },
@@ -216,6 +287,8 @@ P:NPC {
         { text = "Do you sell much to the army?", next = "b" },
         { text = "Why would a rogue need a bow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did the mage's flaming arrows work?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Should a warrior carry a bow, Frederick?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What makes a good bow for a hunter, Frederick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Frederick.", next = "END" },
       },
     },
@@ -278,6 +351,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, for sweethearts and mothers, and a few for the Cathedral steps. A sergeant buys one red rose from me every time he leaves for Redridge, and he's come back eleven times now." } },
+      choices = {
+        { text = "Everyone should leave something kind behind before a march.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't buy flowers. It's bad luck to say goodbye.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Elwynn's lupines in the spring, and wild roses along the Redridge road, and a little white starflower near Stonewatch that nobody's managed to grow in a pot. If you ever find a whole root, I'd love to try." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is smelling my lilies. Do you think it likes them? Most dogs sneeze, but this one seems very refined." },
+      },
+      choices = {
+        { text = "I'll leave the wildflowers where they grow. They're happier there.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll dig you up some starflowers next time.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Felicia Gump, florist. I sell flowers for weddings and herbs for the kitchen, and lately, I'm sorry to say, a great many lilies for funerals." },
@@ -286,6 +380,8 @@ P:NPC {
           text = "Come for flowers, dear? Your sort usually wants something for a sweetheart they're not supposed to have, so I'll not ask the name." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Oh, the lilies are wilting now you've come close, dear, just look at them. I'm sure it's only the heat." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I sell a great many flowers to the families of warriors, and I'd much rather sell yours a wedding bouquet someday." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must see the most beautiful wildflowers out in the hills, and I envy you every one of them." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -296,6 +392,8 @@ P:NPC {
         { text = "Why so many funerals?", next = "a" },
         { text = "What's your best seller?", next = "b" },
         { text = "Do people buy flowers for secret sweethearts?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do soldiers ever buy flowers before they march, Felicia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Which flowers grow wild near Stormwind, Felicia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your flowers often wilt near people, Felicia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Felicia.", next = "END" },
       },

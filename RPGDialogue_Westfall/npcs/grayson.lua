@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Murlocs, mostly; they've no respect for the dead or the living, and they've taken the shore below the lighthouse. I can't lift a sword any more, but I can watch, and I'd like to watch them lose." } },
+      choices = {
+        { text = "I'll drive the murlocs back for you, Captain.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your lamp's no business of mine, Captain.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It looks right through me, which is more than most people manage. The gulls see me too, and the murlocs, and they're the ones I'd least like to. Old Murk-Eye looks at me every night, and I swear he grins." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't stopped staring at me since you came up the path. Tell it I'm harmless, would you?" },
+      },
+      choices = {
+        { text = "I'll hunt Murk-Eye for you, and the keeper's family.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll leave Murk-Eye be. He's not my quarrel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Aye, and a spell might fail on the one night the fog rolls in thick off the Great Sea. I've had years to think about it, {class}, and I trust a flame I can tend myself." } },
       choices = {
@@ -63,6 +84,8 @@ P:NPC {
         { id = "h_pirate", when = { class = "ROGUE" },
           text = "You've a pirate's way of standing, weight on the balls of the feet and one hand near the knife. I'd have signed you on." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The flame burns brightest when nobody's looking at it, and I'm always looking at it. That comes with being dead, I find." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a living one. I mean you no harm; I only mean to keep the flame lit, and you could help." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me, I think, though you might not; animals are better at seeing the dead than the living are." },
       },
       again = {
         { id = "h_again", text = "Ask on. The dead have nothing but time, and I've more than most." },
@@ -78,6 +101,8 @@ P:NPC {
         { text = "My people scatter the dead to the wind, Captain.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "A spell could keep your lamp lit without you, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Spirits like you can be bound, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does a ghost need with a warrior, Captain?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can my beast truly see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Rest easy, captain.", next = "END" },
       },
     },

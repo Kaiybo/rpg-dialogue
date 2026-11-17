@@ -38,6 +38,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Anything at all, anything at all! A shield from a fellow in Stormwind, nearly new, nearly! Or a helmet that was only dropped once, from a tower, but it's barely dented." } },
+      choices = {
+        { text = "I'll buy my steel from an honest smith, Remy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Show me the helmet. I'm not fussy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Arrows, and a collar, and a fellow's old fishing rod, if you're desperate! And murloc warnings, those are free, because nobody listens to Remy about the murlocs until somebody gets eaten." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! Lovely animal, lovely! Would it like a collar? A fine collar, only slightly chewed." },
+      },
+      choices = {
+        { text = "I'll take the murloc warning, Remy. Keep the collar.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the chewed collar. A bargain's a bargain.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Old ones, old ones, from before the Second War, with pages that whisper when you turn them, or so my fellow tells me. I don't read them myself, I only know a fellow who knows a fellow who does." } },
@@ -78,6 +99,8 @@ P:NPC {
           text = "A mage, a mage! I know a fellow in Stormwind who sells books that would curl your hair, curl your hair, if that's the sort of thing you're after." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, a warlock! You'll want to speak to Marcot down in the cellar, and I didn't tell you, I didn't tell you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, a warrior! I know a fellow who sells swords, two fellows, in fact, and they both owe me money." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, a hunter! I've a fellow who sells arrows, a good fellow, mostly arrows, mostly good!" },
       },
       again = {
         { id = "h_again", text = "What else, what else? Time's money, friend, and money's money too." },
@@ -95,6 +118,8 @@ P:NPC {
           fail = { next = "clams", fx = { affinity = -1 } } },
         { text = "What sort of books would curl my hair, Remy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why are you so worried about telling me, Remy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there anything you could get a warrior, Remy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would you sell a hunter, Remy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Remy.", next = "END" },
       },
     },

@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They have, in older days, and they would again if Darnassus called for it. For now I keep them for messengers and travellers, and I watch the smoke from the vale so I'll know when that day is coming." } },
+      choices = {
+        { text = "If that day comes, I'll answer it alongside the Sentinels.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your wars aren't mine. I fight for my own cause.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Teloren.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only the harpies, and only because they come in numbers, which no hippogryph will face alone. I'd welcome a hunter who could keep the cliffs clear while my birds rest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching my birds, {class}, and they're watching it right back. I think they'll get along, if neither of them blinks." },
+      },
+      choices = {
+        { text = "I'll keep the cliffs clear while your birds rest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Harpies are a soldier's problem. I'll hunt elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Teloren.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "More than you'd think, because the Venture Company sends scouts up the cliffs to see what the druids are planting, and my birds can't follow them into the rocks. If you find one, tell me where he climbed, so I can watch that path from the air." } },
@@ -55,6 +76,8 @@ P:NPC {
           text = "You came up the last switchback so quietly the birds didn't stir, and they hear nearly everything. I'd like to know where you learned that, though I don't suppose you'll tell me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "So you're a mage, and I've heard your kind can open doorways across the whole world. I hope you never teach that trick to too many people, or my hippogryphs and I will have nothing to do but watch the smoke." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My hippogryphs will carry you anywhere you need, though they'll want your blade stowed before they let you on their backs." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I can see by how your beast watches the hippogryphs that it knows what a flying predator is." },
       },
       again = {
         { id = "h_again", text = "What else? The wind's steady, so there's no hurry." },
@@ -67,6 +90,8 @@ P:NPC {
         { text = "Why keep a post this high?", next = "post" },
         { text = "Would a quiet walker be any use to you up here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you really think magic could replace your hippogryphs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your hippogryphs ever carry Sentinels into battle, Teloren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the hippogryphs fear predators up here, Teloren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Teloren.", next = "END" },
       },
     },

@@ -30,6 +30,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Now and then, when a brave follows a kodo too far west and the Palemane gnolls take offence, or a hunter strays onto the goblins' claims. Most quarrels start with a hunt that went one step too far, so I ask our hunters to know where the borders lie." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a calm way about it. I find that the beasts of a peaceful hunter are always calm, and the restless ones belong to the restless." },
+      },
+      choices = {
+        { text = "I'll respect the borders, Baine, and avoid quarrels.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A hunt goes where the prey goes, borders or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -72,6 +84,7 @@ P:NPC {
         { id = "h_rounds", when = { metBefore = true }, text = "I walk the village each evening, every tent and every fire. A leader should know every face, and I'm still learning a few." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Stars over Stonebull Lake, and on nights like this I can almost hear the old songs from when we wandered." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems, and the grass seems to lean toward you as you walk. My father calls the shamans the oldest memory of our people, so I'm glad to see one more." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The plains feed Bloodhoof, and those who hunt them well keep the peace better than any treaty I could make." },
       },
       choices = {
         { text = "How did the tauren come to Mulgore?", next = "coming" },
@@ -87,6 +100,7 @@ P:NPC {
         { text = "Do the spirits favor talking the Venture Company down, Baine?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Talking works better when you know their secrets first, Baine.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The arcane could help defend Bloodhoof, Baine.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the hunters cause you quarrels, Baine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I bring a demon to Mulgore. Will your people bear it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
@@ -219,6 +233,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They do, and they ask only that you fight for something worth their watching. The braves who fell to the centaur in the long years of wandering rest easier now that the tauren have a home, and a warrior who guards that home walks with their blessing." } },
+      choices = {
+        { text = "I'll fight to guard this home, as they did.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The dead can watch. My fight is my own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every hunter carries a few, and they stay as long as you remember them. The tauren give thanks for every plainstrider and every kodo so that their spirits return to the Earth Mother in peace, and I'd ask the same of you while you hunt these plains." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a living spirit among all those departed ones. It keeps them company, I think, and they seem to like it." },
+      },
+      choices = {
+        { text = "I'll give thanks for every life I take.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead don't need my thanks, Zarlman.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -250,6 +285,8 @@ P:NPC {
           text = "The rite of vision asks you to see with more than your eyes. Drink, follow, and don't fight what you're shown." },
         { id = "h_young", when = { metBefore = true }, text = "The young ones come down from Narache shaking, from their first death or their first vision. At that age they look much the same." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The spirits are louder after dark, not angrier, only louder, like children who won't sleep." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The spirits of Bloodhoof's fallen braves watch the young ones who carry their weapons now, and they watch you as well." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and the spirits of the beasts you've taken walk close behind you. Don't worry; they seem content." },
       },
       choices = {
         { text = "What are the spirits saying?", next = "spirits" },
@@ -257,6 +294,8 @@ P:NPC {
         { text = "The spirits answer me now, elder. What should I ask them?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do the spirits mind what I am, elder?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do the spirits mind the arcane, elder?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the spirits of fallen braves watch over warriors, Zarlman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the spirits of my kills follow me, Zarlman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can the spirits sense my demon, elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Thank you, elder.", next = "END" },
       },
@@ -318,6 +357,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "To a grown warrior, no, but to the young ones out in the fields, very much so. There are too many of them this year and they've grown bold, so thin them where they nest, and the farmers of Bloodhoof will sleep easier for it." } },
+      choices = {
+        { text = "I'll thin them where they nest, for the farmers.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Swoops aren't worth a warrior's time, Harken.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -350,6 +398,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Even the swoops sleep at this hour, but I don't, much; it's an old habit from the wandering years." },
         { id = "h_maur", when = { heardLine = "maur.h_default" }, text = "Maur's after that beast again? He's tracked it longer than some of our braves have been alive." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Then you'll know the wind is turning before my knees do, and I'd thank you to tell me when." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a tall one. Watch the skies, because the swoops dive at anything that stands still long enough on the plains." },
       },
       choices = {
         { text = "Why watch the sky?", next = "sky" },
@@ -357,6 +406,7 @@ P:NPC {
         { text = "The air over Mulgore feels uneasy. Have you noticed, Harken?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I watch the ground the way you watch the sky.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could bring down those swoops with frost.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Are the swoops a real danger, Harken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -414,6 +464,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The young hunters call it Mazzranache, and it's bigger than any prairie wolf or cougar I've seen, with tracks that cross the plains and vanish into the hills. If it comes at you, don't run, because nothing that size has ever been outrun on open ground." } },
+      choices = {
+        { text = "I'll stand my ground if it comes, Maur.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it comes, I'll run. There's no shame in living.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -445,6 +504,7 @@ P:NPC {
         { id = "h_slow", when = { metBefore = true }, text = "The young braves ask me how to track. I tell them: walk slower than you want to. Not one of them listens." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Something big moves out in the dark grass. I've heard it more than I've seen it, and that's the part I don't like." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You walk like a shaman, light on the grass, and that's a gift on a hunt. The beast I'm tracking would hear anyone else coming a mile off." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You won't track the beast I'm after, but if it ever turns on you, I'd like to know you can stand your ground." },
       },
       choices = {
         { text = "How did you get your name?", next = "name" },
@@ -452,6 +512,7 @@ P:NPC {
         { text = "Would the spirits frown on hunting Mazzranache, Maur?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Your beast won't see me coming, Maur.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can't a mage simply blast the beast from afar?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What is this beast you're after, Maur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
@@ -513,6 +574,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Venture Company thugs, mostly, with clubs and too much confidence. They've set up at the sacred wells and won't leave for any words of mine, so if they won't listen to reason, perhaps they'll listen to an axe, though I'd rather it didn't come to that." } },
+      choices = {
+        { text = "I'll drive them off, but only if words fail.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Words always fail with goblins. I'll start with the axe.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The plainstriders drink from the wells and sicken, and the wolves that eat them sicken in turn, and so the poison spreads across the plains. Bring down the sick ones mercifully when you find them, and help me cleanse the wells so the next ones drink clean." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from the wells near the goblin camps. I couldn't bear to see a hunter's companion fall to that poison too." },
+      },
+      choices = {
+        { text = "I'll put the sick beasts down mercifully, Mull.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sick beasts are easy kills. I'll take them for hides.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -546,11 +628,15 @@ P:NPC {
         { id = "h_totem", when = { any = { { questActive = TODO_QUEST("Thunderhorn Totem") }, { questActive = TODO_QUEST("Wildmane Totem") } } },
           text = "A totem must be made before a well can be cleansed. Gather what it needs, and I'll do the rest." },
         { id = "h_walk", when = { metBefore = true }, text = "I walked to every well this morning, and my hooves ache, and the water's no better. Tomorrow I'll walk again." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The goblins by the wells hire bruisers to guard their drills, and I'd sooner a warrior of the Horde dealt with them than any of my braves." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen what the goblins' oil has done to the beasts near the wells, then, and I wish I hadn't." },
       },
       choices = {
         { text = "Who poisoned them?", next = "who" },
         { text = "I could slip into the goblin camp and see what they're dumping.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could a mage purify the water, Mull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Who guards the goblin drills, Mull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What has the oil done to the beasts, Mull?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll help cleanse them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", fx = { align = { light = -1 } } },
         { text = "The water spirits are frightened. I can hear them.", next = "shaman", when = { class = "SHAMAN" } },
@@ -611,6 +697,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Scruffy and brown and always hungry, with a tail that never stops wagging. He ran off after the smell of something tasty, and I'm afraid the wolves or the swoops might mistake him for supper, so a strong warrior keeping an eye out would ease my mind." } },
+      choices = {
+        { text = "I'll keep an eye out for Kyle, Ahab.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A lost dog isn't a warrior's concern, Ahab.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -644,11 +739,13 @@ P:NPC {
         { id = "h_fence", when = { questDone = TODO_QUEST("Kyle's Gone Missing!"), metBefore = true }, text = "Kyle chewed through the fence again, but he didn't go anywhere; he just likes chewing fences. I've stopped mending it." },
         { id = "h_watch", when = { questDone = TODO_QUEST("Kyle's Gone Missing!"), timeOfDay = "night" }, text = "He sleeps across the door now, like he's afraid I'll be the one to wander off. Silly dog." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then maybe the spirits have seen my Kyle, because he's a scruffy little thing and he goes wherever his nose takes him." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! If you happen to see my dog Kyle while you're out fighting things, please don't fight him; he's only a little scruffy." },
       },
       choices = {
         { text = "Tell me about Kyle.", next = "kyle" },
         { text = "I'm good at finding things that don't want to be found.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a mage find a lost dog, do you think?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What does Kyle look like, Ahab?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll keep an eye out for him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
@@ -708,6 +805,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every young brave on the way down from Camp Narache, and plenty of orcs and trolls besides, now that we stand with the Horde. They eat like kodos and sleep like stones, and the next morning they're off to fight the gnolls or the centaur without so much as a thank you." } },
+      choices = {
+        { text = "Thank you for your fire, Kauth. It's appreciated.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "An inn is for sleeping. I'll be gone at dawn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Plainstrider and kodo, mostly, and a prairie wolf when the hunters are feeling generous. The tauren waste no part of a beast, so I make broth from the bones and send the hides up to Una on the bluffs, and nothing goes to waste in my kitchen." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And there's always a bowl for your {pet}. Every beast that walks into Bloodhoof gets fed, same as everyone else." },
+      },
+      choices = {
+        { text = "I'll bring my game here, and waste none of it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep my game for myself. I caught it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -740,11 +858,15 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The wind's dropped, so listen: that's the lake against the shore, the best sound in Mulgore." },
         { id = "h_mull", when = { heardLine = "mull.h_default" }, text = "Mull's been to every well again, hasn't he? I bring him stew, and he forgets to eat it, so I bring more." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my table! Sit near the fire, since your kind always seem to be listening to it, and I'll bring you a bowl of stew." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and I can hear your stomach from here. Sit down, friend, and let me feed you before you go off and fight something." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have game to share, I hope, because my pot's always open to a fresh plainstrider." },
       },
       choices = {
         { text = "What's in the stew?", next = "stew" },
         { text = "Do the elders still bless the hearths in Bloodhoof, Kauth?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Your stew pot would be easy to rob, Kauth.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do many warriors pass through Bloodhoof, Kauth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do you cook from the plains, Kauth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does my imp get a bowl too, Kauth?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a meal, thank you.", next = "END" },
       },
@@ -794,6 +916,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Up into the Stonetalon Mountains, out across the Barrens and down to the edge of Thousand Needles, and I've come back to Mulgore every time the wind turned. I've seen warriors guard caravans and warriors raid them, and I'll tell you the first kind sleeps a good deal better." } },
+      choices = {
+        { text = "Then I'll be the kind who guards caravans.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The raiders eat better, I'd wager.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -826,6 +957,7 @@ P:NPC {
           text = "Sit by the fire and let it work on you. The rest comes when it comes." },
         { id = "h_narache", when = { metBefore = true }, text = "I came past Camp Narache on the way in, where the young ones were fighting boars with sticks. I gave them a few pointers, and a few bandages." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the campfire is good luck, the old wanderers used to say, because the fire burns brighter beside one of you. Sit down, and we'll test the saying." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit by my fire a while, because I've met warriors on every road I've ever walked, and they always have the best stories." },
       },
       choices = {
         { text = "What is it you love about camping?", next = "why" },
@@ -834,6 +966,7 @@ P:NPC {
         { text = "Did the wandering bands keep shamans on the long road, Kaga?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I prefer camps with no fire, where nobody finds me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A mage never needs flint to start a fire.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Where have your roads taken you, Kaga?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = {

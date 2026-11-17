@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not one, no; there were too many, and they came at night with torches. But a dozen like you might have, and the king sent none, so here we sit, with Blanchy and a broken wagon." } },
+      choices = {
+        { text = "I'll help take back what's yours.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It's gone, old man. Look forward instead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "He chased the first of them off the porch and never came back, and I like to think he's out there somewhere, chasing gnolls. Verna says I'm a fool for hoping, and she's right, but I hope anyway." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has the look of a loyal beast. Keep it close; the Defias don't spare animals any more than people." },
+      },
+      choices = {
+        { text = "I'll keep watch for him, Theodore.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He's gone. Best not to hope.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "I asked a mage that once, on the road out of Elwynn, and he looked at the axle like I'd asked him to raise the dead. Turns out spells don't come cheap and wheels do, so here we sit." } },
       choices = {
@@ -59,6 +80,8 @@ P:NPC {
           text = "Her father's watch, and you brought it back to me. I've nothing to give you but this handshake, and it's a good one." },
         { id = "h_wagon", text = "We tried to leave for Elwynn, but the wagon broke on the road. So here we are in someone else's empty house, waiting on a wheel." },
         { id = "h_dream", when = { metBefore = true }, text = "I dreamt about the pumpkins again, every one of them as big as a wagon wheel. Then I woke up and remembered, but it was a good dream while it lasted." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you'd come a year ago, maybe I'd still be on my farm, and maybe not, but I'd have liked to see you try." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a dog once, a good dog, before the thieves came, and I miss him more than the pumpkins." },
       },
       again = {
         { id = "h_again", text = "Something else? I've time enough, since time's about all I've got." },
@@ -75,6 +98,8 @@ P:NPC {
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I could get your deed back from the Defias.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Couldn't magic mend your wagon, Theodore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could a warrior have saved your farm, Theodore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What happened to your dog, Theodore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Take care, Theodore.", next = "END" },
       },
     },

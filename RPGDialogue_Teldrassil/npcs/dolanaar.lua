@@ -24,6 +24,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The nightsabers near the third well have grown thin and short-tempered, and the owls no longer roost above it at dusk. A hunter would see such things sooner than a keeper of wells, so tell me what you find when you pass that way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch whether your {pet} will drink from the third well, for I have seen beasts turn away from it. They always know first." },
+      },
+      choices = {
+        { text = "I'll watch the beasts at the wells and report.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Thin beasts are just thin beasts. You fret too much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Then you would see more than I have, for I watch openly and whatever does this waits until I am gone. Keep to the shadow of the trees near the well and stay until dawn, and tell me what comes to drink." },
@@ -65,6 +77,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The wells shine brightest now. It's easier to see what's wrong in them with Elune watching too." },
         { id = "h_delivered", when = { questDone = TODO_QUEST("Crown of the Earth") },
           text = "The vessel reached the Archdruid, I hear, and he said we took our time over it. We did, and the wells deserved that much." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The beasts drink from the moonwells as we do, and you would notice sooner than I if they had begun to sicken." },
       },
       again = {
         { id = "h_again", text = "What else? Speak softly near the well." },
@@ -79,6 +92,7 @@ P:NPC {
         { text = "If something fouls the wells, I'll cut it down.", next = "warrior_c", when = { class = "WARRIOR" } },
         { text = "I can watch the wells unseen and see who fouls them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could sense what has tainted the wells.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have the beasts near the moonwells changed, Corithras?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Wells go stale, and I doubt the tree's in any danger.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
@@ -160,6 +174,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "If they come at you, you must, because they have stopped hearing reason and they will tear you open if you hesitate. But they were our friends once, warrior, so fight them as you would a friend who has lost his mind, and take no joy in it." } },
+      choices = {
+        { text = "I'll fight them, but I won't take joy in it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A foe is a foe, whatever they once were.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xlock = {
       lines = {
         { id = "xwl_default", text = "You know it, and I would very much like to know how. Fel is the Legion's mark, the thing that burned Hyjal, and yet if you can lead me to where it grows thickest, I will listen to you before I judge you." },
@@ -202,6 +225,7 @@ P:NPC {
           text = "Ursal drove the Gnarlpine mad with Fel Moss, and the waking ritual cannot be finished while he lives, so end him." },
         { id = "h_breeze", when = { questActive = TODO_QUEST("A Troubling Breeze") },
           text = "Gaerolas Talvethren hasn't sent word from Starbreeze Village. He wards the sleeping Druids of the Talon. Go east and bring me his report." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Gnarlpine are not your enemies by choice, so remember that when you draw on them." },
       },
       again = {
         { id = "h_again", text = "What else? Speak quickly, if you would." },
@@ -215,6 +239,7 @@ P:NPC {
         { text = "I've hunted Gnarlpine. They fought like rabid wolves.", next = "hunter_a", when = { class = "HUNTER" } },
         { text = "That fel moss. I know the stink of it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I could get close enough to the Gnarlpine to see what's turned them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Must I fight the Gnarlpine, Athridas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -296,6 +321,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I need their mystic Ferocitas to stop feeding on the dreams he stole from me, and I need the young ones guarding my groves to stop getting hurt. Go to the Gnarlpine camps if you will, and come back whole, because I am tired of mourning." } },
+      choices = {
+        { text = "I'll come back whole, and bring your dreamcatcher.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go in hard, and I won't count their dead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They've driven the deer from the southern groves and left snares where the nightsabers walk, which no furbolg would have done a year ago. Whatever is in them now has forgotten the old ways of the forest, and the beasts have learned to fear them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mind your {pet} near the southern groves, for the Gnarlpine snares were not set for deer. I've freed two young cats from them this month." },
+      },
+      choices = {
+        { text = "I'll clear their snares and spare what I can.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll turn their own snares back on them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     rogue_t = {
       lines = {
         { id = "rt_default", text = "Could you? The furbolgs sleep in my neighbours' beds now and they wake at a twig snapping, so if you can get in and out of my house without a fight, you're a better thief than I'd like to know about." },
@@ -315,6 +361,8 @@ P:NPC {
           text = "Ferocitas the Dream Eater has the jewel from my dreamcatcher. He's north of Starbreeze. Bring it back, and I can mend the thing." },
         { id = "h_twisted", when = { questActive = TODO_QUEST("Twisted Hatred") },
           text = "Lord Melenas is a satyr, and he has gathered grells in Fel Rock to the north. Deal with him quickly and quietly, bring me his head, and say nothing of it to anyone." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because the Gnarlpine have grown bold, and they listen to a blade sooner than to words." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Gnarlpine hunt my groves now, and I would like to see someone hunt them back." },
       },
       again = {
         { id = "h_again", text = "Anything else, young one?" },
@@ -326,6 +374,8 @@ P:NPC {
         { text = "Who is Lord Melenas?", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
         { text = "I could slip into Starbreeze and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
         { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } },
+        { text = "Do you need a blade against the Gnarlpine, Tallonkai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How have the Gnarlpine changed the hunting in these woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     dreamcatcher = {
@@ -389,6 +439,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The ones nobody wants: thinning the mangy nightsabers that have turned on travellers, and carrying soil to Denalan at the lake, which sounds dull until the timberlings come at you. Those orders wait the longest, and things only get worse the longer they wait." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can follow a scent better than any order I could write. Let it lead, and I'll mark the task done when you're back." },
+      },
+      choices = {
+        { text = "Give me the orders that have waited longest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll pick my own hunts, thank you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "The Council does not deal in discretion, as a rule, but the forest sometimes must. Zenn Foulhoof is up to something in the wilds, and someone who goes unnoticed might learn what before he sees them coming." },
@@ -427,6 +489,7 @@ P:NPC {
         { id = "h_denalan", when = { questActive = TODO_QUEST("Denalan's Earth") },
           text = "Denalan studies Teldrassil's plants at Lake Al'Ameth. His rare earth from Darnassus came late. Take it to him, please." },
         { id = "h_sort", when = { metBefore = true }, text = "The Council sends more orders than Dolanaar has hands. I sort them by which ones get someone hurt if they wait." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Council always has more orders than hands, and hunters can carry the ones that lead into the deep wood." },
       },
       again = {
         { id = "h_again", text = "What else? There are always more orders." },
@@ -441,6 +504,7 @@ P:NPC {
         { text = "Give me the orders nobody else will take.", next = "warrior_sy", when = { class = "WARRIOR" } },
         { text = "Have you any orders for someone discreet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Council have any work for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Which of the Council's orders suit a hunter, Syral?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help where I see a need, not where the Council points.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -510,6 +574,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Most of them, fresh from Kyra Windblade's lessons and sure they're ready for Ashenvale already. I pour them tea and let them talk, and by the second cup they usually admit they'd like a bed before they go." } },
+      choices = {
+        { text = "I'll rest first. Ashenvale can wait a night.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No bed for me. The front won't wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some sleep here and some under the trees, and Lyreena Duskblade will tell you the trees are better, though she's always grateful for my tea in the morning. Either way I like to know who's out there, so tell me if you mean to camp." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can curl up by the hearth if it likes; the last companion who did wouldn't leave for two days. Travellers leave lighter here, and so do their beasts." },
+      },
+      choices = {
+        { text = "A warm bed tonight. A roof is a blessing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll camp under the trees. Roofs make me restless.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "You are welcome to a bed, of course; I turn no traveler away. I ask only that you leave your spells at the door, for the old tree hears more than you would think, and Dolanaar remembers what spellcraft cost our people." },
@@ -540,6 +625,8 @@ P:NPC {
         { id = "h_joke", when = { metBefore = true }, text = "A Sentinel told me a joke last night. It wasn't funny, but she laughed so hard I laughed too. That's the inn on a good night." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, and the Sentinels coming off watch will want tea. They always want tea, and they never admit they're cold." },
         { id = "h_corithras", when = { heardLine = "corithras.h_default" }, text = "Corithras and his wells. He tastes every one himself, you know, to find the trouble. I keep peppermint tea for him after." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit and take the armor off for an hour, because tea doesn't taste right through a helmet." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion is welcome by the fire, so long as it doesn't mind the other guests' boots." },
       },
       again = {
         { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some." },
@@ -549,6 +636,8 @@ P:NPC {
         { text = "How's the inn?", next = "inn" },
         { text = "Any word from the road?", next = "road" },
         { text = "Is a mage welcome under your roof?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do many warriors stop here on the way to Darnassus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters stay at the inn, or sleep in the woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need a room away from the others.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just rest, thank you.", next = "END" },
       },
@@ -604,6 +693,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Easier than you'd think, once you take the armor off and stop listening for every snapped twig. Pick a spot with your back to a trunk, count the stars through the leaves, and let the forest keep watch for a while." } },
+      choices = {
+        { text = "I'll trust the forest and sleep.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll sleep in my armor with my sword in hand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Plenty, if you mean to sleep in the wild and wake up with your purse and your throat. A rogue's camp is a cold camp, with no smoke and no fire, and that is the first thing I would teach you." },
@@ -642,6 +740,7 @@ P:NPC {
         { id = "h_outdoors", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire and stay there until you feel rested through. It comes slowly, then all at once." },
         { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep, and I got to forty, which is further than usual." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll sleep in the wilds often enough on campaign, so you might as well learn to do it well." },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's still going, so there's no hurry." },
@@ -654,6 +753,7 @@ P:NPC {
         { text = "A hunter sleeps outdoors already.", next = "hunter_ly", when = { class = "HUNTER" } },
         { text = "I sleep light and move quietly. What else is there to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I can conjure water. Camping's simple for me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can a warrior learn to sleep outdoors as you do?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },

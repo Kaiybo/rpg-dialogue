@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Bread and water, more than they think, and a bit of thread for the jerkin they'll tear on the first kobold. Most of them buy a whetstone instead and go hungry, and then they come back to me looking pale." } },
+      choices = {
+        { text = "I'll eat first and sharpen second, Brother.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A sharp blade wins more than a full belly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I think the Defias robbed Milly's vineyard within a bowshot of the Abbey walls, so I've stopped thinking anyone wouldn't. You've an honest enough face, but so did the last fellow who bought one loaf and left with three." } },
@@ -58,6 +67,7 @@ P:NPC {
           text = "I keep the coin box under the bread, you know, and I've a very good memory for how many loaves I baked." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've come down from the graveyard, I can tell, and La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane works recruits hard, and hungry recruits drop their shields." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wagon's open till the bread runs out." },
@@ -71,6 +81,7 @@ P:NPC {
         { text = "I can't afford much, Brother.", next = "poor", when = { money = { max = 500 } } },
         { text = "Do you truly think a rogue would rob the Abbey?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Brothers mind you selling to warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does a recruit need most from your wagon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

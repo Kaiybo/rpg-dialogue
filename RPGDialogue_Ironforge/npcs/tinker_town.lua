@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They poured up from the deep in their thousands, and our defenders fell back level by level until there was nothing left to do but flee. I'll not pretend I fought, for I'm an engineer, but I watched a great many brave gnomes hold doorways while the rest of us ran, and I'll never forget them." } },
+      choices = {
+        { text = "Those who held the doorways deserve to be honoured.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Running was the clever choice. I don't blame you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It chased a trogg back into Gnomeregan and never came out, which I choose to believe was an act of great heroism. Your beasts have one advantage over mine, at least, which is that they come back when you call them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would put my poor hound to shame, I'm sure, but please don't tell it I said so." },
+      },
+      choices = {
+        { text = "Then your hound died a hero. I'll believe that too.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It was a broken machine, Tinkmaster. Build a better one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Some live in Tinker Town, some went to Stormwind, and some never came out of the radiation at all. The ones left are building again, which is the gnomish way, though their gadgets are rather more cautious now." } },
@@ -73,6 +94,8 @@ P:NPC {
           text = "A mage! Some of my best students were gnome mages before Gnomeregan fell, and they built the most marvellous arcane-powered gadgets." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in Tinker Town! I suppose you've heard that Gnomeregan sheltered your sort before the fall, and I'd thank you not to mention it too loudly." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, if only we'd had a few more of you when the troggs came up through Gnomeregan's lower levels, the tragedy of it all!" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I once built a mechanical hound, you know, but it chased the wrong things, as all my best inventions eventually do." },
       },
       again = {
         { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
@@ -88,6 +111,8 @@ P:NPC {
         { text = "Dwarven engineering isn't so bad, Tinkmaster.", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "What happened to the gnome mages after Gnomeregan fell?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why shouldn't I mention Gnomeregan's warlocks too loudly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What happened when the troggs reached Gnomeregan, Tinkmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What became of your mechanical hound, Tinkmaster?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -215,6 +240,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because Gnomeregan is full of troggs, leper gnomes and malfunctioning machines, and all three object to us taking our data back. A warrior at the front of a team means the engineers can read their punch cards instead of running from things." } },
+      choices = {
+        { text = "I'll lead the way and keep your engineers safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll lead, if I get first pick of the salvage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The approaches, mostly, for the troggs have dug their own tunnels into ours, and nobody knows where half of them lead. If you mark them for me, I'll fold them into the procedure, which is complicated, but improving." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would hear the machines before we did, I expect, which would save us a great many unpleasant surprises." },
+      },
+      choices = {
+        { text = "I'll mark every tunnel and follow your procedure.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll scout my own way. Procedures get people killed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "We could, if our arcane engineers were still alive, but most of them didn't make it out. A mage on the team might recover data we'd given up for lost, and I'd consider it an honour to have you." } },
@@ -249,6 +295,8 @@ P:NPC {
           text = "A mage, and just when I needed one! The punch cards in Gnomeregan are stored behind arcane locks, and my last team couldn't open them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I won't lie, the procedure for a warlock on a Gnomeregan team is very complicated, and it's mostly about what to do if your demon gets irradiated." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Excellent, because my recovery teams keep asking for someone to stand at the front, and I keep having to volunteer engineers." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Good, because the outer tunnels of Gnomeregan need scouting, and my engineers keep walking into things." },
       },
       again = {
         { id = "h_again", text = "Questions? Ask them now, before you're in the city; there's no asking down there." },
@@ -263,6 +311,8 @@ P:NPC {
         { text = "I've been down there without a team, Castpipe.", next = "k_rogue", when = { race = "Gnome", class = "ROGUE" } },
         { text = "Can you not open the arcane locks yourselves?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What happens if a demon gets irradiated in Gnomeregan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why do your recovery teams need a warrior, Castpipe?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would a hunter scout in Gnomeregan's tunnels?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -380,6 +430,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a broken blade tells you exactly where the metal was weakest, and that tells me what not to put in my next alloy. Bring me the pieces after you've fought the troggs, and I'll make you something that won't break where the last one did." } },
+      choices = {
+        { text = "I'll bring you every piece. Your work is worth it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll sell my scrap to whoever pays best.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because every time I make one lighter it bends, and every time I make one stronger it gains a pound. Somewhere between the two is the perfect barrel, and I mean to find it before the dwarves stop buying rifles, which I suspect is never." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} could carry a heavy one for you, I suppose, which is an engineering solution I hadn't considered." },
+      },
+      choices = {
+        { text = "I'd carry a heavy barrel that never bends.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Light and quick suits me. I'll risk the bend.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "They're the closest thing I have to the formula for the alloy I'm chasing, and they're somewhere in the old workshops. If a quiet sort could fetch them, I'd be very grateful, and I'd ask no questions about the route." } },
@@ -414,6 +485,8 @@ P:NPC {
           text = "A rogue! You'd be perfect for slipping into Gnomeregan and fetching Furen's notes without waking the troggs." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! I've a theory that the right enchantment on the right metal could make an alloy stronger than mithril, and you might be the one to test it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll have broken a blade or two, I expect, and I'd very much like to see the pieces." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you know, I've been trying to make a lighter rifle barrel for years, and I keep making heavier ones." },
       },
       again = {
         { id = "h_again", text = "What else? I've a crucible warming." },
@@ -427,6 +500,8 @@ P:NPC {
         { text = "Could your alloys make better plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Why are Furen's notes so important, Klockmort?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could magic truly make an alloy stronger than mithril?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would you want my broken blades, Klockmort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do your rifle barrels keep getting heavier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },
@@ -544,6 +619,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "First clear the troggs from the outer levels, then secure the airlocks, then take back the city level by level, and I've drawn every step of it on very large paper. A warrior would be at the front of step one, which is the most glorious step, and also the most dangerous." } },
+      choices = {
+        { text = "I'll follow your plan step by step, Gnoarn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Plans fail at the door. I'll go in and adapt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, which is why I've lost my hair and my patience both. If you count them and tell me which tunnels they use, I'll put it in the plans." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep your {pet} away from the radiation, if you would, for I'd hate for it to lose its fur the way I lost my hair." },
+      },
+      choices = {
+        { text = "I'll count them carefully and bring you the numbers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll stop counting and start thinning them out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Scouting, mostly, for we need to know where Thermaplugg's troops are before we can take the city back. I'd send a gnome, but most of us are too clumsy for sneaking, and the troggs hear our boots." } },
@@ -567,6 +663,8 @@ P:NPC {
           text = "Bingles is alive, and unexploded, even! He says I don't trust his reconnaissance abilities, and he's right, but I'm glad all the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! I've a few plans for Gnomeregan that need someone who can get in and out without being seen, if you're interested." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Splendid, for Gnomeregan will need soldiers when we march back in, and I'm the one who keeps the plans." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the troggs keep coming up out of the tunnels, and somebody needs to count them before I lose my temper again." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? The troggs aren't resting, and neither am I." },
@@ -581,6 +679,8 @@ P:NPC {
         { text = "Does the movement have a place for a gnome warlock?", next = "k_lock", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "Put a mage on your plans, Gnoarn.", next = "k_mage", when = { race = "Gnome", class = "MAGE" } },
         { text = "What sort of plans need someone quiet in Gnomeregan?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What are your plans for retaking Gnomeregan, Gnoarn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Where are the troggs coming up, Gnoarn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "For Gnomeregan!", next = "END" },
       },
     },

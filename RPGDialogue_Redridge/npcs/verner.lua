@@ -29,6 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not unless you've seen it lying about in the hills, and you might have, because the gnolls loot every cart they catch. If you find any scrap on their bodies, bring it to me, and I'll make something useful of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better claws than my best horseshoe nails, {class}, and I'm a little jealous of it." },
+      },
+      choices = {
+        { text = "I'll bring you every scrap I find.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep what I find. Iron's worth coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Verner.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "If it's Guard iron, I'll know it by the stamp, and I'll not touch it, because Marris needs every scrap. But if it came off a Blackrock camp, I'll ask no questions and work it gladly." } },
       choices = {
@@ -81,6 +93,7 @@ P:NPC {
         { id = "h_argus", when = { heardLine = "argus.s_default" },
           text = "Argus told you never to let the apprentice near the quench? He learned that from me, though he'll never admit it." },
         { id = "h_horse", when = { metBefore = true }, text = "Shod a grey mare this morning, the best-tempered beast in Lakeshire and better company than most of its people. Don't tell Argus I said anything nice about anything." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast wouldn't need shoeing, I suppose, which is a mercy, because I've no iron to do it with." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and hammer at once, though I can't promise you'll hear the talk." },
@@ -97,6 +110,7 @@ P:NPC {
         { text = "I need an edge that won't fold on an orc's skull.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I could find you iron, if you don't ask where from.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could heat your forge with a spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could hunters help you find iron, Verner?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Blackrock steel holds a curse well, they say.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the horses.", next = "END" },
       },

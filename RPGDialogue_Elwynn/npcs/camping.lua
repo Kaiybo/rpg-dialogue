@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not a bit of it. They come up the road dented and bleeding and say they'll rest after the next wolf, and then there's always a next wolf. Sit by a fire properly once and you'll fight twice as well tomorrow." } },
+      choices = {
+        { text = "You're right. I'll sit, and I'll fight better for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rest is for when the work's done, and it never is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I've nothing worth stealing but a kettle and a bedroll, and the Defias have better targets on the Westbrook road than me. Besides, anyone who'll sit by my fire and listen to my stories has paid for whatever they take." } },
@@ -58,6 +67,7 @@ P:NPC {
           text = "You came up on my fire so quiet I nearly put the kettle over your boots. Sit down anyway; a body that sneaks still needs tea." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Could you light my fire for me some evening? I've been at it with flint for an hour some nights, and it's undignified." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down; whoever you fought today, they'll still be there tomorrow, and the fire's warm now." },
       },
       again = {
         { id = "h_again", text = "What else? There's tea, if you're staying a while." },
@@ -73,6 +83,7 @@ P:NPC {
         { text = "A hunter sleeps rough with a beast for a pillow.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Don't you worry about strangers who sneak up on you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why not just carry a spark-stone like everyone else?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think warriors rest enough, Sam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Enjoy the fire.", next = "END" },
       },
     },

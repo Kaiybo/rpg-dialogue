@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, though most come in with packs full of blunted blades and broken shields they can't bear to throw away. I keep them safe all the same, because a grunt's first axe means something to him, even when it's bent." } },
+      choices = {
+        { text = "A warrior honours his old gear. I keep mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sentiment is dead weight. I'd sell the lot.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I take anything that fits, though I'd thank you to clean it first. One hunter left a whole kodo horn with me last summer, and the grunts at the door still talk about the stink, so tan your hides before they reach my counter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And no, your {pet} can't come into the vault with you. The last one chewed through a strongbox, and I've never managed to explain that to the owner." },
+      },
+      choices = {
+        { text = "I'll tan every hide properly. Waste insults the beast.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Hides are coin. I'll sell them raw and quick.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I doubt it, but the orcs who listen to them seem to keep less of it and sleep better for it. In the camps we couldn't own a copper, and now we lock up chests of it, so perhaps the spirits are right to laugh at us." } },
@@ -63,6 +84,8 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "When we were in the camps, the only thing an orc could own was his anger. Now look at us, queuing for our own vaults like merchants. Your vault is ready, {g:brother|sister}." },
         { id = "h_rich", when = { money = { min = 1000000 } }, text = "You carry more gold than most warbands ever saw. Leave some of it with me before a Kolkar cuts your purse off your belt in the Barrens." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, which is more than most of my depositors do with their gold." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior with full packs, I see. Leave the spare axes with me, because nobody ever won a fight carrying three of them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you'll have hides and teeth to stow, I expect. They go in the back vault, where the smell won't trouble anyone." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I open the vault?" },
@@ -76,6 +99,8 @@ P:NPC {
         { text = "Has anyone ever tried to rob you?", next = "rob" },
         { text = "Ever lost a deposit to someone with quick fingers, Karus?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A mage could guard your vaults with wards, Karus.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do warriors bank much, Karus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do you take a hunter's trophies in the vault, Karus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Nothing today, Karus.", next = "END" },
       },
     },
@@ -141,6 +166,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Cheap is a word for buyers, and I don't use it near sellers. Blades out of Ragefire Chasm come through every week, and some are better than anything in the Drag, so watch the lists in the evening and bid before the grunts come off duty." } },
+      choices = {
+        { text = "I'll earn my weapons in battle, not at auction.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin buys a good axe without all the bleeding.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Well enough if they're whole, and the leatherworkers pay best for the thick ones out of the Barrens. Bring me raptor hides and scorpid scales untorn, and the house takes its cut and you take the rest, without haggling with any trader in the Drag." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't go on the lists, before you ask. Somebody always asks, and the answer is always no." },
+      },
+      choices = {
+        { text = "I sell only what the hunt leaves over.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt whatever sells best, and keep hunting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Elemental earth and fire, mostly, scraped off the creatures in the Badlands and Searing Gorge, and the smiths fight over every scrap of it. The shamans who list it always look a little guilty, so I don't ask where it came from." } },
@@ -177,6 +223,8 @@ P:NPC {
         { id = "h_default", key = true, text = "Auctioneer Thathung. You list your goods, other people bid, and the house takes a deposit and a cut. That's the whole of it, though you'd be amazed how many warriors want it explained twice." },
         { id = "h_low", when = { maxLevel = 15 }, text = "New to the house, are you? Start by selling the linen and the copper you've been carrying around, because somebody here always needs it more than you do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you're selling totems this isn't the place, and if you're buying them it isn't either, because no shaman I know would trust one made by another hand." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and I can guess what you're after: a better axe for less coin than it's worth. Everybody wants that, and the bidding usually tells them no." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want arrows and a better bow, and you'll find both on the lists, if you've the patience to wait for them." },
       },
       again = { { id = "h_again", text = "Another question? Ask it quickly; the bids don't wait." } },
       choices = {
@@ -187,6 +235,8 @@ P:NPC {
         { text = "How is this house different from Booty Bay's?", next = "neutral" },
         { text = "Do stolen goods ever pass through your auction house?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mages sell their conjured water here?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Are good weapons going cheap at auction, Thathung?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do a hunter's hides sell well at auction, Thathung?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -253,6 +303,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "To the Crossroads, aye, which is as near a front line as the Barrens has, with the Kolkar and the quilboar raiding the roads. Grunts fly out with their axes strapped tight and walk back covered in centaur dust, and the riders always seem pleased to see them go." } },
+      choices = {
+        { text = "Then send me wherever the Horde needs blades.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fly wherever the coin is best, Doras.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Slowly, and with a great deal of raw meat. A wind rider is part lion and part bat and all temper, so you earn its trust the way a hunter earns a beast's, by feeding it and never once lying to it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} close on the roost. The wind riders have never eaten a hunter's beast, but they look at them sometimes, and I don't like the look." },
+      },
+      choices = {
+        { text = "Patience and trust. That's the only way to tame anything.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A firm hand works faster than patience, in my experience.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They do, and they listen better than their riders. Before a storm comes in off the sea every wind rider on this tower goes quiet and tucks its head, and I've learned to cancel the flights when they do, whatever the passengers say." } },
@@ -289,6 +360,8 @@ P:NPC {
         { id = "h_default", key = true, text = "Doras. I keep the wind riders, and they'll carry you to the Crossroads, to Thunder Bluff, or anywhere else the Horde has a roost. Have you flown before, or will you be holding on with your eyes shut?" },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren up my tower! You'd make a wind rider sweat, but they've carried heavier, so climb on and keep your hooves tucked in." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders like your kind, because you smell of storms, and they were flying through storms long before the Horde came to this land." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Hold on with both hands when you fly, because the wind riders don't care how strong you are, and neither does the drop." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Your beast will grumble all the way to the Crossroads, but they always do, and they always land happier than they left." },
       },
       again = { { id = "h_again", text = "Is that all, or do I saddle one? They get restless when people stand about talking." } },
       choices = {
@@ -298,6 +371,8 @@ P:NPC {
         { text = "Why can't I fly somewhere new?", next = "roosts" },
         { text = "What about the zeppelins?", next = "zeppelin" },
         { text = "Has anyone ever stolen one of your wind riders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the wind riders carry warriors to the fighting, Doras?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How do you train a wind rider, Doras?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "My demon won't ride with me, will it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -351,6 +426,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Should a wolf join a pack? The Warsong and the Blackrock were great because their warriors fought under one name, and a lone axe in Ragefire Chasm is only a meal for whatever lives down there, so find people you trust and put your name in my book beside theirs." } },
+      choices = {
+        { text = "A warrior fights beside his clan. I'll find mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I fight alone. Clans and guilds only slow me down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every clan had them, and the good ones fed the whole camp through the winter. The Frostwolves still ride their wolves up in Alterac, and the old clans had trackers who could follow a scent across a river, so don't let anyone tell you hunters stand outside the clans." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} counts as one of the guild too, as far as I'm concerned, though I've never managed to make one sign the book." },
+      },
+      choices = {
+        { text = "Then I'll put my name beside a clan's.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast is all the clan I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every one I register, if I had my way. The Frostwolves kept their shamans when the other clans traded theirs for warlocks, and that is why Drek'Thar still speaks for them while the rest of us had to learn it all again from Thrall." } },
@@ -396,6 +492,8 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "Which clan were your parents, {g:brother|sister}? Never mind; many don't know any more, and the camps took the names from more of us than the war did. Start a new one, then, and make it worth remembering." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, come to the registry of guilds! Your people never had much need for the word clan, I think, because a whole tribe stands behind every one of you." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the guild registry! In the old clans every warband had a shaman to speak for its ancestors, and I'll say plainly that the guilds could use a few more." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! In the old clans you'd have had a warband and a chieftain by now, so tell me you've at least found a guild to fight beside." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hunters join guilds last of anyone, because they think a beast is all the company they need, and they're usually wrong." },
       },
       again = { { id = "h_again", text = "What else? Ask, and I'll answer like a clan elder." } },
       choices = {
@@ -406,6 +504,8 @@ P:NPC {
         { text = "What makes a good guild?", next = "good" },
         { text = "I'm Frostwolf.", next = "frostwolf", when = { origin = "orc_frostwolf" } },
         { text = "Could a guild of thieves register with you, Urtrun?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Should a warrior join a guild, Urtrun?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Did the old clans have hunters, Urtrun?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Were there warlocks in the old clans?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Urtrun.", next = "END" },
       },
@@ -473,6 +573,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Troggs, and worse than troggs, because the Searing Blade cultists have dug in under the city and think nobody's noticed. Take four or five with you, keep your shields up, and come back with fewer of them living under my feet." } },
+      choices = {
+        { text = "I'll clear the chasm for the city's sake, Overlord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll clear it for whatever loot they're hoarding.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Durotar's thin on game and thick on teeth, which tells you something. Go south past Razor Hill for the boar and the scorpids, and if you want a real fight, the raptors of the Barrens will give you one before you've walked a day past the Southfury." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours stands straighter than half my recruits. If it ever wants to join the guard, it'll have to learn to salute." },
+      },
+      choices = {
+        { text = "I hunt to feed the Horde, Overlord, not for sport.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt for the challenge. The meat is a bonus.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every day, though he'd say he never left it. Drek'Thar taught him among the Frostwolves, and he carries the Doomhammer that Orgrim gave him, and I've seen the sky darken when he's angry, which is why I'd rather he wasn't." } },
@@ -519,6 +640,8 @@ P:NPC {
         { id = "h_vet", when = { minLevel = 50 }, text = "You've seen real fighting; it's in how you stand. The young ones here could learn something from watching you walk, so walk slowly." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, eh? Mind the recruits, because they've heard your kind can turn into bears, and half of them want to find out whether they could win." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief walks your path himself, so you'll hold yourself to his standard in my valley, and that means no lightning near the inn." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe in its loop while you're in my valley, and save the swinging for Ragefire Chasm." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast in my valley. Keep it close near the inn, because the recruits are bored enough to start something with it." },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick; I'm on my rounds." } },
       choices = {
@@ -529,6 +652,8 @@ P:NPC {
         { text = "How do I find my way around?", next = "around" },
         { text = "I keep my blades hidden in the city, Overlord.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The Valley of Spirits trains good mages, Overlord.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What's down in Ragefire Chasm, Overlord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is there game worth hunting near Orgrimmar, Overlord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Dismissed, Overlord.", next = "END" },
       },
     },
@@ -597,6 +722,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They do, and better than half the riders, though I'd not say that in the Valley of Honor. A war wolf learns to snap at the legs of anything that charges and keep its rider in the saddle, so treat yours like a shield-brother and it'll carry you out of fights you had no business walking into." } },
+      choices = {
+        { text = "A wolf is a shield-brother. I'll treat mine that way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A wolf is a mount. I'll ride it till it drops.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every one, and a stubborn one at that. The shamans say a wolf's spirit is half the beast and half the wind on the plains, and when one of mine dies I sit with it until the spirit has gone, because a wolf should never run alone." } },
@@ -644,6 +778,7 @@ P:NPC {
           text = "The whole city speaks well of you, and that's enough for me to sell you a wolf, whoever your people are. Come and choose one." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The wolves smell something on you they can't name, and look, they've gone quiet, which is more respect than they show most orcs." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The wolves know your kind, because the Frostwolves have run with shamans for as long as there have been Frostwolves, and see, they're already watching you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you'll be wanting a wolf to ride into battle, I'd wager. Every warrior does, once they've crossed the Barrens on their own feet." },
       },
       again = { { id = "h_again", text = "Anything else? The wolves are listening, so ask nicely." } },
       choices = {
@@ -655,6 +790,7 @@ P:NPC {
         { text = "Orcs have always ridden wolves, haven't they?", next = "history" },
         { text = "My companion is a wolf too.", next = "hunter", when = { class = "HUNTER", pet = { family = "Wolf" } } },
         { text = "Your wolves would make good lookouts for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do your wolves fight beside their riders, Ogunaro?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your wolves fear demons, Ogunaro?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll come back.", next = "END" },
       },
@@ -716,6 +852,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because an army marches on its belly, and the Barrens won't feed you unless you know where to look. The Southfury runs past the city full of fish, and a grunt who can catch his own supper won't sit by a cold fire waiting for a supply kodo that never comes." } },
+      choices = {
+        { text = "A warrior should never be a burden on the supply lines.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fishing is peon work. I'll take my rations.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Closer than most hunters think. You read the water the way you read tracks, you wait where the prey wants to be, and you never take more than you'll eat, because the river remembers greed the same way the plains do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a fish, I think, by the way it's watching my bucket. Fair enough; it's earned one more than most of the grunts who walk past." },
+      },
+      choices = {
+        { text = "Take only what you'll eat. That's the rule I live by.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather fill the bucket while the fish are biting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Help, if you're patient with them, and patience is the only bait I've ever needed. On a still morning at the river below the city I can feel something watching the line with me, and I haven't felt alone out there since the camps." } },
@@ -752,6 +909,8 @@ P:NPC {
         { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. Then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear wants fishing lessons from an orc? Your people were fishing off the Echo Isles before mine ever saw the sea. You could probably teach me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here by the water. Keep your voice low, because the water spirits are easier to frighten than the fish, and a good deal harder to catch." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior with a fishing question, I hope? More come to me after a long patrol than you'd think, wanting something to do with their hands that isn't killing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll know about patience already, so you'll make a better fisher than any warrior, though I'll not tell them I said it." },
       },
       again = { { id = "h_again", text = "Something else? Keep your voice low; voices carry over water." } },
       choices = {
@@ -762,6 +921,8 @@ P:NPC {
         { text = "Fishing is a waste of a warrior's time.", next = "waste" },
         { text = "Fishing teaches patience, Lumak. So does my trade.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could freeze the river and pick the fish out.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why would a warrior need to fish, Lumak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is fishing much like hunting, Lumak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Lumak.", next = "END" },
       },
     },
@@ -821,6 +982,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Better than most, because mining is only swinging something heavy at something hard until it gives up. The copper in Durotar's hills will do to start with, and when you're ready, the Barrens has tin and silver, though the Venture Company goblins will tell you they own it all." } },
+      choices = {
+        { text = "I'll dig my own ore and forge my own blade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the peons dig. I'll buy the ore.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The hills around Razor Hill and the canyons near Skull Rock are thick with copper, and the harpies of Dustwind Cave nest on some of the best of it. Keep an eye on the cliffs while you track, and you'll come home with more than hides." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind your {pet} near the cliff edges, because a beast after a lizard doesn't look where it's running, and Durotar's canyons are deep." },
+      },
+      choices = {
+        { text = "I'll take what ore I need and leave the rest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every vein I pass is coin. I'll strip them all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Not in words, but I listen before I swing the pick, and stone tells you when it's angry if you're quiet enough. The shamans say the earth spirits of Durotar are hard and slow to forgive, and every vein I've worked agrees with them." } },
@@ -835,10 +1017,14 @@ P:NPC {
         { id = "h_default", key = true, text = "Makaru, and I teach mining. The city was built from the stone of these hills, and every forge in the Valley of Honor burns ore that somebody dug out with a pick." },
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "A smith! Then you know what bad ore does to a blade, so learn to dig your own and never trust a stranger's bars." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the miners' hall. You'll ask the earth's leave before you dig, I suppose, and I won't laugh at you for it, because the hills here have dropped a roof on more than one miner who didn't." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a strong back on you! You'd swing a pick as well as an axe, and the forges in the Valley of Honor would thank you for it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be out in the hills more than anyone, so you'll pass more copper veins than anyone, and I'd learn to see them if I were you." },
       },
       again = { { id = "h_again", text = "What else? Make it quick; the light's going in the hills." } },
       choices = {
         { text = "Do you ask the earth's leave before you dig?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do warriors make good miners, Makaru?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Where's the best ore in Durotar, Makaru?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where can I find ore near here?", next = "where" },
         { text = "What makes a good miner?", next = "good" },
@@ -905,6 +1091,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That you hit hard and sharpen seldom, like every young warrior I've met. A blade is a promise between the smith and the one who carries it, so keep the edge clean and oil it after every fight, and it'll keep its end of the bargain when a Kolkar spear comes at your ribs." } },
+      choices = {
+        { text = "I'll care for my blade. It's earned that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "When it dulls, I'll buy another. Smiths need the work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than a hunter likes to admit, because arrowheads, skinning knives and the axe on your back all come from a forge like mine. A good skinning knife takes a hide off clean in one pull and a bad one tears it, and the leatherworkers will pay you for the difference." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for the forge noise, I see. Most beasts don't, though I had a boar once who'd sleep right beside the anvil." },
+      },
+      choices = {
+        { text = "A clean skinning honours the kill. I'll buy the better knife.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A torn hide still sells. I'll keep my coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "My teacher thought so, and he never lit a forge without a word to the flame first. I'm less sure, but I still do it, because the one morning I forgot, my best blade cracked in the quench and I never found another reason why." } },
@@ -941,6 +1148,8 @@ P:NPC {
         { id = "h_default", key = true, text = "Saru Steelfury. I teach smithing at these forges, and everything the Grunts on the walls carry was hammered here. Do you want to learn, or have you only come to watch?" },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior at my forge! Good, because you'll understand why a blade's balance matters more than its shine. Learn to make your own, and you'll never have to trust a trader's." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my forge! Good, because you'll want a weapon that can take a jolt of lightning, and most of what the traders sell will crack the first time you try." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Let me see your blade, then, because I can tell a lot about a fighter by the nicks in the edge and how they've been kept." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll carry a knife for skinning and an axe for when the beast gets too close, so let me see that both are sharp enough to do their work." },
       },
       again = { { id = "h_again", text = "What else? Speak up over the hammer." } },
       choices = {
@@ -950,6 +1159,8 @@ P:NPC {
         { text = "How did orcs learn to smith?", next = "history" },
         { text = "What do you think of dwarven steel?", next = "dwarves" },
         { text = "Can you forge a blade that's quiet in the sheath?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What does my blade tell you, Saru?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Does a hunter really need a smith, Saru?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you forge for warlocks, Saru?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, smith.", next = "END" },
       },
@@ -1011,6 +1222,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a sapper charge opens a gate faster than any battering ram, pal, and a stick of dynamite in a crowd of quilboar does what ten axes can't. The orcs laughed at me for a year, and now the grunts on the walls ask for my bombs by name." } },
+      choices = {
+        { text = "A warrior fights face to face. Bombs are for cowards.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If dynamite wins the fight faster, I'll carry dynamite.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Your aim, no, but your gun, absolutely! A good scope and some proper black powder, and you'll put a shot through a harpy's wing from the far side of a canyon, though I'll admit the first few scopes I made were mostly decorative." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours could use some goggles, pal. Don't laugh; I've sold three pairs to hunters already, and only one of the beasts ate them." },
+      },
+      choices = {
+        { text = "A true hunter relies on skill, not gadgets.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a gadget makes the kill sure, I'll buy it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Tried it twice, and I've still got most of my eyebrows to prove it. The orcs tell me the storm has a spirit and it doesn't like being put in a jar, and after the second time I'm inclined to agree with them." } },
@@ -1048,6 +1280,8 @@ P:NPC {
         { id = "h_goblin", when = { race = "Goblin" }, text = "A fellow goblin! You know how it is: these orcs think a wrench is a club, but they pay on time, so I'm not complaining." },
         { id = "h_eng", when = { profession = "Engineering" }, text = "Ah, a colleague! How are your bombs holding up? Not too stable, I hope, because a stable bomb is a boring bomb." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call lightning out of the sky for free, and I spend a fortune on copper wire to do half as much, so we should talk business sometime." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You know what's better than a big axe? A big axe with a bomb on the end of it, and I've been working on that design for months." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Ever thought about a scope on that gun? I can make you hit a plainstrider from so far away it'll never know you were there." },
       },
       again = { { id = "h_again", text = "Got another question? Ask quick; something's smoking in the back." } },
       choices = {
@@ -1057,6 +1291,8 @@ P:NPC {
         { text = "Is engineering dangerous?", next = "danger" },
         { text = "What can an engineer make?", next = "make" },
         { text = "Your machines or my magic. Which wins, Nogg?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why should a warrior learn engineering, Nogg?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can you really improve my aim, Nogg?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Ever tried to build a cage for a demon, Nogg?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Nogg.", next = "END" },
       },
@@ -1124,6 +1360,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Sometimes a warrior ride in on a wolf or a raptor and leave it with me while he go down into Ragefire, and I look after it like it be my own. The raptor always know when its rider come back hurt, mon, and it squawk at me like I be the one who did it." } },
+      choices = {
+        { text = "A good mount deserves good care. Thank you, Xon'cha.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mount is a mount. Feed it and I'm satisfied.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "More than me, mon. A cat will stare all night at a corner of the stable where there be nothin' at all, and the old witch doctors say that be a spirit passin' through, so I leave a little water in that corner and the cat sleep fine." } },
@@ -1160,6 +1405,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Xon'cha, and I keep the stables. You leave your beast with me and it be fed, brushed and talked to every day until you come back for it. Most hunters forget the talkin', but I don't." },
         { id = "h_troll", when = { race = "Troll" }, text = "Ah, a Darkspear! You come up from Sen'jin, or from further? Leave your beast here and I treat it like family." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, mon! The beasts in my pens feel you comin' before they see you, so walk slow and let them get a good look at you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and no beast with you. That be fine, because I keep the beasts and you keep the fightin', and between us the Horde do alright." },
       },
       again = { { id = "h_again", text = "Somethin' else? The beasts don't mind waitin', but I do." } },
       choices = {
@@ -1169,6 +1415,7 @@ P:NPC {
         { text = "What's the strangest beast you've kept?", next = "strange" },
         { text = "How did a troll end up in Orgrimmar?", next = "troll" },
         { text = "I'm quiet like a beast in the grass, Xon'cha.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do warriors ever leave their mounts with you, Xon'cha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Could you stable my demon, Xon'cha?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Xon'cha.", next = "END" },
       },

@@ -23,6 +23,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Deviate raptors, deviate crocolisks and a family of druids who have dreamed themselves quite mad. The blooms I need grow among all of them, so a warrior who keeps the beasts busy while someone else does the picking is worth his weight in silverleaf." } },
+      choices = {
+        { text = "I'll guard the gatherers and keep them alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go for the loot. The picking's your problem.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Something in the dream, if the druids are to be believed, or something in the water, if you ask me. The deviate creatures down there are twisted in ways I've never seen, and I'd give a great deal for a fresh sample of one, preferably not attached to the rest of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep your {pet} out of the caverns' pools, by the way. Whatever twists the beasts down there isn't particular about whose beast it twists." },
+      },
+      choices = {
+        { text = "I'll bring samples to cure the sickness, Zamah.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Samples are worth coin, apothecary. I'll name my price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -64,6 +85,8 @@ P:NPC {
         { id = "h_serpent", when = { questActive = TODO_QUEST("Serpentbloom") },
           text = "The serpentbloom grows in the Wailing Caverns, among the druids who've gone wrong down there. Bring me what you can, and mind the fumes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ah, a shaman. The elements are such fascinating subjects, and so very poor at holding still to be studied." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Splendid; the Wailing Caverns are full of things that bite, and I find warriors far more useful down there than poetry." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know a sick beast from a healthy one, which makes you more useful to the Society than most of the tauren I've asked." },
       },
       choices = {
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
@@ -73,6 +96,8 @@ P:NPC {
         { text = "Do the spirits of the Pools trouble you, Zamah?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Serpentbloom has other uses, I'd imagine.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the tauren mind mages walking their sacred pools?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What bites in the Wailing Caverns, Zamah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What makes the beasts in the Wailing Caverns sick, Zamah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The tauren look at my imp as if it were plague.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
@@ -138,6 +163,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "To hunt your enemy as a hunter hunts a kodo, patiently and with respect, and to strike only when the moment is right. The centaur of the Barrens charge without thinking, and the warriors who wait for the charge to break are the ones who win the day." } },
+      choices = {
+        { text = "I'll wait for the right moment, Holt.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting loses battles. I strike first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Patience, respect and a steady hand, in that order, because the Thunderhorns have hunted Mulgore since long before the bluffs had bridges. We honour the beast we take and we never take more than the tribe needs, and a hunter who forgets that is no Thunderhorn, whatever his name." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks proudly, {class}. That pride comes from you, and I hope you've earned it." },
+      },
+      choices = {
+        { text = "I'll honour every beast I take, Holt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good kill is its own honour, Holt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -165,6 +211,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Holt Thunderhorn, and I teach the hunters of Thunder Bluff. The Thunderhorns have hunted Mulgore since long before the bluffs had bridges." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your bow has seen use since we last met, hunter. Let me see what you have learned." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise? You're welcome here, though my students will want to know if you can call the wind to steady an arrow." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Hunter Rise. Stay a while, because the Thunderhorns have taught more than hunters to read the plains." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine comes home. Tell me what you've tracked since we last spoke, and let me see how your companion carries itself." },
       },
       choices = {
         { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
@@ -172,6 +220,8 @@ P:NPC {
         { text = "Can a shaman's wind really steady an arrow, Holt?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A hunter and a rogue both learn patience, Holt.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can magic make an arrow fly truer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What would a Thunderhorn teach a warrior, Holt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What makes a Thunderhorn hunter, Holt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
@@ -220,6 +270,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Carefully, as I tell every tauren who comes to me, because a tauren swing can break a centaur's back or a friend's shield. The braves who guard Thunder Bluff learn to measure every blow, so that the strength the Earth Mother gave them is only ever used to protect." } },
+      choices = {
+        { text = "I'll measure every blow, Ker.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A blow held back is a blow wasted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not as often as they should, though I'd change that if the hunters would come down from their rise. A warrior who knows where the arrows will fall can hold the line longer, and a hunter who knows where the line will hold can shoot more freely." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine sparring partner for my braves. Bring it to the ring someday, if you trust me with it." },
+      },
+      choices = {
+        { text = "I'll train beside the warriors, Ker.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Warriors can learn my ways, not I theirs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -247,12 +318,16 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Ker Ragetotem, and I train the warriors who guard Thunder Bluff. A tauren's strength is great, so we must learn to use it carefully." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Come for more training, warrior? Good, because the centaur do not rest, and neither should we." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. Your strength comes from outside you, so you must learn to carry it even more carefully than a warrior does." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior comes back to Ragetotem's ring. Good, because strength without care only breaks things, and I've more care to teach." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the warriors' ring. Come in, then, because the braves of the bluffs could use a lesson in patience from you." },
       },
       choices = {
         { text = "Who do the warriors fight?", next = "fight" },
         { text = "Why must strength be careful?", next = "careful" },
         { text = "Does a shaman need a warrior's training, Ker?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Strength isn't everything. Speed and silence count too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "How should a warrior use great strength, Ker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },

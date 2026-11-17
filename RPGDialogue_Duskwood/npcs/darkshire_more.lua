@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The road past Raven Hill, where the dead come up thickest at night, and the farmers out west who won't leave their homes. The Light walks with anyone who stands between them and harm, and I'd like that to be you." } },
+      choices = {
+        { text = "Then I'll stand there, under the Light, with the farmers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll fight where the dead are. The farmers can come to town.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Elaine.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Anything that's changed: a worg den where there wasn't one, spiders in a house that was empty last week, tracks heading toward town. Jonathan hunts what I write down, so the better your eyes, the safer we all are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine scout, {class}. Animals notice things long before people do, and in Duskwood that's often the difference." },
+      },
+      choices = {
+        { text = "I'll report everything I see. Your list keeps people alive.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt what I find. Reports are for the Watch.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Elaine.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "That would be a kindness, because I've been sending the Carevin boys and they clatter like a cart full of pans. Write down what you see, not what you think, and bring it back to me." } },
       choices = {
@@ -61,6 +82,8 @@ P:NPC {
           text = "Sven sent word that the supplies came through. He doesn't say thank you, he says 'more', and from Sven that's the same thing." },
         { id = "h_stitches", when = { questDone = TODO_QUEST("Translation to Ello") },
           text = "I sent you up to that shack to ask after an old man's health. I keep thinking about that, and I haven't found a way to stop." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Jonathan will be glad of you, and so am I, because I keep the list of who hasn't come back and I'd like it shorter." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be out in the wood longer than most, so do come back and tell me what you see moving where it shouldn't." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? I've a list, but it can wait a moment." },
@@ -76,6 +99,8 @@ P:NPC {
         { text = "About the hermit you sent me to...", next = "hermit_after", when = { questDone = TODO_QUEST("Translation to Ello") } },
         { text = "I walk under the Light too, with a hammer.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I can check those empty houses without being seen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Which part of the wood needs a warrior most, Elaine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should a hunter report back to you, Elaine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You walk under the Light, Elaine. I walk elsewhere.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { standing = { darkshire = 1 } } },
       },
@@ -236,6 +261,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Safer, at least, which is more than I can say now. The road east runs through Deadwind Pass, past things I'd rather not name, and every crate that arrives keeps Lungertz's soldiers fed and armed against the Dark Portal." } },
+      choices = {
+        { text = "I'll guard the road. Nethergarde needs those supplies.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Nethergarde's a long way. I'll fight closer to home.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Watchmaster.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Worgs along the eastern stretch, and spiders that string webs across the road at night as neat as a toll gate. A hunter clearing the road ahead of my wagons would save me more crates than any guard." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would keep my oxen nervous, {class}, but I'd rather nervous oxen than dead drivers, so walk it ahead of the wagons." },
+      },
+      choices = {
+        { text = "I'll clear the road ahead of your wagons.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt there if it pays. Supply runs aren't my trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Watchmaster.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Worgen, ogres and something in Deadwind Pass that leaves no tracks, though I'd not rule out plain thieves either. If you can find out where my crates go, Nethergarde might eat this month." } },
       choices = {
@@ -264,6 +310,8 @@ P:NPC {
           text = "Word came back from Lungertz: the stones arrived with their charge still in them. I've marked it in the ledger in red, which I save for miracles." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "No caravans leave after dark, so at night I sit with the ledgers and work out which of the day's wagons I'll be writing off." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because my wagons need escorts and I've run out of men who'll walk the road to Deadwind Pass twice." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The beasts that hit my wagons don't steal much, but they spook the oxen, and a bolted ox loses a whole load in the trees." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly; there's a wagon with a broken axle out front." },
@@ -277,6 +325,8 @@ P:NPC {
         { text = "I've walked that road. It's worse than you say.", next = "veteran", when = { questDone = TODO_QUEST("Supplies for Nethergarde") } },
         { text = "Nethergarde's mages. What do they need so badly?", next = "mage", when = { class = "MAGE" } },
         { text = "Your crates go missing on the road. Who's taking them?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would an escort get your crates to Nethergarde safely, Watchmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What beasts trouble your wagon road, Watchmaster?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Nethergarde watches the Portal. My kind know its pull.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Safe roads, Watchmaster.", next = "END" },
       },
@@ -409,6 +459,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Steady? No, friend, it does the opposite, but it makes you care a good deal less about the shaking. The Watch swear by a nip before a patrol, though I'd not tell the Commander that." } },
+      choices = {
+        { text = "I'll fight sober. The dead deserve a clear eye.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour me one. Courage is courage, wherever it comes from.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Hann.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not me, I'm drink and drink only, but Grual in the kitchen will take a good haunch off your hands. Mind you, half of what's out there now isn't fit to eat, so bring him something that was healthy when you shot it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the water bowl, {class}, but not the jug. I tried that once with a stray dog and it never walked straight again." },
+      },
+      choices = {
+        { text = "I'll hunt only the clean game. Grual's customers deserve it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Meat is meat. Grual can cook the rot out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Hann.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Hush! Smugglers is a word the Night Watch can hear through walls, friend. Keep it between us, and if you want a bottle, you'll buy it like everyone else, with silver and a wink." } },
       choices = {
@@ -432,6 +503,8 @@ P:NPC {
           text = "A bottle of moonshine for Lakeshire, is it? Daniels has good taste and a long road between him and his order, so pay up and I'll wrap it in a rag so it won't clink." },
         { id = "h_dry_done", when = { questDone = TODO_QUEST("Dry Times") },
           text = "I hear my moonshine's sitting on a shelf in Lakeshire now. That's the furthest a bottle of mine has travelled, and I've half a mind to feel proud." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be wanting something from under the counter, then; nobody fights the dead in this wood on spring water." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a jug of juice for you and a bowl of water for the beast, and if either of you wants something stronger, ask quietly." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them over the bar; I don't leave it after dark." },
@@ -444,6 +517,8 @@ P:NPC {
         { text = "Does Darkshire need more drink, or less?", next = "drink" },
         { text = "Should a priest be buying moonshine?", next = "priest", when = { class = "PRIEST" } },
         { text = "I know a few smugglers who'd love your moonshine.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does your moonshine really steady a warrior's hand, Hann?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you buy game for the bar, Hann?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your moonshine is the only thing here that burns hotter than me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not tonight.", next = "END" },
       },
@@ -529,6 +604,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Honestly, not much, unless you want a candle for your bedside so you can see what's coming through the window. Gran insists warriors need fortune most of all, but I think they mostly need a good lock and a better shield." } },
+      choices = {
+        { text = "Then I'll trust my shield and leave fortune to your gran.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take a reading. A warrior should know what's coming.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Alyssa.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not much, I'm afraid, because my shelves are mostly for mages and priests. If you need arrows, though, the fletchers in Lakeshire do good work, and the road there is only half as bad as the one to anywhere else." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my reagents, {class}, and I'd rather it didn't, because some of those powders make beasts sneeze fire." },
+      },
+      choices = {
+        { text = "I'll keep it outside. Your shop isn't a kennel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It goes where I go. You'll get used to it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Alyssa.", next = "BACK" },
+      },
+    },
     xlock = {
       lines = { { id = "xlo_default", text = "They would, and I'll sell them to you, though Grandmother will turn up a card about it before you've reached the door. Fate's mostly a matter of good locks, I tell her, and so far nobody's broken mine." } },
       choices = {
@@ -544,6 +640,8 @@ P:NPC {
           text = "Grandmother's been odd all week, telling me to stay indoors and asking where I've been. If she's put you on one of her errands, please tell me it isn't about me." },
         { id = "h_stalvan_done", when = { questDone = TODO_QUEST("The Legend of Stalvan") },
           text = "Grandmother's stopped telling me to stay indoors. She won't say why, but she looks at me as if I'd survived something, and I'd quite like to know what." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Gran would say the cards foretold you, but I'll just say you look like someone who never buys a single candle." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast, in my shop full of breakable glass. Please, for the love of the Light, tell it to sit." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm only counting candles, and they're not going anywhere." },
@@ -556,6 +654,8 @@ P:NPC {
         { text = "Who buys reagents in a town like this?", next = "trade" },
         { text = "Was her errand about you?", next = "errand", when = { questDone = TODO_QUEST("The Legend of Stalvan") } },
         { text = "Your reagents would suit my work too, Alyssa.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there anything here a warrior could use, Alyssa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you sell anything for a hunter, Alyssa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -649,6 +749,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Could it? A good flash-bang will blind a ghoul for a moment, and a moment is all a sword arm like yours needs! Finbus could teach you to make one, if you've the patience to sit still for an afternoon." } },
+      choices = {
+        { text = "A sword's honest. I'll leave gadgets to gnomes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it wins the fight, I'll try any trick you've got.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Herble.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scopes, mostly, and good dwarven ones, though Finbus would argue gnomish lenses are better, and Finbus is wrong. A scope that lets you see a worg before it sees you is worth every copper in this dark wood." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has got its nose in my crate of springs, {class}, and if it swallows one I'll want it back, if you follow." },
+      },
+      choices = {
+        { text = "I'll trust my eyes. A scope's a crutch.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Give me the best scope you have. Every edge counts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Herble.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Oh, I know they would, and I know which alley, because half my stock passed through it on the way here. But I'm a respectable exile now, and respectable exiles sell at the front door." } },
       choices = {
@@ -673,6 +794,8 @@ P:NPC {
         { id = "h_default", text = "Herble Baubbletump, purveyor of engineering and mining supplies to the gloomiest town south of the mountains. Finbus teaches the craft down the hall, and I sell the bits he's always running short of." },
         { id = "h_stars", when = { questActive = TODO_QUEST("Look To The Stars") },
           text = "You're after a bronze tube for that stargazer, Viktori? I've a couple left, though they're dear, and I'll give you my opinion of his telescope free of charge." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Big, strong, likely to hit things, and I sell parts for gadgets that don't need any of that, so you're in the wrong house!" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, a gnome who sells gun parts likes a hunter, because hunters like guns, and guns like parts!" },
       },
       again = {
         { id = "h_again", text = "What else? I've three conversations going in my head already, so one more won't hurt." },
@@ -686,6 +809,8 @@ P:NPC {
         { text = "I mine. What sells here?", next = "mining", when = { profession = "Mining" } },
         { text = "Your parts would sell well in Stormwind's back alleys.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Mages and engineers rarely agree, do they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could an engineer's gadget help a warrior in this wood, Herble?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you sell parts for a hunter's rifle, Herble?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Mind the shelf. Goodbye.", next = "END" },
       },
     },
@@ -784,6 +909,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because the dead are walking in the Tranquil Gardens, and every time I go near, something with my neighbour's face comes shambling out. I don't want to fight them, I only want to stand at the stone and say what I never got to say." } },
+      choices = {
+        { text = "I'll clear the gardens. Your father deserves a visit.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead are everywhere. Grieve from here, Farrin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Farrin.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Wolves, as big as ponies some of them, and spiders that hang in the trees by the cemetery. My father used to walk this wood to fish the Darkened Bank, and now I can't walk to the end of the street." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would see the dead coming before they reached you, {class}. I've half a mind to buy a dog, but there's none left in Darkshire." },
+      },
+      choices = {
+        { text = "I'll clear the way to the cemetery for you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt the wolves. You'll have to brave the dead yourself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Farrin.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Would you? I can't ask it, not with ghouls walking the Raven Hill paths, but I can't stop thinking about the stone. If you go, just tell me whether it's still standing." } },
       choices = {
@@ -805,6 +951,8 @@ P:NPC {
         { id = "h_default", text = "Farrin Daris. I've a room here at the Raven, and I walk from it to this table and back, because there's nowhere else in Darkshire a man can safely walk anymore." },
         { id = "h_watch_done", when = { questDone = TODO_QUEST("The Night Watch") },
           text = "They say someone cleared the cemetery for the Watch. I thought about going to see my father, and then I didn't, but I thought about it, which is more than last month." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're half what you look like, you could walk me to my father's grave and back, and I'd owe you more than I could ever pay." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the woods, then, and you'll know there's nothing out there a man like me can face alone." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm not going anywhere, and I never am these days." },
@@ -817,6 +965,8 @@ P:NPC {
         { text = "I could walk you to the cemetery.", next = "escort", when = { minLevel = 25 } },
         { text = "I could slip past the dead to your father's grave.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A light spell would hold the dead back from the graves.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why can't you reach your father's grave, Farrin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's out there besides the dead, Farrin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Take care of yourself, Farrin.", next = "END" },
       },
     },
@@ -905,6 +1055,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They fare as well as their riders, which is to say badly. A horse can smell a worg before you can see it, and if you'd listen to your mount instead of spurring it on, you'd both live longer." } },
+      choices = {
+        { text = "I'll listen to my mount. It's earned that much.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A horse goes where it's pointed. That's its job.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Steven.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "They do, and they leave the same way, full, because a stablemaster who steals soon has an empty stable. The beasts know who's honest, and they'd tell me if they could." } },
       choices = {
@@ -924,6 +1083,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Steven Black, stable master. I keep your animals behind a stout fence and well away from the trees, which is more than I can do for the people." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your horse will thank me for the rest, I'd wager, since I doubt you ever let it stop long enough to drink." },
       },
       again = {
         { id = "h_again", text = "Anything else? The feed won't fork itself." },
@@ -935,6 +1095,7 @@ P:NPC {
         { text = "Who else leaves animals with you?", next = "customers" },
         { text = "Can {pet} stay with you while I'm in the woods?", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Travellers' saddlebags must pass through your hands, Steven.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors' mounts fare well in this wood, Steven?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your animals don't like me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },

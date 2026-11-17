@@ -25,6 +25,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Old shields, mostly, and armour from fights they'd rather not forget. I keep it all in the rock beneath the mesa, and some of the braves come back years later just to look at the shield that saved them." } },
+      choices = {
+        { text = "I'll keep the gear that saved me. It deserves respect.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old gear is clutter. I'll sell it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Many do, and I don't mind, as long as they're cleaned first. One hunter left the skull of a plains lion with me and visits it every season, which I find touching, though the other bankers find it strange." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} can wait at the door, please. The vaults are no place for a beast, however well behaved." },
+      },
+      choices = {
+        { text = "I keep my trophies to honour the beasts I've taken.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Trophies are for showing off. I'd sell mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -52,6 +73,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Chesmu, and I keep the vaults of Thunder Bluff. Whatever you leave here is safe until you return for it, and you may reach the same vault from any bank of the Horde." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "Welcome, child of the Earth Mother. Our grandparents carried everything they owned on a kodo's back, and now we leave it with a stranger on a mesa. The world changes, and we change with it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The elders say the earth keeps its treasures deep, and so do I, though mine have locks on them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll have spare armour to store, I expect, because warriors always carry more than they can wear." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hides and trophies go in the lower vaults, where the smell won't bother the other guests." },
       },
       again = { { id = "h_again", text = "Is there something more you wanted to ask, friend? The vaults have waited this long, so they can wait a little longer." } },
       choices = {
@@ -62,6 +85,8 @@ P:NPC {
         { text = "Is Thunder Bluff safe for my things?", next = "safe" },
         { text = "Your vaults look sturdy, Chesmu. How sturdy, I wonder?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mages keep anything strange in your vaults?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What do warriors usually leave with you, Chesmu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do hunters keep their trophies here, Chesmu?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Chesmu.", next = "END" },
       },
     },
@@ -130,6 +155,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "To the Crossroads, mostly, where the centaur raid and the quilboar fight, and to Camp Taurajo, where the Razorfen grow bolder every season. The wind riders carry warriors to the fight and bring them home again, though they always seem to fly faster on the way back." } },
+      choices = {
+        { text = "Send me where the Horde needs me most, Tal.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Send me where the fighting pays best, Tal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "With patience, raw meat and a great deal of respect, because a wind rider remembers every kindness and every slight. They're proud creatures, and a hunter would understand them better than most, so you're welcome to come up the tower and meet them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for the wind riders, I see. They're not fond of it either, but they've never once quarrelled with a hunter's beast." },
+      },
+      choices = {
+        { text = "Respect is the only way to earn a beast's trust.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A strong hand earns trust faster than respect.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -157,6 +203,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Tal, and I keep the wind riders of Thunder Bluff. They will carry you to the Crossroads, Camp Taurajo, Sun Rock Retreat, or anywhere else the Horde keeps a roost you've visited." },
         { id = "h_skyborne", when = { race = "Skyborne" }, text = "One of the Windshapers. Your people know the sky better than mine, I think, but the wind riders will still carry you, if you'll let them do the flying." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then you'll enjoy the flight more than most, because the wind riders say your kind talk to the air the whole way." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders will carry you wherever the Horde needs you, but hold on tight, because they don't slow down for armour." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders are beasts too, and they always know when a hunter is near; they lift their heads and watch." },
       },
       again = { { id = "h_again", text = "Anything more? The wind won't wait forever." } },
       choices = {
@@ -166,6 +214,8 @@ P:NPC {
         { text = "Where do the wind riders come from?", next = "beasts" },
         { text = "Why don't you fly to Bloodhoof Village?", next = "bloodhoof" },
         { text = "Who watches the tower while you sleep, Tal?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Where do the wind riders take warriors, Tal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How do you care for the wind riders, Tal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will your wind riders carry a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Tal.", next = "END" },
       },
@@ -235,6 +285,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The one in your hand, until it breaks, and then the one nearest you. A tauren warrior learns the axe, the mace and the staff, because the herd must be protected with whatever is at hand, and a warrior who can only fight with one weapon fights poorly with all the others." } },
+      choices = {
+        { text = "I'll learn every weapon I can, to protect the herd.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll master one weapon. The rest are distractions.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every tauren hunter once carried a spear, long before the orcs brought their guns across the sea. A spear keeps a charging beast at arm's length, and a hunter who knows how to use one will stand when others fall." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will thank you for learning, {class}. A hunter who can protect his companion is a hunter worth following." },
+      },
+      choices = {
+        { text = "I'll learn the spear, for my companion's sake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My bow is enough. Let the beast handle the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -262,6 +333,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Ansekhwa, and I teach the use of weapons to any who can learn them. A weapon is a tool for protecting the herd, and the more tools you carry, the fewer ways the herd can be hurt." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior. You'll want to know every weapon there is, then, because one day the one in your hand will break, and you'll need to pick up whatever lies nearby." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll need a weapon you trust as much as your totems, and I can teach you one." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Show me how you hold that weapon, and I'll tell you how many fights it has lost you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know the bow and the gun, but I can teach you the spear and the axe for when the beast comes close." },
       },
       again = { { id = "h_again", text = "What else? Ask, and I'll answer plainly." } },
       choices = {
@@ -271,6 +344,8 @@ P:NPC {
         { text = "Why protect the herd and not conquer?", next = "herd" },
         { text = "Do daggers protect the herd too, in their way?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A mage only needs a staff, Ansekhwa.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Which weapon should a warrior master first, Ansekhwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Should a hunter learn the spear, Ansekhwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Ansekhwa.", next = "END" },
       },
     },
@@ -326,6 +401,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches further than his arm, because the harpies stay in the air and the centaur throw spears. A Thunderhorn bow is light enough to carry beside an axe, and it'll start a fight on your terms instead of theirs." } },
+      choices = {
+        { text = "I'll carry a bow and use it wisely.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior fights face to face. Bows are for hunters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The wood comes from the old trees of Mulgore, and we cut only from trees that have already fallen, so the Earth Mother gives each bow freely. A bow made from a gift shoots truer than one made from a theft, or so my grandmother always said." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it would enjoy a good hunt. Take it out to the plains with a Thunderhorn bow, and you'll both come home happy." },
+      },
+      choices = {
+        { text = "I'll honour the bow and the land it came from.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A bow is a tool. I care only how far it shoots.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -353,6 +449,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Kuna Thunderhorn, and I sell bows, arrows and guns on Hunter Rise. The Thunderhorns have always been hunters, and somebody in the family had to make the bows instead of only using them." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Come and look at the long bows. They're cut from the old trees of Mulgore, and they'll carry an arrow further than anything the orcs make." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise! You'll want a mace more than a bow, I'd wager, but you're welcome to admire the craftsmanship." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Hunter Rise? You'll be wanting a gun for when the centaur keep their distance, I'd wager." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! I can tell by the way you looked at my bows before you looked at me." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time choosing; a bow is a long friendship." } },
       choices = {
@@ -363,6 +461,8 @@ P:NPC {
         { text = "Why sell guns, if you make bows?", next = "guns" },
         { text = "Do rogues ever buy your bows, Kuna?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Bows are clumsy. A wand fires just as true.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Should a warrior carry a bow, Kuna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What makes a Thunderhorn bow special, Kuna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -431,15 +531,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a warrior on the road must eat, and the lakes of Mulgore are full of fish for anyone patient enough to catch them. The braves who learn to fish learn patience along with it, and patience is a warrior's best friend when the centaur are waiting in ambush." } },
+      choices = {
+        { text = "Patience is worth learning. I'll try the line.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fishing is for peons. I'll eat jerky.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than most hunters think, because you read the water as you read the grass and you wait where the prey wants to be. The difference is that a fish won't charge you, which makes fishing a gentler hunt, though no less honest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it would like a fish. Most beasts do, and the lakes of Mulgore have plenty to share." },
+      },
+      choices = {
+        { text = "I'll take only what I'll eat, from lake or plain.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the fish are biting, I'll fill the bucket.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Kah Mistrunner, and I teach fishing. It's a strange thing to teach on top of a mesa, I know, but the lakes of Mulgore are only a lift and a walk away." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear! Your people fish the sea, and mine fish the lakes. We should trade secrets, you and I." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then maybe you can tell me why the fish bite better after a rain, because I've wondered for years." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior who fishes? Don't laugh, because the best warriors I know are the ones who know how to wait." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know patience already, so you'll make a fine fisher, and the lakes of Mulgore are waiting." },
       },
       again = { { id = "h_again", text = "Something more? Fishing gives plenty of time for talking." } },
       choices = {
         { text = "Why do you think the fish bite better after rain, Kah?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why would a warrior need to fish, Kah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is fishing much like hunting, Kah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing in Mulgore?", next = "where" },
         { text = "Why do tauren fish?", next = "why" },
@@ -509,6 +634,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a warrior who can cook keeps his strength on the road, and a warrior who can't eats jerky until his teeth ache. The braves who learn to stew a plainstrider at dawn fight better by noon, and they share their pot with whoever's beside them." } },
+      choices = {
+        { text = "I'll learn to cook and share the pot.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Jerky does me well enough. Cooking is for camps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Plainstrider for stew and kodo for roasting, though a prairie wolf makes a fine broth if you cook it slowly. Every part of the beast has its use, and a hunter who learns to cook wastes nothing the Earth Mother gave." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a share, I'd wager. Set aside a little for it every time you cook, and it'll never wander far from your fire." },
+      },
+      choices = {
+        { text = "I'll cook every part and waste nothing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll cook the best cuts and leave the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -536,6 +682,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and those are both worth more than a sharper sword." },
         { id = "h_orc", when = { race = "Orc" }, text = "An orc! Your people eat everything burnt and call it cooked. Sit down, and I'll teach you to roast meat without turning it to charcoal." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and too thin, like all of you who spend your nights talking to campfires instead of cooking on them. Sit, and I'll fix that." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll eat well if you learn to cook, and you'll make friends at every campfire, which is worth more than a sharp blade." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll bring me meat to cook, I hope, because a hunter's game makes the finest stew there is." },
       },
       again = { { id = "h_again", text = "What else, dear? Ask while the pot's still warm." } },
       choices = {
@@ -546,6 +694,8 @@ P:NPC {
         { text = "Why does cooking matter so much?", next = "why" },
         { text = "I can conjure food, Aska. Why learn to cook?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "A rogue eats cold on the road, Aska.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why should a warrior learn to cook, Aska?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What's the best game to cook in Mulgore, Aska?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Aska.", next = "END" },
       },
     },
@@ -612,6 +762,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Healing first, always, and something for strength if you can afford it. The Earth Mother grows peacebloom and silverleaf across Mulgore, and a warrior who carries a few of my potions comes home far more often than one who trusts only his armour." } },
+      choices = {
+        { text = "I'll carry healing and use it wisely.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Potions are a crutch. My armour is enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The good ones do, and I'm grateful, because they know where the earthroot grows and where the mageroyal hides. A hunter who brings me herbs is helping heal the tribe, and I'd thank the Earth Mother for every one of them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} might sniff out a few herbs for us, if you trained it. Some beasts have a nose for them, you know." },
+      },
+      choices = {
+        { text = "I'll gather herbs to heal the tribe, Bena.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll gather herbs to sell, Bena. Coin's coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -639,6 +810,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Bena Winterhoof, and I teach alchemy. The Earth Mother grows the herbs, and alchemy draws out what she put in them to heal and to strengthen, which is all it should be used for." },
         { id = "h_alch", when = { profession = "Alchemy" }, text = "An alchemist! Tell me you've been making healing draughts, and not anything the Forsaken would be proud of." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because you'll understand that what the Earth Mother grows is meant for healing, whatever the apothecaries on Spirit Rise think." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want healing potions, I expect, because warriors always need more of them than they think." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know the herbs of the plains better than most, because you walk among them every day." },
       },
       again = { { id = "h_again", text = "Something else? Ask quickly, before this boils over." } },
       choices = {
@@ -648,6 +821,8 @@ P:NPC {
         { text = "What potion should I learn first?", next = "first" },
         { text = "Is the Winterhoof Water Well named for your clan?", next = "well" },
         { text = "My poisons are alchemy too, Bena.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Which potions should a warrior carry, Bena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do hunters bring you herbs, Bena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Warlocks use reagents too, Bena. Any advice?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
@@ -719,6 +894,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior should know which plants heal and which plants poison, because a wounded brave far from home must make do with what grows around him. The peacebloom of Mulgore has saved more warriors than any shield, though few of them ever thank it." } },
+      choices = {
+        { text = "I'll learn which plants heal, and thank them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Herbs are for healers. I'll trust my armour.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Peacebloom and silverleaf in the grass, earthroot in the hills and mageroyal near the water, if you know where to look. The Earth Mother hides her gifts well, and a hunter who learns to see them will never go home empty-handed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing at the peacebloom by the lift. Let it; some beasts know which plants heal better than we do." },
+      },
+      choices = {
+        { text = "I'll gather only what the land can spare.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every herb I find, I'll take.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -746,6 +942,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Nida Winterhoof, and I teach herbalism. The Earth Mother grows what we need everywhere, if we only learn to see it, and I teach that seeing." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Then you already know the plants are alive in more ways than one. Come, let me teach you to gather without hurting them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel how glad the earth is when an herb is gathered properly, with thanks." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Strong hands make fine gatherers, if you're gentle enough not to crush what you pick." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You walk the plains every day, so you've passed more herbs than anyone, though perhaps you never stopped to see them." },
       },
       again = { { id = "h_again", text = "Something more? I'm always glad to talk about green things." } },
       choices = {
@@ -756,6 +954,8 @@ P:NPC {
         { text = "Do you work with Bena?", next = "bena" },
         { text = "I gather herbs too, though not always for healing.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mages ever come to you for herbs?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Should a warrior learn herbalism, Nida?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Which herbs grow on the plains of Mulgore, Nida?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Nida.", next = "END" },
       },
     },
@@ -821,6 +1021,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Under their mail, always, because mail against bare skin is a misery no warrior forgets. The braves who guard the bluffs wear a quilted jerkin beneath their armour, and every one of them was cut from a hide some hunter brought me." } },
+      choices = {
+        { text = "I'll honour the beasts that clothe me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Leather is leather. I don't think about beasts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "With respect, and with a sharp knife, because a torn hide wastes the life the beast gave. Scrape it clean, salt it well and bring it to me before it stiffens, and I'll teach you to make something worthy of the beast that wore it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me work the hides very closely. Don't worry, {class}; I'd never use a hunter's companion." },
+      },
+      choices = {
+        { text = "I'll treat every hide with respect, Una.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A hide is a hide. I'll sell it as it comes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -848,6 +1069,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Una, and I teach leatherworking. Every hide that comes to me was a living beast, and I teach my students to use all of it and waste none, because that's how you honour what was given." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll have hides in your packs, then, and you should learn to work them yourself rather than selling them for a few coppers." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll understand better than most that every hide I work once held a spirit, and that spirit deserves respect." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leather armour won't stop an axe the way mail will, but a good leather jerkin under it will stop the chafing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and I can smell the hides in your pack from here. Let me see them, and I'll tell you which ones you've ruined." },
       },
       again = { { id = "h_again", text = "Something else? Ask while I stitch." } },
       choices = {
@@ -857,6 +1080,8 @@ P:NPC {
         { text = "How do you honour a beast you've skinned?", next = "honour" },
         { text = "Rogues wear leather too. What would you recommend?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Mages wear cloth, Una. Leather's too heavy.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do warriors wear leather, Una?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How should a hunter treat a hide, Una?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Una.", next = "END" },
       },
     },

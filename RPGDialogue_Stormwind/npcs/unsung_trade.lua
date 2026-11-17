@@ -44,6 +44,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It goes to the family named in the ledger, if there is one, and to the crown if there isn't. I've handed over a great many accounts to widows in the last few years, and I've never grown used to it." } },
+      choices = {
+        { text = "I'll name my family. They'll need it more than the crown.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the crown have it. Gold's no use to the dead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than you'd think, because a fine pelt is worth more than a pouch of silver if you wait for the right buyer. We had a whole winter's worth of wolf pelts from Duskwood last year, and the smell lingered for a month." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can't come into the vault, I'm sorry to say. The rules are very clear on beasts, though I'll admit it's very sweet." },
+      },
+      choices = {
+        { text = "Patience pays. I'll wait for the right buyer.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Quick coin is better than waiting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Olivia Burnside, at your service. We keep accounts and safe deposit boxes, and no one has ever stolen a thing out of this bank, not in its whole history." },
@@ -52,6 +73,8 @@ P:NPC {
           text = "A rogue. I'll say it again, because it bears repeating: no one has ever stolen a thing from this bank, and I'd rather you weren't the first." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! We keep a few boxes for the Sanctum, and they always come with a note asking us not to open them, which I think is rather sweet." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gold is safe with us, I promise, whatever happens to you out in Westfall." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Pelts and trophies in the vault? We can store them, though I'll ask you to make sure they're properly salted first." },
       },
       again = {
         { id = "h_again", text = "Is there something more the Bank of Stormwind can do for you?" },
@@ -63,6 +86,8 @@ P:NPC {
         { text = "Who keeps their money here?", next = "who" },
         { text = "How has nobody ever robbed this bank?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What does the Sanctum keep in your boxes?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What happens to a warrior's gold if they don't come back, Olivia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters store pelts in the bank, Olivia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Olivia.", next = "END" },
       },
     },
@@ -137,6 +162,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Things they want to come back for, mostly, and that tells you more about them than any medal. One old soldier kept a child's drawing of a horse in his box for twenty years, and never once let me see it." } },
+      choices = {
+        { text = "Everyone needs something to come home to.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I keep nothing. Attachments slow you down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Teeth, claws and feathers, mostly, and one memorable hunter kept a stuffed murloc that he swore was the biggest ever caught in Westfall. I believed him, because nobody would make that up." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its eye on the coin trays, I notice. Clever beast; it knows where the shiny things are kept." },
+      },
+      choices = {
+        { text = "A trophy honours the hunt, not my pride.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A trophy shows everyone what I can do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Newton Burnside. I keep boxes and accounts for half the Trade District, and I've learned that what people put away tells you more about them than anything they say across a counter." },
@@ -145,6 +191,8 @@ P:NPC {
           text = "A rogue. I can tell a great deal from what someone puts in a box, and I'll be very interested to see what you put in yours." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I've a rule that nothing alive goes in the boxes, and I'd like to remind you of it before you ask." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. People keep strange things in their boxes, and warriors keep the strangest: old letters, lockets and the occasional broken sword." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll keep trophies in your box, I suppose, as hunters do, and you'll tell me a story about each one if I let you." },
       },
       again = {
         { id = "h_again", text = "Something else? I have time, and the ledger certainly isn't going anywhere." },
@@ -155,6 +203,8 @@ P:NPC {
         { text = "So what do people put away?", next = "boxes" },
         { text = "What does my box say about me?", next = "mine" },
         { text = "What can you tell about people from their boxes?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do warriors keep in their boxes, Newton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do hunters keep in their boxes, Newton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone tried to store something alive?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Newton.", next = "END" },
       },
@@ -233,6 +283,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Most of the Barracks, because a soldier's wages are safer here than in a barracks chest. I see them every payday, and I can always tell which ones are about to march, because they leave everything with me." } },
+      choices = {
+        { text = "I'll leave my coin here and march light.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take my coin with me. You never know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, and some keep it in a sack under their bedroll, and I worry for the second sort. A hunter who's been robbed on the road once usually becomes my best customer." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} would be your guard, I suppose, if you did keep your coin on the road. A fine guard, too, by the look of those teeth." },
+      },
+      choices = {
+        { text = "I'll trust the bank with my coin. It's safer.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep my coin close, where I can see it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "John Burnside. I've the first window, so I see everyone before my kin do, and I like to think I give the city a friendly face when they've only come to count their coin." },
@@ -241,6 +312,8 @@ P:NPC {
           text = "A rogue at the first window! I'll give you the same smile I give everyone, but I'll be counting my fingers when you go." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Hello there! I'll smile at you the same as anyone, but I'll ask your little companion to stay out of the queue, if it's no trouble." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Welcome to the first window, friend; your coin's safe here, and so are you, at least until you go back out that door." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I see a lot of hunters through this window, and you all have the same look, as if you'd rather be anywhere but indoors." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The others can wait." },
@@ -251,6 +324,8 @@ P:NPC {
         { text = "The orcs burned the old bank?", next = "old" },
         { text = "Who comes in through that door?", next = "door" },
         { text = "Do you really count your fingers, John?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do many warriors bank with you, John?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters ever bank their earnings, John?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do my companions bother your customers, John?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -326,6 +401,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Good swords and good mail, especially anything with an enchantment on it, and they go faster than I can call the bids. A warrior who knows his gear can make a fair living selling what he finds on the road." } },
+      choices = {
+        { text = "I'll sell what I don't need at a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll sell high and let the buyers fight over it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Leather, by far, since the tailors and leatherworkers are always hungry for it. Last week a single pristine hide from a Redridge bear went for three times what the vendors offer." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can stay by the podium, but please don't let it put its paw on anything. The bidders get very jumpy." },
+      },
+      choices = {
+        { text = "I'll price my goods fairly for everyone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll ask whatever the market will bear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Chilton, at the left podium. Leave your goods with me, set your price and your deposit, and every buyer in Stormwind will have the chance to fight over them." },
@@ -334,6 +430,8 @@ P:NPC {
           text = "A mage! Enchanted goods always fetch a fine price at my podium, so if you've anything that glows, I'd be delighted to see it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I'll list your goods like anyone's, though I'd ask that nothing you consign is still moving." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Arms and armour sell well these days, with all the fighting in Westfall and Redridge, so set your price with confidence." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Leather, pelts and meat sell steadily, and the occasional rare feather can start a proper bidding war." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The hall never closes, but my voice does." },
@@ -344,6 +442,8 @@ P:NPC {
         { text = "Why do I have to pay a deposit?", next = "deposit" },
         { text = "What sells best here?", next = "sells" },
         { text = "Do enchanted goods sell better than plain ones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What arms sell best at the auction house, Chilton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What sells best from a hunter's haul, Chilton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone consigned something that moved?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Chilton.", next = "END" },
       },
@@ -418,6 +518,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They've tried, and every time I've caught them, because my ledgers balance and theirs never do. A dishonest seller once listed a rusted sword as Lothar's own, and I had him out the door before Chilton finished the call." } },
+      choices = {
+        { text = "Good. Honest dealing is the only kind worth having.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Buyers should know what they're buying. Not your problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than you'd think, because two wolf pelts look much alike to most people. I keep a note of every scar and every colour, and I've settled more arguments with my ledger than any guard has with his sword." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sitting very still by my desk, which I appreciate. The last animal in here chewed through a ledger." },
+      },
+      choices = {
+        { text = "Careful records keep everyone honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A pelt's a pelt. Nobody cares about scars.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Fitch. Chilton calls the bids and Jaxon charms the buyers, and I write everything down, which is why nobody in this hall has ever been cheated on my watch." },
@@ -426,6 +547,8 @@ P:NPC {
           text = "A mage, and you'll be the first to write the correct price down without my help, I expect. Most of our customers can't do sums." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I'll write your name in the book like anyone's, though I'll admit my quill hesitates a little." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to list your spare blades, I suppose, and I'll write every one down correctly, which is my entire job." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Pelts, leather and meat, I suppose, and I'll write each one down so that nobody can claim it was a different hide." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I'd like to finish this page before the ink dries." },
@@ -436,6 +559,8 @@ P:NPC {
         { text = "Has anyone tried to cheat the hall?", next = "cheat" },
         { text = "Why keep such a careful book?", next = "book" },
         { text = "Has anyone tried to fool your ledger with magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has anyone ever cheated at the auction house, Fitch?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters often have disputes at the auction house, Fitch?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why should your quill hesitate, Fitch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Fitch.", next = "END" },
       },
@@ -504,6 +629,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Condition, mostly, and whether it's the sort of thing the new recruits want. Plain mail sells steady, but a good shield with a lion on it will go for twice what a plain one does." } },
+      choices = {
+        { text = "Then I'll keep my gear in good order.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll paint a lion on everything I sell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than last month, because the leatherworkers can't keep up with the new adventurers. A clean wolf hide fetches a fair price, but a torn one's worth half, so skin carefully." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a handsome creature, and well kept. I'll tell you honestly, a beast like that would fetch a fortune, if anyone were fool enough to sell one." },
+      },
+      choices = {
+        { text = "I'll skin carefully and sell honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Torn or not, I'll sell it as clean.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Jaxon. I have the right-hand podium, and I'll tell you honestly what your goods will fetch, which is more than Chilton will, bless him." },
@@ -512,6 +658,8 @@ P:NPC {
           text = "Hello, dear. You've a sharp eye for a bargain, I can tell, and I'd rather you used it on the listings than on the bidders' purses." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Hello, dear. A mage at the auction always makes me a little nervous, because I'm never quite sure the gold you bid is really there." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gear's worth more than you think, I'd wager, and I'll tell you honestly what it'll fetch." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have a pack full of hides, I expect, and I'll tell you honestly what each is worth, which is more than Chilton will, bless him." },
       },
       again = {
         { id = "h_again", text = "What else, love?" },
@@ -523,6 +671,8 @@ P:NPC {
         { text = "Who are your regulars?", next = "regulars" },
         { text = "Do thieves really work the auction floor?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think I'd bid with conjured gold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What makes a warrior's gear valuable, Jaxon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What are hides worth right now, Jaxon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Jaxon.", next = "END" },
       },
     },
@@ -593,6 +743,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A shield, I think, rather than a sword, because a sword says you fight and a shield says you protect, and that's a better promise. I've designed forty crests this year, and only two had shields on them." } },
+      choices = {
+        { text = "A shield, then. Protecting others is the better promise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sword. People should know we fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because a beast on a crest is alive in a way a sword never is. I once designed a crest with a stag for a hunting lodge in Elwynn, and the old man who ordered it wept when he saw it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine crest, you know. If you ever form a guild, bring it to me, and I'll draw it properly." },
+      },
+      choices = {
+        { text = "A crest should honour the beasts we hunt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A crest should frighten anyone who sees it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Aldwin Laughlin, guild master of the Stormwind registry. I keep the charters of every guild that calls this city home, and I design their crests, which I'll admit is the part I enjoy." },
@@ -601,6 +772,8 @@ P:NPC {
           text = "A rogue. You'll be wanting to register a guild with a very dull name, I expect, and I'll tell you now that I've seen them all." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I'll register your guild like any other, but I'll warn you that the House of Nobles reads my charters, and they're not fond of horns on a crest." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Thinking of forming a guild, perhaps? Warriors' guilds always want a crest with a sword on it, and I'm always trying to talk them into something more original." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Hunters' guilds always want a wolf or a hawk on their crest, and I'll admit they're the ones I most enjoy designing." },
       },
       again = {
         { id = "h_again", text = "What else may the registry help you with, friend?" },
@@ -611,6 +784,8 @@ P:NPC {
         { text = "How does someone found a guild?", next = "found" },
         { text = "What makes a good crest?", next = "crest" },
         { text = "Do rogues form many guilds, Aldwin?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What crest would you design for a warrior's guild, Aldwin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do you enjoy designing hunters' crests, Aldwin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would the House refuse a warlocks' guild?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Aldwin.", next = "END" },
       },
@@ -688,6 +863,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The one you can hold longest without tiring, because the fight does not end when your arm does. Most young warriors want the greatest sword, but the best warriors I've taught started with the staff and learned to move." } },
+      choices = {
+        { text = "I'll start with the basics and learn properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I want the greatest sword. I'll learn as I go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Always, because a hunter who cannot fight up close is a hunter who will one day be caught up close. The polearm keeps the beast at a distance, and the staff lets you move while you wait for your pet to come back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} fights at your side, but it cannot fight for you. Learn the hand, and the two of you will be a true pair." },
+      },
+      choices = {
+        { text = "I'll learn to fight beside my pet.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My pet does the close work. I'll stay back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Woo Ping, and I teach the weapons this arsenal sells: swords, staves, daggers, polearms and the crossbow. Gunther sells the steel and I teach the hand, and between us we make soldiers out of shopkeepers." },
@@ -697,6 +893,7 @@ P:NPC {
           text = "A rogue. You will want the dagger, of course, but I will teach you the sword too, because a dagger alone is a very short argument." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. Your demons fight for you, I know, but I will teach you the staff all the same, so that you are never only the master of something else." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You will want to learn the polearm, I think, or the staff, for when the beast gets past your arrows." },
       },
       again = {
         { id = "h_again", text = "Ask. A student who asks learns twice as fast." },
@@ -708,6 +905,8 @@ P:NPC {
         { text = "What's the first thing you teach?", next = "first" },
         { text = "Which weapon do you prefer?", next = "prefer" },
         { text = "Why should a rogue learn the sword?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Which weapon should a warrior master first, Woo Ping?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Should a hunter train with a melee weapon, Woo Ping?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why does it matter if I fight for myself?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, master.", next = "END" },
       },
@@ -782,6 +981,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "He talks about nothing else, and I love him for it, but somebody has to sell the blades or we'd have no roof. Still, he's right, and I've never once sold a sword that came back because it was badly made." } },
+      choices = {
+        { text = "A craftsman who cares is worth listening to.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Just tell me the price. I don't need a lecture.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Hand axes and short swords, light enough to swing while you're backing away, which is how most hunters fight up close. Gunther says a hunter's axe is the hardest thing to get right, and he grumbles about it for days." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is very well behaved, thank you. The last one knocked over a rack of daggers, and Gunther hasn't stopped talking about it." },
+      },
+      choices = {
+        { text = "Quality steel is worth the extra coin.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The cheapest axe will do. It's for emergencies.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Marda Weller. Gunther forges and fusses, Woo Ping teaches, and I keep the counter and the ledger, which is why this shop still has a roof." },
@@ -790,6 +1010,8 @@ P:NPC {
           text = "A rogue, so you'll be after the daggers, which Gunther will have told you I count. He's right, and I count the coin too." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in an arsenal. Woo Ping will want to teach you the staff, and you'd do well to listen, whatever the Sanctum says." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Gunther will tell you about balance for an hour, so let me tell you the price before he starts." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! We've axes and short swords for the close work, and Woo Ping teaches the polearm if you've a mind to learn." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've a customer waiting at the other counter." },
@@ -801,6 +1023,8 @@ P:NPC {
         { text = "Who buys the most weapons?", next = "buyers" },
         { text = "Has anyone stolen from you, Marda?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Sanctum disapprove of weapons training?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does Gunther really talk about balance that much, Marda?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does Weller's sell for hunters, Marda?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to it, Marda.", next = "END" },
       },
     },
@@ -877,6 +1101,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a cheap vial cracks in a pack, and a cracked vial means a warrior with no healing potion when he needs one most. I sell only the thick glass, and I've seen soldiers come back alive because of it." } },
+      choices = {
+        { text = "Then I'll buy the good vials. My life depends on it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Glass is glass. I'll buy whatever's cheapest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The wise ones do, for their beasts as much as for themselves, because a hunter far from town can't run to Morgan every time their pet gets bitten. A simple salve in a good vial can save a beast's life." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would benefit from a salve kept in your pack. Ask Morgan for the recipe, and buy the vial from me." },
+      },
+      choices = {
+        { text = "I'll keep a salve for my pet in my pack.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My pet heals on its own. It's tough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Keldric Boucher. Morgan Pestle has the potions, Kyra has the reagents by the door, and I keep the vials and the finer arcane goods for alchemists and spellcasters who know what they're doing." },
@@ -884,6 +1129,8 @@ P:NPC {
           text = "A mage. You'll know your reagents, then, and you'll know that cheap vials crack under a heating charm, though mine don't." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I sell you the same vials as anyone, but I'll ask you not to fill them in my shop, because the last time, one of them screamed." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among the vials. You'll want potions, I expect, and Morgan has those, but I'll tell you why the glass matters." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll not need my vials, I suppose, unless you brew your own salves, which some hunters do." },
       },
       again = {
         { id = "h_again", text = "Anything else? I do enjoy a question I can answer." },
@@ -894,6 +1141,8 @@ P:NPC {
         { text = "What makes a vial so special?", next = "vial" },
         { text = "Where does your stock come from?", next = "stock" },
         { text = "What makes your vials better, Keldric?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why does the glass matter for a potion, Keldric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters brew their own remedies, Keldric?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What screamed in your vial, Keldric?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Keldric.", next = "END" },
       },
@@ -971,6 +1220,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only for someone else, usually a mage they're travelling with who's forgotten to stock up. I always tell them to make the mage carry it, because a warrior's pack is full enough." } },
+      choices = {
+        { text = "I'll carry what my companions need. That's teamwork.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The mage can carry their own reagents.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A few, buying for their friends, and they always ask whether any of it would help their pets. None of it would, but I like that they ask." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing at the reagents, and I'd stop it if I were you, because some of these smell nicer than they are." },
+      },
+      choices = {
+        { text = "I'd rather ask than risk my pet's health.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My pet's tough. A sniff won't hurt it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kyra Boucher. Reagents for every kind of spellcaster, right by the door so nobody has to walk past Keldric's lectures on glass. Keldric is my kin, so I'm allowed to say that." },
@@ -979,6 +1249,8 @@ P:NPC {
           text = "A warlock, so you'll want your reagents quickly and quietly, and I've learned to wrap them in plain paper for your sort." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, so you'll want flash powder, and I'd like you to buy it from me rather than Jasper Fel. His is good, but mine's honest." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? You've wandered to the reagent counter, I'm afraid, and none of this is any use to you, unless you've a mage at home." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've nothing for you here, I'm afraid, unless you've a spellcaster in your party who needs looking after." },
       },
       again = {
         { id = "h_again", text = "Who's next, then? Oh, still you; what else have you run short of?" },
@@ -991,6 +1263,8 @@ P:NPC {
         { text = "Who are your best customers?", next = "customers" },
         { text = "Why wrap a warlock's reagents in plain paper?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's the difference between yours and Jasper's?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors ever buy reagents, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you get many hunters at your counter, Kyra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, Kyra.", next = "END" },
       },
     },

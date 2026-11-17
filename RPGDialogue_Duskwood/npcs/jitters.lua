@@ -32,6 +32,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Things out past the Yorgen farm that I'll not describe, not even to a warrior, and I ran from them and I've not stopped running since. If you've a sword, you'll want it out before you go that way, and you'll want someone watching your back as well." } },
+      choices = {
+        { text = "I'll find whatever you saw and put an end to it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll stay clear of the Yorgen farm. Some things aren't worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jitters.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Follow me? They wait for me, I swear, behind every tree I pass, and I hear them breathing even when there's nothing there. I know it's nonsense, mostly, but a man who's seen what I've seen gets suspicious of the bushes." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours keeps looking at the trees, {class}, and every time it does, I nearly jump out of my skin. Does it see something?" },
+      },
+      choices = {
+        { text = "I'll keep watch tonight, Jitters. You can sleep.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Nothing's there. You've got to stop jumping at shadows.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jitters.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Will you? Will you really, all night? Because the last lamp went out in the fog, and that's when I saw them, and I haven't stopped seeing them since." } },
       choices = {
@@ -70,6 +91,8 @@ P:NPC {
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "You walk like them, quiet and heel first... please say you're not Brotherhood, please say nobody sent you." },
         { id = "h_sleep", when = { metBefore = true }, text = "I slept two whole hours last night and nobody came for me, and I-I'm almost disappointed... no, no, I'm not, I'm not at all." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Oh, thank the Light, a big strong warrior, and you'll not let anything grab me, will you, not with that sword?" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll see things in the dark, won't you, before they see you, because you're trained for it, and I'm not, and it shows." },
       },
       again = {
         { id = "h_again", text = "W-what else? Ask quickly, because something's moving by the well, though it's probably nothing." },
@@ -84,6 +107,8 @@ P:NPC {
         { text = "The Brotherhood doesn't forget deserters.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm a druid. Not every beast in the woods is a monster.", next = "druid", when = { class = "DRUID" } },
         { text = "Calm down, Jitters. I'll keep a light burning.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What did you see in the woods, Jitters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the wolves follow you, Jitters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What you saw in the woods doesn't frighten me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Stay safe, Jitters.", next = "END" },
       },

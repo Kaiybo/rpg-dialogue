@@ -46,6 +46,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only what it asks of anyone: that you remember the people behind you are the reason you carry the sword. Archbishop Faol used to say a soldier's mercy is harder won than a priest's, because the soldier has the means to refuse it." } },
+      choices = {
+        { text = "My sword is for protecting people, not for punishing them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Mercy is a priest's business. Mine is winning.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I believe it does, though the Church has been slow to say so. Our priests in Northshire bless the harvest every autumn, and I've never understood why we don't bless the woods that feed half of Elwynn." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been very patient with the incense, I notice. Bring it to the steps whenever you like; the children would be glad of it." },
+      },
+      choices = {
+        { text = "The wild has its own holiness, Archbishop.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The forest is just meat and timber. The Light is for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me. He built it to hold people. I try to keep the doors open." },
@@ -69,6 +90,8 @@ P:NPC {
           text = "You're welcome under this roof, as everyone is, though I'll confess you've given some of my brothers cause to worry. Sit, and let's see if we can change that." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage under the Cathedral's roof. The Kirin Tor and the Church have not always agreed, child, though I've always thought the arcane and the Light could share a city." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Church owes more to soldiers than it likes to admit, and I try to admit it as often as I can." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Cathedral. Welcome, friend; the Light shines on the forest as well as on the nave, though the forest rarely thanks it." },
       },
       again = {
         { id = "h_again", text = "What else is on your heart, child?" },
@@ -91,6 +114,8 @@ P:NPC {
         { text = "I've done things in the dark for the crown, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I hear the spirits of the earth, Your Grace. Is that wrong?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Does the Church fear the arcane, Your Grace?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does the Church ask of a warrior, Archbishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does the Light care about the wild places, Archbishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
     },
@@ -379,6 +404,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Cannae say, an' I've asked meself every night since. The Defias came quiet an' many, an' a good shield would've bought time, but time against that many is only a slower endin'." } },
+      choices = {
+        { text = "Then I'll be the shield the next one needs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some fights can't be won. Better to know when to run.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye, if they knew where tae start. The Defias move through Westfall like foxes through wheat, an' they leave sign if ye know how tae read it: cart ruts tae the old mines, an' red cloth snagged on fences." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} could sniff out a Defias camp, I'd wager, if ye let it loose near the Westfall farms. Mind it doesnae find a trap first." },
+      },
+      choices = {
+        { text = "I'll follow the trail and bring the evidence back for justice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll follow it, and settle things myself when I get there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gazin Tenorm. Henze Faulk an' me were gatherin' proof on the Defias for the king's advisors, but they found us first. I got away, an' Henze didnae." },
@@ -394,6 +440,8 @@ P:NPC {
           text = "Ye move like Henze did, quiet an' careful. Did Shaw send ye, or are ye one o' the Defias come tae finish the job?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Keep yer distance from the altar, would ye? I've no quarrel wi' ye, but the priests here go pale when yer kind walks in." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, aye. If Henze had had a warrior at his back that night, mebbe he'd be standin' here instead o' me." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know how tae follow a trail, then, which is more than the king's advisors seem able tae do with the one Henze an' I left 'em." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -405,6 +453,8 @@ P:NPC {
         { text = "What became of the Defias papers?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
         { text = "Let me see to those wounds.", next = "priest", when = { class = "PRIEST" } },
         { text = "Were you and Henze working for SI:7?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would a warrior have saved Henze, Gazin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a hunter track the Defias to their hideouts, Gazin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would a warlock's help be welcome for Henze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll bring him back.", next = "END", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
         { text = "Henze is beyond saving, friend, so let him rest.", next = "END", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
@@ -508,6 +558,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Half of the boys do, and a few of the girls, and I can't blame them when every soldier they see is a hero in a story. I only wish they'd remember that their own fathers marched off the same way." } },
+      choices = {
+        { text = "I'll tell them the truth: it's hard, and it costs people.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them dream. They'll learn soon enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Stephanie Turner. My husband and I run the orphanage. I make their clothes and keep them fed; John's off begging for the rest. Neither of us sleeps much." },
@@ -522,6 +581,7 @@ P:NPC {
           text = "You keep your hands where I can't see them, love, which is a habit I'd break in any of my boys. Show me your hands, there's a dear." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Oh, the children would go wild for a few sparks, if you've a minute, so long as nothing sets the curtains alight." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The boys will want to see your sword, and I'll thank you not to let them hold it, however nicely they ask." },
       },
       again = {
         { id = "h_again", text = "What else, love? Quick, I've a hem to finish." },
@@ -536,6 +596,7 @@ P:NPC {
         { text = "Would the children like to meet {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Do your orphans ever turn to thieving?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Shall I show the children a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the orphans want to grow up to be soldiers?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll keep you in mind.", next = "END" },
       },
     },
@@ -657,6 +718,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Yes, please, because the guards keep telling me to move and the cats in the alley keep hissing at her! If you guarded her nobody would hiss, I bet, not even the big orange one." } },
+      choices = {
+        { text = "Every little one deserves someone to stand up for them, Timmy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A warrior has bigger things to guard than kittens, Timmy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Timmy, and this is my kitten. She needs a good home, and my dad says ours isn't one, for cats; he likes it fine for me." },
@@ -667,6 +737,7 @@ P:NPC {
           text = "You're really quiet, like my kitten when she's stalking the mice behind the bakery, so I think you're a cat person." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Are you a wizard? Can you make my dad say yes with a spell? Only a little spell, a nice one." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You've got a big sword! Is it heavy? My kitten's scared of swords, so please don't swing it near her, all right?" },
       },
       again = {
         { id = "h_again", text = "Do you want to hold her now? She's ready." },
@@ -680,6 +751,7 @@ P:NPC {
         { text = "My {pet} would like to meet your kitten.", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Do you think I'm sneaky, Timmy?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you want me to magic your dad, Timmy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would your kitten like a warrior to guard her, Timmy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Sorry, Timmy.", next = "END" },
       },
     },
@@ -760,6 +832,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By staying behind you and staying alive, mostly, which is harder than it sounds when you charge off without looking. The best pairs I've trained learn each other's habits, because a shield and a prayer work best when they trust each other." } },
+      choices = {
+        { text = "I'll keep the line, and trust my healer to keep me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll charge when I see fit. Healers can keep up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than you'd think, because a hunter and a priest can both stand back and see the whole of a fight. I've sent many young priests out to Redridge with hunter companions, and most came back telling me it was the hunter who kept them alive." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will be the one taking the blows, I suppose. I've mended a few beasts in my time, and they're far better patients than soldiers." },
+      },
+      choices = {
+        { text = "My pet takes the blows so others don't. I honour that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "That's what a pet is for. Better it than me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -774,6 +867,8 @@ P:NPC {
           text = "Ah, good, it's you. I've told the novices about you, a little, as an example of what to aim for, so don't let it go to your head." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the Cathedral. You'll want to know whether the Light and the arcane can share a room, and they can, if both keep their voices down." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the priests' hall. You've come for healing, I expect, or for the quiet; either is welcome here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You keep your distance in a fight, I'm told, which makes you very easy for a priest to love." },
       },
       again = { { id = "h_again", text = "What else? Quietly; there's a service soon." }, { id = "h_again2", text = "Ask. I'll answer what I can, and tell you when I can't." } },
       choices = {
@@ -785,6 +880,8 @@ P:NPC {
         { text = "Can the Light mend what a demon has touched?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Do the Cathedral's healers ever tend druids?", next = "druid", when = { class = "DRUID" } },
         { text = "Does the Light ever answer a mage, High Priestess?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How does a priest best help a warrior, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do priests often travel with hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, High Priestess.", next = "END" },
       },
     },
@@ -925,6 +1022,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "For the reason you fight, because it gets lost under all the noise of the fighting itself. I've known soldiers who swung for years before they could say why, and they were the ones who broke first." } },
+      choices = {
+        { text = "I fight for the people of this kingdom.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I fight because I'm good at it. That's reason enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Light teaches it through prayer, and the forest teaches it through hunger, and I suspect they're the same lesson. You wait, you watch, and you act only when the moment is right." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has it too, that stillness. Watch how it sits by the pews; it's a better student than half my novices." },
+      },
+      choices = {
+        { text = "Patience is a kind of prayer, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Patience is just how you catch dinner.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
@@ -933,6 +1051,8 @@ P:NPC {
           text = "You came in without a sound, but the altar noticed anyway, because it always does and it isn't a thing you can sneak past." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You carry something cold with you, friend, and you needn't tell me what it is, because the Light is patient even with that." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at the altar. Stand there a moment; people listen better near it, and so, I think, will you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've a stillness about you that most of my students take months to learn, and you probably learned it in a single cold morning." },
       },
       again = { { id = "h_again", text = "Something else?" } },
       choices = {
@@ -940,6 +1060,8 @@ P:NPC {
         { text = "Why teach by the altar?", next = "altar" },
         { text = "How do you pray, Brother?", next = "pray" },
         { text = "Is the altar watching me, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What should a warrior listen for at an altar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is stillness something the Light can teach?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would the Light still hear me, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
@@ -1007,6 +1129,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than either would admit, I think, because both of us spend our days standing between people and harm. The difference is that you can see what you're fighting, and I've to take a great deal on faith." } },
+      choices = {
+        { text = "We're both servants. My arm and your prayers serve the same people.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I can see what I hit. That makes my work more honest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not often enough, I'm afraid, though I walked to Northshire Abbey once on a dare and it took me two days because I stopped to talk to everyone. I saw a doe and her fawn by the river and thought of it for a month." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is doing better than I am at keeping pace. A good companion, that one, and very forgiving of the incense." },
+      },
+      choices = {
+        { text = "Every creature is the Light's, and deserves a quiet death.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A hunter can't afford to be sentimental about the kill.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brother Benjamin. I teach on my feet, up and down this hall. Brother Joshua says I'll wear a groove in the floor. He's probably right." },
@@ -1014,6 +1157,8 @@ P:NPC {
           text = "You walk more quietly than I do, and I've been pacing this hall for years. Walk with me, then, and see if you can keep in step without a sound." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Tell me while we walk, does it feel like anything when you cast, or is it only arithmetic, as Jennea says?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Walk with me; I think better on my feet, and I suspect you do too." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, walking my hall. Keep up, then, because I don't stand still, and I'm told you lot are used to following things that move." },
       },
       again = { { id = "h_again", text = "Keep walking. What else?" } },
       choices = {
@@ -1022,6 +1167,8 @@ P:NPC {
         { text = "What's the hardest thing to teach?", next = "hardest" },
         { text = "Do you ever teach anyone to move quietly, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think magic and prayer are much alike?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think warriors and priests are much alike, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever get out of the city, Brother Benjamin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -1091,6 +1238,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Everything, as the Light asks everything. In Lordaeron the dead outnumber the living, and a warrior who stands with the Crusade fights where it matters, not on some Stormwind parade ground." } },
+      choices = {
+        { text = "I'll fight the Scourge, but I'll keep my own judgement.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then point me at the dead. I'll ask no questions.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The plague takes beast and man alike, and what it takes it does not give back. Our scouts in Tirisfal burn every carcass they find, because the rot spreads through the wolves and the bats before it reaches the farms." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks clean of taint, which is well, because I would not let it near the Crusade's camps otherwise. Keep it so." },
+      },
+      choices = {
+        { text = "Some of those beasts can still be saved, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn them all. The plague can't be risked.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1105,6 +1273,8 @@ P:NPC {
           text = "You move like one of Shaw's knives, and the Crusade has use for knives in Lordaeron, so long as they're pointed at the dead." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Dalaran's mages have done precious little about the plague except study it, and I hope you mean to do more than that." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good. The Crusade has use for strong arms, far more than this soft city does." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The plaguelands are full of beasts twisted by the Scourge, and the Crusade needs eyes that can tell a sick wolf from a healthy one." },
       },
       again = { { id = "h_again", text = "What else? The dead don't wait for questions." } },
       choices = {
@@ -1115,6 +1285,8 @@ P:NPC {
         { text = "Raleigh told me what the Monastery does.", next = "raleigh", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
         { text = "What use does the Crusade have for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you hold against Dalaran, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What would the Scarlet Crusade ask of a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Are the beasts of Lordaeron truly sick, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
         { text = "I'll fight the dead my own way, without your tabard.", next = "END", fx = { align = { order = -1 } } },

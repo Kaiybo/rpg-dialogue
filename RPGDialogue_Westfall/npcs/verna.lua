@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every morning, and I'll not pretend otherwise. But if a warrior could take it back from the thieves, I'd want to go home, and Theodore would want to go home, and Blanchy would want her stall back." } },
+      choices = {
+        { text = "I'll help you take your farm back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The farm's gone, Verna. Make a home here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "That's sweet of you, though Theodore will grumble that he's watching it himself, and he'll be asleep before the moon's up. If you sit out there in the dark, mind Blanchy, because she'll kick at anything she can't see." } },
       choices = {
@@ -68,6 +77,7 @@ P:NPC {
         { id = "h_pie_done", when = { questDone = TODO_QUEST("Goretusk Liver Pie") },
           text = "So there was pie after all, and good. Whoever made it, don't tell the other one it was better; that's how friendships last out here." },
         { id = "h_pie", when = { metBefore = true }, text = "I made a pumpkin pie from memory last night, dear, with no pumpkins in it at all, just the memory. Theodore ate two slices anyway, bless him." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a weary one, I'd guess. Sit and eat; the stew's for anyone, and you look like you've earned it." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -84,6 +94,7 @@ P:NPC {
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I'll watch your wagon tonight. Nobody will see me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could warm Blanchy with a little spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you miss the farm, Verna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Goodbye, Verna.", next = "END" },
       },
     },

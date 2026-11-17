@@ -32,6 +32,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "When the throne lets me, which isnae often, for there's no air like the air above Kharanos an' no ram like an Amberstill ram. I've brought down a bear or two in my time, an' I'll tell ye about every one o' them if ye've an hour." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' that's a fine {pet} ye have! Treat it well, for a beast that trusts ye is worth more than a mountain o' gold, an' I say that as a dwarf who has the gold." },
+      },
+      choices = {
+        { text = "I'd be honoured to hunt beside you someday, Your Majesty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Royal hunts are for show. Real hunters go alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because they've been thievin' in my city, an' I'll no' have that, whatever good they think they're doin'. If ye want tae serve Ironforge from the shadows, go after the Dark Iron, for they've a great deal I'd like tae know, an' I'll forget yer friends' names for it." } },
@@ -108,6 +120,7 @@ P:NPC {
         { text = "Darnassus sends its greetings, King Magni.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Why have your guards been arresting the Hidden Circle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How do you see the gnome mages in your city?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you ever hunt in the high snows, Your Majesty?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

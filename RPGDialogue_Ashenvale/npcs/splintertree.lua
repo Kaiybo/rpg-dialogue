@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because you are here to fight in it, and a warrior who knows what they fight for fights better. The Warsong cut and the elves strike back, and I only ask that you remember the trees were here before either of us." } },
+      choices = {
+        { text = "I'll remember. The forest deserves that much.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trees don't win wars. I'm here to fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Patience more than power, I think. The Sentinels say the trees remember every wound, so if you must cast fire among them, aim it carefully, and do not leave the forest more scars than the axes already have." } },
@@ -89,6 +98,7 @@ P:NPC {
           text = "All three! The forest knows your name now, hunter, so carry it gently." },
         { id = "h_call", when = { metBefore = true },
           text = "Can you hear the Hunt calling? It is quiet, and it doesn't come from the trees; it comes from somewhere deep inside you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You will want to fight in this forest, I know, but I ask you to look at it first." },
       },
       again = {
         { id = "h_again", text = "What else? Speak softly; the forest is listening." },
@@ -105,6 +115,7 @@ P:NPC {
         { text = "The Earth Mother would weep at this war.", next = "mother", when = { race = "Tauren" } },
         { text = "My kin cut these trees. Does that make me your enemy?", next = "orc_s", when = { race = "Orc" } },
         { text = "I'll take on the Hunt.", next = "END", fx = { affinity = 1 } },
+        { text = "Why should a warrior care how beautiful this forest is?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
       },
     },
     why = {
@@ -176,6 +187,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every one of them, though Splintertree never has warriors to spare. Seventeen wagons this week and three of them burned, and if a warrior rode with each, I'd have fewer things to count and fewer people to be angry at." } },
+      choices = {
+        { text = "I'll guard your wagons. Splintertree needs them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wagons are your problem. I came for the fighting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The ghostpaw wolves follow the wagons at night for scraps, and the kodos hate them. A hunter who thinned the pack along the road would save me a ditch or two, and I'd remember the name." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} on the far side of the road from my kodos, and we'll all get along fine. I've counted too many overturned wagons already." },
+      },
+      choices = {
+        { text = "I'll thin the wolves along the road.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The wolves were here first. Your wagons can manage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Only if it can fix a cart wheel or make a kodo walk faster, and I've yet to meet the mage who could do either. What I really need is someone who can tell when the elves have trapped the road ahead, because they leave no tracks and plenty of widows." } },
@@ -234,6 +266,8 @@ P:NPC {
         { id = "h_standstill", when = { questActive = TODO_QUEST("Stonetalon Standstill") },
           text = "The lake by the Talondeep Path has come alive and attacks anything on the road, so the transports to Stonetalon are at a standstill. Put it down, and while you're there, scout that gazebo on Mystral Lake." },
         { id = "h_count", when = { metBefore = true }, text = "Seventeen wagons this week, and the elves burned three of them. I count the burned ones too, so I remember who to be angry at." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The elves keep burning my wagons on the Stonetalon road, and a few axes riding along might change their minds." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast had better not spook the kodos, because a spooked kodo is a wagon in a ditch." },
       },
       again = {
         { id = "h_again", text = "What now? Make it quick, because I've wagons to count." },
@@ -250,6 +284,8 @@ P:NPC {
         { text = "My family's Warsong. Every log here is ours.", next = "warsong_m", when = { origin = "orc_warsong_kin" } },
         { text = "The tauren don't love what this lumber costs.", next = "tauren_m", when = { race = "Tauren" } },
         { text = "Fine. Bye.", next = "END" },
+        { text = "Do your caravans need a warrior's escort, Mastok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the forest beasts trouble your caravans, Mastok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
       },
     },
     people = {
@@ -313,6 +349,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "You don't chase them, mon, you wait where they gotta pass, because they always take the same paths home through the trees. Stand still in the right place and let them run into you, and that be the whole trick." } },
+      choices = {
+        { text = "I'll wait in the right place. Patience wins.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll run them down. No elf outruns me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Light the dark places, mon, because the elves love the dark and they run through it like it be their mother's arms. A little fire in the right spot at the right time, and I see every runner before he see me." } },
@@ -354,6 +399,7 @@ P:NPC {
         { id = "h_creak", when = { metBefore = true }, text = "Every night the trees creak and I think it be elves, and every morning I still be alive. Either I'm lucky, mon, or the trees be on my side." },
         { id = "h_blind", when = { questDone = TODO_QUEST("Ashenvale Outrunners") },
           text = "Those outrunners won't be tellin' anybody nothin' now. Blind the Alliance, mon, and they think twice before they come." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. The elf runners be too quick for big axes, so you gonna have to learn to move." },
       },
       again = {
         { id = "h_again", text = "What else you be needin', mon? Keep your voice down out here." },
@@ -369,6 +415,7 @@ P:NPC {
         { text = "I can slip past their scouts.", next = "rogue_k", when = { class = "ROGUE" } },
         { text = "I've taken heads before. Show me where they run.", next = "hunter_k", when = { class = "HUNTER" } },
         { text = "Stay sharp.", next = "END" },
+        { text = "How does a warrior catch an elf runner, Kuray'bin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
       },
     },
     fighting = {

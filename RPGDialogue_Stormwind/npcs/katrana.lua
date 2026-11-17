@@ -39,6 +39,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Enormously, little one, in the way one values a good hound: we feed them, we praise them, and we send them where we please. The clever ones understand the arrangement, and the rest simply die more nobly." } },
+      choices = {
+        { text = "I serve the kingdom, my lady, not the court.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then point me where the pay is best, my lady.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "In my own way, little one, though I've never had much patience for the chase itself. One learns far more by waiting until the quarry walks to you, and in this court, they always do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "What a devoted creature your {pet} is. It reminds me of a great many people in this hall, though it has better manners than most of them." },
+      },
+      choices = {
+        { text = "A hunter should respect the quarry, my lady.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The chase is nothing. All that matters is the kill.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lady Prestor. I advise the Regent on the use of the kingdom's resources. Someone must, and the Regent is so very busy being noble." },
@@ -56,6 +77,8 @@ P:NPC {
           text = "Oh, it's you. I had hoped the guards were better at their work than this." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage of the Sanctum, or one who wishes to be. Dalaran's children do so love to remind the court how clever they are." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the king's hall. How very loyal you look, all that steel and no idea at all who you're guarding." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Do keep your animal on a short leash; the Regent's hall has quite enough noise in it already." },
       },
       again = { { id = "h_again", text = "Something else? Do be quick." } },
       choices = {
@@ -71,6 +94,8 @@ P:NPC {
         { text = "Gnomeregan needs Stormwind's help, my lady.", next = "gnome", when = { race = "Gnome" } },
         { text = "Ironforge's gold paid for much of this city, my lady.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Does the court have any use for mages, my lady?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the court value its warriors, my lady?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have you ever hunted, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Excuse me.", next = "END" },
       },
     },

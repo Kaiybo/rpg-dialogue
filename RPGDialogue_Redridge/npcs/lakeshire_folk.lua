@@ -29,6 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The court pays nothing, citizen, because the court has nothing; the Lakeshire guard pays, out of the Magistrate's purse, for proof of the deed. Bring it to Marshal Marris, and he'll see the books are kept straight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is not, strictly speaking, a citizen, {class}, but the court will overlook it, so long as it doesn't eat one." },
+      },
+      choices = {
+        { text = "I'll bring proof to the Marshal, as the law asks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt for my own reasons. The law can keep its books.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bailiff.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "It covers setting fire to things, citizen, whether you use a torch or a spell. The Magistrate's last ruling on the matter was very clear, and I wrote it down myself." } },
       choices = {
@@ -58,6 +70,7 @@ P:NPC {
         { id = "h_morning", when = { metBefore = true }, text = "It's been a long morning and my temper's short, so talk fast." },
         { id = "h_cityguard", when = { origin = "human_city_guard" },
           text = "You stand like a city guardsman, citizen, which is more than I can say for the deputies. The court could use someone who knows how a warrant is served." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, citizen. You'll be glad to know that hunting in Redridge is entirely lawful, provided the quarry isn't the Magistrate's cattle." },
       },
       again = {
         { id = "h_again", text = "The court will hear further business." },
@@ -72,6 +85,7 @@ P:NPC {
         { text = "Was justice done, Bailiff?", next = "justice", when = { questDone = TODO_QUEST("Solomon's Law") } },
         { text = "I've kept the peace with a sword before, Bailiff.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Does the law in Lakeshire cover spellcraft?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the court pay a bounty on gnolls, Bailiff?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I suppose the Magistrate has a ruling on warlocks too.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Bailiff.", next = "END" },
       },
@@ -185,6 +199,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Last night's count was forty-two, which is six more than the night before. They come up from the south end of the valley in packs, and they've got bolder since the orcs started feeding them scraps." } },
+      choices = {
+        { text = "I'll bring the count down, Deputy. One gnoll at a time.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Forty-two? I'll wait until it's someone else's problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Deputy.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "You could, and I'd love a proper number for once instead of my guess with fifty added for luck. Come back with the count and your ears still on your head, and I might finally sleep a night through." } },
       choices = {
@@ -210,6 +233,7 @@ P:NPC {
           text = "Thin them out along the road, and look hard while you're at it. I need numbers I can put in a letter that Stormwind can't wave away." },
         { id = "h_assess_done", when = { questDone = TODO_QUEST("Assessing the Threat") },
           text = "Good work; it's in the report. If Stormwind reads past the first page they'll be very worried, but they won't read past the first page." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because every gnoll you drop is one I can take off the count, and I've been waiting a long time for the count to go down." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, please; I've lost count once today already." },
@@ -224,6 +248,7 @@ P:NPC {
         { text = "I track things for a living. Want help counting?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I could count the gnolls from inside their camp.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "One blizzard could cut your count in half, Deputy.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How many gnolls are out there now, Deputy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Stay safe, Deputy.", next = "END" },
       },
     },
@@ -326,6 +351,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Gnolls, mostly, out of Redridge's high country, and once in a while a Blackrock scout looking for a fight. A warrior on this road can save a farmer's life just by being seen, because the gnolls don't like a fair fight." } },
+      choices = {
+        { text = "Then I'll walk your road and let them see me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't walk roads for show. I go where the fighting is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Parker.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Smoke, first, because it means orcs, and dogs barking, because it means gnolls. The condors are only birds, but they circle where something's died, so I watch them too." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps its eye on the hills same as me, {class}. I'd sign it up for the guard if it could hold a spear." },
+      },
+      choices = {
+        { text = "I'll report anything I find to the guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt what I see. Reporting's your job.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Parker.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Can you blink past the Blackrock outriders and the gnolls in the hills both? I've walked that road for three years, and the only safe way I've found is eyes open and feet quick." } },
       choices = {
@@ -354,6 +400,8 @@ P:NPC {
           text = "Martie's garden is at the west end of town; ask her for something nice. And please don't tell her who it's from, or who it's for." },
         { id = "h_after", when = { questDone = TODO_QUEST("Delivering Daffodils") },
           text = "She liked them, and she said so? Well, that's good, that's... eyes on the road, Parker, eyes on the road." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Eye on the hills, always, and you'll do fine here, because the hills have plenty to say about anyone who doesn't watch them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Eye on the job, always, and yours is the hills, so tell me if you see anything moving that shouldn't be." },
       },
       again = {
         { id = "h_again", text = "Something else? Talk while I watch; I can do both, mostly." },
@@ -367,6 +415,8 @@ P:NPC {
         { text = "Darcy loved the daffodils.", next = "flowers", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I came up that road and you never saw me.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I can blink past anything on that road.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What comes down from the hills onto your road, Parker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should I watch for in the hills, Parker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your road would be safer with a demon walking it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Carry on.", next = "END" },
       },
@@ -466,6 +516,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oh, the usual, love: who's courting who, who's been caught asleep on watch, and whether the orcs will come across the lake this year. The nice parts are mostly about the courting, and I keep the rest to myself." } },
+      choices = {
+        { text = "Then I'll give them something brave to gossip about.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'm only passing through. Let them gossip about someone else.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Darcy.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The best, love, though half of them are lies and the other half are worse. There's one about a boar called Bellygrub who ate a guard's boot right off his foot, and I've heard it told twelve different ways." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a sweetheart, love, and I'll not hear a word against it. Would it like a bit of ham?" },
+      },
+      choices = {
+        { text = "I'll tell only true stories, Darcy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good story's better than a true one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Darcy.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Oh, love, I don't sell it, I give it away, but only the nice parts. The rest I keep under the counter where it can't hurt anybody, and you won't get it out of me with that smile." } },
       choices = {
@@ -487,6 +558,8 @@ P:NPC {
           text = "You met Parker, out on the road? Was he eating, because he never eats, and did he say anything, about anything at all?" },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Is it true your folk wear feathers in your hair? Hippogryph, a traveller told me. I'd never get them to stay put." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, love! Sit here, by the window, where the soldiers can see you and feel a bit braver for it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, love, and a beast besides! I'll find it a bowl of scraps if you'll promise it won't chase the inn's cat." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tables can wait a minute." },
@@ -500,6 +573,8 @@ P:NPC {
         { text = "Do you like the daffodils?", next = "daffodils", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I could conjure you bread for the tables.", next = "mage", when = { class = "MAGE" } },
         { text = "You hear all the gossip, Darcy. Any of it worth selling?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do the soldiers gossip about, Darcy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the hunters around here tell good stories, Darcy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -604,6 +679,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not yet, thank the Light, though I've seen their tracks by the far fence once or twice. The herbs I grow keep the healer stocked, and the healer keeps the guards alive, so a warrior by my gate would be guarding more than flowers." } },
+      choices = {
+        { text = "I'll watch your garden while I'm in Lakeshire.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Flowers aren't my concern. I'll fight out in the hills.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Martie.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "They would, and that's why I grow them down by the lake where I can see them, not by the road. Alma taught me which ones mend and which ones kill, and she made me promise to sell only the first sort." } },
       choices = {
@@ -629,6 +713,7 @@ P:NPC {
           text = "No more hoofprints, though I keep looking for them out of habit. I almost miss the brute... no, I don't." },
         { id = "h_parker", tags = { "news" }, when = { questActive = TODO_QUEST("Visit the Herbalist") },
           text = "Flowers? You've hardly arrived and you're buying flowers, so somebody's caught your eye. Daffodils, then; they're my favourite." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Mind the flowerbeds, please, because those boots look like they've trampled worse than marigolds." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? Just step around the seedling trays." },
@@ -645,6 +730,7 @@ P:NPC {
         { text = "Somebody asked me to deliver daffodils, and I won't say who.", next = "END", when = { questDone = TODO_QUEST("Delivering Daffodils") }, fx = { align = { honor = 1 } } },
         { text = "Could I tame Bellygrub?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Some of your herbs would make fine poisons.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the gnolls come near your garden, Martie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your garden is the only thing in Redridge that isn't frightened.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
@@ -753,6 +839,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Tarantula legs, goretusk flank and condor, and don't make that face, because it's the best stew in Redridge. The soldiers don't care what's in it, so long as it's hot and there's plenty." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want a bowl of its own, {class}, and it can have one when you bring me back enough for the soldiers." },
+      },
+      choices = {
+        { text = "I'll bring what you need. The soldiers come first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring enough for me and my pet first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Chef.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Conjured food fills a soldier for a march, but it won't warm him like a bowl of my goulash will. Bring me spiders from the hills and I'll do the rest, and you can keep your magic for the orcs." } },
       choices = {
@@ -778,6 +876,7 @@ P:NPC {
           text = "The pot's full again. You had your bowl, then the garrison smelled the rest and lined up, and that's how goulash works." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elves eat goulash? Course you do; everyone eats goulash in Lakeshire, because it's that or the lake." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! At last, someone who can bring me something besides complaints, because I've a hundred soldiers to feed and nothing in the pot." },
       },
       again = {
         { id = "h_again", text = "What else, dear? You can talk while I get on with the chopping." },
@@ -791,6 +890,7 @@ P:NPC {
         { text = "Shall I bless the pot?", next = "priest", when = { class = "PRIEST" } },
         { text = "I've eaten army rations. This is a feast.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I could conjure food for your soldiers, Chef.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What meat do you need for the soldiers' stew, Chef?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your kitchen could use a fire that never goes out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },
       },

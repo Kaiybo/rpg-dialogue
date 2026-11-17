@@ -49,6 +49,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I try, though the Church's voice is often lost beneath the sound of the treasury closing. I've asked the Regent for chaplains in Lakeshire and Sentinel Hill, and I'll ask again, because asking is the one thing I'm here to do." } },
+      choices = {
+        { text = "Keep asking, Bishop. Someone has to speak for them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Soldiers need swords and coin, not chaplains.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Very little that isn't about rents or bandits, I'm afraid. When the wolves of Duskwood took three children last winter, it reached this chamber as a line in a tax petition." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} sits more patiently than half the court, I'd say. I'll pray for its health along with yours, if you don't mind." },
+      },
+      choices = {
+        { text = "Then I'll tell them what's happening out there, Bishop.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The court won't listen. I won't waste my breath.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Bishop DeLavey, and I represent the Church of the Holy Light at the King's court. Which is to say I sit in this chamber, I listen, and I remind the court now and then that the Light has opinions." },
@@ -64,6 +85,8 @@ P:NPC {
           text = "A mage at court is usually here to petition about the Slaughtered Lamb, and I confess I'm usually on their side. Speak plainly, and quietly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I can tell what you are, and I'll not pretend otherwise in my own chamber. You're welcome to speak, though, because the Light has never closed its ears to anyone." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at court. I'm sure you've opinions on how the kingdom's soldiers are spent, and I'm sure no one here has asked for them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, before the throne. I'll ask you to keep your animal close; some of the nobles here startle easily, and complain longer." },
       },
       again = {
         { id = "h_again", text = "Something else? Speak softly." },
@@ -77,6 +100,8 @@ P:NPC {
         { text = "My family has a seat in the House.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Does the Church trust the Mage Quarter, Your Grace?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the Church speak for the soldiers at court, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your petitions.", next = "END" },
       },
@@ -239,6 +264,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A few pieces, naturally, though only the finest, like a ceremonial blade said to have belonged to one of Lothar's knights. I'd never dream of using it, of course, but I'd dearly love to see someone use one like it properly." } },
+      choices = {
+        { text = "A blade should be used, Count, not sat on a wall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A blade that fine belongs in a collection, Count.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Rare pelts, unusual feathers, a set of antlers that would make the Lescovars weep with envy! My family's hall has a gap above the fireplace that has been waiting for something magnificent for nine years." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, what a remarkable creature your {pet} is. I don't suppose you'd consider... no, no, of course not. Forget I asked." },
+      },
+      choices = {
+        { text = "Some trophies belong in the wild, Count, not on a wall.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For the right price, I'll fill that gap above your fireplace.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Count Remington Ridgewell, at your service! My family boasts the finest collection of jewellery and fine art among all the nobles of Stormwind, and we are always, always looking to make it larger." },
@@ -256,6 +302,8 @@ P:NPC {
           text = "Oh, I know that light step; I've had my collection guarded against it for years! Do keep your hands where I can admire them, friend." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! The Sanctum sends someone round now and then to tell me whether my pieces are enchanted, and they always say no, which is terribly disappointing." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my side! Splendid; I never feel so safe in this chamber as when there's someone armed nearby who isn't a guard." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, my word! You must come across all kinds of curiosities in the wild, and I'm always, always interested in curiosities." },
       },
       again = {
         { id = "h_again", text = "What else, what else? I do so love a little company." },
@@ -269,6 +317,8 @@ P:NPC {
         { text = "Which house do you think I'm from?", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Has anyone ever tried to rob your museum, Count?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you like me to look over your collection?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you collect arms and armour too, Count?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What curiosities would a collector like you want, Count?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Count.", next = "END" },
       },
     },
@@ -392,6 +442,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Absolutely, and in full daylight, so that the whole city can see it done! These practitioners hide beneath respectable shops and call it study, and I mean to show the House of Nobles exactly what they've been tolerating." } },
+      choices = {
+        { text = "I'll go, if there's proof and a lawful warrant, my lord.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Point me at the door. I don't need a warrant.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "If they leave footprints, and they do, believe me, in brimstone and candle-ash and stolen goats. I've had reports of strange things in the Mage Quarter's cellars, and I'd like someone with a good nose to follow them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a good nose, I don't doubt, and I'd pay well to point it at the right cellar. Think on it." },
+      },
+      choices = {
+        { text = "I'll look, but I'll only accuse someone with proof.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If you're paying, I'll find you all the warlocks you like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lord Baurles K. Wishock, of the House of Nobles, and I am about to cause a great deal of trouble for some very deserving people. There is a nest of dark practitioners in this city, and I mean to have it cleared out." },
@@ -403,6 +474,8 @@ P:NPC {
           text = "I'll speak to you, since the law says I must, but I'll keep this chair between us, if it's all the same to you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You have a furtive look about you, and I'll thank you not to stand behind my chair. The House is full of enough knives as it is." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Excellent. When I've found the nest of warlocks I mean to clear out, I'll want stout fellows like you to break down the door." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know how to track things to their dens, which is precisely what I need; the dark practitioners in this city are no better than vermin." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I've a speech to polish." },
@@ -416,6 +489,8 @@ P:NPC {
         { text = "The Church stands with you, my lord.", next = "priest", when = { class = "PRIEST" } },
         { text = "The Mage Quarter isn't all demon-callers, my lord.", next = "mage", when = { class = "MAGE" } },
         { text = "Have you many enemies in the House, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you really send soldiers after the warlocks, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a hunter track down warlocks, my lord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have the House do with my kind, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with your speech.", next = "END" },
       },

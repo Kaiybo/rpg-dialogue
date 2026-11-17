@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A handful, and every one o' them a legend in this inn, at least until they sobered up. The trick is runnin' through gnoll country with Barleybrew in yer belly, and the gnolls can smell it, so they come runnin' too." } },
+      choices = {
+        { text = "I'll run it sober, or not at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour it strong. I'll run it the proper dwarven way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Yorus.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye, if ye've the legs, though the challenge was meant for warriors, and they'll grumble if a hunter beats their time. Leave yer beast behind, mind, because it'll not like the smell o' the brew." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours would outrun any warrior in this inn, {class}, and I'd put a silver on it, if I had one to spare." },
+      },
+      choices = {
+        { text = "I'll run it with my beast at my side, fair and square.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll run it, and leave the warriors grumbling behind me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Yorus.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,6 +62,8 @@ P:NPC {
           text = "Ye made it back inside the hour, and still standin', near enough! I'll be tellin' that one in Ironforge till my beard's white." },
         { id = "h_shield", when = { questDone = TODO_QUEST("The Shieldsmith") },
           text = "Did Furen make ye a good shield? He'd better have, because he owes me more favours than I can count, and I've counted." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Now there's a warrior if ever I saw one! Ye'll be wantin' to hear about my challenge, I'd wager, and ye'll be wantin' a mug before ye do." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye've the look o' someone who'd rather shoot a gnoll than drink a pint, which is a sad thing, and I'll try to fix it." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I pour, it saves time." },
@@ -53,6 +76,8 @@ P:NPC {
         { text = "Is it wise to drink before a fight?", next = "wisdom" },
         { text = "I'm no warrior. Can I still run it?", next = "notwarrior", when = { class = { "PRIEST", "MAGE", "WARLOCK", "ROGUE", "HUNTER", "DRUID", "PALADIN", "SHAMAN" } } },
         { text = "A dwarf can hold his drink, Yorus.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Have many warriors run your Gauntlet and finished, Yorus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a hunter run your Gauntlet, Yorus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Pour me one, Yorus.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -173,6 +198,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Now and then, when the job needs someone to stand at the front and make a lot of noise. A good warrior draws every eye in the room, and a good rogue uses that moment, so we get along fine, mostly." } },
+      choices = {
+        { text = "I'll make the noise. Somebody has to stand at the front.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I don't play distraction for anyone's knife.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lucius.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "How to move without that beast giving you away, for a start, though I suppose it does the same job as a sharp ear. Most hunters I've met track things that can't talk, and I track things that can, so we're not so different." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has its eye on my pocket, {class}, and I'd keep hold of it, because I've known pickpockets with worse manners." },
+      },
+      choices = {
+        { text = "I'll track the honest way, Lucius.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Teach me what you know. Quiet's quiet, whoever teaches it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lucius.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Plenty, and every one of them thinks a lock is a puzzle to be solved with a fireball. Come back when you can open a door without leaving a scorch mark, and we'll talk." } },
       choices = {
@@ -196,6 +242,8 @@ P:NPC {
           text = "Renzik sent you down from Stormwind? Let's see those hands... clumsy, but I've fixed worse, and some of the worst are working for the crown now." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Alther's Mill"), days = 5 } },
           text = "So the lockbox gave in to you. Good; whatever kills you from here on, at least it won't be my teaching." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You're not the sort I teach, but you're the sort who protects the sort I teach, so you can stand there if you want." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've got a quiet step, I'll grant you, but that beast of yours breathes like a bellows, and I can hear it from here." },
       },
       again = {
         { id = "h_again", text = "What else? Quietly, if you please; sound carries over water." },
@@ -209,6 +257,8 @@ P:NPC {
         { text = "Is opening other people's locks honest work?", next = "honest" },
         { text = "Gnomes build better locks than this.", next = "gnome", when = { race = "Gnome" } },
         { text = "You train rogues. Ever met a mage worth his salt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do rogues and warriors ever work together, Lucius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a hunter learn something from a rogue, Lucius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "We both work in the shadows, Lucius.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
@@ -319,6 +369,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Yes, and I'm going to be the bravest warrior in the whole Alliance, and fight the Blackrock, and save Lakeshire! Hilary says I'm too small, but I practise every day with a stick, and I'm getting better." } },
+      choices = {
+        { text = "Practise hard, Shawn. Lakeshire needs brave folk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fishing's safer, lad. Stick to that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Shawn.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Really? Hilary says I'm the loudest boy in Lakeshire, so you'd have your work cut out. But if I could sneak, I'd creep up on the murlocs and get her necklace back myself!" } },
       choices = {
@@ -346,6 +405,7 @@ P:NPC {
           text = "Did you look in the lake yet? Mom says there's nasty things down there, but you look like you've fought nasty things before, haven't you?" },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hilary's Necklace"), days = 5 } },
           text = "Hilary hasn't taken it off once since you brought it back, not even for bed, and Effsee keeps trying to bat it, so she sleeps with her hand on it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Wow, a real warrior! Hilary, look, it's a real warrior, with armour! Have you killed an orc? Have you killed lots of orcs?" },
       },
       again = {
         { id = "h_again", text = "What else? I can talk all day, we're not catching anything anyway." },
@@ -360,6 +420,7 @@ P:NPC {
         { text = "I'm a paladin. That's a sort of hero.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I could teach you to sneak, Shawn.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Want to see a spell, Shawn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you want to be a warrior someday, Shawn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -456,11 +517,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, because both are about waiting for the right moment and then not hesitating. The murlocs taught me that, since they hit the line fast and you've got to be faster, or they'll take your rod as well." } },
+      choices = {
+        { text = "Patience first, then the strike. I like that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll stick to fighting. Fish don't fight back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Matthew.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Murlocs by the hundred, and they're the least of it, because there was something big in the deep water last summer that broke three lines in an afternoon. I'd like to know what it was, and then I'd like it gone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching the water like it wants a fish, {class}, and I'll give it one, because a hungry beast is a noisy one." },
+      },
+      choices = {
+        { text = "I'll find what's breaking your lines.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the lake keep its secrets. I've enough to hunt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Matthew.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Matthew Hooper. I teach fishing, which is mostly teaching patience with a stick and string. Lake Everstill used to be the best water in the kingdom, and it still is, if you can get to it past the murlocs." },
         { id = "h_poachers", when = { questDone = TODO_QUEST("Murloc Poachers") },
           text = "Since someone thinned the murlocs on the east shore, my students have actually caught things. One of them cried, and I nearly did too." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my dock. Sit down and hold a rod, and we'll see if you've the patience for something that doesn't fight back straight away." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll understand what I mean when I say Lake Everstill is an old friend that's fallen in with bad company." },
       },
       again = {
         { id = "h_again", text = "What else? The line's out, so I've time." },
@@ -471,6 +555,8 @@ P:NPC {
         { text = "What's wrong with the lake?", next = "lake" },
         { text = "Is there really something big out there?", next = "thresher" },
         { text = "What do you think of the murlocs?", next = "murlocs" },
+        { text = "Is fishing anything like fighting, Matthew?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What lives in Lake Everstill besides fish, Matthew?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good fishing, Matthew.", next = "END" },
       },
     },
@@ -545,6 +631,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior thinks so, and every one of them asks me, and I tell them all the same thing: bread and milk will carry you further than ale. The ones who listen tend to come back, and the ones who don't tend to ask Daniels." } },
+      choices = {
+        { text = "Bread and milk, then. I'll fight with a clear head.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll see Daniels. A warrior needs his courage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Wental.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not me, but Sherman on the block will, and Chef Breanna will too, for the soldiers' stew. Bring them boar or condor and you'll eat well here for a week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is looking at my cheese, {class}, and I'll let it have the rind, but no more than that." },
+      },
+      choices = {
+        { text = "I'll hunt for the soldiers' stew.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt, but I'll eat the best cuts myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wental.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Don't tempt me, friend, because I'd be first in line and Bailiff Conacher would be second. The Magistrate's ruled no ale till the road's clear, and I've got to live here after you've gone." } },
       choices = {
@@ -568,6 +675,8 @@ P:NPC {
           text = "Daniels's shipment's late again, so everyone's been coming to me for drink, and I've had to tell forty soldiers that milk is very good for the bones." },
         { id = "h_dry_done", when = { questDone = TODO_QUEST("Dry Times") },
           text = "Daniels has his bottles back, thank the Light, and I can go back to being asked for bread like a normal bartender." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll be asking for ale, I suppose, so I'll save you the trouble: I've milk, and Daniels has the ale, when he has any." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want some cheese for the road and a bit of meat for your beast, I'd wager, and I've plenty of both." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? And no, still no ale." },
@@ -579,6 +688,8 @@ P:NPC {
         { text = "Who eats here?", next = "eaters" },
         { text = "How's the town holding up?", next = "town" },
         { text = "I know where a cask of ale might fall off a wagon.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Doesn't a warrior need ale before a fight, Wental?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does the inn buy game, Wental?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll take milk. Something about me sours it anyway.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just the bread, thanks.", next = "END" },
       },
@@ -653,6 +764,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Peacebloom for the bruises and silverleaf for the cuts, and a good poultice will have you back on your feet before the healer's finished his prayer. You'd be surprised how many warriors don't know a single plant that could save their life." } },
+      choices = {
+        { text = "Teach me a few. A warrior should know how to heal himself.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That's what healers are for. I'll swing the sword.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Alma.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Briarthorn under the trees and earthroot in the open, and if you see a patch of it torn up, that'll be the boars or the gnolls. The hills grow more than people think, and I'd like to know before it's all been rooted out." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing my peacebloom, {class}, and it's a good nose, because that patch is the best in Lakeshire." },
+      },
+      choices = {
+        { text = "I'll gather gently and leave the roots.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll gather what I need. The hills can regrow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Alma.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Reagents are herbs someone in Stormwind dried, put in a pretty bottle and charged you double for. Learn to pick your own, mage, and you'll never pay the Mage Quarter's prices again." } },
       choices = {
@@ -674,6 +806,8 @@ P:NPC {
         { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
         { id = "h_bellygrub", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
           text = "Martie says you dealt with that boar in her garden. I've been telling her to build a better fence for years, so I'm glad somebody solved it the other way." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I'll ask you nicely, the same as I ask everyone: don't trample my herbs on your way out to fight." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll be out in the hills more than most, so you can tell me what's growing and what's been trampled flat." },
       },
       again = {
         { id = "h_again", text = "Something else? I'll keep sorting while you ask." },
@@ -685,6 +819,8 @@ P:NPC {
         { text = "Do you and Martie work together?", next = "martie" },
         { text = "Should herb lore be shared freely?", next = "share" },
         { text = "Herbs are fine, but reagents are what I really need.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your herbs help warriors in a fight, Alma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should a hunter look for in the hills, Alma?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some plants grow better where there's been death.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Alma.", next = "END" },
       },
@@ -767,6 +903,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Knocked it down the first time, and the second time they sent the gnolls to steal the mortar. The foreman says we're slow, but a man can't lay stone with one eye on the far shore." } },
+      choices = {
+        { text = "I'll watch the shore so you can watch your work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Build faster. I've my own fights to finish.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Trent.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Up into the hills past Alther's Mill, I'd guess, though nobody's been brave enough to follow them. A hunter could track them easy, I'd think, and bring back a pick or two if the gnolls haven't eaten them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would sniff out our tools in an afternoon, {class}, and I'd buy it a whole ham if it did." },
+      },
+      choices = {
+        { text = "I'll track them and bring back your tools.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Buy new tools, Trent. Gnolls aren't worth the chase.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Trent.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "You could, and I'd be grateful, because I hate feeling eyes on my back while I'm hauling. Every night there's a fire on the far bank where there wasn't one before, and Oslow says not to look at it." } },
       choices = {
@@ -790,6 +947,8 @@ P:NPC {
           text = "You fished the foreman's toolbox out of the lake! He's been humming, and none of us knew he could hum." },
         { id = "h_bridge", when = { questDone = TODO_QUEST("The Everstill Bridge") },
           text = "Those iron pikes you took off the gnolls are holding up the new span now. I'll think of you every time I walk across it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not be much help with the stones, I'd guess, but you might be some help with the orcs, and the orcs are what slow us down." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know the hills, then, and you'll know where the gnolls take the things they steal from us." },
       },
       again = {
         { id = "h_again", text = "Something else? Quick, the foreman's looking." },
@@ -802,6 +961,8 @@ P:NPC {
         { text = "Should Stormwind pay you more for this?", next = "pay" },
         { text = "The orcs watch your bridge. I could watch them back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could lift that block with a spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What's the worst the Blackrock have done to the bridge, Trent?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Where do the gnolls take your stolen tools, Trent?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

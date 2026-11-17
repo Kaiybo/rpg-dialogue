@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because the orcs hit the wagons on the Lakeridge Highway, and the drivers won't go out again until someone clears the road. If a warrior cleared it, I'd have casks in a week, and I'd remember who to thank." } },
+      choices = {
+        { text = "I'll clear the road. Lakeshire deserves its ale.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll clear it, but I'll want the first cask.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Daniels.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Boar, if you can get it, and condor if you can't, though condor's tough as a saddle. Sherman over at the inn's block takes whatever's clean, so bring it to him and tell him I sent you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a beast that eats better than my customers, {class}. I'd not say no to a share of its supper." },
+      },
+      choices = {
+        { text = "I'll hunt for the soldiers. They've earned a good meal.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt, but the price goes up when the road's cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Daniels.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Smugglers might, and I'd not ask too many questions if one turned up with a cask of Stormwind ale, I'll tell you that for free. But Bailiff Conacher drinks here, so keep your voice down when you say that word." } },
       choices = {
@@ -68,6 +89,8 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Do sky folk drink? I'd wager they do, and whatever they pour up there, down here you'll get whatever I've got left." },
         { id = "h_barrel", when = { metBefore = true }, text = "A whole barrel came in yesterday, full, and I almost cried. The regulars did cry; Lakeshire's had a hard year." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting a drink, and I'll be wanting to give you one, and the Blackrock have made sure neither of us gets what we want." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've no drink to sell, but I'd gladly buy some meat for the table, because the soldiers are sick of bread." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stool's yours as long as you want it." },
@@ -84,6 +107,8 @@ P:NPC {
         { text = "Do you get many kaldorei through Lakeshire?", next = "nightelf", when = { race = "NightElf" } },
         { text = "The road's cut, but smugglers must still get through.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "This bar could use some of the Blue Recluse's cheer.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why haven't your shipments come through, Daniels?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What game would sell well at your bar, Daniels?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The Blackrock have warlocks, Daniels. I'm not one of theirs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
@@ -187,6 +212,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Twice a week, lately, and every time it's gnolls on the south road or orcs on the far shore. The guards do their best, but half of them are farm boys, and they'd stand a little taller with a real warrior beside them." } },
+      choices = {
+        { text = "I'll answer the bell while I'm here.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I paid for a room, Brianna. The guards can answer it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Brianna.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Good hunting, and bad company, because the gnolls hunt the same hills you will. Chef Breanna buys condor and boar for the soldiers' stew, and she pays fair, though she'll tell you what's wrong with every cut." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome under my roof, {class}, and I'll put a blanket down for it. It's more polite than half my guests." },
+      },
+      choices = {
+        { text = "I'll hunt for Breanna's stew. The soldiers need feeding.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt for my own pot first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Brianna.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "That's a lovely offer, and the wounded upstairs would thank you for the warmth. Only mind the rafters, because Daniels swears the whole roof is held up by old varnish and good intentions." } },
       choices = {
@@ -208,6 +254,8 @@ P:NPC {
         { id = "h_default", text = "I'm Brianna. I keep the rooms and Daniels keeps the bar, when he has anything to keep, and between us we keep Lakeshire from losing its mind." },
         { id = "h_dry", when = { questDone = TODO_QUEST("Dry Times") },
           text = "You found Daniels his drink! He's been whistling ever since, and it's terrible, and I've never been happier to hear it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a room near the stairs, I expect, so you can be first down if the bell rings, and it rings more than I'd like." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep in the room with you, so long as it doesn't mind Daniels snoring through the wall." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The kettle's on and Narnie's asleep." },
@@ -219,6 +267,8 @@ P:NPC {
         { text = "How's the town holding up?", next = "town" },
         { text = "Are there wounded under your roof?", next = "wounded", when = { class = "PRIEST" } },
         { text = "I could light every hearth in the inn tonight.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How often does the alarm bell ring in Lakeshire, Brianna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is there good hunting near Lakeshire, Brianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need somewhere quiet to work, Brianna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },

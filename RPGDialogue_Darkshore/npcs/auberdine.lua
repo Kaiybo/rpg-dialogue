@@ -294,6 +294,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Hard, because they won't stop once they've started, and without hatred, because none of this is their fault. The Fel Moss is in their food and their water, and if you bring me what I need, I may yet find a way to burn it out of them." } },
+      choices = {
+        { text = "I'll fight them without hatred. They're victims.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sick or not, they'll fall to my blade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Green on their muzzles and a stagger in their walk, which means the Fel Moss has reached their blood. Follow their trail back to where they eat and you'll find the moss growing thickest there, and that is where I need you to look." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} from eating anything near the Blackwood camps, I beg you. If the moss can do that to a furbolg, I don't want to know what it would do to a beast." },
+      },
+      choices = {
+        { text = "I'll track it back to its source.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find the source yourself. I'll thin the furbolgs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Perhaps not, and I would rather have a mage's word on that than nothing. The moss is fel, and fel is the Legion's, and your craft and theirs once drank from the same Well, which is a thing my people have not forgotten." },
@@ -340,6 +361,8 @@ P:NPC {
           text = "Volcor is safe, and Grimclaw has hardly left his side. What you did for them has given me faith that we can mend what is wrong here, and beyond." },
         { id = "h_athridas", when = { heardLine = "athridas.h_default" },
           text = "You've spoken with Athridas in Dolanaar, then. If the Gnarlpine have turned on Teldrassil as well, the Fel Moss is on both sides of the water, and that frightens me more than anything here." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The furbolgs here are sick rather than wicked, so I'd ask you to keep that in mind when you draw your blade." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've tracked the furbolgs, haven't you, and seen how they've changed." },
       },
       again = {
         { id = "h_again", text = "What else? The moss won't wait, but I can spare you a moment." },
@@ -353,6 +376,8 @@ P:NPC {
         { text = "I know fel when I see it. This moss is fel.", next = "warlock_te", when = { class = "WARLOCK" } },
         { text = "This moss isn't arcane. I'd know if it were.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The furbolgs won't see me. I could learn what drives them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How should a warrior fight the Blackwood furbolgs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What signs of the corruption should a hunter look for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -434,6 +459,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I pray not, because whatever killed something that size would make short work of Auberdine's walls. The bodies lie along the beach to the north, so if you go to look, take your shield and keep one eye on the water." } },
+      choices = {
+        { text = "If it comes ashore, I'll stand between it and Auberdine.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever it is, it isn't my fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That's my hope, because I can tell you they died but not how. Look for wounds a beast would make, or the lack of them, because if nothing bit them, then something worse than teeth is at work in the sea." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing toward the shore, and I don't think it likes what it smells. Animals know when the sea is wrong." },
+      },
+      choices = {
+        { text = "I'll study the bodies and tell you what I find.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dead is dead. It doesn't matter how.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xlock = {
       lines = {
         { id = "xwl_default", text = "There is grief on that shore, and nothing else that you should touch. Elune keeps the dead, warlock, and if I find you have meddled with them, I will not be as gentle as I am now." },
@@ -476,6 +522,8 @@ P:NPC {
           text = "Thanks to you, we have a real chance of learning why they beach themselves. Some think they are fleeing the waters around Teldrassil, and I find that idea very disturbing." },
         { id = "h_priest", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
           text = "A priest of the Light, here among the dead fish and the murlocs! You are welcome; the Temple gave me a little coin for helpers, but another healer's eye is worth more." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The tide brought up something dead again this morning, and I'd be glad of someone who isn't afraid to look at it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the creatures washed up on the shore, and I would like your eye on them." },
       },
       again = {
         { id = "h_again", text = "What else? I'm listening, though I keep one eye on the tide." },
@@ -489,6 +537,8 @@ P:NPC {
         { text = "I've swum out to the great bodies in seal form.", next = "druid_gw", when = { class = "DRUID" } },
         { text = "Death on that shore. There's power in it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Sisterhood object to mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could whatever killed the sea creatures come ashore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a hunter tell what killed the sea creatures?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
@@ -684,6 +734,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "She loved to walk the woods of Ameth'Aran at night and watch the moonstalkers on the cliffs, and she said that watching was the first duty of anyone who loved the wild. I think of her every time I see one, and I envy the hunters who still walk there." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the same quiet eyes as the beasts she loved. Be good to it, for we do not keep what we love as long as we think." },
+      },
+      choices = {
+        { text = "I'll honor her memory when I walk those woods.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The past is gone. Walk the woods for yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "It was, and Anaya was of the Highborne, though she was gentler than the rest of them. Her people's magic doomed her city, and I have never known whether to hate it or to wish I understood it." },
@@ -722,6 +784,7 @@ P:NPC {
           text = "Her spirit still walks the ruins of Ameth'Aran, and it must be freed, but I cannot raise my hand against her even now. Please do what I cannot, and bring me her pendant." },
         { id = "h_after", when = { questDone = TODO_QUEST("For Love Eternal") },
           text = "She came to me afterwards, just for a moment, and told me we will find each other again. I believe her; I have waited ten thousand years, and I can wait a little longer." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Anaya loved the moonstalkers of these shores, and she would have liked to see you walk among them." },
       },
       again = {
         { id = "h_again", text = "Ask what you will. I have nothing but time, and the water." },
@@ -735,6 +798,7 @@ P:NPC {
         { text = "I'd have fought for her, in your place.", next = "warrior_ce", when = { class = "WARRIOR" } },
         { text = "Ameth'Aran was a Highborne city, wasn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I could slip into Ameth'Aran and find what you're looking for.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did Anaya love the wild, before the Sundering?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -808,6 +872,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Greener, often, because they wear their armor on the crossing and it rolls with the ship. I tell them to take it off at Rut'theran and none of them ever listen, so I keep the tea warm." } },
+      choices = {
+        { text = "Next time I'll take the advice and leave it off.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My armor stays on. You never know what's coming.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "There's always room, though I keep the cats away from the docks, because the fishermen have opinions about their catch. The waves will sing you both to sleep after a night or two, I promise." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can sleep by the fire, where it's warmer and it won't hear the storms in the floorboards. Animals always know a storm's coming before I do." },
+      },
+      choices = {
+        { text = "We'll keep clear of the docks, I promise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My companion goes where it pleases.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "They're seasick, not foolish, or so I like to think, and the Sentinels walk the dock all night. If a bag goes missing in my inn, I'll know who was watching them, won't I?" },
@@ -835,6 +920,8 @@ P:NPC {
           text = "So you've spoken with Cerellean. He stands on that dock every day, and I bring him tea, and he forgets to drink it, and I bring him more." },
         { id = "h_boards", when = { metBefore = true }, text = "The sailors swear the floorboards creak in a different key before a storm. I've started listening, and they're right." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look at the moon on the water out there. On nights like this, I forgive the sea for everything." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and seasick, I'd guess, from the look of you. Sit down and I'll bring tea before you fall over." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion took the crossing better than you did, I see; they usually do." },
       },
       again = {
         { id = "h_again", text = "Is there anything else, love? There's always tea on." },
@@ -846,6 +933,8 @@ P:NPC {
         { text = "The crossing from Menethil nearly finished me.", next = "seasick", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "You pray over your guests' dreams?", next = "dreams_s", when = { class = { "PRIEST", "DRUID" } } },
         { text = "Your guests leave their bags lying about, I noticed.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors come off the boats as green as everyone else?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is there room for my companion at the inn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need a room for the night, and some quiet.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },

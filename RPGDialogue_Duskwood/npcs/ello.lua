@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I begin to doubt it, and I say that as a loyal subject of the crown. Stormwind has its own troubles, I'm told, but the dead don't stop walking because the nobles are busy, so until they come, the Night Watch and warriors like you are all we have." } },
+      choices = {
+        { text = "Then I'll fight for Darkshire until Stormwind remembers you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stormwind won't come. You should stop asking and start hiring.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "I've considered every road to Stormwind's ear, including the less respectable ones, and I'm ashamed to say I've written to people I'd never have dined with. If you have such a road, I won't ask what it costs you." } },
       choices = {
@@ -85,6 +94,7 @@ P:NPC {
           text = "Ah, my friend, come in, come in! The council is delighted to see you, and so, unofficially and without minutes, am I." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "The council has no appointments today, and I have even fewer for you. What is it?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and welcome, for I have asked Stormwind for a hundred of you and received a polite letter instead. You'll forgive me if I'm glad of one." },
       },
       again = {
         { id = "h_again", text = "Go on. The council can wait, as the council always waits." },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "Ironforge has its own wars, my lord, but I came.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "There are quieter roads to Stormwind's ear, my lord.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Karazhan is close. Does its shadow trouble Darkshire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Will Stormwind ever send soldiers to Darkshire, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your town fears me, Lord Ebonlocke.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, my lord.", next = "END" },
       },

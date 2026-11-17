@@ -16,6 +16,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It came from a dwarf, and the dwarf came from Ironforge, and that's close enough for a traveling man. It sharpens, which is what matters, and I'll not charge you Ironforge prices for it." } },
+      choices = {
+        { text = "I'll take it, and I'll take your word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take it, but I'll not believe a word.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only the once, and the man said it was a coincidence, so I've decided to believe him. Hunters like a story with their goods, and that's the best one I've got this week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} perked its ears at the call! Either it knows the tune, or it's as alarmed as I was." },
+      },
+      choices = {
+        { text = "I'll hunt without tricks, thank you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A call that brings wolves? I'll take two.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "A fellow in Darkshire sold it to me for a pair of boots, and he seemed very glad to be rid of it, which I'll admit was a bad sign. I've carried it since, and it hasn't done anything strange yet, except the humming." } },
@@ -42,6 +63,8 @@ P:NPC {
           text = "A mage, and you'll want something rare, I can tell. I've a crystal from Duskwood that hums in the dark, though I'm not sure it's meant to." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock on my road, and with something at your heel, I see. I'll sell you anything you like, but I'd ask you to keep it out of my packs." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the road! I've a whetstone from Ironforge, or near enough, and it'll put an edge on anything." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! I've a call for luring deer, carved by a man in Duskwood, though he swore it calls wolves too." },
       },
       again = {
         { id = "h_again", text = "What else? My feet need the rest anyway." },
@@ -53,6 +76,8 @@ P:NPC {
         { text = "Why not keep a shop in town?", next = "shop" },
         { text = "Where did a crystal from Duskwood come from?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are you afraid of my demon, Antonio?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is your whetstone really from Ironforge, Perelli?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does your deer call really bring the wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Safe travels.", next = "END" },
       },
     },

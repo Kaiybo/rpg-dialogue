@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Defias, using my barn to hide stolen goods, and they've made themselves very comfortable there. My wife planted the garden behind it, and I'd like to see it again before I die, even if nothing grows." } },
+      choices = {
+        { text = "I'll clear them out and give you back your farm, Sven.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your farm's lost. Find somewhere new to live.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Sven.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Quietly or loudly, I don't much care how, so long as the Defias in my fields stop sleeping in my bed. I'd do it myself if I were ten years younger and a good deal less tired." } },
       choices = {
@@ -86,6 +95,7 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Pray if you want to, priest; I stopped. I'll stand next to you while you do it, though, and that's as far as I go." },
         { id = "h_quiet", when = { metBefore = true }, text = "You came back, and most don't. Sit if you like, but I don't talk much; the forest does it for me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I've a farm I can't go back to and a family I can't bring back, so if you're looking for something to fight, the Defias on my land would be a start." },
       },
       again = {
         { id = "h_again", text = "What else do you want to know?" },
@@ -104,6 +114,7 @@ P:NPC {
         { text = "The wolves near your camp. Want them thinned?", next = "hunter", when = { class = "HUNTER" } },
         { text = "The Defias on your land won't hear me coming, Sven.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A fire would clear the rot off your land, Sven.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Who's squatting on your farm, Sven?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Morbent Fel's wards are crude work. I could break them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },

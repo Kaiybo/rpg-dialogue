@@ -28,6 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the orcs feed them better than they fed me, and that they're kept on the east side of Stonewatch where the wind carries the scent away from the walls. A hunter who knew that could come at the keep from downwind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would give the Blackrock wolves a fight, {class}. I'd pay a month's wages to watch it, if the army ever paid me." },
+      },
+      choices = {
+        { text = "I'll go in downwind and take the wolves first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The wolves are only beasts. I want the orcs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Corporal.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "I'd have welcomed it, though the shadowcasters in Stonewatch would have heard you three floors up. Everything I learned in that keep says the Blackrock respect power, and they hate a mage who can match theirs." } },
       choices = {
@@ -66,6 +78,7 @@ P:NPC {
         { id = "h_young", when = { maxLevel = 20 },
           text = "How old are you? Never mind; I was younger when I first went to war, and that's not the comfort it sounds like." },
         { id = "h_sleep", when = { metBefore = true }, text = "I slept through the night, the first time since the camp, and woke up reaching for a sword that wasn't there. That's progress, I suppose." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. In the Blackrock pens I heard their wolves at night, and I'd like to think someone like you might teach those beasts some manners." },
       },
       again = {
         { id = "h_again", text = "What else? Keep it short, if you would; my head's still ringing." },
@@ -82,6 +95,7 @@ P:NPC {
         { text = "The Light kept you alive, Corporal. Stand with me.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'll scout ahead. Stay in my shadow.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'd have burned your cell door off, Corporal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What did you learn of the Blackrock's wolves, Corporal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Their shadowcasters and I use the same arts, Corporal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Let's get moving.", next = "END" },
       },

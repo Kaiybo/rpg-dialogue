@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Slow and stupid, but they don't tire, and they swing those straw arms like flails. You'll want to take them apart limb by limb, and burn the bits, because I swear they put themselves back together." } },
+      choices = {
+        { text = "I'll take them apart and burn every one.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Burn the whole field. It's quicker.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Coyotes at night and vultures by day, and the Goretusks when they're feeling brave. Salma says the boars come for the scraps, and I say they come because nobody's here to stop them anymore." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours would scare off the coyotes, I'd bet. Bring it round at night, if you're passing." },
+      },
+      choices = {
+        { text = "I'll keep the beasts off your farm, Saldean.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt where the game is, not where you need it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Do you now? Then you'll know they came at night, took the Molsens' plough first and the Molsens next, and never once looked a man in the eye. If you can think like that and still stand on my porch honest, you're welcome here." } },
       choices = {
@@ -68,6 +89,8 @@ P:NPC {
         { id = "h_salma", when = { heardLine = "salma.h_default" },
           text = "Salma's been feeding you, then; she feeds everyone. I married the softest heart in Westfall, and I'll not hear a word against it." },
         { id = "h_soil", when = { metBefore = true }, text = "The soil's tired, and so am I, but we'll both get up tomorrow anyway. That's farming." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just the thing for my field. The harvest watchers don't scare, and they don't stop, so I hope you hit hard." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll not find much worth hunting in my field, except scarecrows that walk, and they don't make good eating." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick, because daylight's for working." },
@@ -83,6 +106,8 @@ P:NPC {
         { text = "Shall I bless your fields?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I know how thieves think, Saldean. I can help.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Those watchers aren't natural, Saldean. I can feel it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How do the harvest watchers fight, Saldean?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What hunts around your farm, apart from the scarecrows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

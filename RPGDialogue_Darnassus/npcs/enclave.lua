@@ -33,6 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Faster? You've missed the point entirely, because any brute can move dirt quickly and it takes a visionary to move it thoughtfully. Still, a warrior's back is a fine thing, and when I'm running the Enclave one day I'll have a dozen of you." } },
+      choices = {
+        { text = "Every task deserves to be done well, even dirt.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dirt is dirt. Your visions won't change that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every night, and I've no idea what, because I'm far too important to stay up and watch. Something small with clever paws, I think, and if you caught it I'd name a dirt pile after you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is eyeing my piles right now, isn't it? I can see it thinking, and I'll thank it to think about something else." },
+      },
+      choices = {
+        { text = "I'll catch your little digger and let it go elsewhere.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your dirt isn't worth a night's lost sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -76,6 +97,8 @@ P:NPC {
           text = "Still here, yes, and still digging. A visionary keeps odd hours, and the dirt doesn't mind the dark." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh, a rogue! Have you come to dig too? No, of course you haven't, nobody does, but you're welcome to stand there and look thoughtful." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A real mage, here among the dirt piles! Could you make these move themselves? No, the druids would have my ears for it, forget I asked." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the dirt, would you, because I've only just got that pile exactly where I want it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Don't let your beast dig in my piles, because the last one undid three days of my work." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all night, and a great deal of dirt." },
@@ -89,6 +112,8 @@ P:NPC {
         { text = "Gnomes build machines that dig, you know.", next = "gnome_j", when = { race = "Gnome" } },
         { text = "Did you ever think about another line of work?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would the druids object to a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Need someone to shift those piles faster, Jenal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Has anything been digging through your piles at night?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you dig.", next = "END" },
       },
     },
@@ -200,6 +225,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That the loudest fighter is the easiest to find, and usually the first to die. The Gnarlpine went for the shouting camps first every time, so think on that before you bang your shield again." } },
+      choices = {
+        { text = "A warrior stands in the open so others can hide.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet works. I'll learn to use it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Close enough that I've lost marks to hunters who got there first. You stalk to kill a beast and I stalk to finish a job, but the forest doesn't care which, so long as you keep off the dry leaves." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} moves more quietly than you do, which you should take as a lesson rather than an insult." },
+      },
+      choices = {
+        { text = "I hunt in the open. My quarry sees me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quarry that never sees me is quarry I keep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -254,6 +300,8 @@ P:NPC {
           text = "Sethir's journal said what I feared: the sickness in Darkshore's forests is creeping into ours. You did well, but this is beyond a rogue's reach now." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You aren't a rogue, so I can't teach you anything. You are a mage, though, and that makes you very easy to hear coming." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Enclave. You're bolder than most of my students, and I don't mean that kindly." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I don't teach your kind, and you make far too much noise in my alcove." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, which at least means you know how to keep still. That's more than I can say for most who come here." },
       },
       again = {
         { id = "h_again", text = "Anything else? Be brief." },
@@ -266,6 +314,8 @@ P:NPC {
         { text = "Why do night elves need rogues?", next = "why" },
         { text = "Teach me how the kaldorei move unseen.", next = "rogue_s", when = { class = "ROGUE" } },
         { text = "Is a mage really so easy to notice?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What could a rogue teach a warrior, Syurna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do rogues and hunters stalk the same way, Syurna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the kaldorei hate warlocks, or only fear them?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to the shadows.", next = "END" },
       },
@@ -357,6 +407,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A warrior can, though most don't try, because steel teaches you to strike first and ask nothing. Learn the beasts of Teldrassil before you cut them down, and you'll find that fewer of them need cutting." } },
+      choices = {
+        { text = "I'll learn the forest before I draw a blade in it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A beast that charges me gets my blade. That's balance enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -429,6 +488,7 @@ P:NPC {
           text = "You and your companion have grown since we last spoke. Remember the balance, and we shall speak again when you're ready for more." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like a hunter stalking, rogue, only without the respect. The forest still notices you, even if the guards don't." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The beasts are restless, warlock, and so am I. Whatever walks behind you is no part of the balance I teach." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll find no training here, but you may stand and listen if you keep still." },
       },
       again = {
         { id = "h_again", text = "What else? Speak; I'm listening." },
@@ -444,6 +504,7 @@ P:NPC {
         { text = "Humans hunt too. Where do I fit?", next = "human_h", when = { race = "Human", class = "HUNTER" } },
         { text = "My rifle serves me as well as any bow.", next = "gun_h", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "What does a hunter think of a rogue's stealth?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can a warrior keep the balance as a hunter does?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is a demon really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Jocaste.", next = "END" },
       },
@@ -536,6 +597,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Most of my students think a bear's claws make a warrior unnecessary, until the first time they're knocked out of the shape and find themselves on the ground. I tell them to watch how you stand, because a warrior knows how to take a blow, and that is a lesson for any guardian." } },
+      choices = {
+        { text = "I'll stand in front, so your druids can heal.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your druids should learn to take their own blows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, and I tell them it's a different bond, because they become the beast for a while and you walk beside one for years. The best of them come to respect you for it, and the rest grow up eventually." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the calm of a well-loved animal, and Cenarius would be glad of it. Treat it as one of his children, for in a way it is." },
+      },
+      choices = {
+        { text = "My companion is family, as Cenarius would want.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's a hunting beast. Sentiment gets you killed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -584,6 +666,8 @@ P:NPC {
           text = "You've met the Great Bear, I can tell; you stand differently. Mathrengyl chose well." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage in the Enclave, studying us studying the land. I suppose that's fair, since we spend enough time wondering about you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach young druids to heal what the fel has burned, warlock, so you'll understand if I'd rather you kept walking." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Cenarius bless you, warrior. Even those who will never take a shape are welcome in the Enclave." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Cenarius bless you, hunter, and whatever walks beside you. You and my students share a love of the wild, though you show it differently." },
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },
@@ -596,6 +680,8 @@ P:NPC {
         { text = "How is the Circle under Fandral?", next = "circle" },
         { text = "Which shape is truest to a druid?", next = "forms", when = { class = "DRUID" } },
         { text = "What do druids wonder about mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do druids think of warriors, Denatharion?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your young druids envy a hunter's companion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there any healing for what the fel has done?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },

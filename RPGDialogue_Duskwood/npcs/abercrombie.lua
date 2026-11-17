@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Trouble me? Oh no, dear, they're quiet company, mostly, though the ghouls do get underfoot. A strong pair of arms like yours could clear a few from the cemetery, and I'd be ever so grateful for the ribs." } },
+      choices = {
+        { text = "I'll put the dead back in their graves where they belong.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll cut them down, and I'll not ask what you want with the bones.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Abercrombie.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Locked? Oh, those, they're my late wife's things, and I can't bear to see them, so I keep them shut. You won't need to open them, my friend; there's nothing inside but old dresses and memories." } },
       choices = {
@@ -79,6 +88,7 @@ P:NPC {
           text = "A priest, how nice! You'll say a word for an old man's wife, won't you? From here is fine, dear; from here is best, really." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Oh my, all that shine! Do stand a little further off, dear, because my eyes aren't what they were, and nor is anything else of me." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "Oh, a warrior, dear! Such a sturdy build, and all of it still attached, which is more than most folk round Raven Hill can say." },
       },
       again = {
         { id = "h_again", text = "More questions? How lovely, since nobody asks me anything anymore." },
@@ -96,6 +106,7 @@ P:NPC {
         { text = "My pet won't come near your hut.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "You've a lot of locked crates for a lonely old man.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "There's a strange smell of preservatives here, Abercrombie.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the dead around Raven Hill trouble you, old man?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Goodbye, Abercrombie.", next = "END" },
       },
     },

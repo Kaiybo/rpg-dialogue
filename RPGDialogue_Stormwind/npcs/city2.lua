@@ -49,6 +49,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "We need scouts, and a hunter makes the best scout there is. Before the Second War, half of Uther's victories began with a ranger's report from the forests of Lordaeron, and I've never forgotten it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours stands like a well-trained charger. You've cared for it properly, and I respect that in anyone." },
+      },
+      choices = {
+        { text = "Then I'll scout for the Silver Hand with pride.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I scout for myself. The Hand can pay like everyone else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Grayson Shadowbreaker, of the Silver Hand. I train the paladins who pass through this Cathedral, and I am not easily satisfied." },
@@ -70,6 +82,7 @@ P:NPC {
           text = "A rogue in the Cathedral's training hall. I'll assume you came in by the door, and I'll ask you to leave by it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You carry the stink of the fel into this hall, and I will not pretend I didn't notice. Say what you came to say." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly, and I'll answer the same way." },
@@ -89,6 +102,7 @@ P:NPC {
         { text = "What does a paladin have that a warrior doesn't?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "What do you make of the other trainers here?", next = "others" },
         { text = "Do the Silver Hand look down on rogues, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Silver Hand need hunters, Lord Shadowbreaker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there no place in the Light for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "May the Light protect you too.", next = "END", fx = { affinity = 1 } },
       },
@@ -314,6 +328,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I try to, though it's harder some days than others. The Light doesn't ask us to love the orc with a blade at our throat, but it does ask us not to become something worse than him to survive." } },
+      choices = {
+        { text = "I'll fight hard, but I won't fight cruel.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Out there, you do whatever it takes to come home.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It teaches that every life has worth, which is a hard thing for a hunter to hear, I know. But I've met hunters who give thanks for each kill, and I think they understand the Light better than many priests." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a creature that's been loved. That counts for a great deal, I think, with the Light and with anyone else." },
+      },
+      choices = {
+        { text = "I give thanks for every life I take.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Thanks don't feed anyone. A clean shot does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Arthur. They call me the Faithful, though I've never been sure I earned it, and I keep trying to." },
@@ -326,6 +361,8 @@ P:NPC {
           text = "You keep to the edge of the candlelight, friend. Come in a little closer, because nobody here will ask what you've done." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The Light keep you, friend, and I do mean you, even with what walks beside you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I see the scars on your shield, and I'll pray for whoever gave them to you, and for you too." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I admire your patience, friend; I've never managed to sit still long enough for anything to walk up to me." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry at all." },
@@ -341,6 +378,8 @@ P:NPC {
         { text = "I took the oath in Ironforge, Arthur.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "What do you think of Lord Shadowbreaker?", next = "grayson" },
         { text = "Would the Light forgive the things I've done, Arthur?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you pray for your enemies, Arthur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does the Light teach anything about the hunt, Arthur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you pray for warlocks, Arthur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
@@ -468,6 +507,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Balance first, temper second and the edge last, because a well-balanced blade with a dull edge will still save your life. Furen spent his whole first year learning that, and he's still learning it, as I remind him daily." } },
+      choices = {
+        { text = "I'll take good balance over a flashy edge any day.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Give me the sharpest blade and I'll worry about balance later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A spear, an axe or a good skinning knife, certainly, and I'll put my skinning knives against any in the kingdom. The bowyers can have their yew, and the dwarves their rifles; I'll stick to things that are hammered." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} of yours trained to stay out of a forge? Good, because I've had one dog singe its tail on the slack tub and howl for an hour." },
+      },
+      choices = {
+        { text = "A well-made tool deserves an honest hand.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A tool is a tool. I'll use whatever's cheapest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Elmore. I make weapons, and I make barding for paladins' chargers, and nobody in Azeroth makes it better. Ask Lord Shadowbreaker whose work his mount wears." },
@@ -486,6 +546,8 @@ P:NPC {
           text = "A rogue in my shop. Ye can admire the barding all ye like, but it weighs more than ye do, so dinnae get ideas." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage? Ye'll be wantin' a staff, an' I'll tell ye now I dinnae make sticks, so come back when ye want a proper weapon." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let me see that blade. Hm, someone's sharpened it with a cobblestone, and I'll thank you not to tell me it was you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a blacksmith's shop. You'll be wanting arrowheads, I suppose, or an axe for the camp, because no smith alive makes a good bow." },
       },
       again = {
         { id = "h_again", text = "What else? The forge doesnae wait." },
@@ -501,6 +563,8 @@ P:NPC {
         { text = "Your forge fire has a spirit in it, Elmore. It likes you.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you ever forge daggers, Elmore?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever forged anything enchanted, Elmore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What makes a weapon worth trusting, Elmore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a good smith make a hunter's weapon, Elmore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -606,6 +670,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A great many, from the Arathi battle-songs to Lothar's own field notes, which are mostly complaints about supply wagons. Every soldier should read them, though in my experience very few ever do." } },
+      choices = {
+        { text = "A warrior should read. Knowledge wins as many battles as steel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I learn by fighting. Books are for scholars.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Field journals, mostly, from ranger posts and old hunting lodges, because nobody records the wildlife of Azeroth like a bored ranger. I've an entire shelf on the beasts of Redridge written by one man who never saw a single gnoll." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} wouldn't happen to eat paper, would it? I ask because I've lost three manuscripts to the Cathedral's mice already." },
+      },
+      choices = {
+        { text = "I'll bring you any journals I find, for the library's sake.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Journals cost money. I'll bring them if you pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Milton Sheaf, keeper of the Royal Library. I collect books from all over the kingdom. Mostly I collect people to collect books for me." },
@@ -621,6 +706,8 @@ P:NPC {
           text = "The Tomes of Alterac, on my shelves! I've had to sit down twice. The library thanks you, and the books, I think, thank you most." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Shh, and no, nothing in here is worth stealing, unless you can read, in which case everything is." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my library. Please don't lean on the shelves, and please don't use that sword to point at anything." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You travel widely, I suppose, which means you may be useful to me. I collect people who collect books, you understand." },
       },
       again = {
         { id = "h_again", text = "Something else? In a whisper, please." },
@@ -634,6 +721,8 @@ P:NPC {
         { text = "Have you anything for a priest?", next = "priest", when = { class = "PRIEST" } },
         { text = "Does the library keep anything from Dalaran?", next = "dalaran", when = { class = "MAGE" } },
         { text = "Have thieves ever robbed the Royal Library?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the library hold any books on warfare, Milton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you need books brought from the wilds, Milton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -738,6 +827,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By the wheel, friend, especially the Barracks men heading out to Redridge. Elaine's dwarven sharp lasts a month in a pack, and I've had a sergeant tell me it saved more lives than his shield did." } },
+      choices = {
+        { text = "Good food on the march is half of a soldier's courage.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A soldier fights hungry. Cheese is a luxury.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Now and then, when a hunter brings in something Elaine can smoke alongside the cheese. Rabbit from Elwynn goes beautifully with the Alterac Swiss, though I'd not tell my wife I said so." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been eyeing my counter for some time now. I'll ask it to remember I'm the honest one in the family." },
+      },
+      choices = {
+        { text = "A fair trade, game for cheese, suits me well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep my game and buy my cheese with coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Elling Trias. My wife Elaine makes the cheese, my boy Ben sells it, and I stand here looking honest. It's a family business." },
@@ -753,6 +863,8 @@ P:NPC {
           text = "Tyrion's in the castle garden with his contraption. Do what he says, when he says it. Then come back here and buy something." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Please don't chill the cheese, because it's aged at exactly the temperature my wife wants, and she knows." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want something that keeps on the march, and nothing keeps like a good hard cheese, I promise you that." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you live on what you catch, but even the best hunter wants something besides venison now and then, don't they?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Cheese-related, ideally." },
@@ -765,6 +877,8 @@ P:NPC {
         { text = "Jorgen sent a note.", next = "jorgen", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
         { text = "I keep to the shadows myself.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Does the Mage Quarter buy much cheese?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do soldiers really buy cheese for the march, Elling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever trade cheese for game, Elling?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just passing.", next = "END" },
       },
     },

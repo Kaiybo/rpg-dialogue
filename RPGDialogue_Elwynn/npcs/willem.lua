@@ -33,6 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Walk in and take their bandanas, and make it hard enough that they think twice about coming back. The Marshal wants a full count, and I want the vineyard clear before the grapes are ruined." } },
+      choices = {
+        { text = "I'll take the bandanas and clear the vineyard.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the bandanas. The vineyard's not my concern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Willem.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bold enough to take a sheep from the Abbey's fold, in daylight, with a guard watching. I'd sooner a hunter thinned them than send the recruits, because the recruits come back bitten." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could handle a wolf or two. Just don't let it bring one back to the fold." },
+      },
+      choices = {
+        { text = "I'll thin the pack, for the Abbey's sake.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt them, but the bounty's mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They're digging under the vines and stealing candles from the Abbey, and the Marshal's short of men to deal with them. A mage who can clear a burrow without burning the grapes would make my tally a lot shorter." } },
@@ -86,6 +107,8 @@ P:NPC {
           text = "A mage on the Abbey road. Khelden's sent you down to the vineyard, I'd wager, because the kobolds have been at it again." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, coming down from La Salle's graveyard. I'll ask you to keep that thing on a short leash, because the horses don't like it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because the bandanas in the vineyard won't count themselves, and the Marshal wants a full tally." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The wolves on the north slope have been bold this week, and the recruits are nervous." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a road to watch, and it won't watch itself." },
@@ -100,6 +123,8 @@ P:NPC {
         { text = "Does Stormwind take volunteers from far away?", next = "far", when = { race = { "Dwarf", "Gnome", "NightElf", "Skyborne" } } },
         { text = "Are the kobolds giving the vineyard much trouble?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you trust La Salle's students, deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What can a warrior do about the Defias in the vineyard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How bold have the wolves been, Deputy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

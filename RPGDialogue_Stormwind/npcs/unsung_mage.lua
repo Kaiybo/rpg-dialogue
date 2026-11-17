@@ -43,6 +43,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I wish I were a Sentinel, guarding the shores of Darkshore against what crawls out of the sea. Instead I brew potions here, so that others may go, and I tell myself that is enough." } },
+      choices = {
+        { text = "Your potions save lives. That's a battle too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If you want to fight, go and fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, from Darnassus and Auberdine, and the humans stare at their night sabers as if they've never seen a cat. They come to buy potions, mostly, and to tell me which herbs have grown thick in Ashenvale." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like the forests of my home, I think. Take it there one day, if you can, so it knows what a real tree looks like." },
+      },
+      choices = {
+        { text = "The wild is sacred and should be kept so.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The wild is there to be used, and I'll use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Lilyssia Nightbreeze. I teach alchemy here, shut up among the humans' stone, while others fight the battles I dream of every night. Still, someone must teach, so I do." },
@@ -51,6 +72,8 @@ P:NPC {
           text = "A mage. My sisters would frown at me for teaching your kind, but alchemy needs a steady hand, and yours look steady enough." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You bring the fel into my workshop, and the herbs wilt on the bench. I will teach you, because I must, but my sisters in Ashenvale would not." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You will fight the battles I dream of every night, while I stay here among the humans' stone. I envy you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The hunters of my people walk the forests beside the night sabers, and I think of them often, here among the stone." },
       },
       again = {
         { id = "h_again", text = "Speak, and I will answer while the still drips; the forest taught me to listen and work at once." },
@@ -62,6 +85,8 @@ P:NPC {
         { text = "What should I brew first?", next = "brew" },
         { text = "Who works here with you?", next = "shop" },
         { text = "Why would your sisters frown at teaching mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you wish you were a warrior, Lilyssia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the kaldorei hunters ever come to Stormwind, Lilyssia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would your sisters fight a warlock, Lilyssia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Lilyssia.", next = "END" },
       },
@@ -134,6 +159,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They are made for leather and cloth, not steel, but they will mend a strap or stitch a shield grip as well as any blacksmith's. The Sentinels carry such tools on patrol, because a forest has no forges." } },
+      choices = {
+        { text = "A warrior should be able to mend their own gear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll let the smiths mend my gear. That's their job.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Skinning blades that never dull, and needles fine enough to stitch a hide without tearing it. My people believe that if you take a life, you should waste nothing of what it gives you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine coat, and I can see it is loved. My people would say the bond between you honours you both." },
+      },
+      choices = {
+        { text = "Waste nothing. That's the right way to hunt.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I take what's useful and leave the rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Eldraeith. Our finest craftsmen on Teldrassil made these tools, and I carried them across the sea myself, as a sign of the friendship between the Great Tree's people and the humans of this land." },
@@ -142,6 +188,8 @@ P:NPC {
           text = "A rogue. I carried these tools across the sea, and I would be very sad to see them leave without being paid for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. My people do not love the arcane, but I was taught to be courteous to guests, and you are a guest here, as I am." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my stall. These are tools for craftsmen, though I suppose a warrior must mend his own gear when he's far from a forge." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Welcome; the tools I sell were made on Teldrassil, and many of them were made for hunters, so they will feel familiar in your hands." },
       },
       again = {
         { id = "h_again", text = "What else may I tell you?" },
@@ -153,6 +201,8 @@ P:NPC {
         { text = "How do you find Stormwind?", next = "city" },
         { text = "Do night elves have rogues of their own?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Couldn't a portal to Darnassus have spared you the voyage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your tools suit a warrior's needs, Eldraeith?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What tools did the craftsmen of Teldrassil make for hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Eldraeith.", next = "END" },
       },
     },
@@ -222,6 +272,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Dozens a month, now that so many new adventurers are coming through, and every one wants the lion of Stormwind sewn just so. I'll tell you a secret: the stitching on the lion's mane takes longer than all the rest of it together." } },
+      choices = {
+        { text = "I'll wear the lion proudly. It means something.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A tabard's just cloth. I don't need a badge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Of course, though you'll only tear it again in the next briar patch. I'll double the stitching at the knees, because hunters spend half their lives crouching in the bushes." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet}, I see, has been helping, with its claws? Never mind, I've mended worse; I once repaired a cloak that a bear had eaten half of." },
+      },
+      choices = {
+        { text = "I'll take better care of my clothes, I promise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Torn clothes are a hunter's badge of honour.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Georgio Bolero. I've been teaching tailoring in this shop for some years, and business has been very good lately, with so many new adventurers coming through and tearing their clothes." },
@@ -231,6 +302,8 @@ P:NPC {
           text = "A rogue! You'll want dark cloth that doesn't shine in the lamplight, and I can teach you to sew it yourself, so nobody knows your size." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and your cuffs are singed exactly where the shadow bolts leave your hands. I can teach you to line them, which will save you a fortune in sleeves." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in a tailor's shop! You'll be wanting a tabard to wear over that armour, I expect, so that everybody knows whose side you're on." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your clothes are torn, I see, in all the places hunters always tear them: the knees, the elbows and the hem." },
       },
       again = {
         { id = "h_again", text = "What else? I've a bolt of wool waiting." },
@@ -242,6 +315,8 @@ P:NPC {
         { text = "Who else works here?", next = "shop" },
         { text = "What makes good tailoring?", next = "good" },
         { text = "Why would it matter who knows my size?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors buy many tabards, Georgio?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can you mend a hunter's clothing properly, Georgio?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many warlocks learn tailoring from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Georgio.", next = "END" },
       },
@@ -314,6 +389,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The sensible ones do, because a torn tabard on the road is a torn tabard for a month. I've sold more thread to Barracks men than you'd guess, though they all say it's for their wives." } },
+      choices = {
+        { text = "A warrior should know how to mend his own gear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll pay someone to sew. I've better things to do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Heavy waxed thread, mostly, which Simon Tanner swears by, though he'll never admit to buying it from me. It holds a stitch through rain and mud, which is what a hunter needs." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps batting at my spools, and I don't have the heart to stop it. Is it always this playful?" },
+      },
+      choices = {
+        { text = "Good thread for good work. I'll buy the best.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The cheapest thread will do. It'll tear anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Alexandra Bolero. Georgio teaches, I supply, and between us we keep half the tailors in Stormwind from tying their seams with string." },
@@ -321,6 +417,8 @@ P:NPC {
           text = "A mage, and you'll want mageweave, of course, because they all do once they've heard the name. It isn't magic, you know; it's just very good thread." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I'll sell you thread and dye like anyone else, though I'd sooner you didn't stitch anything into it that whispers." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll not want thread and needles, I'd think, but if you ever tear a tabard, bring it to Georgio and not to the market stalls." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've thread strong enough for hides, if you work your own leather, and needles that won't snap on a boar's skin." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -331,6 +429,8 @@ P:NPC {
         { text = "Where does your stock come from?", next = "stock" },
         { text = "What's it like working with Georgio?", next = "georgio" },
         { text = "If mageweave isn't magic, why call it that?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors learn to mend their own clothing, Alexandra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What thread do you sell for leather work, Alexandra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you sold thread to the Lamb's cellar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Alexandra.", next = "END" },
       },
@@ -399,6 +499,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Very like, because one strong thread can hold a whole hem together, and one weak one can unravel it. I've seen a whole company break because one soldier ran, and I've seen one soldier hold a whole company together." } },
+      choices = {
+        { text = "I'll be the thread that holds.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sometimes the cloth's not worth holding together.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "In patience, yes, and in knowing that one hasty move can ruin hours of work. A hunter who looses too early loses the deer, and a tailor who cuts too early loses the cloth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a very patient beast, I see. It's been watching my needle for a full minute, which is longer than any of my students manage." },
+      },
+      choices = {
+        { text = "Patience in everything, as you say.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sometimes you have to act fast and fix it later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lawrence Schneider. I teach the beginners here, so Master Bolero can save his patience for the experts. I always say a life is like a bolt of good cloth: every thread matters, and one weak one can ruin the whole." },
@@ -406,6 +527,8 @@ P:NPC {
           text = "A rogue! I always say a good thief is like a good seamstress, because both of them can slip in and out without anyone seeing the join." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, here to learn tailoring? I always say a spell is like a stitch, because a careless one comes undone just when you need it most." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Life is like a bolt of good cloth, I always say, and a warrior is the thread that holds the hem together when everything else tears." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know about patience, I'd guess, which is the first thing I teach and the last thing my students learn." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a lesson in a moment." },
@@ -417,6 +540,8 @@ P:NPC {
         { text = "Do you mean that about the threads?", next = "threads" },
         { text = "Is that meant as a compliment, Lawrence?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think sewing could improve my spellwork?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is a warrior really like a thread in cloth, Lawrence?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is tailoring much like hunting, Lawrence?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Lawrence.", next = "END" },
       },
     },
@@ -486,6 +611,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By the wand, often, because a mage with a cheap wand is bluffing and a mage with a good one is not. Since Dalaran fell, there aren't many good ones left, so if you see one, close the distance quickly." } },
+      choices = {
+        { text = "I'll treat every mage with respect, good wand or not.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Close the distance quickly. I'll remember that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not usually, because a bow does the same work and never needs recharging. But I knew a ranger from Quel'Thalas once who carried a wand to light his campfires, and he swore by it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at the wands as though they might move. Clever beast; some of them do, a little, when the enchantment's fresh." },
+      },
+      choices = {
+        { text = "A bow is honest work. No magic needed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a wand lights a fire, I'll take one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ardwyn Cailen. Allan sells the staves and I sell the wands, and I'll tell you honestly that since Dalaran fell, a wand made by a real enchanter is hard to find anywhere in the world." },
@@ -494,6 +640,8 @@ P:NPC {
           text = "A mage! Then you'll appreciate a wand made properly, with a true core, and you'll know a cheap one by the way it hums." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, so you'll want a wand that can bear a shadow without cracking, and I'll admit I've only a few that can." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a wand stall. You'll not need any of these, but I'll tell you honestly that a warrior who can recognise a good wand is a warrior who can spot a dangerous mage." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Wands aren't much use to you, I'd think, though I've known a hunter or two who carried one as a curiosity." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about wands all day." },
@@ -504,6 +652,8 @@ P:NPC {
         { text = "Who makes them, now Dalaran's gone?", next = "makers" },
         { text = "Which wand would you choose?", next = "choose" },
         { text = "How can you tell a cheap wand by its hum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How can a warrior tell a dangerous mage, Ardwyn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters ever use wands, Ardwyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do shadow wands crack, Ardwyn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Ardwyn.", next = "END" },
       },
@@ -572,6 +722,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A pinch of a few of them, mixed by an alchemist, will steady your nerves or toughen your skin for an hour. I'd not recommend eating them raw, though one of the Barracks lads tried it and lived." } },
+      choices = {
+        { text = "I'll leave the reagents to the alchemists.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it works, I'll try anything once.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "From all over the world, from the crafters and mages here and from the hunters and gatherers who bring me what they find. A good hunter can make a fine living bringing in rare feathers and claws, if they know what to look for." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks healthy and strong, which is good; some of these reagents come from beasts that weren't so lucky." },
+      },
+      choices = {
+        { text = "I'll take only what I need from the creatures I hunt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it sells, I'll bring it in.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Charys Yserian. I sell reagents and arcane trinkets, the small and curious leftovers of a great deal of magic, made by the crafters and mages here in Stormwind." },
@@ -579,6 +750,8 @@ P:NPC {
           text = "A mage, so you'll want reagents and the kind of trinkets your masters swear they never use. I keep both, and I keep quiet about who buys which." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I keep a few things at the back for your people, though nothing that would trouble the Watch, and I'd rather keep it that way." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among the reagents. These are leftovers of a great deal of magic, and most of them won't help you, though a few might surprise you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you see more of the world's raw magic than I do, out in the wild where the reagents first come from." },
       },
       again = {
         { id = "h_again", text = "Have you another question for me, or for the curios?" },
@@ -589,6 +762,8 @@ P:NPC {
         { text = "What's the strangest thing you've sold?", next = "strange" },
         { text = "Where do your curios come from?", next = "source" },
         { text = "Do the Sanctum's masters really buy trinkets?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could a reagent help a warrior, Charys?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Where do your reagents come from, Charys?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What sort of things do you keep at the back?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Charys.", next = "END" },
       },
@@ -659,6 +834,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not often, but when they do, it's for a wedding or a funeral, and they want the very best. I've fitted a captain of the Barracks for his daughter's wedding, and he was more nervous than any battle could have made him." } },
+      choices = {
+        { text = "A warrior should look their best for the people they love.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fine clothes are wasted on a warrior.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Once in a while, for a feast or a funeral, and they always look terribly uncomfortable in them. My apprentice says it's because hunters can't sit still in anything that doesn't rustle like leaves." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better manners than my apprentice, I'll say that. At least it hasn't forgotten its sewing kit." },
+      },
+      choices = {
+        { text = "Even a hunter can dress well when it matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A robe? Never. Leather suits me fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Wynne Larson, of Larson Clothiers. We sell robes to the Mage Quarter's scholars and the Cathedral's priests, and I keep an apprentice who forgets his sewing kit whenever he hopes for a day off." },
@@ -667,6 +863,8 @@ P:NPC {
           text = "A rogue in a robe shop, which is either a disguise or a mistake. If it's a disguise, I can help, but you'll have to tell me what you're pretending to be." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and you'll want something dark and loose, so you can move your hands. My apprentice keeps those at the back, assuming he's remembered where he put them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in Larson Clothiers! You'll want a robe for under your armour, perhaps, or something nice for when you're off duty." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I'm afraid we only sell robes, but if you're ever invited to the Cathedral, you'll want something without mud on it." },
       },
       again = {
         { id = "h_again", text = "Is there something else? Mind the pins on the counter, Thurman never puts them away." },
@@ -677,6 +875,8 @@ P:NPC {
         { text = "Tell me about your apprentice.", next = "thurman" },
         { text = "Who buys the most robes?", next = "buyers" },
         { text = "Could you dress me as a priest, Wynne?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors buy fine clothes, Wynne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters ever buy robes, Wynne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you sell robes to the Lamb's people too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Wynne.", next = "END" },
       },

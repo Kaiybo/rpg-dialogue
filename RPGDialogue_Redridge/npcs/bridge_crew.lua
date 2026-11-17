@@ -23,6 +23,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Blackrock, from across the water, though they send the gnolls to do the dirty work at night. A warrior posted at the far end while we set the stones would let this crew finish before the rains." } },
+      choices = {
+        { text = "I'll guard the far end while you build.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Bridges are builders' work. I'll go hit the orcs at home.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Dmitri.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Gnolls, mostly, with their dogs, sniffing round the stone piles for tools to steal. And there's a great boar that roots about the lake shore, Bellygrub the children call him, who's knocked over two of my scaffolds already." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is eyeing my lunch, {class}, and I'll not share it with a beast, though I might share it with you." },
+      },
+      choices = {
+        { text = "I'll keep the gnolls off your stone piles.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt Bellygrub. The gnolls can steal what they like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Dmitri.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Then mind you bring back the right ones, because the last lad who fetched for me brought a mallet when I asked for a level. Those gnolls on the south bank don't know a chisel from a chicken bone, but they've taken both." } },
       choices = {
@@ -45,6 +66,8 @@ P:NPC {
         { id = "h_tools", when = { questDone = TODO_QUEST("The Lost Tools") }, text = "You brought the foreman's tools up from the lake bottom. Those chisels are older than Jess, and they cut truer than anything we could buy in Stormwind." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf, on my bridge! Your people built the Thandol Span, and I'd give a year's wages to know how they set those foundations." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! You'll be thinking of some machine to lift these stones, I expect, and I'll tell you now the foreman doesn't trust machines." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Now there's a pair of shoulders that'd carry a stone or two, though I'd guess you'd rather swing at the orcs who keep knocking our work down." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know the hills, then, and you'll know there's more than orcs out there watching us work." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slowly; I like to think while I listen." },
@@ -56,6 +79,8 @@ P:NPC {
         { text = "What's the rest of the crew like?", next = "crew" },
         { text = "Who knocked the bridge down?", next = "who" },
         { text = "I could slip past the gnolls and fetch your stolen tools.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Who keeps knocking down the Everstill Bridge, Dmitri?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What else watches the bridge crew, Dmitri?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Stone holds a curse well, you know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your stones.", next = "END" },
       },
@@ -126,6 +151,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than anything, but the foreman says I'd drop a sword like I drop the stones, which is only sometimes! Still, the soldiers at the barracks let me watch them drill, and I practise with a stick when nobody's looking." } },
+      choices = {
+        { text = "Keep practising, Jess. Every warrior started with a stick.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stick to stones, lad. Soldiering's a hard road.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jess.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only from the bridge, but I've seen condors as big as a cart, and boars with tusks like scythes, and once a spider the size of my head! The foreman says I imagine half of it, but I didn't imagine the spider." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Can I pet your {pet}? Just once? I'll be careful, I promise, and if it bites me I won't tell the foreman." },
+      },
+      choices = {
+        { text = "Watch the beasts from the bridge, Jess. That's the safe way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Go see for yourself. You'll never learn on a bridge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jess.", next = "BACK" },
+      },
+    },
     xlock = {
       lines = { { id = "xlo_default", text = "Do I want to see it? Light, yes, I do, and also no, because Oslow says the last time something with horns came near the bridge we lost a crate of mortar. Can it carry stone? Because if it can carry stone, Oslow might forgive it." } },
       choices = {
@@ -139,6 +185,8 @@ P:NPC {
         { id = "h_default", text = "I'm Jess, and I carry stone for Foreman Oslow, which isn't very exciting, but it's for the bridge, and the bridge is important. Everyone says so, especially the foreman." },
         { id = "h_bridge", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "You're the one who got our iron back from the gnolls! I told everyone at the inn about it, and I made it sound even better than it was, I hope you don't mind." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Are you one of Lucius's lot from down on the docks? I'm not supposed to know about them, so please forget I asked." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! A real one, with real armour and everything! Is it heavy? It looks heavy, but I suppose you're used to it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! With a real beast and everything! Can it do tricks? I bet it can do tricks, and I bet it bites gnolls." },
       },
       again = {
         { id = "h_again", text = "What else? Dmitri's not looking, so I've a minute." },
@@ -150,6 +198,8 @@ P:NPC {
         { text = "What do you think of Foreman Oslow?", next = "oslow" },
         { text = "Do you want to be an adventurer?", next = "adventure" },
         { text = "Want to see my imp, Jess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you want to be a warrior someday, Jess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have you seen the beasts in the hills, Jess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Back to work, Jess.", next = "END" },
       },
     },

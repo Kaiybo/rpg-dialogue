@@ -47,6 +47,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Redridge and Duskwood, if you ask me plainly. The orcs in the Redridge hills and whatever stalks the Duskwood roads outnumber the men I can send, and a hunter who can read a trail is worth a squad of guards who can't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks keen enough to follow a worg into Duskwood. Keep it fed and keep it close, and the Light will watch over you both." },
+      },
+      choices = {
+        { text = "I'll go where the roads are worst, Highlord.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt for my own reasons, not the crown's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bolvar Fordragon. I keep the kingdom for King Anduin until his father comes home, or until he's grown. Whichever the Light allows first." },
@@ -74,6 +86,7 @@ P:NPC {
           text = "Shaw tells me you're one of his, or near enough. I don't ask him how his people do their work, and I'd rather not have to ask you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The Church tells me what's kept under the Slaughtered Lamb, and the Church is not pleased, nor am I. You stand in my hall openly, though, so I'll hear you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The kingdom's roads run longer than its soldiers can walk, and I'm grateful for anyone who knows the wilds past Elwynn." },
       },
       again = {
         { id = "h_again", text = "What else? Briefly; the council sits at noon." },
@@ -94,6 +107,7 @@ P:NPC {
         { text = "Dalaran's mages could help this kingdom more than they do.", next = "dalaran", when = { class = "MAGE" } },
         { text = "I speak to the spirits of the earth, Highlord.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you trust SI:7's methods, Highlord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Where would a hunter serve the kingdom best, Highlord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why does the crown tolerate the Lamb's warlocks, Highlord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },

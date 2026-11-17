@@ -25,6 +25,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not this month, because they're mending more than they're making. A tabard that's been in a fight is a tabard that needs thread, and the militia's tabards have been in a lot of fights." } },
+      choices = {
+        { text = "Then I'll buy some thread and mend my own.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll get a new tabard when this one's done.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than anyone, because the Goretusk hides sell in Stormwind if they're cured right. Half my salt goes to hunters and the other half to Salma's kitchen, and I can never decide which is more important." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing at my salt. Good thing it's not the dye, or we'd both be blue." },
+      },
+      choices = {
+        { text = "I'll cure the hides properly and sell them fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll sell them raw. It's quicker.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Mage robes, is it? You'll want the dyed linen, then, since the Stormwind tailors swear the colour holds an enchantment better, though I've never seen a scrap of proof. I'll sell it to you either way, and gladly." } },
       choices = {
@@ -50,6 +71,8 @@ P:NPC {
           text = "Word is you went under Moonbrook and came back. The militia's been buying dye this week, to paint their shields, and I've not sold dye in a year." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "A gnome, out in the dust! I've no gears or springs, I'm sorry to say, only thread and flux. You'll have to make do with plain old human trade." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Thread and flux, I'm afraid, nothing for the sword; but if you've a torn tabard, I've a needle." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Salt for the hides, I'd guess, and maybe a needle for the leather; I've both, and not much else." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a crate to unpack, if it hasn't been robbed." },
@@ -62,6 +85,8 @@ P:NPC {
         { text = "I worked these fields before the thieves came.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I'll need fine thread for robes, Christopher.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll need dark dye, the darkest you have.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does anyone at Sentinel Hill buy anything but thread?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the hunters here buy much salt, Hewen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -125,6 +150,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Badly, because they think it's a fight, and they come at it head on. A trade's not a fight; it's a dance, and I've been dancing longer than you've been swinging, so pay the price and save us both the trouble." } },
+      choices = {
+        { text = "I'll pay your price and save the trouble.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll haggle, and I'll win this time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because mine's from the coast and his is from a wagon, and mine doesn't have dirt in it. A hide cured with dirty salt goes off in a week, and then you'll come back to me anyway, so save yourself the walk." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps nosing at my stall. If it eats anything, you're paying for it." },
+      },
+      choices = {
+        { text = "I'll buy the good salt. The hides deserve it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll buy the cheap salt and take my chances.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "I'd sell you water if you were thirsty, but I'll not trade good thread for something that vanishes come morning. Bring me silver, which doesn't." } },
       choices = {
@@ -142,6 +188,8 @@ P:NPC {
           text = "You smashed Saldean's scarecrows, didn't you? He came up the hill to buy seed for the first time in a year. Seed, mind you, which is a hopeful thing to buy." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf will haggle, I know that much. Go on, then, and we'll see which of us gives way first. It won't be me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my stall. You'll haggle, I suppose, like everyone else, and you'll lose, like everyone else." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want salt, I suppose, and I'll sell it for exactly what it's worth, which is more than Christopher charges." },
       },
       again = {
         { id = "h_again", text = "Anything else? Haggling's thirsty work, and I've had no water since dawn." },
@@ -153,6 +201,8 @@ P:NPC {
         { text = "Are you kin to William, the bowyer?", next = "william" },
         { text = "Surely you could knock a few coppers off.", next = "haggle", when = { any = { { race = "Dwarf" }, { race = "Gnome" }, { class = "ROGUE" } } } },
         { text = "Would you take conjured water in trade, Gina?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors haggle well, Gina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why is your salt dearer than Christopher's, Gina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -210,6 +260,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Raids and fire and men falling off them, and some of them don't settle now when they hear steel. A warrior who rides one will need a soft hand, because they've been through as much as their riders." } },
+      choices = {
+        { text = "I'll ride gently. They've earned it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A horse should be used to steel. I'll ride hard.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Then you're quieter than the Defias, who've been trying to rob my stable since spring and never once got past the old grey mare. She bites, and she knows a stranger's step." } },
       choices = {
@@ -234,6 +293,7 @@ P:NPC {
         { id = "h_nightelf", when = { race = "NightElf" },
           text = "Kaldorei keep their animals closer than we do, I've heard, more like kin than stock. I'll keep yours the way you'd want, then." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet, now. They've all settled, except the boar in the end stall, and he's never settled in his life." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting a horse, I suppose, but I've only militia horses here, and they've seen too much." },
       },
       again = {
         { id = "h_again", text = "Anything else? Gently, though; they're listening." },
@@ -246,6 +306,7 @@ P:NPC {
         { text = "What would you tame, out here?", next = "tame", when = { class = "HUNTER" } },
         { text = "Horses don't spook when I sneak up on them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Animals don't like me much, Kirk.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What have the militia horses seen, Kirk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Just looking in.", next = "END" },
       },
     },
@@ -302,6 +363,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because there isn't any, not since the Defias burned the fields and the farmers fled. I buy flour from Elwynn and bake it here, and every loaf reminds me what we lost." } },
+      choices = {
+        { text = "I'll fight so Westfall grows its own wheat again.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Elwynn flour is good enough. Let the past go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Goretusk, if there's a hunter about, and nothing but bread if there isn't. A sandwich with boar in it keeps a man on watch all night, and a sandwich without keeps him grumbling." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} wants my bread too, I see. Does it eat it? Some of them do, and some of them just pretend." },
+      },
+      choices = {
+        { text = "I'll keep the militia in meat.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt for my own table, thank you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "So I've heard, and so the soldiers tell me every time they buy a loaf, as if I'd not heard it the first hundred times. Conjured bread has no crust worth the name, and there's no man in Westfall who'll call it a proper loaf." } },
       choices = {
@@ -327,6 +409,8 @@ P:NPC {
           text = "Saldean's got his fields back from the walking scarecrows, they say. If he grows wheat again, I'll buy every sack and bake till my arms fall off." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Do your folk eat bread, where you come from? Try a roll and tell me. If it's terrible, tell me kindly." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want bread, I suppose, and I'll sell you a loaf, though I wish I'd baked it from Westfall wheat." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be bringing in meat, I hope, so the militia have something to put between my bread." },
       },
       again = {
         { id = "h_again", text = "Anything else? The next batch won't knead itself." },
@@ -339,6 +423,8 @@ P:NPC {
         { text = "Blessed bread feeds the soul as well. May I bless today's batch?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I can conjure bread, you know.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Don't worry, my imp won't eat your bread.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why don't you bake with Westfall wheat anymore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do the militia eat, apart from your bread?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },

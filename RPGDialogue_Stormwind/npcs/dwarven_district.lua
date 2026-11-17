@@ -46,6 +46,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A proper fit, first an' last, because plate that pinches will kill ye slower but surer than an axe. Half the guards in this city wear armour cut for someone else, an' it shows in how they move." } },
+      choices = {
+        { text = "I'll have it fitted right, whatever it costs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it stops a blade, it fits well enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Rifles, mostly, an' rams tae carry 'em, back in Dun Morogh, though the old mountaineers swear by the crossbow when the snow's thick. A barrel freezes in the high passes, ye ken, but a good string keeps." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours would do well in the snow, I'd say. Keep it out o' the forge, though, for the sparks fly further than ye'd think." },
+      },
+      choices = {
+        { text = "Every tool has its place. Bow or rifle, it's the hand that counts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A rifle beats a bow every time. Ask any mountaineer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Therum Deepforge, armourer tae the House o' Wrynn, though these days that means fittin' guards more than kings. If ye want tae learn the hammer, I'll teach ye, an' if ye don't, mind the sparks." },
@@ -59,6 +80,8 @@ P:NPC {
           text = "Ye'll be wantin' a blade that's balanced for the throw an' quiet in the sheath, I expect. I've made a few o' those for folk who never gave their names." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage near my forge! Mind the robes, for they go up quicker than ye'd think, an' I've no' got the patience for a fire I didnae light." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let's have a look at that breastplate, then, for I can tell from here it's been dented an' hammered back by someone who's never held a hammer." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a smithy! Ye'll be wantin' a hatchet or a skinnin' knife, I'd guess, for there's no bow in this forge." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -71,6 +94,8 @@ P:NPC {
         { text = "Shall I bless your forge, master smith?", next = "priest", when = { class = "PRIEST" } },
         { text = "Do you ever ask what your blades are used for?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage's fire help a forge, Therum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does a warrior's armour need most, Therum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do dwarven hunters prefer rifles or bows, Therum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll mind the sparks.", next = "END" },
       },
     },
@@ -156,6 +181,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A coarse stone for the nicks an' a fine one for the edge, an' ye'll want both in yer pack, not one. The heavy stone from Ironforge's quarries is the best there is, an' wi' the tram I can sell it ye cheaper than the humans." } },
+      choices = {
+        { text = "I'll tend my blade every night. It keeps me alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "When it's dull I'll just buy a new one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Gunpowder, when I can get it down the tram from Ironforge, an' arrowhead blanks for the ones who'd rather fletch their own. Most humans here buy their arrows ready-made, but a dwarf likes tae know what's in her quiver." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a braw beast, that {pet}. Keep it away from the powder kegs, mind, for I've no wish tae see either o' us blown tae Loch Modan." },
+      },
+      choices = {
+        { text = "I make my own arrows. You learn more that way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ready-made is faster. I've better things to do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kaita Deepforge, blacksmithin' supplies. Don't let the humans in the Bazaar fool ye, {g:lad|lass}; wi' that tram the gnomes built, it's easier than ye'd think tae bring goods down from Ironforge, an' I pass the savin' on." },
@@ -167,6 +213,8 @@ P:NPC {
           text = "Ye can look at my coin box all ye like, {g:lad|lass}, but I sleep on top o' it, an' I'm a light sleeper." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Ye smell o' the Lamb's cellar, {g:lad|lass}. I'll sell tae ye same as anyone, but I'd rather ye didnae call anythin' up in my shop." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' wi' the look o' someone who breaks blades faster than they can buy 'em. Ye'll want whetstones, {g:lad|lass}, an' plenty." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, {g:lad|lass}! Ye'll not need much from a smith's supply stall, but I've a fine bit o' flux for mendin' a rifle barrel, if ye carry one." },
       },
       again = {
         { id = "h_again", text = "What else, {g:lad|lass}?" },
@@ -176,6 +224,8 @@ P:NPC {
         { text = "What's wrong with the Bazaar?", next = "bazaar" },
         { text = "Tell me about the tram.", next = "tram" },
         { text = "Do thieves trouble the Dwarven District much?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Which whetstone should a warrior carry, Kaita?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you sell anything for hunters, Kaita?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Lamb's warlocks buy from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
@@ -259,6 +309,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Absolutely, and in at least six ways, four of which are legal in Stormwind! A good target dummy draws fire, a net-o-matic holds an enemy still, and a well-placed explosive solves almost any argument." } },
+      choices = {
+        { text = "I'd use a gadget if it kept my friends alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll trust my sword over gnomish gadgets, thank you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I could, I have, and I've built three, and only one of them caught fire. A properly ground lens on a properly mounted rail makes a hunter accurate at twice the range, which my calculations say is very nearly perfect." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like loud noises? Some beasts don't, and engineering tends to involve them, so I'd keep it well back from the bench." },
+      },
+      choices = {
+        { text = "Precision is the heart of a good hunt. I'll try your scope.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather trust my eyes than a gnomish lens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lilliam Sparkspindle, engineering trainer, and nearly finished with a very interesting calculation about gear ratios. Do you build things, or are you only here to watch things explode?" },
@@ -270,6 +341,8 @@ P:NPC {
           text = "A rogue! You'll want to know about locks, then, and I'll tell you that most locks in this city were made by gnomes, so most of them have a cheerful little flaw." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Do you calculate your spells, or do you just feel your way? I've always suspected it's mostly mathematics wearing a robe." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Do you know what a warrior is, from an engineer's point of view? A lever with opinions, and a very effective one." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, the dwarves will tell you that the rifle is the finest invention ever made, and the dwarves are mostly right, though their scopes are a little crude." },
       },
       again = {
         { id = "h_again", text = "Yes? I've got a remainder to carry, but go on." },
@@ -281,6 +354,8 @@ P:NPC {
         { text = "Did you get out of Gnomeregan with any notes?", next = "gnome", when = { race = "Gnome" } },
         { text = "What sort of flaw do gnomish locks have?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is magic just mathematics in a robe, Lilliam?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could engineering help a warrior in battle, Lilliam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could you build a better scope, Lilliam?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -377,6 +452,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than ye'd think, for both are about knowin' where tae strike an' how hard. A good miner reads the seam like a good warrior reads a foe, an' both learn the hard way what happens when ye swing wild." } },
+      choices = {
+        { text = "Patience and a well-placed blow. That's the secret of both.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Swinging hard solves most problems, stone or foe.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Kobolds, mostly, which are near enough tae beasts, an' the odd bear that's found a warm tunnel for the winter. In Elwynn's mines, the kobolds are so thick ye'd think they grew out o' the rock." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} has a good nose for a cave, I'd wager. Keep it close in the dark, for it'll smell the kobolds long before ye see the candle." },
+      },
+      choices = {
+        { text = "I'll clear the kobolds out, so the miners can work safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Kobolds were there first. Let them keep their tunnels.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gelman Stonehand. I came from Ironforge tae help with the rebuildin' here, an' if I can teach enough o' ye my skills, maybe I can leave it tae ye an' take myself back home." },
@@ -388,6 +484,8 @@ P:NPC {
           text = "Ye've soft boots an' softer hands, an' ye're lookin' at my ore bags like ye're weighin' them, so dinnae." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Ye've a look about ye like the dwarves who go down tae the Lamb an' come back strange, an' I knew a miner who went that way." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, aye, an' wi' arms that'd swing a pick as well as a sword. Ye'd make a fine miner, if ye ever tire o' fightin'." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, an' a long way from the high passes, by the look o' ye. The tunnels under Stormwind are no place for a beast, I'll tell ye that much." },
       },
       again = {
         { id = "h_again", text = "Aye? Make it quick." },
@@ -397,6 +495,8 @@ P:NPC {
         { text = "Why do you want to go home?", next = "home" },
         { text = "What's the trick to mining?", next = "trick" },
         { text = "Does anyone ever steal ore from you, Gelman?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is mining much like fighting, Gelman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do beasts ever trouble the mines, Gelman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What happened to the miner you knew?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Sorry to interrupt.", next = "END" },
       },

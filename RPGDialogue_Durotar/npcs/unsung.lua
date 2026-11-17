@@ -29,6 +29,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "No, Thotar does that down in Razor Hill, but I've knocked a few hunters into the dirt for their own good. The boars of the valley don't care what you call yourself, so learn to keep your feet when they charge, and you'll thank me for the bruises." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a better charge than half my recruits. Don't tell them I said so, because they're sulky enough already." },
+      },
+      choices = {
+        { text = "I'll learn to take a hit. Pride can wait.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My beast takes the hits so I don't have to.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -68,6 +80,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my Den! Good, because when my recruits fall down you can tell the earth to hold them up, and save me some shouting." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. I teach shoulder to shoulder and never turning your back, so you'll find little here for you except a sore lesson." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I've seen the scars the Blade's demons leave on recruits, and I've buried two of them this season." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in my training ground. Your beast can sit by the wall, and you can stand with my recruits, because it won't hurt you to learn to take a hit." },
       },
       choices = {
         { text = "Do warriors and shamans fight well together, Frang?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -76,6 +89,7 @@ P:NPC {
         { text = "Who else trains in the Den?", next = "den" },
         { text = "Where did you learn to fight?", next = "past" },
         { text = "Does the Horde need rogues as much as warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do you train hunters too, Frang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you blame all warlocks for the Burning Blade?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll leave you to your recruits.", next = "END" },
       },
@@ -141,6 +155,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Busy like the tide, mon, always comin' in. They come back from the boars and the scorpids with holes in them, and I close the holes, and Frang send them out to get new ones, so I tell every warrior the same thing: a shield cost less than my time." } },
+      choices = {
+        { text = "I'm grateful for every wound you close, Ken'jai.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Wounds are what priests are for. Keep them coming.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Light don't care if a wound be on a troll or a boar, mon, so yes, if the beast hold still. Most of them don't, and I got a scorpid scar on my wrist to prove it, so you learn to mend your own beast and we both be happier." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours be lookin' at my bandages like they be dinner. Keep it close while I work, mon." },
+      },
+      choices = {
+        { text = "I'll learn to mend my own beast, Ken'jai.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Mending is your work, priest, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -179,6 +214,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The spirits and the Loa be cousins, mon, so you and Ken'jai already be family of a sort." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! You can make the fire, and I can mend the burns, so between us the young ones will learn quick." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, you come to a priest's hut. Either you be very brave or you be very hurt, and I hope it be the second." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Frang send you over to get patched up again, or did you come on your own feet this time?" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast get hurt out there too, I bet, and nobody in the valley know how to fix it but you." },
       },
       choices = {
         { text = "Do your Loa and my elements ever disagree, Ken'jai?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -187,6 +224,8 @@ P:NPC {
         { text = "What's a troll doing in an orc valley?", next = "troll" },
         { text = "Do you mend many recruits?", next = "mend" },
         { text = "Do Darkspear priests and mages often work together?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do Frang's recruits keep you busy, Ken'jai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can a priest heal a hunter's beast, Ken'jai?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will you heal a warlock, Ken'jai?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
@@ -249,6 +288,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Water, bandages and a spare shirt, in that order, because the axe only matters if you live long enough to swing it. Durotar's sun kills more careless recruits than the quilboar ever do, so fill your waterskin here before you go stomping off toward Razor Hill." } },
+      choices = {
+        { text = "I'll go prepared. Only fools march dry.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A real warrior doesn't need coddling, Duokna.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Meat for the cats and wolves, and almost anything for the boars, which is why boars are cheap to keep and cats are not. I keep tough jerky for the hunters heading out to Razor Hill, and I've never seen a beast turn it down, though I've seen a few recruits try." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks hungry, but they always do. Feed it before you feed yourself, and it'll remember." },
+      },
+      choices = {
+        { text = "My beast eats first. That's only fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It can hunt its own food. That's what beasts do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -286,6 +346,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are heavy, so I'll ask you what I ask everyone, which is whether you remembered to carry water as well." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my shop. Count your goods, Duokna, I always say to myself, and I'm saying it now." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage? You can conjure water, so you're the one recruit who won't need my waterskins. Shame, they're good waterskins." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Let me guess: you've got an axe and nothing else, and you want to know why you're always thirsty." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want food for your beast as well as yourself, and you'd be surprised how many hunters forget the second part." },
       },
       choices = {
         { text = "What do shamans usually forget to carry?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -294,6 +356,8 @@ P:NPC {
         { text = "Where do your goods come from?", next = "supply" },
         { text = "Do young rogues ever steal from the Den?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is there anything you sell that a mage needs?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What do new warriors forget to buy, Duokna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do the beasts of Durotar eat, Duokna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'm fine for now.", next = "END" },
       },
       again = {
@@ -349,6 +413,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Something heavy enough to crack a scorpid shell and short enough to swing in a quilboar warren, which means an axe or a mace and never a fancy sword. The Kul Tirans carry long blades, and I've bought plenty of them cheap from grunts who found out how badly they work in the scrub." } },
+      choices = {
+        { text = "A good weapon earns its price. I'll pay it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather loot a Kul Tiran blade than pay for one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because scorpids get close and quilboar get closer, and a bow does nothing when a boar's tusk is in your knee. A light axe will save you more often than you'd think, and I'll sell you one that won't pull your shoulder out of joint." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is a weapon too, I suppose, though there's nothing I can sell you for it. Believe me, I've tried to think of something." },
+      },
+      choices = {
+        { text = "I'll carry a blade, and fight close if I must.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it gets close, my beast deals with it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -386,6 +471,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so you'll want a mace or an axe and not some little dagger. The spirits respect a weapon with weight behind it, or so the old shamans told me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in a weapon shop. You'll be after a staff, then, and I'll find you one that won't snap on a quilboar's head." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I'll sell you a dagger, but I'll not put a curse on it, and I'll not buy back anything that whispers." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Put that training axe down before you embarrass us both, and let me show you something with an edge." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want a gun or a bow from somebody else, but you'll want something for close work from me." },
       },
       choices = {
         { text = "What weapon suits a shaman, Uhgar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -394,6 +481,8 @@ P:NPC {
         { text = "Who are Razor Hill's enemies?", next = "enemies" },
         { text = "I fight with spells, not steel.", next = "caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "Do mages here really need a good staff?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What weapon suits a warrior in Durotar, Uhgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why would a hunter need your blades, Uhgar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Have warlocks sold you cursed weapons before?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -451,6 +540,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Where your enemy has been and where he's going next, which every scout and every tracker knows. The quilboar of Razormane Grounds leave tracks like a stampede, and if you follow them back you'll find their camps before they find you." } },
+      choices = {
+        { text = "Knowing the land wins fights before they start.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I find the enemy by charging. It always works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -498,6 +596,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, I think. You and I listen to the same land, though you hear the spirits in it and I hear the beasts, so tell me what Durotar says to you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk like a cat on rock, rogue, and the scorpids don't even notice you. That's a skill worth having in Durotar." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your beast doesn't belong in this land, warlock, and every beast that does can tell. My wolf has been growling since you came up the hill." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior at the hunters' corner. Stay and listen, because a warrior who reads the land charges at the right enemy." },
       },
       choices = {
         { text = "Do your beasts sense the spirits, Thotar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -506,6 +605,7 @@ P:NPC {
         { text = "What beasts are worth taming here?", next = "beasts" },
         { text = "How do you choose a companion?", next = "choose" },
         { text = "What could a hunter teach a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What should a warrior learn from the land, Thotar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is a demon really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Thotar.", next = "END" },
       },
@@ -556,6 +656,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "We do, and the good ones don't admit it, because it spoils the image. The warrior stands out front where the Kul Tirans can see him, and while they shoot at him my students walk around the back and finish it, so if you hear a scream behind the enemy line, that's teamwork." } },
+      choices = {
+        { text = "I'll stand out front. Someone has to.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the rogues take the front for once.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some of it, though you'll never be as quiet with a boar breathing at your heels. Tracking and stalking aren't so different, because both are about knowing where your prey will look and being somewhere else, and the best hunters in Durotar learned that the hard way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a terrible thief, by the way, because it can't keep still when it's pleased with itself." },
+      },
+      choices = {
+        { text = "I hunt in the open. Stalking is not stealing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stalking, stealing, it's all the same craft.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -593,6 +714,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, down in my burrow. Keep your thunder to yourself, friend, because the grunts upstairs don't need to know what goes on down here." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, down in my burrow? You're the last person I expected, because your kind glow too much to hide." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, down in the burrow. Your imp's light is giving away my hiding place, so put it out or take it outside." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, all noise and steel. The grunts upstairs could use you more than I can, though I'll admit you'd make a fine distraction." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You move almost quietly enough to be one of mine, though your beast gives you away." },
       },
       choices = {
         { text = "Do shamans have any use for the quiet arts?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -600,6 +723,8 @@ P:NPC {
         { text = "Why train down in a burrow?", next = "burrow" },
         { text = "What work happens in the dark?", next = "work" },
         { text = "Could a mage ever learn to move unseen?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do rogues work with warriors, Kaplak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can a hunter learn to move like a rogue, Kaplak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do rogues and warlocks ever work together?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -648,6 +773,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every day, mon, from the quilboar and the Kul Tirans both, and they act like a cut be an insult instead of a wound. I tell them a warrior who hide his hurt be a warrior who fall over in the next fight, but they be orcs, and orcs don't listen." } },
+      choices = {
+        { text = "There's no shame in being healed. I'll come to you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A warrior hides his wounds. That's how it's done.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Fast as milk in the sun, mon, because the scorpids and the raptors carry filth in their claws. Wash every scratch with clean water before you do anything else and come to me if it start to burn, because I seen hunters lose an arm for bein' too proud to ask." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} got scratches too, I see. Bring it here and I clean them, because the Light don't mind fur." },
+      },
+      choices = {
+        { text = "I'll tend my wounds and my beast's with care.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A few scratches never hurt anyone, priest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -685,6 +831,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you be welcome here, mon. Back home in Sen'jin the shamans and the witch doctors argue all night, but they always share the fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You be the quiet one, mon, and I see the cut on your arm you trying to hide. Come here and let me look at it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Un'Thuwa's student, are you? He sends me the ones who burn their own fingers, so I hope you be more careful." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Hold still while I look at you, because the grunts here never tell me when they be bleedin'." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you got scratches from somethin' with claws. Let me see them, mon, before they go bad in this heat." },
       },
       choices = {
         { text = "How do Darkspear shamans differ from the orcs'?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -694,6 +842,8 @@ P:NPC {
         { text = "I'm an undead priest. Do you trust me?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do rogues come to you often, Tai'jin?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the Darkspear trust mages more than orcs do?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Are the grunts of Razor Hill hurt often, Tai'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do wounds from beasts go bad quickly here, Tai'jin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Tai'jin.", next = "END" },
       },
       again = {
@@ -751,6 +901,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every Darkspear warrior be glad of a mage when the Kul Tirans line up their muskets, because a wall of frost stop a volley better than any shield. Learn to stand where my fire won't hit you, mon, and you and me get along fine." } },
+      choices = {
+        { text = "Magic has its place. I'll gladly fight beside it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Steel is honest. I don't trust your tricks, troll.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They do, mon, but Zalazane's magic touch the isles now, and some of the beasts out there act strange. I don't like it, because a beast be honest and a hex make it a liar, so if you hunt there, put down the ones that froth and spare the rest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} not be hexed, I can see that much. Good, mon; keep it far away from Zalazane." },
+      },
+      choices = {
+        { text = "I'll spare the beasts that aren't hexed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A strange beast is a dangerous one. I'll kill them all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -788,6 +959,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, come to see a troll do magic the hard way. You ask the elements for help and I make them listen, so let's not argue about which be better." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my hut! You can't learn from me, mon, but you be welcome to admire the books, as long as you don't pocket any." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I teach the arcane, warlock, and I don't touch what you touch. Keep that imp out of my hut, please, because it be eyeing my scrolls." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, in the mage's hut. You lost, or you come to see what real power look like?" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon, and a beast with you. The beasts don't like the smell of my spells, but they get used to it." },
       },
       choices = {
         { text = "Is the arcane any safer than what the spirits give?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -796,6 +969,8 @@ P:NPC {
         { text = "What does the village think of mages?", next = "village" },
         { text = "Can magic help against Zalazane?", next = "zalazane" },
         { text = "Would you really suspect me of stealing books?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can magic help a warrior, Un'Thuwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do beasts still roam the Echo Isles, Un'Thuwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is the arcane really so different from the fel?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },

@@ -29,6 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Webbed ones, broad as a shovel, and they go down to the water and don't come back out. Rolf and Malakai went that way, and I'd give a great deal to know what they followed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has a nose for water, I'd guess. If it shies at the shore, believe it, and pull back." },
+      },
+      choices = {
+        { text = "I'll follow the tracks and find your men.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll follow them, but I'll not risk my beast.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Murlocs by the lake, bandits in the hills and wolves everywhere else, and I've lost two good men to it already. If you've a quiet step, use it to look for Rolf, because he's still out there somewhere." } },
@@ -75,6 +87,7 @@ P:NPC {
           text = "A rogue at my bridge. If you're heading east, you'll find plenty of trouble without making any." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Stand behind me on the bridge if there's trouble, because I'd rather you burned the wolves than me." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you can read tracks, I've some by the lake I'd like explained, and none of them are friendly." },
       },
       again = {
         { id = "h_again", text = "Anything further, citizen?" },
@@ -89,6 +102,7 @@ P:NPC {
         { text = "I'll hold this bridge with you, Guard.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "What sort of trouble is there east of the bridge?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever fought beside a mage, guard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What tracks did you find near the lake, Guard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },

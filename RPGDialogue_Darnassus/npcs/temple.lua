@@ -38,6 +38,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every night, and most of all for those who stand on the line in Ashenvale. We cannot hold a shield for you, but we send healers with the Sentinels, and many a warrior has come home because a priestess stood behind them." } },
+      choices = {
+        { text = "Then I'll guard your healers with my life.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd rather trust my shield than a prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "She lights the night so that hunter and hunted can both see, and I think that is her answer. Take what you need with a clean shot and a grateful heart, and the goddess will not mind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome under the Temple's roof, so long as it keeps its paws out of the fountain. Elune loves her creatures, though the Sisters love their floors." },
+      },
+      choices = {
+        { text = "A clean shot, and thanks after. Always.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt to eat, not to pray.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -112,6 +133,8 @@ P:NPC {
         { id = "h_human_priest", when = { class = "PRIEST", race = "Human" },
           text = "Laurena's students all pray with their eyes shut, I've noticed, and I expect you do too. We pray with ours open, toward the moon, and neither of us has been struck down for it yet." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Elune shines on the shadows as well as the open ground, rogue, so you needn't stand at the edge of the room like that." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you bear yourself well. Elune keep you, for you will meet the blows the rest of us only hear about." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of the woods, walking under Elune's own light. Praise be to her, {class}, and to every beast you spare." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? I have time; the moon is patient, and so am I." },
@@ -129,6 +152,8 @@ P:NPC {
         { text = "You've noticed what I carry. Say it.", next = "warlock_a", when = { class = "WARLOCK" } },
         { text = "The Light makes a soldier of me, Priestess.", next = "paladin_a", when = { class = "PALADIN" } },
         { text = "Does Elune truly look kindly on the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the priestesses pray for warriors, Alathea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does Elune smile on the hunt, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Elune be with you, Priestess.", next = "END" },
       },
     },
@@ -319,6 +344,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, though they always start by saying they're only passing. Holding the line means seeing what breaks it, and Elune can hear about that as well as anything else, so if you ever want to tell me, I'll listen." } },
+      choices = {
+        { text = "Maybe someday. It helps to say it aloud.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What happens on the field stays there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Sometimes, usually about a beast they couldn't save or one they had to put down. That kind of grief is real, and Elune doesn't weigh it any less because it was for an animal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a companion that's been through a few things with you. Be kind to each other; that's all I'd ask of either of you." },
+      },
+      choices = {
+        { text = "I grieve every companion I've lost.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Beasts die. I don't dwell on it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -363,6 +409,8 @@ P:NPC {
           text = "Most of the city is asleep, and the Temple is at its busiest. The ones who can't sleep come here, and I'm one of them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You can sit down, rogue. I listen better than I lecture, and you look like someone who has things they don't say." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, and you look tired in a way spells don't fix. Sit for a while, if you like; the Temple is quiet." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You look like someone who's carried a few things home from the field that weren't wounds." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a quiet one. I like hunters, because they listen nearly as well as I do." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry tonight." },
@@ -376,6 +424,8 @@ P:NPC {
         { text = "Could Elune hear a warlock, Priestess?", next = "warlock_s", when = { class = "WARLOCK" } },
         { text = "Do priestesses hear confessions from rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do priestesses distrust the arcane so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors come to you to talk, Astarii?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters bring their troubles to you as well?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good night, Priestess.", next = "END" },
       },
     },
@@ -467,6 +517,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Stay where they can see you, and don't charge three trees ahead and then wonder why the healing never reached you. The Sentinels learned that lesson in Ashenvale, and I'd rather you learned it here." } },
+      choices = {
+        { text = "I'll stay in sight and hold my ground.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I wait for the healer, the fight's already lost.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They will, though most forget to try until the hunter shouts. I tell my students to watch your beast as closely as they watch you, because a hunter whose companion falls usually follows it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fighter, I can see that much. Keep it where the healer can see it and tell them its name, because people heal what they've been introduced to." },
+      },
+      choices = {
+        { text = "I'll watch my companion's back as it watches mine.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My companion can take care of itself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -495,6 +566,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mana's a practical matter, mage, and you burn through it faster than any priest I train. Want some advice for the long fights?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Temple. I teach healing, not banishing, but I've read enough to know what that is at your heel." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, you're the one who'll be bleeding while my students learn to work quickly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, so you'll be the one at the back, which suits me, because my students can reach you easily." },
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
@@ -502,6 +575,8 @@ P:NPC {
         { text = "What's the hardest thing to teach?", next = "hard" },
         { text = "Who do you heal most often?", next = "wounded" },
         { text = "What advice would a priestess give a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What should a warrior know about fighting beside a healer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Will your priestesses heal a hunter's companion too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think I'm beyond healing, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
@@ -570,6 +645,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It tells me when the clouds come in from Darkshore and when the Sentinels ride out, which is more than most people notice. Whether it tells me about a fight I'll leave you to decide, warrior, because you'd only laugh if I said yes." } },
+      choices = {
+        { text = "I'll trust your pool. Signs are worth heeding.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I trust what I can see with my own eyes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The owls, mostly, because they hunt by the same light I study and they never miss a change in it. When the owls go quiet over the Temple, something is moving in the dark, and I'd rather a hunter than a priestess went to see what." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watched the pool with me just now, did you notice? I think it saw something I missed." },
+      },
+      choices = {
+        { text = "I'll listen when the owls go quiet.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Owls are owls. I don't read omens in them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -597,6 +693,8 @@ P:NPC {
         { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You chose the darkest corner by the pool, rogue, which is where I'd sit too. The moonlight shows more from there." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "The moonlight bends a little around you, mage, and I'm not sure you even know it does. It's very pretty, and slightly unsettling." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The moonlight on the pool tonight says a fight is coming, though I'll admit it says that most nights." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You watch the way I do, I think, long enough to see what everyone else walks past." },
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
@@ -605,6 +703,8 @@ P:NPC {
         { text = "Do the Temple's priests ever leave Darnassus?", next = "leave" },
         { text = "What does the moonlight show you, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the arcane change the moonlight somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can the pool truly tell you anything about a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you watch the beasts as closely as the moonlight?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Lariia.", next = "END" },
       },
     },
@@ -669,6 +769,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only if you came by your bruises honestly, because the priestesses can always tell. I'll be sent to the Sentinels in Ashenvale one day, and I'd like to have patched up a real warrior before then, so perhaps come back after you've met the Gnarlpine." } },
+      choices = {
+        { text = "I'll come back bruised, and you'll be ready in time.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll trust a seasoned priestess, not a student.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The squirrels do, and a white owl who sits on the moonwell some evenings as though he were a priestess himself. I'm not allowed to feed them, but I may have dropped a few seeds by accident once or twice." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is lovely, and it's looking at me as if it knows I'm a soft touch. I won't feed it, I promise, though I'd like to." },
+      },
+      choices = {
+        { text = "Rules are rules. Wild things should find their own food.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Drop all the seeds you like. It hurts nobody.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -720,6 +841,8 @@ P:NPC {
           text = "You're going after Lady Sathrah, aren't you? Be gentle with her, if you can, because she was beautiful once." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Oh, a mage! I've never spoken to one properly, because the priestesses don't really approve. Is it true you can make flowers bloom out of season?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Elune protect me, that's a demon, isn't it? I'm sorry, I didn't mean to stare, only I've never seen one up close." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Oh, a warrior! The priestesses say I should practice my healing on someone who actually gets hurt, but please don't take that as an invitation." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The priestesses say I'm too familiar with animals, but I can't help being glad to see one." },
       },
       again = {
         { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
@@ -732,6 +855,8 @@ P:NPC {
         { text = "We study the Light much the same way.", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "My people lived on islands in the sky.", next = "sky_a", when = { race = "Skyborne" } },
         { text = "Why do the priestesses disapprove of mages, Aquinne?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you like a warrior to practice your healing on?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the animals in the gardens keep you company out here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Are you frightened of me, Aquinne?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
@@ -834,6 +959,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than anyone, and most leave a note with it, saying who should have the box if they don't come home from Ashenvale. I keep every one of those notes sealed, and I'm always glad to hand the box back to its owner instead." } },
+      choices = {
+        { text = "I'll leave a note. A warrior plans for the worst.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No note. I'm coming back for it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Trophies, mostly, claws and teeth and once a whole stuffed owl, which I recorded as one stuffed owl, wings slightly damaged. I don't ask why anyone wants such things kept safe, only that they're listed properly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} may not come behind the counter, however politely it asks. The ledgers are very old and very chewable." },
+      },
+      choices = {
+        { text = "I keep only what I need from a hunt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good trophy is worth keeping forever.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -863,6 +1009,8 @@ P:NPC {
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Everything here is guarded and recorded, rogue, so you'll forgive me if I watch your hands while we talk." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll keep your deposits, warlock, as I keep anyone's, though I'll ask you not to store anything that whispers." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please sheathe that before you lean on the counter, because the last warrior who didn't scratched it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're depositing hides, I'm afraid they go to the auction house and not to me, whatever you've heard." },
       },
       again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
@@ -870,6 +1018,8 @@ P:NPC {
         { text = "Who keeps accounts here?", next = "accounts" },
         { text = "Is anything here ever stolen?", next = "stolen" },
         { text = "Do rogues really trouble the bank so often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors leave much with you before they go to war?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters keep anything unusual in your vault?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you do if a box started whispering?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },

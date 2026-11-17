@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Gently, if you can, and that be the hard part for a warrior. Zalazane's voodoo turn our own people against us, and when the hex break they wake up confused and ashamed, so knock them down if you must, but don't kill a troll who can still come home." } },
+      choices = {
+        { text = "I'll spare the hexed ones, Master Gadrin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A spear in my face is a spear. I'll do what I must.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -57,6 +66,7 @@ P:NPC {
           text = "Orgnil in Razor Hill need strong arms against the Burning Blade. Go to him, and tell him Gadrin say you be useful." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid come to Sen'jin! The loa of the islands and your Earth Mother be old friends, I think, but Zalazane be twisting the spirits on the Echo Isles so bad that they barely know each other now." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You move quiet as a raptor in the grass, mon. Zalazane's hexed ones never hear you coming, I bet." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the hexed Darkspear on the Echo Isles still swing their spears, even when Zalazane be the one pullin' the strings." },
       },
       choices = {
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
@@ -67,6 +77,7 @@ P:NPC {
         { text = "I studied the arcane, Master. Is that so strange?", next = "mage", when = { race = "Troll", class = "MAGE" } },
         { text = "I hunt heads for the tribe, the old way.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
         { text = "Could a rogue help you against Zalazane?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "How do I fight the hexed Darkspear, Master Gadrin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Thank you, Master.", next = "END" },
       },
       again = {

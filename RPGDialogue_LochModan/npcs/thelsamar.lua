@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "East toward the Valley o' Kings, where the troggs come up out o' the earth in the night, an' south by the Silver Stream where the kobolds dig. The bounty board's got a job for every one o' them, so ye'll never stand idle." } },
+      choices = {
+        { text = "I'll work through the bounty board, one job at a time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go where the fighting's thickest and forget the board.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Ha! Aye, I suppose it does. He's a Dark Iron who keeps to the shadows round the dam an' the dig, so if ye know where a body hides in a town this size, ye'll find him faster than my lads in their clankin' mail." },
@@ -76,6 +85,7 @@ P:NPC {
           text = "Aye, I see ye. I'll be civil, because it's my post, but don't be expectin' the warm welcome." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid on my road! Good. The bears in these hills have been in a foul temper all season, an' I'd wager ye could tell me why." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road! Grand, for the troggs are bold this season, an' I like a shield beside mine when they come." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The road's quiet, for now." },
@@ -92,6 +102,7 @@ P:NPC {
         { text = "Your loch is lovely, but where are the trees?", next = "k_elf", when = { race = "NightElf" } },
         { text = "A spy, Mountaineer? Takes one to catch one.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has Thelsamar much need of a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Where's the fighting worst along the road, Mountaineer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -210,6 +221,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They come up wherever we dig, as if the earth sends them tae spite us, an' my diggers are scholars, no' soldiers. A warrior standin' at the cut wi' a good shield would let us work a full day for once." } },
+      choices = {
+        { text = "I'll stand guard so the work can go on.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pay me in what you dig up, and I'll guard it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye, for the troggs leave tracks in the spoil heaps, an' if I knew which tunnels they used I'd stop diggin' intae them by accident. The bears in the hills have sense enough tae stay away, which is more than I can say for the troggs." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep yer {pet} away from the trenches, mind, for the last beast that came through dug faster than my whole crew an' twice as careless." },
+      },
+      choices = {
+        { text = "I'll mark their tunnels and leave the fighting to others.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather hunt them in their tunnels than mark them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Can ye now? Then ye're ahead o' me, for I've been diggin' a month an' all I feel is my back. The League in Ironforge thinks there's old work buried under these hills, an' if ye can feel it, I'll want it written down for them." },
@@ -255,6 +287,8 @@ P:NPC {
           text = "Agmond's urns sit wi' my idols now. If there's a link between these carvin's an' the troggs, I'll find it, for his sake." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, eh? I suppose ye'll be wantin' tae lecture me about my diggin' like the last one did. Well, go on, I've heard worse." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? The troggs keep diggin' up through my dig, an' I've more trowels than swords about the place." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll have a good eye, then, an' a good eye's worth more on a dig than ye'd think." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the ropes while ye ask." },
@@ -270,6 +304,8 @@ P:NPC {
         { text = "Your dig could use a gnome's touch.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "Those idols carry an enchantment. I can feel it from here.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your camp's easy to walk into, Prospector. I walked in.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the troggs trouble the dig much, Prospector?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a hunter's eye be useful on a dig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck with the dig.", next = "END" },
       },
     },
@@ -395,6 +431,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Mountaineers off the trogg line, mostly, an' they drink like they fight, all at once an' wi' a lot o' noise. I don't mind, for they pay, an' the ones who come back from the Valley o' Kings have earned every drop." } },
+      choices = {
+        { text = "One ale, then back to the line.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll drink the cellar dry, then go find a trogg.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Vidra does, an' she's particular about it, for she'll take fresh boar from the hills an' turn her nose up at anythin' that's been dead too long. Bring her good meat an' she'll speak kindly o' ye, which is rarer than ye'd think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep yer {pet} out o' the kitchen, friend, for Vidra's chased off bigger beasts wi' a ladle." },
+      },
+      choices = {
+        { text = "I'll bring her the freshest boar in the hills.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring what's easiest and let her sort it out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Chill my ale? Ye'll do no such thing! Dwarven ale's drunk cellar-cool an' no colder, an' any mage who freezes a cask o' Thelsamar's best will be payin' for the barrel." },
@@ -431,6 +488,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, an' the miners are singin' about the dam again. Every verse is the same verse, only louder." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at my inn! Loch Modan's a fair green place for dwarven country, an' I'd hope ye find a corner o' it that pleases ye." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want a strong ale an' a stronger stool, for the last warrior I served broke one o' each." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Vidra'll want a word wi' ye, for she's always short o' boar for her sausages." },
       },
       again = {
         { id = "h_again", text = "Another? Sit, sit, there's room." },
@@ -444,6 +503,8 @@ P:NPC {
         { text = "I used to run casks across the loch, quiet-like.", next = "k_smuggle", when = { class = "ROGUE" } },
         { text = "I could chill your ale for you, if you like.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll need a quiet room. Some of my work is private.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do many warriors drink at the Stoutlager, Hearthstove?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does your kitchen buy what hunters bring in?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just a pint.", next = "END" },
       },
     },
@@ -514,6 +575,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More, an' faster, an' they never say thank ye till the plate's clean. Still, a warrior who's been fightin' troggs all day deserves a proper meal, so sit down an' I'll see what's left in the pot." } },
+      choices = {
+        { text = "I'll say my thanks first and eat second.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll eat first. Thanks can wait for an empty plate.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Lift? It's no' stealin' if it's off a beast, love, it's huntin'. Bring me what I'm after from the hills, an' I'll no' ask where ye were standin' when ye got it." },
@@ -540,6 +610,7 @@ P:NPC {
         { id = "h_sausages", tags = { "news" }, when = { questActive = TODO_QUEST("Thelsamar Blood Sausages") },
           text = "Bring me what I asked for an' ye'll have the best sausages ye've ever eaten. Don't ask what's in 'em, for it's in the name." },
         { id = "h_secret", when = { metBefore = true }, text = "Folk keep askin' what's in the blood sausage, an' I tell them: blood, an' sausage, an' a secret. The secret's mostly more sausage." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be hungry, then, for I've never met one who wasnae." },
       },
       again = {
         { id = "h_again", text = "What is it now? I have a pot on the fire, so be quick." },
@@ -553,6 +624,7 @@ P:NPC {
         { text = "I could hunt the boar for your sausages.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I could lift a few ingredients from the hills for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could I warm the sausages for you? It'd save the coal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors really eat as much as they say, Vidra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll pass on the details.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -643,6 +715,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "With a shield wall at the cave mouths and a great deal of stubbornness, for the troggs have no discipline but there's no end to them. Hold a line for me and you'll learn more about war here than in any yard in Ironforge." } },
+      choices = {
+        { text = "I'll take my place in the shield wall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go into the caves and end them at the source.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Do that and I'll owe you a debt, for every new tunnel we find is one less surprise in the night. Watch the bears on the high ground as you go, mind, for they're hungrier than the troggs and twice as quick." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will smell them before you see them, which is more than my sentries manage." },
+      },
+      choices = {
+        { text = "I'll scout and report back before I strike.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I find their hole, I'll clear it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Behind them? There's no behind, for they come up out o' the ground wherever they please. But if ye can find the holes they're usin' near the statues an' stay alive doin' it, I'll take the report gladly." },
@@ -685,6 +778,8 @@ P:NPC {
           text = "Ah, good, it's you. The regiment's glad of you on these hills, and the captain is too, though he'll only say so the once." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, is it? I've a district full o' bears, boars an' angry wolves, an' I'll take any help that can speak tae them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I've been holding this valley with tired soldiers, and a fresh arm is the best news I've had all week." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I could use one; the troggs come out of holes I didn't know were there, and somebody has to find them first." },
       },
       again = {
         { id = "h_again", text = "Is there anything further?" },
@@ -697,6 +792,8 @@ P:NPC {
         { text = "Tell me about the statues.", next = "statues" },
         { text = "Why trogg teeth?", next = "teeth" },
         { text = "I stood the high passes too, Captain.", next = "mountaineer", when = { origin = "dwarf_mountaineer" } },
+        { text = "How do you hold the Valley against so many troggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Shall I track the troggs back to their holes, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help defend them.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Put me on your line, Captain.", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I can get behind the trogg lines for you, Captain.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -840,6 +937,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I fear it every morning and most nights, for they've been seen in the hills, and one keg of their powder in the wrong place would empty the loch into the Wetlands. My forebears built it to stand for ever, and I'd rather not test that with a battle on top of it." } },
+      choices = {
+        { text = "I'll stand watch at the gates and stay there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better to hunt them in the hills than wait for them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Dark Irons, mostly, creeping about with their powder kegs, though the mountain bears give my guards a fright now and then. If you see a track that isn't a bear's or a dwarf's, please, please tell someone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} would hear a fuse hiss long before any of us would, I'm sure of it, so do keep it near the walkways." },
+      },
+      choices = {
+        { text = "I'll report every track I find, Engineer.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I find Dark Irons, I'll deal with them myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "That is precisely what keeps me awake at night, and I thank you for saying it aloud! If you can slip past my guards, so can a Dark Iron with a keg of blasting powder, so tell me where you'd go in and I'll put a dwarf there." },
@@ -879,6 +997,8 @@ P:NPC {
           text = "You saved her, the dam, my dam! She's safe, for the time being, though I've started checking at noon as well." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at the dam! I'll have ye know the Stonewrought Dam is the finest piece o' engineering in Khaz Modan, an' the fish don't seem tae mind it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank goodness, for if the Dark Irons come for the dam, I'd much prefer you between them and the sluice gates." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? You'll have keen eyes, then, and I'd be ever so grateful if you'd turn them on the hills above the dam." },
       },
       again = {
         { id = "h_again", text = "Yes? Quickly, please; I've readings due." },
@@ -895,6 +1015,8 @@ P:NPC {
         { text = "A mage's ward could shore up the dam.", next = "k_mage", when = { class = "MAGE" } },
         { text = "Your guards would never see a saboteur coming, Engineer.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Dark Irons wield fire. I know how to answer it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you fear the Dark Irons will attack the dam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should I watch for in the hills above the dam?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },

@@ -32,6 +32,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Strength, but strength with a purpose. The demon blood made my people mighty and taught them to love slaughter, and I will not let that hunger take root again, so fight for those behind you, the peons and the young ones, and never for the joy of killing alone." } },
+      choices = {
+        { text = "I fight to protect the Horde, Warchief, not for bloodlust.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A warrior fights for glory, Warchief. Let the peons protect themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They did, and they taught me that a Frostwolf rider never cages his wolf and never rides one that has not chosen him. A hunter who remembers that will never want for a loyal companion, and the Horde could stand to remember it too." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me the way a Frostwolf watches a stranger, which is to say wisely. Treat it as kin, {class}, and it will stand by you when others will not." },
+      },
+      choices = {
+        { text = "My companion is my equal, Warchief, not my servant.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A beast is a tool. I feed it so that it fights.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Cairne is too generous. We fought the centaur beside his people in the Barrens, yes, but the tauren offered us friendship when the rest of the world wanted us back in the camps, and I have never felt that debt was paid on our side." } },
       choices = {
@@ -77,6 +98,8 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "The Windshapers, then. The Earthen Ring vouched for you and the tauren took you in, and that's good enough for me. Welcome to the Horde." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Welcome to my hall, druid. Cairne's people taught mine more about this land than we would ever have learned alone, and I count every tauren in Orgrimmar as kin." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior stands before me. The Horde was born in battle, but I would rather it were known for what its warriors protect than for what they destroy." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a companion at your side. The Frostwolves taught me in Alterac that the bond with a beast is a bond of honour, and I have never forgotten it." },
       },
       choices = {
         { text = "Cairne says the tauren owe you a debt, Warchief.", next = "druid_q", when = { class = "DRUID" } },
@@ -93,6 +116,8 @@ P:NPC {
         { text = "I'm Frostwolf, Warchief. Drek'Thar's people.", next = "frostwolf", when = { origin = "orc_frostwolf" } },
         { text = "I serve the Horde from the shadows, Warchief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I study the arcane, Warchief. Is there a place for me?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What do you ask of the Horde's warriors, Warchief?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Did the Frostwolves teach you to hunt, Warchief?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
@@ -245,6 +270,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Zalazane on the Echo Isles, with his hexed trolls and his madness, and the Kul Tirans at Tiragarde Keep, who never forgave us for walkin' free. Thrall gave us Sen'jin Village, but a gift like that only stay given if somebody be willin' to bleed for it." } },
+      choices = {
+        { text = "The Darkspear are Horde, Vol'jin. Their fight is mine.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for pay, chieftain, not for old troll feuds.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "More often than the priests of either would like to admit. Both say the land remember everything you do to it, and both say it don't forgive easy." } },
       choices = {
@@ -286,6 +320,7 @@ P:NPC {
         { id = "h_gadrin", when = { heardLine = "gadrin.h_default" },
           text = "You see old Gadrin? He still tell people I be his best student? Good, because he right." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, mon! Your people and mine both know what it be to have the land under your feet taken away, so Vol'jin always be glad to see a horned one in this city." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the Darkspear be few, and every strong arm in Orgrimmar be one more spear between my people and the ones who want us gone." },
       },
       choices = {
         { text = "Do the loa and the Earth Mother ever agree?", next = "druid_q", when = { class = "DRUID" } },
@@ -297,6 +332,7 @@ P:NPC {
         { text = "You don't trust the Forsaken, do you?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I strike from the jungle, chief, the old way.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a mage walk beside the loa, chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Who threatens the Darkspear now, Vol'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Farewell, Vol'jin.", next = "END" },
       },
       again = {
@@ -418,6 +454,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Work? Oh, the Cleft is perfectly peaceful, I assure you, and the Warchief's guards see to that. If it's a fight you want, Orgnil Soulscar hunts the Burning Blade down in Durotar, and I'm told he's never short of cultists, though I can't imagine where they all come from." } },
+      choices = {
+        { text = "Then I'll help Orgnil cut the Burning Blade down.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cultists pay well too, I hear. I'm not particular.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Beasts have honest noses, and the Cleft smells of things that were summoned rather than born. Pay it no mind, my friend; the warlocks keep their pets on short leashes, which is more than I can say for some hunters I've met in the Drag." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at me, doesn't it? Animals are such poor judges of character, and I've always found that rather charming." },
+      },
+      choices = {
+        { text = "I trust my beast's nose more than any warlock's word.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Summoned or born, a pet is a pet. I don't judge.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I make sure they remember whom they serve, which is more than they'd manage on their own. Your people never had to learn what fel magic does to a land, but we orcs left Draenor dry and dying because of it." } },
       choices = {
@@ -459,6 +516,8 @@ P:NPC {
         { id = "h_hidden", when = { questActive = TODO_QUEST("Hidden Enemies") },
           text = "The Searing Blade in Ragefire are so eager, so very eager to prove themselves. Deal with their leaders, would you? It will clarify things, I think." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, down here in the Cleft of Shadow? The Warchief's tauren friends are always welcome, of course, though you'll find very little down here that grows." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, how refreshing. The Cleft sees so many curious young casters that it's good to be reminded the Horde still has strong arms to protect them from themselves." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the Cleft! We don't see many of your kind down here, because the beasts don't care for the smell of brimstone, and I can't say I blame them." },
       },
       choices = {
         { text = "What do you make of the Horde's warlocks, Neeru?", next = "druid_q", when = { class = "DRUID" } },
@@ -472,6 +531,8 @@ P:NPC {
         { text = "The elements would rather I stayed out of here.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you keep watch on the rogues of the Cleft too?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Fire is my craft too, Neeru. Arcane fire, though.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Is there work in the Cleft for a warrior, Neeru?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why do beasts shy away from the Cleft, Neeru?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -582,6 +643,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every night, and I wouldn't have it otherwise, though I'd like them to break fewer stools. Grezz Ragefist's students come here after a hard day and arm-wrestle over my tables until somebody loses a tooth, so I keep a bucket by the door for the teeth." } },
+      choices = {
+        { text = "I'll keep my fights outside, Gryshka. Your inn deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good brawl is half the fun of an inn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "My grandmother said a well-kept hearth is the first thing the spirits look for, and I keep this one burning night and day. The warlocks from the Cleft never sit near it, though, and you can make of that whatever you like." } },
@@ -644,6 +714,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, and the Tusk is loud, which is good. A quiet inn in Orgrimmar means something's wrong." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in the Broken Tusk! Sit down before you knock the lamps over, and mind the stools, because the last one a tauren sat on is still in pieces." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Broken Tusk! Sit down and eat first, because the spirits can wait for you to finish a plate, and I'll not have you calling storms on an empty stomach." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit down before you fall down, because the ones who come in off the Valley of Honor always swear they aren't hungry until the stew's in front of them." },
       },
       choices = {
         { text = "Do the spirits favor a good hearth, Gryshka?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -653,6 +724,7 @@ P:NPC {
         { text = "I brought in some game today.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Your regulars talk a lot after a few drinks, Gryshka.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could keep your hearth burning with a spell, Gryshka.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do warriors cause much trouble in the Broken Tusk, Gryshka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Mind if my imp warms itself at your fire?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
@@ -706,6 +778,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Hunt? I used to chase boar through the scrub with my brothers once, and I could gut one faster than any of them. Now the only thing I track is the ale barrel, and Tazan says I'm losing the scent of that too." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week. Can it stay a while? It's warmer than the floor." },
+      },
+      choices = {
+        { text = "Get up, Gamon. A hunt would do you good.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stay down, Gamon. It's safer for everyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Once, I think, back before the drinking, when I still carried an axe for the Warchief. The wind told me to duck, and I did, and the spear went over my head, and I've been trying to hear it again ever since, mostly at the bottom of a mug." } },
@@ -743,11 +827,13 @@ P:NPC {
           text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "Oh, a hunter. Mind your beast doesn't lick my face, because the last one did, and I couldn't get up to stop it." },
       },
       choices = {
         { text = "Did the spirits ever speak to you, Gamon?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why does everyone attack you?", next = "why" },
         { text = "I could teach whoever keeps knocking you down a lesson.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would you ever hunt again, Gamon, if you got off that floor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does my demon frighten you, Gamon?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "You were a warrior once. What happened?", next = "warrior", when = { class = "WARRIOR" } },

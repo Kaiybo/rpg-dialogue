@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Bread and water, officially, and a modest selection of the vintage for our guests, also officially. The recruits who survive the kobolds sometimes earn a cup, and I see that they get one." } },
+      choices = {
+        { text = "A cup earned is a cup I'll take gladly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour it now, Brother. I'll earn it later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The wolves, twice this spring, when someone left the cellar door open. One ate a whole wheel of cheese and fell asleep on the potatoes, which I've recorded under losses, with a note." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks very interested in my potatoes. I'll ask it, kindly, to look elsewhere." },
+      },
+      choices = {
+        { text = "I'll keep my beast out of your stores, Brother.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A bit of cheese won't be missed, Brother.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Wine, friend, nothing but wine, for our guests and for the occasional brother who needs comforting after evening prayers. I'd be very sorry to find a barrel lighter than my tally says it should be." } },
@@ -66,6 +87,8 @@ P:NPC {
           text = "You've a quiet step, friend, and the Abbey's cellars are full of quiet things, so I'll be watching where you put it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've come from the graveyard, friend, I can smell it, and the brothers don't like La Salle's students in the cellars." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my cellar! Do mind the barrels, friend; each one is accounted for, and you are not." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please, your animal stays on the stairs; it has been known for creatures to discover the cheese." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? The bells won't ring for an hour." },
@@ -79,6 +102,8 @@ P:NPC {
         { text = "About the manifest...", next = "BUSINESS", when = { questActive = TODO_QUEST("Grape Manifest") } },
         { text = "What are you guarding in the Abbey's cellars, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the brothers mind warlocks near the wine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the Abbey's cellars hold that a warrior would want?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have animals been at the Abbey's stores, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just paying my respects.", next = "END" },
       },
     },

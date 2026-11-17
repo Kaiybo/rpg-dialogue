@@ -25,6 +25,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Something warm and heavy that stays put, like boar stew with a heel of Kira's bread. Don't eat the spiced chili before you fight, mind, or you'll regret it at the worst moment." } },
+      choices = {
+        { text = "A warm stew, then, and I'll mind the chili.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll eat whatever's quick and get moving.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Tomas.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Boar ribs, roasted slow, or a bear steak if you can get one fat enough. The Stonetusks near the Stonefield farm are the best for it, and Ma Stonefield will thank you for taking them too." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want the scraps, I suppose. Bring it by the kitchen door, not through the common room." },
+      },
+      choices = {
+        { text = "I'll bring you what I hunt and waste none.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep the best for myself and sell you the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I said a quiet one, because the loud ones knock over pots and the quiet ones at least taste the stew before they steal it. Truth be told, I'd rather feed you than lose a ladle, so sit and I'll fill a bowl." } },
@@ -59,6 +80,8 @@ P:NPC {
           text = "You came into my kitchen without a sound, and that's the only way I'd ever let a rogue in here, so mind the knives on the board, because they're counted." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've come up from below, haven't you? The cellar stairs are right beside my larder, and I hear things on that side of the wall I'd rather not." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll eat like three men, I expect, and I'll cook for three, and we'll both be happy." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me boar and bear, and I'll make you something that'll keep you out in the cold for days." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I chop; the onions won't wait." },
@@ -72,6 +95,8 @@ P:NPC {
         { text = "I've cooked for an abbey full of novices.", next = "abbey", when = { origin = "human_abbey_novice" } },
         { text = "Why would a rogue be welcome in your kitchen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you hear through your larder wall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What should a warrior eat before a long fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would you cook from what I hunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just smelling the stew.", next = "END" },
       },
     },
@@ -147,6 +172,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oh, more than anyone, and they never think to bring any with them. I've passed warriors in the Fargodeep fields sitting on a dead kobold with nothing to eat, so I sell them two loaves and walk on." } },
+      choices = {
+        { text = "I'll carry bread with me from now on.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll find something on the road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Two days fresh and five days for chewing, and after that it's for the ducks. Hunters out in the hills toward Westfall always want something that keeps, so I bake them a hard roll that won't crumble in a pack." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ooh, does your {pet} eat bread? Mine would, if I had one, and then I'd never sell another loaf." },
+      },
+      choices = {
+        { text = "I'll pack your bread and share it on the trail.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll live off the land. Bread's dead weight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Much better, because cold bread on the road to Eastvale is just bread, but warm bread is a reason to stop walking. I'd never ask for a spell outright, mind, since my mother taught me to bake by the hearth and nothing else." } },
@@ -177,6 +223,8 @@ P:NPC {
           text = "A mage! I always hope one of you will warm my baskets on a cold morning, though none of you ever have." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Oh! You gave me a fright, coming up the road with that creature, and I nearly dropped the rolls." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll be hungry, because warriors always are! I've a loaf here that's still warm, if you've the coin." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! You'll have meat already, I expect, but bread goes with it, so let's talk." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've got a long way to walk before dark." },
@@ -189,6 +237,8 @@ P:NPC {
         { text = "I stood a Stormwind watch once. Do the guards look after you?", next = "guards", when = { origin = "human_city_guard" } },
         { text = "Would warm bread really sell better on the road?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are you often frightened on the road, Kira?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do warriors eat more bread than anyone else?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Will your bread keep for a long hunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Safe walking.", next = "END" },
       },
     },
@@ -248,6 +298,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "No, a paladin, but a warrior's nearly as good! I practise with a stick behind the smithy, only Argus says I'm holding it like a broom, and then Mark laughs." } },
+      choices = {
+        { text = "Keep practising, Bo. Everyone starts with a stick.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Paladins are all prayer. Be a warrior instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Maybe, if I could have a bear! Joshua says you can't keep a bear in Goldshire, but there's lots of room behind the inn, and Farley wouldn't notice for ages." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Does it have a name? Can it do tricks? I bet it can do tricks." },
+      },
+      choices = {
+        { text = "A beast is a friend, Bo, not a toy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Pat it if you like. It bites, but only a little.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd sneak into the Lion's Pride cellar and see what's down there, because Farley says it's just barrels but Joshua heard it growl. Then I'd sneak out again really fast and tell everyone." } },
@@ -266,6 +337,8 @@ P:NPC {
           text = "You're a dwarf! Is it true dwarves are born with beards? Mark says yes, and Joshua says Mark's daft." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Are you a rogue? Can you go invisible? Mark says rogues can go invisible, and Joshua says Mark's daft again." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You've got a real sword, a real one! Joshua says warriors never get scared, and Mark says that's daft." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Is that your animal? Can I pat it? Mark says it'll bite, but Mark's daft." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before Mark finds me." },
@@ -276,6 +349,8 @@ P:NPC {
         { text = "What do you want to be when you're grown?", next = "grown" },
         { text = "Want to see a real spell?", next = "mage", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "What would you do if you could go invisible?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you want to be a warrior someday, Bo?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Would you like to be a hunter, Bo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -333,6 +408,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I saw the guards fight a murloc by the bridge once, from behind a fence. It made a noise like a kettle and they didn't win straight off, and then Ma pulled me home by the ear." } },
+      choices = {
+        { text = "Your ma's right. Stay behind the fence.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Next time, sneak a bit closer and watch properly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bears, sometimes, early, and Ma says not to go near when the bear's there. I think the bear's better at fishing than me, which isn't fair, since it doesn't even have a rod." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like fish? I'll give it one when I catch one, if I ever catch one." },
+      },
+      choices = {
+        { text = "Leave the bears be, Matt. The pond is theirs too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If a bear comes, throw a rock and shout.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "It's the fish, because they're stupid, but Lee Brown says I splash too much when I cast. I don't believe him, but I've started casting quieter, just in case." } },
@@ -361,6 +457,8 @@ P:NPC {
           text = "You're one of those sneaky types! Don't creep up on the pond, because you'll scare the fish, and they're scared enough already." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Can you make fish jump out of the water? That would be the best way to fish there is." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You're a warrior! Could you hit the water and make the fish come up stunned? I saw a man do that once, nearly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Can your animal catch fish? Mine can't, because I haven't got one, but if I did it would." },
       },
       again = {
         { id = "h_again", text = "What? Keep your voice down, there might be one coming." },
@@ -372,6 +470,8 @@ P:NPC {
         { text = "Want some tips from a real fisher?", next = "tips", when = { profession = "Fishing" } },
         { text = "Is it the fish or the fisherman that's the trouble?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Wouldn't you rather catch them properly, Matt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have you ever seen a real fight, Matt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do any animals come down to the pond to fish?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck, Matt.", next = "END" },
       },
     },

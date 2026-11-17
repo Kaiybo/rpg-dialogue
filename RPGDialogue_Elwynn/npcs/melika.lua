@@ -39,6 +39,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Mud, mostly, and dented tables, and one who slept on the hearth and wouldn't be moved. They pay well and tip badly and come back every time, so I suppose I'm fond of them." } },
+      choices = {
+        { text = "I'll keep the mud outside and the tables whole.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A little mud never hurt a tavern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Out the back by the woodpile, where Farley won't trip on it. I'll put out the scraps after the supper rush, and if it's polite, there'll be a bone in it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is polite enough, I suppose. Better than some of Farley's guests, if I'm honest." },
+      },
+      choices = {
+        { text = "I'll keep it in the yard and out of your way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It's well trained. It can eat where I eat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Sylvius's students practice in the common room when they think nobody's watching, and I watch everything that happens in here. I don't mind you learning your trade, but I do mind boot marks on clean wood." } },
@@ -80,6 +101,8 @@ P:NPC {
           text = "Mind the bench, rogue, because I polish it every morning and I can tell when someone's been crouching behind it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Zaldimar's upstairs, if you're after him, and he'll want his supper sent up, so take it with you if you're going." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a hot meal and a bath, I expect, and I'll give you the meal; the bath you'll find yourself." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If that animal's coming in, it eats in the yard; I won't have it under the tables begging." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quick, the stew won't stir itself." },
@@ -95,6 +118,8 @@ P:NPC {
         { text = "Does anyone here need a healer's hands?", next = "healer", when = { class = "PRIEST" } },
         { text = "Do rogues often hide behind your benches?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does Zaldimar never come down for his supper?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors cause you much trouble, Melika?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Will you let my beast eat in the yard, at least?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
 

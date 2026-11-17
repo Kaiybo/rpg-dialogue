@@ -47,6 +47,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not courage, and not skill, but what you lean on when both run out. A paladin can call on the Light, and a warrior can only call on the person beside him, which is why warriors make the most loyal comrades I've ever known." } },
+      choices = {
+        { text = "Then I'll be the comrade others lean on.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I lean on no one. My strength is my own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Patience, and how to look at a thing before you charge it, which is the hardest lesson for a paladin. I've seen Brandur Ironhammer send me dwarves who'd charge a mountain if it looked at them wrong." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a calm about it that I'd like to see in my students. You must be a patient master to raise a creature so steady." },
+      },
+      choices = {
+        { text = "Patience is a virtue anyone can learn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Paladins should learn from their own mistakes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Duthorian Rall. I test the paladins Brother Wilhelm and Brandur Ironhammer send me, and most pass, though not all the same way." },
@@ -74,6 +95,8 @@ P:NPC {
           text = "A rogue in the Cathedral district. The Light doesn't mind where you've been, but it does ask where you're going." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The Cathedral's doors are open to you as they are to everyone, though you'll understand if I stand beside them while you're here." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll fight as hard as any paladin, I don't doubt, though without the Light behind you, you'll need to be twice as careful." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The paladins I test spend their days in halls and chapels, and I sometimes wish they'd spend a week in the woods with someone like you." },
       },
       again = {
         { id = "h_again", text = "What else? Ask it straight." },
@@ -88,6 +111,8 @@ P:NPC {
         { text = "I was a squire when the Order fell.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Do priests and paladins learn the same Light?", next = "priest", when = { class = "PRIEST" } },
         { text = "Does the Light have any use for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What separates a warrior from a paladin, Duthorian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would a paladin learn from a hunter, Duthorian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go, Rall.", next = "END" },
       },

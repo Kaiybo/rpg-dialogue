@@ -18,6 +18,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The satyrs of Satyrnaar would be my answer on most days, but the Forsaken and their diseases worry me more, because I don't know what they want. A blade will answer the satyrs, but against the Forsaken I need eyes before I need blades." } },
+      choices = {
+        { text = "Then I'll watch before I strike.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd strike the Forsaken before they strike us.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I don't know yet, and that's the trouble, because sick beasts wander and I can't tell what they carry. If you find carcasses near their camps, look closely, and bring back what you can without touching it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from anything dead in those woods, I beg you. Whatever the Forsaken carry, I don't want it in our companions." },
+      },
+      choices = {
+        { text = "I'll investigate carefully and report back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll burn their camps and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "You could, and you'd learn more in one night than my Sentinels have in a month, because the Forsaken know our footsteps by now. Bring me what they're brewing and who's brewing it, and don't touch anything with your bare hands." } },
@@ -44,6 +65,8 @@ P:NPC {
           text = "You came through the trees without a sound, and my lookouts will hear about it in the morning. Out here a quiet traveller is worth more than a loud one, so I'm glad you're on our side." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage this close to Felwood, and I hope your masters warned you what the demons left in that soil. Some nights it rises into the air, and it doesn't care whose lungs it fills." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forest Song could use another sword, because I've Forsaken on one side and demons on the other." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good, because the Forsaken in the eastern woods have been seen near the beasts, and I don't like what that means." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
@@ -56,6 +79,8 @@ P:NPC {
         { text = "I saw what the plague did at home.", next = "lordaeron", when = { race = "Human" } },
         { text = "Could I get close to the Forsaken camps for you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could arcane magic cleanse the corruption in Felwood?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What's the greatest threat to Forest Song, Kayneth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have the Forsaken been poisoning Ashenvale's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Keep the outpost safe.", next = "END" },
       },
     },
@@ -124,6 +149,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I'll make you one, but I'll make it heavy, because you'll treat it roughly and a light bow would snap. Learn to draw it smooth instead of yanking it, and it'll serve you longer than you'd think." } },
+      choices = {
+        { text = "I'll learn to draw it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "As long as it shoots, I don't care how.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Nothing, if you mean to shoot a man across a tavern, which I suppose is what your sort do. A bow wants a long draw and patient wood, and a rogue wants to be gone before the arrow lands, so we've never got on." } },
@@ -150,6 +184,7 @@ P:NPC {
           text = "You'll be a rogue, then, and rogues always want a bow short enough to hide under a cloak. I'll make you one if you insist, but it'll shoot like it's ashamed of itself." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, so you'll not need anything I make, I expect. Either you've come for the quiet or you've lost your way, and I can help with the second." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a bow for pulling, I suppose, and you'll hold it like a club." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -162,6 +197,7 @@ P:NPC {
         { text = "I'd like the best longbow you have.", next = "hunter", when = { class = "HUNTER" } },
         { text = "What's wrong with a short bow, Bhaldaran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a mage come out here for the quiet?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Will you make a bow for a warrior, Bhaldaran?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -213,6 +249,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone to keep the naga off the beach when they crawl up at night, and to remind the elves in the trees that we're still here. Blackfathom Deeps lies out in the bay as well, and one day we'll go in after whatever lives there." } },
+      choices = {
+        { text = "I'll hold the beach. Zoram'gar won't fall.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the naga come. I'll take their heads as trophies.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Crabs and murlocs on the sand and wolves in the trees, but it's the Wrathtail naga who hunt us. Kill their scouts before they reach the camp, and bring me word of anything bigger moving in the water." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells the naga already; I can see its hackles up. Good, because a beast that knows its enemy is worth two warriors who don't." },
+      },
+      choices = {
+        { text = "I'll hunt the naga scouts and bring you word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt what I like. The naga can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = {
@@ -252,6 +309,8 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You move like someone who doesn't want to be counted, which suits me. The elves have eyes in every tree around this strand, and I'd like a few of my own." },
         { id = "h_default", text = "I am Karang, and this outpost is the Horde's foothold on the western shore. The naga crawl up from the water, the elves watch from the trees, and somewhere out in the bay lies Blackfathom Deeps, full of things worse than either." },
         { id = "h_cond", when = { race = "Orc" }, text = "An orc of the Horde, good. You'll know we didn't come to this coast to admire it, so let us speak plainly." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde. Good, because this outpost holds by strength alone, and I need more of it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Zoram Strand is full of things worth hunting, and some of them are naga." },
       },
       again = {
         { id = "h_again1", text = "Say what else is on your mind, and say it before the tide turns." },
@@ -266,6 +325,8 @@ P:NPC {
         { text = "Do you send word to Splintertree?", next = "splinter" },
         { text = "Then plainly: what do you need?", next = "orc", when = { race = "Orc" } },
         { text = "Strength to Zoram'gar.", next = "END" },
+        { text = "What does Zoram'gar need from a warrior, Karang?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What hunts along the Zoram Strand, Karang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
       },
     },
     strand = {
@@ -333,6 +394,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They will, because the Thistlefur no longer remember that they were friends of the forest. Ruul is sad to ask it, but if they come, you must fight them, and Ruul will try not to watch." } },
+      choices = {
+        { text = "I'll spare any I can, for your sake.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They'll come, and they'll die. That's the way of it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They hunted only what the forest gave, and they thanked the trees afterward, as furbolgs always did. Now they kill in anger and leave the bodies, and Ruul cannot bear to watch it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is not afraid of Ruul, and that makes Ruul glad. Beasts know a furbolg who is still a friend of the forest." },
+      },
+      choices = {
+        { text = "Then I'll hunt as the furbolgs once did.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Anger's as good a reason to hunt as any.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = {
@@ -372,6 +454,8 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came so quietly that even the Thistlefur guards did not hear you, and they hear everything now. Ruul is glad you are a friend, or Ruul hopes you are." },
         { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, Ruul will walk you to safety, though the way is long." },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, cousin of the forest! Ruul knew your people's drums once, from the old days, before the madness." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "You carry a blade, and you are not Thistlefur. Ruul hopes that blade is not for Ruul." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "You walk the way the forest walks, quiet and watchful. Ruul likes that." },
       },
       again = {
         { id = "h_again1", text = "What else does the friend want to know?" },
@@ -386,6 +470,8 @@ P:NPC {
         { text = "Why trust the Horde?", next = "horde" },
         { text = "My people remember the furbolgs kindly.", next = "tauren", when = { race = "Tauren" } },
         { text = "I'll come back for you, Ruul.", next = "END" },
+        { text = "Will your tribe fight us when we leave, Ruul?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Did the Thistlefur hunt well, before they went mad?", next = "xhuntcl", when = { class = "HUNTER" } },
       },
     },
     madness = {

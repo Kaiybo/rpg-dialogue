@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Some of them, I'm afraid, for the madness has gone too deep in the worst of them. But I need one alive for my cure, so when you meet them, strike to stop them rather than to finish them, if you can manage it." } },
+      choices = {
+        { text = "I'll strike to stop them, not to kill.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mad bear is a dead bear. I won't hold back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Put down? I want them cured, not killed, if there is any cure to be had. If you're as good with poisons as you say, tell me what makes a bear foam and turn on its own cubs, for that is what I'm chasing." },
@@ -62,6 +71,7 @@ P:NPC {
           text = "The Den Mother is the heart of it, for she bears the sick cubs and the sick cubs grow into sick bears. End her, and Darkshore's bears may have a generation that is born whole." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, and welcome. You will feel it when you take the bear's shape near them, a sour note under the skin, and I would like to know if it feels the same to you as to me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The thistle bears will come at you foaming, and I'd ask you to remember that they're sick, not savage." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time while the potion steeps." },
@@ -77,6 +87,7 @@ P:NPC {
         { text = "I caught you a bear. What did you learn?", next = "caught", when = { questDone = TODO_QUEST("Plagued Lands") } },
         { text = "I've poisons that could put a mad bear down quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could arcane magic be behind the bears' madness?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Must I kill the thistle bears, Tharnariun?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll see what I can do.", next = "END", fx = { affinity = 1, standing = { auberdine = 1 } } },
       },
     },
@@ -209,6 +220,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Better than I expected, and they hold against the Dark Strand with a stubbornness I've come to admire. They need blades more than prayers in Ashenvale, so if you're going south, carry their supplies and stay a while." } },
+      choices = {
+        { text = "I'll carry the supplies and stand with them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll carry the crates. The fighting's their business.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Meat for the stores, hides for the Sentinels' winter gear, and the threshers kept away from the fishing boats. I count everything that comes in, so if you bring it, I'll know exactly whose it was." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its own entry in my head now, I'm afraid. Everything that comes through Auberdine gets counted, and that includes beasts that eat from its stores." },
+      },
+      choices = {
+        { text = "I'll supply Auberdine before I sell anywhere else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I sell to whoever pays the most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "They would, if I were not sitting on them, which I am, day and night. If you're so good at lifting, lift something from the Dark Strand and bring it to Delgren at Maestra's Post." },
@@ -239,6 +271,8 @@ P:NPC {
           text = "Delgren's crates went out to the watch posts the same day you brought them. Tell him, if you pass that way, that Auberdine does not forget a kindness." },
         { id = "h_tower", when = { questActive = TODO_QUEST("The Tower of Althalaxx") },
           text = "You're working with Balthule at the Tower of Althalaxx, I hear. Be wary there, because warlocks who hole up in an old tower have usually had time to set traps." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Delgren's paladins could use more of your kind at Maestra's Post, and I could use help getting their supplies there." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I keep lists of everything Auberdine needs, and half of it comes in on a hunter's back." },
       },
       again = {
         { id = "h_again", text = "What else? I've three crates to count before the Moonspray comes in." },
@@ -251,6 +285,8 @@ P:NPC {
         { text = "My people sent those paladins. Do you trust us?", next = "human_e", when = { race = "Human" } },
         { text = "Are the Sentinels stretched as thin as Glynda says?", next = "thin_e", when = { heardLine = "glynda.h_default" } },
         { text = "Your stores would be easy to lift, Sentinel.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the humans at Maestra's Post fight well, Sentinel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does Auberdine need from its hunters, Sentinel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The Dark Strand deal with demons. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Elune keep you.", next = "END", fx = { standing = { auberdine = 1 } } },
       },
@@ -353,6 +389,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every day, and back again with fewer of them, because the Warsong have been cruel in Ashenvale this season. I give the warriors my calmest birds on the way south, because they'll need to be calm when they land." } },
+      choices = {
+        { text = "Then send me south. Astranaar needs blades.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go south when the pay is worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They fish, mostly, out over the water at dawn, and they'll take a crab off the beach if nobody stops them. The sea wind has been strange this season, though, and they come back tired, which worries me more than any beast on land." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} should stay on the ground while my birds are landing. A hippogryph coming down hard doesn't look where it puts its talons." },
+      },
+      choices = {
+        { text = "I'll keep my companion clear of the roost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My companion can look after itself near birds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "My hippogryphs carry anyone who pays and doesn't kick them, and they see everything, whatever the passenger would prefer. The Sentinels at Rut'theran ask me who flies, and I tell them." },
@@ -379,6 +436,8 @@ P:NPC {
           text = "I am Caylais Moonfeather, and these are my hippogryphs. They'll carry you over the water to Rut'theran Village or south to Astranaar, and farther once you've walked the roads and they know where you mean to go." },
         { id = "h_back", when = { metBefore = true },
           text = "Back for another flight? Feather-in-the-Mist has been looking for you; she remembers riders who don't kick." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds don't like the weight of plate, so hold still on the crossing and let them carry it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My birds have watched your companion since you climbed the rise, and I think they're deciding whether it's prey." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I saddle a bird?" },
@@ -392,6 +451,8 @@ P:NPC {
         { text = "I could swim to Rut'theran in seal form, you know.", next = "druid_c", when = { class = "DRUID", minLevel = 16 } },
         { text = "Do your hippogryphs carry passengers who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could teleport home, but your birds are lovely.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your hippogryphs carry warriors to Astranaar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your hippogryphs hunt on their own, Caylais?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

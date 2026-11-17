@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches farther than an arm, because the Gnarlpine like to throw from the trees before they close. Pull a few into the open with a bow, and then they can meet your blade on your terms." } },
+      choices = {
+        { text = "I'll carry one and draw them to me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they won't close, I'll go to them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "You're gripping too tight, like everyone does, and the arrow pulls left because of it. Hold it the way you'd hold a nightsaber cub, firm enough that it can't get away and gentle enough that it doesn't want to, and you'll hit what you aim at." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} sat still the whole time you were drawing, which tells me you've trained it well. Most beasts flinch at a bowstring, and yours doesn't." },
+      },
+      choices = {
+        { text = "I'll take the advice. A bow should be held right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My grip has served me well enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "I sell bows and arrows and little else, so you'd want the weaponsmiths in Darnassus for good throwing knives. I'll say this, though: a bow is a fine friend to a rogue, if you've the patience to learn it." },
@@ -52,6 +73,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I'm Jeena Featherbow, and I sell bows and arrows here in Dolanaar. Every young hunter on Teldrassil buys their first quiver from me, and most of them come back to tell me what they shot with it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior buying from me? Most of your lot think a bow is a stick for poking people from a distance." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a bow I didn't sell you, by the look of it. Let me see how you hold it." },
       },
       again = {
         { id = "h_again", text = "What else? I've arrows to fletch, but I can talk while I do it." },
@@ -64,6 +87,8 @@ P:NPC {
         { text = "Do the Sentinels buy from you?", next = "sentinels" },
         { text = "Have you anything for throwing? Knives, perhaps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I've never needed a bow. I have fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Should a warrior carry a bow, Jeena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's wrong with how I hold my bow, Jeena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Jeena.", next = "END" },
       },
     },
@@ -137,11 +162,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "How to get up, mostly, because Arias'ta and Elanaria will knock you down more times than you'll want to count. If you can rise without anger and swing again without fear, you'll have learned the best thing Dolanaar can give you." } },
+      choices = {
+        { text = "I'll rise without anger, every time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll rise angrier, and hit back harder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "You should, because a Gnarlpine with a club doesn't care how far you'd prefer to be from him. Learn to step back and sideways in one movement, and you'll have room to draw again before he swings." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} already knows the footwork; I've watched it circle a boar. Watch your companion and do what it does, and you'll be fine." },
+      },
+      choices = {
+        { text = "I'll learn the footwork. It could save my life.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My companion keeps them off me. That's enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Kyra Windblade, and I train the warriors who come down from Shadowglen. I teach them the basics here in Dolanaar before Darnassus gets them, so that Arias'ta and the others don't have to start from nothing." },
         { id = "h_elanaria", tags = { "news" }, when = { questActive = TODO_QUEST("Elanaria") },
           text = "Elanaria in Darnassus is expecting you. Go up to the Warrior's Terrace, and when she asks what I taught you, tell her I said to keep your feet planted." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from Shadowglen! Get up off the ground as often as you fall, and I'll make something of you yet." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll still want to know how to fight when something reaches you, so don't think my lessons aren't for you." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, I don't bite." },
@@ -153,6 +201,8 @@ P:NPC {
         { text = "What's the most common mistake you see?", next = "mistake" },
         { text = "Why do so few kaldorei become warriors?", next = "few" },
         { text = "Farewell, Kyra.", next = "END" },
+        { text = "What will you teach me before Darnassus, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Should a hunter learn a warrior's footwork too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     after = {
@@ -223,6 +273,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A healing potion will close a cut, but it can't give you back the breath you've spent, so please don't drink it as if it were courage. I'd much rather you came back to tell me it helped than drank three and charged into the Gnarlpine camps." } },
+      choices = {
+        { text = "I'll drink with care and come back to tell you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it keeps me swinging, I'll drink all three.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Always, though I'd ask you to be gentle with the plants, as Malorne would. Pick from the edge of a patch and leave the heart of it, and it will still be there next season for the next hunter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing the silverleaf, and I'd rather it didn't eat any. Silverleaf gives a beast a dreadful stomach, and you'd be the one to suffer for it." },
+      },
+      choices = {
+        { text = "I'll leave the heart of each patch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take what I find. It all grows back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "No, and I would ask you not to brew them in my garden. Earthroot and peacebloom are for healing here, and what you do with your own vials is between you and the shadows you keep." },
@@ -246,6 +317,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I'm Cyndra Kindwhisper, and I teach alchemy here in Dolanaar. I show students how to turn what grows on Teldrassil into potions that heal, and I ask them to be gentle with both the plants and the people who drink the result." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please be gentle with my shelves, because potions don't like being jostled, and neither do I." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You walk where the herbs grow, so tell me, have you seen any peacebloom near the lake?" },
       },
       again = {
         { id = "h_again", text = "What else would you like to know?" },
@@ -257,6 +330,8 @@ P:NPC {
         { text = "Who do you make potions for?", next = "for" },
         { text = "Do you teach poisons as well as potions?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Alchemy is just magic for the patient.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can your potions help a warrior through a long fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you need herbs gathered from the wilds, Cyndra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Cyndra.", next = "END" },
       },
     },
@@ -329,6 +404,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Earthroot settles the stomach before a battle, and a healer can do a great deal with a pocket of peacebloom. I'd teach you to find them yourself, but you'll have to learn to watch your feet first, because the forest doesn't grow back under boots." } },
+      choices = {
+        { text = "I'll watch my feet and learn the herbs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I've no time for flowers. I'll buy potions.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Peacebloom in the open glades, silverleaf in the shade, and earthroot wherever the ground's been turned, which is often where boars have been rooting. Follow a boar's trail and you'll find earthroot, and then you can thank the boar." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, so let it find the herbs, and you'll have an easier time of it. Just teach it not to dig them up roots and all." },
+      },
+      choices = {
+        { text = "I'll take only what grows back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I find it, it's mine. The forest won't miss it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "It will notice, and so will I, for I walk these paths every morning. Take one leaf in three and leave the root, and Teldrassil will give to you again next season." },
@@ -356,6 +452,8 @@ P:NPC {
           text = "Lyreena sent you, did she? Then you've learned that a camp needs a fire, and I'll show you what an herbalist adds to one beside it." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid will already know half of what I teach, so you're here for the other half. The Enclave teaches you to feel the forest, and I'll teach you which leaves to pick." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll trample half my peacebloom walking in, so please step where I step." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have walked over more herbs than you know, chasing whatever you were chasing." },
       },
       again = {
         { id = "h_again", text = "What else would you know? Speak softly; the seedlings are listening." },
@@ -367,6 +465,8 @@ P:NPC {
         { text = "What grows best on Teldrassil?", next = "grows" },
         { text = "What does an herbalist bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
         { text = "I'll take what I need from the forest. It won't notice.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there any use for herbs in a warrior's kit?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Which herbs grow along a hunter's trails, Malorne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do any of these herbs have darker uses?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Malorne.", next = "END" },
       },
@@ -439,6 +539,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Good leather, stitched small and tight, will outlast cheap mail, and it won't ring like a bell when you move. Radnaal skins the hides and I stitch them, so if you want armor that bends without breaking, bring me something worth working." } },
+      choices = {
+        { text = "Small stitches, then. I'll wait for it done right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I need it quick, not neat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "You work it soft before you cut it and you stitch it small, so that nothing catches and nothing creaks. Every hunter I've made armor for says they forgot they were wearing it, and that's the best praise there is." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine coat, and I'm only admiring it, I promise. Radnaal would say the same, though he'd look at it a little longer." },
+      },
+      choices = {
+        { text = "Quality takes time. I'll wait for yours.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll stitch my own. Close enough is fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "It's the only armour that breathes, too, and you'll be glad of it when you're crouched in a hedge for an hour. I can teach you to stitch it so the seams don't creak, which matters more to your sort than to most." },
@@ -465,6 +586,8 @@ P:NPC {
         { id = "h_default", text = "I'm Nadyia Maneweaver, and I teach leatherworking here in our house, just up the road from Dolanaar. Radnaal skins the hides and teaches skinning, and I turn the hides into something a traveler can wear." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Leatherworking") },
           text = "Lyreena sent you to learn what a leatherworker brings to a camp. It's the tent, of course, and I'll show you how to stitch one that won't let in the rain." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your leather's been stitched in a hurry, and I'd love to take it apart and do it properly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting leather that moves quietly through the brush, and that I can do." },
       },
       again = {
         { id = "h_again", text = "What else, dear? Sit down by the fire, if you like." },
@@ -477,6 +600,8 @@ P:NPC {
         { text = "What does a leatherworker bring to a camp?", next = "camp" },
         { text = "Leather's the only armour that doesn't clink.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do mages ever take up leatherworking?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can leather really stand up to a warrior's work?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do you make leather that won't rustle in the brush?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Nadyia.", next = "END" },
       },
     },
@@ -548,6 +673,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "If you've killed it, yes, because a beast that died for nothing is a waste the forest doesn't forgive. Bring me a hide and I'll show you how to take it cleanly, and you'll think twice before you kill the next one for sport." } },
+      choices = {
+        { text = "Then nothing I kill will go to waste.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I kill what attacks me. The rest isn't my concern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I thank them quietly and I waste nothing, so the hide goes to Nadyia and the meat goes to Dolanaar. It isn't a grand ritual, but the old kaldorei hunters did the same, and I'd sooner keep their ways than lose them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching my knife, and I can't blame it. Tell it I only skin what the forest has already given up." },
+      },
+      choices = {
+        { text = "I'll thank them and waste nothing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A hide's a hide. Thanks won't change that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "It is knifework, but the beast is already dead, which means you have time to do it well. Your sort tends to rush, and a rushed cut spoils the hide." },
@@ -573,6 +719,8 @@ P:NPC {
         { id = "h_default", text = "I'm Radnaal Maneweaver, and I teach skinning. Nadyia does the fine work with the leather, and I do the part that comes first, which nobody enjoys but somebody must." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Skinning") },
           text = "Lyreena's lesson, is it? A skinner brings hides to the camp to sit on, so nobody has to sit in the mud." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind leave a lot of carcasses behind, and most of them go to waste." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know already that a clean kill makes a clean hide." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -583,6 +731,8 @@ P:NPC {
         { text = "Do you mind the work?", next = "mind" },
         { text = "What's the best beast to skin on Teldrassil?", next = "best" },
         { text = "Skinning's just knifework. I've plenty of that.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Should I skin what I kill, Radnaal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do you honor the beasts you skin, Radnaal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "My imp could help. It's handy with a flame.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -646,6 +796,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Darkshore murlocs come down the coast now and then, and the threshers in deep water would take a hand off without trying. Auberdine has it worse, Laird tells me, so if you're crossing, keep your blade dry and your feet off the edge." } },
+      choices = {
+        { text = "If the murlocs come, I'll stand on this dock.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Murlocs are Auberdine's problem, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Half the cats in the village wait on my dock every evening, and the hunters' companions are the worst of all. I don't mind, because a fed cat is a quiet cat, and I need quiet to hear whether anything's biting." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is already looking at my bucket, isn't it? Don't worry, I've seen worse thieves, and most of them were Laird." },
+      },
+      choices = {
+        { text = "My companion doesn't steal. I'll make sure of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it's quick enough to take a fish, it's earned it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Then they'd be disappointed, for the only things that cross from here to Auberdine are fish and the occasional seasick dwarf. The Sentinels watch Rut'theran closely, and so do I." },
@@ -673,6 +844,8 @@ P:NPC {
           text = "Mydrannul sent you down from the Terrace, didn't he? Bless him, he always finds me someone. I've a parcel of Teldrassil's best that needs to reach Auberdine." },
         { id = "h_back", when = { questDone = TODO_QUEST("Return to Nessa") },
           text = "You got my bounty all the way to Laird, and he sent back word that it arrived fresh. I owe you for that, and I won't forget it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the docks! Mind your armor near the edge, because nobody wants to fish you out." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll appreciate a good catch more than most, since you know what it took to land it." },
       },
       again = {
         { id = "h_again", text = "Anything else? The boats won't be in for a while yet." },
@@ -685,6 +858,8 @@ P:NPC {
         { text = "What's Rut'theran like?", next = "village" },
         { text = "Smugglers would love a dock like this.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "There's a great power in this tree. I can feel it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is there anything dangerous in the water off Rut'theran?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the village cats come begging at your dock?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Nessa.", next = "END" },
       },
     },
@@ -767,6 +942,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That the fight comes when it comes and not before, however hard you stare at the water. Warriors who learn to wait here tend to wait better on the field, and they don't go charging at shadows." } },
+      choices = {
+        { text = "I'll learn to wait. Patience wins fights.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather make the fight come to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Much the same, except that the fish can't see you coming and you can't see them either, so you're both guessing. It's the guessing I like, because it gives a fellow time to think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} knows about waiting too, I see, because it hasn't taken its eyes off the water. If it catches one before you do, I won't tell." },
+      },
+      choices = {
+        { text = "Patience is the heart of any hunt.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather chase my quarry than wait for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Then you'll take to fishing well, for the other half of mine is knowing when to strike, and I'd guess that's the other half of yours. The difference is that my quarry doesn't bleed on the dock." },
@@ -790,6 +986,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a great deal of time to practice." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit down, put the sword aside and hold this pole, and see whether you can stand to wait." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know about waiting already, I expect, so we'll get along." },
       },
       again = {
         { id = "h_again", text = "Another question? The fish are patient, and so am I." },
@@ -801,6 +999,8 @@ P:NPC {
         { text = "Why fish, when you could hunt?", next = "why" },
         { text = "Patience is half my trade too.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Couldn't I just freeze the lake and pick them out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What can fishing teach a warrior, Androl?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is fishing much like the hunt, Androl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Androl.", next = "END" },
       },
     },
