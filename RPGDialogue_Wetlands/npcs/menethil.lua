@@ -20,6 +20,10 @@ P:NPC {
     { id = "g_wall", text = "Quickly now. I've a wall to keep an' a hill full o' orcs to keep it from." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' good timin' too. I've more work than hands, an' ye've brought a pair." },
     { id = "g_nekrosh", when = { questDone = TODO_QUEST("Defeat Nek'rosh") }, text = "Here's the one who brought me Nek'rosh's head. Stand up straight; the lads are watchin'." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the Dragonmaw havenae let up fer a day of it. Good, ye're back, so I've a pair o' hands again." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "Back after {away}, an' ye've the look o' someone who's held a wall o' their own since. I'll put ye where the fightin's thickest, an' ye'll thank me." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "One o' the lads says ye've been puttin' the fear into folk in the harbor. Save it fer the orcs on the hill, fer I'll no' have it inside my wall." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear ye've been doin' right by Menethil these past days. That's how a wall stays standin', one honest job at a time." },
   },
 
   notice = {
@@ -420,6 +424,9 @@ P:NPC {
   greetings = {
     { id = "g_tale", text = "Sit down, sit down! A drink and a tale, that's my price. You bring the drink, I'll bring the tale." },
     { id = "g_back", when = { metBefore = true }, text = "My friend, you came back! Nobody ever comes back. Sit down, sit downwind, as they all say, though I can't think why." },
+    { id = "g_away", when = { away = 14 }, text = "You came back, after {away}! Nobody ever comes back, and you've done it twice now, so sit down and I'll find a tale worthy of it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've grown fearsome since you first bought me a drink! The old crew would have made you bosun, and I'd have saluted you myself." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody in the harbor caught you in a fib. Now, a tale's one thing and a fib's another, and I should know, because I tell a great many tales." },
   },
 
   notice = {
@@ -687,6 +694,10 @@ P:NPC {
   greetings = {
     { id = "g_busy", text = "Hmph, another one. Aye, aye, the Light bless ye, now what is it? I've three things on the fire an' two o' them are smokin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Well, ye're useful, I'll give ye that, an' useful's rare round here." },
+    { id = "g_away", when = { away = 14 }, text = "Hmph, gone {away} an' ye wander back in wi' half the bog on yer boots. Aye, the Light bless ye, now wipe yer feet." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit since last I blessed ye in passin'. The Light's kept an eye on ye, it seems, even if ye didnae ask it to." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear ye've put somebody in the harbor in a proper temper. I've enough grumblin' souls tae tend without ye makin' more, so go an' set it right." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody's been speakin' well o' ye round the harbor, which makes a pleasant change from the usual complainin'. Hmph, well done, I suppose." },
   },
 
   notice = {
@@ -1472,6 +1483,10 @@ P:NPC {
   greetings = {
     { id = "g_tavern", text = "In ye come, out o' the wet! The Deepwater's dry, warm, an' only leaks over the bar, which is where ye want it." },
     { id = "g_home", when = { homeInn = { "Menethil Harbor", "Deepwater Tavern" } }, text = "Hang yer cloak by the fire an' it'll steam like a kettle; they all do." },
+    { id = "g_away", when = { away = 14 }, text = "In ye come after {away} away, an' soaked as ever by the look o' ye! Hang that cloak by the fire an' have a drink." },
+    { id = "g_away_long", when = { away = 60 }, text = "Well, ye've been gone {away}, an' I'd half reckoned the bog had swallowed ye! Sit down an' let the Deepwater dry ye out proper." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody's been tellin' the whole tavern what a fine sort ye are! That's worth a seat by the fire, an' the dry end o' the bar." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word over the bar is ye sold somebody in the harbor a tale that wasnae true. Sailors spin plenty o' those in here, mind, but they're mostly harmless." },
   },
 
   notice = {
@@ -1674,6 +1689,9 @@ P:NPC {
   greetings = {
     { id = "g_maps", text = "Careful, careful, that's a map! They're all maps. Mind where ye put yer elbows." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, ye're back! Have ye found anythin' old, anythin' at all? I'm no' fussy, ye know." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}! Tell me ye've found somethin' old while ye were away, anythin' at all, fer I've been starin' at these maps the whole time." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, ye've grown hardy since we last spoke! Hardy enough tae get past those raptors tae my dig, I'd say, an' I'd be ever so grateful." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked someone round in the harbor. Ye'd make a fine fundraiser fer the Explorers' League, if ever ye tire o' fightin'." },
   },
 
   notice = {

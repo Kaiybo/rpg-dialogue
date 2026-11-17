@@ -18,6 +18,9 @@ P:NPC {
   greetings = {
     { id = "g_court", text = "The Court of Lakeshire is in session whenever the Magistrate is at his desk, which is always, so state your matter." },
     { id = "g_back", when = { metBefore = true }, text = "Citizen, the court recognises you. You may approach." },
+    { id = "g_away", when = { away = 14 }, text = "Citizen, the court notes your return after {away} away. You may state your matter." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "It has been reported that you were found out in a falsehood here in Lakeshire, citizen. The court has a long memory, and so do I." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "Complaints have reached me that you've been threatening the good folk of this town, citizen. I'd advise you not to give me cause to write them down." },
   },
 
   notice = {
@@ -1060,6 +1063,9 @@ P:NPC {
   greetings = {
     { id = "g_pots", text = "If you're here to eat, sit; if you're here to help, wash your hands. If you're here to complain, Gretchen will see you out." },
     { id = "g_back", when = { metBefore = true }, text = "The goulash brought you back, or you've nowhere else to go. Either way, sit down." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you look like you've lived on hardtack the whole time. Sit down and eat before you fall over in my kitchen." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the guards was saying good things about you over his goulash, and he doesn't say good things about anyone. Sit down, then." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've got someone in town properly cross with you. Leave it outside, because I'll not have shouting over my pots." },
   },
 
   notice = {

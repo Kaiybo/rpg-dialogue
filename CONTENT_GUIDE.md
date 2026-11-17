@@ -146,6 +146,8 @@ Reputation counts as who the player is too: `reputation = { faction = "Stormwind
 - Origin lines and options are **extras**. Every conversation must make complete sense with no origin (`"other"` or never picked). No "you never told me where you're from".
 - Town standing tiers: Reviled ≤ -60, Distrusted ≤ -20, Stranger, Known ≥ 10, Liked ≥ 30, Respected ≥ 55, Hero ≥ 80. The whole town must be consistent: if you're Distrusted, the baker doesn't greet you warmly. Standing is addon-only; it never changes prices or how guards really behave.
 
+- **Coming back and word of mouth (0.67.0).** `away` greetings fire for a few hours after the player returns to the NPC's town; say how long with `{away}` rather than a number, and notice what changed (`levels`). `levelsSince` is personal: this person saw you green. `word` lines are town talk, not eyewitness: keep them general ("I hear you leaned on someone at the barracks"), name the teller only with `{source}`, and keep bad kinds (`angered`, `intimidated`, `deceived`, `caughtLying`) cool and good ones (`pleased`, `persuaded`, `helped`) warm. These kinds also move town standing a little on their own.
+
 ## 12. Voice bible format
 
 One Markdown file per NPC in the pack's `bibles/` folder (not shipped). **Write the first two sections before anything else.**

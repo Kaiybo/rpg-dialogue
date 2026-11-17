@@ -17,6 +17,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ishnu-alah. The hippogryphs are rested, and they would be glad to leave this poisoned forest behind them, as would I." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My hippogryphs fly for the Alliance, stranger, not for you. Your people keep their wind riders at Bloodvenom Post, away to the southwest." },
+    { id = "g_away", when = { away = 14 }, text = "Ishnu-alah. You've been away {away}, and I've counted more fires over the forest since you left, though I'm glad to see you safe." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I've heard that someone in the glade left your company troubled and angry, and Talonbranch is too small and too beset for that. I hope you'll make it right." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The glade speaks kindly of you, and that's a rare thing to hear in Felwood, so thank you for whatever you did." },
   },
 
   notice = {

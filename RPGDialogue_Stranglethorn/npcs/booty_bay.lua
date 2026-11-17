@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_balcony", text = "From this balcony I can count every ship in the cove and most of the coins coming off them. State your business." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good; repeat business is the only kind I trust." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors on my balcony? That doesn't trouble me in the least; gold doesn't wear a tabard." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and I counted every ship in the cove while you were. Now I'll count you too, so state your business." },
+    { id = "g_away_long", when = { away = 60 }, text = "After {away} away I'd marked you down as a lost account. Repeat business is still the only kind I trust, so I'm glad to reopen it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal more valuable since we last spoke. I notice these things, since it's my job to know what everyone's worth." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I'm told someone in the Bay was taken in by your tongue. I don't object to a clever deal, but I'd rather it weren't in my harbour." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone into seeing things your way. That's the sort of skill the Steamwheedle pays well for, so keep me in mind." },
   },
 
   notice = {
@@ -387,6 +392,9 @@ P:NPC {
   greetings = {
     { id = "g_deck", text = "Up the stairs and still breathing! That's a good start, for I've watched orcs come down those stairs headfirst." },
     { id = "g_back", when = { metBefore = true }, text = "The tide's brought you back! I like a sailor who can find the way home." },
+    { id = "g_away", when = { away = 14 }, text = "The tide's brought you back after {away} away! I knew a good sailor would find the way home sooner or later." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you put a scare into somebody down on the docks. Save it for the Bloodsail, because the Bay's on your side." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole cove's talking about what you did for us. That's the kind of talk a Fleet Master likes to hear." },
   },
 
   notice = {
@@ -1193,6 +1201,9 @@ P:NPC {
   greetings = {
     { id = "g_pitch", text = "You've the look of somebody who'd like to be rich, and I can help with that for a fee, a small one, or medium at most." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite contractor is back! Don't tell the others I said so." },
+    { id = "g_away", when = { away = 14 }, text = "My favorite contractor, back after {away} away! I kept a few jobs warm for you, for only a small fee for the keeping." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone into a deal they didn't want, and I'm proud of you, I really am. Just remember who taught you the business." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word is somebody caught you telling a fib. Rookie mistake, pal, because in a town like this you never get caught twice." },
   },
 
   notice = {
@@ -1408,6 +1419,8 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "In you come, out of the sun. Stools by the windows get the breeze, and the sea air covers the smell of the fish." },
     { id = "g_home", when = { homeInn = { "Booty Bay", "The Salty Sailor Tavern" } }, text = "Your room's just as you left it, mostly, though the parrots got in again." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away} away! Your room's still yours, though the parrots got in again, so mind the sheets." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody downstairs is sore about something you said, and they've been sore loudly. Take a stool by the window and let the breeze cool things down." },
   },
 
   notice = {

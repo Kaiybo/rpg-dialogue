@@ -18,6 +18,9 @@ P:NPC {
     { id = "g_bar", text = "What'll it be? Don't say ale, because I'm nearly out of ale." },
     { id = "g_dry", when = { questActive = TODO_QUEST("Dry Times") }, text = "Any luck? Tell me there's a keg in that pack." },
     { id = "g_after", when = { questDone = TODO_QUEST("Dry Times") }, text = "My saviour! The good bottles are back on the shelf, thanks to you." },
+    { id = "g_away", when = { away = 14 }, text = "Well, look who's back after {away}! Pull up a stool, and I'll find you something from the good shelf if there's anything left on it." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody at my bar was singing your praises last night, friend! That's the best gossip I've poured in a month." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word over the bar is you sold someone round here a tall tale, and they bought it. I've heard every story there is, mind, so don't bother with me." },
   },
 
   notice = {

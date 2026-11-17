@@ -20,6 +20,9 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You're back, and in one piece. I'll cross you off the list of people I worry about, for today." },
     { id = "g_sven", when = { questActive = TODO_QUEST("Deliveries to Sven") }, text = "Sven's crate won't carry itself, and his people won't eat until it gets there." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Come in from the dark. The Watch's lamps only reach so far, and the woods know exactly how far." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I kept your name on my list of people to worry about the whole time. I'm glad to cross it off." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in town has been speaking kindly of you, and in these days that's worth more than coin. The Light walks with folk like that." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping people in Darkshire these past days. That's one less name on my list of the forgotten, and I thank you for it." },
   },
 
   notice = {

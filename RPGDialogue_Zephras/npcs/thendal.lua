@@ -24,6 +24,9 @@ P:NPC {
     { id = "g_child", when = { race = "Skyborne" }, text = "Speak, child of Zephras, and tell me what you need. The grove is never quiet for long." },
     { id = "g_guest", when = { ["not"] = { race = "Skyborne" } }, text = "A guest in Thendal Grove. Gale's greetings to you, and mind the edges of the paths." },
     { id = "g_again", when = { metBefore = true }, text = "Back again. Good; I'd rather see you twice than hear of you once from a ranger." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'm glad to see you rather than hear of you from a ranger, though you'll want to mind the paths, because some edges have crumbled since you left." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since I last saw you, and I'm glad of it, though I'll ask you to remember that strength is held in trust, the same as any relic." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "A ranger tells me you were caught in a lie in the grove, and I'll not pretend I didn't hear it, because the young watch what their guests do, so mind what you teach them." },
   },
 
   notice = {
@@ -317,6 +320,9 @@ P:NPC {
   greetings = {
     { id = "g_winds", text = "The winds told me you'd come back. They're not always right, but they were today." },
     { id = "g_guest", when = { ["not"] = { race = "Skyborne" } }, text = "Gale's greetings, traveller. You've come a long way up to stand in our wind." },
+    { id = "g_away", when = { away = 14 }, text = "The winds told me you'd been gone {away}, and they were right for once, so I'm curious to see what the time away has made of you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since I last weighed you, and I see it plainly, though strength is the easy part of any test, so show me what you do with it." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round in the grove, which tells me more about you than your blade does, and the Council could use a voice like that, though I'd never say so in session." },
   },
 
   notice = {
@@ -708,6 +714,8 @@ P:NPC {
   greetings = {
     { id = "g_watch", text = "Greetings. Forgive me if I keep my eyes on the pylon while we talk." },
     { id = "g_again", when = { metBefore = true }, text = "You again. The pylon hasn't moved, I'm pleased to say." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the pylon hasn't moved in all that time, I'm pleased to say, so forgive me if I keep watching it while we talk." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I'm told you said something that lifted someone's spirits in the grove, and I'm grateful for small gifts like that, even when they're given to somebody else." },
   },
 
   notice = {

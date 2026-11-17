@@ -18,6 +18,9 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again, {name}. Good; the last three visitors were disappointments." },
     { id = "g_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") }, text = "My favourite drake-slayer! Sit, sit; the shard has been singing all week." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The ley lines are louder after dark. You'll forgive me if I listen to them and to you at once." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, {name}, back after {away}, which by a tower's reckoning is barely a pause between thoughts. Sit, and tell me whether the world below has done anything interesting." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since your last visit, and the ley lines shift when you stand there, which is more than I could ever say for my late apprentice." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Sanath tells me you talked someone round down below, which is a rare talent in a world full of people who don't care to understand anything, and I find that almost refreshing." },
   },
 
   notice = {

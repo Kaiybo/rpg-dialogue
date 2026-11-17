@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_village", text = "You be standin' in Revantusk, stranger, the last forest trolls who still keep faith with the Horde. Speak plain, for I got little time for pretty words." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to the coast, good. Revantusk remembers who walks in and who walks out again." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You been gone {away}, stranger, and Revantusk watched the trail for you. Good to see you walk in on your own feet." },
+    { id = "g_away_long", when = { away = 60 }, text = "After {away} away I thought the Vilebranch or the dwarves had you. Revantusk remembers who comes back, and you came back." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You stand stronger than when we last talk, and my people see it. Good, because the Vilebranch don't get any weaker." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "My people say one of them caught you in a lie. Revantusk kept faith with the Horde when nobody else did, so we don't take kindly to a forked tongue." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The village be talkin' about what you did for us. That be good talk, and Revantusk don't forget it." },
   },
 
   notice = {
@@ -935,6 +940,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hello, little one! Lard has beds, and Lard has fish, and nobody makes trouble while Lard is watchin'." },
     { id = "g_home", when = { homeInn = { "Revantusk Village" } }, text = "Little one come home! Lard keep bed warm for you, and nobody sit on it, because Lard tell them no." },
+    { id = "g_away", when = { away = 14 }, text = "Little one come back after {away} away! Lard keep your bed the whole time, and Lard tell everybody to stay off it." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Everybody say little one talk nice to them! Lard knew it already, because Lard always know who be nice." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody in the village be cross with little one, and Lard don't like crossness, so nobody make trouble while Lard is watchin'." },
   },
 
   notice = {
@@ -1312,6 +1320,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You hungry, mon, or you lookin' for trouble? I sell for the first and I got plans for the second." },
     { id = "g_back", when = { metBefore = true }, text = "There you be, mon. You ready to make some dwarves very unhappy?" },
+    { id = "g_away", when = { away = 14 }, text = "There you be, mon, after {away} away. I kept the good fish on the side, and my plans for the dwarves be ready too." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you scared somebody in the village half out of their tusks. Save some of that for the Wildhammer, mon." },
   },
 
   notice = {

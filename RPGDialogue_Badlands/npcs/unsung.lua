@@ -17,6 +17,9 @@ P:NPC {
   greetings = {
     { id = "g_shop", text = "Coal, flux, iron bars and grinding stones, all at Badlands prices, which means expensive. Step right up!" },
     { id = "g_back", when = { metBefore = true }, text = "Oh good, a customer who's paid before! You're my favorite kind." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's back after {away} away! Prices went up while you were gone, but for a returning customer they went up a little less." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone in town into a deal they didn't want, and I respect that, pal. Just remember I'm the one who sets the prices here." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear somebody got swindled, and the description sounds a lot like you. Don't try it at my counter, because I invented half those tricks." },
   },
 
   notice = {

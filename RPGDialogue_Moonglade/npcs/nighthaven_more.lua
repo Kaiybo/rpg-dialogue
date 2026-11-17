@@ -14,6 +14,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Good evening, traveller. The Circle's wares are here for those who have earned them." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me see if the Circle thinks better of you than it did last time." },
+    { id = "g_away", when = { away = 14 }, text = "Welcome back after {away}, traveller. I'll need to look again at what the Circle thinks of you, because a great deal can change in that time." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word in the village is that you've helped Nighthaven, and the Circle notices who comes to mend, so I've made a note of it." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I've heard you were caught in an untruth in Nighthaven, and the Circle notices that as surely as it notices good work. Keep it in mind when you come to trade." },
   },
 
   start = "hello",

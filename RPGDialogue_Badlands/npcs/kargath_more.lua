@@ -17,6 +17,8 @@ P:NPC {
     { id = "g_default", text = "You walked in from the west, and you didn't look behind you once. Remember to do that next time." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, so the Badlands haven't eaten you yet. Give them time." },
     { id = "g_coyotes", when = { questActive = TODO_QUEST("Coyote Thieves") }, text = "The coyotes were at the sacks again last night, so I hope you've brought me jaws." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you still walked in without looking behind you. Some things don't change, I suppose." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody caught you in a lie here in Kargath. Out in the Badlands people remember the liars longer than the dead, so watch yourself." },
   },
 
   notice = {
@@ -279,6 +281,8 @@ P:NPC {
     { id = "g_default", text = "Mind the jars, mon, and don't touch the green one. It be thinking about exploding." },
     { id = "g_back", when = { metBefore = true }, text = "You be back! Jarkal always got more work for somebody with strong arms and a strong stomach." },
     { id = "g_reagents", when = { questActive = TODO_QUEST("Badlands Reagent Run") }, text = "Gizzards, fangs and shards, mon. The buzzards, the coyotes and the rock elementals be keeping them for me." },
+    { id = "g_away", when = { away = 14 }, text = "You be back after {away} away, mon! Jarkal got jars piled to the roof, waitin' for somebody with strong arms." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talk somebody into somethin' they didn't want, mon. Jarkal be impressed, but don't try it on me, because I got the green jar." },
   },
 
   notice = {

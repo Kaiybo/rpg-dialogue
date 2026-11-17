@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_gate", text = "Well met. The Valley of Heroes is open to all who come in peace. Keep your blade sheathed and you'll find us friendly." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you've come back. I like faces that come back." },
+    { id = "g_away", when = { away = 14 }, text = "Welcome back to the Valley of Heroes. You've been gone {away}, and the roads have been hard on good folk, so I'm glad to see you whole." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way since you last stood at my gate, and it shows in how you carry your blade. Stormwind could use a hundred more like you." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The watch tells me you've been doing good work for the city's folk. That's the sort of thing I like to find in my reports." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I've heard you've been leaning hard on folk in the city. Keep your blade sheathed inside these walls, as I asked you the first time." },
   },
 
   notice = {

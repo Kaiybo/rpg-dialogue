@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_queen", text = "Before you stands the Dark Lady. Kneel if you like; I won't insist, not today." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "One of my own. You were taken, and you took yourself back; never forget that, because I don't." },
     { id = "g_back", when = { metBefore = true }, text = "Once more you come to me. Speak, then; I have little patience, but I have a great deal of time." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Undercity endured without you, as it endures everything. Speak, then, and tell me what you saw above." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you last came before me, and you return far more dangerous than you left. That pleases me, because the Forsaken have need of dangerous servants." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you have served the Undercity well. I remember those who serve me, and I remember those who don't." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your lies was seen through in my city. Lie to my subjects if you must, but never think to lie to me." },
   },
 
   notice = {
@@ -277,6 +281,9 @@ P:NPC {
   greetings = {
     { id = "g_dread", text = "You may approach, slowly. I serve the Dark Lady, and in her name I suffer visitors." },
     { id = "g_back", when = { metBefore = true }, text = "Returned, have you? The Dark Lady finds you useful, and I find you, shall we say, adequate." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, you've been away {away}, and I confess the court was no duller for it. Still, the Dark Lady finds you useful, so welcome back." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone in the city swallowed one of your little stories whole. How delightful; perhaps you're more than adequate after all." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "They say you made one of the Dark Lady's subjects tremble. Fear is a currency I understand well, so spend it wisely." },
   },
 
   notice = {
@@ -473,6 +480,9 @@ P:NPC {
   greetings = {
     { id = "g_lab", text = "Welcome, welcome, to the Apothecarium! Mind the green, and mind the purple, too; actually, mind all the colours." },
     { id = "g_back", when = { metBefore = true }, text = "Splendid, my errand-runner! Do you have my reagents? Oh, you do, splendid; science thanks you!" },
+    { id = "g_away", when = { away = 14 }, text = "My errand-runner, back after {away}! The experiments carried on without you, of course, but they were so much less fun." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown so much sturdier since your first errand for me! Sturdier errand-runners survive the more interesting reagents, so science is very pleased with you." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone believed one of your fibs, and how marvellous that is! Deception is just another reagent, you know, and you seem to measure it very well." },
   },
 
   notice = {
@@ -675,6 +685,8 @@ P:NPC {
 
   greetings = {
     { id = "g_magic", text = "The Magic Quarter. Knowledge is the only weapon the Forsaken never had to dig out of a grave. What do you need?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Magic Quarter has kept its secrets in your absence. Now that you're back, what do you need?" },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your lies was found out in the city. I swore an oath once beside a friend who lied to us all, so forgive me if I'm slow to trust you." },
   },
 
   notice = {
@@ -850,6 +862,10 @@ P:NPC {
   greetings = {
     { id = "g_rest", text = "Sit yourself down and put your feet up, whatever state they're in. Mine have seen better centuries." },
     { id = "g_home", when = { homeInn = { "Undercity" } }, text = "Back under the city, then. Your bed's where you left it, and so's the damp." },
+    { id = "g_away", when = { away = 14 }, text = "Back under the city after {away}, then. Your chair's still where you left it, and nobody's taken it, because nobody takes anyone's chair down here." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been gone {away}, friend, and I kept your chair empty the whole while. Sit down and put your feet up, whatever state they're in." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody down here was going on about you, and in kind terms, which is rare enough in this city. Sit; you've earned a quiet hour." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard you put someone in a foul temper not long ago, and they sulked in my common room for an hour. Mind your manners down here, and I'll mind your chair." },
   },
 
   notice = {

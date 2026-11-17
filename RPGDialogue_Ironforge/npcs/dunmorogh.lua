@@ -232,6 +232,9 @@ P:NPC {
   greetings = {
     { id = "g_post", text = "Ye look sturdy enough, which is good, for I need sturdy, an' all I ever get is green." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' I don't suppose ye've any mail fer me? No? Then I've some fer ye." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've had naught but green recruits through here the whole time. Good tae see a face that's been about a bit." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye were green as the rest when ye first came tae my post, an' look at ye now. I'll stop complainin' about recruits fer a day, on yer account." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear ye've been helpin' folk about the valley. That's the kind o' sturdy I've been askin' fer all along." },
   },
 
   notice = {
@@ -1094,6 +1097,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Grab a mug, find a stool, an' put yer feet near the fire. Ye've earned it, whatever it was." },
     { id = "g_home", when = { homeInn = { "Kharanos", "Thunderbrew Distillery" } }, text = "Home again! Yer room's warm an' yer tankard's clean, or mostly clean." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye look like ye've earned a mug twice over. Sit by the fire an' I'll fetch it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a good deal sturdier since ye first warmed yer hands in here. The Thunderbrews would say it's the ale, an' I'd not argue." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk about Kharanos have been sayin' kind things o' ye over their mugs. That's earned ye one on the house, in spirit at least." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear ye've got somebody in Kharanos fair riled. Leave it at the door, friend, fer this fire's fer warmin', no' fer feudin'." },
   },
 
   notice = {

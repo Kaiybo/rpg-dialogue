@@ -17,6 +17,10 @@ P:NPC {
   greetings = {
     { id = "g_forest", text = "Look at this forest, truly look at it. Whatever happens tomorrow, it was beautiful today." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see; the Hunt hasn't eaten you yet, and that is good." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the forest has turned its colors a little since then, though I doubt the Warsong noticed. I'm glad you came back to see it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since we last spoke, and I can see it in the way you move. Strength is a fine thing, so long as you remember to look up at the trees now and then." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the camp is angry with you, and in a place this tense it doesn't take much to start a fire. I'd let it cool, and perhaps think about what was said." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've done good work for Splintertree, and I'm glad of it, even if I wish more of that work were about sparing the forest than cutting it." },
   },
 
   notice = {
@@ -189,6 +193,10 @@ P:NPC {
   greetings = {
     { id = "g_gruff", text = "What is it? I'm counting wagons, so speak fast or speak elsewhere." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Fine; you're one of the few who doesn't waste my time." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, were you? I counted every wagon that came through while you were away, and I'll tell you now that most of them arrived in pieces." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've put on some real weight in the shoulders since I last saw you, the useful kind. Maybe now you could ride beside a wagon and make sure it gets where it's going." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you leaned on somebody here until they folded, and I've written that down too. Lean on the Sentinels next time, because they're the ones burning my wagons." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Somebody told me you talked them round to your way of thinking, which is more than I've managed with this camp in a year. If you've got words left over, try them on the quartermaster." },
   },
 
   notice = {
@@ -360,6 +368,9 @@ P:NPC {
 
   greetings = {
     { id = "g_wary", text = "Easy, mon. Eyes open and back to the wall, that be how we live in these woods." },
+    { id = "g_away", when = { away = 14 }, text = "Been a long while, mon, {away} by my count, and you still be walking. Dat be the first thing I check on anybody in these woods." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Somebody in da camp say they caught you in a lie, mon. I don't judge, but out here a man who lies about little things gets left behind on da big ones, so be careful." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word be going round dat you be slick with your tongue, mon, and somebody in da camp believed every word you said. Clever, but don't you go trying dat on Kuray'bin." },
   },
 
   notice = {

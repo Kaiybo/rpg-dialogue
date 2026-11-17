@@ -17,6 +17,8 @@ P:NPC {
     { id = "g_default", text = "Another one through the swamp in one piece. That takes some nerve, so I'll say well done." },
     { id = "g_back", when = { metBefore = true }, text = "Back in Stonard again? Then it must be growing on you, which is more than it's done for me." },
     { id = "g_tokkar", when = { questActive = TODO_QUEST("Lack of Surplus") }, text = "Tok'Kar's still waiting on that meat, so don't let the crocolisks have you first." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and somehow you still came back through the swamp. It must be growing on you, though I can't think why." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in Stonard was in a good mood after talking with you, and that's rare enough here to be worth mentioning. Well done." },
   },
 
   notice = {

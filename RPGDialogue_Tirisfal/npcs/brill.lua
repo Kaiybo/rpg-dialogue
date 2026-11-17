@@ -15,6 +15,9 @@ P:NPC {
   greetings = {
     { id = "g_brill", text = "State your business. The Crusade keeps me busy, and I prefer to stay that way." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and with results, I hope." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Crusade did not take that time off. I trust you return with something worth reporting." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were barely fit to hold a blade when I first sent you after the Scarlets, and now you look like someone they should fear. Good; make them fear you." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I'm told you made someone in Brill back down without drawing steel. That is efficient, and I value efficiency." },
   },
 
   notice = {
@@ -222,6 +225,9 @@ P:NPC {
   greetings = {
     { id = "g_hall", text = "Ah, you. There's work, and it's important, and I'd rather you did it than discussed it." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the town hall? Excellent, because I've more for you." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the work has piled up on my desk in the meantime. I'm glad you're back, since I'd rather you did it than discussed it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The town has been telling me about the work you've done for Brill. It was a plague town once, and people like you are why it isn't now." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your stories was found out in Brill. I keep a tidy town, so keep your lies tidy too, or better yet, keep them elsewhere." },
   },
 
   notice = {
@@ -385,6 +391,9 @@ P:NPC {
   greetings = {
     { id = "g_lab", text = "Careful where you put your hands. Some of these bottles are only mostly safe." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, my helper. Have you brought me something interesting?" },
+    { id = "g_away", when = { away = 14 }, text = "Ah, my helper, back after {away}! I've been brewing all the while, and I have a great many new things for you to fetch." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since I first sent you out for samples, and stronger helpers can bring back far more interesting ones. I'm thrilled." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Someone in Brill swallowed one of your little tales, I hear. I do admire a good deception, since my whole profession depends on people not asking what's in the bottle." },
   },
 
   notice = {
@@ -689,6 +698,8 @@ P:NPC {
 
   greetings = {
     { id = "g_tavern", text = "Cold tonight, though it's always cold, now. You stop noticing, and then one day you notice again." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, haven't you? I noticed, which surprised me, since I don't notice much any more." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the tavern said you were kind to them. It's been a long while since I heard anyone in Brill say that about anyone." },
   },
 
   notice = {
@@ -843,6 +854,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Welcome to the Gallows' End! Sit anywhere you like; nobody here bites. Well, nobody here bites guests." },
     { id = "g_home", when = { homeInn = { "Brill", "Gallows' End Tavern" } }, text = "Your room's kept. Don't mind the bats; they pay rent in silence." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! Your room's kept, and the bats have been on their best behaviour, more or less." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been gone {away}, and I was starting to think you'd found yourself a better tavern. Sit down, and the first drink's on the house for coming home." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of my regulars couldn't stop talking about you last night, and they don't usually talk at all. Whatever you said to them, it did some good." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody came in here last week muttering about you, and muttering's bad for business. Keep your quarrels out of the Gallows' End, if you please." },
   },
 
   notice = {

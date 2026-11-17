@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back from the mountain in one piece, I see. Pull up a crate; it's the only furniture we have." },
     { id = "g_deputy", when = { questDone = TODO_QUEST("The True Masters") }, text = "Deputy. Sit down and tell me what the Steppes did to you today." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The mountain glows brighter after dark, and so do the orcs' fires. Keep your voice down." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and I'd begun to fear the mountain had you. Pull up a crate and tell me where you've been." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away} and come back looking like you could take Blackrock on your own. Sit down, because I've work worthy of that." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into a real fighter since we last spoke. The Steppes need that more than they need another crate." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you put the fear into someone on the ridge. We're few enough up here, so save it for the Blackrock orcs." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Vigil's been singing your praises, quietly, since the orcs can hear us. You've my thanks as well." },
   },
 
   notice = {
@@ -420,6 +425,8 @@ P:NPC {
     { id = "g_default", text = "Ishnu-alah. Mind the edge of the ridge; the ground is softer than it looks." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; I have been reading the smoke over the mountain, and I'd welcome another pair of eyes." },
     { id = "g_proved", when = { questDone = TODO_QUEST("Dragonkin Menace") }, text = "The dragonkin below the ridge remember you now. So do I." },
+    { id = "g_away", when = { away = 14 }, text = "You return after {away} away. The smoke over the mountain has not thinned at all while you were gone, so I'm glad of your eyes again." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone on the ridge carries a grievance after speaking with you. Anger travels quickly in a camp this small, like fire in dry grass." },
   },
 
   notice = {
@@ -747,6 +754,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Stand at attention when you approach, soldier! Winky, look sharp, we've got company." },
     { id = "g_back", when = { metBefore = true }, text = "Soldier! Back on the ridge and reporting, are we? Good, good, because Winky's been telling lies about you again." },
+    { id = "g_away", when = { away = 14 }, text = "Soldier! You've been absent without leave for {away}, and Winky noticed first, so I'll let it slide this once if you fall in smartly." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Winky tells me you were caught fibbing to someone on the ridge, soldier. Winky's a liar himself, mind, but he's never once been caught." },
   },
 
   notice = {

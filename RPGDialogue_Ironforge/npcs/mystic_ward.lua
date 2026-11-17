@@ -22,6 +22,10 @@ P:NPC {
     { id = "g_walk", text = "Walk wi' me, if ye want a word; I think better on my feet, an' the floor's warm." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, one o' the Light's own. Come along, then, an' tell me how the road's treatin' ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Fall in beside me; I've done six laps o' the Hall waitin' for someone sensible tae talk tae." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been away {away}, by my count, an' I've done a great many laps o' this Hall missin' a sensible voice. Walk wi' me an' tell me where ye've been." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit since last we walked together, an' it's in yer step as much as yer shoulders. The Light's been wi' ye on the road, I think." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word's reached the Hall that ye've given somebody in the city cause fer anger. Walk wi' me a while, an' then go an' set it right." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear somebody in the city's been speakin' well o' ye, an' that does an old priest's heart good. Kindness travels faster than ye'd think in these halls." },
   },
 
   notice = {
@@ -1263,6 +1267,9 @@ P:NPC {
   greetings = {
     { id = "g_cough", text = "*cough* Well met, friend! Pay nae heed tae the holes in me; this priest 'ere's patchin' ol' Muiredon up a stitch at a time." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? I'm mendin', thank ya, slower than I'd like an' faster than Tiza'd like." },
+    { id = "g_away", when = { away = 14 }, text = "*cough* Ye've been gone {away}, an' I'm still lyin' here gettin' stitched! Tiza says I'm mendin', but she says that every day." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at ye, all grown fierce since ye last came by! Narm would've liked ye, an' I mean that as the highest praise I've got." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The priests say ye've been doin' good turns about the city, friend. That's the stuff, an' it's better medicine than half Tiza's poultices." },
   },
 
   notice = {

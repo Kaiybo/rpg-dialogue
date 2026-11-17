@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in and shut the door, shut it, before the cold gets in, and the bugs! You didn't bring any bugs, did you?" },
     { id = "g_home", when = { homeInn = { "Everlook" } }, text = "Welcome back! There's a warm bed, a hot drink and no bugs, because I checked, twice." },
+    { id = "g_away", when = { away = 14 }, text = "Shut the door, shut it, you've been gone {away} and you're letting all the warm out! Let me look at you, sugar, and make sure you didn't bring any bugs back." },
+    { id = "g_away_long", when = { away = 60 }, text = "Sugar, you've been gone {away}, and I'd half given your room to a trapper. Come in and get warm, and tell me there were no bugs where you've been." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody came in here smiling about something you told them, sugar, and in this cold that's worth more than a hot drink. Whatever you said, say it more often." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I heard you gave somebody a fright in town, sugar, and they were telling it at my bar for an hour, so save it for my beetle, would you?" },
   },
 
   notice = {
@@ -406,6 +410,10 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Good day to you, and may the Light keep you warm. Winterspring could use the help." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Light has kept you, I see. Welcome back to Everlook, and come warm yourself by the fire." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we first met, and I can see the Light's work in it, or at least a good deal of hard road. The Dawn always has need of hands as steady as yours have become." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everlook has been speaking well of you, and the traders here don't praise anyone for free, so I'd say you've earned it, and I thank you." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear someone in town parted from you in anger, and I'd not take sides without hearing both, though I'll say the Dawn's work always goes better when the living aren't quarreling." },
   },
 
   notice = {

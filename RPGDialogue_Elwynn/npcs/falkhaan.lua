@@ -18,6 +18,9 @@ P:NPC {
     { id = "g_back", when = { questDone = TODO_QUEST("Rest and Relaxation") }, text = "Well? Is the Lion's Pride everything I said?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be walking. The inn's lamps are lit; follow them." },
     { id = "g_far", when = { minLevel = 25 }, text = "Look who's back on my road. You've worn out a few pairs of boots since." },
+    { id = "g_away", when = { away = 14 }, text = "There's a face I haven't seen on my road for {away}! You'll want a hot meal and a soft bed, so you know exactly where to go." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since I last pointed you south, friend. I'd say Farley's stew did that, but I suspect it was the road." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk up the road have been saying kind things about you, and I like to think I sent you off on the right foot." },
   },
 
   notice = {

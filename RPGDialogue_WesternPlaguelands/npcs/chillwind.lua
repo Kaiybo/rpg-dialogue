@@ -17,6 +17,11 @@ P:NPC {
     { id = "g_camp", text = "On your feet or on your way, soldier, for Chillwind hasn't room for anyone sitting down." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, good. I counted you out of that gate, and I'm glad to count you in again." },
     { id = "g_hero", when = { questDone = TODO_QUEST("Mission Accomplished!") }, text = "There's the hero of the cauldrons! Somebody find this soldier a stool, and don't let anyone tell you it isn't earned." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "I counted you out of that gate {away} ago, and I'm glad to count you back in. Get some food, then report." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been gone {away} and come back a good deal tougher than you left. Chillwind can use every bit of that, soldier." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way since we last spoke, soldier, and it shows. I've harder work for you now, if you'll have it." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you put the fear into someone in camp. Save it for the Scourge, soldier, because everyone in Chillwind is on your side." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole camp's talking about what you did for us. That's the sort of talk I like to hear around my fires." },
   },
 
   notice = {
@@ -350,6 +355,9 @@ P:NPC {
   greetings = {
     { id = "g_light", text = "The Light keep you, friend, and keep you upwind of the farms while it's at it." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Tell me a cauldron coughed and choked out there, and you'll have made my whole day." },
+    { id = "g_away", when = { away = 14 }, text = "The Light be thanked, you're back after {away} away! I kept you in my prayers the whole time, and I meant every one." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in camp is hurt and angry after speaking with you. The Light asks us to mend what we break, so perhaps you'll find them before you go." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you lifted someone's heart in camp today. Out here that's worth as much as a broken cauldron, though do break those too." },
   },
 
   notice = {
@@ -607,6 +615,8 @@ P:NPC {
   greetings = {
     { id = "g_busy", text = "Mind the cauldron, and mind the bottles, and actually, if you'd just stand right there and not move, I'd be ever so grateful." },
     { id = "g_back", when = { metBefore = true }, text = "You again! You're a terrible influence, you know. Every time you visit I end up doing something brave by proxy." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, you're back! It's been {away}, and I've done nothing brave at all in the meantime, which I'm rather ashamed of." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round to your way of thinking. Please don't do it to me, because I'm very easily talked round, and I'd end up in Andorhal." },
   },
 
   notice = {
@@ -845,6 +855,8 @@ P:NPC {
   greetings = {
     { id = "g_who", text = "Who sent you, and what's your business? Say it slowly, and keep your hands where I can see them." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the hired help returns. Any news of my brother? Good news, I mean, the kind where he's finally dead." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, which in my experience means you were either working or bought. Which was it?" },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Someone in camp was swindled, I'm told, and the description sounded rather like you. I know the trade well enough, so mind your hands." },
   },
 
   notice = {

@@ -18,6 +18,8 @@ P:NPC {
     { id = "g_default", text = "Welcome to Dalaran! Mind the scaffolding, please." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! Nothing's exploded since you were last here, so that's nice." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Oh! Um. Hello. Welcome, I suppose, if you're expected?" },
+    { id = "g_away", when = { away = 14 }, text = "Oh, you're back after {away} away, and nothing has exploded in all that time, which is the official line and also mostly true!" },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Oh dear, someone in the city is rather upset after speaking with you, and I'm only the greeter, so I'll just say welcome and smile very hard." },
   },
 
   notice = {

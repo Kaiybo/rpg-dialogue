@@ -18,6 +18,10 @@ P:NPC {
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
     { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley already? Good, now tell me how many." },
     { id = "g_keeshan", when = { questDone = TODO_QUEST("Missing In Action") }, text = "You're the one who brought Keeshan home, and I won't forget it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Blackrock haven't let up for one of them. Good to have another blade back on the lake." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come on a good deal since I first sent you east. I'd count you as two guards now, and I need every one I can count." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear you've been putting the fear into folk in town. Save it for the orcs, because Lakeshire's frightened enough already." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The guards tell me you've been pulling your weight around Lakeshire. That's one fewer thing on my list, and I thank you for it." },
   },
 
   notice = {

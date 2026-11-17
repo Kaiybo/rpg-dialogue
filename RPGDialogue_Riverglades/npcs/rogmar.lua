@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You came back from the glades on your own feet, which is more than most can say this season." },
     { id = "g_hero", when = { townStanding = { town = "rogmar", min = 55 } }, text = "Make way for this one; Rog'mar owes them blood and remembers it." },
     { id = "g_distrust", when = { townStanding = { town = "rogmar", max = -20 } }, text = "You again. Say what you want, and say it from over there." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and Krol'dok did not rest while you were away, so neither did we." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You are stronger than when you first came to Rog'mar, and I can use that strength at Krol'dok, where the ogres will feel the difference before you do." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made someone in Rog'mar back down, and I would rather you saved that for the Twilight's Hammer, because they are the ones who have earned fear." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Rog'mar speaks well of you at more than one fire, and Rog'mar does not speak well of many." },
   },
 
   notice = {

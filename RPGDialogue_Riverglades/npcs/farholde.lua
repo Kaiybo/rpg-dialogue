@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again, and good to see it. Most who leave the Riverglades never come back." },
     { id = "g_hero", when = { townStanding = { town = "farholde", min = 55 } }, text = "Make room for them, riders; they've bled for this keep." },
     { id = "g_distrust", when = { townStanding = { town = "farholde", max = -20 } }, text = "You. State your business, and keep your hands where my sentries can see them." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Farholde still stands, though I've had names to add to my reports since you left." },
+    { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I'd counted you among those the Riverglades kept, so it's good to be wrong for once." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal harder since you last stood on this wall, and I can see it in how you carry yourself. I'll count you as two swords now, which is more than Stormwind ever sent me." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word on the wall is that you've done right by Farholde, and my riders don't praise anyone lightly, so you've earned it." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear you were caught in a lie in the keep, and I can't hold a wall with people I can't trust, so mend it, and quickly." },
   },
 
   notice = {
@@ -471,6 +476,9 @@ P:NPC {
     { id = "g_default", text = "Visitors! Sit, if you can find a chair that isn't holding a book." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because I've had a thought since you left. Several, actually." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Another mage! Please tell me you've read something recently." },
+    { id = "g_away", when = { away = 14 }, text = "You're back, after {away}! I've had thoughts since you left, dozens of them, and I'm afraid you're going to hear most of them." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown so much since you last sat in that chair, and I've only grown more books, which seems an unfair trade. Sorry, that sounded bitter, and I meant it kindly." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round in the keep, which I've never managed with anyone here, because I talk too fast and they stop listening, so will you tell me how you did it?" },
   },
 
   notice = {
@@ -1008,6 +1016,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Quietly, please; some of them are sleeping." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Would you sit with one of them a moment? Talking helps, though I don't know why." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and they're no better, though they're no worse either, which I've learned to count as a mercy. Sit a moment, if you can." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the keep came away from you angry, and I've enough troubled souls in these beds without more of them walking about, so make peace if you can, quietly." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came by the beds today and said you'd lifted their spirits, and that kind of news helps in here more than any tea, so thank you." },
   },
 
   notice = {

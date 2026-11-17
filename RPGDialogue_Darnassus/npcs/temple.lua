@@ -21,6 +21,10 @@ P:NPC {
     { id = "g_elune", text = "Elune be with you. The Temple is quiet at this hour, so speak softly and you'll be heard." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Welcome back to the Temple, young priest. Sit, if you have time; the lessons keep." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and I'm glad of it. The moon notices who comes back to her." },
+    { id = "g_away", when = { away = 14 }, text = "You have been away {away}, and the Temple kept its quiet in your absence. Sit a while, and let it settle you again." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown much since your last lesson here, and I can see the road in how you carry yourself. Elune has watched over you, it seems, and so has your own resolve." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words have passed between you and one of our people. Anger is a poor companion in the Temple, so leave it at the door if you can." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the city has spoken kindly of you, and such words travel softly but far among the branches. Elune smiles on gentleness." },
   },
 
   notice = {

@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_town", text = "Welcome tae Thelsamar, friend, an' make yerself comfortable! While ye're at it, have a look at that poster by the League's door." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the loch, an' good tae see ye! The tunnel rats have been askin' after ye, though no' fondly." },
+    { id = "g_away", when = { away = 14 }, text = "Back on the loch after {away}, an' a fine sight ye are! The poster by the League's door has a few new faces on it since ye left." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "By the Bronzebeard, ye've grown handy since I first pointed ye at that poster! The tunnel rats'll be wantin' a new hidin' place." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole town's been talkin' about the help ye've been givin', friend! Thelsamar doesnae forget a good turn." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear ye've got somebody in town fair cross wi' ye. Best patch it up, fer Thelsamar's too small a place tae be carryin' grudges." },
   },
 
   notice = {
@@ -274,6 +278,9 @@ P:NPC {
   greetings = {
     { id = "g_dig", text = "Watch the trench, an' the ropes, an' the lads, for they're workin', slowly but workin'." },
     { id = "g_back", when = { metBefore = true }, text = "Good, ye came back. We could always use another pair o' hands that know which end's the shovel." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the dig's moved on a good few feet since. Slowly, mind, but it's movin'." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a good deal more capable since ye last stood by my trench. I'd hand ye the heavy shovel now, an' that's no small honour." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked someone round in town. Ye'd no' fancy talkin' the Explorers' League into sendin' me more lads, would ye?" },
   },
 
   notice = {
@@ -533,6 +540,10 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "The Stoutlager welcomes ye! Sit down, have a pint an' tell us a tale, in that order." },
     { id = "g_home", when = { homeInn = { "Thelsamar", "Stoutlager Inn" } }, text = "The Stoutlager missed ye! Yer bed's warm an' yer mug's clean, or clean enough, anyway." },
+    { id = "g_away", when = { away = 14 }, text = "The Stoutlager's missed ye these {away}! Sit down, have a pint, an' then I'll want a tale fer every one o' those days." },
+    { id = "g_away_long", when = { away = 60 }, text = "Well, I'll be, {away} gone an' ye walk back in like ye'd stepped out fer air! Sit, sit, fer that tale'll need a good few pints." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody's been sayin' fine things about ye over my bar, an' I'll drink tae that! Well, I'll drink tae most things." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word round the tables is somebody swallowed a tale o' yours that wasnae quite true. Tall tales are welcome here, friend, but mind they stay on the right side o' fun." },
   },
 
   notice = {
@@ -712,6 +723,9 @@ P:NPC {
 
   greetings = {
     { id = "g_kitchen", text = "Out o' my kitchen, unless ye've brought me somethin' tae cook." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' ye come back tae my kitchen empty-handed, I'll wager. Well, sit, since ye're here." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear ye've been bein' pleasant tae folk in town. Pleasant's all very well, but have ye brought me anythin' tae cook?" },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk say ye've been helpin' about Thelsamar. Good, then ye'll no' mind helpin' me in the kitchen next." },
   },
 
   notice = {
@@ -907,6 +921,10 @@ P:NPC {
 
   greetings = {
     { id = "g_ease", text = "At ease. Ceremony can wait until the troggs do." },
+    { id = "g_away", when = { away = 14 }, text = "At ease, and welcome back after {away} away. The troggs kept the same hours while you were gone, so nothing's changed on this hill." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away}, and you've come back with the bearing of a seasoned fighter. I'll forgo the ceremony, but consider yourself saluted." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "A report reached me that someone in Thelsamar caught you in a falsehood. I run this post on honest reports, so see that yours stay that way." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I'm told you've been of service to the town these past days. Well done, and I mean that formally." },
   },
 
   notice = {
@@ -1174,6 +1192,9 @@ P:NPC {
 
   greetings = {
     { id = "g_dam", text = "Careful on the walkway! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, you're back after {away}! The dam held the whole time, of course it held, it was engineered to hold." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown rather sturdy since your last visit. Do be gentle on the walkway, though, because it's rated for sturdy, but only just." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in Thelsamar has been speaking well of you! It's nice to hear good news, because I usually only hear about cracks." },
   },
 
   notice = {

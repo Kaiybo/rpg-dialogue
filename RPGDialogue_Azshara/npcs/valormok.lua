@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend. The camp's still standing, more or less." },
     { id = "g_avenged", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who brought me the elf's head! Sit by my fire whenever you like." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and Valormok's still standing, though I won't say it was easy. Come and sit by the fire." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since I first saw you, and I can see it in your stance. The Horde will win here, and you're part of why I believe it." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "Word in camp is you put the fear into somebody here, and I'll not have my own grunts cowed, so save that look for the elves on the cliffs." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp's been talking about how you helped Valormok, and after the dead we've buried, that talk means a great deal to me." },
   },
 
   notice = {
@@ -246,6 +250,9 @@ P:NPC {
     { id = "g_default", text = "Another face from Orgrimmar. Tell me you brought ale." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and alive, and I've a use for both of those things." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stealing Knowledge") }, text = "My favourite partner in crime. How's the tablet trade treating you?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nobody brought me ale in all that time, so I'm hoping you did." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you sold somebody in camp a story and they bought every word, which is the first thing I've heard about you that I'd pay for, though you'd do well not to try it on me." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone caught you lying, and the trick is not getting caught, partner, because sloppy work makes the rest of us look bad." },
   },
 
   notice = {
@@ -480,6 +487,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Need a wind rider? They're fed, rested and ready to go." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The beasts know your smell now." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, but the beasts still know your smell." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody in camp has been cursing your name, and I don't care why, but keep it away from my beasts, because they bite angry people." },
   },
 
   notice = {

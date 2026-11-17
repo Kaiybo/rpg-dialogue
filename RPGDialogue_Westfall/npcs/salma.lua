@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_welcome", text = "Come in, come in! There's always a pot on." },
     { id = "g_stew", when = { questActive = TODO_QUEST("Westfall Stew") }, text = "Here on stew business? Good, because the pot's getting impatient." },
     { id = "g_after", when = { questDone = TODO_QUEST("Westfall Stew") }, text = "There's my stew-gatherer! Sit down and eat something, you're far too thin." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you look like you've not had a proper meal the whole time! Sit down, because the pot's on." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've grown broad since you were fetching murloc eyes for my stew. It must have been the stew, whatever you tell me." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the neighbours has been saying lovely things about you, and I told them you've always eaten your stew without complaining." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk round the farms, and that warms me better than any stove. Come in and let me feed you for it." },
   },
 
   notice = {

@@ -18,6 +18,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You've come back to the border. The Earthmother keeps you, it seems." },
     { id = "g_helped", when = { questDone = TODO_QUEST("Spiritual Unrest") }, text = "The shrine is quieter since you went there. I sleep better for it, and so do the Sentinels." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The ghosts walk further from the shrine after dark. Stay near the fire, friend." },
+    { id = "g_away", when = { away = 14 }, text = "You have been away from the border {away}, friend, and the ghosts have walked further from the shrine in that time. I am glad the Earthmother brought you back." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since we last spoke, and I can feel it the way the earth feels a heavier step. Walk gently here all the same, for the Sentinels notice such things too." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "The Sentinels say one of their own caught you in a lie, friend, and here a guest lives on his promises. I would mend that quickly, for both our sakes." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you spoke kindly to someone at the Point, and they have been easier since, and that is how a guest earns his place, friend." },
   },
 
   notice = {

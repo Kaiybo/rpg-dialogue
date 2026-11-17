@@ -15,6 +15,8 @@ P:NPC {
   greetings = {
     { id = "g_chapel", text = "Light keep you, friend. Sit a moment, if you're not in a hurry; few people stop to talk to an old man about an old battle." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. I'd hoped you would, though I couldn't say why." },
+    { id = "g_away", when = { away = 14 }, text = "You came back after {away} away, and I'd hoped you would. Sit with me, for an old man has few visitors and fewer who return." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you gave someone at the chapel a kind word, and they've been smiling about it since. My Pamela would have liked you, I think." },
   },
 
   notice = {
@@ -424,6 +426,8 @@ P:NPC {
 
   greetings = {
     { id = "g_smoke", text = "Aye? Speak up, or get out of me smoke." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the smoke's been just as thick without ye. Speak up, then." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "Heard ye put the wind up somebody at the chapel. Do that out in the fields, not in here, or ye'll answer tae me." },
   },
 
   notice = {

@@ -21,6 +21,10 @@ P:NPC {
     { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "Ah, Darkshire's favourite! Come in, come in, and mind the council's chairs, because they're older than they look." },
     { id = "g_distrust", when = { townStanding = { town = "darkshire", max = -20 } }, text = "The Night Watch keeps a file on you, and I'm told it's a thick one." },
     { id = "g_bride", when = { questActive = TODO_QUEST("Bride of the Embalmer") }, text = "Have you brought the heart? Don't make that face at me; you know perfectly well which heart I mean." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, {class}, and Darkshire has buried two more of its own while you were gone. Do sit, and tell me Stormwind has finally stirred." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "Back after {away}, and looking far more like an army than anything Stormwind has sent me! The council will be delighted, or they would be, if they were ever delighted." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The council tells me you've been of real service to Darkshire these past days. I shall mention it in my next letter to the Crown, for all the good it will do." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've offended someone in my town, {class}. Darkshire has precious few friends left, so I'd thank you not to cost it any more." },
   },
 
   notice = {

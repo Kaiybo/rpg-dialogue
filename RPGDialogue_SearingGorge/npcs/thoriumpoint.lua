@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_point", text = "Welcome tae Thorium Point, where everything that happens is my responsibility, an' that includes you, now." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. Ye're either useful or lost, an' I'm hopin' useful." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "Ye've been gone {away}, an' everythin' that went wrong at the Point in that time was my responsibility too. Glad tae have ye back, then." },
+    { id = "g_away_long", when = { away = 60 }, text = "I'd marked ye down as lost tae the Dark Irons after {away} away. Strike that from the ledger, then, an' get back tae work." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit since we last spoke, an' the Brotherhood notices that sort o' thing. There's harder work for ye now." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody at the Point caught ye in a lie. Everythin' here is my responsibility, an' that includes the truth, so don't make me sort it out." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The Brotherhood's been sayin' good things about ye. That's rare praise from a lot o' dwarves who mostly talk about ore." },
   },
 
   notice = {
@@ -271,6 +276,8 @@ P:NPC {
   greetings = {
     { id = "g_rest", text = "Och, what is it now, when I'd just sat down? Fine, fine, out with it." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good! Ye can do the thing they want me tae do, an' everyone's happy." },
+    { id = "g_away", when = { away = 14 }, text = "Och, ye've been gone {away}, an' they've had me doin' the work the whole time. Ye can take it off my hands now, I'd say." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked somebody round tae doin' somethin'. Could ye talk them round tae doin' my bit as well?" },
   },
 
   notice = {
@@ -427,6 +434,8 @@ P:NPC {
   greetings = {
     { id = "g_who", text = "Who goes there? No, don't tell me, I'll know ye by yer step... hmm, no idea at all. Who goes there?" },
     { id = "g_back", when = { metBefore = true }, text = "Ah! I know that step now, so welcome back, friend, for I never forget a footfall, mostly." },
+    { id = "g_away", when = { away = 14 }, text = "I know that step, even after {away} away! Well, I think I do, so welcome back, friend." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "Word along the walls is ye gave somebody a proper fright. I heard it in their step for a day after, for I hear everythin', mostly." },
   },
 
   notice = {

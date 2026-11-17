@@ -18,6 +18,9 @@ P:NPC {
     { id = "g_busy", text = "Unless you're carrying a hammer, keep walking." },
     { id = "g_tools", when = { questActive = TODO_QUEST("The Lost Tools") }, text = "My toolbox? Have you got my toolbox? Then why on earth are you dry?" },
     { id = "g_after", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "Look at that span, go on, look at it. That's craftsmanship, that is." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away} and the bridge still isn't finished, though I suppose that's hardly your fault. Unless you've brought a hammer, of course." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've built yourself up since you went diving for my tools, I'll say that. Good sturdy work, like a proper span." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in town round to your way of thinking. Come and talk the Crown into paying for my bridge, if you're so clever." },
   },
 
   notice = {

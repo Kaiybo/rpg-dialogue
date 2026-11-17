@@ -13,6 +13,8 @@ P:Pool {
   greetings = {
     { id = "g_stalls", text = "Stalls are clean, mostly." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Leave {pet} with me or take {pet} along. Either way, mind the hay." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and whatever you left with me is fatter for it. Come and see." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Folk say you did the town a good turn. The animals don't care, but I do." },
   },
   notice = {
     { id = "n_pet_hurt", cat = "pet", when = { pet = { type = "Beast" }, durability = { max = 0.3 } },
@@ -58,6 +60,8 @@ P:Pool {
   greetings = {
     { id = "g_vault", text = "Deposit, withdrawal, or are you just admiring the vault?" },
     { id = "g_rich", when = { money = { min = 1000000 } }, text = "Ah, do come in, and mind the step." },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}. Your vault's exactly as you left it, which is the whole point of us." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There's talk you've been telling clever stories in town. The bank believes in ledgers rather than stories, so let's keep to those." },
   },
   lines = {
     { id = "l_default", text = "What you leave here stays here. That's the whole of the job, and I'm very good at it." },
@@ -69,7 +73,10 @@ P:Pool {
 
 P:Pool {
   id = "auctioneer", role = "auctioneer",
-  greetings = { { id = "g_bid", text = "Bidding, buying out, or selling?" } },
+  greetings = {
+    { id = "g_bid", text = "Bidding, buying out, or selling?" },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}? Half the listings have changed hands since, so have a look." },
+  },
   lines = {
     { id = "l_default", text = "The house takes its cut, the seller takes the rest, and everybody blames me for the prices." },
   },
@@ -85,6 +92,8 @@ P:Pool {
   greetings = {
     { id = "g_anvil", text = "Repairs, or something new?" },
     { id = "g_broken", when = { durability = { max = 0.25 } }, text = "Put it all on the bench, all of it." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and by the look of your gear you spent most of it getting hit. Put it on the bench." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you've been leaning on folk in town. I'll mend your steel, but I'll not be leaned on, so we understand each other." },
   },
   notice = {
     { id = "n_broken", cat = "gear", when = { durability = { max = 0.2 } }, place = "before",
@@ -127,7 +136,10 @@ P:Pool {
 ---------------------------------------------------------------------------
 P:Pool {
   id = "vendor_food", role = "vendor", subtitle = { "food", "bread", "baker", "butcher", "meat", "fruit", "cook" },
-  greetings = { { id = "g_fresh", text = "Fresh today, or mostly today." } },
+  greetings = {
+    { id = "g_fresh", text = "Fresh today, or mostly today." },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}? You'll be hungry, then, because road food never fills anyone." },
+  },
   lines = {
     { id = "l_default", text = "You'll not fight on an empty stomach. Well, you will, but not for long." },
   },
@@ -137,7 +149,10 @@ P:Pool {
 
 P:Pool {
   id = "vendor_drink", role = "vendor", subtitle = { "drink", "wine", "brew", "ale", "spirits" },
-  greetings = { { id = "g_pour", text = "Something to wash the road down?" } },
+  greetings = {
+    { id = "g_pour", text = "Something to wash the road down?" },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, so I'd say you're owed a drink. You'll be paying for it, mind." },
+  },
   lines = {
     { id = "l_default", text = "Every bottle's honest. Some are honest about being terrible." },
     { id = "l_drunk", when = { drunk = { min = 2 } }, text = "You've had a few. I'll sell you one more, and then I'll sell you water." },
@@ -153,7 +168,10 @@ P:Pool {
 
 P:Pool {
   id = "vendor_reagents", role = "vendor", subtitle = { "reagent", "herbalism supplies", "alchemy supplies", "poison" },
-  greetings = { { id = "g_weigh", text = "Weighed fair, every pinch of it." } },
+  greetings = {
+    { id = "g_weigh", text = "Weighed fair, every pinch of it." },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}? You'll have run through your pouches by now, I expect." },
+  },
   lines = {
     { id = "l_default", text = "Powders, roots, little jars of things you don't want to sniff. What do you need?" },
     { id = "l_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK", "SHAMAN", "DRUID", "PALADIN" } },
@@ -174,6 +192,8 @@ P:Pool {
   greetings = {
     { id = "g_light", text = "Be welcome, and be honest. Here to learn?" },
     { id = "g_high", when = { minLevel = 40 }, text = "You've walked a long road since your first lesson. Come, there's more of it." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and I trust the Light walked with you. Come, let's see what it taught you." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've come a long way since I last taught you, and it shows in how you stand. Come, there's more to learn." },
   },
   notice = {
     { id = "n_dirty", cat = "gear", when = { durability = { max = 0.25 } },
@@ -267,6 +287,8 @@ P:Pool {
   greetings = {
     { id = "g_peace", text = "Peace. What do you need?" },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more? Good; the Light rewards the stubborn." },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}. I hope you prayed while you were gone, because I prayed for you." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've grown a great deal since our last lesson, and the Light has grown in you with it. Sit, and we'll go on." },
   },
   notice = {
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "PRIEST" },
@@ -352,6 +374,8 @@ P:Pool {
   greetings = {
     { id = "g_study", text = "Have you been studying, or just setting things on fire?" },
     { id = "g_vet", when = { class = "MAGE", minLevel = 40 }, text = "You've still got both eyebrows, I see, which means you've been careful. Come in." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and nothing's exploded in your absence. Make of that what you will." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've come on a long way since I last taught you; I can feel it in the air around you. Let's not waste it." },
   },
   notice = {
     { id = "n_orc", cat = "class", when = { race = "Orc", class = "MAGE" },
@@ -443,6 +467,8 @@ P:Pool {
   greetings = {
     { id = "g_quiet", text = "Shut that door first. Now, what is it you want?" },
     { id = "g_vet", when = { class = "WARLOCK", minLevel = 40 }, text = "Still yourself, I see. Good; not everyone who comes back is." },
+    { id = "g_away", when = { away = 7 }, text = "You've been away {away}, and you're still yourself. Shut the door and sit." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've grown stronger since our last lesson, and something has noticed. Let's make certain you stay the master of it." },
   },
   notice = {
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "WARLOCK" },
@@ -539,6 +565,8 @@ P:Pool {
   greetings = {
     { id = "g_track", text = "Wind's from the west, a good day for it. What do you need?" },
     { id = "g_pet", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "You and {pet} again. One of you is improving, and I won't say which." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and you smell of the wild. Good; that means you've been working." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've come on a long way since I last taught you. Your aim's steadier, and you move quieter, too." },
   },
   notice = {
     { id = "n_human", cat = "class", when = { race = "Human", class = "HUNTER" },
@@ -636,6 +664,8 @@ P:Pool {
   greetings = {
     { id = "g_elements", text = "The elements are restless today; come in." },
     { id = "g_wolf", when = { form = "ghostwolf" }, text = "Come in out of the wolf, and sit." },
+    { id = "g_away", when = { away = 7 }, text = "The spirits said you would return, and after {away}, here you are. Sit, and tell me what the elements showed you." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You have come a long way since I last taught you. The elements answer you more readily now, and I can hear it." },
   },
   notice = {
     { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
@@ -729,6 +759,8 @@ P:Pool {
   greetings = {
     { id = "g_grove", text = "Walk softly. Now, what will you learn?" },
     { id = "g_vet", when = { class = "DRUID", minLevel = 40 }, text = "Back in your own shape, I see. Sit, and tell me what the wild has been saying." },
+    { id = "g_away", when = { away = 7 }, text = "You have been away {away}, and the wild has marked you. Sit, and let me see how." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You have grown much since our last lesson, as a sapling grows between seasons. Let us see what more you can learn." },
   },
   notice = {
     { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "DRUID" },
@@ -834,6 +866,9 @@ P:Pool {
   greetings = {
     { id = "g_whisper", text = "Keep your voice down. What do you want to learn?" },
     { id = "g_vet", when = { class = "ROGUE", minLevel = 40 }, text = "You came in by the door this time. Getting sentimental?" },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and nobody's come asking after you, which is either good work or good luck." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've come a long way since I last taught you, and you walked in quieter than you used to. Good." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you sold someone in town a story and they bought it whole. Nicely done, but don't try it on me." },
   },
   notice = {
     { id = "n_stealth", cat = "class", when = { stealthed = true }, place = "replace",
@@ -931,6 +966,9 @@ P:Pool {
   greetings = {
     { id = "g_stance", text = "Feet apart, shield up. Now, what do you want?" },
     { id = "g_vet", when = { class = "WARRIOR", minLevel = 40 }, text = "Still standing, I see. Good; standing's most of the job." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and you've the bruises to show for it. Good; bruises are how you learn." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've come a long way since I last taught you; I can see it in your feet. Shield up, and let's go on." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you leaned on someone hard in town. Fear's a weapon, but use it on the enemy and not on the baker." },
   },
   notice = {
     { id = "n_dented", cat = "gear", when = { class = "WARRIOR", durability = { max = 0.3 } },
@@ -1024,6 +1062,8 @@ P:Pool {
   greetings = {
     { id = "g_where", text = "Where are you flying? Speak up, the wind riders are hungry." },
     { id = "g_again", when = { timesTalked = { min = 5 } }, text = "Back so soon? The riders know your smell by now." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and the wind riders have forgotten your smell. They'll learn it again soon enough." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "The riders say you threw your weight about in town. Don't try it with the wind riders, because they bite." },
   },
   notice = {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
@@ -1065,6 +1105,9 @@ P:Pool {
   greetings = {
     { id = "g_move", text = "Move along. If there's trouble, come and find me." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be wandering, friend. Keep to the road." },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}, are you? The watch hasn't changed, and neither has the road." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "Word at the barracks is you leaned on someone in town. Keep it outside the walls, or the watch will have something to say." },
+    { id = "g_word_help", when = { word = "helped" }, text = "I hear you did the town a good turn. The watch is grateful, though we'll not say so in front of the sergeant." },
   },
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
@@ -1119,6 +1162,9 @@ P:Pool {
   greetings = {
     { id = "g_strength", text = "Strength and honor. What is it you want?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's the night watch, so don't make it interesting." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. The watch stood without you, but it's good to see you back." },
+    { id = "g_word_angry", when = { word = "angered" }, text = "I hear you made someone in town very angry. Grudges turn into fights, and fights are my business, so watch yourself." },
+    { id = "g_word_help", when = { word = "helped" }, text = "Word is you did this place a good turn. Lok'tar; the guard remembers." },
   },
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
@@ -1173,6 +1219,9 @@ P:Pool {
     { id = "g_lost", when = { timesTalked = { max = 1 } }, text = "Lost? Everyone's lost their first week, so ask me anything." },
     { id = "g_hero", when = { townStanding = { town = "stormwind", min = 55 } }, text = "It's an honor, really, and I'm not just saying that." },
     { id = "g_distrust", when = { townStanding = { town = "stormwind", max = -20 } }, text = "The Watch knows your face, so behave yourself." },
+    { id = "g_away", when = { away = 7 }, text = "Back in Stormwind after {away}? Keep your blade sheathed, same as before." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word at the barracks is that you were caught lying to someone in the city. The Watch takes note of that sort of thing." },
+    { id = "g_word_help", when = { word = "helped" }, text = "I had it from {source} that you've done the city a good turn. The Watch is glad of you, {g:sir|ma'am}." },
   },
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
@@ -1222,6 +1271,8 @@ P:Pool {
   greetings = {
     { id = "g_forge", text = "Ye're under the mountain now. Warm enough for ye, eh?" },
     { id = "g_elf", when = { race = { "NightElf", "Skyborne" } }, text = "An elf, in Ironforge! Well, it's a big mountain, so mind the heat." },
+    { id = "g_away", when = { away = 7 }, text = "Ye've been gone {away}, an' the mountain's still standin'. Warm yerself, then." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "Word at the barracks is ye've been leanin' on folk in the Commons. Ye'll no' do that under this mountain while I'm on watch." },
   },
   notice = {
     { id = "n_dwarf_shaman", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
@@ -1261,6 +1312,8 @@ P:Pool {
   greetings = {
     { id = "g_elune", text = "Elune's light on you, stranger." },
     { id = "g_short", when = { race = { "Dwarf", "Gnome" } }, text = "Welcome. The branches are wide, and you won't fall." },
+    { id = "g_away", when = { away = 7 }, text = "You have been away {away}. The Sentinels noted your going, and now they note your return." },
+    { id = "g_word_trick", when = { word = "deceived" }, text = "There is talk among the Sentinels that you deceived someone in the city. We will be watching, as we always are." },
   },
   notice = {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
@@ -1302,6 +1355,8 @@ P:Pool {
   greetings = {
     { id = "g_strength", text = "Lok'tar. You're in Orgrimmar now, so act like it." },
     { id = "g_mage", when = { race = "Orc", class = "MAGE" }, text = "An orc with a staff and no axe? Don't set the Drag on fire." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. Orgrimmar's still standing, so walk in like you never left." },
+    { id = "g_word_help", when = { word = "helped" }, text = "I had it from {source} that you've done the city a service. Lok'tar; walk proud in the Valley of Strength." },
   },
   notice = {
     { id = "n_orc_mage", cat = "class", when = { race = "Orc", class = "MAGE" },
@@ -1340,6 +1395,8 @@ P:Pool {
   id = "guard_thunderbluff", role = "guard", community = "thunder_bluff",
   greetings = {
     { id = "g_winds", text = "Walk with the Earth Mother. The lifts will take you down when you're done." },
+    { id = "g_away", when = { away = 7 }, text = "You have been away {away}. The bluffs are as they were, and the lifts still run." },
+    { id = "g_word_angry", when = { word = "angered" }, text = "The braves say you angered someone on the bluffs. Settle it peaceably, traveler, because we settle things no other way here." },
   },
   notice = {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
@@ -1379,6 +1436,8 @@ P:Pool {
   id = "guard_undercity", role = "guard", community = "undercity",
   greetings = {
     { id = "g_dark", text = "You're in the Undercity. Keep to the paths and don't touch the green." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. The Deathguard noticed, as they notice everything." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word in the barracks is that a lie of yours was seen through. The Dark Lady's servants keep track of such things." },
   },
   notice = {
     { id = "n_paladin", cat = "class", when = { race = "Scourge", class = "PALADIN" },

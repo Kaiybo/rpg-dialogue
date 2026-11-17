@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_front", text = "You stand at the Dark Lady's front. Be useful to it, or stand somewhere else." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, good. The front moves forward only when people like you push it." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and the front did not wait for you. Report what you can and take up your post." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been gone {away} and come back stronger than you left, which the Dark Lady can use. Put it to work at the front." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You are a good deal more dangerous than when we last spoke. Southshore will learn that soon enough, I expect." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I'm told you put fear into someone at the Mill. Good, so long as you save the rest of it for Southshore." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word reached me that you were caught in a lie at the Mill. The dead have long memories and little patience, so don't make me hear it twice." },
   },
 
   notice = {
@@ -347,6 +352,9 @@ P:NPC {
   greetings = {
     { id = "g_bored", text = "Oh, a visitor, how thrilling. Please don't touch anything; most of it will kill you, and the rest will make you wish it had." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. I'd say I'm pleased, but I'm not anything, really, though you are useful." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, you've been gone {away}, have you? I hadn't noticed, though I suppose I'm meant to say I had." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've become considerably more dangerous since we last spoke. I find that almost interesting, which for me is a great deal." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone at the Mill was talked into something by a clever tongue, and it sounded rather like yours. I'll be reading my own labels twice while you're here." },
   },
 
   notice = {
@@ -600,6 +608,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Rest here, if you rest. Some of my guests don't need to, but they like the chairs." },
     { id = "g_home", when = { homeInn = { "Tarren Mill" } }, text = "Back at the Mill, then. Your bed's where you left it, and nobody's slept in it, since nobody here sleeps." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and your bed's not been touched, since nobody here sleeps. Do lie in it, if only so it remembers what it's for." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the deathguards came in nearly cheerful after a word with you, which I didn't think was possible any more. Whatever you said, do say it again." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone at the Mill's in a black mood over something you said. I'd sit near the door tonight, though the dead are patient, so it may keep." },
   },
 
   notice = {

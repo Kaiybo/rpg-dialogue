@@ -17,6 +17,9 @@ P:NPC {
     { id = "g_porch", text = "This isn't our place, you understand. We're just minding it for now." },
     { id = "g_deed", when = { questActive = TODO_QUEST("Furlbrow's Deed") }, text = "The deed? You've found our deed? Oh, let me see it, please, let me see." },
     { id = "g_watch", when = { questDone = TODO_QUEST("The Forgotten Heirloom") }, text = "It still ticks, you know, and I wind it every morning like a silly old man." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, it's you, and after {away}! I'd half feared something dreadful had happened, though I fear that about most things these days." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown so strong since we first met by this wagon, and I'm a little in awe of it. I wish I'd half your nerve, I truly do." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I heard you gave someone round the farms a proper fright. Please don't do it to me, because I frighten easily enough on my own." },
   },
 
   notice = {

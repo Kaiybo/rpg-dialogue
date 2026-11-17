@@ -16,6 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_rock", text = "The wind is strong on Sun Rock and the sun stronger, which is good for old wounds. Say what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the rock, good. I've work for the ones who come back." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away from the rock {away}, and the wind has been blowing hard the whole time. I've work for the ones who come back, so say what you need." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were green when you first climbed to Sun Rock, and now you carry yourself like a warrior who has bled for it. The years do that, and so do battles." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word on the rock is you made someone back down without a fight. I was gentle once, and I've learned there's a time for a hard look." },
   },
 
   notice = {
@@ -336,6 +339,8 @@ P:NPC {
 
   greetings = {
     { id = "g_seeds", text = "Careful where you step. Those little green shoots are the first things to grow in that soil in years." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and while you were gone I counted eleven new shoots and only three lost. That's a good stretch, so mind your step." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody on Sun Rock was talking about how kind you'd been to them. Kindness grows like these little shoots do, a bit at a time." },
   },
 
   notice = {
@@ -812,6 +817,8 @@ P:NPC {
 
   greetings = {
     { id = "g_cave", text = "Come in, come in, mon, and don't mind the cages; most of dem be empty. Most." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, you been gone {away}, mon, and Jin'Zil was starting to think you ran off to Darsok. Come in, come in, and don't mind the cages." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Jin'Zil hear somebody on the rock believed a story you told them, mon. A good trick, that, and Jin'Zil knows good tricks better than Darsok ever will." },
   },
 
   notice = {
@@ -1041,6 +1048,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Weapons down, boots off, and tell me who you've been fighting. That's how we do it on Sun Rock." },
     { id = "g_home", when = { homeInn = { "Sun Rock Retreat" } }, text = "Home on the rock again! The wind's howling tonight, so it's a good night to be indoors." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's back on the rock after {away}! Weapons down, boots off, and tell me everybody you fought while you were gone." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole inn's been talking about the help you've given Sun Rock. Sit down and tell me the story yourself, and your drink's on me." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody came in here last week cursing your name over their ale. Fight whoever you like outside, but in my inn it's boots off and tempers down." },
   },
 
   notice = {
@@ -1218,6 +1228,8 @@ P:NPC {
 
   greetings = {
     { id = "g_grove", text = "Peace, little one. This grove is old, and wise, and wary. Tread softly and you'll find it kind." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, little one, and the grove has grown a little older while you were gone. Tread softly, and welcome back." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I heard someone on the peak was left angry after speaking with you, little one. Anger spreads like fire in dry timber, so I'd ask you to be careful." },
   },
 
   notice = {
@@ -1511,6 +1523,8 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Rest here. It's quiet on the peak, and the trees keep the wind off." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've counted a great many stars from this step without you. Rest here a while, it's quiet tonight." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "People on the peak say you've been helping out, and I'm glad of it. Rest here as long as you like, and mind the path down after dark." },
   },
 
   start = "hello",

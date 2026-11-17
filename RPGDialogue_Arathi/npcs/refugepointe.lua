@@ -16,6 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Aye, what? I'm busy, an' if Malin sent ye, ye can still wait yer turn." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. I was rough wi' ye last time, an' I'll own it, so let's start again." },
+    { id = "g_away", when = { away = 14 }, text = "Och, ye've been gone {away}, an' Malin's had me runnin' about the whole while. Sit, then, an' tell me ye're here tae help." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody at the Pointe caught ye tellin' tales. I'll be honest wi' ye, as I'd like ye tae be wi' me, an' say that sort o' thing travels fast in a camp this size." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is ye talked someone round tae yer way o' thinkin'. Try it on me if ye like, but I'm a harder nut than most." },
   },
 
   notice = {
@@ -543,6 +546,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Rope, bread, flasks and thread, and not much of any of it, so buy what you need before the soldiers do." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. I've a bit more stock since the last wagon, but don't get excited." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've had three wagons and one ambush since. Buy something before the soldiers clear me out again." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear somebody at the Pointe got talked into a bad bargain lately, and your name came up. I count my change twice anyway, so go on and browse." },
   },
 
   notice = {

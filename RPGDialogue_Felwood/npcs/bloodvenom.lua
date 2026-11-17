@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_laugh", text = "*cackles* Oh, a visitor! Mind the kitten, and mind the bottles, and mind everything, really." },
     { id = "g_back", when = { metBefore = true }, text = "*laughs* You came back, and nobody comes back! That's my favourite kind of person." },
+    { id = "g_away", when = { away = 14 }, text = "*cackles* You've been gone {away}, and look, you came back again! The kitten's grown, the bottles have multiplied, and nobody else has come back at all." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "*laughs* Oh, look at you, darling, you've grown so much bigger and meaner since you last visited! Felwood didn't do that to you, did it, because I'd love a sample if it did." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "*cackles* I hear you frightened somebody at the post half out of their wits, darling! Do tell me how, because I've been trying for weeks." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you told somebody at the post a lovely big lie and they swallowed it whole, darling! *laughs* I adore a good experiment, and that sounds like a successful one." },
   },
 
   notice = {
@@ -264,6 +268,10 @@ P:NPC {
 
   greetings = {
     { id = "g_post", text = "Did Orgrimmar send you, or did you wander up here by mistake? Either way, you're useful now." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Felwood didn't stop rotting while you were away. Report what you saw, and leave nothing out." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since I last sent you out, and I can use that, because the forest has only grown worse. Orgrimmar wants reports, and I want someone who can come back with them." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone at the post caught you in a lie, and I'll know if you skip a part of your report to me, so keep that in mind." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word around the post is you've done right by Bloodvenom, and that's rare enough up here that I'll say so. Keep it up, and keep out of the river." },
   },
 
   notice = {

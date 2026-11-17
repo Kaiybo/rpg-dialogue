@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_tower", text = "Another one climbs my tower, good! I was starting to talk to the vultures." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still alive! That's more than I can say for the last three I sent up the road." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and I was back to talking to the vultures. Good, you can take their place." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away} and come back with more muscle than you left with! The road east will be glad of it, even if the ogres won't." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, stronger than the last time you climbed my tower! Now I can send you somewhere properly dangerous." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you scared one of my people so badly they're still twitching. That's good work, but save it for the Dark Irons." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Kargath's been talking about you, and it's good talk for once. Keep it up, because the vultures don't sing anyone's praises." },
   },
 
   notice = {
@@ -356,6 +361,9 @@ P:NPC {
 
   greetings = {
     { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust." },
+    { id = "g_away", when = { away = 14 }, text = "Darling, you've been gone {away}, and it's been simply the dullest stretch of dust imaginable. Sit down and tell me everything dreadful." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Everyone's been saying the loveliest things about you, darling, and I adore being the last to hear gossip almost as much as being the first. Do sit." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you put one over on somebody in Kargath, darling, and I'm only cross that I wasn't there to watch." },
   },
 
   notice = {
@@ -1101,6 +1109,8 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in out of the dust and sit. There's water, there's grog, and there's a bunk nobody's bled on, recently." },
     { id = "g_home", when = { homeInn = { "Kargath" } }, text = "Back from the badlands! Tell me what you killed, because the grunts like a good story with their supper." },
+    { id = "g_away", when = { away = 14 }, text = "Back from the badlands after {away} away! Sit down and tell me what you killed while you were gone, because the grunts are bored of my stories." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in Kargath's been grumbling your name into their grog all week. I don't care who started it, but don't finish it in my inn." },
   },
 
   notice = {

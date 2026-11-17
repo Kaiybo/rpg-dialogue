@@ -16,6 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_glade", text = "Look at the light through the leaves. Every morning it's new, and every morning I'm glad of it." },
     { id = "g_back", when = { metBefore = true }, text = "In the glade again. Does it still take your breath? It still takes mine." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away from the glade {away}, and the cubs have grown in that time, just as you have. Come and look at the light with me." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were so new when you first stood in this glade, and look at you now! It does my heart good to see one of Shadowglen's young grown so strong." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk in the glade these past days. That pleases me more than I can say, and the cubs would agree if they could." },
   },
 
   notice = {
@@ -212,6 +215,9 @@ P:NPC {
 
   greetings = {
     { id = "g_tree", text = "Peace, young one. Aldrassil is listening, as it always is. Speak kindly near it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, young one, and Aldrassil has been listening for your step. Speak kindly near it, as before." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first walked under these roots, and Aldrassil knows it. I think it's pleased, in its quiet way." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words passed between you and someone in the glade. Aldrassil hears everything, young one, so let the next words be kinder." },
   },
 
   notice = {
@@ -407,6 +413,10 @@ P:NPC {
   greetings = {
     { id = "g_aldrassil", text = "Welcome to the top of Aldrassil. From here you can see most of Shadowglen, and it looks small from up here, though it isn't." },
     { id = "g_back", when = { metBefore = true }, text = "You've made the climb again. I always have time for those who climb." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I watched the path for you more than once. Come, the view from Aldrassil hasn't changed, though you may have." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "It has been {away} since you walked down this tree, and you've climbed back up as something more than you were. This is what I hope for, every time one of you leaves." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much since you first made this climb, young one. Shadowglen looks smaller from up here, and so, I suspect, does the world to you now." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the glade has spoken warmly of you, and those words climb all the way up Aldrassil. I'm glad to hear them." },
   },
 
   notice = {

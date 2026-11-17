@@ -371,6 +371,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn. Will you have something to drink?" },
     { id = "g_home", when = { homeInn = true }, text = "Back home to the Calmbreeze. Your bed's made, more or less." },
+    { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before the Swimmers start in on their ghost stories." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came into the inn tonight in a fine mood and said it was your doing, and a good mood is good for business, so I'm grateful, truly." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone was in here tonight grumbling about you over their cup, and I'd much rather they grumbled about Swimmers' ghosts, so whatever it was, I'd smooth it over." },
   },
 
   notice = {

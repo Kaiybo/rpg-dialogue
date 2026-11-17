@@ -16,6 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_camp", text = "This is Grom'gol, and everyone in Grom'gol works. Are you here to work?" },
     { id = "g_back", when = { metBefore = true }, text = "You again? Fine, there's always more to do than hands to do it." },
+    { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Grom'gol did your work for you. Now you're back, so work." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here. Good, because the jungle has gotten no kinder." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've worked hard for Grom'gol. That's the only praise I give, and I just gave it." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear you were caught in a lie in my camp. Everyone in Grom'gol works, and nobody here works for a liar." },
   },
 
   notice = {
@@ -885,6 +889,9 @@ P:NPC {
   greetings = {
     { id = "g_fire", text = "The camp is loud, but here by the fire it's quieter. Speak, and I'll listen." },
     { id = "g_back", when = { metBefore = true }, text = "The fire kept your place for you. Sit." },
+    { id = "g_away", when = { away = 14 }, text = "The fire kept your place for {away}, and now you're back to sit in it. Sit, then." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the camp carries anger from their talk with you, and the fire knows it. Make peace while it's small, because nothing stays small in this jungle." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you gave someone here a good word, and the camp is better for it. The spirits notice small things too." },
   },
 
   notice = {

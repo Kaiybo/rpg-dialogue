@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_default", text = "Another living thing at Mourning's Rest. How refreshing, and how unlikely to last." },
     { id = "g_back", when = { metBefore = true }, text = "You again, still breathing. I do keep count, you know; it is a professional habit." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "Oh, wonderful. Another one that walks when it ought to be lying down." },
+    { id = "g_away", when = { away = 14 }, text = "You again, and gone {away}, which by my count is long enough that I had begun to make plans for you, so this is a disappointment, though only a small one." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown more formidable since you last bothered me, which means you will take longer to die and leave more behind, and I am, professionally speaking, conflicted." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone on the mountain was very cross with you, I hear, and cross people make careless ones, which makes more work for me, so do try to be less provoking." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I am told someone on the mountain was delighted with you, which I find unusual, as nobody is ever delighted with me, though perhaps that is only because you are still breathing." },
   },
 
   notice = {

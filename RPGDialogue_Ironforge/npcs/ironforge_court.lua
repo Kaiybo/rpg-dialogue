@@ -19,6 +19,10 @@ P:NPC {
     { id = "g_tinker", text = "Hello, hello! Mind the floor, there's a gear loose somewhere; there's always a gear loose somewhere." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome! Good, good. Are you eating properly, and sleeping? Someone has to ask, and it may as well be me." },
     { id = "g_back", when = { metBefore = true }, text = "Splendid, you came back! I've had four ideas since you left, and only three of them were terrible." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! I've had eleven ideas since then, and at least two of them worked, so I've been meaning to tell somebody." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've grown capable since we last spoke, and I mean that with great admiration. If Gnomeregan had a hundred like you, we'd have it back by spring." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the city has been saying lovely things about you, and I couldn't be happier to hear it. We guests in Ironforge need all the goodwill we can get!" },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear somebody in the city believed a story of yours that wasn't strictly true. Do be careful, because we gnomes are living on Ironforge's good graces." },
   },
 
   notice = {
@@ -1579,6 +1583,10 @@ P:NPC {
   greetings = {
     { id = "g_tavern", text = "Welcome tae the Stonefire! Grab a stool, grab a mug, an' if ye've a story, grab the room's attention." },
     { id = "g_home", when = { homeInn = { "Ironforge", "Stonefire Tavern" } }, text = "There ye are! Yer bed's warm, as is everythin' in Ironforge, thanks tae the forges." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! Grab a stool, an' I hope ye've brought a story big enough tae make up fer the wait." },
+    { id = "g_away_long", when = { away = 60 }, text = "By my beard, {away} away, an' half the regulars swore ye'd been eaten by somethin' fierce! Sit down an' prove 'em wrong over a mug." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody's been tellin' the whole tavern what a grand sort ye are! Now I'll want the story from yer own mouth, mind." },
+    { id = "g_word_caught", when = { word = "caughtLying" }, text = "Word round the kegs is someone caught ye spinnin' a lie. A tall tale's welcome in the Stonefire, friend, but a lie's another thing entirely." },
   },
 
   notice = {

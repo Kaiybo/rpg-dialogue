@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_glade", text = "Be welcome in Moonglade, little one. Every creature that comes in peace may rest here." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A child of the Circle. Come, walk with me a little, for the glade is glad of you." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The trees remember your step, and so do I." },
+    { id = "g_away", when = { away = 14 }, text = "You have been away {away}, little one, and Moonglade has waited as it waits for everything, patiently. Rest here, and tell me what the world has done to you." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 10 } }, text = "You have been gone {away} and grown much in that time, little one, and I can see the long roads in your step. Rest awhile, for Moonglade is patient with all who return to it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown since we last spoke, as a sapling grows between one spring and the next, so take care that you grow straight, little one, for strength bends easily." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I am told that one of the glade's folk parted from you in anger, little one, and Moonglade is a place of peace. I trust you will remember that, as all who walk here must." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the glade's folk spoke warmly of you to me today, and such words carry far in Moonglade, so the trees are glad of you, little one, and so am I." },
   },
 
   notice = {
@@ -435,6 +440,9 @@ P:NPC {
   greetings = {
     { id = "g_house", text = "Be at ease here. I keep the Keeper's house in order, and the Keeper's visitors. Speak, please." },
     { id = "g_back", when = { metBefore = true }, text = "Again you come to Nighthaven, and I don't think that's chance. I don't believe in chance." },
+    { id = "g_away", when = { away = 14 }, text = "You return to Nighthaven after {away}, and again I don't think it is chance. Speak, please, and tell me what has drawn you back." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told that one of Nighthaven's people saw through a falsehood of yours, and the Keeper's house hears such things. Speak truly here, please, for the peace of this glade rests on it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The village speaks of the help you gave it, and I don't believe that was chance either, and the Keeper will hear of it if he hasn't already." },
   },
 
   notice = {
@@ -735,6 +743,9 @@ P:NPC {
   greetings = {
     { id = "g_trial", text = "Balance be with you. If you've come for the trials, you've come to the right elf. If not, the village is lovely this time of year." },
     { id = "g_druid", when = { class = "DRUID", maxLevel = 12 }, text = "A young druid, fresh from the trainer? Good. The Circle has been expecting you, even if you didn't know it." },
+    { id = "g_away", when = { away = 14 }, text = "Balance be with you, and welcome back after {away}. The village is still lovely this time of year, I'm pleased to report, though it was lovely when you left as well." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since your last visit, and I'd ask whether the trials did it, except I suspect you found harder ones on your own." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the village round, which is impressive, since most of them have been arguing with each other for a few thousand years, so do let me know your secret." },
   },
 
   notice = {
@@ -1002,6 +1013,8 @@ P:NPC {
   greetings = {
     { id = "g_calm", text = "Peace, friend. Even inside these stone walls it's there, if you stop long enough to find it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "{g:Brother|Sister}, come in. If you're ready to learn, then I'm ready to teach." },
+    { id = "g_away", when = { away = 14 }, text = "Peace, friend, and welcome back after {away}. I hope you found a little stillness on the road, because I suspect you needed it." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you frightened someone in the village, and fear is a storm that leaves the one who raised it shaking too, if you notice, so sit a while and see whether it's true." },
   },
 
   notice = {

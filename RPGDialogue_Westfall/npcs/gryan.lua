@@ -20,6 +20,11 @@ P:NPC {
     { id = "g_militia", when = { questDone = TODO_QUEST("The People's Militia") }, text = "There's one of my own militia. Report, then, and tell me how the roads look." },
     { id = "g_hero", when = { townStanding = { town = "sentinel_hill", min = 55 } }, text = "The hill has started saying your name alongside mine. Mind you live up to it; I'm still trying to live up to my own." },
     { id = "g_distrust", when = { townStanding = { town = "sentinel_hill", max = -20 } }, text = "Say what you came to say, and then be on your way." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone from the hill {away}, and I'll not pretend I didn't count. Come up out of the wind and tell me how the roads look." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away}, and you've come back a harder soldier than you left. I've seen that change in men before, so mind it doesn't take more than it gives." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were green as Elwynn grass when you first climbed this hill, and you're not now. Westfall needs exactly what you've become." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The militia tell me you've been doing good work for the hill these past days. That's how we take Westfall back, one farm and one favour at a time." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of my people caught you in a lie. Thieves run this land on lies, so I'll thank you to tell me the truth on this hill." },
   },
 
   notice = {

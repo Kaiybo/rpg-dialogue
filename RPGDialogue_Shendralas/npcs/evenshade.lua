@@ -23,6 +23,11 @@ P:NPC {
     { id = "g_night", when = { timeOfDay = "night" }, text = "The temple stones still catch the moonlight, even now. Come and see, if you like." },
     { id = "g_tome", when = { carrying = 282404 }, text = "You carry a book that is very much older than it looks. Bring it here, please." },
     { id = "g_star", when = { carrying = 282548 }, text = "Is that light in your pack what I think it is? Elune's own star, still whole?" },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, which to one of my years is scarcely the turning of a page, and yet I find I noticed your absence. Come, the overlook has kept your place." },
+    { id = "g_away_long", when = { away = 60 }, text = "You have been away {away}, and you climb back to the overlook as though the world had been kind to you in the meantime. I hope it was, for it rarely troubles to be kind to those who visit ruins." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown a great deal since we last spoke, and I can feel the change in you as my people once felt the tides of the Well. Power suits some and ruins others, and I am curious which you will be." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I am told you talked someone of this valley round to your view, which is a rarer art here than sorcery, and my people valued it once, before we came to value power more." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word reaches even this overlook that you were caught in a falsehood, and I confess I am sorry to hear it, for my people told many lies to themselves, and you can see from here where they led." },
   },
 
   notice = {

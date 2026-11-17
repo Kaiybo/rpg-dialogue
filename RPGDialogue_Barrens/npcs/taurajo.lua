@@ -15,6 +15,9 @@ P:NPC {
   greetings = {
     { id = "g_camp", text = "The Barrens look empty to those who don't know where to look. Sit; I'll show you where to look." },
     { id = "g_back", when = { metBefore = true }, text = "The hunter returns. Tell me what the grass showed you." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, hunter, so tell me what the grass showed you in all that time." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk more quietly than you did when you first sat by my fire, and you've grown strong besides. The Barrens has been a good teacher to you." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I'm told you said something in Taurajo that warmed someone's heart. A good hunter is patient with people as well as prey." },
   },
 
   notice = {
@@ -585,6 +588,9 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Welcome, traveler. Taurajo's fire is always lit, and there's always room by it." },
     { id = "g_home", when = { homeInn = { "Camp Taurajo" } }, text = "You've come back to us. Your bed's ready, and the kodo stew is hot." },
+    { id = "g_away", when = { away = 14 }, text = "You've come back to Taurajo after {away} on the road. The fire's lit and the stew's hot, so sit down before the herders take your seat." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The herders have been talking about the help you've given the camp. They eat first here, but tonight you can eat with them." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in camp says you told them a lie and they saw right through it. We're plain folk out here, traveler, and we'd rather have the truth." },
   },
 
   notice = {

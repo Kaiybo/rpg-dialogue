@@ -16,6 +16,9 @@ P:NPC {
   greetings = {
     { id = "g_post", text = "State yer business, and be quick about it. The kobolds don't wait for pleasantries." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've work, and you've the look of someone who finishes it." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the kobolds didnae miss ye one bit. I did, a wee bit, fer the work's piled up." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit o' muscle since ye last took work from me. Nearly enough tae match my own exploits, if ye keep at it." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear ye've been leanin' on folk about Thelsamar. Lean on the troggs instead, fer they've earned it an' the townsfolk havenae." },
   },
 
   start = "hello",

@@ -23,6 +23,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "So you have returned. Good; those who come back to me usually have something worth saying." },
     { id = "g_light", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
       text = "A priest of the Light, in the house of the Moon. Elune's blessing on you, and your own faith's as well; now tell me why you have come." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone from Darnassus {away}, and the moon has turned without you. Tell me what you have seen beyond the branches." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "You have been away {away}, and you return with the bearing of one who has stood against real darkness. Elune has kept you, so honour her by telling me plainly what you found." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My Sentinels tell me you have served the people of this city well these past days. That is noted, and Elune notes it also." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told one of my people saw through a falsehood of yours. Speak only truth in this temple, because I will hear the other kind." },
   },
 
   notice = {
@@ -492,6 +496,10 @@ P:NPC {
     { id = "g_enclave", text = "Yes? The Enclave is busy, and I am busier still, so be brief." },
     { id = "g_druid", when = { class = "DRUID", race = "NightElf" }, text = "A kaldorei druid, good. The Circle needs more of our own and fewer of the rest." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Very well, speak, but make it worth the climb." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, I see, though to the kaldorei that is hardly a breath. Speak, then, and make it worth the climb." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since last you stood before me, I'll grant you. Perhaps you are of some use to the Circle after all." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you have been bending the ears of my people with clever words. The kaldorei are not so easily led as you may think, so do not mistake politeness for agreement." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word reaches the Enclave that you have given offence in this city. Darnassus tolerates its guests, but it does not suffer them gladly, so be brief." },
   },
 
   notice = {
@@ -846,6 +854,9 @@ P:NPC {
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young one. The Enclave's doors are open to you, and so is my time." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "What brings you to the Cenarion Circle, friend? Ask, and I'll answer if I can." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and the Enclave's doors stayed open the whole while. Ask what you came to ask." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I'm glad to see it. The wild teaches faster than any trainer, though it charges more for the lesson." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk in the city these past days. That is the Circle's work as much as any druid's, whatever some may say." },
   },
 
   notice = {
@@ -1085,6 +1096,10 @@ P:NPC {
   greetings = {
     { id = "g_moon", text = "Even here under the branches, Elune's light finds you. Come in and sit by the pool." },
     { id = "g_back", when = { metBefore = true }, text = "There you are, little star. The moon remembers those who return." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, little star, and the pool has missed your reflection. Come and sit, and rest your tired feet." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown brighter since I last saw you, little star, and Elune sees it too. The road has been hard, but you've carried it well." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear someone in the city is troubled with you, little star. Sit by the pool a while, then go gently and make it right." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone has spoken warmly of you in the Temple, little star. The moon remembers kindness, and so do I." },
   },
 
   notice = {
@@ -1343,6 +1358,9 @@ P:NPC {
   greetings = {
     { id = "g_study", text = "Careful with the specimens. Some of them are only mostly dead." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did you bring anything? Shells, stings or chitin, I'm not particular." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! You must have seen something new out there, so tell me everything, and don't leave out the legs." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you last visited my specimens. Strong enough, perhaps, to bring me back something that's still mostly alive." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone in the city took a story of yours for truth when it wasn't. Please don't do that with my specimens, because I'm cataloguing them." },
   },
 
   notice = {
@@ -1568,6 +1586,9 @@ P:NPC {
   greetings = {
     { id = "g_rest", text = "Rest a while, traveller. The branches rock a little at night. Most find it soothing." },
     { id = "g_home", when = { homeInn = { "Darnassus", "Craftsmen's Terrace" } }, text = "You're home. Elune guard your dreams tonight." },
+    { id = "g_away", when = { away = 14 }, text = "You've returned after {away}, traveller. Your bed has rocked with the branches all this while, waiting for someone to sleep in it." },
+    { id = "g_away_long", when = { away = 60 }, text = "It has been {away} since you last rested here, and I had begun to wonder whether the world had kept you. Come, the terrace is quiet tonight." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard kind words about you among my guests, traveller. They say you are good company, and I don't doubt it." },
   },
 
   notice = {

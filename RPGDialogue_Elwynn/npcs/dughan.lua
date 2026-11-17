@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_liked", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Good to see you, truly. Don't let it go to your head." },
     { id = "g_distrust", when = { townStanding = { town = "goldshire", max = -20 } }, text = "Keep your hands where my guards can see them, and we'll get along." },
     { id = "g_mine", when = { questActive = TODO_QUEST("The Fargodeep Mine") }, text = "Fargodeep won't scout itself." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the pile on this desk didn't shrink an inch while you were away. Pull up a chair, friend." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "Look at you, back after {away} and walking like a veteran. I sent a greenhorn out of this town, and I'll take back whatever this is gladly." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When I first sent you after kobolds, you could barely hold that blade straight. Now I'd put you on my roster before half my guards." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "One of my guards says you've been leaning on folk in Goldshire. I'll have no bullying in my town, whatever good you've done me." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been pitching in around Goldshire, and folk have noticed. Take a number like everyone else, but take my thanks first." },
   },
 
   notice = {

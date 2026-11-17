@@ -21,6 +21,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You have returned! Sit with an old elf a moment, and tell me what the forest told you." },
     { id = "g_boat", when = { race = { "Human", "Dwarf", "Gnome" } },
       text = "Fresh off the Bravery from Menethil, by the look of you. Find your land legs, then come and see me; Auberdine always has work for willing hands." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, traveller, and Auberdine has missed your willing hands. Sit with an old elf, and tell me what the coast has been saying." },
+    { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "It has been {away} since you last stood in Auberdine, and you return far stronger than you left. The village has troubles still, and I think you are equal to them now." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The village speaks of the help you have given these past days, and I listen to everything the village says. Auberdine is grateful, and so am I." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told someone in Auberdine saw through a falsehood of yours. I listen more than I speak, traveller, so I would rather hear the truth from you." },
   },
 
   notice = {
@@ -326,6 +330,9 @@ P:NPC {
 
   greetings = {
     { id = "g_moss", text = "Careful where you step, friend; that moss on your boots is exactly what I came here to stop." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the moss has grown back twice over in that time. I'm still burning it, mind, so watch your boots." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you first helped me with the furbolgs. Strong enough to remember they're sick, I hope, and not simply wicked." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've upset someone in the village. We've enough sickness on this coast without bad blood between neighbours, so do try to mend it." },
   },
 
   notice = {
@@ -529,6 +536,9 @@ P:NPC {
 
   greetings = {
     { id = "g_temple", text = "The Temple of the Moon sent me to help Auberdine, though the sea, it turns out, has its own ideas about what help means." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the tide has brought in all sorts while you were away. Elune keep you, it's good to see a familiar face." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the village has spoken warmly of you, and in a place this troubled, warmth is a kind of healing. Elune bless you for it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words passed between you and someone in Auberdine. The sea makes everyone uneasy, but do try to mend things gently." },
   },
 
   start = "hello",
@@ -718,6 +728,10 @@ P:NPC {
 
   greetings = {
     { id = "g_watch", text = "If you're staying in Auberdine, then you're under the Sentinels' eye; don't take it personally, for we watch everyone." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the murlocs haven't stopped coming ashore in that time. Report anything you've seen along the coast." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you first walked these sands. The Sentinels could use a blade like yours on the beach." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear you've been frightening folk in Auberdine. The Sentinels watch everyone, so be careful what we see." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word is someone in the village caught you lying. The Sentinels' eye is on you, as it always was, only more closely now." },
   },
 
   notice = {
@@ -923,6 +937,9 @@ P:NPC {
   greetings = {
     { id = "g_dock", text = "Hm? Forgive me; I was watching the water. I do a great deal of that." },
     { id = "g_after", when = { questDone = TODO_QUEST("For Love Eternal") }, text = "You freed her. I will never be able to thank you properly, but I will try, every time I see you." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, have you? I'm afraid I've lost track of days; I've been watching the water." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since last we spoke, and the change is plain even to eyes that only watch the sea. Anaya would have admired you, I think." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard kind words about you in the village, though I hear little these days. It's good to know kindness still travels along this shore." },
   },
 
   notice = {
@@ -1107,6 +1124,10 @@ P:NPC {
   greetings = {
     { id = "g_rest", text = "Your spirit is tired, I can tell. Rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
     { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again! The sea air is good for you, mostly." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and your spirit looks more tired than ever. Sit, and I'll bring you tea, and this time do try to drink it." },
+    { id = "g_away_long", when = { away = 60 }, text = "It's been {away} since you slept to the sound of these waves, and I wondered if they'd ever sing you to sleep again. Welcome back, friend." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard such kind words about you from my guests. Elune smiles on those who leave others smiling, and so do I." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the village is troubled with you, I hear. Rest here a while, and then go and make your peace with them." },
   },
 
   notice = {

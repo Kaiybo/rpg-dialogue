@@ -487,6 +487,10 @@ P:NPC {
     { id = "g_default", text = "What'll it be, friend? The ale's Bilger's and the gossip's mine, and both are free with a coin." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Same as before, or are you feeling brave?" },
     { id = "g_talk", when = { questActive = TODO_QUEST("Talk of the Town") }, text = "Still on that little matter I asked about? No hurry, but don't let it go cold." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's back after {away} away! Sit down, because you've missed a pile of gossip, and I've kept every bit of it warm for you." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Half the bar's been talking about you, friend, and in a good way, since somebody went home grinning after a word with you." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Careful who you sit by tonight, because somebody in town's got a real grudge after talking with you. I only mention it because I like my chairs in one piece." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I had it from {source} that you leaned hard on somebody in town. Can't say I blame you, but go easy on my regulars." },
   },
 
   notice = {

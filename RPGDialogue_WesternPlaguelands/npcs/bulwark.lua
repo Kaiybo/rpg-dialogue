@@ -17,6 +17,11 @@ P:NPC {
     { id = "g_wall", text = "This is the Bulwark, built of junk and timber and the stubbornness of the dead, so speak quickly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back through the gate, which not everyone manages. Report, then." },
     { id = "g_hero", when = { questDone = TODO_QUEST("Mission Accomplished!") }, text = "The cauldron-breaker returns, and the Dark Lady has your name now. Try to deserve it a second time." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and the wall still stands, no thanks to your absence. Report, then." },
+    { id = "g_away_long", when = { away = 60 }, text = "I had you counted among the lost after {away} away. Since you're standing, you can serve, so report." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably more capable since we last spoke. The Scourge will find you harder to kill, and that pleases me." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told you were caught in a lie at the Bulwark. Lie to the Scourge as much as you like, but the Dark Lady's servants are owed the truth." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word along the wall is that you've done the Bulwark a service. Good, for we remember who keeps the gate shut." },
   },
 
   notice = {
@@ -298,6 +303,9 @@ P:NPC {
   greetings = {
     { id = "g_dry", text = "Speak, I'm listening, though I'm also counting your fingers, out of habit." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the farms, are you? I hope you've brought me something foul." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away} and still came back with all your fingers, which I've counted. Speak." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you frightened someone at the Bulwark. How refreshing, since most of us here are long past being frightened by anything." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Someone here was taken in by your tongue, I'm told. I'd admire it more if I weren't listening so carefully now." },
   },
 
   notice = {
@@ -512,6 +520,9 @@ P:NPC {
   greetings = {
     { id = "g_knee", text = "Weather's turning, my knee says so, or at least the bit of it that's still showing does." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite courier! Don't tell the others, though I don't have any others, so don't tell them anyway." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and my knee's been predicting your return the whole time, though it predicts rain just as often. Welcome back, courier!" },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Goodness, you've come up in the world since we last spoke! I'll have to find you errands with sharper teeth." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone on the wall was nearly cheerful after talking to you, which I'd have said was medically impossible. Do keep it up." },
   },
 
   notice = {

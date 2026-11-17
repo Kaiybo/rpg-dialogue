@@ -494,6 +494,44 @@ def("disposition", 20, "hinge", nil, function(ctx, v, env)
   return inRange(d, v), "disposition " .. d
 end)
 
+-- Levels you've gained since you last spoke with this person (0.67.0): { min = , max = } or
+-- a number as a minimum. False if you never spoke, or spoke before 0.67.0 recorded levels.
+def("levelsSince", 30, "hinge", nil, function(ctx, v, env)
+  local was = mem(env).lvl
+  local n = spoofOr(ctx, "levelsSince", (was and ctx.level) and (ctx.level - was) or nil)
+  if not n then return false, "no level on record" end
+  if type(v) ~= "table" then v = { min = tonumber(v) or 1 } end
+  return inRange(n, v), "levels since " .. n
+end)
+
+-- You've just come back to this person's town after time away (0.67.0, Systems/Towns.lua):
+-- away = 7 (days, minimum) or { min = , max = , levels = (minimum gained while gone), town = }.
+-- Holds for a few hours after you arrive.
+def("away", 30, "hinge", nil, function(ctx, v, env)
+  if type(v) ~= "table" then v = { min = tonumber(v) or 1 } end
+  local town = v.town or (env.info and env.info.communities and env.info.communities[1])
+  local back = ns.Towns and ns.Towns.Back(town, env.now or ns.Compat.Now(), ctx.level)
+  local spoof = ctx.spoofed and ctx.spoofed.away
+  if spoof then back = { days = tonumber(spoof) or 30, levels = 10 } end
+  if not back then return false, "not just back in " .. tostring(town) end
+  if v.levels and (back.levels or 0) < v.levels then
+    return false, ("back after %.0f days, %d levels"):format(back.days, back.levels or 0)
+  end
+  return inRange(back.days, { min = v.min, max = v.max }), ("back after %.1f days"):format(back.days)
+end)
+
+-- Word of what you did with someone else in this town (0.67.0): word = "intimidated", a list,
+-- or { kind = , days = (max age, default 14), town = , self = true (count this NPC too),
+-- near = false (ignore related towns) }. Kinds: pleased, angered, persuaded, intimidated,
+-- deceived, caughtLying, helped. {source} names who it came from.
+def("word", 30, "hinge", nil, function(ctx, v, env)
+  local spoof = ctx.spoofed and ctx.spoofed.word
+  if spoof then return true, "word (spoofed)" end
+  local w = ns.Towns and ns.Towns.FindWord(v, env, env.now)
+  if not w then return false, "no word" end
+  return true, "word: " .. w.kind .. " from " .. tostring(w.name)
+end)
+
 -- { town = , min = , max = } or { town = , tier = "Liked" }
 def("townStanding", 20, "hinge", nil, function(ctx, v, env)
   local town = v.town or v[1] or (env.info and env.info.communities and env.info.communities[1])

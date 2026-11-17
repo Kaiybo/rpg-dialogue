@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You came back. The mountain has not finished testing you, then." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Lok'tar. It is good to see the Horde's colours this far from home." },
     { id = "g_after", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "Blade-friend. Sit by my fire whenever you pass; you have earned the warmth." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and the wind still knows you, so sit by the fire a moment before you speak." },
+    { id = "g_away_long", when = { away = 60 }, text = "You have been gone {away}, and the demons in Dae'gun did not wait for you, but I am glad you came back, for I have buried enough who did not." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since we last stood together, and I can hear it in how you move, so perhaps now you are ready to hunt beside me in Dae'gun." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The mountain speaks of what you have done for it, and I have heard it even at my fires in Dae'gun. That is a good name to carry." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made someone on this mountain afraid of you, and a blade that frightens its own allies is held wrong, so save it for the demons." },
   },
 
   notice = {

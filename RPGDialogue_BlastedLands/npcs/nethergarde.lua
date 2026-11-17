@@ -18,6 +18,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing? Come in, come in, and tell me you've brought something I can write down." },
     { id = "g_supplies", when = { questDone = TODO_QUEST("Supplies for Nethergarde") }, text = "My powerstone runner! The mages still talk about the day that crate came in glowing." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Cold enough to freeze the ink tonight. Shut the door behind you, would you?" },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and I've written down every crate that came through that gate in the meantime. Come in and give me something new to write." },
+    { id = "g_away_long", when = { away = 60 }, text = "I'd half filed you under the missing after {away} away, and I'm glad to cross it out. Welcome back to Nethergarde." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal tougher since we last spoke. I'll put that in the ledger, under assets." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone in the Keep caught you in a lie. Ledgers only work when people tell the truth, so keep yours honest while you're here." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word around the garrison is you've done Nethergarde a good turn. I've marked it down, and that's the highest honour I can give." },
   },
 
   notice = {
@@ -351,6 +356,9 @@ P:NPC {
     { id = "g_default", text = "Ah, a visitor! Do come in, only don't touch the instruments, the papers or, ideally, anything at all." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. I've filled half a book since we last spoke, and none of it good news." },
     { id = "g_essays", when = { questDone = TODO_QUEST("Mazen's Behest") }, text = "My courier of Khadgar! I've read the essays twice already and I understand perhaps half of them, which is twice what I expected." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've filled most of another book in that time, almost none of it good news. Do come in and tell me something better." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, which is more than I can say for my understanding of the Portal. Come and tell me what you've seen." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I'm told you talked someone in the Keep round to your view. I'd be grateful if you'd try it on the mages, because I've been failing for months." },
   },
 
   notice = {
@@ -666,6 +674,8 @@ P:NPC {
     { id = "g_default", text = "Mind the circle on the floor, would ye? It took me all mornin' tae chalk." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Ye've the look o' someone wi' a question, an' I've the look o' someone who'll charge for the answer." },
     { id = "g_sharpbeak", when = { questDone = TODO_QUEST("Return to the Hinterlands") }, text = "The one who went lookin' for Sharpbeak. Did Talonaxe get his wee beast back, then?" },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' I've chalked the circle three times since. Mind it now, would ye?" },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear somebody in the Keep was talked intae somethin' by a clever tongue. I charge for my answers, friend, an' I check the payment twice." },
   },
 
   notice = {
@@ -950,6 +960,9 @@ P:NPC {
     { id = "g_default", text = "Ah, a fresh face, and one that isn't scowling at me yet. How refreshing." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Have you come to argue, or have you finally come to listen?" },
     { id = "g_hero", when = { questDone = TODO_QUEST("Petty Squabbles") }, text = "You went and spoke with the orc. I knew there was more sense in you than in this whole garrison." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the garrison has scowled at me the whole time. It's good to see a face that doesn't." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the Keep is furious with you, I'm told. Take it from a man everyone here is furious with, and go and speak to them while it's still only words." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you left someone in the Keep in a fine mood. That's diplomacy, you see, and it works better than the garrison believes." },
   },
 
   notice = {
@@ -1227,6 +1240,8 @@ P:NPC {
     { id = "g_default", text = "Ho there! Pull up a crate, an' don't tell the Quartermaster what's in my mug." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, I was runnin' out o' people tae drink with." },
     { id = "g_ragnar", when = { questDone = TODO_QUEST("Ragnar Thunderbrew") }, text = "Ye went tae see Ragnar! Was he still red in the face, or had he simmered down a bit?" },
+    { id = "g_away", when = { away = 14 }, text = "Ho, ye're back after {away} away! I've been drinkin' alone the whole time, an' it's no' the same." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear ye gave somebody in the Keep a proper scare. Good for ye, but no' me, for I'm only a wee bit brave, an' only when I've had a few." },
   },
 
   notice = {

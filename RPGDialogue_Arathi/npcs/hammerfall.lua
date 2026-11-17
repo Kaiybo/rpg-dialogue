@@ -227,6 +227,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Peace, friend. Even here, in the ruins of our people's prison, the spirits be listenin'." },
     { id = "g_back", when = { metBefore = true }, text = "You come back, good. The spirits said you would, or maybe I just hoped." },
+    { id = "g_away", when = { away = 14 }, text = "The spirits say you been gone {away}, friend, and they be glad to see you walk back in. So be Tor'gan." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry more strength now than when we last talk, and the spirits see it plain. Walk careful with it, mon." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody in Hammerfall carry anger for you now, and the spirits feel it like a cold wind. Maybe you make peace before it grow." },
   },
 
   notice = {

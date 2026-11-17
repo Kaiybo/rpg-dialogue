@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish, so report." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and the swamp kept sending back my maps without you. Report, and then get out there again." },
+    { id = "g_away_long", when = { away = 60 }, text = "I'd struck your name off the roster after {away} away. Since you're standing in my hall I'll write it back in, so don't make me regret it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown harder since we last spoke, and the swamp will find you harder to swallow. Good, because I've worse places to send you." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you put the fear into someone in Stonard. We've enemies enough in this swamp without you making more inside the walls." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Stonard's been talking about what you did for us. I'll write that down, and I don't write down much that's good." },
   },
 
   notice = {
@@ -368,6 +373,8 @@ P:NPC {
 
   greetings = {
     { id = "g_temple", text = "You feel it too? The swamp hums near the Pool of Tears, because something old is awake down there." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the hum near the Pool of Tears has only grown louder. I'm glad someone came back to hear it with me." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone here caught you lying. Be careful with that, because whatever stirs beneath the Pool of Tears lies better than you ever could." },
   },
 
   notice = {
@@ -809,6 +816,8 @@ P:NPC {
 
   greetings = {
     { id = "g_cough", text = "Don't look at me like that, it's only the swamp air in my chest, and everyone here coughs." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'm still coughing, before you ask. Everyone here coughs, so don't look at me like that." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been doing good for Stonard. That's more than the swamp air ever did for anyone, so thanks." },
   },
 
   notice = {
@@ -991,6 +1000,8 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to." },
     { id = "g_home", when = { homeInn = { "Stonard" } }, text = "Back in Stonard, then. Your bed's dry, and that's the best thing anyone can say in this swamp." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away} away, then. Boots off by the door, and your bed's still dry, which I can't say for anything else here." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone's been muttering your name over their grog all week, and not kindly. Sort it out somewhere that isn't my floor." },
   },
 
   notice = {

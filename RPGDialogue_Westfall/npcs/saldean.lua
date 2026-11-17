@@ -17,6 +17,9 @@ P:NPC {
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },
     { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Still standing out there, aren't they. I can see them from the porch." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Killing Fields") }, text = "I walked my own field this morning, for the first time since spring." },
+    { id = "g_away", when = { away = 14 }, text = "Haven't seen you down this lane in {away}. The field's still here and so am I, which is about all a man can say in Westfall." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last stood in my furrows. You've the look of someone who can finish what he starts now." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Heard you spun some yarn for one of the neighbours and they believed it. Round here a man's word is all he's got left, so I'd keep yours straight." },
   },
 
   notice = {

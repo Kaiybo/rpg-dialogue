@@ -17,6 +17,10 @@ P:NPC {
     { id = "g_wagon", text = "Careful round the wagon, dear. It's held up with string and prayer." },
     { id = "g_oats", when = { questActive = TODO_QUEST("Poor Old Blanchy") }, text = "Any oats? She's been looking at me like I've forgotten her." },
     { id = "g_after", when = { questDone = TODO_QUEST("Poor Old Blanchy") }, text = "Blanchy's put on a little weight, thanks to you. Don't tell her I said." },
+    { id = "g_away", when = { away = 14 }, text = "There you are, dear, after {away}! Blanchy's been looking up the road for somebody, and I think it was you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've grown since you brought oats for Blanchy, dear. You stand like someone folk can lean on, and Westfall has need of that." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I've been hearing kind things about you from the neighbours, dear, and it's done my heart good. There's little enough to smile about out here." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody round the farms is cross with you, dear, and I'm sure there's two sides to it. Do try to mend it, because we're all we've got out here." },
   },
 
   notice = {

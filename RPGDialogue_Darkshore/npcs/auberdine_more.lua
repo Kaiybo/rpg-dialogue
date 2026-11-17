@@ -19,6 +19,9 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with all your fingers. The bears have not had the better of you yet, I see." },
     { id = "g_hope", when = { questDone = TODO_QUEST("Tharnariun's Hope") },
       text = "The cubs born this spring are calm, friend, every one I have seen. I owe that to you more than to any of my potions." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and still have all your fingers, I see. The bears have not had the better of you yet." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much since you first helped me with the thistle bears. Strength and gentleness together are rare, so keep both." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk in the village these past days. A healer's work, in its way, and I'm glad of it." },
   },
 
   notice = {

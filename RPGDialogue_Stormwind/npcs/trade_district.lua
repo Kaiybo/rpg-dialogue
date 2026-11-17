@@ -20,6 +20,9 @@ P:NPC {
   greetings = {
     { id = "g_wine", text = "My friend! You have the look of someone who knows a good glass of wine when it's put in front of them." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did my sister treat you well? Tell everyone you meet, and tell them twice." },
+    { id = "g_away", when = { away = 14 }, text = "My friend, you've been gone {away}! The wine has aged without you, and I confess it aged rather well, so you must come and taste it." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round in the city! A silver tongue, my friend, and I could use one like it shouting for the winery." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "There's talk in the square that somebody bought a fine story from you. In my trade we call that salesmanship, but my sister calls it something worse." },
   },
 
   notice = {

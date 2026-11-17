@@ -15,6 +15,9 @@ P:NPC {
   greetings = {
     { id = "g_grave", text = "Ah, you're up. Sit a moment if you need to; the first few minutes are the strangest." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still yourself. That's a fine sign." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and still yourself, by the look of you. That's a fine sign, and the graves are none the worse for missing you." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8, race = "Scourge" }, text = "I remember you sitting on the edge of your own grave, wondering what had happened, and now look at you. You've grown into this second life better than most." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The others tell me you've been helping around Deathknell. I only bury things, but I know good work when I see it." },
   },
 
   notice = {
@@ -176,6 +179,9 @@ P:NPC {
   greetings = {
     { id = "g_chapel", text = "Another one walks in under their own power. Splendid. Death couldn't keep you, so let's see what you're good for." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Death seems to suit you." },
+    { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still walking. Death didn't keep you before, so I suppose it was foolish of me to expect the road would." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8, race = "Scourge" }, text = "You climbed out of the ground a fumbling thing, and now you look properly dangerous. Death really does suit you." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone here believed a tale you told them, which I find rather charming. The living had the Light to keep them honest, and look where that got them." },
   },
 
   notice = {
@@ -347,6 +353,9 @@ P:NPC {
   greetings = {
     { id = "g_post", text = "You there, can you hold a weapon? Then Deathknell needs every pair of hands that still works." },
     { id = "g_back", when = { metBefore = true }, text = "Report." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Scarlets have been busy while you were. Report, and then get back to work." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came to me barely able to hold a weapon, and now you look like you've used one often. Good, because the Crusade hasn't gone anywhere." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you made someone back down without a fight. That will serve you well against the Scarlets, who are cowards under all that red." },
   },
 
   notice = {

@@ -13,6 +13,9 @@ P:Pool {
   greetings = {
     { id = "g_hi", text = "Are you an adventurer, a real one, like in the stories?" },
     { id = "g_sword", when = { class = { "WARRIOR", "PALADIN" } }, text = "Is that sword heavy? Can I hold it, just for a second? I won't drop it, I promise." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}! Did you fight a dragon? I bet you fought a dragon." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Everybody's saying you helped the town! Mama says you're a good sort, so I'm allowed to talk to you now." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "My brother says you scared somebody really badly. You're not going to scare me, are you? I'm not scared anyway." },
   },
   notice = {
     { id = "n_cat", cat = "form", when = { form = "cat" }, place = "replace",
@@ -84,6 +87,8 @@ P:Pool {
   greetings = {
     { id = "g_where", text = "Where to, then? The birds are rested and ready." },
     { id = "g_again", when = { timesTalked = { min = 5 } }, text = "Back again? You'd think you owned a gryphon." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and the birds noticed before I did. Where to, now you're back?" },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The riders say you've done the town a good turn. Fly safe, then, because we'd like you back." },
   },
   notice = {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
@@ -124,6 +129,10 @@ P:Pool {
   greetings = {
     { id = "g_room", text = "Room, meal, or both?" },
     { id = "g_home", when = { homeInn = true }, text = "Welcome home. Your bed's as you left it." },
+    { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back after {away}, are you? Your room's been let twice since, but there's always another." },
+    { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I'd stopped keeping an eye on the door for you. Sit down, and tell me where you've been." },
+    { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I had it from {source} that you were caught out in a fib. Pay up front tonight, and we'll say no more about it." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Half my regulars have been toasting someone who did the town a good turn, and I'm told it was you. Sit down and let them look at you." },
   },
   notice = {
     { id = "n_imp", cat = "pet", when = { pet = { family = "Imp" } },
@@ -164,6 +173,8 @@ P:Pool {
   greetings = {
     { id = "g_buying", text = "Buying or selling?" },
     { id = "g_rich", when = { money = { min = 1000000 } }, text = "Ah, a customer with weight in their purse." },
+    { id = "g_away", when = { away = 7 }, text = "Back after {away}? The stock's changed a little since, so have a look." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Word is you've a pleasant way of talking. Good; I like a customer with manners." },
   },
   lines = { { id = "l_default", text = "Everything's priced fair, mostly." } },
   choices = { { text = "Let me see your wares.", next = "BUSINESS" } },
@@ -172,7 +183,11 @@ P:Pool {
 -- Trainers anywhere (named trainers override this).
 P:Pool {
   id = "trainer", role = "trainer",
-  greetings = { { id = "g_ready", text = "Ready to learn something?" } },
+  greetings = {
+    { id = "g_ready", text = "Ready to learn something?" },
+    { id = "g_away", when = { away = 7 }, text = "You've been away {away}. Let's see whether you've kept up your practice." },
+    { id = "g_since", when = { levelsSince = 6 }, text = "You've come on a long way since I last taught you. Let's see what's left for me to show you." },
+  },
   lines = { { id = "l_default", text = "Practice what I teach you, or don't come back for more." } },
   choices = { { text = "Train me.", next = "BUSINESS" } },
 }
@@ -236,6 +251,14 @@ P:Pool {
       text = "Is that what I think it is in your pack? Light preserve us, that's a dragon's head, and it's still looking at me." },
     { id = "n_nefarian", cat = "carry", when = { carrying = { 19002, 19003 } },
       text = "Nefarian's head. I never thought I'd see the day; the whole city will want to see it hung up, and so do I." },
+    { id = "n_away", cat = "away", when = { away = 7 }, place = "before",
+      text = "You've been gone {away}, by my reckoning. Welcome back inside the walls." },
+    { id = "n_word_threat", cat = "word", when = { word = "intimidated" }, place = "before",
+      text = "Word at the barracks is you leaned on someone in town, and leaned hard. The watch doesn't care for that, so mind yourself." },
+    { id = "n_word_lie", cat = "word", when = { word = "caughtLying" }, place = "before",
+      text = "I hear {source} caught you out in a lie. The watch will be listening more carefully to you from now on." },
+    { id = "n_word_help", cat = "word", when = { word = "helped" }, place = "before",
+      text = "Word at the barracks is that you've done this town a good turn. The sergeant was pleased, which doesn't happen often." },
   },
 }
 
@@ -286,6 +309,14 @@ P:Pool {
       text = "Lok'tar! That's the black dragon's head in your pack. Take it to the Warchief before it starts whispering again." },
     { id = "n_nefarian", cat = "carry", when = { carrying = { 19002, 19003 } },
       text = "Nefarian's head, in your hands. My grandfather would have wept to see Blackrock's master brought low by the Horde." },
+    { id = "n_away", cat = "away", when = { away = 7 }, place = "before",
+      text = "You've been gone {away}. Welcome back; the watch kept the walls while you were away." },
+    { id = "n_word_threat", cat = "word", when = { word = "intimidated" }, place = "before",
+      text = "Word in the barracks is you've been scaring folk. Strength belongs on the battlefield, not in the market." },
+    { id = "n_word_angry", cat = "word", when = { word = "angered" }, place = "before",
+      text = "I hear you made someone here very angry. If it turns to blows, it's me who has to sort it out." },
+    { id = "n_word_help", cat = "word", when = { word = "helped" }, place = "before",
+      text = "The grunts say you did this place a good turn. Lok'tar; that's worth more than a title." },
   },
 }
 
@@ -308,6 +339,12 @@ P:Pool {
       text = "You and your friend look like you've walked a long way together. My husband and I were like that once, before the knees went." },
     { id = "n_onyxia", cat = "carry", when = { carrying = { 18422, 18423 } },
       text = "Is that a dragon's head in your pack? Light help me, I think it blinked." },
+    { id = "n_away", cat = "away", when = { away = 7 }, place = "before",
+      text = "You've been away {away}, haven't you? I thought I'd not seen you about the place." },
+    { id = "n_word_pleased", cat = "word", when = { word = "pleased" }, place = "before",
+      text = "Somebody told me you've a way with words, and that you left them smiling." },
+    { id = "n_word_trick", cat = "word", when = { word = "deceived" }, place = "before",
+      text = "There's a rumor you spun someone a story and they swallowed it whole. I'll be listening carefully, then." },
   },
   greetings = {
     { id = "g_guild", when = { guild = true, timesTalked = { max = 1 } },
@@ -334,6 +371,12 @@ P:Pool {
       text = "Five of you together, and all of you armed. The children will follow you to the gate, so don't mind them; they only want to see a real war band." },
     { id = "n_onyxia", cat = "carry", when = { carrying = { 18422, 18423 } },
       text = "Spirits watch over us, is that a dragon's head? Keep it wrapped up; the children are watching." },
+    { id = "n_away", cat = "away", when = { away = 7 }, place = "before",
+      text = "You've been gone {away}. The camp noticed, even if nobody said it aloud." },
+    { id = "n_word_persuaded", cat = "word", when = { word = "persuaded" }, place = "before",
+      text = "I hear you talked {source} round without raising an axe. That's a rarer thing than it should be." },
+    { id = "n_word_lie", cat = "word", when = { word = "caughtLying" }, place = "before",
+      text = "Word is somebody caught you out in a lie. In the Horde a liar's word is worth nothing, so be careful with yours." },
   },
   greetings = {
     { id = "g_guild", when = { guild = true, timesTalked = { max = 1 } },
@@ -366,6 +409,12 @@ P:Pool {
       text = "Not a healer among the lot of you, is there? I can tell by the bandages. Sit down before somebody falls down, and I'll fetch hot water." },
     { id = "n_onyxia", cat = "carry", when = { carrying = { 18422, 18423 } },
       text = "Whatever you've got in that sack, it's not coming up to the rooms. I can smell the dragon on it from here." },
+    { id = "n_away", cat = "away", when = { away = 7 }, place = "before",
+      text = "Back after {away} away! The regulars had a wager on whether you'd return, and somebody's about to lose it." },
+    { id = "n_word_angry", cat = "word", when = { word = "angered" }, place = "before",
+      text = "Word at the bar is you put somebody's back up properly. I'll not take sides under my roof, so keep it civil here." },
+    { id = "n_word_persuaded", cat = "word", when = { word = "persuaded" }, place = "before",
+      text = "I hear you talked {source} round, and the regulars are still arguing about how you did it." },
   },
   greetings = {
     { id = "g_late", when = { timeOfDay = "night" },
