@@ -79,6 +79,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I'd take news from a trogg if it had seen my Sully, an' I'm past carin' who brings it. The folk in the Ward look at ye sideways, I know, but they look at me sideways too these days, for askin' every stranger the same question." },
+      },
+      choices = {
+        { text = "If I hear anything, I'll bring it straight to you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I've no time for other people's husbands.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -100,6 +111,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Have ye been tae Dun Modr? Ye'd have seen my Sully if ye had, for he's the one who never stops talkin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll travel the roads, then, an' ye might pass Dun Modr; if ye do, would ye look for my Sully?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard yer kind can talk tae the beasts, an' I've wondered whether a bird might find Dun Modr quicker than the post." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Have ye been anywhere near the Thandol Span? I'll ask anyone, even you, for I've had no word from Sully in too long." },
       },
       again = {
         { id = "h_again", text = "Is there somethin' else? I've nowhere I need tae be today." },
@@ -117,6 +129,7 @@ P:NPC {
         { text = "Is your Sully a warrior too, Sara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news would you want me to bring from Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you thought of sending word to Dun Modr by gryphon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you really take news from a warlock, Sara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Take care, Sara.", next = "END" },
       },
     },
@@ -721,6 +734,17 @@ P:NPC {
         { text = "Something else, Daera.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Aye, as different as a friend is from a prisoner, for a hunter's beast stays because it wants tae. Yers stays because ye've a chain on it, an' the day that chain slips, ye'll learn what it thought o' ye all along." },
+      },
+      choices = {
+        { text = "You're right. I'll never trust it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A chain is honest. Loyalty can lie.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll no' be wantin' trainin' from me, but if ye've a moment, my rams have been off their feed, an' I'll take any blessin' I can get." },
@@ -739,6 +763,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, an' I'll ask ye no' tae turn any o' my students' beasts intae sheep. It confuses them for days." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be lookin' for Kelstrum, then, though I'll answer a question if ye've one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My beasts have their hackles up, an' I'd say that's yer companion they're lookin' at, no' you." },
       },
       again = {
         { id = "h_again", text = "Anythin' else?" },
@@ -758,6 +783,7 @@ P:NPC {
         { text = "What would a hunter teach a warrior, Daera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a priest's healing help a wounded beast, Daera?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin treat a mount, Daera?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is a demon so different from a hunter's beast, Daera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

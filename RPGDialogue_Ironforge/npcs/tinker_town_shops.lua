@@ -93,6 +93,17 @@ P:NPC {
         { text = "Something else, Gearcutter.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Once, and only a little, though it took me a week to find every washer! Most explosions in Tinker Town come from cheap flux, but the rest come from mages who think a little frost won't hurt anything, and it always does." },
+      },
+      choices = {
+        { text = "Fair. I'll cast nothing near your stock.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little frost never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've nothing tested for prayers, I'm afraid, but my bandage clamps are tested twice, and they've helped a few engineers who didn't test their own work." },
@@ -106,6 +117,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want blasting powder, I imagine; everybody does, sooner or later." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and every one of them's been tested twice, like everything else here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose you'll be buying blasting powder, but you're welcome to look, as long as you don't shed on the flux." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Please don't cast anything near the blasting powder, because it has a temper, and so do I when my stock goes up in smoke." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a box of springs to count." },
@@ -123,6 +135,7 @@ P:NPC {
         { text = "Do many engineers come to you hurt, Gearcutter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is honest work rarer than it should be, Gearcutter?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does all this blasting powder ever harm the land outside?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Has a mage really blown up your stock, Gearcutter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Gearcutter.", next = "END" },
       },
     },
@@ -258,6 +271,17 @@ P:NPC {
         { text = "Something else, Springspindle.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Because a wheel squeaks, rattles and leaves tracks, and my replacement will do none of those things once I've stopped it exploding! Imagine a carriage that makes no sound at all, gliding along the road without a single rut to give it away." },
+      },
+      choices = {
+        { text = "Some things should stay as they are, Springspindle.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Throw out the wheel. I'm with you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I don't suppose you could bless my prototype, because it's caught fire twice this week and I'm beginning to suspect it doesn't like me." },
@@ -271,6 +295,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Imagine a battlefield without wheels, with no carts and no chariots, only my marvellous replacement, which I'll describe if you've a minute." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and they've taught me a great deal." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Tell me, do your people use the wheel? Because I'm about to make it obsolete, and I'd hate for you to have invested heavily." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll appreciate this, then, because rogues move quietly and wheels squeak, and that's only the first of a hundred reasons the wheel is doomed!" },
       },
       again = {
         { id = "h_again", text = "More questions? Excellent, I love questions." },
@@ -289,6 +314,7 @@ P:NPC {
         { text = "Do you ever worry your inventions might hurt someone, Springspindle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a mechanical charger be as good as a living one?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do night elves even need the wheel, Springspindle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why would a rogue care about the end of the wheel?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -434,6 +460,17 @@ P:NPC {
         { text = "Goodbye, Tally.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because half my potions need it and the other half are mixed drinks, which is why I keep them on very separate shelves! Your servant can sit by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
+      },
+      choices = {
+        { text = "I'll keep it by the door.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It'll touch what it likes. Fair warning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want healing potions, I expect, for when your prayers run low, and they will; I've seen it happen to the very best of them." },
@@ -448,6 +485,7 @@ P:NPC {
           text = "A mage! You'll want mana potions, I expect, and I've a new recipe that tastes almost like berries." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, I expect, and plenty of them, because warriors drink them like ale." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me herbs from the hills, would you? Hunters always know where the best ones grow." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Don't worry, the sulfur smell in here is mine, not yours, so nobody can blame your servant for once." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I've a kettle on." },
@@ -464,6 +502,7 @@ P:NPC {
         { text = "Which herbs do hunters bring you, Tally?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do potions and prayer work well together, Tally?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever brew anything to protect others, Tally?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why does your shop smell of sulfur, Tally?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Tally.", next = "END" },
       },
     },

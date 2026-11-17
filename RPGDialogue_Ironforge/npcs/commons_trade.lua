@@ -93,6 +93,17 @@ P:NPC {
         { text = "Back to the auctions, then.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Enchanted bits, mostly, an' whatever ye've pulled out o' a dungeon that ye cannae use yerself, because the market's hungry for anythin' that glows. The mages who do well here sell steady an' sell cheap, an' the ones who try tae corner a market learn quick that dwarves outlast them." },
+      },
+      choices = {
+        { text = "Steady and cheap. Sound advice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll corner the market anyway, Redmuse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll be sellin' cloth an' buyin' wands, I expect, for that's what yer sort always does, an' I'll tell ye now that wands are dear this week." },
@@ -108,6 +119,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be after a better blade, I suppose, an' the house has a few, if ye've the coin." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The house moves more pelts than any shop in the Commons, an' half o' them come from folk like ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The kaldorei send fine leather an' herbs through my house from Darnassus, so I know yer people's goods, if no' yer people." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Conjured water fetches nothin' at this house, so dinnae try it, but runecloth an' enchanted bits fetch plenty, if ye've any tae spare." },
       },
       again = {
         { id = "h_again", text = "What else? The ledger's open." },
@@ -126,6 +138,7 @@ P:NPC {
         { text = "Does anyone sell holy relics through the house, Redmuse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do sellers ever cheat paladins on plate, Redmuse?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do kaldorei herbs sell well this far from the forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do mages sell well at the auction house?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good trading, Redmuse.", next = "END" },
       },
     },
@@ -287,6 +300,17 @@ P:NPC {
         { text = "That's enough of Gnomeregan for now.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Because half the Commons would love to know who's buying what, and the other half would love to know for how much! After Gnomeregan I learned to keep the things that matter where nobody else can read them, and so far nobody's managed it." },
+      },
+      choices = {
+        { text = "Clever. Your secrets are safe from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Give me a week. I'll crack it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! You'll want healing potions, I suppose, though I always think your sort shouldn't need them, and then I remember you're the one healing everybody else." },
@@ -300,6 +324,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your sort keeps the arms market lively, and I'm grateful, though I'd be more grateful if you broke fewer swords." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be selling, not buying, I expect, and I can tell you what anything's worth before you've finished saying what it is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a night elf druid! I've tallied a great many kaldorei goods but very few kaldorei, so forgive me if I count you twice." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! I keep my ledgers in gnomish shorthand, you know, so there's no use reading them over my shoulder, though I'd be impressed if you tried." },
       },
       again = {
         { id = "h_again", text = "Next question! I've a column waiting." },
@@ -318,6 +343,7 @@ P:NPC {
         { text = "Did Gnomeregan's refugees need much healing when they came here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you think a paladin could help win Gnomeregan back?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does a gnomish auctioneer make of druids, then?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why keep your ledgers in gnomish shorthand?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you, Lympkin.", next = "END" },
       },
     },
@@ -474,6 +500,17 @@ P:NPC {
         { text = "Back to the shopping, then.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I couldnae say, but I've seen an imp make off wi' a whole loaf from my counter, so somethin' must happen tae it. Buy yerself some proper food an' keep it in yer own pack, for ye look like ye need it more than it does." },
+      },
+      choices = {
+        { text = "Thank you. I'll look after myself better.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My imp eats what it likes, Bryllia.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want water, plenty o' it, for I've seen yer sort pray yerselves dry out in Loch Modan an' fall over wi' nobody left tae heal the healer." },
@@ -488,6 +525,7 @@ P:NPC {
           text = "A mage, so ye'll want water an' bread an' never think ye'll run out. Ye will, an' that's why I keep the good stuff by the door." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want food an' water before ye want anythin' else, for an empty stomach drops a shield faster than any trogg." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' a night elf too. Have ye eaten? Ye kaldorei are all so tall an' thin that I worry a Dun Morogh wind will carry ye off." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, an' pale as milk. Have ye eaten anythin' today, or does that wee beastie o' yours get all the bread?" },
       },
       again = {
         { id = "h_again", text = "Anythin' else, love? There's a queue behind ye." },
@@ -505,6 +543,7 @@ P:NPC {
         { text = "Who looks after the healers, Bryllia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins really eat that much, Bryllia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you stock anything for travellers who live off the land?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do demons even eat bread, Bryllia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "That's all, thank you.", next = "END" },
       },
     },
@@ -660,6 +699,17 @@ P:NPC {
         { text = "Something else, Jondor.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Some o' the best, for they're used tae keepin' a great many things in their heads at once, an' a guild's mostly that. The trouble is they forget the warriors need feedin' too, so if ye start one, put a dwarf in charge o' the supper." },
+      },
+      choices = {
+        { text = "I'd lead fairly and see everyone fed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A guild should follow the cleverest. That's me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest wantin' a guild! Every guild needs a healer, an' I've written a few just for priests, though they're always too polite tae pick a proper name." },
@@ -673,6 +723,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Every good guild needs a warrior at the front, an' I've written a hundred names wi' a shield on the crest." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a soft spot for hunters' guilds, for they always pick the grandest names an' the strangest crests." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! I've written a few o' yer people's names in my book, an' they always want their guild named after a tree." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Many a fine guild was started by a mage wi' a head for plannin', an' I'd wager ye've a name for one already." },
       },
       again = {
         { id = "h_again", text = "What else would ye know about runnin' a company o' friends?" },
@@ -690,6 +741,7 @@ P:NPC {
         { text = "Do guilds of priests ever do any good out there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What oath do the paladin guilds swear, Jondor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a druid be welcome in a dwarven guild?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do mages make good guild masters, Jondor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Jondor.", next = "END" },
       },
     },
@@ -834,6 +886,17 @@ P:NPC {
         { text = "Something else, Lyesa.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Somethin' plain an' dark wi' no beast on it at all, for I think a rogue's colours ought tae say they'd rather no' be noticed. Mind ye, I've stitched daggers an' skulls for young ones who wanted everyone tae know, an' they were sorry soon enough." },
+      },
+      choices = {
+        { text = "Plain and dark suits me fine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd want daggers. Let them know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've a lovely white an' gold for a priest's guild, though I'll warn ye it shows every speck o' mud from here tae Thelsamar." },
@@ -847,6 +910,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want a tabard that'll take a blow an' still look proud, an' I make the only ones in the Commons that will." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want somethin' muted, I'd guess, for there's no sense stalkin' a bear in a bright red tabard." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? I've stitched a good few crests for kaldorei guilds, an' they're terrible fussy about the exact shade o' green." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Ye'll be wantin' a tabard ye can take off quick, I imagine, an' I'll no' ask why." },
       },
       again = {
         { id = "h_again", text = "What else about crests an' colors can I tell ye?" },
@@ -864,6 +928,7 @@ P:NPC {
         { text = "Should a priest's tabard be plain, Lyesa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you made tabards for the Silver Hand, Lyesa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What crest would you stitch for a druid like me?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What crest would you stitch for a rogue, Lyesa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good day, Lyesa.", next = "END" },
       },
     },
@@ -999,6 +1064,17 @@ P:NPC {
         { text = "Something else, Soleil.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Anythin' that breathes, whispers or tries tae open its own box, an' I've had all three in my time. My family's kept the Vault for generations, an' this door's never once been opened from the inside, so I'd like tae keep it that way." },
+      },
+      choices = {
+        { text = "Fair rules. I'll keep my things quiet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A whispering box would liven the place up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll be keepin' a holy book or two in the Vault, I expect, an' I'll keep them dry for ye, as the Stonemantles keep everythin'." },
@@ -1012,6 +1088,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be wantin' a safe place for yer spare axe, I expect, an' there's none safer than the Vault." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll be after a place tae keep yer pelts, I imagine, though I'd ask ye tae cure them first." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Vault. Ye kaldorei keep yer treasures in groves, I'm told, an' I confess I've never understood how ye lock a tree." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Vault keeps all sorts, so I'll keep yours too, though I'll ask ye no' tae deposit anythin' that breathes." },
       },
       again = {
         { id = "h_again", text = "Is there anythin' else about the Vault ye'd like tae know?" },
@@ -1029,6 +1106,7 @@ P:NPC {
         { text = "What do priests keep in the Vault, Soleil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have paladins ever defended the Vault, Soleil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the kaldorei keep in your vault, Soleil?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would you refuse to keep in the Vault?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Soleil.", next = "END" },
       },
     },

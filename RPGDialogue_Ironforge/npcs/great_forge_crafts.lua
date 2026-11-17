@@ -84,6 +84,17 @@ P:NPC {
         { text = "Teach me something about smithing instead.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Patience, which is the first thing the Great Forge teaches an' the last thing most folk learn. A blade that's rushed snaps when ye need it most, an' I'd think a rogue o' all people would want a blade that doesnae fail in the dark." },
+      },
+      choices = {
+        { text = "I'll learn patience at the forge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll buy my blades, not make them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Great Forge! Ye'll want tae stand back from the heat, for I've seen yer robes catch before, an' I'd rather no' see it again." },
@@ -96,6 +107,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Show me yer hands, then, for I can tell what a warrior's made of by the calluses." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I make a good arrowhead an' a better gun barrel, but I'll leave the shootin' tae ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Great Forge. Let me see yer hands; soft, as I thought, though I'll grant ye a bear's paws were never made for tongs." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Soft hands, I'd wager, but quick ones, an' I've seen a lockpick made by a rogue that was finer work than half my apprentices manage." },
       },
       again = {
         { id = "h_again", text = "Speak up, the bellows are loud." },
@@ -113,6 +125,7 @@ P:NPC {
         { text = "Do you forge gun barrels for hunters, Bengus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there anything holy about the Great Forge, Bengus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the forge ever trouble the mountain, Bengus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a rogue learn anything at your forge, Bengus?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -272,6 +285,17 @@ P:NPC {
         { text = "Good digging, Geofram.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "There's somethin' in it, though I'd no' call it magic, for the old seams under Ironforge hum when ye strike them right, an' every miner here knows the sound. The titans shaped these mountains, so I suppose it's no surprise the stone remembers a thing or two." },
+      },
+      choices = {
+        { text = "The stone should be respected, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A seam's a seam. Dig it out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, at Deepmountain Minin'? Ye'll want tae say a prayer for my lads in the tunnels, then, for the troggs are back an' the miners are scared." },
@@ -287,6 +311,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; a miner wi' a warrior at his back goes deeper an' comes back sooner, an' that's the best kind o' minin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? There's no' much tae hunt underground, though the troggs might disagree wi' me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind dislike holes in the ground, I'm told, which makes this an awkward meetin', for I teach folk how tae dig them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll no' be swingin' a pick, I expect, but ye might like tae know that half the gems the enchanters fuss over came up out o' my tunnels." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a seam map tae finish." },
@@ -304,6 +329,7 @@ P:NPC {
         { text = "Are your miners getting hurt in the tunnels, Geofram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the miners abandon the deep seams near Gnomeregan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever leave a seam unmined for the mountain's sake?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is there magic in the deep stone, Geofram?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good digging, Geofram.", next = "END" },
       },
     },
@@ -439,6 +465,17 @@ P:NPC {
         { text = "Something else, Daryl.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "It's helped everyone else who's sat at this kettle, so I dinnae see why ye'd be any different. Just keep yer wee imp off the spice rack, for my brother Emrul charges me a fortune for every pinch, an' I'll no' pay twice." },
+      },
+      choices = {
+        { text = "Thank you, Daryl. I'll gladly eat.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save your food. I don't need comforting.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll eat before ye pray, I hope, for I've seen too many o' yer lot faint over a bowl o' soup they forgot tae finish." },
@@ -452,6 +489,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll have been livin' on hard biscuits, I'd wager, an' I can fix that in an afternoon." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a cook's best friend, for ye bring me the meat an' I'll show ye what tae do wi' it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know yer herbs, then, an' a cook who knows his herbs is halfway tae a good stew." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Sit down an' have a sausage, for there's no trouble in the world a good meal cannae shrink, an' ye look like ye've a few." },
       },
       again = {
         { id = "h_again", text = "What else would ye like tae know? Ask while the pot's on." },
@@ -470,6 +508,7 @@ P:NPC {
         { text = "Do you ever cook for the sick, Daryl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin eat before a long march, Daryl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could you cook something without meat for a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can a good meal really help a warlock, Daryl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll come back hungry.", next = "END" },
       },
     },
@@ -632,6 +671,17 @@ P:NPC {
         { text = "Something else, Emrul.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Not a bit, an' I'll stand by that, for real spice comes all the way from Booty Bay an' Theramore, an' ye can taste every league o' the journey. Daryl says my prices are robbery, but he's never once complained about the flavour." },
+      },
+      choices = {
+        { text = "Real spice is worth the price, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Conjured is cheaper. Flavour's overrated.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest wantin' spices! Ye'll be cookin' for the poor, I suppose, an' I'll no' charge ye extra for the salt, though I'll no' charge ye less either." },
@@ -645,6 +695,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want salt, then, for there's nothin' sadder than a soldier's supper wi'out it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll be the one bringin' Daryl his meat, then, an' I'll be the one makin' it taste o' somethin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll be wantin' herbs, then, an' I've a few that Daryl doesnae even know the names of." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Dinnae even think about conjurin' cinnamon, for I've heard o' mages tryin', an' it tastes o' nothin' but disappointment." },
       },
       again = {
         { id = "h_again", text = "What else, then? I've a customer behind ye, I think." },
@@ -662,6 +713,7 @@ P:NPC {
         { text = "Do you ever give spices to the poor in the Forlorn Cavern?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where do your spices come from, Emrul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can't conjured spices match yours, Emrul?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Emrul.", next = "END" },
       },
     },
@@ -797,6 +849,17 @@ P:NPC {
         { text = "Teach me first aid, Nissa.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Because ye work alone, an' there's nobody comin' tae patch ye up when a job goes wrong in some dark corner. Learn tae wrap a wound tight an' quick, an' ye'll walk out o' places other folk get carried out of." },
+      },
+      choices = {
+        { text = "Teach me, then. I'll learn it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't get hit, Nissa.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll have the Light in yer hands, I suppose, but I'll still teach ye bandagin', for ye'll no' always have the strength tae use it." },
@@ -811,6 +874,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be bleedin' on my floor sooner or later, so ye might as well learn tae stop it yerself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want tae learn bandagin' for yer own sake, for yer beast mends quicker than ye do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind heal wi' the green, I hear, an' I'll no' say no tae the help, so long as ye don't bleed on my floor." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Ye'll bleed quiet, I expect, but ye'll still bleed, an' I'll thank ye tae do it somewhere other than my floor." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a patient upstairs." },
@@ -828,6 +892,7 @@ P:NPC {
         { text = "Do you resent priests, Nissa, for doing your work with prayers?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it better to heal the wounded or to protect them, Nissa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a druid's healing as good as a bandage, Nissa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why should a rogue learn first aid, Nissa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you, Nissa.", next = "END" },
       },
     },

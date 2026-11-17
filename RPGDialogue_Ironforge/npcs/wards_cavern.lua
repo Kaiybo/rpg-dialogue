@@ -93,6 +93,17 @@ P:NPC {
         { text = "Something else, Ulbrek.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They trust anyone who's gentle wi' them, an' quiet folk usually are, for they've learned that loud ones get noticed. Speak low an' move slow, an' they'll come tae ye in time, same as they do tae me." },
+      },
+      choices = {
+        { text = "I'll be gentle with them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'm not here to make friends with rams.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the stables! The beasts like a gentle voice, an' I'd wager yers is gentler than most, so come an' say hello tae them." },
@@ -106,6 +117,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Ye've no beast for me tae keep, but ye're welcome tae stand by the stalls an' say hello." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Come in, come in; is it a new beast ye're after, or are ye leavin' an old friend wi' me for a while?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei. The beasts in the stalls'll smell the forest on ye, so don't be surprised if they all start fussin'." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The rams always know when someone quiet comes in, for they go still an' watch the door, an' they've been watchin' ye since ye stepped in." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Keep yer voice low, mind." },
@@ -123,6 +135,7 @@ P:NPC {
         { text = "Do you ever need a priest for the beasts, Ulbrek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin treat a charger, Ulbrek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the beasts in your stalls miss the wild, Ulbrek?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your beasts trust someone so quiet, Ulbrek?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you, Ulbrek.", next = "END" },
       },
     },

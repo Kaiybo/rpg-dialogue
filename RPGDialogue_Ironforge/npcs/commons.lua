@@ -82,6 +82,17 @@ P:NPC {
         { text = "Show me something else, Curator.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because there's titan-work in these cases, an' I've no notion what it would make o' a demon standin' over it, an' I'd rather no' find out. Besides, my brother Dorius risks his neck in the Searing Gorge for every stone he sends me, an' I'll no' have one cracked by a curious imp." },
+      },
+      choices = {
+        { text = "Fair enough. It'll wait by the door.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your relics are sturdier than you think, Curator.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the museum! Mind the cases, friend, for some o' these relics are older than any temple, an' a few o' them were holy tae somebody once." },
@@ -103,6 +114,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Mind the titan-work behind the glass, for the last one o' yer kind who leaned close made every rune on it glow, an' I had tae sit down." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Then ye'll want tae see the east hall, for there's armor there from the War o' the Three Hammers that still has the dents tae prove it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Hall o' Explorers! I'll gladly give ye the tour, but I'll ask yer wee servant tae wait by the door, for some o' these relics are older than its masters." },
       },
       again = {
         { id = "h_again", text = "Another question? I've a hall full o' answers." },
@@ -121,6 +133,7 @@ P:NPC {
         { text = "Which pieces in the museum belonged to warriors, Curator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever kept relics of faith in the museum, Curator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Whose gauntlet is that by the north wall, Curator?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why must my servant wait by the door, Curator?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Another time, Curator.", next = "END" },
       },
     },
@@ -505,6 +518,17 @@ P:NPC {
         { text = "Tell me something else, Historian.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I'd buy the truth about where they came from, which is worth more than the relic, an' the League pays fairly for it. Hammertoe died in the Badlands for those tablets, so I've no patience for anyone who digs for coin an' leaves the history behind." },
+      },
+      choices = {
+        { text = "Fair. I'll bring the truth with anything I find.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin, Historian. History doesn't feed me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Well, ye'll want tae hear about the Shadowforge, for the Dark Irons in Uldaman are no' the sort a polite word will move." },
@@ -525,6 +549,7 @@ P:NPC {
           text = "Ye've a smell o' brimstone about ye, an' I'd be a poor historian if I didnae recognise it. Sit down, if ye like, but keep yer friend outside." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; a warrior's of more use tae the League these days than another scholar, an' I say that as a scholar." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll have a sharp eye, then, an' the League's always short o' those." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If ye've come tae sell me somethin' ye found in Uldaman, I'll want tae know exactly where ye found it, an' I'll know if ye're lyin'." },
       },
       again = {
         { id = "h_again", text = "Well? What else?" },
@@ -543,6 +568,7 @@ P:NPC {
         { text = "Why would the League need warriors more than scholars?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Explorers' League ever need hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have a paladin do about the Shadowforge?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you buy relics from a rogue, Historian?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -970,6 +996,17 @@ P:NPC {
         { text = "Let's talk about something lighter.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Granite's patient, but it remembers heat, an' I've seen a block crack clean in two from less than a demon's breath. This one's for Sully Balloo, who fell at the Thandol Span, an' his widow will come tae see it, so I want it perfect." },
+      },
+      choices = {
+        { text = "I'll keep it away. Sully deserves a perfect stone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stone is stone. Carve faster, Grand Mason.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want tae see the memorials, then, for I carve the names an' somebody ought tae say the words over them." },
@@ -989,6 +1026,7 @@ P:NPC {
           text = "A mage, is it? I've seen yer kind try tae shape stone wi' spells, an' it never once came out square." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind ye come home in one piece, for I've carved enough warriors' names this year tae last me a lifetime." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll have an eye for a shape, then, an' I've always said a good hunter would make a passable mason." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Mind where yer servant stands, for I've a block o' Alterac granite set aside for the King's memorial, an' if it scorches the stone I'll be carvin' yer name next." },
       },
       again = {
         { id = "h_again", text = "What else? I've a block coolin' an' a chisel itchin'." },
@@ -1007,6 +1045,7 @@ P:NPC {
         { text = "Why would a hunter make a good mason?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the families ask for prayers carved on the memorials?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are there paladins among the names you've carved?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would my servant really harm your granite, Grand Mason?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Grand Mason.", next = "END" },
       },
     },
@@ -1176,6 +1215,17 @@ P:NPC {
         { text = "Back to business, Gryth.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because a portal takes ye tae three cities an' no further, an' my birds will take ye anywhere there's a roost. Ye'll no' see Dun Morogh's peaks from a portal either, an' I'd say that's half the reason tae travel at all." },
+      },
+      choices = {
+        { text = "The view's worth the ride, Gryth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Speed matters more than views.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for the last time a rider came in off the Thandol route he'd a Dragonmaw arrow in him, an' I'm no' handy wi' anythin' but feathers." },
@@ -1191,6 +1241,7 @@ P:NPC {
           text = "Keep yer imp well back from the roost, if ye please. The gryphons went daft the last time one o' those wee things came near, an' I spent an hour gettin' them down off the ceilin'." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ironforge gryphons have carried dwarven warriors since the Second War, an' they've never dropped one, whatever the Wildhammers say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Then ye'll appreciate a beast that can stand the heat o' the Great Forge, for there's none hardier than mine." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll be wantin' tae teleport, I suppose, an' leave my gryphons standin' idle, but a portal never once showed anyone the view over Loch Modan." },
       },
       again = {
         { id = "h_again", text = "Anythin' else, or are ye flyin'?" },
@@ -1208,6 +1259,7 @@ P:NPC {
         { text = "How do your gryphons stand the heat of the Forge?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your riders come back wounded often, Gryth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have your gryphons ever flown paladins into battle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why fly a gryphon when I can teleport, Gryth?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Gryth.", next = "END" },
       },
     },

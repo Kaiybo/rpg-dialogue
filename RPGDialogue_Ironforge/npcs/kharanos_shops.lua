@@ -93,6 +93,17 @@ P:NPC {
         { text = "Thanks, Kreg.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Thread, a bag that doesnae leak an' a warm cloak, for conjured bread willnae keep the cold off up past Kharanos. I've watched gnome mages come down from Coldridge in robes thin as paper, an' I've sold every one o' them a cloak by the time they reach the lake." },
+      },
+      choices = {
+        { text = "Sound advice. I'll take a cloak.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little fire keeps me warm enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Kharanos! Ye'll want bandages, I'd guess, for yer prayers won't last the whole road tae Ironforge, an' I've seen priests try." },
@@ -108,6 +119,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll want rations an' a whetstone, an' ye'll want them before ye go up intae the high snows." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I've shot an' arrows on the back shelf, an' meat for yer beast if ye've one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in Kharanos. Ye'll need less from me than most, I expect, but here's advice for free: the wendigo up the hills don't care what shape ye're in." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll be after water an' bread, I'd guess, except ye can make yer own, so what is it ye're really here for?" },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a crate tae unpack." },
@@ -125,6 +137,7 @@ P:NPC {
         { text = "Do many of the young recruits come back hurt, Kreg?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the recruits need to hear, Kreg?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What should a druid know about the wendigo?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would a mage need from your store, Kreg?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Kreg.", next = "END" },
       },
     },
@@ -260,6 +273,17 @@ P:NPC {
         { text = "Something else, Grawn.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Somethin' does, a dark bloom on the blade like rust that isnae rust, an' I've seen it twice now after a warlock came tae the counter. Maybe it's my eyes gettin' old, but I'll no' sell a blade wi' a flaw in it, whatever caused it." },
+      },
+      choices = {
+        { text = "I'll keep it back from your steel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your eyes are getting old, Grawn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest buyin' a blade? I'll sell ye a mace, then, for that's what yer sort carry, an' I make a mace that won't break on a trogg's skull." },
@@ -274,6 +298,7 @@ P:NPC {
           text = "A mage buyin' a blade! I'd ask what for, but I suppose even mages run out o' spells." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I don't make guns, but I make the blade ye'll want when the bear gets too close for one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind fight wi' claws an' teeth, which is fine, but ye'll still want a good mace for when ye're on two legs." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell ye a dagger or a staff, but I'll ask ye no' tae let yer servant touch the steel, for it leaves a mark on the metal I cannae polish out." },
       },
       again = {
         { id = "h_again", text = "What else? I've steel coolin'." },
@@ -291,6 +316,7 @@ P:NPC {
         { text = "Do you ever forge weapons blessed for the faithful, Grawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you take back a hammer broken in an unfair fight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a claw any less honest than a blade, Grawn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does my servant really mark your steel, Grawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Grawn.", next = "END" },
       },
     },
@@ -426,6 +452,17 @@ P:NPC {
         { text = "Thanks, Boran.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Because sooner or later somebody sees ye comin', an' then all the sneakin' in the world willnae stop a Frostmane spear. Get the best leather ye can afford, an' if ye ever change yer mind about mail, ye know where my counter is." },
+      },
+      choices = {
+        { text = "Good leather it is. Thanks, Boran.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Nobody sees me coming, Boran.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want somethin' light, I'd guess, but I'll tell ye now my armor's kept more recruits alive than any prayer, an' I'll stand by that." },
@@ -440,6 +477,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who'll wear a coat o' mail an' thank me for it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want mail ye can kneel in, for a hunter's always crouchin' in the snow behind somethin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll want somethin' that fits whether ye're a bear or an elf, an' I'm sorry tae say I've never made such a thing." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Ye'll no' want mail, I know, for it clanks, but have ye considered that clankin' is a small price tae pay for no' bein' stabbed?" },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -457,6 +495,7 @@ P:NPC {
         { text = "Has your armour really saved more lives than prayer, Boran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can heavy armour protect the weak as well as its wearer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your armor hold up when a druid changes shape?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why should a rogue care about armor, Boran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thanks, Boran.", next = "END" },
       },
     },

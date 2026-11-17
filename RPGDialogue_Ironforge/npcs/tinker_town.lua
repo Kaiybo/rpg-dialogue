@@ -94,6 +94,17 @@ P:NPC {
         { text = "Something else, Tinkmaster.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I think anyone would, for gnomish secrets are the finest in the world, and since Gnomeregan fell they're nearly all we have left! Forgive me, I'm being dramatic again, but some of those plans are the only copies, and I'd sooner lose my beard." },
+      },
+      choices = {
+        { text = "Your secrets are safe with me, Tinkmaster.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then lock them up better, Tinkmaster.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive my melodrama, but if you've a prayer for Techbot, I'd be grateful, even if he is only a machine, which he isn't, not to me." },
@@ -116,6 +127,7 @@ P:NPC {
           text = "A warlock in Tinker Town! I suppose you've heard that Gnomeregan sheltered your sort before the fall, and I'd thank you not to mention it too loudly." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, if only we'd had a few more of you when the troggs came up through Gnomeregan's lower levels, the tragedy of it all!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I once built a mechanical hound, you know, but it chased the wrong things, as all my best inventions eventually do." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in Tinker Town! Oh, forgive the dramatics, but I must ask you to keep your fingers off the schematics, because the Pledge of Secrecy covers every last one of them." },
       },
       again = {
         { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
@@ -135,6 +147,7 @@ P:NPC {
         { text = "What became of your mechanical hound, Tinkmaster?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can a machine have something worth praying for, Tinkmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Techbot be destroyed or repaired, Tinkmaster?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think a rogue would steal gnomish secrets?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -551,6 +564,17 @@ P:NPC {
         { text = "Good luck with your quest.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Oh, not really, no, because Mathiel in Darnassus would never write to me again, and I'd likely melt my own eyebrows off. But I do wonder, which is the trouble with being an inventor, so if you ever learn the answer, write it down for me." },
+      },
+      choices = {
+        { text = "Some things shouldn't be learned, Klockmort.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll test it for you, if you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh my, you'll forgive the mess, I'm sure, because priests forgive everything, or so I've heard, and my workshop needs a great deal of forgiving." },
@@ -572,6 +596,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll have broken a blade or two, I expect, and I'd very much like to see the pieces." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you know, I've been trying to make a lighter rifle barrel for years, and I keep making heavier ones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose the forests of Teldrassil hide any interesting metals? Even an odd sort of rock would do." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Tell me, does fel fire burn hotter than a forge? I only ask because I'm looking for new ways to temper an alloy, and I've tried nearly everything else." },
       },
       again = {
         { id = "h_again", text = "What else? I've a crucible warming." },
@@ -590,6 +615,7 @@ P:NPC {
         { text = "Is the greatest invention worth all this searching, Klockmort?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should you test your alloys on living paladins, Klockmort?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you build if you found your perfect alloy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you really use fel fire at your forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },

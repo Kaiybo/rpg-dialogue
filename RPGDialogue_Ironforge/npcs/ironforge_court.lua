@@ -1514,6 +1514,17 @@ P:NPC {
         { text = "Something else, Firebrew.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Some do, an' they mutter into their mugs, but the Stonefire's had worse at the bar, includin' a Dark Iron spy we didnae catch till he'd drunk half a barrel. Tell us a good story an' they'll forget what ye are by the third round." },
+      },
+      choices = {
+        { text = "I'll tell the truth, even if it frightens them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll tell them whatever keeps them friendly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Stonefire! Ye'll forgive the noise, I hope, for my patrons sing louder than any choir, an' worse." },
@@ -1531,6 +1542,7 @@ P:NPC {
           text = "A mage! I'll have ye know the hearth in the Stonefire burns on good coal, so ye'll no' need tae add anythin' fancy tae it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grab a stool, then, for every warrior in the Stonefire has a tale, an' I'm sure ye've a taller one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The Stonefire's full o' fish stories, but a good bear story beats them all, if ye've got one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at the Stonefire! Pull up a stool, an' tell yer servant there's no' a keg in this tavern it's allowed tae set alight, however much it begs." },
       },
       again = {
         { id = "h_again", text = "Another? Story or ale, ye're welcome either way." },
@@ -1548,6 +1560,7 @@ P:NPC {
         { text = "Do hunters tell the best stories in the Stonefire?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your patrons ever ask a priest for comfort, Firebrew?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you like paladins' stories, Firebrew? Are they ever true?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your regulars mind a warlock at the bar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just a drink.", next = "END" },
       },
     },

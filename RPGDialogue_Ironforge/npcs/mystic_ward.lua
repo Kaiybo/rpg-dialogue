@@ -674,6 +674,17 @@ P:NPC {
         { text = "Something else, Toldren.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Remind ye tae sleep, for a start, an' tae eat somethin' that wasnae conjured, for I've seen mages waste away while their minds run on ahead. The Light doesnae care much for spells, but it cares a great deal for the one castin' them." },
+      },
+      choices = {
+        { text = "You're kind, Toldren. I'll rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Rest can wait. The work can't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Is there anythin' I can do for ye? Ye've the look o' somebody who's carried other folk's troubles further than ye meant tae." },
@@ -689,6 +700,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye look tired, if ye don't mind my sayin' so; sit a moment before ye go." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye look as though ye've slept on the ground more than in a bed lately, so sit an' rest a while." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look tired, if ye don't mind my sayin'. Sit a while, for the Hall's open tae anyone, whatever they pray to." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, an' tired, I'd wager, for ye've the look o' someone who's been readin' by candlelight again. Is there anythin' I can do for ye?" },
       },
       again = {
         { id = "h_again", text = "Is there anythin' else I can do for ye?" },
@@ -705,6 +717,7 @@ P:NPC {
         { text = "Do hunters come to you often, Toldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins come to you for help, Toldren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How would a priest of the Light help a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What can a priest do for a mage, Toldren?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Nothing, thank you.", next = "END" },
       },
     },
@@ -841,6 +854,17 @@ P:NPC {
         { text = "Something else, Braenna.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I think ye'd be tempted, for a stack o' sealed letters tempts most folk, an' a rogue more than most. I keep them safe because the priests who send them trust me, an' trust is the one thing in this Hall I cannae replace." },
+      },
+      choices = {
+        { text = "Your letters are safe from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sealed letter is a challenge, Braenna.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! There's a letter or two for the Silver Hand in my pile, I'll wager, though I'd no' know who tae send them tae now Lordaeron's gone." },
@@ -856,6 +880,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be headin' out o' the city, then, an' I might have a letter or two for ye tae carry." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know the roads better than any courier, an' I've letters that need a sure foot." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've had letters from the Temple o' the Moon pass through my hands, though I'm no' sure the sisters meant them for a dwarf tae sort." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If ye've come tae read the Hall's letters, I'll save ye the trouble, for half o' them are night elves askin' about the weather on Teldrassil." },
       },
       again = {
         { id = "h_again", text = "What else can I do for ye? I've three letters tae sort, but they'll keep." },
@@ -872,6 +897,7 @@ P:NPC {
         { text = "Do the roads give your letters much trouble, Braenna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What letters come for the Silver Hand now, Braenna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Sisters of Elune write to the Hall often?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you really think I'd read your letters?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell, Braenna.", next = "END" },
       },
     },
@@ -995,6 +1021,17 @@ P:NPC {
         { text = "Something else, Tiza.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "No' little, only different, for a mage seeks power an' a paladin seeks tae give his away, or that's what I teach them. The best mages I've known gave theirs away too, in the end, an' I'd like tae think ye might be one o' them." },
+      },
+      choices = {
+        { text = "Power should serve others. I agree.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power serves whoever holds it, Tiza.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Tiza Battleforge, o' the Silver Hand. Here in Ironforge I put the young paladins on the path tae virtue, an' it's a longer path than they expect." },
@@ -1012,6 +1049,7 @@ P:NPC {
           text = "A warlock! I'll no' have yer creatures near my paladins, for they're trained tae smite first an' ask after." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I send my young paladins tae help folk who cannae repay them, an' hunters do the same more often than ye'd think." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Hall o' Mysteries. I put young paladins on the path tae virtue, an' I'd wager yer path's every bit as long." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've nothin' against the arcane, but I'll say my young paladins learn more from a day helpin' a farmer than from a week o' books." },
       },
       again = {
         { id = "h_again", text = "Go on, lass or lad; the Light's never too busy fer an honest question." },
@@ -1030,6 +1068,7 @@ P:NPC {
         { text = "How do hunters help folk who can't repay them, Tiza?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does your husband give the priests much trouble, Tiza?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a druid's duty to the wild a kind of virtue?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do paladins think little of mages, Tiza?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -1236,6 +1275,17 @@ P:NPC {
         { text = "Something else, Muiredon.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'd thank it after. Tiza would have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
+      },
+      choices = {
+        { text = "Tiza's right. A paladin should choose his allies.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. In a fight, an ally is an ally.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Tiza's lot, are ya? Then ye'll know she'll have ya walkin' further than ya want, an' ye'll thank her for it after, same as I did." },
@@ -1255,6 +1305,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll forgive me if I don't stand, for the priest says if I move again she'll sew my mouth shut as well." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll have sharp eyes, an' I could have used a pair when I went spyin' south o' Helm's Bed Lake." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' have any leaves that'd stop these stitches itchin', would ye? I'm askin' for a friend, an' the friend is me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Dinnae mind me, I'm only half-stitched, but if yer servant could keep its claws away from the bandages I'd be grateful." },
       },
       again = {
         { id = "h_again", text = "Wut else? I'm no' goin' anywhere, as ya see." },
@@ -1272,6 +1323,7 @@ P:NPC {
         { text = "What did you see south of Helm's Bed Lake, Muiredon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did the Dark Irons teach you, Muiredon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the Dark Irons give you those wounds, Muiredon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you fight Dark Irons beside a warlock, Muiredon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Mend well, Muiredon.", next = "END" },
       },
     },
