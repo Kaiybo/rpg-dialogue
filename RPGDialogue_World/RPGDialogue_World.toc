@@ -40,6 +40,8 @@ rumors\wetlands.lua
 rumors\hillsbrad.lua
 rumors\kalimdor.lua
 rumors\riverglades.lua
+rumors\eastern.lua
+rumors\kalimdor_more.lua
 books.lua
 generic.lua
 pools.lua

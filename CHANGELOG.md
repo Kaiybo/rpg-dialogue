@@ -71,6 +71,12 @@ Archmage Malin. **New file: restart the game fully (a /reload won't load it).**
 
 - **Archmage Malin** in the Wizard's Sanctum (Stormwind 1.27.0) now has a full conversation: his old master Archmage Trelane and the tower in the Arathi Highlands, what the Boulderfist took, Skuerto and Kryten, the fall of Stromgarde, Dalaran, and life in the Mage Quarter. He reacts to Malin's Request and to how the work at Refuge Pointe went, notices mages, warlocks and Mage Quarter apprentices, and has replies for Dalaran's strays, Stromgarde's sellswords, Gnomeregan's last students, dwarves, gnomes and night elves.
 
+## 0.80.0 (2026-11-17)
+More rumors. **New files: restart the game fully (a /reload won't load them).** Needs World pack 1.36.0.
+
+- **About 90 new rumors** for innkeepers in places that had none: Stormwind, Ironforge and Dun Morogh, Loch Modan, Undercity and Tirisfal, Silverpine, Stranglethorn, Arathi, the Badlands and Searing Gorge, the Swamp of Sorrows and Blasted Lands, the Burning Steppes, the Hinterlands, the Plaguelands and Alterac; and in Kalimdor, Orgrimmar and Durotar, Darkshore, Stonetalon, Desolace, Thousand Needles and Feralas, Dustwallow Marsh, Tanaris and Un'Goro, Felwood, Winterspring, Azshara, and word of Silithus.
+- As before, some only come up at the right level, for your faction, or before or after certain quests. Anyone in those zones can pass them on when you ask them for the latest rumors.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
