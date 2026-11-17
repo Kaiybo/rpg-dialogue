@@ -482,6 +482,7 @@ end
 
 local function hoverColor(b, on)
   if b.isClose and b.gameLook then return end
+  if b.selected then b.label:SetTextColor(1, 1, 1); return end
   local c = Theme.Palette()[on and "buttonTextHover" or "buttonText"]
   b.label:SetTextColor(c[1], c[2], c[3])
 end

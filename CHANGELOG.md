@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.68.0 (2026-11-17)
+A better-looking journal. No new files: /reload is enough.
+
+- **Pages are laid out like a book now.** Days, places, people and categories get proper headings with a rule under them, and the entries sit indented beneath, with room to breathe between them instead of one long block of text.
+- **Easier to read.** Place names and asides use darker ink that stays readable on the parchment, and the first line is no longer tucked under the page's torn edge.
+- **Tabs and header.** The open tab is lit with a bar under it (no more "> Diary"), the page's name and a count ("12 entries", "8 met") sit above the page, and the search box says "Search..." when empty.
+
 ## 0.67.0 (2026-11-17)
 Coming home, and a town that talks. No new files: /reload is enough if you have 0.65.0's packs in.
 
