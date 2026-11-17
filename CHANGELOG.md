@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.74.0 (2026-11-17)
+Fixes for the new conversations added in 0.73.0. No new files: /reload is enough.
+
+- **Two Harlos were one person.** Harlo Wigglesworth in Everlook and Harlo Barnaby in Menethil shared an internal name, so the addon merged them: shared memory of you and conversations that could cross over. They're separate now (Wigglesworth's memory of you starts fresh).
+- **Sergeant De Vries's "you look done in"** never showed (it checked something the addon doesn't track). He now says it when your gear is badly worn.
+- **Questions that shifted alignment.** Three replies (Archmage Celindra in Dalaran, Do'gol in Dustwallow, Orgrul among the Magram) were worded as questions but changed your leanings. They're statements now, as the rules intend.
+- **A one-sided choice.** Aetheen on Zephras offered only one stance in "the peace below the clouds"; there's now an opposing one.
+- Checked that every new character from 0.73.0 is listed in its pack and loads.
+
 ## 0.73.0 (2026-11-17)
 About a hundred new people to talk to, and a writing pass across every pack. **New files: restart the game fully (a /reload won't load them).**
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.1 (2026-11-17)
+- Fix: one of Orgrul's replies was a question carrying alignment; it's a statement now.
+
 ## 1.2.0 (2026-11-17)
 - Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 

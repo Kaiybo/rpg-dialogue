@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.1 (2026-11-17)
+- Fix: Aetheen's "peace below the clouds" question offered only one stance; it now has a second, opposing one, so the choice is a real choice.
+
 ## 1.10.0 (2026-11-17)
 - Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 

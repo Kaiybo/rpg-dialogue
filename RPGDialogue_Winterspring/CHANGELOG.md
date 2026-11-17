@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.1 (2026-11-17)
+- Fix: Harlo Wigglesworth in Everlook shared an internal name with Harlo Barnaby in Menethil, so the two were merged into one person (shared memory, mixed conversations). They're separate now. Anything Wigglesworth remembered about you starts fresh.
+
 ## 1.22.0 (2026-11-17)
 - New people to talk to: Harlo Wigglesworth, Jaron Stoneshaper, Meggi Peppinrocker, Wynd Nightchaser. New files: restart the game fully (a /reload won't load them).
 - Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.

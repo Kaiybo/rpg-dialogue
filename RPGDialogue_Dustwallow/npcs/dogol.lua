@@ -77,7 +77,7 @@ P:NPC {
       lines = { { id = "sb_default", text = "The humans say orcs burned it, and Krog says no orc did, and Do'gol believes Krog. Ogres do not burn inns, because ogres would eat what was inside first." } },
       choices = {
         { text = "Then the truth should be found, whoever it hurts.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the humans think what they like. Who cares?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let the humans think what they like. It changes nothing.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

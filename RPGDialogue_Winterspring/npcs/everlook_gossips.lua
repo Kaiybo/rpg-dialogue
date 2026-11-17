@@ -8,7 +8,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 -- Harlo Wigglesworth
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "harlo", id = TODO_NPC("Harlo Wigglesworth"), name = "Harlo Wigglesworth",
+  key = "harlo_wigglesworth", id = TODO_NPC("Harlo Wigglesworth"), name = "Harlo Wigglesworth",
   bible = "bibles/harlo.md", role = "questgiver", tier = "quest",
   communities = { "everlook" }, temper = { "chatty", "cheerful" }, values = { "curious", "gossip" },
   notices = { "travel", "race" },

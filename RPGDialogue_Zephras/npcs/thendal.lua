@@ -539,6 +539,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll stand with the weakest.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "The weak can hire swords like anyone else. Mine aren't free.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
