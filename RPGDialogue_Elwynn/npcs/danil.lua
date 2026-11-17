@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some of them crossed themselves when they saw your totems, I'll confess. But the Light didn't object to dwarven coin when we built the Abbey, so I doubt it minds you." } },
+      choices = {
+        { text = "Then I'll give something for the roof, Brother. Gladly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the Light fix its own roof, Brother Danil.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Only by eating them, friend, for study makes a hungry belly. Once you can conjure your own bread, I hope you'll remember the recruits who can't, because the Light asks us to feed the body as well as the mind." } },
@@ -108,6 +117,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane works recruits hard, and hungry recruits drop their shields." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at Northshire, and plainly a long way from home! The Abbey's bread is humble, but it's honest, and I'd say the same of the thread." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage of the Abbey! Brother Bremen's students always buy the bread and forget the water, and then they come back thirsty." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and I'll wager a full purse with you. The Abbey's roof still leaks, you know. Perhaps your rain spirits could ask it to stop." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wagon's open till the bread runs out." },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "What does a paladin need from your wagon, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Abbey grow its own grain, or buy it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do Khelden Bremen's students trouble the Abbey's stores?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the Brothers mind a shaman at the Abbey, Brother Danil?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

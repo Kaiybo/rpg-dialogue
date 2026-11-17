@@ -30,6 +30,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Brave, and stubborn, and very sure of themselves until the plague came and there was nothing left to be sure of. Some went to the Crusade and some went into the ground, and you're the first I've met who went into the ground and came back with the Light still in hand." } },
+      choices = {
+        { text = "Then I'll carry their courage with me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Their certainty failed them. I'll trust my own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They stood just behind us, and when the line bent they'd step into the gap and pray loud enough to shame us back into place. I don't know what you pray to now, but a voice behind the line still matters, so learn where to stand before you learn what to say." } },
@@ -71,6 +80,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, among my sword pupils. Stand where I can see you, then, and tell me why you keep your distance from the fight." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at a warrior's post. I trained beside priests of the Light in the old army, and they stood behind the line and kept it standing, so I'll not mock yours." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, in my yard? You'll hold a sword badly, I expect, but I'll teach you to hold it anyway." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, swinging a sword with dead hands and calling on the Light at the same time. I soldiered beside knights of the Silver Hand once, and they always seemed half in this world and half in the next, which you are now, in more ways than one." },
       },
       choices = {
         { text = "Did the old army's priests ever fight beside you, Dannal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -84,6 +94,7 @@ P:NPC {
         { text = "Should a mage learn to hold a weapon, Stern?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is a bow worth less than a sword to you, Dannal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why teach a warlock the sword, Dannal?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What were the knights of the Silver Hand like, Dannal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -327,6 +338,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I said grace every night when I was alive, and the plague came all the same, so I stopped. But if the Light still listens to a dead paladin, then perhaps it was listening all along, and I owe it an apology, or it owes me one." } },
+      choices = {
+        { text = "It was listening. You may owe it that apology.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It owes you one, Joshua. Don't let it forget.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They need someone to tell them they're still people, I think, and the priests seem to be the ones doing it. I just sell the bread, but I notice the ones who've spoken to Sarvis or Duesten walk out a bit straighter than they came in." } },
@@ -377,6 +397,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, is it? I've no arrows, I'm afraid, but I've bread for the road and water that only tastes a little of the well." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! The dead still need bread and water, and now they need priests too. I'm beginning to think dying changed rather less than we were told." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, buying bread! I do love that the dead still need bread, and I love even more that warlocks always buy extra." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, buying bread in Deathknell. I'll sell it to you gladly, though I've always wondered whether the dead still say grace, and you'd be the one to ask." },
       },
       choices = {
         { text = "Do the risen still need priests, Joshua?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -390,6 +411,7 @@ P:NPC {
         { text = "What does a warrior need from your shelves, Kien?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you buy meat from hunters, Kien?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do warlocks buy extra bread, Joshua?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you think the dead should still say grace, Joshua?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, friend? The shelves are still here." } },
@@ -482,6 +504,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I think everything that gives power asks for something back, and the only difference is how politely it asks. My imps want souls and your Light wants you to burn, and I'm not at all certain which of us made the better bargain." } },
+      choices = {
+        { text = "The Light asks for faith, not souls. There's no bargain.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps you're right. Power is power, whoever gives it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "We both ask something unseen for power, and we both pay for it, though a priest's bill comes due more politely than mine. The difference, I'd suggest, is that I always read the contract, and in my experience your sort never thought to ask for one." } },
@@ -520,6 +551,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in my parlour. You'd be surprised how many of my demons respect a good blade, {class}, and how few of them respect a good argument." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast and my demons are cousins of a sort, {class}, though yours were tamed with patience and mine with somewhat sterner methods." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in my trainers' corner. We both deal in things beyond the veil, I'd say, though your sort tends to look at mine as if I'd tracked something in on my boots." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin in my parlour, how wonderful. The demons are terribly offended, of course, but I find it refreshing to meet one of the dead who has chosen the brighter master." },
       },
       choices = {
         { text = "Do you think priests and warlocks are so different, Rupert?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -532,6 +564,7 @@ P:NPC {
         { text = "Isn't warlockry just the arcane with poorer manners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could your demons stand against a real warrior, Boch?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is a demon anything like a hunter's beast, Boch?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you think the Light is just another master, Rupert?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Is there something else? Do go on, because curious minds are the only kind worth teaching." } },
@@ -620,6 +653,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I trust what I can bottle and hand to someone who's bleeding, which is a potion. The Light may well be more powerful, but I've seen it fail to come, and I've never once seen a properly brewed healing draught refuse to work." } },
+      choices = {
+        { text = "The Light comes when it's needed. I trust it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. I'll carry your draughts and pray less.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Potions, for anyone who can pay, because a potion doesn't care what you believe or how tired the priest is. Still, I've watched a prayer finish what my bottles started, so I'll not quarrel with you too loudly." } },
@@ -670,6 +712,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll pass more herbs in a day than my students find in a week, so keep your eyes on the ground now and then." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you'll know that a healing potion and a healing prayer both work better on a patient who's been told to sit still." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Do you need potions, or just a quiet corner to read in? I've both, and I'd rather sell potions." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll heal with a touch, I suppose, which is a fine thing, but I'd still carry a draught or two, because I've no idea whether the Light answers as quickly when you're dead as when you were living." },
       },
       choices = {
         { text = "Are potions or prayers better medicine, Carolai?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -683,6 +726,7 @@ P:NPC {
         { text = "What should a warrior carry from your shelves, Carolai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What herbs grow out where I hunt, Carolai?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do warlocks use your potions, Carolai?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you trust potions over the Light, Carolai?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? Quickly, please, before something boils over." } },
@@ -770,6 +814,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It mends what's broken in you, I'd guess, but not what's missing, and you're missing a heartbeat like the rest of us. I'd still rather you tried than gave up, though, because it's the trying that keeps a patient going, or whatever it is we are now." } },
+      choices = {
+        { text = "I'll keep trying, Nurse, for every patient.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead can't be mended. I'll not pretend otherwise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Some of it can, though it stings the poor dears like nettles, and the shadow-priests' mending is gentler on the dead. I stitched the living for twenty years, and I'll take any healing that works, whatever voice it answers to." } },
@@ -820,6 +873,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, dear? Your beast will come back cut up too, I expect, and I've stitched a wolf or two in my time, though they never thanked me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Bless you for coming, because half of Brill walks around with wounds they can't feel, and I could use another pair of hands that know how to close them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, dear? You'll want to learn to bind a wound, because conjured water won't stop the bleeding." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, dear? Then you can mend wounds as well as I can, though I'd bet you never think to mend your own, because paladins never do, alive or dead." },
       },
       choices = {
         { text = "Can the Light still heal Forsaken flesh, Nurse?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -833,6 +887,7 @@ P:NPC {
         { text = "How do I patch myself up in a fight, Nurse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you ever mend beasts, Nurse?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a mage learn first aid, Neela?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you think the Light can mend the dead, Nurse?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye, Nurse.", next = "END" },
       },
       again = { { id = "h_again", text = "Is there anything else, dear, before I go back to rolling bandages?" } },
@@ -921,6 +976,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The knights of Lordaeron rode white chargers into battle, and look where it got them. A horse of bone doesn't tire or bolt, and it won't mind your Light, so I'd say a paladin of the Forsaken deserves a better mount than the Silver Hand ever had." } },
+      choices = {
+        { text = "The Silver Hand's chargers were noble. I'll honour that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Nobility didn't save them. I'll take the bones.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "One or two of them still shy at a church bell, which is a funny thing in a horse with no ears to speak of. I like to think it's the ones that pulled the carts to Sunday service, and I keep them away from the chapel road for their own sake." } },
@@ -972,6 +1036,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be comparing my horses to your beasts, I expect, so I'll tell you now that mine don't need feeding and never wander off." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! My horses don't need blessing, mind, since they're past all that, but I'll not stop you if you want to try." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll teleport home, I suppose, but a skeletal horse goes where your spells don't." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken! Now you'll want a proper charger, I expect, and I'll tell you honestly that my skeletal horses don't flinch at the Light, or at much of anything else." },
       },
       choices = {
         { text = "Do your horses remember what they were, Zachariah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -985,6 +1050,7 @@ P:NPC {
         { text = "Will your horses carry a warrior into a fight, Zachariah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a dead horse keep up on the hunt, Zachariah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you sell a horse to a mage, Zachariah?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would a paladin ride one of your horses into battle, Zachariah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? The horses aren't going anywhere, and neither am I." } },

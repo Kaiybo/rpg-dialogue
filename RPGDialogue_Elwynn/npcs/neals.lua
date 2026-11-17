@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I hope so, or I'm in trouble. The Light is gentle with honest failings. I'd guess your spirits are too." } },
+      choices = {
+        { text = "Honest failings are forgivable, Brother. The Light knows.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light demands better, Brother. Try harder.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Now and then, and always to ask whether a frost spell would help the wine keep. It would not, friend, for good wine wants a cellar and patience, not cleverness, though I do appreciate the offer more than I should." } },
@@ -109,6 +118,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please, your animal stays on the stairs; it has been known for creatures to discover the cheese." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in the Abbey's cellars, and welcome, friend! We've wine, cheese and a fair amount of quiet, though the wolves took one of the cheeses." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage of Northshire! Brother Bremen's students are a thirsty lot, I find, though I couldn't say why." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come, have a taste. I've failed at moderation again, I confess. The Light forgives, and so should your spirits." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? The bells won't ring for an hour." },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "Have animals been at the Abbey's stores, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Abbey make its wine from its own grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do mages ever visit the Abbey's cellars, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the Light really forgive a little indulgence, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just paying my respects.", next = "END" },
       },
     },

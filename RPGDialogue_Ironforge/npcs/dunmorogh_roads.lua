@@ -20,6 +20,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If it knows, it's keepin' quiet about it. My rams go uneasy before a raid, stampin' an' pressin' together, an' my granddad always said the beasts hear the mountain first. If ye can hear it too, sit up wi' me one night an' tell me what's out there." } },
+      choices = {
+        { text = "I'll sit up with you and keep watch, Rudra.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Rams come and go. The mountain has bigger worries.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Great broad prints in the snow, wider than my hand, an' a smell like wet fur an' old meat. My da would've said yeti, but whatever it is, it's hungry, an' it's lost its fear o' the ranch." } },
@@ -104,6 +113,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll ask ye tae keep yer servant well back from the pens, for my rams are skittish enough since the yeti came down, an' I count them twice a day." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Wendigo", min = 20 } },
           text = "There's fewer o' those wendigo comin' down off the mountain since ye went up there, an' my rams have stopped starin' at the ridge. I only counted the herd once this mornin', an' that's thanks tae you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can ye ask the hills what's been takin' my rams? For I've asked them myself, an' they never answer." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The feed won't spread itself." },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "What's taking your rams, and when does it hunt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What kind of tracks has the beast left near your rams?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would my servant really scare your rams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What's been taking your rams, Rudra? The earth might know.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -187,6 +198,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It might, an' it might tell ye it's none o' yer business, which is what the earth's been tellin' me for sixty years. The old folk in these snows always said the mountain looks after its own. I just wish it counted me among its own, an' no' the bear." } },
+      choices = {
+        { text = "The bear's hungry too. Leave him what he needs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll find that den and take back every scrap.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Nothin' I thought he'd want, only cheese an' dried meat an' a jar o' honey I was savin'. Aye, the honey, I ken, I ken, an' I've been callin' myself a fool about it since." } },
@@ -282,6 +302,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now ye're the very one I need, for that bear's got my stash, an' ye'll know how tae follow him." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know bears, then, an' ye might tell me why a great black one would want my smoked cheese." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Ye've crept up on my camp like the bear did, so I hope ye've no' come for what's left o' my supper." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Ye wouldnae be able tae ask the earth where a great black bear's hidden my stash, would ye? I've asked the bear, an' he was rude." },
       },
       again = {
         { id = "h_again", text = "Somethin' else on yer mind? I've nowhere to be." },
@@ -300,6 +321,7 @@ P:NPC {
         { text = "Does a thieving bear deserve to die for stealing food?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What did you leave out that a bear would want?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would a rogue steal from a camp like yours?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the earth tell me where the bear's den is, Tundra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Tundra.", next = "END" },
       },
     },
@@ -366,6 +388,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Want it? I'd seat you in the cockpit right next to the altimeter! Though I should warn you, every gnome who's flown with a dwarf passenger says they go a bit green over the peaks, so you might have to talk to the wind with your head in a bucket." } },
+      choices = {
+        { text = "The wind isn't a tool. I'd ask it, never command it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll tell it to blow eastward. Save me a seat.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Constantly, because the gryphons sulk for an hour whenever I start the engine. I keep telling them it isn't a contest, but they've decided it is, and frankly they're winning." } },
@@ -461,6 +492,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Oh, perfect, because I need meat for a long trip, and you can get it faster than the depot's cook can find his spoon." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard you can turn into a bear, and I'm deeply curious whether a bear would fit in my cockpit." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You can ride the flier if you like, but your servant goes in the cargo hold, and please tell it not to touch the fuel lines, they're very sensitive!" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Can you tell the wind to blow eastward on Thursday? My flight plan depends entirely on it." },
       },
       again = {
         { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm!" },
@@ -479,6 +511,7 @@ P:NPC {
         { text = "Is the depot safe out here, pilot?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your machine ever frighten the birds, Pilot?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why are the fuel lines so sensitive, Bellowfiz?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you want a shaman's help with the winds, Pilot?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe flying.", next = "END" },
       },
     },
@@ -537,6 +570,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every dwarf has a use for a good rifle! Mind, I've heard the earth-talkers say the blast startles the spirits. If that's so, ye'll want a quieter barrel, an' I'll tell ye now that I dinnae make quiet barrels." } },
+      choices = {
+        { text = "A rifle has its place. Discipline's the same either way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll trust the storm over powder any day, Hegnar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They frighten everythin' for a mile, an' then everythin' comes back, for the hills are stubborn. A good shot's quick an' clean, which is kinder than a bad arrow, whatever an elf might tell ye." } },
@@ -617,6 +659,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll swear by yer axe, I've no doubt, but there's no shame in a gun for the troll that's too far tae reach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind don't care for guns, an' I'll no' take it personal if ye don't buy one." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll no' want a gun, I know, but have ye ever heard a Rumbleshot fire in the snow? It's prettier than any spell." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in my shop! Ye'd no' be the first dwarf tae say powder an' fire are cousins, but ye'd be the first tae say it while askin' the fire's permission." },
       },
       again = {
         { id = "h_again", text = "What else? I've a rifle to oil." },
@@ -632,6 +675,7 @@ P:NPC {
         { text = "Is it honourable to shoot a foe from a ridge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your guns ever frighten the wildlife away for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why would a mage care about guns, Hegnar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does a shaman have any use for a good rifle, Hegnar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just looking, thanks.", next = "END" },
       },
     },

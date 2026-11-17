@@ -197,6 +197,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "A little. They were Timbermaw kin once, and now something else wears their faces, though they are not dead, only lost. You are dead and not lost, which Salfa thinks is better, though he would not want either for himself." } },
+      choices = {
+        { text = "The lost can be brought back. I'm proof of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Winterfall chose their madness. Stop them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Something that does not belong in the snow, sweet and rotten at once, like the ground in Felwood. Salfa does not know magic well, but he knows that the Winterfall were never cruel until somebody began bringing them barrels, and those barrels came from the south." } },
@@ -286,7 +295,7 @@ P:NPC {
           text = "Salfa hears the Winterfall howl less at night, and he knows whose work that is. He thanks you, and he grieves, and both are true." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Salfa smells the arcane on you, and it is cleaner than what he smells on the Winterfall, though not by so much as you might like." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Salfa sees the light on you, and he has heard that your kind fight the dead in the east, so he wonders what you think of the Winterfall, who are not dead, only lost." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Salfa sees the scars on your hands, outsider, and he would rather you used them on the Winterfall than on the Timbermaw." },
@@ -302,6 +311,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "You carry a healer's calm, outsider, the kind Salfa knows from our own shamans. The Winterfall have no healers left, only madness, and Salfa would see that end." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, come through the tunnels. Salfa has seen your kind tend the wounded, and he hopes you are the sort who does not ask whose wounds they are." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of the dead. Salfa has heard your kind fight the dead in the east, and here you are, dead and fighting, so Salfa does not know which side of the tunnel you belong on." },
       },
       again = {
         { id = "h_again1", text = "Speak. Salfa is listening." },
@@ -319,8 +329,9 @@ P:NPC {
         { text = "What do the Timbermaw need from a priest, Salfa?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would the Timbermaw welcome a warrior's help, Salfa?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do the Winterfall tracks lead, Salfa?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What would you have a paladin do for the Winterfall, Salfa?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you have a paladin do for the Winterfall, Salfa?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What do you smell on the Winterfall, Salfa?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the Winterfall remind you of the Forsaken, Salfa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Stay warm, Salfa.", next = "END" },
       },
     },

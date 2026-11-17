@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "My readings say maybe, and my readings are usually right about maybes. The trouble is that lightning doesn't arrive in a steady current, it arrives in a temper. I'd need a shaman with a calm disposition and a very forgiving eyebrow." } },
+      choices = {
+        { text = "The storm isn't a battery. I'll not misuse it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll test it for you. Forgiving eyebrows and all.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Only when it's used badly, which is more often than I'd like, because people buy cheap flux elsewhere. Good engineering makes a clean hole exactly where you want it and nowhere else." } },
@@ -118,6 +127,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and every one of them's been tested twice, like everything else here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose you'll be buying blasting powder, but you're welcome to look, as long as you don't shed on the flux." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Please don't cast anything near the blasting powder, because it has a temper, and so do I when my stock goes up in smoke." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wondered whether a lightning totem would charge a battery. Purely theoretically, of course. I wouldn't sell it without testing it twice." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a box of springs to count." },
@@ -136,6 +146,7 @@ P:NPC {
         { text = "Is honest work rarer than it should be, Gearcutter?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does all this blasting powder ever harm the land outside?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has a mage really blown up your stock, Gearcutter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could a lightning totem really charge one of your batteries?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Gearcutter.", next = "END" },
       },
     },
@@ -205,6 +216,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think the earth has put up with gnomes for a very long time and complained remarkably little. If I abolish the wheel, it'll be rolled over less, so I like to imagine it's on my side. You might ask it for me, though, in case it's grown fond of carts." } },
+      choices = {
+        { text = "I'll ask it honestly and tell you whatever it says.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Oh, it adores carts. You'd best give up now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Your people ride great cats and walk everywhere else, which makes you the most advanced civilisation I've met, technically. I'm not sure that's what you were aiming for, but I admire the result." } },
@@ -296,6 +316,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and they've taught me a great deal." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Tell me, do your people use the wheel? Because I'm about to make it obsolete, and I'd hate for you to have invested heavily." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll appreciate this, then, because rogues move quietly and wheels squeak, and that's only the first of a hundred reasons the wheel is doomed!" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do the elements have an opinion on wheels? Because if the earth objects to being rolled over, I'd like that in writing." },
       },
       again = {
         { id = "h_again", text = "More questions? Excellent, I love questions." },
@@ -315,6 +336,7 @@ P:NPC {
         { text = "Would a mechanical charger be as good as a living one?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do night elves even need the wheel, Springspindle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why would a rogue care about the end of the wheel?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think the earth minds your inventions, Springspindle?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -403,6 +425,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I suspect you do! A Wildhammer I bought from once said a word over every root before he pulled it, and his peacebloom outlasted mine by a week. I tried saying words too, but I think the herbs could tell I was reading them off a card." } },
+      choices = {
+        { text = "It's the respect that matters, not the words, Tally.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's probably the soil. Sentiment doesn't keep herbs fresh.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Healing, first and always, and an elixir of strength if you're going up against the ogres of Mo'grosh. I've watched warriors come back from Loch Modan with nothing in their packs but empty vials, and I take it as a compliment." } },
@@ -486,6 +517,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, I expect, and plenty of them, because warriors drink them like ale." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me herbs from the hills, would you? Hunters always know where the best ones grow." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Don't worry, the sulfur smell in here is mine, not yours, so nobody can blame your servant for once." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The herbs you pick must be happier than mine. Mine always look a little offended by the time they reach the bench." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I've a kettle on." },
@@ -503,6 +535,7 @@ P:NPC {
         { text = "Do potions and prayer work well together, Tally?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever brew anything to protect others, Tally?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does your shop smell of sulfur, Tally?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does a shaman pick herbs differently, Tally?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Tally.", next = "END" },
       },
     },

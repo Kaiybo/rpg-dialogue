@@ -391,6 +391,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "He'll know by tomorrow, because he knows everything that happens in this yard, and so do I. We nod at each other every morning, and I think he'll nod a little longer when he sees you, since his paladins never smelled like that." } },
+      choices = {
+        { text = "Nod back to him. Gadgetzan's truce deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "He's Alliance. I'd trust him with nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They bite whoever they please, but they bite less if you sit straight and do not flinch. A wind rider smells fear the way a wolf does, and a warrior who has stood against the Wastewanderers should have none left to show it." } },
@@ -484,6 +493,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter of the Horde. My wind riders smell your beast already, so let it stand where they can see it, and they will settle." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open a portal to Orgrimmar and save my wind riders the trouble, so I suppose you're here to tell me you like the view." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarf across the yard keeps gryphons for paladins, and now I keep wind riders for one too." },
       },
       again = {
         { id = "h_again", text = "Speak, then. The riders are fed." },
@@ -501,6 +511,7 @@ P:NPC {
         { text = "Do your wind riders really bite weak riders, Bulkrek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do wind riders accept other beasts near them, Bulkrek?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do mages ever use your wind riders, Bulkrek?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Does the dwarf across the yard know about me, Bulkrek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

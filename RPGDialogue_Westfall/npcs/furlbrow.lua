@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I tell Verna we will, and I mostly believe it. The land's still ours in my heart, whatever the thieves think. Maybe the earth remembers whose it was." } },
+      choices = {
+        { text = "Hold on to hope, Theodore. The land remembers you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -114,6 +123,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Verna will be glad of you, since she's been doing all the praying and I've not been much help with it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If the Light's finally come to Westfall, it'll find plenty of work waiting." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a smell of brimstone about you, stranger. Verna won't like it, but I'm past minding much." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. We're only minding this spot for now, you understand. If your spirits could speak to our farm, they'd find it full of thieves." },
       },
       again = {
         { id = "h_again", text = "Something else? I've time enough, since time's about all I've got." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "Have you prayed about the farm, Theodore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who'll answer for taking your farm, Theodore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you take back your farm by any means, Theodore?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think you'll get your farm back, Theodore?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Theodore.", next = "END" },
       },
     },

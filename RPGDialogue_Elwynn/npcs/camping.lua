@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Mostly it is, and I've no shame in it. The wind and I have walked a long way together, so perhaps your spirits and I are old friends already." } },
+      choices = {
+        { text = "A good rest earns a good road tomorrow, Sam.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Real adventurers don't sit by fires all day, Sam.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I would, as long as you didn't summon anything into my stew. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." } },
@@ -98,6 +107,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down; whoever you fought today, they'll still be there tomorrow, and the fire's warm now." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, sleeping rough like me by the look of you! Pull up a log, because a fire's always better with somebody who's walked further than I have." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Do you ever take your demon camping? I've always wondered whether imps like a fire or just like setting things on one." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, walking the roads like me. Sit by the fire. Do your spirits like a good long rest as much as I do?" },
       },
       again = {
         { id = "h_again", text = "What else? There's tea, if you're staying a while." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Is it safe, camping out here alone, Sam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever sleep under the trees without a fire?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you share your campfire with a warlock, Sam?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is adventuring mostly walking and sitting, Sam?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy the fire.", next = "END" },
       },
     },

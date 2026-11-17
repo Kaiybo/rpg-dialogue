@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The worst in Khaz Modan, and the Dragonmaw's smoke makes it worse. I've lost a bird to a crosswind there, and I've never forgiven the mountain for it. If you've any pull with the air, ask it to go easy on my gryphons." } },
+      choices = {
+        { text = "I'll ask the air kindly. Your birds deserve safe skies.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The mountain owes you nothing. Fly smarter.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare an' doesnae pull feathers. Only keep yer demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." } },
@@ -114,6 +123,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, then you'll know better than to let your beast near my birds." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to startle my roost, since my gryphons are cross enough about the rain without a bear wandering past." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons dinnae care for the smell o' brimstone, so ye'll forgive them if they ruffle up when ye climb on." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My birds fly over the mountains every day, and they'd thank you for a calmer wind over Dun Algaz." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are waiting, and they don't wait patiently in the rain." },
@@ -132,6 +142,7 @@ P:NPC {
         { text = "Is the flight east safe, with the Dragonmaw in the hills?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there anything that eases your gryphons in this damp?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will your gryphons carry a warlock, Shellei?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are the winds over Dun Algaz hard on your gryphons, Shellei?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Shellei.", next = "END" },
       },
     },
@@ -194,6 +205,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd be grateful if it did, though I'll admit I'd feel daft thankin' a puddle. The old Ironforge smiths say water an' steel are enemies by nature, an' I've no reason tae doubt them in this swamp. If ye can make peace between them, I'll name a rifle after ye." } },
+      choices = {
+        { text = "Oil your rifles properly. That's the dwarven way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll make peace with the water. Old feuds can end.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers. But the damp gets intae a wand as quick as it gets intae a rifle in this swamp, so keep yers wrapped in oilcloth like a sensible body." } },
@@ -284,6 +304,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a customer, for there's no dwarf hunter born who doesnae want a better rifle." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll be wantin' no guns, I'd wager, an' that's fine by me, for there's few left in this harbour the damp hasnae ruined." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I'd sell ye a gun if ye could fire one, but I've a feelin' ye'd rather burn folk some other way." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye wouldnae be able tae tell the water tae stay out o' my rifles, would ye? I've tried shoutin', an' it doesnae listen." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -302,6 +323,7 @@ P:NPC {
         { text = "Is the garrison well armed against the Dragonmaw, Murndan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Dragonmaw's red dragons ever fly near the harbour?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there anything in your shop for a warlock, Murndan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the water listen if I asked it to spare your rifles?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Murndan.", next = "END" },
       },
     },
@@ -362,6 +384,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not yet, but I'd stock them if I knew what they were. Feathers? Stones? A good waterproof cloak, I'd guess, given the weather here. The gnomes passing through keep asking whether your totems could power their gadgets, and I've learned not to answer gnomes' questions." } },
+      choices = {
+        { text = "Totems aren't gadgets. Tell the gnomes that from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell the gnomes whatever they think works, Neal.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Heavy cloth and good thread, mostly, and I've noticed your kind always wants a great many candles. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater." } },
@@ -452,6 +483,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I keep shot and arrows in the back, and the dwarves buy the shot faster than I can stock it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Mind the blasting powder, because it's sealed tight, but I'd not trust any jar near someone who can turn into a bear." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell candles, cloth and a few things your trade might use, and I don't ask what they're for, which is good business." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've sold to gnomes and sailors and soldiers, but never to someone who talks to the weather. What does the weather need?" },
       },
       again = {
         { id = "h_again", text = "Anything else you need?" },
@@ -470,6 +502,7 @@ P:NPC {
         { text = "Do your goods ever reach Dun Modr's defenders, Neal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does all that blasting powder end up in the marsh, Neal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you stock much for my trade, Neal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has anyone asked for supplies a shaman would need, Neal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Neal.", next = "END" },
       },
     },
@@ -530,6 +563,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Perhaps nothing, and perhaps something no one else in Menethil carries. Certain Wildhammer charms come through here, carried by people who'd rather not be asked where they got them. I don't ask, and I suggest you don't either." } },
+      choices = {
+        { text = "I'll not buy what's stolen, Samor.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I won't ask. Show me what you've got.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, for the last imp that came up here ate something from a crate and was ill for a week." } },
@@ -609,6 +651,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, browsing the poisons. Your kind know more about what grows deadly in the wild than my suppliers ever will, I suspect." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I can't think what you'd want with my goods, unless you've lost patience with fireballs and want something quieter." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's a customer I understand, for we both deal in things the Captain would rather not hear about." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sell to those who already know what they need. Do you? No? Then we'll speak of the weather." },
       },
       again = {
         { id = "h_again", text = "Anything else? Softly, please." },
@@ -626,6 +669,7 @@ P:NPC {
         { text = "Do you gather your poisons from the marsh itself, Samor?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would a mage want with your goods, Samor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you sell to warlocks often, Samor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would a shaman need from your shop, Samor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

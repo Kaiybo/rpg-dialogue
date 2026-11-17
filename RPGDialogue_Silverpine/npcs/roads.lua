@@ -23,6 +23,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I've no idea, if I'm honest, but they fear something, because they howl at the Sepulcher and never come close. I'd like to believe it's a paladin's glow that keeps them off, and I'd like it even more if you'd let me believe it as far as Rane's farm." } },
+      choices = {
+        { text = "Walk behind me, then. I'll see you there safely.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Believe what you like. You'll be walking alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I'm afraid of being torn apart and still awake for it, which is a different thing, and the worgen don't seem to mind which bits they eat. The Dark Lady gave me a second life, and I'd like to keep it in one piece. A priest walking beside me makes the road to the Sepulcher feel a good deal shorter." } },
@@ -53,6 +62,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good. You'll smell them before I do, and you'll know a worgen's scent from a wolf's, which I never can." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Thank the Dark Lady, because a deathstalker's knife is a fine thing in the dark, but it's no good against a worgen twice my size." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Wonderful, because if a worgen takes a bite out of me on this road, I'd like someone close by who knows what to do about it." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, on the road to Yorick's? Oh, please, walk with me, because I've heard the worgen hate holy light, and I'd very much like to find out if it's true from behind you." },
       },
       choices = {
         { text = "Are you afraid of dying again, Erland?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -67,6 +77,7 @@ P:NPC {
         { text = "Can fire keep the worgen off, Erland?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could a demon track a worgen, Erland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you want a shield beside you on the road, Erland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the worgen really fear the Light, Erland?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck on the road.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Speak low; the trees are listening." } },
@@ -197,6 +208,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It would draw everything out, worgen and Scourge and every Dalaran mage in the wood with an eye for strange lights. I'd rather you didn't, but if you mean to, tell me first, so I can count how many come and report it properly." } },
+      choices = {
+        { text = "I'll tell you first. Your reports matter.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll draw them out when I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The villagers bar their doors at dusk, and by moonrise they're worgen, every one of them, howling down the south road. By morning they're farmers again and none the wiser, or so they pretend. I don't know what a priest could do for them, but I've never seen anyone try." } },
@@ -228,6 +248,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wondering about Pyrewood, I expect; everyone with fur does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen worgen tracks on the way in, if you were looking, and they get bigger the closer you come to Pyrewood." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You can pray for Pyrewood if you like, but I've watched that village for months, and nothing has answered it yet." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Bright, aren't you, and the worgen across the road can see you from Pyrewood, so either stand back from the window or make yourself useful by drawing them out." },
       },
       choices = {
         { text = "What happens in Pyrewood at night, Yorick?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -241,6 +262,7 @@ P:NPC {
         { text = "What do your scouts see of Ambermill's mages, Yorick?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could send an imp to watch Pyrewood for you.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a hunter learn from the worgen tracks, Yorick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Would the Light draw the worgen out for you, Yorick?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Be quick, the light's going." } },
@@ -356,6 +378,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Only that you chose to keep something the rest of us lost, and that the keeping seems to hurt. I lost a good deal when I died, and I've not missed most of it, so I suppose I'm curious what makes the Light worth the trouble." } },
+      choices = {
+        { text = "It's worth the pain because it's still good.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It isn't worth it. I keep it because it's mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They sense everything, which is why I like them better than people. They grew used to the Forsaken quickly enough, though they still go quiet when a priest walks past the roost. Either they're showing respect, or they're waiting to see if you'll make a meal." } },
@@ -394,6 +425,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. My bats can carry your weight, but they'd rather you left some of that iron behind." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The bats don't need praying over, so if that's why you came, you can go back down the hill." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could teleport, I suppose, but a bat doesn't need a reagent, so here we are." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The bats don't care what you pray to, so neither do I, though I'd thank you not to glow in the roost." },
       },
       choices = {
         { text = "Do the bats sense what you are, Karos?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -406,6 +438,7 @@ P:NPC {
         { text = "Would your bats tolerate a demon riding along?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can your bats carry a warrior in full mail, Karos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why would a mage need your bats, Karos?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Does anything about a paladin interest you, Karos?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just passing.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The bats are getting restless." } },

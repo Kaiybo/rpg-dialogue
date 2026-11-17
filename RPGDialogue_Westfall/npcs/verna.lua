@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They might, dear, if anything could. She's worn to the bone and frightened of sparks, so go gently. Your spirits must have a soft side." } },
+      choices = {
+        { text = "I'll be gentle with her, Verna. She deserves kindness.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "She's old. Spirits won't fix tiredness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -110,6 +119,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down, dear, because I've been saying prayers for Blanchy and I'm not sure I'm saying them right." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Theodore will stand up straighter just looking at you, bless him." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, you've a little fellow with you, haven't you? Keep him away from Blanchy, dear, she's frightened enough as it is." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Blanchy's been nervous all day, dear. Do your spirits speak to old horses, by any chance?" },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "How do you keep your faith, Verna, after losing so much?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I take your farm back from the thieves, Verna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does my sort frighten you, Verna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could my spirits calm Blanchy, Verna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Verna.", next = "END" },
       },
     },

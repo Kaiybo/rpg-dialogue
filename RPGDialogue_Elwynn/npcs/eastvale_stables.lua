@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They take to calm folk, and you're calm enough. I sell my horses with care, and I'd rather they went to someone who listens to them, spirits or not." } },
+      choices = {
+        { text = "Then I'll keep them calm and treat them well, Katie.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A horse is a horse. Sell to whoever pays.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Some do, and those I don't sell to mages, because a horse that's frightened of its rider is a danger to everyone on the road. The steady ones are worth more, and they've earned it, so don't haggle." } },
@@ -119,6 +128,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My horses don't love your beasts, love, but they'll learn manners if you keep your distance." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've heard your people ride great cats instead of horses, so forgive me if I keep you from the foals until they've had a sniff of you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll be wanting a horse that doesn't bolt at a flash of fire, and I've a few of those, if you've the coin." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by my gate. Mind it's latched behind you. The horses are watching you more closely than I am, and they don't trust strangers either." },
       },
       again = { { id = "h_again", text = "Anything else? They'll want feeding soon." } },
       choices = {
@@ -134,6 +144,7 @@ P:NPC {
         { text = "Do your horses still go to the paladins, Katie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can you tell when one of your horses is sick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your horses take fright at magic, Katie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do horses take to shamans, Katie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -190,6 +201,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Anyone can learn with patience. Your spirits might calm the horse, but your heels still need to be down. That doesn't change." } },
+      choices = {
+        { text = "Patience and proper form, Randal. I'll learn it right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My spirits will keep me on. I'll skip the drills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I can teach you to ride well, which is quieter than riding badly, but a horse is a horse and it'll whinny when it pleases. If you need to slip away from someone, get off, tie it somewhere dry and walk, and come back for it after." } },
@@ -271,6 +291,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to ride with your beast trotting alongside, I suppose, and that takes a calm horse and a calmer rider." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, I'm told, and the first night elf to come to my yard. I don't suppose you need lessons, if you can turn into something with four legs yourself." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll want to learn to ride quietly, I expect, and I'll tell you now there's no such thing on a horse." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Heels down. Oh, you're not mounted. A shaman, then. Do your spirits ride, or do they just float alongside?" },
       },
       again = { { id = "h_again", text = "More questions? Good, because questions now are cheaper than falls later." } },
       choices = {
@@ -285,6 +306,7 @@ P:NPC {
         { text = "Do paladins ride differently from other folk, Randal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why should I ride a horse when I can run as a cat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can you teach me to ride quietly anyway, Randal?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can a shaman learn to ride like a cavalryman, Randal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

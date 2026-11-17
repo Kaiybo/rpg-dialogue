@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Theocritus would call it superstition with lightning attached, I expect. I keep my opinion on the shelf with the scrolls, tidy and out of reach." } },
+      choices = {
+        { text = "Keep your shelves tidy, Dawn. Order serves everyone here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the mages scoff. My lightning answers when theirs fizzles.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "More than I'd like, though most of it's the apprentices borrowing and forgetting. Theocritus is certain it's thieves from Jerod's Landing, and I haven't the heart to tell him his own students are the culprits." } },
@@ -103,6 +112,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the tower! Mind the gnomes on the stairs, please, because they startle, and your beast startles them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and I'd rather he didn't count them twice." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, all the way up the tower stairs. Do mind the shelves, because Theocritus counts the vials and blames me for every one that goes missing." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up all these stairs? Mind the shelves, please, and keep your spirits from rearranging anything. Theocritus notices everything except what matters." },
       },
       again = {
         { id = "h_again", text = "What else can I help you with? I've a delivery list to finish." },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "What does a mage's tower want with a paladin, Dawn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does anything on your shelves come from the forest below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does much go missing from the tower stores, Dawn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the mages here think shamans are real spellcasters, Dawn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Dawn.", next = "END" },
       },
     },
@@ -191,6 +202,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Maybe, maybe not, I'd need to test it a hundred times! The mages say enchanting's a lesser craft, and they'd say the same of yours, so we'd be good company." } },
+      choices = {
+        { text = "Test it properly, Kitta. Careful work outlasts guesses.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the tests. Try it and see what happens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "It would, and I'd rather teach you to put one there yourself, because a rogue who knows how an enchantment's made can spot a fake one. Half the enchanted daggers sold in Stormwind's back alleys are plain steel with a bit of glitter, and the buyers never know until it matters." } },
@@ -280,6 +300,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've always wanted to try enchanting a bow, and nobody ever brings me one, so you're very welcome." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! Do you know nobody in this tower has ever let me enchant anything that grows? I've asked, and I've been told no very firmly." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'd be surprised how many of your sort climb up here to ask about enchanting, and how few of them want to learn it honestly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a shaman! Can your spirits feel enchantments? I've always wondered whether a rune hums to anyone but the person who wrote it." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about this all afternoon, and I usually do." },
@@ -299,6 +320,7 @@ P:NPC {
         { text = "Would you enchant a paladin's hammer, Kitta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would you want to enchant a living thing?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would an enchantment help a rogue's blades, Kitta?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think spirits could help with enchanting, Kitta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll come back another time.", next = "END" },
       },
     },

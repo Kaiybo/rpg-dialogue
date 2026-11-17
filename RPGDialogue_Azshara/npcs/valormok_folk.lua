@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not much, which suits me fine, since everything I sell comes a long way. Sharp eyes and full bellies keep this camp alive, and you've got the eyes and the Light does the rest, so I'll save my fruit for the grunts." } },
+      choices = {
+        { text = "Save it for them. The camp comes first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take my share like anyone else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Because the naga are in the water and the elves are on the cliffs, and a camp that drinks dies in its sleep. I lost friends to that mage's betrayal, and I'll not lose more because someone was too drunk to hold a sword, so you'll get milk, and you'll thank me for it." } },
@@ -117,6 +126,7 @@ P:NPC {
           text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, so what we need is sharp eyes and full bellies, and that's what I sell." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll take milk with your bread, and no grog, because a priest who can't keep his head is no use to a camp with naga in the water." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Good, you'll know what's safe to eat in these woods, and I'd be glad to hear it, because I haven't trusted a single berry since we got here." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. You'll not want milk or juice, I'd guess, and you'll not get grog, so you're the easiest customer in Valormok." },
       },
       again = {
         { id = "h_again", text = "Anything else? The bread's going stale while we talk." },
@@ -134,6 +144,7 @@ P:NPC {
         { text = "What meat is safe to eat in Azshara, Kurll?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is any of the food out here safe to eat?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why no grog at Valormok, Kurll?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does a Forsaken paladin need feeding, Kurll?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -189,6 +200,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "A hammer doesn't need an edge, but it needs a true head, and I'll give it one. You'll be going after the Thalassians, I hope, because every elf in these woods owes Valormok a debt, and I'd like to see it paid in Light." } },
+      choices = {
+        { text = "I'll fight the elves fairly, face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every elf here owes blood. I'll collect it however I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A sharp one, swung fast, before they get a spell off. The elves who killed our warriors were mages, and a mage doesn't need long to finish you, so you strike first and you strike hard, and you don't stop to talk." } },
@@ -270,6 +290,7 @@ P:NPC {
           text = "Gruul Darkblade, weaponsmith for Valormok. Axes, swords, maces, whatever you swing, and I'll have it sharp before you go hunting elves or naga, because both of them are hunting us." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at my forge. You'll not want your mace sharpened, I'd guess, but the elves who killed our warriors won't stop for prayers, so carry something with an edge." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, with claws of your own when you need them. You'll not want my axes, I'd wager, but your friends will, and the elves here aren't shy about killing tauren." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Bring me that hammer, because the elves who killed our warriors won't care what you pray to, and neither will the edge." },
       },
       again = {
         { id = "h_again", text = "Ask what you came to ask, and I'll keep the whetstone moving while you do." },
@@ -286,6 +307,7 @@ P:NPC {
         { text = "What makes a good edge against elves, Gruul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you make weapons for hunters too, Gruul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do you hate the elves so much, Gruul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Will you keep a paladin's hammer true, Gruul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd take it, an' I'd mark it 'unconfirmed', same as any scout's rumour. Captain Stoutfist wants facts, an' the earth's no' known for givin' those. But I've had scouts come back wi' less, an' some o' them didnae come back at all." } },
+      choices = {
+        { text = "Mark it unconfirmed. Facts matter more than feelings.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The earth doesn't lie, Valstag. Trust it over scouts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Aye, if ye can stand the Algaz road. The Dragonmaw come down in packs from the hills, an' a mage who can freeze a pack in the open would save me writin' a good many names on the casualty list." } },
@@ -114,6 +123,7 @@ P:NPC {
           text = "A druid, is it? I've seen yer kind fight in the old days, an' I'll tell ye now, a bear on a battlefield is a sight tae make an orc think twice." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good; I need eyes on the Algaz road, an' a hunter's eyes are better than most." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Captain'll want ye on the wall, an' I'll want ye dryin' my reports, for half o' them are soaked through by the time they get here." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll take any report I can get, an' if the earth wants tae tell ye what the Dragonmaw are about at Grim Batol, I'll write it in my book." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, I've three reports an' a cold supper waitin'." },
@@ -133,6 +143,7 @@ P:NPC {
         { text = "How many have the Dragonmaw killed at Algaz, Ironjaw?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Algaz reports say about the Dragonmaw, Ironjaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a mage help against the Dragonmaw, Ironjaw?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you take a shaman's report from the earth, Valstag?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -236,6 +247,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Would ye? I know it's daft. Glorin says I should pray an' wait, an' I've been prayin' an' waitin' till I cannae sleep. If the ground she's walkin' on could tell ye she's still walkin', I'd go on waitin' happy." } },
+      choices = {
+        { text = "I'll listen, and tell you only what's true.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "She's well, Tarrel. I'm sure of it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I'd trust anybody who'd go, an' that's the truth of it. The raptors have the road tae Whelgar's dig, an' I've heard yer sort can set things on beasts that'd make even a raptor think twice, so if ye're goin' east, look for her, would ye?" } },
@@ -329,6 +349,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'd know how to read a road, then, an' I need somebody to read the east road for me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know the beasts o' this marsh, then, an' I'd give a lot tae know if the raptors have gone mad or were always like this." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock? I'm a simple weaver, an' I'll no' pretend I understand yer trade, but ye look like ye could walk the east road an' come back." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye might be able tae help. My Merrin's at Whelgar's dig, an' she's no' written in near two weeks. Could the earth tell ye if she's well?" },
       },
       again = {
         { id = "h_again", text = "What else? I'm not goin' anywhere till there's a letter." },
@@ -349,6 +370,7 @@ P:NPC {
         { text = "What should I bring back from the dig, Tarrel?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have the raptors always been so bold near Whelgar's dig?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you trust a warlock to look for Merrin, Tarrel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Shall I ask the earth about Merrin, Tarrel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I hope she writes soon.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -439,6 +461,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "He said he saw orcs in the internment camps who'd been shamans once, broken and quiet, and that he felt sorry for them, which was an unpopular thing to say in a Menethil tavern. Then he went west with Lady Proudmoore. I like to think he'd be glad to see a dwarf take up the old ways and use them well." } },
+      choices = {
+        { text = "Your brother was right. Pity is no weakness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pity for orcs? They earned those camps.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "A little, if I'm honest, for Lordaeron fell with a lot of whispering in cellars first, and I watched it happen from this side of the mountains. Still, you're paying for your stew, which is more than some of the soldiers manage." } },
@@ -520,6 +551,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from across the sea! You might have heard of Theramore, then, where my brother James keeps an inn." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, is it? Mind the tables; James used to say the quick-fingered ones always order the cheapest ale and leave with the most." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. James would have muttered a prayer and fetched Brother Glorin, but I've stood behind a bar too long to fuss over who drinks at it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. James would have liked you; he always said the Alliance would only win if it stopped being afraid of new things." },
       },
       again = {
         { id = "h_again", text = "What else? I've nowhere to be but here." },
@@ -538,6 +570,7 @@ P:NPC {
         { text = "Is there anything you'd want me to tell James, if I reach Theramore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did your tavern get much trouble from my sort, Vincent?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does my trade worry you, Vincent?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did your brother ever see shamans, Vincent?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck to him.", next = "END" },
       },
     },
@@ -626,6 +659,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "In Theramore, certainly, for Lady Proudmoore welcomes anyone useful. In the rest of it, that depends on who's holding the spear. The tauren are said to revere the earth as much as any dwarf, and the night elves have their druids, so you'd have plenty to talk about, if nobody shot you first." } },
+      choices = {
+        { text = "I'd go as a guest, and earn my welcome.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd go where the earth leads, welcome or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Welcome is a strong word, friend, but Theramore takes all sorts, and I'm told Lady Proudmoore cares more for what you do than where your power comes from. Mind, the night elves at Auberdine remember a war against demons, and they'll not have forgotten it by the time your ship docks." } },
@@ -715,6 +757,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have I told you about the beasts of Kalimdor, friend? Nightsabers, striders and birds as tall as a man, or so the sailors say." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Kalimdor! Now here's someone who can tell these landlubbers I'm not exaggerating about the forests over there." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's someone Kalimdor's never seen the like of, for the night elves will either run from you or fill you with arrows, and both would make a fine story." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You'd love Kalimdor. They say the whole land's alive with spirits, and the orcs over there are thick with your kind. Er, their kind. You know what I mean." },
       },
       again = {
         { id = "h_again", text = "What else? Ask me anything about the sea, or Kalimdor, or both!" },
@@ -734,6 +777,7 @@ P:NPC {
         { text = "Is Theramore truly safe for the folk you send, Jack?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you tell folk about Kalimdor, Red Jack?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would Kalimdor welcome a warlock, Jack?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would a dwarf shaman be welcome in Kalimdor, Red Jack?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Maybe someday.", next = "END" },
       },
     },
@@ -822,6 +866,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It feels it, though I'm no shaman. The oozes crawl out o' the ground like it's spittin' them up, an' the old stones lean more every visit. My granny said the dead rest easier when the earth's at peace, an' I'd like tae think somebody's lookin' after them." } },
+      choices = {
+        { text = "I'll look in on the tomb and see the dead rest easy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't care how the earth feels, Sida.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Great drippin' things that came up out o' the ground, an' I dinnae care what they are so long as one o' them gives back my bag. Burn them, freeze them, set a demon on them; I'll no' ask how, so long as ye dinnae ask me what's in it." } },
@@ -898,6 +951,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? Good, for the oozes out by the tomb don't care how sharp yer tongue is, only how sharp yer axe is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Well, don't go sniffin' about after me like a hound, for where I go is my own business." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If that thing o' yers can eat oozes, I've a job for it, an' if it cannae, keep it away from me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I go out tae Ironbeard's Tomb every week, an' I'll tell ye, the earth there's no' at rest. Maybe ye can tell me why." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Quickly, if ye please." },
@@ -916,6 +970,7 @@ P:NPC {
         { text = "Should the tomb be cleansed of the oozes for good, Sida?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The oozes are spreading through the tomb. Should it be cleansed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What are those oozes at Ironbeard's Tomb, Sida?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is the earth at Ironbeard's Tomb restless, Sida?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -1004,6 +1059,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think it favours the patient ones, and the ones who don't fish near the wrecks. Some of the old sailors leave a coin in the harbour for luck, and I've never had the nerve to tell them a murloc probably eats it. You'd say there's something in the water that notices, I suppose." } },
+      choices = {
+        { text = "Respect the water, and it'll respect your line.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Luck's for fools. Better bait catches more fish.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I'd teach a murloc to fish if it sat still long enough, friend, and you're better company than a murloc. Only don't go conjuring anything over the water, for the fish here are skittish enough with the wrecks about." } },
@@ -1090,6 +1154,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Fishing's just hunting with a longer arm and a good deal more waiting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Tell me, does a druid shaped like a seal count as a fisherman, or is that cheating?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I once watched a warlock fish with a little imp holding the line, and it caught more than I did, which I'll never forgive." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can you tell the fish to bite? No, don't answer that; it would ruin the sport." },
       },
       again = {
         { id = "h_again", text = "What else? Nothing's biting, so I've time." },
@@ -1108,6 +1173,7 @@ P:NPC {
         { text = "Do the drowned sailors in the bay trouble your fishing, Riggs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lives deepest in the bay, Riggs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you teach a warlock to fish, Riggs?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think the water favours some fishermen, Harold?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing.", next = "END" },
       },
     },
@@ -1173,6 +1239,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Something about a dwarf who listened to the mountain when the mountain had given up on being listened to. The Ironforge crowd would want more anvils in it and the Wildhammer crowd would want more thunder, and I'd end up with a song that's mostly noise. That's most songs, mind." } },
+      choices = {
+        { text = "Put in more anvils. Ironforge is my home.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Put in more thunder. The old ways are mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I would, but I'd have to make you the villain, I'm afraid, for nobody in a tavern ever sang along to a brave warlock. Unless you went and did something brave, of course, like taking Nek'rosh's head, and then I'd have no choice but to make you the hero." } },
@@ -1251,6 +1326,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a whole verse about raptors and I've never seen one up close, which you'll agree is a problem." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You've the look of a song I haven't written yet, and I've had little else to write about lately but rain." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've a song about a warlock and his imp, though nothing rhymes with imp but limp and shrimp, so it's mostly about seafood." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've a song about Wildhammer shamans calling storms over the Hinterlands, but none about a Bronzebeard. Give me a week and I'll write one." },
       },
       again = {
         { id = "h_again", text = "Another question? I've a song for most things, and a joke for the rest." },
@@ -1269,6 +1345,7 @@ P:NPC {
         { text = "Will you sing of the soldiers at Menethil, Camerick?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What songs do humans sing about my people, Camerick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you write a song about a warlock, Camerick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would your song about a Bronzebeard shaman say, Camerick?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -1350,6 +1427,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They seem to like you, which is more than they think of most dwarves. A horse doesn't care about the Light or the elements, only whether your hands are steady and your voice is calm. If the spirits give you both, then I've no quarrel with your spirits." } },
+      choices = {
+        { text = "Steady hands and a calm voice. That's honest work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Horses like whoever feeds them. Nothing more to it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Any one of them, if you treat it right, for a horse doesn't care what you study, only how you hold the reins. I've turned away riders who thought a horse was a thing like a cloak or a staff, to be bought and forgotten, and I'd do it again." } },
@@ -1438,6 +1524,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, I see. Hunters make careful riders, I find, for you know what an animal's thinking." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people ride great cats, I'm told, so I'll not try to sell you a horse unless you ask very nicely." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I'll ask you kindly not to conjure anything near the paddock, for my horses have strong opinions about sudden lights." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Horses, I find, are better judges of character than people. Let's see what mine make of you." },
       },
       again = {
         { id = "h_again", text = "Anything else? Take your time; the horses aren't going anywhere." },
@@ -1456,6 +1543,7 @@ P:NPC {
         { text = "Have your horses carried knights into battle before, Unger?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your horses mind the marsh, Unger?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would one of your horses carry a mage, Unger?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do your horses make of a shaman, Unger?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

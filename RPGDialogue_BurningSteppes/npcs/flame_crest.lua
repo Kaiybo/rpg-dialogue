@@ -1441,6 +1441,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The Horde, if you'll fight for it, and the Undercity, if you won't. I've flown the dead and the living both, and you're the first who's asked me that, so maybe you're still deciding." } },
+      choices = {
+        { text = "The Horde is my home. I'll fight for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I go where the Light leads me, not the Horde.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They fight well, and that's what makes it worse, because they fight well for a dragon. The old Horde made warriors like that, all fury and no sense, and Thrall spent years teaching us to be better." } },
@@ -1530,6 +1539,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Keep your beasts away from the riders' feed, because a wind rider will eat anything that fits in its mouth, and some things that don't." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of Thunder Bluff. The wind riders hate this sky, friend, but they've never yet refused to carry one of the Earth Mother's own." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The beasts will take you home, wherever home is for one like you." },
       },
       again = { { id = "h_again", text = "Anything else, or do you want a rider?" } },
       choices = {
@@ -1544,6 +1554,7 @@ P:NPC {
         { text = "Do your wind riders really bite anyone they can't hear, Vahgruk?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do many wounded fly out of Flame Crest, Vahgruk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the elements here trouble your wind riders, Vahgruk?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Where is home for one like me, Vahgruk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

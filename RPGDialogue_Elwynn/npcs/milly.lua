@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They've taken weeks of it. Every grape they take is bread we don't eat. Your spirits would be welcome to help us take it back." } },
+      choices = {
+        { text = "I'll help take back your vineyard, Milly. That's a promise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The vineyard's lost. Plant somewhere else.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "You could, if you can tell a grape from a bandit when they're all in the same row. The Defias have my crates in their camp, and I want every one of them back, so freeze the thieves and leave the fruit alone." } },
@@ -111,6 +120,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out here among the vines? If you can talk to grapes, tell them I'm coming back for them once the Defias are gone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you burn out the Defias in my vineyard? Only, leave the grapes, if you can manage it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 20 } }, text = "The Defias in my vineyard have gone quiet these last days, and I hear it's your doing. I'd sleep easier if you kept at it until there's none left to pick my grapes." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can your spirits chase the Defias out of our vineyard? They've taken it, and I'm counting the weeks of lost bread." },
       },
       again = {
         { id = "h_again", text = "What else? You can talk while I sort these." },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "Can I come at the Defias quietly through the vineyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have the Defias hurt the vines, or only stolen the grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a mage help get your harvest back, Milly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How much harvest have the Defias stolen, Milly?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

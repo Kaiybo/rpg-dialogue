@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Where my wife has gone, and whether she lives. You have walked back from death with the Light in your hands, so perhaps you understand what it is to be lost and found, and perhaps you can tell me whether the Light finds everyone." } },
+      choices = {
+        { text = "The Light finds those who are sought, Commander. Keep hope.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light didn't find me. I found it. Seek her yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Whether a mind that has been touched by something old and hungry can ever be called back, paladin. I ask for a friend, or so I tell myself, and the druids have no remedy, and the silithid do not wait while I search for one." } },
@@ -92,7 +101,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin of the Alliance, at Cenarion Hold. You are welcome, as is anyone who will stand against the swarm, though I confess I hoped the Light might have answers I have not found." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. Vish Kozus will have marked you before you reached the gate, so do not take it amiss if he watches you; he watches everyone twice since... since the dig went wrong." },
@@ -115,6 +124,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Cenarion Hold. You are welcome here, as are all who stand against the swarm, though forgive me if my thoughts wander when I see a priest." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The Circle has need of keen eyes in this desert, for the silithid move beneath the sand where no sentry can follow them." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Horde, and one of the Forsaken, at Cenarion Hold. You are welcome, as anyone is who stands against the swarm, though I confess I hoped the Light might have answers I have not found." },
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask, before the next runner finds me." },
@@ -137,7 +147,8 @@ P:NPC {
         { text = "Do you fear warlocks will join the Twilight's Hammer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Hold need from a priest, Commander?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How can a hunter best serve the Hold, Commander?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What answers are you looking for, Commander?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What answers are you looking for, Commander?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "What answers do you seek from the Light, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },

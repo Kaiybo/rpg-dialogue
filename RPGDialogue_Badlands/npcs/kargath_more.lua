@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Among my scouts, no, because you're a lantern in a tin can. On the road, though, when the Blackrock come down in force, a Forsaken who heals and doesn't die easily is worth three of my best, and I'll admit that to nobody but you." } },
+      choices = {
+        { text = "I'll hold the road wherever you need me, Neeka.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fight how I please, not where you send me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The ones the ogres have taken, mostly, out past Dustwind Gulch, and the Dark Iron camps near Angor. My scouts can find them, but a scout who fights is a scout I have to replace, so I'd rather send someone built for it." } },
@@ -107,6 +116,7 @@ P:NPC {
           text = "Not a coyote has been near the sacks since you went hunting, and the grunts are eating whole rations again. You know this country now, whether you like it or not." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You'll be no use as a scout in all that iron, but the gullies need clearing as well as watching, and I can always use a strong arm." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. You'll not sneak up on anything in that plate, and the glow won't help either, so stay off my ridges." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask it quickly, because the light's going and I scout at dusk." },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "Teach me to read the ground, Neeka.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could my imp guard your grain sacks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Which gullies need clearing, Neeka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is there a place for a paladin among your scouts, Neeka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1, standing = { kargath = 1 } } },
       },
     },
@@ -281,6 +292,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I sell to anybody with coin, mon, but you be a puzzle to my trade. My healing draughts be made for the living, and the Light already be doing that work for you, so maybe you want something stronger, or maybe you just want somebody to be curious with you." } },
+      choices = {
+        { text = "The Light is enough. Keep your draughts for the grunts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A potion's surer than any prayer. Sell me your best.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -357,6 +377,7 @@ P:NPC {
           text = "My shelves be full again, and it be your doing! Now, about the fungus that grows under Uldaman, mon." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! Jarkal be needing gizzards and fangs, mon, and you look like you know which end of a buzzard be which." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Eh, a dead mon who be shinin' like the sun! I never think I see the Light walk into Kargath wearing a Forsaken face." },
       },
       again = {
         { id = "h_again", text = "What else, mon? Jarkal be listening while he stirs." },
@@ -375,6 +396,7 @@ P:NPC {
         { text = "Which beasts do you need for your potions, Jarkal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your potions really as good as a priest's prayers, Jarkal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does a mage want with rock elemental shards, Jarkal?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would you sell potions to a Forsaken paladin, Jarkal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll bring you what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -513,6 +535,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They'll carry you, because I tell them to, and they'll complain the whole way to Hammerfall. Beasts know what's natural and what isn't, and you're something they haven't got a word for yet, which makes two of us." } },
+      choices = {
+        { text = "They'll fly because they're told to, like any soldier.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll coax them, not command them. Beasts aren't soldiers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every day, back and forth to the Gorge and Hammerfall, and every one of them climbs off complaining about his legs. A wind rider doesn't care how fierce you are, only how heavy, and it'll let you know the moment you're too much." } },
@@ -601,6 +632,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Mind your beasts don't wander into the riders' shade, because the riders are hot and cross, and they bite." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Don't change shape on my riders' backs, because the last one who did nearly lost a claw, and I nearly lost my temper." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken in shining plate. My wind riders don't like the smell of the dead or the shine of the Light, so you've managed to bother them twice." },
       },
       again = {
         { id = "h_again", text = "Anything else? The riders are waiting." },
@@ -617,6 +649,7 @@ P:NPC {
         { text = "Has anyone really tried to stow away?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do your wind riders carry many warriors?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your riders really bite hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Will your riders carry a Forsaken paladin, Gorrik?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -677,6 +710,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Less than most, which suits me. You don't eat much, you don't drink much and you heal yourself, so you're the cheapest soldier in Kargath to keep, and I like you better for it than I like the Light." } },
+      choices = {
+        { text = "I'll take only what I need. Supplies belong to the outpost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take what I please. I've earned it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -749,6 +791,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You'll want arrows, and I've a crate, but the next one won't come over the Gorge road for weeks, so don't waste them on buzzards." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and probably here to tell me the land's suffering. I know it's suffering, I live in it, so either buy something or tell me something I don't know." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one with the Light on you. I don't care what you pray to, as long as you don't waste my water, though I suppose you don't drink much of it." },
       },
       again = {
         { id = "h_again", text = "What else? I've got stock to count." },
@@ -765,6 +808,7 @@ P:NPC {
         { text = "Should I conjure water for your grunts, Grawl?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does much go missing from your stores?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why shouldn't I waste arrows on buzzards, Grawl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does a Forsaken paladin need your supplies, Grawl?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

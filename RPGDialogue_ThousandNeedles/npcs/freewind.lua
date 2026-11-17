@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Anyone who stands firm is useful against the Galak, and the Light makes a fine thing to stand behind. The centaur fear what they don't understand, and they will not understand you any more than I do." } },
+      choices = {
+        { text = "I'll stand the watch with Freewind, Cliffwatcher.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt the Galak my own way, alone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -95,6 +104,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock on my watch. The Galak have their own dark-hearted shamans, and I like their fires no better than yours, but you at least stand on the right side of the cliff." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 40 } }, text = "The Galak raid less these days, and the scouts say it's because you've cut down so many of their warriors. Freewind is grateful, though the centaur will remember you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. I've watched many things climb the canyon from up here, but nothing quite like you." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Could a rogue be of use against the Galak?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "You think my power no better than the centaurs' magic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Where do the Galak raiders go after a raid, Cliffwatcher?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Would a paladin be useful against the Galak, Cliffwatcher?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -320,6 +331,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The centaur keep a flame that never goes out, and you seem to carry one too, in a body that ought to have gone out long ago. I'd very much like to know why, though I suspect you're as curious as I am." } },
+      choices = {
+        { text = "The Light chose to stay with me. That's reason enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's power, Rau. Study it like anything else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Great battles, mostly, centaur against centaur and clan against clan, and very few of them seem to end with anyone winning. The Galak carve their heroes trampling their enemies, and I've begun to wonder if they've ever carved anything else." } },
@@ -395,6 +415,7 @@ P:NPC {
           text = "A warlock. The Galak call on the spirits of their dead khans before they raid, and I've often wondered whether what answers them is a spirit at all." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You came up the lift without making the ropes sing, and that is rare. I could use someone who can walk into the Galak hold without being heard." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You'll know something of holy fire, I hope, because the flame that guards the Cloven Hoof burns without wood and without end." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've been staring at centaur carvings all morning, and now I have something even more puzzling to stare at." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'll warn you, I can talk about centaur until the moon sets." },
@@ -413,6 +434,7 @@ P:NPC {
         { text = "Do the centaur hunt the beasts of the canyon, Rau?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you want from the Galak hold, Rau?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you think the flame is holy, Rau?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What puzzles you about me, Rau?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -522,6 +544,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Nearly! An egg no wind serpent ever laid and one of the dead the Light never let go of are both things nobody expected, and I came all this way to see the unexpected. I'd write you down in my notes, if you'd hold still." } },
+      choices = {
+        { text = "Write that the Light holds what it chooses.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Write that I made my own way back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Then I'll be very polite to her and you'll be very brave, which seems a fair division of labour to me. Anything that lays an egg that size is something I'd like to meet from a respectful distance, with a warrior standing helpfully in between." } },
@@ -590,6 +621,7 @@ P:NPC {
           text = "A mage! Can you tell me if an egg can be magical? There's one in these canyons bigger than any wind serpent could lay, and I'd give a great deal to know what's strange about it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You look like someone who could climb to a nest without the mother noticing. Not that I'm asking, only wondering aloud." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Have you seen a very large egg? No? Well, never mind, because you're nearly as surprising as the egg, so I'm delighted all the same." },
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Forgive me, my mind keeps wandering back to that shell." },
@@ -608,6 +640,7 @@ P:NPC {
         { text = "You want me to steal an egg?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What if the egg's mother comes looking, Hagar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you think will hatch from this egg, Hagar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Am I really as surprising as your egg, Hagar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with your egg.", next = "END" },
       },
     },
@@ -725,6 +758,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I don't know. Arnak Grimtotem took her and killed her brother, and I've prayed to the Earth Mother until my voice gave out. If the Light can walk into that pinnacle in one of the dead, then perhaps it can bring her out." } },
+      choices = {
+        { text = "The Light abandons no one, Thalia. I'll look for her.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayer won't bring her back. A blade might.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -784,6 +826,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "Warlock. I have prayed to the Earth Mother every night for Lakota, and I am starting to wonder if your kind of power answers faster." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 30 } }, text = "You've been killing Grimtotem, haven't you? It doesn't bring Lakota home, but I'll admit it helps me sleep, and I'm not proud of that." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'm poor company, and I'm sorry for it, but I find myself hoping the Light reaches the Grimtotem's pinnacle, since nothing else has." },
       },
       again = {
         { id = "h_again", text = "What else? Say it, and then let me be." },
@@ -802,6 +845,7 @@ P:NPC {
         { text = "Could I get Lakota out quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Vengeance doesn't need the Earth Mother's blessing.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Could a hunter follow the Grimtotem up the pinnacle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Could the Light help you find Lakota, Thalia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -934,6 +978,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because it sings for anything new, and you're the newest thing these mesas have seen in a long time. One of the dead with the Light in them is a song the wind hasn't learned yet, and I'd like to hear how it goes." } },
+      choices = {
+        { text = "Then let it be a hopeful song.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the wind keep its songs. I'm here to fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Easier than anywhere, I think, because the Galak can't reach us up here and the Grimtotem keep to their own pinnacle. The warriors who sleep here say the wind sounds like drums at night, and some of them sleep better for it, and some of them don't sleep at all." } },
@@ -1000,6 +1053,7 @@ P:NPC {
           text = "A mage! Would you warm the blankets for my guests? The wind up here cuts through anything, and a little fire in the right place would make their sleep sweeter." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You walk the mesa like you know the ground, but you look like you'd sooner climb down the cliff than ride the lift. Most rogues do, I've noticed." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Welcome to Freewind, and don't look down. You're the first Forsaken paladin to sleep at my inn, and the wind will sing louder for you, I think." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? There's no hurry on the mesa." },
@@ -1018,6 +1072,7 @@ P:NPC {
         { text = "The lift's too slow and too open.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do warriors rest easy up here on the mesa, Abeqwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the hawks of the mesa trouble your guests, Abeqwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why would the wind sing louder for me, Abeqwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a bed, thank you.", next = "END" },
       },
     },

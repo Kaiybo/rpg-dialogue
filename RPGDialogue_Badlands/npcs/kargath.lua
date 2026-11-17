@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Trouble me? Ha! I've fought beside the dead and I've fought against the Light, and you're both at once, so I can't decide whether to salute you or duck. Take the Spire road and smite a few Blackrock for me, and I'll decide you're one of mine." } },
+      choices = {
+        { text = "I fight for the Warchief, Light or no Light.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I fight for myself. The Horde just points the same way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -107,6 +116,7 @@ P:NPC {
           text = "You've stood before Thrall, so you know why we hold this rock. He sent us here, and here we stay." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The worgs up at the Spire are bred for war, {class}, and I'd give a great deal to see one of ours run them down." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one in plate, with the Light sitting on you like a war banner! I've seen strange things from this tower, but never a Forsaken who glows." },
       },
       again = {
         { id = "h_again", text = "More? Good, talking keeps me from counting vultures." },
@@ -129,6 +139,7 @@ P:NPC {
         { text = "I stand with Thrall, Warlord. My demons serve the Horde.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Blackrock use their worgs for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you need healers at Kargath, Warlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does a Forsaken paladin trouble you, Warlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },
@@ -570,6 +581,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Interest me? It fascinates me, and it frightens me a little, which is the same thing in my line of work. Shadow and Light are meant to keep to their own sides of the room, and you seem to have moved the furniture." } },
+      choices = {
+        { text = "The Light chose me. Shadow has no hold on what I am.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Light and shadow are both tools. I'll use whichever works.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A clear path, mostly, because the Dark Irons guard their secrets with golems and fire elementals, and I can't study anything while it's trying to set me alight. If you break a golem, bring me its core, because there's a bound elemental inside every one, and I'd very much like to know how they did it." } },
@@ -635,6 +655,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "Oh! A warrior, and you clank, which is good, because at least I heard you coming, and I'm perfectly composed, thank you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, out in this blasted place. I expect the Badlands make your fur crawl, and I can't say I blame you, for nothing here has grown properly in an age." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Oh! You're glowing. A Forsaken who wields the Light, here in Kargath, and I've only just finished my tea. Do forgive me if I stare, because it's purely academic, I promise." },
       },
       again = {
         { id = "h_again", text = "Yes? I'm perfectly composed, so ask away." },
@@ -655,6 +676,7 @@ P:NPC {
         { text = "A troll who deals with demons. Does that interest you?", next = "k_troll_lock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I could steal that Thunderbrew recipe for you, Vivian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does a Shadowmage need from a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Does the Light on me interest a shadowmage, Vivian?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -816,6 +838,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They make reports, and I read them. Some say the Light in you is a trick of the Dark Lady's, and some say you're a Silver Hand spy who forgot to stay alive. I say nothing until I've watched you a while longer." } },
+      choices = {
+        { text = "Watch me, then. I serve the Dark Lady and the Horde.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I answer to the Light and to myself, not to the Dark Lady.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Grark Lorkrub sold our plans to the Blackrock, and someone has to bring him in alive, which means fighting through his guards without killing him by mistake. That's harder for your kind than you'd think, because a warrior's swing doesn't always stop where it's told." } },
@@ -892,6 +923,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You'll do for the loud work, and there's plenty of that, since the Spire's full of orcs who'd sooner fight than talk." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. They tell me your kind see in the dark when you take a cat's shape, so I might have a use for you up near the Spire." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'd heard there were a few of you, but I hadn't heard you'd be so loud." },
       },
       again = {
         { id = "h_again", text = "Something else. Quickly." },
@@ -912,6 +944,7 @@ P:NPC {
         { text = "What loud work do you have, Lexlort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll be your hands.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My beast can be your eyes too.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "What do your scouts make of a paladin among the dead, Lexlort?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'm nobody's hands, Lexlort. I work for myself.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -1042,6 +1075,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Some do, and they grumble into their bowls, but they grumble about the weather too. A Forsaken who glows is strange, I'll grant you, but in Kargath strange is cheap and a good sword arm is dear, so they'll make room." } },
+      choices = {
+        { text = "I'll keep the peace here. A guest owes the host that much.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they want trouble, they can have it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -1123,6 +1165,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter at my fire. If you've anything fresh, I'll take it for the pot, because the grunts are sick of salted coyote, and so am I." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my inn. The bunks are hard and the stew is mostly lizard, but nobody's died of either, and that's a better record than the Badlands have." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Sit down, sit down. I've fed the dead before and I've fed paladins, but never both on the same stool, so forgive the grunts if they stare at you over their stew." },
       },
       again = { { id = "h_again", text = "Anything else, while the pot's still on?" } },
       choices = {
@@ -1140,6 +1183,7 @@ P:NPC {
         { text = "Why would a mage eat your stew instead of conjured bread?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Did an imp really ruin your stew?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does anyone hunt for Kargath's pot, Shul'kar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do your guests mind a Forsaken paladin at the fire, Shul'kar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "A bunk, please.", next = "END", fx = { affinity = 1 } },
       },
     },

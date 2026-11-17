@@ -16,6 +16,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I've seen gnolls, kobolds, bandits, and a murloc that stole my boot. Your spirits might warn you, but I'll do it cheaper." } },
+      choices = {
+        { text = "A wise traveller listens. Tell me everything, Antonio.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll find the dangers myself. That's adventure.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The wolves follow me some evenings, and I throw them a strip of jerky to keep them friendly, which is probably bad for business. The bears I give a wide berth, because no amount of jerky has ever made a bear friendly." } },
@@ -95,6 +104,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the road! I've a whetstone from Ironforge, or near enough, and it'll put an edge on anything." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! I've a call for luring deer, carved by a man in Duskwood, though he swore it calls wolves too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the Eastvale road! I sell to everyone who stops, so stop, and I'll show you things you won't find in any forest." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've odds and ends in my pack, and I know every danger on every road. Want to hear about them?" },
       },
       again = {
         { id = "h_again", text = "What else? My feet need the rest anyway." },
@@ -111,6 +121,7 @@ P:NPC {
         { text = "Do you sell to the needy at a fair price, Antonio?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the road between Goldshire and Eastvale safe, Antonio?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the beasts on the road trouble you, travelling alone?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What dangers have you seen on the roads, Antonio?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe travels.", next = "END" },
       },
     },

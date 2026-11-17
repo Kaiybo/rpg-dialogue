@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I cook for everyone who's hungry. A full belly makes for a kinder world, and I'd guess your spirits would agree." } },
+      choices = {
+        { text = "A full belly and a kind heart. That's good work, Tomas.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Charge more. Kindness doesn't pay the butcher.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "It keeps you alive, I'll grant that, but it tastes of nothing at all, like eating a cloud with a crust. Real food takes time and fire and a cook who cares, and that's why the Lion's Pride is full every night and your conjured loaves aren't." } },
@@ -122,6 +131,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me boar and bear, and I'll make you something that'll keep you out in the cold for days." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen! Have you eaten? You look like someone who's been living on nuts and dew, and I've a stew on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Don't you dare conjure bread in my kitchen, because nothing you make will ever taste like mine." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have you eaten? Sit down, I've a stew on, and your spirits can smell it from the back room." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I chop; the onions won't wait." },
@@ -141,6 +151,7 @@ P:NPC {
         { text = "What does Brother Wilhelm eat, Tomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you cook anything without meat, Tomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is conjured food really that bad, Tomas?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you cook for everyone who passes through, Tomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just smelling the stew.", next = "END" },
       },
     },
@@ -216,6 +227,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I walk every one of them with my basket. I've met every sort of traveller, and you're the first shaman. Here, take a loaf." } },
+      choices = {
+        { text = "Thank you, Kira. Kindness on the road is a blessing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll pay for the loaf. Charity's not needed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Once, a boy near the Stonefields grabbed a roll and ran, and I shouted so loud the whole farm came out to see. I didn't chase him, because he looked hungry, and I left a loaf on the fence post the next week as well." } },
@@ -309,6 +329,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! You'll have meat already, I expect, but bread goes with it, so let's talk." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the road! Have a sniff of this basket, because I'll wager the bread in Darnassus doesn't smell anything like it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll pay for that loaf like everybody else, mind, because I count them twice before I leave Goldshire." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman on the road! Bread? Your spirits must be hungry too. Fresh this morning." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've got a long way to walk before dark." },
@@ -327,6 +348,7 @@ P:NPC {
         { text = "Have the Defias ever stopped you on the road, Kira?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does your flour come from, Kira?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does anyone ever steal from your basket on the road, Kira?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you walk every road in Elwynn, Kira?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe walking.", next = "END" },
       },
     },
@@ -386,6 +408,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Yes! But not near the smithy, because Argus will shout. Can it make a big boom? Please?" } },
+      choices = {
+        { text = "A small spark, Bo, safe and gentle. Lightning isn't a toy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let's make it boom. Argus won't mind much.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Yes! Only not here, because Argus said no animals near the forge after the time Mark brought a lamb. Could you do it behind the inn, where Farley can't see?" } },
@@ -446,6 +477,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You've got a real sword, a real one! Joshua says warriors never get scared, and Mark says that's daft." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Is that your animal? Can I pat it? Mark says it'll bite, but Mark's daft." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Are you really a night elf? Joshua says your lot can turn into bears, and Mark says that's made up, so you have to show me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Is that a real totem? Can it do lightning? Can I hold it? Is your sword real too?" },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before Mark finds me." },
@@ -460,6 +492,7 @@ P:NPC {
         { text = "Would you like to be a hunter, Bo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do you want to be a paladin, Bo?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you want to see me turn into a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you want to see a little lightning, Bo?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -517,6 +550,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not yet, but I will. I've walked back and forth all morning. Maybe your spirits could tell me where they're hiding." } },
+      choices = {
+        { text = "Keep trying, Matt. Patience always pays off.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Try a different lake. These fish are hopeless.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Not curse them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." } },
@@ -608,6 +650,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Can your animal catch fish? Mine can't, because I haven't got one, but if I did it would." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a night elf! Can you talk to fish? Because if you can, tell them I've got a worm and it's a good one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You couldn't make the fish bite, could you? I'm not saying I'd want you to, but I'm not saying I wouldn't." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your water spirits know where the fish are? Because they aren't in Crystal Lake today." },
       },
       again = {
         { id = "h_again", text = "What? Keep your voice down, there might be one coming." },
@@ -625,6 +668,7 @@ P:NPC {
         { text = "Would you like to be a paladin, Matt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I tell you why the fish aren't biting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really want me to curse the fish, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have you caught anything today, Matt?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Matt.", next = "END" },
       },
     },

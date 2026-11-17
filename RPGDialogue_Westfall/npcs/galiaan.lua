@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Defias camps, gnoll dens, and roads that cross too often. My notes are precise. I'd be curious whether your spirits would agree with them." } },
+      choices = {
+        { text = "Precise maps save lives, Galiaan. Keep them exact.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Maps miss what the spirits see. Trust the wind instead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "By following my maps, and hitting where they've just been, not where they are now. They pull back toward Moonbrook each time, and a warrior who chases them blindly ends up in a ditch with an arrow in him." } },
@@ -106,6 +115,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Defias front moves, so I hope you move with it, rather than standing in one place to be found." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The militia lose more men to fever and wounds than to the Defias, so you are welcome on my side of the map." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You will want to charge the Defias front, I expect, so let me show you where it actually is first." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't stand on my maps. Do your spirits know these roads better than my pins do?" },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, since I lose the light at dusk." },
@@ -125,6 +135,7 @@ P:NPC {
         { text = "How should a warrior fight a front that keeps moving?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Who tends the militia's wounded after your scouting runs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the militia strike the Defias front now, or wait?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do your maps show of Westfall, Galiaan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good hunting, scout.", next = "END" },
       },
     },

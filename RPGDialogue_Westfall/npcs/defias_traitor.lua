@@ -16,6 +16,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because they'd have hanged me sooner or later, and the Militia pays better for what I know. Don't look at me like that; your spirits can judge me if they want." } },
+      choices = {
+        { text = "You did right to come forward. Now see it through.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A man who sells one crew will sell the next.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In threes, with one in front to keep you busy and two coming round the side with knives. They'll pick off the one who stops to help a friend, so keep moving and don't look back, whatever you hear." } },
@@ -93,6 +102,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Save your prayers for the road, because if the Brotherhood catch us, we'll both be needing them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in all that shining plate. They'll see you coming a mile off, but maybe that'll make them think twice." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid, out here? The Brotherhood won't know what to make of you, and that suits me fine." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Keep your voice down. If your spirits can see who's following me, I want to know before they reach me." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I don't like standing still." },
@@ -110,6 +120,7 @@ P:NPC {
         { text = "Do you want to make your peace before we walk, friend?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should I trust a man who betrayed his own crew?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I could prowl ahead as a cat and find their lookouts.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why did you turn on the Defias?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Let's go.", next = "END" },
       },
     },

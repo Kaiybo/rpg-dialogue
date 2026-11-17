@@ -23,6 +23,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The Deathguard has use for anything that stands up and follows orders. Your Light heals, I'm told, which means one fewer body for me to replace, and that's the only sort of miracle I keep track of." } },
+      choices = {
+        { text = "Then count on me, Saltain. I'll keep your guards standing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll heal who needs it, not who your ledger says.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They're past caring, and I'm past asking, but the newly risen watch me drag them in, and a word over them seems to settle their stomachs, or whatever we have instead of stomachs. Bless them if you like, provided you do it quickly." } },
@@ -66,6 +75,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because skins and sinew are worth as much to Deathknell as any scrap of cloth, and you'll know how to get them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've corpses to gather from the field and a few of them might want a blessing before Mordo shovels them under." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll scavenge like everyone else, and your demon can carry the scraps." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll still scavenge like everyone else, so don't expect the Light to carry your sacks, though if it lights up those houses for you, I'll not complain." },
       },
       choices = {
         { text = "Should the scavenged dead get a blessing, Saltain?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -80,6 +90,7 @@ P:NPC {
         { text = "Could you use a mage, Deathguard, or just a pack mule?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you need hides for Deathknell, Deathguard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can my demon help you scavenge, Saltain?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does the Deathguard have use for a paladin, Saltain?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to it.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Time's the one thing we've plenty of, but I'd still not waste it." } },
@@ -193,6 +204,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "That maybe the Light didn't abandon us so much as lose sight of us for a while. I put the mindless ones to rest with shadow because it's what I've been taught, but I wonder sometimes whether you'd do it more gently." } },
+      choices = {
+        { text = "The Light can be gentle with them. I'll show you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Shadow or Light, rest is rest. Sarvis teaches you well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I believe it is, though I pray over them afterwards, which Sarvis finds very sentimental of me. A clean stroke is kinder than anything they'll find wandering the fields, and I'd rather a warrior did it than a hungry wolf." } },
@@ -238,6 +258,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I hope you'll be gentle with the Damned in the fields, {class}, because they were people once, the same as you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll see the Damned before anyone else does, I expect, and I'd be grateful if you'd tell me where they gather." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue? You'll find the mindless dead are easy to sneak past, though I wish they weren't." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You carry the Light. Shadow Priest Sarvis says it abandoned us, and I believe him most days, but then someone like you walks out of the graves and I don't know what to believe." },
       },
       choices = {
         { text = "Shall I ask the spirits whether the Damned can rest, Elreth?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -251,6 +272,7 @@ P:NPC {
         { text = "Is it a mercy to cut the Damned down, Elreth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Shall I track the Damned through the fields for you, Elreth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do you pity the mindless dead, Elreth?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What do you believe, Elreth, when you see me?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Elreth.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I don't mind; I'm meant to be learning patience." } },
@@ -356,6 +378,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because you lot are slow when you first crawl out, and I need the coin. But a paladin's a different matter, and I'll confess I'm curious whether the Light is on my side or yours when the fists start flying." } },
+      choices = {
+        { text = "The Light takes no sides in a brawl. Fight fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No rules, then. I'll show you whose side it's on.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I would, and I'd count it a fair test, since I've only ever fought fresh corpses who didn't know which end of the sword to hold. Whatever you pray to, I hope it's quick, because I mean to make you need it." } },
@@ -386,6 +417,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? I've heard your lot turn into cats, and I'll not fight a cat, because I've owned one and I know how that ends." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, are you? Splendid, then here's a fair fight at last, and none of the sneaking about that the last deadman tried." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've never fought one of you before, and I hear you'll heal yourself in the middle of a fight, which seems rather like cheating." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin? Now that's a fight worth a few coins, because I've never punched a holy corpse before and I'd like to find out whether it punches back." },
       },
       choices = {
         { text = "Would you fight a priest who heals himself, Montague?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -399,6 +431,7 @@ P:NPC {
         { text = "Would you still want a fight against a mage, Montague?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Keep pushing and you'll fight my demon, not me.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you really think you can beat a warrior, Montague?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why are you so eager to fight one of the dead, Calvin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not interested.", next = "END" },
       },
       again = { { id = "h_again", text = "Still talking? I'd rather be fighting, but go on." } },
@@ -515,6 +548,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Nothing dangerous, I promise, only whether doom weed wilts when you touch it. If it does, the Society would want to know why, and if it doesn't, then I've learned something about the Light that the priests in Stormwind never bothered to ask." } },
+      choices = {
+        { text = "Test what you like, Holland. Knowledge serves the Dark Lady.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm not a curiosity for the Society's notes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not where Master Faranell can see, because he says prayer is a hypothesis nobody bothers to test. I said a small one over my first batch, though, and it came out rather well, so I've been wondering whether the shadow takes requests." } },
@@ -568,6 +610,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be out in the fields more than I am, so keep an eye out for doom weed, would you? It's the dark one, and the roots are the part I want." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do you think there's a prayer for doom weed? I'm only asking because I've watered it every way I know and it still won't grow faster." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Have you studied any alchemy at all? I could use a hand that won't burn the doom weed by accident." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Johaan says the Light makes reagents behave strangely, and I'd very much like to test that, because a discovery like that would get me out of being junior by the end of the month." },
       },
       choices = {
         { text = "Do the apothecaries pray, Holland?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -582,6 +625,7 @@ P:NPC {
         { text = "Does the Society need muscle in the fields, Holland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I bring you anything from the beasts around Brill, Holland?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do mages help the apothecaries, Holland?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What would you want to test on a paladin, Holland?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day, Holland.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I've a pot about to boil, but talk fast." } },

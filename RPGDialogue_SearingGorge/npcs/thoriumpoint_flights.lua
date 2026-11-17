@@ -186,6 +186,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Politely, which they do to everyone, and warily, which they do to me. The Brotherhood remembers Bronzebeard paladins marching on their mountain, and you wear the same Light, so don't be surprised if they count your swings." } },
+      choices = {
+        { text = "Mercy suits the Light. They broke their chains.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A Dark Iron is a Dark Iron. I'll keep my guard up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I trust them as far as my wind riders could throw them, which isn't far, but they keep their word and they've never once cheated me. A warrior learns to judge a fighter by what they do, not by who their grandfather served, and these ones have done well enough." } },
@@ -273,6 +282,7 @@ P:NPC {
           text = "Grisha, wind rider master for the Horde at Thorium Point. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe on your back while you're here, because the dwarves have long memories and short tempers, and I'd rather not lose a customer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll understand my beasts, then, and why I won't let anyone near them who doesn't know how to treat an animal." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarves around here will stare at you twice, once for the Light and once for the rot, so let them stare and keep your hand off your hammer." },
       },
       again = {
         { id = "h_again", text = "What else? The riders smell the lava and they want to be gone." },
@@ -290,6 +300,7 @@ P:NPC {
         { text = "Do the Dark Irons here watch the Horde closely, Grisha?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Are your wind riders often hurt over the Gorge, Grisha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What makes the air over the Gorge so angry, Grisha?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How do the Dark Irons here treat a Forsaken paladin, Grisha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

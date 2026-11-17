@@ -406,6 +406,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Anyone can learn it who listens. You were taken from the earth and given back, which is more than most herbalists can say, and I think the land would not mind your hands, as long as they are gentle." } },
+      choices = {
+        { text = "I'll be gentle. The land deserves that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The land gives what I take. That's its purpose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, which few warriors learn, and healing, which every one of them needs. The best herbs of Feralas grow slowly in the shade, and a warrior who learns to wait for them learns also to wait for the right moment to strike." } },
@@ -469,6 +478,7 @@ P:NPC {
           text = "A warrior. You walk heavily, and the herbs bend beneath you, but they will rise again, as you will after the ogres strike." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Your beast will find herbs before you do, for it knows the smell of the earth better than any student I've had." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken with the Light in your hands. The Earth Mother's plants grow back after the frost, and perhaps you have grown back in your own way." },
       },
       again = {
         { id = "h_again", text = "What else would you know, little one?" },
@@ -487,6 +497,7 @@ P:NPC {
         { text = "What can the soil teach a mage, Ruw?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do herbs have anything to teach a warrior, Ruw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a beast really help find herbs, Ruw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a Forsaken paladin learn to gather without harm, Ruw?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -592,6 +603,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I think nothing is given without a purpose, beast or person. The hunt honors the beast by using all of it, and if the Light took you back, then it means to use all of you, so be ready for that." } },
+      choices = {
+        { text = "Then let it use me. I'm ready.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm no beast to be used. I choose my purpose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a death that feeds nothing is a wasted death, and waste dishonors the beast and the one who killed it. The Gordunni kill and leave the bodies to rot, and that, more than their clubs, is why I hate them." } },
@@ -642,6 +662,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You kill many beasts, I think, but do you take anything from them, or do you leave them for the crows?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You walk in the shapes of beasts, so you'll know better than most what a hunt costs them, and I'll expect you to honor it." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The plague wasted you once, I think, and something gave you back, so perhaps you understand why I waste nothing." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly." },
@@ -659,6 +680,7 @@ P:NPC {
         { text = "A quick cut is the best cut, Kulleg.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why should a warrior care what's left behind after a kill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What does a druid owe the beasts we hunt, Kulleg?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you think the Light gave me back for a reason, Kulleg?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -755,6 +777,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I trade with anyone who pays, and I count their coin twice, whatever they pray to. You're stranger than most who come down the kodo road, but your coin spends the same, so let's not make more of it than that." } },
+      choices = {
+        { text = "Count it twice. I'll pay fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll haggle hard. Your prices are robbery.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Grimtotem in the Needles, centaur on the edge of the Barrens, and ogres once we're back under the trees, all of them wanting kodo and cloth. A warrior who stays by the wagons is worth more to me than ten who chase off after every raider." } },
@@ -819,6 +850,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You'll have come down through the Needles, then, and seen what that road does to a kodo's feet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I'll sell you herbs and cloth like anyone, but if you could tell me which of the plants out here are safe to eat, I'd count that a fair trade." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, all the way out here. Everything comes the long way to Mojache, and it seems the Light does too." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -836,6 +868,7 @@ P:NPC {
         { text = "What threatens the caravans on the road from Thunder Bluff?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do the kodos hold up on the long road, Sheendra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the braves not know which plants are safe, Sheendra?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Will you trade with a Forsaken paladin, Sheendra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -401,6 +401,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Pray, curse, bargain and beg, and I've done all four in one storm. We don't call it spirits, we call it the sea, but no Kul Tiran would sail without a word to it first. The night the Wave Mistress went down, I'd forgotten the word, and I don't forget anymore." } },
+      choices = {
+        { text = "Keep saying the word. The sea respects respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Words won't save a ship. Seamanship will.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Only in my dreams, and only when I've run short of mead, which is why I don't run short. My old shipmates walk the wrecks out there, cursed and bound, and if you've a trick that can talk to the dead, I'd beg you not to use it on them." } },
@@ -482,6 +491,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! We had a ship's cat aboard the Wave Mistress that I swore was a druid, because it always knew when a storm was coming." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, is it? Keep your hands where I can see them, friend, though there's nothing in my pockets but sand and the smell of mead." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Sit down, sit down; you can't smell any worse than I do, though I'd thank you to keep your demon downwind." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, is it? You wouldn't happen to know how to ask the sea for a ship back, would you? I've lost one, and I'd like it returned." },
       },
       again = {
         { id = "h_again", text = "Another question? Then it's another drink, and I believe it's your round." },
@@ -502,6 +512,7 @@ P:NPC {
         { text = "The bay's spirits are restless. Do you hear them at night?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What would a rogue find worth taking in Menethil, Fitzsimmons?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the drowned crews in the bay ever speak to you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do Kul Tiran sailors pray to the sea, Fitzsimmons?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -657,6 +668,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It troubles me some, an' I'll no' lie about it. The Church taught me the Light's the answer tae every darkness, an' here ye are wi' a different answer that seems tae work. But I've buried more drowned sailors than I can count, an' if yer waters keep one more off my table, I'll pray for ye whether ye like it or no'." } },
+      choices = {
+        { text = "Pray for me, Glorin. I'll take every blessing offered.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Save your prayers. The waters answer me well enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Well enough, so long as nobody asks either one tae explain itself tae the other. Dalaran's mages stood wi' us when Lordaeron fell, an' I'll no' forget it, but I've buried enough folk who meddled wi' what they didnae understand." } },
@@ -737,6 +757,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? Mind ye take yer kills tae the butcher an' no' tae my chapel, for I've had enough o' the smell." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in the Church's house. If ye're after the poor box, I'll save ye the trouble: it's been empty since the fleet went down." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye dry socks wi' that fire o' yours? I've no' had a dry pair since I came off the boat." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll no' pretend it sits easy wi' me, but the marsh has more souls in it than one priest can tend, an' I'll take help from wherever it comes." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before the next soul comes in drippin'." },
@@ -756,6 +777,7 @@ P:NPC {
         { text = "What does the Church here need most, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you get many thieves among Menethil's poor, Brother?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Church and Dalaran get on, Brother?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does it trouble you that I don't pray to the Light, Glorin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -957,6 +979,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Fire an' powder an' somethin' worse. The ground split an' spat flame, an' I swear it was screamin'. I ran, an' I'm no' proud o' it. I know ye're no' a Dark Iron, but every time I see a dwarf talkin' tae the earth, I hear that scream again." } },
+      choices = {
+        { text = "Running isn't shameful, Harlo. You lived to fight again.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You ran. Don't make your fear my problem.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "They burned the gatehouse from the inside, for a start, an' the lads on the walls came down screamin'. Whatever ye call on, I hope ye call it on them, for I'd no' weep tae see a Dark Iron burn by his own trade." } },
@@ -1042,6 +1073,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye've been out on the roads, then, so tell me what ye've seen o' the north." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The healer's tried every poultice she owns on my back, so if ye've some green trick she hasnae, I'll lie still for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Dark Irons that took Dun Modr had fire-callers wi' them, so forgive me if I watch yer hands." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I was at Dun Modr when the Dark Irons came, an' I saw the ground split under us, so I'd sooner ye stood back a step, if it's all the same tae ye." },
       },
       again = {
         { id = "h_again", text = "Ask away, for I'm no' goin' anywhere, truly." },
@@ -1061,6 +1093,7 @@ P:NPC {
         { text = "Did Ironforge send anyone to retake Dun Modr, Harlo?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a druid's healing mend what the poultices haven't?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What did the Dark Iron fire-callers do at Dun Modr?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What did you see at Dun Modr, Harlo?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest easy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1181,6 +1214,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "In a heartbeat, if I thought the marsh could be reasoned with. Half the crates I lose go to rot and half to raptors, and I've no answer for either. If your spirits can keep the damp out of the grain, I'll pay a shaman more than I pay my guards, and that'd make my guards very cross." } },
+      choices = {
+        { text = "The spirits aren't for hire, Karl. I'll help for nothing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pay me well, and I'll keep the damp out.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Now and then a crate comes in from Stormwind marked for nobody in particular, aye. I don't open them and I don't ask, because a merchant marine who asks questions doesn't last long in the trade, but I do write down who collects them." } },
@@ -1277,6 +1319,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Good, for half the crates I lose go to murlocs and the other half to the marsh, and you can only fight one of those." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've crates of shot going out to Ironforge, and I'm told the dwarven hunters can't get enough of it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stand off the crates, if you don't mind; I had a load of Ironforge powder go up once, and I'd rather not learn what your sort does to it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in Menethil! You wouldn't be able to keep the marsh from eating my cargo, would you? I'd pay for the service." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've crates waiting, but they'll wait." },
@@ -1295,6 +1338,7 @@ P:NPC {
         { text = "Do the ships bring in many sick or wounded, Karl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who protects the cargo bound for Ironforge, Karl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does anything for my trade come through your docks, Karl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you hire a shaman to guard your cargo, Karl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the cargo.", next = "END" },
       },
     },
@@ -1409,6 +1453,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "About everythin'. The sailors want ye tae bless their boats, the soldiers want ye tae curse the orcs, an' the diggers want tae know if the earth's angry at them for diggin'. I tell them all tae buy a drink first, an' most o' them forget what they were askin'." } },
+      choices = {
+        { text = "I'll answer their questions straight, Helbrek.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tell them whatever keeps them buying drinks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Now an' again, on their way tae the boat for Theramore, for Lady Proudmoore draws Dalaran's folk like a lamp draws moths. They pay well an' they read at the table, which suits me, though one set the curtains alight an' called it an accident." } },
@@ -1501,6 +1554,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit near the door, if ye don't mind, for when the Dragonmaw news comes in, it comes in loud." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want a room near the back, then, for I've learned that beasts don't care for the noise o' the bar." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could ye warm the hearth a bit? The damp gets in the logs, an' the sailors complain the fire's sulkin'." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Deepwater! Ye'll fit right in, for my regulars are sailors, soldiers an' diggers, an' every one o' them's more superstitious than ye." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The stew's no' goin' anywhere, an' neither am I." },
@@ -1519,6 +1573,7 @@ P:NPC {
         { text = "Who looks after Fitzsimmons when he's had too much, Helbrek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the soldiers bring trouble into the Deepwater, Helbrek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do mages ever stay at the Deepwater, Helbrek?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are your regulars superstitious about shamans, Helbrek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just drying off.", next = "END" },
       },
     },
@@ -1588,6 +1643,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because the earth remembers what it buried, an' we're always guessin'! A shaman could tell us where a hall stood or which wall hides a chamber, an' that's worth a hundred shovels. The old guard says it's cheatin' history, but history's been cheatin' us for centuries, so I call it fair." } },
+      choices = {
+        { text = "I'll ask the earth's leave before I help you dig.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The earth owes us its secrets. I'll help you take them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Aye, more than the League lets on, for old tombs hold more than old dwarves. We crate up anythin' that hums an' send it tae Ironforge, where the scholars argue about it for a year an' then lock it in a cellar." } },
@@ -1681,6 +1745,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You could clear the road to Whelgar's, an' then I could stop diggin' through this table." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Then ye know raptors, an' that means ye know more about this swamp than I do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Ye'd no' believe how many o' the League's finds turn out tae be cursed, so I'll ask ye tae look over a stone or two before I touch them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The League's been arguin' about dwarves like ye since the first one turned up in Ironforge, an' I'm firmly on the side that wants ye on every dig." },
       },
       again = {
         { id = "h_again", text = "What else? Only mind the maps." },
@@ -1700,6 +1765,7 @@ P:NPC {
         { text = "Do you ever disturb the dead with your digging, Flagongut?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is anything in your finds dangerous, Flagongut?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the League's digs ever turn up anything fel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why does the League want shamans on its digs, Flagongut?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -1807,6 +1873,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Most of them have never thought about it. The few who fought in the Second War remember orc shamans calling storms down on their friends, and they don't much like the sound of yours. The rest are just glad of anyone who can tell them whether it'll rain tomorrow. It always does, here." } },
+      choices = {
+        { text = "I'd ease their fears gently, if they'd let me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their fears are their own business, Mikhail.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I did this and that in Stormwind, and some of it meant knowing which cellars to keep an eye on. I'll say only that the ones who thought nobody was watching were usually wrong, so you might bear that in mind." } },
@@ -1889,6 +1964,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf. You're off the boat from Auberdine, I'd guess, and you've the look of someone who hasn't decided yet whether you like it here." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll notice I keep the candles trimmed, so there's nothing in here for you to light, should you get bored." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Sit with your back to the wall if you like, though I'd guess you've got something else watching it for you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. In Stormwind I'd have thought you a novelty. Up here, you're the most interesting thing to happen all month." },
       },
       again = {
         { id = "h_again", text = "Anything else, friend? Keep it quiet in here, if you please." },
@@ -1907,6 +1983,7 @@ P:NPC {
         { text = "Do many of my people come through Menethil from Auberdine?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do many mages come through Menethil, Mikhail?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Did you ever deal with warlocks in Stormwind, Mikhail?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do Menethil's humans make of dwarf shamans, Mikhail?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

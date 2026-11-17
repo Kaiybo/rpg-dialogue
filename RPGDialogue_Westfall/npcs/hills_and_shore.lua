@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "A rhyme for the barley, a rhyme for the yeast, a rhyme for the spirits to come to the feast! The rhymes are terrible, I know, but the lager's honest." } },
+      choices = {
+        { text = "Your lager's honest work. Keep brewing it, Grimbooze.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Drop the rhymes. They're ruining a good beer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -113,6 +122,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my still, and a welcome one too, for a blessing on barley does wonders for brew!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from the forests, all silver and green, the tallest young drinker this still's ever seen! Ye'll know a good crop when ye stand in a field, so come taste the lager and judge the hill's yield." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's a sight, with a fire in yer hand that's not quite right! Keep that green flame away from my still, for it's lager I brew here, and not something ill!" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, a dwarf, who talks to air! Come sit and have a beer, it's better than what your spirits share." },
       },
       again = {
         { id = "h_again", text = "What else would ye ask of a dwarf at his still? Ask quickly, before all the barley goes ill." },
@@ -132,6 +142,7 @@ P:NPC {
         { text = "Would you sell your lager to the Defias, if they paid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Your barley thrives where Westfall's wheat died. What's the secret?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could my fel fire heat your still, Grimbooze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does your lager really need a rhyme, Grimbooze?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your still.", next = "END" },
       },
     },
@@ -211,6 +222,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Same as me, I'd guess, which is fish, and they've more patience with spears than I've got with my line. If your water spirits have a word with them, I'd be grateful." } },
+      choices = {
+        { text = "Then share the beach fairly. Fight only if they push.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Drive the murlocs off the shore. The beach is yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -316,6 +336,7 @@ P:NPC {
         { text = "Does anyone protect the fishermen on the Longshore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The murlocs crowd your shore. Do they foul the water?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Couldn't I just freeze the shallows and pick out your fish?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do the murlocs want with your beach, Kriggon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },

@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I trust anyone who kills gnolls and kobolds and doesn't loot the dead. Show me that, and I'll not care what you talk to at night." } },
+      choices = {
+        { text = "I'll follow your orders, Marshal, and earn that trust.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fight my way, Marshal. Judge me by results.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Fargodeep and Jasperlode are crawling with kobolds, and they're terrified of candles, so you can imagine how they feel about a fireball. Clear the mine mouths for me and I'll worry about the paperwork afterwards." } },
@@ -122,6 +131,7 @@ P:NPC {
           text = "A mage, and I'll be honest that I've no idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in my town square. You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I'll be honest, the last shamans I saw were burning farms on the Horde's side. But I need hands, and yours look steady." },
       },
       again = {
         { id = "h_again", text = "What else? The desk isn't getting any emptier." },
@@ -148,6 +158,7 @@ P:NPC {
         { text = "Why would you leave the cellar alone, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many soldiers have you lost this season, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin do the most good in Elwynn, Marshal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you trust a shaman to fight for Goldshire, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },

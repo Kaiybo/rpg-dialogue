@@ -20,6 +20,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The hammer's fine work, better than the arm that carries it, if ye'll forgive me. The Light an' I have an understandin', I work an' it watches, but I never thought it'd go watchin' from inside one o' the dead, an' I'll admit it makes me curious." } },
+      choices = {
+        { text = "The Light chose me. It can choose anyone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The hammer matters more than whatever glows behind it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Nothin' a month at my anvil wouldnae fix, but there's nae month tae spare out here. Keep it oiled against the dust an' strike wi' the edge, no' the flat, an' it'll serve ye till ye find a better smith than the one who made it." } },
@@ -105,7 +114,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ironforge sends its knights everywhere but here, which suits me fine, though I'll grant ye that hammer was forged by somebody who knew the trade." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin. Ironforge sends its knights everywhere but here, which suits me fine, though I'll grant ye that hammer was forged by somebody who knew the trade." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest o' the Light, out here. I was raised under it same as ye, {class}, so I'll thank ye no' tae try an' preach me back home." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've no use for spells in my metal, mind; what goes intae the forge should come out the better for the hammer, no' for some charm." },
@@ -128,6 +137,7 @@ P:NPC {
           text = "A warrior. Let's see yer blade, then, an' I'll tell ye who made it an' how badly, for I've yet tae meet a warrior who knew what he was carryin'." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Ye'll find the coyotes an' buzzards out here are tougher than they look, an' the basilisks tougher still, so mind yer arrowheads." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, an' one o' the Forsaken at that. I've seen many things forged in strange fires, but I never thought tae see the Light hammered intae a dead one's bones." },
       },
       again = {
         { id = "h_again", text = "What else? The forge is coolin'." },
@@ -146,7 +156,8 @@ P:NPC {
         { text = "Do you still pray out here alone, Martek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's wrong with my blade, Martek?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What arrowheads would you use on a basilisk?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Does a paladin's hammer pass your inspection, Martek?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does a paladin's hammer pass your inspection, Martek?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Does a Forsaken paladin's hammer pass your inspection, Martek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Martek.", next = "END" },
       },
     },

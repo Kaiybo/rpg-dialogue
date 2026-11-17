@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Anyone can, if they get back up. Your spirits might lift you, but your legs still have to stand." } },
+      choices = {
+        { text = "I'll get back up every time, Llane. That's a promise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My spirits will carry me. I'll skip the knocks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Everything, if he's paying attention, because a bear never fights with half its weight and never gets up once it's beaten. I tell the recruits to fight like that, and then they go out and fight like scarecrows." } },
@@ -106,6 +115,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, here in the yard. Keep that creature off my training dummies, because they're hard enough to replace as it is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you stand like someone who's never been knocked down by anything but weather. We'll see about that." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your stance is wrong; spirits or not, you'll be knocked down. Then you'll get back up, and that's the lesson." },
       },
       again = {
         { id = "h_again", text = "Anything else, recruit? Ask while you stretch; you'll want the breath later." },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "What does a warrior trainer think of hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What can a warrior teach a paladin, Llane?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a warrior learn anything from watching a bear fight?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can a shaman learn to fight like a warrior, Llane?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },

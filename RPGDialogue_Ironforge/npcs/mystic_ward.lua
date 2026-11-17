@@ -451,6 +451,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd like tae think so, though I've heard it argued both ways in this very Hall. The Light's no' a jealous thing, whatever some priests say, an' a dwarf who listens tae the stone might hear the Light in it as well. But if ye ever have tae choose, I'll pray ye choose the one that'll save ye." } },
+      choices = {
+        { text = "The Light and the earth can share one dwarf, Theodrus.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The earth was here first. The Light's a guest in it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I couldnae tell ye, an' I'd be lyin' if I said I could. But a dwarf an' an elf can both kneel in the dark an' be heard, an' that's enough theology for one mornin'." } },
@@ -523,6 +532,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Don't turn yer back on the Light, for it'll stand beside ye in the shield wall when nothin' else will." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't turn yer back on the Light out in the snows, for it's colder out there than ye think." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll say tae ye what I say tae everyone: don't turn yer back on the Light, whatever goddess ye pray to." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll say what I say tae everyone: dinnae turn yer back on the Light, even if ye've found somethin' else tae listen tae." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Speak up; I've students waitin'." },
@@ -539,6 +549,7 @@ P:NPC {
         { text = "Is the Light any comfort out in the high snows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's a paladin's greatest danger, Theodrus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is Elune's light so different from the Holy Light?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can a shaman keep faith with the Light as well, Theodrus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -617,6 +628,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Fear, mostly, dressed up as doctrine. They remember the orcs' shamans became warlocks, an' they think the same rot waits for any dwarf who listens tae the wild. I think the Light judges hearts, no' paths, an' ye've a decent heart, by the look o' ye." } },
+      choices = {
+        { text = "Then I'll prove my heart to them, one kindness at a time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them scowl. I don't need their approval.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The same way I'd help anyone, by listenin' first an' fussin' second. Ye kaldorei carry long memories, an' sometimes a long memory needs somewhere tae set itself down." } },
@@ -701,6 +721,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye look as though ye've slept on the ground more than in a bed lately, so sit an' rest a while." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look tired, if ye don't mind my sayin'. Sit a while, for the Hall's open tae anyone, whatever they pray to." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, an' tired, I'd wager, for ye've the look o' someone who's been readin' by candlelight again. Is there anythin' I can do for ye?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come in, come in. Some o' the brothers'll scowl, but I'll help anyone through that door, an' I made that promise long before yer kind turned up." },
       },
       again = {
         { id = "h_again", text = "Is there anythin' else I can do for ye?" },
@@ -718,6 +739,7 @@ P:NPC {
         { text = "Do paladins come to you for help, Toldren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How would a priest of the Light help a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What can a priest do for a mage, Toldren?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do some of the brothers scowl at shamans, Toldren?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Nothing, thank you.", next = "END" },
       },
     },
@@ -797,6 +819,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The truth, I suppose, once I know it. Stormwind's Cathedral wants tae know if it's heresy, Darnassus wants tae know if it's druidry, an' the Wildhammers' letter only said it was about time. I'm leanin' towards copyin' the Wildhammers' answer an' sendin' it tae everyone." } },
+      choices = {
+        { text = "Tell them it's no heresy. The Light and earth aren't rivals.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tell them it's none of the temples' business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Now an' again, mostly about wounded soldiers an' who's tae tend them, which is the same thing we write about. Their hand is very elegant, an' I'm a wee bit jealous of it." } },
@@ -881,6 +912,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know the roads better than any courier, an' I've letters that need a sure foot." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've had letters from the Temple o' the Moon pass through my hands, though I'm no' sure the sisters meant them for a dwarf tae sort." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If ye've come tae read the Hall's letters, I'll save ye the trouble, for half o' them are night elves askin' about the weather on Teldrassil." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've letters from three temples askin' what the Hall makes o' dwarves takin' up the old ways, an' I still havenae answered any o' them." },
       },
       again = {
         { id = "h_again", text = "What else can I do for ye? I've three letters tae sort, but they'll keep." },
@@ -898,6 +930,7 @@ P:NPC {
         { text = "What letters come for the Silver Hand now, Braenna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Sisters of Elune write to the Hall often?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you really think I'd read your letters?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What will you tell the temples about dwarven shamans, Braenna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Braenna.", next = "END" },
       },
     },
@@ -973,6 +1006,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The Silver Hand trusts deeds. Ye'll have the same chance as any, an' the same judgment if ye fail it. I'll tell ye honestly, though: when I see a dwarf callin' fire up out o' the ground, I think o' Thaurissan, an' I have tae remind myself it's no' the same thing." } },
+      choices = {
+        { text = "It's not the same. I'll prove it by my deeds, Tiza.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Judge me by your fears if you like. I'll not plead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "It is if ye serve somethin' bigger than yerself an' ask nothin' back, which is the only test I use. I've known kaldorei who'd give their lives for a grove, an' I'd call that virtue in any tongue." } },
@@ -1050,6 +1092,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I send my young paladins tae help folk who cannae repay them, an' hunters do the same more often than ye'd think." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Hall o' Mysteries. I put young paladins on the path tae virtue, an' I'd wager yer path's every bit as long." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've nothin' against the arcane, but I'll say my young paladins learn more from a day helpin' a farmer than from a week o' books." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Silver Hand has fought beside stranger allies than ye, though I'll admit no' many o' them were dwarves." },
       },
       again = {
         { id = "h_again", text = "Go on, lass or lad; the Light's never too busy fer an honest question." },
@@ -1069,6 +1112,7 @@ P:NPC {
         { text = "Does your husband give the priests much trouble, Tiza?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a druid's duty to the wild a kind of virtue?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do paladins think little of mages, Tiza?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the Silver Hand trust a dwarf shaman, Tiza?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -1218,6 +1262,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Aye, an' no' the sort that comes from a forge. One o' them raised his hands an' the ground went red under my boots. They say Thaurissan's folk still talk tae the fire they called down, an' I'll no' forget the sound o' it. If ye can talk tae the same fire, I'd like tae know whose side it's on." } },
+      choices = {
+        { text = "Fire serves whoever has the discipline to master it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fire belongs to no one. That's why it's dangerous.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, an' they left my friend Narm in far worse trouble, which is why I'm laughin' so hard at nothin'. If ye know a herb for worry, I'd take a whole sack o' it." } },
@@ -1306,6 +1359,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll have sharp eyes, an' I could have used a pair when I went spyin' south o' Helm's Bed Lake." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' have any leaves that'd stop these stitches itchin', would ye? I'm askin' for a friend, an' the friend is me." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Dinnae mind me, I'm only half-stitched, but if yer servant could keep its claws away from the bandages I'd be grateful." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! If ye've any healin' waters, I'll take them, for the priests have run out o' patience wi' me, if no' o' prayers." },
       },
       again = {
         { id = "h_again", text = "Wut else? I'm no' goin' anywhere, as ya see." },
@@ -1324,6 +1378,7 @@ P:NPC {
         { text = "What did the Dark Irons teach you, Muiredon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the Dark Irons give you those wounds, Muiredon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you fight Dark Irons beside a warlock, Muiredon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did the Dark Irons call on fire against you, Muiredon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Mend well, Muiredon.", next = "END" },
       },
     },
@@ -1450,6 +1505,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Nothing alike, which is a relief and a worry. Mine come from the arcane, measured and formulaic and occasionally on fire. Yours apparently come from asking the fire itself, and I've no idea how to put that out if it disagrees, so I've added a third bucket, just in case." } },
+      choices = {
+        { text = "I'll never ask fire for more than it would give freely.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If it disagrees, I'll make it agree, Bink.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Not at all, because mine comes from study and yours comes from, well, trees, as far as I can tell. I mean that respectfully, mostly, since your trees seem to know what they're doing." } },
@@ -1523,6 +1587,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Do stand near the door, would you? It's where I keep the sand, and you look like you'd be good at throwing it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Make friends with a mage, I always say, because we're both very good at keeping things at a distance." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You do realise that if you set the Hall on fire as a bear, it's still my bucket of sand that puts it out?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please tell me you're better with fire than my students. I've used two buckets of sand already this morning." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before the frost melts." },
@@ -1542,6 +1607,7 @@ P:NPC {
         { text = "Do mages and priests get along in the Hall, Bink?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are paladins rude about your lightning, Bink?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do mages and druids draw on the same magic, Bink?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Are a shaman's flames anything like a mage's, Bink?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Bink.", next = "END" },
       },
     },
@@ -1660,6 +1726,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I doubt it, and I'd not recommend trying. A portal needs precise arcane geometry, and the elements are many things, but precise is not one of them. Though I'll admit that when I open a portal to Stormwind, I sometimes feel the stone here shudder, and I've never known whether it was disapproving." } },
+      choices = {
+        { text = "Keep to your discipline, and I'll keep to mine.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe the stone's warning you. Mages meddle too much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Considerably, since yours was given to you and mine had to be calculated. I don't mean that as an insult, only as a fact, and facts are rarely polite." } },
@@ -1740,6 +1815,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I doubt very much that you're here to study portal magic, but do go on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please do keep any beast you have well away from the portal stones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm told your people can step to Moonglade without a single equation, and I find that personally offensive." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I fold space, and you, I'm told, speak to the ground beneath it. One day we'll have to compare which of us gets lost more often." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it a sensible something." },
@@ -1758,6 +1834,7 @@ P:NPC {
         { text = "Do portals and prayer have anything in common, Milstaff?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins ever study portal magic, Milstaff?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is portal magic truly harder than a druid's road to Moonglade?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a shaman ever learn to open a portal, Milstaff?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, then.", next = "END" },
       },
     },

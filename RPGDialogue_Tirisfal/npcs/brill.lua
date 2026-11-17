@@ -213,6 +213,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Brill has a place for anyone who's useful to it, and you'd be very useful against the Crusade's patrols, since they'll hesitate before striking at the Light. Just remember the town belongs to the Dark Lady, and the Light is a guest in it, however long it stays." } },
+      choices = {
+        { text = "I serve Brill and the Dark Lady. The Light serves with me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Light is no one's guest. It goes where it wills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "We cleared the mindless out of it in the first week and stacked the pews against the windows, and it has been a storehouse ever since. Some of the townsfolk would like it blessed again, though none of them can agree on by whom, and I would rather keep the peace than settle that argument." } },
@@ -248,6 +257,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? Brill had a grove once, before the plague, and I've the deeds to it somewhere, though I wouldn't call it a grove now." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my town hall. Do keep your beast off the rugs, {class}; they're the last good ones in Brill." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in my town hall. Brill had a chapel once, before the plague, and I've not yet decided what it ought to be now, so perhaps you have an opinion." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, in my town. The last Light Brill saw was the Crusade's torches on the road from the monastery, so you'll forgive the townsfolk if they look at you twice." },
       },
       choices = {
         { text = "What became of Brill's old chapel, Magistrate?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -260,6 +270,7 @@ P:NPC {
         { text = "Who keeps Brill's secrets, Magistrate?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does Brill have any use for a mage, Magistrate?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the beasts around Brill trouble the town, Magistrate?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does Brill have a place for a paladin, Magistrate?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {
@@ -365,6 +376,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It's meant for the Scourge, of course, and the Light hates the Scourge, so I'd think it would be delighted. I wouldn't ask it too closely about anything else the plague might be used for, mind you, but that's well above my station." } },
+      choices = {
+        { text = "If it's meant for anyone else, the Light won't stand for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light doesn't need to know everything we do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Whether it can be poisoned, quite simply, because the Scourge bound our souls once and a cure for that would be worth more than any plague. Bring me your thoughts on it, and perhaps a hair or two, and I'll write your name very small in the margin of my notes." } },
@@ -399,6 +419,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how useful! You'll know your herbs better than any errand-runner, and I do hope you won't trample the doom weed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do stand still, {class}, and keep that blade well away from my bottles, because some of them are only mostly safe." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Splendid, because I have a question about the soul that no apothecary has ever answered to my satisfaction, and you may be just the subject." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Do keep your distance from the bench, please, because the Light and my reagents have never been properly introduced, and I'd hate for the first meeting to be in my laboratory." },
       },
       choices = {
         { text = "What do you want to know about the soul, Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -410,6 +431,7 @@ P:NPC {
         { text = "I studied in Dalaran. Can I help with the formulae?", next = "mage", when = { class = "MAGE" } },
         { text = "Could your bottles do a rogue's work, Apothecary?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is there anything here a warrior could do for you, Apothecary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Would the Light approve of your new plague, Johaan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -512,6 +534,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I blame the Agamands, mostly, since it was them who asked us to stay. But the Light was meant to watch over the faithful, and I was faithful enough, so I'd like to know where it was the night I died, and maybe you can tell me." } },
+      choices = {
+        { text = "It was there. It came back to me, and it can for you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It wasn't there for either of us. I hold it anyway.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I prayed for them every night I stood guard at their mills, and then the plague came in the grain and they asked me to die for them, so I did. I've stopped praying, but I find I still say their names before I sleep, or before I sit still, since I don't sleep anymore." } },
@@ -545,6 +576,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? The Agamands kept a little orchard behind the manor, and I'd dearly like to see you turn it into brambles out of spite." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, at the Gallows' End! The Darkhounds roam the fields by the Agamand Mills these days, and I'd say they make better neighbours than the Agamands ever did." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the Gallows' End. You may have come too late for the Agamands, I'm afraid, because I prayed for them in life and look how that turned out." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, are you? The Agamands were great ones for blessings, and I can't say any of them did us mill hands much good when the Scourge came over the hill, so forgive me if I'm slow to be impressed." },
       },
       choices = {
         { text = "Do you still pray for the Agamands, Coleman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -556,6 +588,7 @@ P:NPC {
         { text = "Could a mage's fire clear the Agamand Mills?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could set a demon on the Agamands, Coleman.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Should I hunt the Darkhounds near the mills, Coleman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you blame the Light for what happened at the mills, Coleman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go to the mills.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -647,6 +680,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I think I would, yes, because burning is still feeling, and I've not felt a thing since I woke. You're luckier than you know, {class}, and I hope you don't waste it on being bitter." } },
+      choices = {
+        { text = "Then I'll hold it gladly, for both of us.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's no gift, Gretchen. Be glad you're spared it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I'd ask it to make me cold again, because I can't feel it warm me and I can't feel the night without it either. The old priest in Brill used to tell us the Light was a fire that never went out, and I sit here hoping some of it is in this hearth after all." } },
@@ -679,6 +721,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, sitting with me by the fire? I'm told your sort can go about in a bear's fur, and I'll wager that's warm." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, dear? Come and sit, and tell me about the cold places you've tracked through, because I'd like to remember what a frost feels like." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You're a priest, aren't you? I can tell by the way you look at the fire, as though you were asking it something." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Do you feel it when the Light comes, dear? I can't feel this fire at all anymore, so I'd quite like to know whether you feel anything, even if it hurts." },
       },
       choices = {
         { text = "What would you ask of the fire, Gretchen?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -690,6 +733,7 @@ P:NPC {
         { text = "I'm good at going unseen, Gretchen. Does that help?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A demon's fire burns hot, Gretchen. Want to feel it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I've tracked through snow, Gretchen. Shall I tell you about it?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Would you want to feel the Light, even if it burned?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -792,6 +836,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because sure people do terrible things and sleep fine afterwards, and I'd rather pour drinks for someone who still wonders. You're dead and the Light still answers you, so I'd think you'd have more questions than most." } },
+      choices = {
+        { text = "I'm sure of the Light. That certainty keeps me standing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm not sure of anything, and I think that's wiser.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "More often than they ask for drinks, honestly, though they never call it praying. They sit at the bar and tell me who they lost, and I listen, which is what I'd want a priest to do, and I'll leave the shadows and the Light to you." } },
@@ -810,6 +863,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman under my roof! Sit by the hearth, love, and if the fire starts talking to you, do tell me what it says." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, love? You've got leaves in your fur and I've only just swept, but sit down anyway." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my bar. Sit down, and I'll pour you something you can't taste, and you can tell me who you were praying for when you came in." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I followed a cause once, a long time ago, and I hurt people for it because I was sure I was right, so I always like to ask a paladin how sure they are." },
       },
       choices = {
         { text = "Do the dead of Brill ever ask you for prayers, Renee?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -821,6 +875,7 @@ P:NPC {
         { text = "I'm a rogue. Who in Brill should I know?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do mages drink at the Gallows' End, Renee?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you serve a warlock under your roof, Renee?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why do you ask paladins how sure they are, Renee?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a room, thanks.", next = "END" },
       },
       again = {
@@ -928,6 +983,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because anyone travelling these roads alive is taken for a Scarlet sooner or later, and I'd rather say it first than have it said for me. And a paladin of the Forsaken would know better than most what the Crusade does to the people it decides are unclean." } },
+      choices = {
+        { text = "I believe you, Eleanor. The road's hard enough without suspicion.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Saying it first is exactly what a Scarlet spy would do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Because I knelt in their chapels once, in Lordaeron, before they decided that every grieving face belonged to a spy. I keep my own small prayers now, by the fire and away from them, and I find the habit hard to break and harder to explain." } },
@@ -983,6 +1047,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Then you know the woods better than most who come down this road, and you'll have eaten well, which is more than I can say." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and not one of the Crusade's, I can see that plainly. I'll say it before you ask: neither am I." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll know a campfire draws attention, so I'll teach you to build one that doesn't." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. I'm not with the Crusade, before you ask, and I'll admit I've never been so relieved to see the Light in someone's hands as I am now that it isn't theirs." },
       },
       choices = {
         { text = "Why do you keep telling everyone you're not with the Crusade?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -996,6 +1061,7 @@ P:NPC {
         { text = "How does a warrior keep a camp safe, Eleanor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What game is worth taking along this road, Eleanor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a warlock learn campfires, Eleanor?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why are you so quick to say you're not with the Crusade?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Safe travels.", next = "END" },
       },
       again = {

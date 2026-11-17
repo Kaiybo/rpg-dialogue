@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They tolerate me because I keep my promise, and I think they would tolerate you for the same reason, though they'd sooner trust a ghost from these ruins. Bring no trouble, and they'll leave you be, and so will I." } },
+      choices = {
+        { text = "I'll keep your promise, Loh'atu, as if it were mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Sentinels don't own this forest. I'll walk where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They weep for the elves who died here, though those elves were never mine to mourn. The Haldarr satyrs have soured the earth, and the water spirits in the bay are restless, and I think they would welcome a shaman's voice, if you would lend it to them." } },
@@ -125,7 +134,7 @@ P:NPC {
           text = "A shaman, here among the Sentinels! Sit with me a moment, friend, for it has been long since I spoke with someone who hears the spirits as I do." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. You slipped past the Sentinels more quietly than I ever could, friend, and I hope they do not notice, for they would blame me for it." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin of the Alliance, here at Talrendis Point. Walk softly, friend, for the Sentinels let me stay on a promise of no trouble, and I would like that promise to hold." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. The Sentinels will watch you as they watch me, friend, because a blade in this camp is a promise of trouble unless you show them otherwise." },
@@ -147,6 +156,7 @@ P:NPC {
           text = "I keep my promises to the Sentinels, and I would ask you to keep yours to me. Say what you need, and then let us both go about our work." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, here at Talrendis Point. Walk softly, friend, for the Sentinels let me stay on a promise of no trouble, and I would like that promise to hold." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I have walked these woods for a long while, trying to hear what is wrong with them, and perhaps you will hear it more clearly than I can." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Horde, here at Talrendis Point, and one of the Forsaken at that. Walk softly, friend, because the Sentinels already watch me, and they'll watch you twice as closely." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time; the land does not hurry, and neither do I." },
@@ -168,9 +178,10 @@ P:NPC {
         { text = "How do I show the Sentinels I mean no trouble?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts here feel the restless spirits?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What have you learned about this land's sickness?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Why do you stay among the Alliance, Loh'atu?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do you stay among the Alliance, Loh'atu?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Why would the Sentinels blame you for me, Loh'atu?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the spirits say of this land, Loh'atu?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Will the Sentinels tolerate a Forsaken paladin, Loh'atu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll keep the peace here, Loh'atu.", next = "END", fx = { affinity = 1, standing = { talrendis_point = 1 } } },
       },
     },

@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They'll fight beside anyone who stays when it gets ugly. Most of them only know shamans from tales of the Horde, so expect some muttering until the first fight's done." } },
+      choices = {
+        { text = "Then I'll stand in the line and let my deeds speak, Captain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them mutter. I don't need their good opinion to kill gnolls.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "The Defias fight dirty, {class}, and I've buried enough of my lads to know it works. But these are farmers who stood their ground in daylight, and I'll not teach them to knife a man from behind unless there's no other choice left." } },
       choices = {
@@ -98,6 +107,7 @@ P:NPC {
           text = "You've had real training, I can see, and good. Half my lot learned to fight last spring, from me, with hoes." },
         { id = "h_drill", when = { metBefore = true }, text = "I drilled the new ones till they dropped, let them sleep, then drilled them again. By harvest they'll be soldiers, or else very tired farmers." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! My recruits pray the way they fight, loudly and without much skill, so you'd be a help to them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman on Sentinel Hill. My farmers will stare, so let them. If your lightning drops gnolls, I'll count their paws the same as anyone's." },
       },
       again = {
         { id = "h_again", text = "Next question, and be quick about it." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "I bargain with darker things than gnolls, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your farmer soldiers have anyone to pray with before a patrol?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What becomes of the Defias your militia captures, Captain?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Will your militia fight beside a shaman, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },

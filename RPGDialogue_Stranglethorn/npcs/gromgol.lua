@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "If you can hold a line against the Bloodscalp and patch up whoever falls on it, you can serve anywhere I command. The Light's a strange thing to see on one of the dead, but the ogres won't stop to wonder about it, and neither will I." } },
+      choices = {
+        { text = "Then command me. The road comes first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll help, Commander, but on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = {
@@ -92,6 +101,7 @@ P:NPC {
           text = "Off the zeppelin from the Undercity, are you? Good. The Dark Lady's people don't tire and don't complain, which makes you the best grunts I've had all month." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the Bloodscalp trolls on the ridges are watching Grom'gol day and night, and I need someone who can watch them back without being seen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll take any strength that keeps Grom'gol standing, but keep your demon inside the walls, because the trolls here are superstitious, and I don't need them any angrier." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I don't care what you pray to, only whether you're here to work, because the road to Stonard needs keeping." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it; the next caravan won't guard itself." },
@@ -113,6 +123,7 @@ P:NPC {
         { text = "I can keep the raptors off your caravans.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Why are the Bloodscalp watching Grom'gol, Commander?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the trolls fear warlocks, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Can a Forsaken paladin serve at Grom'gol, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { gromgol = 1 } } },
       },
     },
@@ -317,6 +328,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Maybe it help, maybe not, but I take any help for the chief's son. The Bloodscalp hold him with their spells, and if your Light can see through troll magic, then you be very welcome in this jungle." } },
+      choices = {
+        { text = "Then I'll help bring him home. A lost son deserves it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The chief's son is your burden, Nimboya, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -400,6 +420,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your power might frighten the Bloodscalp into giving up Yenniku, but I not risk the boy's life on a demon's temper." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. Your eyes be good in this jungle, and good eyes might find the tracks of Yenniku where mine see only mud." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren, in this jungle. You know the beasts, and the beasts here know where the Bloodscalp hide Yenniku, if only they could tell us." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one with the Light, mon. I hear the Forsaken have strange priests now, but you be stranger still." },
       },
       again = {
         { id = "h_again", text = "What else? Nimboya listening, but not for long." },
@@ -421,6 +442,7 @@ P:NPC {
         { text = "Where do you think the Bloodscalp hold Yenniku, Nimboya?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you use a demon to rescue Yenniku, Nimboya?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Could the jungle's beasts really lead us to Yenniku, Nimboya?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Would the Light help you find Yenniku, Nimboya?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, but the chief's son is no business of mine.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -580,6 +602,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They be rude about it, as always. Some say the Light shouldn't sit in a dead body, and some say a dead body be the only place it found room to sit, and I tell them both to hush, because you be standing right here." } },
+      choices = {
+        { text = "The Light found room in me. I'll honor that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The spirits can say what they like. I don't need their blessing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior hide nothing, mon, you stand in the open and shout who you be, and the spirits respect that more than any whisper. The Bloodscalp hide behind their juju, and that be why the spirits laugh at them." } },
@@ -666,6 +697,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! Your magic be loud and bright, and the spirits don't like that much, so keep it quiet around Kin'weelay's fire." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon! The spirits like your kind more than you think, because you be loud and honest, and they always know where you are." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! The beasts out here got spirits in them too, old ones, and they be watching how you take them down." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ah, the spirits be talking all at once now, mon. A Forsaken with the Light in those bones, and they don't know if they should be cheering or hiding." },
       },
       again = {
         { id = "h_again", text = "More questions? The spirits got more answers, if they in the mood." },
@@ -686,6 +718,7 @@ P:NPC {
         { text = "Why don't the spirits like a mage's magic, Kin'weelay?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why would the spirits like a warrior, Kin'weelay?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the beasts' spirits watch the hunters, Kin'weelay?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do the spirits say about me, Kin'weelay?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, witch doctor.", next = "END" },
       },
     },
@@ -861,6 +894,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The elements answer the shaman and the Light answers the paladin, and I have never needed to choose between them. What I wonder is what it asks of you in return, for a power that crosses death must ask a great deal." } },
+      choices = {
+        { text = "It asks that I serve, and I serve gladly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It asks nothing. I take what it gives.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The same way the beasts do, for they rage only when the hunt calls for it and rest the moment it's done. Our people let the blood-rage rule them once, and you know what it cost us, so be fierce when you must and calm the rest of the time." } },
@@ -933,6 +975,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Your magic is not the elements' way, but I have seen it used with wisdom, and I will listen to you as I would to any seeker." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I can feel the blood in you running hot, like the tigers out there, so keep hold of it, or it will keep hold of you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The beasts of Stranglethorn carry power in their bones, and you, of all people, should know how to take it with respect." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "The Light in one of the Forsaken. I have listened to this land a long time, but I did not expect to hear that." },
       },
       again = {
         { id = "h_again", text = "There's more you wish to know? The fire has time, and so do I." },
@@ -953,6 +996,7 @@ P:NPC {
         { text = "How do I keep hold of the fury, Far Seer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What power do you draw from the beasts, Far Seer?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a priest's prayers reach the power in these beasts, Far Seer?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does the Light sit well with a far seer, Mok'thardin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Thank you, far seer.", next = "END" },
       },
     },
@@ -1089,6 +1133,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I would, and so would every grunt in this camp, so tell it loud. A dead soldier who woke with the Light still in their hands is a better tale than any ogre story I've heard, and I've heard a great many ogre stories." } },
+      choices = {
+        { text = "I'll tell it true, Thulbek, every word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll make it grander than it was. Stories need it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The one where you stood your ground when everybody else ran, because that's the only story worth a bed in Grom'gol. Every grunt on that wall has one, and I've heard them all twice, so make yours new." } },
@@ -1156,6 +1209,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could light the fire with a flick of your hand, I suppose, but I'd rather you told me a story instead, since I've plenty of wood." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit, eat, and tell me who you've fought this week, because a warrior always has the best stories and the worst table manners." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of Thunder Bluff, at my fire. Tell me a story of the plains, friend, because all I hear down here is the jungle trying to get in." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at my fire! Now that's a story I'd trade a bed for, so sit down and tell it while you eat, or while you pretend to eat." },
       },
       again = { { id = "h_again", text = "Still here? Good, the stew's still hot, so what else?" } },
       choices = {
@@ -1172,6 +1226,7 @@ P:NPC {
         { text = "Why would you rather a story than a spell, Thulbek?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What story would you want from a warrior, Thulbek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What does the jungle do to Grom'gol at night, Thulbek?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Would you like to hear how the Light found me, Thulbek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },

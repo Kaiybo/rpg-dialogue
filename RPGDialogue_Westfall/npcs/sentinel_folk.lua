@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It never has, not since the farms emptied. Your wind spirits might know why. I just sweep and laugh." } },
+      choices = {
+        { text = "Keep sweeping and laughing, Heather. That's good spirit.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stop fighting it. Let the dust have the inn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the Defias come at night, and nobody wants to be the one running out barefoot. I've seen a man fight off a Defias raid in his nightshirt and one boot, and he was very proud of it." } },
@@ -108,6 +117,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep by the fire, if it doesn't mind the militia snoring; most of them sound worse than a bear." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The militia will stand up straighter just seeing you, and then they'll ask you to bless their soup." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from the great forest, and you've come all this way to our dust. I'll find you a room with a window, because I'd guess you hate a closed roof." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Mind the dust; it gets everywhere. Most guests sleep in their boots, and I've stopped minding." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the dust on the bench; I've only just swept it." },
@@ -127,6 +137,7 @@ P:NPC {
         { text = "Does the militia mind beasts in the inn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the militia keep good order at your inn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does all this dust come from, Heather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does the dust ever settle in Westfall, Heather?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -202,6 +213,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They know the roads better than we do. I record every loss in my ledger, and I'd rather not know how the gear gets damaged." } },
+      choices = {
+        { text = "Keep honest records, Lewis. They'll matter someday.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stop writing it down. Ledgers won't stop thieves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Short enough that we share helmets between watches, and I've seen breastplates go out with one man and come back with another. The Defias rob every wagon, so I'm stretching what I've got thinner every week." } },
@@ -278,6 +298,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Our bandages are mostly old shirts, so whatever you can do without them, please do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's in better shape than anything in my ledger, so keep it that way, since I've nothing to mend it with." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? I've no column in my ledger for night elves, so I'll write you down as a scout and hope nobody asks." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've one ledger and a robbed wagon. If your spirits can stop the Defias stealing my supplies, I'd be grateful." },
       },
       again = {
         { id = "h_again", text = "What's next? I've a ledger waiting on me." },
@@ -296,6 +317,7 @@ P:NPC {
         { text = "Does your ledger have room for bandages and blessed water?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who gets the armor first when Osric's crate comes in?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could wild herbs stand in for the bandages you can't get?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "How do the Defias keep robbing your wagon, Lewis?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -563,6 +585,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I enjoy it very much. Every road into Sentinel Hill is mine to watch. A shaman's lightning would make them even more nervous." } },
+      choices = {
+        { text = "Watch fairly, Riell. Strike only when it's needed.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Make them terrified. Fear wins wars.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "South to the Jangolode Mine, or west to the coast, where the Defias have dug in among the old farms. Gryan wants them pushed back, and I want them gone, but I'll settle for pushed back today." } },
@@ -631,6 +662,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll see things on the ground the tower can't, and I'd like to know what you see." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Gryan will want you on the hill tonight, because we lose fewer men when someone's there to tend them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. From up here your armor shines like a beacon, and I mean that kindly, though the Defias will see it too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, I saw you coming a long way off. Your spirits aren't quiet. Good. The Defias should be nervous." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm watching the road, not you, but talk anyway." },
@@ -649,6 +681,7 @@ P:NPC {
         { text = "What should a hunter watch for on the roads?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you watch the militia's dead come home from the tower?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin strike first, from what you see up here?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you enjoy making the Defias nervous, Riell?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
@@ -751,6 +784,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It's poor and dry, since the farms emptied. Your earth spirits might know better wood elsewhere, but I make do." } },
+      choices = {
+        { text = "Patience makes good bows, William. Keep at it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find better wood. Poor bows get people killed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -827,6 +869,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Hammers and maces for your lot, I know, so I've nothing for you but a fine bowstring to admire." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll have opinions about my staves, I expect, since I'm told your people grow the finest bow wood in the world." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my bench. You'll want a wand, not a bow, and I don't sell wands." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Westfall wood is poor, so I make up the difference with patience. Strings are extra." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
@@ -845,6 +888,7 @@ P:NPC {
         { text = "Do you ever give a bow to a farmer who can't pay?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where do you cut your wood, now Westfall's groves are gone?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there anything a warlock would want from a bowyer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is Westfall wood really so poor, William?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

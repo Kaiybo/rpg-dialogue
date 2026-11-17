@@ -604,6 +604,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "If it hits hard, it helps. The Gordunni are many and foul, and I don't care whose god you swing for as long as you swing at them. Someday this land will heal, but not while the ogres hold the north." } },
+      choices = {
+        { text = "The Light will help this land heal once the ogres fall.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light breaks skulls. That's all I need from it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -685,6 +694,7 @@ P:NPC {
           text = "A hunter. Good, because the Gordunni hide in their caves and ruins, and I need someone who can track them to their doors." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because ogre clubs break bones my healers can't set, and I'm tired of sending braves home to Thunder Bluff on a litter." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gordunni", min = 40 } }, text = "The Gordunni are counting their dead, and a good share of them are yours. Belgrom will hear of it, and so will every ogre in the Lower Wilds." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can the Light break ogres? Because that's the only question I've got for anyone in Feralas." },
       },
       again = {
         { id = "h_again", text = "What else? Ogres don't wait for talk." },
@@ -705,6 +715,7 @@ P:NPC {
         { text = "You'd have me strike the ogres in their sleep?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the Gordunni hide, Rok Orhan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "How badly are the Gordunni hurting your braves, Rok Orhan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Would the Light help you break the Gordunni, Rok Orhan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { mojache = 1 } } },
       },
     },
@@ -852,6 +863,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Everybody is, friend, but you're worth more than most, because nobody understands you yet. The ogres guard an ore nobody understands either, and I'd like to study both of you, though I'll settle for selling the ore." } },
+      choices = {
+        { text = "Study the ore honestly, Orwin, and share what you learn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell it first, Orwin, and study it after.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Nobody knows, which is exactly what makes it special, and exactly why I want to be the first to sell it. The Gordunni dig it out with their big hands and do something odd with it, and I'd dearly love a sample a warrior pried out of their grip." } },
@@ -930,6 +950,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! You'll have seen the ogre trails through the woods, then, and I'd bet you could follow them straight to my ore." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Now, I know what you're going to say about digging, so let me get in first: the ogres dug it up before me, and I'm only taking it off their hands." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, now there's a curiosity, and you know how I feel about curiosities, which is that they're worth something to somebody." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask fast, my friend; time is money, and so is cobalt." },
@@ -948,6 +969,7 @@ P:NPC {
         { text = "What's so special about the ore the ogres guard, Orwin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why don't you follow the ogre trails yourself, Orwin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does the earth not mind your digging, Orwin?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Am I worth something to somebody, Orwin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get you some.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1056,6 +1078,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They're tauren, so they mind quietly and then they get over it. The Light warms you the way a fire warms the rest of us, and I think they understand that better than they'd say." } },
+      choices = {
+        { text = "The Light is a warmth to share, Greul.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't need their understanding, only their room by the fire.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Many, and some who come back carrying others, and I feed them all the same. The Gordunni hit hard, and the braves of Mojache hit harder, but even the toughest of them goes quiet when the stew is hot." } },
@@ -1120,6 +1151,7 @@ P:NPC {
           text = "A warrior, soaked through and still gripping that weapon! Set it down by the fire, friend; nobody here will steal it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! Come in from the rain, and bring your beast close to the fire, for the wet gets into fur worse than it gets into skin." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Come in, come in, out of the rain. A Forsaken who carries the Light is as welcome by my fire as anyone, though the braves may need a moment." },
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere." } },
       choices = {
@@ -1134,6 +1166,7 @@ P:NPC {
         { text = "Imps can be hard to control, Greul.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you see many warriors come back from the ogre lands, Greul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the hunters of Mojache bring to your fire, Greul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the braves mind a Forsaken paladin, Greul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a rest, thank you.", next = "END" },
       },
     },

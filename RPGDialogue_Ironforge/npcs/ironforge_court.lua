@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "A puzzle, and a welcome one. If you can truly hear the stone, you might hear what's happening under Gnomeregan without anyone walking back into that radiation. I'd never ask you to go, of course, but I'd dearly like to know what the earth says about the troggs, and about whoever let them in." } },
+      choices = {
+        { text = "I'll listen for Gnomeregan, High Tinker. I owe your people that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The earth isn't a listening device for gnome engineers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd welcome any help, but the radiation is a gnomish poison of our own making, and I'm not sure the green can mend what we broke. We'll take Gnomeregan back with our own hands first, and then I'll gladly ask your people what grows best in a clean tunnel." } },
@@ -79,6 +88,7 @@ P:NPC {
           text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you eat properly out there? I only ask because my people forget to, and you look as though you'd forget too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Your people know more about living with the land than we gnomes ever learned, and after Gnomeregan, I'm humble enough to say so." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My engineers have argued about your sort for weeks. Half think you're picking up seismic vibrations, and the other half think you're simply very sensitive." },
       },
       again = {
         { id = "h_again", text = "Where were we? I've lost the thread again; I lose a lot of threads, so I keep them in a drawer." },
@@ -99,6 +109,7 @@ P:NPC {
         { text = "Could a hunter be of any use to Gnomeregan, High Tinker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you ask of a paladin, High Tinker?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a druid help cleanse the poison from Gnomeregan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does Gnomeregan make of dwarven shamans, High Tinker?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -989,6 +1000,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some say ye're the best tool we've ever had for findin' a buried hall. Others say ye'll make the earth uneasy an' we'll lose diggers for it. I say if ye can tell me which wall's about tae fall, I'll take ye on a dig, an' if ye cannae, ye can carry a shovel like everyone else." } },
+      choices = {
+        { text = "I'll carry a shovel like anyone. No special treatment.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My gift's worth more than a shovel. Value it accordingly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "History's no' a grave, it's a record, an' a record's no use buried. Ye'll have yer views, an' I've work tae do." } },
@@ -1066,6 +1086,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. State yer business; I've a page tae finish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Fine; mind yer beast doesnae chew the maps." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The League's turned up a few kaldorei relics in the hills, an' I suppose ye'll want tae tell me they're no' mine." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The League's got opinions about ye, an' so have I, an' I'll keep mine tae myself today." },
       },
       again = {
         { id = "h_again", text = "What is it now, then?" },
@@ -1084,6 +1105,7 @@ P:NPC {
         { text = "Have you found anything holy in the old dig sites, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the League's diggers need protecting, Prospector?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Should the League be digging up kaldorei history at all?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What are the League's opinions about dwarf shamans, Prospector?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Sorry to bother you.", next = "END" },
       },
     },
@@ -1206,6 +1228,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Today, curiosity, an' I'll hear about it from my colleagues. The old Senate families think the Titans shaped the stone an' left it tae us, so it's ours tae carve an' no' ours tae chat with. The League's seen too much in Uldaman an' the deep places tae be so sure, an' I'm no' sure o' anything anymore, which makes me a poor senator." } },
+      choices = {
+        { text = "The Senate's caution has kept Ironforge standing, Senator.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Curiosity is exactly what the Senate's been missing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too many, an' risin' every time I count, for they've dug up from somewhere deep under the quarry an' they're no' stoppin'. The Senate wants a report, but I'd sooner send them a quarry wi' no troggs in it, an' that's where ye come in." } },
@@ -1301,6 +1332,7 @@ P:NPC {
           text = "I'll be plain, warlock, for I've no' the time tae be anythin' else: there's members o' this Senate who'd like yer kind banned from the city." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; I've plenty o' troggs tae count, an' I'd rather ye helped reduce the number." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know how tae count a herd, which is more than most o' the Senate's clerks can." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. As a senator I'm told tae disapprove o' ye, an' as a League man I'd like tae know what ye've heard in the quarry. I've no' decided which o' me is talkin'." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quick, now, for the troggs don't take recess." },
@@ -1323,6 +1355,7 @@ P:NPC {
         { text = "Can a hunter help you count the troggs, Senator?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have your diggers lost many to the troggs, Senator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Senate send soldiers to Gol'Bolar, Senator?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Which wins, Senator: the Senate's caution or the League's curiosity?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Senator.", next = "END" },
       },
     },

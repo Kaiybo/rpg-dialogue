@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Whether it's angry with us. We dug deep and we dug fast, and then the troggs came up out of the depths. I've always blamed the troggs, but sometimes, late at night, I wonder whether we woke something we oughtn't to have, and whether your elements would say we deserved it." } },
+      choices = {
+        { text = "No one deserved Gnomeregan's fall. The earth isn't cruel.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Maybe you did dig too deep. The earth remembers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They poured up from the deep in their thousands, and our defenders fell back level by level until there was nothing left to do but flee. I'll not pretend I fought, for I'm an engineer, but I watched a great many brave gnomes hold doorways while the rest of us ran, and I'll never forget them." } },
@@ -128,6 +137,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, if only we'd had a few more of you when the troggs came up through Gnomeregan's lower levels, the tragedy of it all!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I once built a mechanical hound, you know, but it chased the wrong things, as all my best inventions eventually do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in Tinker Town! Oh, forgive the dramatics, but I must ask you to keep your fingers off the schematics, because the Pledge of Secrecy covers every last one of them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Our situation is dire, but even in dire times one can marvel. You hear the earth? Does the earth say anything about Gnomeregan?" },
       },
       again = {
         { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
@@ -148,6 +158,7 @@ P:NPC {
         { text = "Can a machine have something worth praying for, Tinkmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Techbot be destroyed or repaired, Tinkmaster?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a rogue would steal gnomish secrets?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What would you ask the earth about Gnomeregan, Tinkmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -275,6 +286,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Possibly! If you can feel a tunnel about to collapse before it collapses, that's worth more than three sensors, all of which have broken. But I'd need you to report through the proper channels, in writing, with timestamps, which I suspect isn't how the earth usually communicates." } },
+      choices = {
+        { text = "I'll report properly, timestamps and all, Castpipe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The earth won't wait for paperwork, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Leper gnomes, sadly, who were our neighbours once and don't know us now, and some very unhappy machines. Nothing green grows down there anymore, and I doubt it will for a long time." } },
@@ -362,6 +382,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Excellent, because my recovery teams keep asking for someone to stand at the front, and I keep having to volunteer engineers." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Good, because the outer tunnels of Gnomeregan need scouting, and my engineers keep walking into things." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! If you've come to help in Gnomeregan, the procedure is complicated, and I'm afraid the radiation won't care how natural you are." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Is there a procedure for consulting the earth? Because if there is, I'd like it written down before you consult anything near my teams." },
       },
       again = {
         { id = "h_again", text = "Questions? Ask them now, before you're in the city; there's no asking down there." },
@@ -381,6 +402,7 @@ P:NPC {
         { text = "How many of your teams come back hurt, Castpipe?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you send a team down without a paladin, Castpipe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is anything still living in Gnomeregan besides the troggs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a shaman help your teams inside Gnomeregan, Castpipe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -498,6 +520,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "In a heartbeat! The dwarves tell me the seams have voices, and if you can hear which one's iron and which one's mithril, I'd save years of digging. Though Bengus says it's cheating and Geofram says it's rude to the mountain, so I'd have to keep it quiet." } },
+      choices = {
+        { text = "Then it's cheating. I'll not take ore the earth didn't offer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep it quiet, and I'll lead you to every seam.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The greatest invention of all, though I haven't quite worked out what that is yet. I'd make it light enough to carry and strong enough to outlast me, and if it could grow back when broken, like your trees, so much the better." } },
@@ -597,6 +628,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you know, I've been trying to make a lighter rifle barrel for years, and I keep making heavier ones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose the forests of Teldrassil hide any interesting metals? Even an odd sort of rock would do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Tell me, does fel fire burn hotter than a forge? I only ask because I'm looking for new ways to temper an alloy, and I've tried nearly everything else." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Could you ask the stone where the best ore is hiding? I'll pay you in finished alloys, which, admittedly, I haven't finished yet." },
       },
       again = {
         { id = "h_again", text = "What else? I've a crucible warming." },
@@ -616,6 +648,7 @@ P:NPC {
         { text = "Should you test your alloys on living paladins, Klockmort?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you build if you found your perfect alloy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really use fel fire at your forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you have a shaman find ore for your alloys, Klockmort?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },
@@ -733,6 +766,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Listening posts! Shamans at every tunnel mouth from Kharanos to the Gnomeregan gate, telling us what the troggs and the leper gnomes are doing below. The other half of the plan is persuading enough shamans to sit in tunnels, and that's where I've stalled." } },
+      choices = {
+        { text = "Count me in. Gnomeregan's people deserve their home back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sitting in a tunnel for gnomes isn't my calling, Gnoarn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I blame the troggs, because they came up from the deep and took our city, and I blame the leak, because it took my hair. Mekkatorque says blame is a waste of time, and he's right, but it keeps me warm at night." } },
@@ -809,6 +851,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Splendid, for Gnomeregan will need soldiers when we march back in, and I'm the one who keeps the plans." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the troggs keep coming up out of the tunnels, and somebody needs to count them before I lose my temper again." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Gnomeregan needs every pair of hands it can get, paws included, and I mean that as a compliment." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The dwarves gave Gnomeregan's people a home, and now one of them talks to the very earth that swallowed our city. I've a plan for that, though it's only half a plan." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? The troggs aren't resting, and neither am I." },
@@ -828,6 +871,7 @@ P:NPC {
         { text = "Can anything be done for the gnomes still sick from the leak?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What will the march on Gnomeregan need most, Gnoarn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you blame the troggs or the leak for Gnomeregan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What's your half a plan for a shaman, Gnoarn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "For Gnomeregan!", next = "END" },
       },
     },

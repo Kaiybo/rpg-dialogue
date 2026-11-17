@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Can I sell? Friend, I can sell anything to anybody, but you're a whole new market, and I've been sitting here wondering what a dead knight with holy hands might want. Better iron, I'd guess, since the Light doesn't sharpen anything." } },
+      choices = {
+        { text = "Sell me honest iron at an honest price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Charge the orcs double and sell me the good iron.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "As well as coal and iron allow, and both cost a fortune to haul over the Gorge road. The Dark Irons have all the iron they want under their mountain, which isn't fair, because they're the ones trying to kill everybody." } },
@@ -111,6 +120,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! No coal for you, I suppose, unless your beasts eat it, but I've arrowheads, good iron ones, at a price that'll only make you cry a little." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I sell coal and iron, so I'm sure you think I'm the worst thing that's happened to the Badlands, but I promise you the dragons got here first." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, that's new, that's very new, and new means opportunity. You don't need a hammer blessed, do you, because I've got coal and iron and a fellow who owes me a favor." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Talk fast; I'm paid by the sale, not the chat." },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "My imp doesn't eat coal, Jazzrik.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do Kargath's smiths keep the warriors well armed?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's the hunting like around the mines, Jazzrik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can you sell anything to a Forsaken paladin, Jazzrik?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

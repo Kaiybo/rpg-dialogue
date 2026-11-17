@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Display it? I'd build it a hall! Mind ye, the Senate's old guard would call it a Wildhammer curio an' want it in the back, behind the Titan carvings, where it couldnae embarrass anyone. History's no' kind tae new things, but it's always interested in them." } },
+      choices = {
+        { text = "Put it in the back. The Titan relics deserve the place of honour.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Put it in front. Ironforge should see what it's ignored.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Half the hall, if ye count the axes, for dwarves have been fightin' Dark Irons an' troggs since long before there was a museum tae hang the axes in. My favourite's a shield split near in two, for the dwarf behind it lived tae bring it home an' give it tae us." } },
@@ -115,6 +124,7 @@ P:NPC {
           text = "A mage! Mind the titan-work behind the glass, for the last one o' yer kind who leaned close made every rune on it glow, an' I had tae sit down." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Then ye'll want tae see the east hall, for there's armor there from the War o' the Three Hammers that still has the dents tae prove it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Hall o' Explorers! I'll gladly give ye the tour, but I'll ask yer wee servant tae wait by the door, for some o' these relics are older than its masters." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' a dwarf at that! I've no case in this museum for what ye are, an' I've half a mind tae start one." },
       },
       again = {
         { id = "h_again", text = "Another question? I've a hall full o' answers." },
@@ -134,6 +144,7 @@ P:NPC {
         { text = "Have you ever kept relics of faith in the museum, Curator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Whose gauntlet is that by the north wall, Curator?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why must my servant wait by the door, Curator?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the museum ever display a shaman's totem, Curator?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Another time, Curator.", next = "END" },
       },
     },
@@ -259,6 +270,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Precious few, an' most o' those are Wildhammer songs somebody wrote down badly. The Bronzebeard scholars wrote about the Titans an' the stone, never about the stone answerin' back. If ye'd sit for an hour an' tell me how it works, I'd have the first proper page on it." } },
+      choices = {
+        { text = "I'll sit for your hour. It ought to be recorded properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements don't belong on a library shelf, Mae.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one we could gather, from the War o' the Three Hammers tae the Second War, an' the names o' those who fell in them. Warriors come in now an' then lookin' for a grandfather, an' I'm always glad when I can find him for them." } },
@@ -330,6 +350,7 @@ P:NPC {
           text = "Ye're the quiet sort, an' I like that in a library, though I'll be countin' the books after ye've gone, mind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Library! Mind the shelves wi' that, if ye please, for the last axe through here cost me a whole row o' genealogies." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye might help me, then, for the bestiary's been missin' a proper account o' the beasts in Dun Morogh's high snows." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've three shelves on the orcish kind an' no' a single page on a dwarf who does it, so ye'll forgive me if I stare an' take notes." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Softly, now." },
@@ -348,6 +369,7 @@ P:NPC {
         { text = "What's missing from the Library's bestiary, Librarian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do your books say about where faith comes from?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the Library keep the oaths of the Silver Hand?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are there any books on dwarves who listen to the earth, Mae?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -696,6 +718,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Depends which senator ye ask an' how much he's had tae drink. The old families say the Titans gave us all the answers we need, an' others mutter that Thaurissan started wi' callin' on fire, an' look where that went. I remind them the King's own friend is a Wildhammer shaman, an' I watch them change the subject." } },
+      choices = {
+        { text = "The Senate should hear us out. I'll make my case properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't need the Senate's blessing to hear the stone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "It reaches by letter an' by ship from Menethil, though slower than either of us would like. The King values the kaldorei as allies, but he'll no' pretend he understands a people who'd sooner live in a tree than under a mountain." } },
@@ -793,6 +824,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The King's always had a soft spot for warriors, for he was raised among them, an' so was I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The King's rams an' the King's rifles both owe a great deal tae hunters, an' the throne remembers it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the kaldorei, standin' in the King's own hall. Ye're a long way from yer forests, so I'll see ye're treated as a guest o' the throne." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman o' Khaz Modan. The King's spoken o' Earthseer Farsen often enough that I'll no' be the one tae turn my nose up at ye, though some in the Senate would." },
       },
       again = {
         { id = "h_again", text = "Anythin' further?" },
@@ -813,6 +845,7 @@ P:NPC {
         { text = "Does the court pray for the King's daughter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Ironforge need most from its paladins, Advisor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the King's word reach as far as Darnassus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does the Senate truly make of dwarven shamans, Advisor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Advisor.", next = "END" },
       },
     },
@@ -1150,6 +1183,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every time, an' it drives me daft. They go quiet an' tuck their heads, an' I'm left lookin' at a clear sky like a fool till the storm comes. The Wildhammers say that's the spirits o' the air talkin' tae them, an' I say it's a gryphon's good sense, but I'll admit I've never proved which." } },
+      choices = {
+        { text = "A good handler's instinct matters more than any spirit, Gryth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It's the air spirits. The Wildhammers have that much right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Tae the Wetlands an' Loch Modan, aye, an' they'll set ye down at Menethil or Thelsamar as gentle as a cradle. A Wildhammer bird might get ye there quicker, but ye'd arrive wi' yer stomach still in the clouds." } },
@@ -1242,6 +1284,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ironforge gryphons have carried dwarven warriors since the Second War, an' they've never dropped one, whatever the Wildhammers say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Then ye'll appreciate a beast that can stand the heat o' the Great Forge, for there's none hardier than mine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll be wantin' tae teleport, I suppose, an' leave my gryphons standin' idle, but a portal never once showed anyone the view over Loch Modan." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Ye've a Wildhammer look about ye, even if yer beard's Bronzebeard. Don't go whisperin' tae my gryphons, for they're confused enough." },
       },
       again = {
         { id = "h_again", text = "Anythin' else, or are ye flyin'?" },
@@ -1260,6 +1303,7 @@ P:NPC {
         { text = "Do your riders come back wounded often, Gryth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have your gryphons ever flown paladins into battle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why fly a gryphon when I can teleport, Gryth?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your gryphons ever sense a storm before you do, Gryth?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Gryth.", next = "END" },
       },
     },
@@ -1333,6 +1377,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If it did, half the Circle would be out o' work, so I'll hope it keeps quiet. I've had a lad swear the walls hummed whenever someone was comin' down the stair, an' I wrote it off as ale. Ye'd no' be wantin' tae sell that sort o' warnin', would ye?" } },
+      choices = {
+        { text = "The earth is no tool for sneaks, Hulfdan.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For the right price, I might tell you who's coming.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Because a cat that can walk past a guard is worth more than any lockpick I own, matey. I'll no' pretend the Circle's honest, but we keep our word an' our mouths shut, which is more than the Senate does." } },
@@ -1417,6 +1470,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, down in the Hidden Circle? Ye're louder than my whole crew put together, so keep yer voice down, if ye can." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye've a quiet step for someone who carries a gun, I'll give ye that." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Well now, a night elf druid in the Forlorn Cavern, an' no' even lost! Yer kind can slip about as a cat, I hear, which would make ye a fine catch for the Circle." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, down here? The earth's got ears, they say, so I'll thank ye no' tae let it listen in on my business." },
       },
       again = {
         { id = "h_again", text = "Wut else? Quietly, now." },
@@ -1435,6 +1489,7 @@ P:NPC {
         { text = "Do your rogues ever need a priest, Blackbeard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why shouldn't a paladin turn your Circle over to the guards?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would the Hidden Circle want anything from a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does the stone down here tell secrets, Hulfdan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep your secret.", next = "END" },
       },
     },

@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because a farmer belongs on his farm, thieves or not. My furrows are straight, and they're the only straight thing left. The earth here deserves someone who stays." } },
+      choices = {
+        { text = "Staying took courage, Saldean. The land is lucky to have you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Staying was foolish. Your family's safety matters more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -124,6 +133,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Salma will want you blessing the soup pot, so go easy on my field and save some for her." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, is it? The watchers don't care for oaths, so I hope you hit as hard as you shine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, is it? I'll not have you setting my field alight, even if it is the watchers you're aiming at." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Our neighbours fled, but we stayed. If your earth spirits have a word for this soil, I'd like to hear it." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick, because daylight's for working." },
@@ -144,6 +154,7 @@ P:NPC {
         { text = "Do you pray much, Saldean, out here on your own?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who protects the farms that still stand, Saldean?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a spell or two fix your field, Saldean?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why did you stay when everyone else fled, Saldean?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Their lightning took good men, and I've not forgotten it. But you walk like a dwarf, steady and honest, and I'll judge you on that." } },
+      choices = {
+        { text = "Judge me by my deeds, Marshal. That's all I ask.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The war's long past. Let the old fears go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." } },
@@ -131,6 +140,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few in the Guard, back when, for tracking deserters and gnolls. Handy folk, and quiet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, by the sound of you, or rather by the lack of it. You walk quieter than any soldier I ever commanded." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I can't see well any more, but I can smell sulphur, and I've smelled it before." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, I hear, by the step. I ran the Stormwind Guard once, and I fought orc shamans in the Second War. Forgive an old man if he's wary." },
       },
       again = {
         { id = "h_again", text = "If you're still there, speak up, will you?" },
@@ -152,6 +162,7 @@ P:NPC {
         { text = "What makes a good guardsman, Captain Haggard?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the Guard ever have to fight the beasts of this forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Where did you smell it before, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Were the orc shamans you fought truly fearsome, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest easy, Marshal.", next = "END" },
       },
     },

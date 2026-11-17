@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than the old folk like, an' fewer than the young ones claim. Every year there's a lad or lass who's been listenin' at the rocks since they were wee, an' now Teo Hammerstorm's tellin' them it isnae daft after all. It's their grandparents who come in here complainin'." } },
+      choices = {
+        { text = "The grandparents deserve patience. Change is hard on old dwarves.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The grandparents had their turn. The young can choose now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "That they're big an' hungry an' they come down when the snow's deep, an' a bear form won't make ye bigger than one. Go in pairs, keep a fire, an' don't follow one intae its cave." } },
@@ -120,6 +129,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I've shot an' arrows on the back shelf, an' meat for yer beast if ye've one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in Kharanos. Ye'll need less from me than most, I expect, but here's advice for free: the wendigo up the hills don't care what shape ye're in." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll be after water an' bread, I'd guess, except ye can make yer own, so what is it ye're really here for?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye'll be wantin' somethin' tae carry yer totems in, I expect. I've sacks, but I've never been asked tae make one holy." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a crate tae unpack." },
@@ -138,6 +148,7 @@ P:NPC {
         { text = "What do the recruits need to hear, Kreg?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What should a druid know about the wendigo?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would a mage need from your store, Kreg?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are many Dun Morogh dwarves taking the shaman's path, Kreg?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Kreg.", next = "END" },
       },
     },
@@ -207,6 +218,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "A mace or an axe, somethin' honest wi' weight behind it. The orcs used tae carry great carved staves, but a dwarf doesnae walk about wavin' a stick when he could carry a hammer. I'll take back any that breaks in an honest fight, same as always, though I'll want tae know if the lightnin' broke it." } },
+      choices = {
+        { text = "An honest hammer, Grawn. I'll fight fair with it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever kills quickest. Fairness is a luxury.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "No, for both do the same work, an' both should be kept sharp. But a blade ye can hand tae yer bairns when ye're done, an' that's worth somethin'." } },
@@ -299,6 +319,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I don't make guns, but I make the blade ye'll want when the bear gets too close for one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind fight wi' claws an' teeth, which is fine, but ye'll still want a good mace for when ye're on two legs." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell ye a dagger or a staff, but I'll ask ye no' tae let yer servant touch the steel, for it leaves a mark on the metal I cannae polish out." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've a mace or two that would carry a lightnin' strike well, if ye don't mind it scorchin' the grip." },
       },
       again = {
         { id = "h_again", text = "What else? I've steel coolin'." },
@@ -317,6 +338,7 @@ P:NPC {
         { text = "Would you take back a hammer broken in an unfair fight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a claw any less honest than a blade, Grawn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does my servant really mark your steel, Grawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What weapon suits a shaman best, Grawn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Grawn.", next = "END" },
       },
     },
@@ -386,6 +408,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "My armor stands up tae claws, cold an' troggs. Lightnin' I've never tested, an' I'll no' start by testin' it on a customer. Mind, if ye're standin' in a storm wi' yer arms up, ye'll want somethin' that doesnae draw it quite so well as mail, so I'll think on it." } },
+      choices = {
+        { text = "Think on it carefully. A good smith tests before he sells.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take my chances. The storm won't strike its own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I've no idea, an' I'd love tae see it tried, though I'd rather it wasnae my best mail that tore. Leather's yer friend, I'd say, for it gives a little, an' mail's as stubborn as a dwarf." } },
@@ -478,6 +509,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want mail ye can kneel in, for a hunter's always crouchin' in the snow behind somethin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll want somethin' that fits whether ye're a bear or an elf, an' I'm sorry tae say I've never made such a thing." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Ye'll no' want mail, I know, for it clanks, but have ye considered that clankin' is a small price tae pay for no' bein' stabbed?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Ye'll want mail, then, for I hear the elements dinnae care much whose side ye're on when they get goin'." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -496,6 +528,7 @@ P:NPC {
         { text = "Can heavy armour protect the weak as well as its wearer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your armor hold up when a druid changes shape?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why should a rogue care about armor, Boran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Will your armor stand up to lightning, Boran?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Boran.", next = "END" },
       },
     },
@@ -565,6 +598,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I've never asked them, an' it's a strange question tae hear in my own shop. The trappers say they thank the beast before they skin it, an' I always took that for an old mountain habit. Ye'd tell me it's more than habit, would ye no'?" } },
+      choices = {
+        { text = "It's more than habit. Thank the beast, always.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A hide's a hide. Thanks don't keep anyone warm.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Every day, for I see them go out in the snow in whatever they came in, an' I see some o' them come back blue. The cold in Dun Morogh doesnae care who ye are, an' it's patient." } },
@@ -634,6 +676,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be wantin' mail soon enough, but for now let me give ye somethin' warm tae wear under it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want leather, then, an' good leather's my trade, so ye've come tae the right dwarf." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look half frozen, though I expect ye'd say ye're fine. Kaldorei always say that, an' then they start shiverin'." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wolf pelts an' bear hides aplenty, though I suppose ye'd want tae ask the beasts' leave before ye wore one." },
       },
       again = {
         { id = "h_again", text = "Anythin' else I can help ye with, recruit?" },
@@ -650,6 +693,7 @@ P:NPC {
         { text = "Do you worry about the recruits who don't come back, Durnan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's the danger here in Coldridge, Durnan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you wish the recruits respected the cold more?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you think the beasts mind being worn, Durnan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Durnan.", next = "END" },
       },
     },

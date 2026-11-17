@@ -955,6 +955,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd take anyone who fights. The cultists in Thunder Axe Fortress call on demons, and if your Light burns them, then I don't care whose corpse it lives in." } },
+      choices = {
+        { text = "I'll face them openly and burn them with the Light.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take them from behind before they summon anything.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -1044,6 +1053,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Your fire is not fel, so I have no quarrel with it, but do not let anyone at Ghost Walker Post mistake you for the Blade." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The warriors here take wounds from satyr claws that fester, and I'll take any healer who can stand the smell of Desolace." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Blade's cultists are fewer at Thunder Axe this week, and I hear it was your doing. Keep at it, because a cult this size breaks once enough of its knees do." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Burning Blade bow to demons, and I hear demons hate the Light, so come and prove it." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it and be done." },
@@ -1065,6 +1075,7 @@ P:NPC {
         { text = "Do the tauren here fear mages, Takata?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How do the Burning Blade hide among the satyrs, Takata?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the satyrs' wounds do to your warriors, Takata?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Would you take a paladin against the Burning Blade, Takata?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
     },
@@ -1210,6 +1221,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Much the same as I make of Desolace: strange, harder than it looks, and somehow still worth caring about. The Earth Mother does not explain herself, and I suspect the Light doesn't either, so I'll not ask you to." } },
+      choices = {
+        { text = "The Light gave me back. That's a gift, not a curse.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light gave me a weapon, Nataka, nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some do, if they stay long enough to stop listening for centaur hooves. I fought the Kolkar when I first came to Desolace, and now I fish, and I'm not sure which of the two takes more patience." } },
@@ -1291,6 +1311,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly the fish didn't even notice, which is more than I can manage. Sit, if you like, and tell me what you're really doing in Desolace." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here with the fishermen. If you could conjure a fish that bites, I'd call it the greatest magic I've ever seen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll forgive me if I keep my line between us, because I've seen what the Burning Blade leave behind at Thunder Axe, and it doesn't sit well with me." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The Earth Mother sends us all kinds of surprises, and I think you might be the strangest one I've seen in Desolace." },
       },
       again = {
         { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
@@ -1312,6 +1333,7 @@ P:NPC {
         { text = "What have you seen the Burning Blade leave behind, Nataka?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do warriors ever find peace out here, Nataka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's worth hunting near Shadowprey, Nataka?", next = "xhuntcl", when = { class = "HUNTER", race = { "Orc", "Troll" }, faction = "Horde" } },
+        { text = "What does a tauren make of a Forsaken paladin, Nataka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },

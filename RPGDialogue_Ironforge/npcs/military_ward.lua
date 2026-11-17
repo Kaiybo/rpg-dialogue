@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Would ye? I know it's foolish, an' the priests say I should pray an' wait like everyone else. But if the earth runs all the way tae the Thandol Span an' he's standin' on it, then maybe it could tell ye he's still standin'. I'd take any word at all." } },
+      choices = {
+        { text = "I'll listen honestly and tell you only what I hear.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tell you he's well. That's what you need to hear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I have, but the gryphon masters fly where the King tells them, an' a soldier's wife isnae the King. I'd go myself if I knew how tae ride one wi'out fallin' off." } },
@@ -112,6 +121,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll travel the roads, then, an' ye might pass Dun Modr; if ye do, would ye look for my Sully?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard yer kind can talk tae the beasts, an' I've wondered whether a bird might find Dun Modr quicker than the post." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Have ye been anywhere near the Thandol Span? I'll ask anyone, even you, for I've had no word from Sully in too long." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! They say ye can hear things far off through the stone. Could ye hear my Sully at Dun Modr, if ye listened hard enough?" },
       },
       again = {
         { id = "h_again", text = "Is there somethin' else? I've nowhere I need tae be today." },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "What news would you want me to bring from Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you thought of sending word to Dun Modr by gryphon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really take news from a warlock, Sara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Shall I ask the stone after your Sully, Sara?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Sara.", next = "END" },
       },
     },
@@ -289,6 +300,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd train anyone who can stand straight an' take orders, which most shamans I've met cannae. They want tae stop in the middle o' a charge an' ask the wind its opinion. If ye can keep in line an' save yer chattin' wi' the elements for after the fight, I'll make somethin' o' ye." } },
+      choices = {
+        { text = "I'll keep the line, Kelstrum. Orders first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The wind's opinion has saved more lives than your orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd train the bear, aye, an' I'd shout at it the same as I shout at the rest. A bear that knows how tae hold a line is worth three dwarves who don't." } },
@@ -351,6 +371,7 @@ P:NPC {
           text = "A warlock in the Military Ward! I'd ask ye tae keep yer creatures out o' my yard, for my recruits have enough tae worry about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye'll be soft from lettin' yer beast do the fightin', but I'll no' hold it against ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye wouldnae last a day under my regimen either, though I'll admit the bear might." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've trained warriors for longer than ye've been alive an' never once had yer kind come through, so dinnae expect me tae know what tae do wi' ye." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, now; my students are standin' about." },
@@ -369,6 +390,7 @@ P:NPC {
         { text = "Could a hunter learn anything from your warriors, Kelstrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your recruits ever need a priest after training, Kelstrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you train a druid who fights as a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you train a shaman to hold the line, Kelstrum?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -493,6 +515,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think any crutch makes a fighter lazy, whether it's a shield, a spell or a talking rock. That said, I've no data on shamans, and a gnome without data is a gnome with an opinion, which is a dangerous thing. Come and spar with me sometime and I'll collect some." } },
+      choices = {
+        { text = "I'll spar with you. Discipline should serve the gift.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements aren't a crutch, Bilban. They're my strength.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The switching, mostly, because every shift costs you a moment, and a moment is when the blow lands. Choose a shape for the fight and commit to it, and you'll be much harder to kill." } },
@@ -563,6 +594,7 @@ P:NPC {
           text = "A warlock! I'll warn you that the Military Ward's equipment isn't rated for demonic interference, so please keep your companion off my machines." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken. Fascinating." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You present a fascinating combat problem, since your stance changes with your shape, and I have several theories about it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Interesting. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
       },
       again = {
         { id = "h_again", text = "Further inquiries? Please proceed." },
@@ -580,6 +612,7 @@ P:NPC {
         { text = "Do you measure the Light in your calculations, Bilban?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could you train a paladin to fight better, Bilban?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you correct in a druid's way of fighting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you think the elements make a shaman lazy, Bilban?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Bilban.", next = "END" },
       },
     },
@@ -681,6 +714,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They do, an' I've no explanation for it. A wolf'll lie down at a shaman's feet the way it does at a hunter's, an' the hunters dinnae like it one bit. I tell them the beasts know who respects the wild, an' that's no' always the one holdin' the leash." } },
+      choices = {
+        { text = "Respect the wild, and it'll trust you back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The beasts know power. That's all respect ever is.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Tae watch before ye charge, for a beast tells ye everythin' wi' its ears an' its tail before it moves. Most warriors I meet see a bear an' run at it, an' the bear always knew they were comin'." } },
@@ -764,6 +806,7 @@ P:NPC {
           text = "A mage, an' I'll ask ye no' tae turn any o' my students' beasts intae sheep. It confuses them for days." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be lookin' for Kelstrum, then, though I'll answer a question if ye've one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My beasts have their hackles up, an' I'd say that's yer companion they're lookin' at, no' you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The beasts settle when yer kind walks by, I've noticed, an' my hunters' pets have been sniffin' at ye since ye came in." },
       },
       again = {
         { id = "h_again", text = "Anythin' else?" },
@@ -784,6 +827,7 @@ P:NPC {
         { text = "Can a priest's healing help a wounded beast, Daera?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin treat a mount, Daera?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a demon so different from a hunter's beast, Daera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your hunters' beasts behave differently around shamans, Daera?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -181,6 +181,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They might, or they might just stare long enough for you to leave. Nobody in Theramore listens to old Jarl, and nobody there would listen to you either, so we've got that in common, you and me." } },
+      choices = {
+        { text = "I'll keep the peace and stay clear of Theramore.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them try. I'll answer any blade.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In the marsh, the one who's heard first gets eaten first, and you clank like a tinker's cart. Theramore's soldiers come out here in full plate and wonder why the raptors find them, and I just sit on my porch and watch." } },
@@ -288,7 +297,8 @@ P:NPC {
           text = "A druid, creeping about in animal skins! Don't think Swamp Eye can't tell a real crocolisk from a pretend one, because he can." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, eh? Don't go waving your hands about near my house, because the last one who did lit my turnips on fire and never paid for them." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, out here in my marsh. Swamp Eye doesn't miss things, and he certainly won't miss that little imp skulking about behind you." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, clanking up to my door! Swamp Eye's seen your sort in Theramore, all polished and proper, and he's yet to see one come out here and sit in the mud." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, clanking up to my door! Swamp Eye's seen your sort in Theramore, all polished and proper, and he's yet to see one come out here and sit in the mud." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, clanking up to my door, and a dead one at that! Swamp Eye's seen paladins in Theramore, and they'd run you through before they asked your name." },
       },
       again = { { id = "h_again", text = "What else? Speak up, I'm watching the reeds." }, { id = "h_again2", text = "Anything more? Make it quick." } },
       choices = {
@@ -305,8 +315,9 @@ P:NPC {
         { text = "What have you seen pass by your house, Jarl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are heavy boots really such a problem in the marsh, Jarl?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have you tracked out in the marsh, Jarl?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Why don't Theramore's paladins come out to the marsh, Jarl?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why don't Theramore's paladins come out to the marsh, Jarl?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "How do you see everything out here, Jarl?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would Theramore's paladins really strike me down, Jarl?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -355,6 +366,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Ogron little scared, but Ogron know what it like when people scared of you. Everybody look at Ogron and see ogre who smash, and maybe everybody look at you and see dead who bite, so Ogron try not to look that way." } },
+      choices = {
+        { text = "Thank you, Ogron. We're both more than we look.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them be scared. Fear is useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Ogres fight like hungry, mostly, and then they fight like tired, and then they run away. Ogron watch human soldiers in Theramore with their shields all in a line, and Ogron think that very clever, because nobody in a line has to fight alone." } },
@@ -437,13 +457,14 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "You hunter! Ogron like hunters, because hunters watch quiet and not ask Ogron why ogre want to help." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "You priest of the little-people Light! Ogron not pray to it, but Ogron see it make hurt people better, so Ogron think it good magic, and Ogron glad you here." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "You shiny one! Ogron see shiny ones in Theramore with big hammers, and they look at Ogron like Ogron is next to get hammered, so you please not do that." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "You shiny one! Ogron see shiny ones in Theramore with big hammers, and they look at Ogron like Ogron is next to get hammered, so you please not do that." },
         { id = "h_default", key = true, text = "Ogron is ogre, but Ogron not want to smash Alliance. Ogron want to help find who burn the inn, because Ogron see things too, and nobody ask Ogron." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Questioning Reethe") }, text = "Ogron go with you to find Reethe, and you ask the questions, because Ogron not good with words. But Ogron good at keeping you safe." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You make magic like Draz'Zilb! But Ogron think your magic is kinder, because you not use it to tell people what to do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ogron know that smell, because it is the same as the old ogre magi. Ogron not afraid, but Ogron stand a little farther away, if that is all right with you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You druid! Ogron see you turn into bear, once, by the water, and Ogron think that very good trick." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You quiet one! Ogron not hear you come, and Ogron have very big ears, so you must be very good at sneaking." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You shiny one, but you dead one too! Ogron see dead ones and shiny ones, but never one who is both, so Ogron not know if he should be scared." },
       },
       again = { { id = "h_again", text = "You want ask Ogron more?" }, { id = "h_again2", text = "Ogron listening, friend." } },
       choices = {
@@ -456,10 +477,11 @@ P:NPC {
         { text = "Do ogres use magic to rule each other, Ogron?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why does my magic smell like the ogre magi, Ogron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why did you leave your clan's ways behind, Ogron?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do the soldiers of Theramore treat you fairly, Ogron?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the soldiers of Theramore treat you fairly, Ogron?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Do ogres fight like warriors, Ogron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do you hunt in the marsh, Ogron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How did you learn what happened at the inn, Ogron?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Are you scared of me, Ogron?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -650,6 +672,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Mok'Morokk not scared! Mok'Morokk boss! But dead things should stay dead, and shiny things should stay shiny, and you is both, so Mok'Morokk keep one eye on you." } },
+      choices = {
+        { text = "Keep your eye on me, Overlord. I'll serve Brackenwall well.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't answer to an ogre, shiny or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -728,6 +759,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "You make fire with your hands like Draz'Zilb! Mok'Morokk not like Draz'Zilb's fire, because it always point at Mok'Morokk when nobody look." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your little demon smell like old Gul'dan stories! Mok'Morokk like strong magic, so maybe you make Mok'Morokk a demon too?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You druid! Mok'Morokk know druid, turn into bear. Mok'Morokk not scared of bear, because Mok'Morokk eat bear." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha! Dead thing that shines! Mok'Morokk never see that before, and Mok'Morokk see lots of things." },
       },
       again = { { id = "h_again", text = "What else you want?" }, { id = "h_again2", text = "Speak! Mok'Morokk hungry." } },
       choices = {
@@ -743,6 +775,7 @@ P:NPC {
         { text = "Do you trust Draz'Zilb's magic, Overlord?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why would you want a demon, Overlord?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does the overlord like to hunt, then?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does a shining dead thing scare Mok'Morokk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -791,6 +824,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I would tell him you are a dead thing the Light forgot to burn, and that you are useful, because he understands useful. What I do not understand is whether the Light forgot or whether it chose, and that question interests me a great deal more." } },
+      choices = {
+        { text = "It chose. The Light doesn't forget.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It doesn't matter. Power is power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Stonemaul value whatever won the last fight, and for an ogre that is usually strength, which is why the overlord's chair is so large. I have found that wits only earn respect when they arrive standing behind a large club, so I keep several large friends." } },
@@ -869,6 +911,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the tauren, here among the Stonemaul. Draz'Zilb has long wondered whether your magic and his drink from the same well." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk like a shadow, small one, and Draz'Zilb notices shadows, because the overlord's enemies use them and so does Draz'Zilb." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who commands the Light. Curious, very curious, and the overlord will not understand it, so I will have to explain it to him slowly." },
       },
       again = { { id = "h_again", text = "Draz'Zilb hears you, small one. Ask your next question and be clever about it." }, { id = "h_again2", text = "Ask, and I shall answer if I can." } },
       choices = {
@@ -884,6 +927,7 @@ P:NPC {
         { text = "Did the ogre magi learn their power from demons, Draz'Zilb?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Stonemaul value strength over wits, Draz'Zilb?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you know of the black dragonflight's whelps, Draz'Zilb?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "How would you explain me to the overlord, Draz'Zilb?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

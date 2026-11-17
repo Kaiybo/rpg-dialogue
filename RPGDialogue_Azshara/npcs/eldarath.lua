@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Perhaps you, of all who come, would know how. The courser ghosts walk the paths they walked before the sea took their city, and you walked back from death yourself, so Ogtinc hopes you understand what they want." } },
+      choices = {
+        { text = "I'll grant them rest. They've wandered long enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some ghosts don't want rest. I'll let them be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because Ogtinc has seen what their magic did to this land, and it did not end well for them, or for the land. The Circle watches the ruins, and Ogtinc watches the Circle's fire, and he would rather you came back to it alive than walked into the ruins looking for power." } },
@@ -109,7 +118,7 @@ P:NPC {
       lines = {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Ogtinc smells the arcane on you, as he smells it on the ruins, and he hopes you will not go poking at what the Highborne left behind." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Ogtinc has seen your kind fight the dead, and he is glad, for the courser ghosts in the ruins below are restless, and they do not rest for Ogtinc's words." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Ogtinc sees the weight of your blade, and he hopes you know that not every creature in these ruins must die." },
@@ -135,6 +144,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Friend. Sit by the fire; I have saved you the dry stone. It is good to see a face I trust on this cliff." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Circle does not ask which gods you pray to, only that you help the land heal, and I am glad of any healer on this cliff." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, but one of the dead ones. Ogtinc has seen your kind fight the dead, but never the dead fight with the Light, and Ogtinc does not know what to think." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The ruins will wait; they have waited a long time." },
@@ -156,8 +166,9 @@ P:NPC {
         { text = "Why hunt the coursers at all?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the Ruins of Eldarath need from a healer, Ogtinc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Which creatures here deserve the blade, Ogtinc?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What troubles the ghosts in the ruins, Ogtinc?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What troubles the ghosts in the ruins, Ogtinc?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Why shouldn't I study what the Highborne left, Ogtinc?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Could my Light grant the ghosts in the ruins rest, Ogtinc?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Walk the divine path, Ogtinc.", next = "END", fx = { affinity = 1 } },
       },
     },

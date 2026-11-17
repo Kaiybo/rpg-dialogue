@@ -204,6 +204,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They mind everything, and the gryphons on the next ledge mind you even more, since they've carried paladins and never one who smelled like you. Pay your fare and don't feed them, and they'll carry you like anyone else." } },
+      choices = {
+        { text = "Fair enough. Fare paid, rules kept.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules are for the living, Gringer. I'll fly how I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because you're all used to charging, and you sit on a beast like you mean to ride it through a wall. A wind rider will throw anybody who fights it, so hold on, keep your heels quiet, and let the beast do the flying." } },
@@ -284,6 +293,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind a heavy rider so long as you don't kick, and warriors always kick, so sit still." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? Then you'll know better than to feed my wind riders anything, and you'll know why." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, on my ledge. The wind riders know the Earth Mother's people by smell, and they sit quieter for it, so stay close while I saddle one." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Gold first, questions after, and my question is whether you glow in the dark, because the riders won't sleep if you do." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick; they get restless." },
@@ -301,6 +311,7 @@ P:NPC {
         { text = "Why do warriors always kick the wind riders, Gringer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why mustn't anyone feed the wind riders, Gringer?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do the wind riders settle near a druid, Gringer?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do your riders mind a Forsaken paladin, Gringer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -736,6 +747,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The best, so far, because you're new and you're proud and you want everyone to see the Light still answers you. Walk out of here swinging one of my hammers and every sailor on the pier will know it, and that's good for both of us." } },
+      choices = {
+        { text = "I'll carry it honestly, Zarena, not for show.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them see. A little fame won't hurt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They're salted and pitted and sharpened so often they're more file than blade, and they'll snap on a troll's skull just when you need them. New steel costs more, but a warrior who dies saving silver hasn't saved a thing." } },
@@ -823,7 +843,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, buying steel? I sell to the faithful as readily as anyone, and I'll tell you plainly that a good mace beats a sermon when the Bloodsail board your ship." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, now that's a customer worth having, because you'll actually use what you buy instead of hanging it on a wall to impress the sailors." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, now that's a customer worth having, because you'll actually use what you buy instead of hanging it on a wall to impress the sailors." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want a mace or an axe, then, because I've seen your lot swing both, and you swing them like you mean it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Most of your kind want a mace and an apology, and I only sell the mace." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage in a weaponsmith's? A staff, then, and I'll make it heavy enough to settle an argument after your mana runs dry." },
@@ -834,6 +854,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Now there's a warrior who knows what good steel feels like, I hope, because you won't find any on the secondhand tables down the pier." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I don't make bows, so you'll want Haren for that, but nobody on this coast makes a better hatchet for when a panther gets past your arrows." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You don't need my steel, I know, but someone in your party will, so do me a favor and point them my way." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, now that's a customer worth having, and a Forsaken one besides! You'll swing what you buy, and I'd guess you won't complain about the weight." },
       },
       again = { { id = "h_again", text = "Need something more? Mind the sparks, and know the sea air rusts whatever I don't keep hot." } },
       choices = {
@@ -847,10 +868,11 @@ P:NPC {
         { text = "Why should I buy new steel instead of salvage, Zarena?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you really make ritual daggers, Zarena?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you care who your blades end up hurting, Zarena?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What do you make of the Silver Hand, Zarena?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you make of the Silver Hand, Zarena?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What's wrong with the secondhand swords on the pier, Zarena?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why would a hunter need one of your hatchets, Zarena?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why does every merchant here think a druid wants something sharp?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do Forsaken paladins make good customers, Zarena?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Later.", next = "END" },
       },
     },

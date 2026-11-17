@@ -417,6 +417,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Only your cooperation, and perhaps a few drops of whatever runs in you now! The Light burns the Scourge, and so will our plague, and you are the only thing in this city the Light touches without destroying, so you see why I'm curious." } },
+      choices = {
+        { text = "The Light isn't a reagent. Leave it out of your bottles.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it helps the Dark Lady, study me as you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I have a theory that it does, because a Forsaken who believes in something mends a little faster and rots a little slower than one who doesn't. I can't prove it yet, but I'd be delighted to take a few measurements of you, purely in the interests of science." } },
@@ -452,6 +461,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Bear, cat, seal, whatever you like, all of them so wonderfully alive, so do hold still while I take a few notes, nothing invasive, I swear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Oh, splendid, splendid, you'll be bringing me bear hearts and spider blood by the bucket, I can feel it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Marvellous, because you're a living, or once-living, example of a hypothesis I've never managed to test properly, which is whether faith changes the body's chemistry." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Oh, how marvellous, a Forsaken who carries the Light and walks into the Apothecarium anyway. I would give a great deal to know what holy power does to a sample of the new plague, purely in the name of science." },
       },
       choices = {
         { text = "Does faith change the body, Master Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -464,6 +474,7 @@ P:NPC {
         { text = "Do your brews work on demons?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "My people's elders treat the Forsaken. Do you work with them?", next = "tauren", when = { race = "Tauren" } },
         { text = "Do you need samples from the beasts I hunt, Faranell?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What does the Apothecarium want with a paladin, Master Apothecary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your work.", next = "END" },
       },
       again = {
@@ -576,6 +587,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "My oath did not, and Thule's certainly didn't, so I have reason to be cold about it. But if the Light still answers you after everything Lordaeron's dead have suffered, then perhaps loyalty is something we choose, rather than something we're owed." } },
+      choices = {
+        { text = "Loyalty is a choice. I chose the Light again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Nothing keeps faith. I hold the Light because it's useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "It burned with the rest of Lordaeron, I imagine, and I've not gone back to look. The oath was the thing that mattered, and one of us broke it, so I've stopped expecting the place to have kept faith better than he did." } },
@@ -610,6 +630,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I knew a scholar in Dalaran who studied your Cenarion Circle, and he said druids were the only mages who never wanted more than they were given." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. In Dalaran we used to think a blade a crude thing beside a spell, and I've learned since that a blade, at least, doesn't sell its soul." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My old friends and I swore our oath in a chapel, and I've found myself thinking about that chapel lately more than I'd like." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. In Dalaran we thought the Light and the arcane two roads to the same truth, and I wonder now which of them has kept faith with you better than mine kept faith with me." },
       },
       choices = {
         { text = "What became of the chapel where you swore your oath?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -622,6 +643,7 @@ P:NPC {
         { text = "I made bargains for power, as Thule did.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Have you ever had a use for a thief, Bethor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would a warrior be any use against a lich, Bethor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Has any power ever kept faith with the dead, Bethor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -730,6 +752,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Some do, because the last Light they saw was in the hands of men burning the plague-dead in Lordaeron's streets, and you can't blame them for remembering. Others just stare, and staring's allowed down here, so long as nobody takes your chair." } },
+      choices = {
+        { text = "Let them stare. I'll show them the Light isn't their enemy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're right to remember. I won't pretend the Light was kind.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "It's the only kind I can keep, a chair of your own where nobody asks anything of you. The Cathedral used to promise the same, and I think I keep it better, though I'll admit my roof leaks green when it rains." } },
@@ -746,6 +777,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, under the city! Sit down by the stove, and if the fire starts muttering, I'd rather not hear what it thinks of the damp." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under the city? You'll not find much growing down here, friend, except what's in the canals, and I wouldn't touch that." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Take a chair, any chair that's empty, and nobody will take it from you while you sit, which is the closest thing to a sanctuary I can offer." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, with a chair waiting like anyone else. You glow a little when you sit, which some of the regulars find upsetting, so I'll put you by the wall where the light won't bother them." },
       },
       choices = {
         { text = "Is the inn a sanctuary, Norman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -757,6 +789,7 @@ P:NPC {
         { text = "Do rogues get a chair here too, Norman?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A warm fire would suit your common room, Norman.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is there a chair for my demon too, Norman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the regulars truly mind a paladin among them, Norman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
     },

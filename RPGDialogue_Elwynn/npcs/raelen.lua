@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I never have enough, and they're never fast enough. Your spirits won't carry timber, so I'll count you as one more pair of hands." } },
+      choices = {
+        { text = "Count me as one more pair, Raelen. I'll keep the pace.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Deadlines can wait. Workers need rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. The order's due every week, the lads are frightened of the woods, and I don't care who fetches the bundles, so long as they come back stacked and dry." } },
@@ -117,6 +126,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The bears and wolves up north are your trade, I'd think, and they're my problem." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and if you've come to tell me the trees have feelings, get in line behind the bowyer. I've an order due in Stormwind by the week's end." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If that demon of yours can carry timber, I'll pay it a wage, and if it can't, I've no use for it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've bundles to count and deadlines to meet. Talk quickly, and keep your spirits away from the timber." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it; daylight's money." },
@@ -136,6 +146,7 @@ P:NPC {
         { text = "Has Stormwind sent you any protection, Raelen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would it take to make the mill cut fewer trees?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really hire a demon, Raelen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you have enough workers for the deadlines, Raelen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

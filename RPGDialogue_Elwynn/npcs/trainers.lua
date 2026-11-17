@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some do and some don't, and I've no time to worry about it. If you heal, I'll be grateful later." } },
+      choices = {
+        { text = "Healing is holy work, Anetta. I'll help where I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your gratitude isn't needed. I'll do as I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I've wondered, because the Brothers who tend the vineyard pray better than the ones who never leave the library. Whether that's the Light in the soil or just fresh air I couldn't tell you, but I send the recruits outside before I send them to prayers." } },
@@ -124,6 +133,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the Library Wing. Mind the shelves; McBride's recruits have knocked over a whole row of hymnals this week." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, among the books. Your companion is welcome here, so long as it doesn't chew the bindings." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in the Library Wing? I've a shelf on herb lore you'd laugh at, so please don't look at it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I keep recruits alive, and some days the library too. Your spirits are welcome if they heal." },
       },
       again = { { id = "h_again", text = "Something else? Sit while you ask; the stool's for visitors." } },
       choices = {
@@ -139,6 +149,7 @@ P:NPC {
         { text = "Is there anything in the library about the creatures of Elwynn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins and priests serve the Light differently, Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Light ever answer through the land, not just through prayer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the Abbey's priests trust shamans, Anetta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -213,6 +224,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They skip all of them, every time. A shaman must have fundamentals too, or the elements would never answer." } },
+      choices = {
+        { text = "Fundamentals matter. I'll learn them properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fundamentals are dull. I'll skip ahead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd have said so a year ago, but I watched one of your kind call down moonlight on a kobold, and the timing was better than anything my students manage. Whatever your fundamentals are, somebody drilled them into you." } },
@@ -280,6 +300,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my classroom. You'll be looking for the barracks, I imagine, which are next door and noisier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to keep that animal clear of the reagents, because a curious nose and a sulphur pouch make a very short lesson." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be wanting to tell me nature's magic needs no fundamentals. Please don't, because my students are listening." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Close the door, please; my notes scatter. Do your spirits respect the fundamentals?" },
       },
       again = {
         { id = "h_again", text = "Another question? Go on, but mind the inkwell." },
@@ -300,6 +321,7 @@ P:NPC {
         { text = "What would a mage teach a warrior, Khelden?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have any of your students ever fought a hunter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is druidic magic any less disciplined than yours?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What fundamentals do students skip, Khelden?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -438,6 +460,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They hum a little, yes. Most folk wouldn't notice, but I do. Keep that in mind if you ever need to hide." } },
+      choices = {
+        { text = "I'll fight in the open, Jorik. I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Teach me to hide, then. Quiet has its uses.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Some could, if they'd stop thinking about it, because a cat doesn't plan its steps; it simply never puts a foot wrong. Most of mine still walk like they're carrying a tray of plates." } },
@@ -526,6 +557,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, behind the stables. You're louder than my students, so keep your voice down; they're meant to be learning." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, sneaking round the stables. Not badly, either, but I heard the beast before I heard you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and I heard you coming, or rather I didn't, which is a compliment I don't give often." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I heard you coming a long way off. Your spirits aren't quiet, you know." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your voice down; the horses gossip." },
@@ -548,6 +580,7 @@ P:NPC {
         { text = "Do the Brothers know what you teach back here, Jorik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your trade truly so far from mine, Jorik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could your students learn to move as quietly as a cat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do spirits make a shaman easy to track, Jorik?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -670,6 +703,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We both deal in powers beyond the Light. Patience and prudence, shaman. Power rewards both." } },
+      choices = {
+        { text = "Patience and prudence, yes. But I'll stay honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We're alike enough. Teach me what you know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The dead have finished being troubled, and the living leave me alone here, which is the arrangement I prefer. Your kind would say the dead go back to the soil, and I'd say that's a waste of perfectly good silence." } },
@@ -741,6 +783,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my graveyard. You've a lot of steel on you for somewhere so peaceful." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a companion. Your beast doesn't care for my graveyard, I see; animals have sense." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid has come out among the graves, I see. The dead here don't mind you, and I'm still deciding whether I do." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Brothers don't like seeing me, and I'd wager they don't like seeing you either." },
       },
       again = {
         { id = "h_again", text = "Well? The dead are patient, but I am less so." },
@@ -760,6 +803,7 @@ P:NPC {
         { text = "Do the dead here give you any trouble, La Salle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why does my beast shy from your graveyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Doesn't it trouble you, teaching where the dead rest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you think shamans and warlocks are alike, Drusilla?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -897,6 +941,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It'll accept anyone who holds. Your spirits might help, but your feet hold the wall. Stand firm." } },
+      choices = {
+        { text = "I'll stand firm on the wall, Lyria. You'll see.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Walls are for the timid. I'll fight in the open.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The first week they'd drop their shields and run, and I'd let them, because a man who's run once learns why he shouldn't. By the end of the month they'd hold, and that's the whole of what I teach." } },
@@ -986,6 +1039,7 @@ P:NPC {
           text = "A warlock, out of the cellar and into the light. Keep that creature away from my recruits, because they're nervous enough already." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my yard. You're not here to train, I can tell, so I'll hope you're here to watch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're no farm hand, so I'll wager you've seen a fight or two before you came to me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, shield down! The kingdom's strength is whoever stands on its walls. Will you stand there?" },
       },
       again = {
         { id = "h_again", text = "What else? Keep your shield up while you ask." },
@@ -1009,6 +1063,7 @@ P:NPC {
         { text = "Do your recruits ever need more than bandages, Lyria?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's the difference between a warrior and a paladin, Lyria?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would your recruits stand firm if a bear charged them?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will Stormwind accept shamans on its walls, Lyria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1151,6 +1206,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Sometimes I do. I stayed to heal, and I don't regret it, but your boots make me wistful. Where have you been?" } },
+      choices = {
+        { text = "Staying to heal is its own journey, Josetta.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Go now. Healing can wait; the world can't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Because the recruits keep coming and somebody has to teach them, and the somebody always turns out to be me. I tell myself the Light is the same everywhere, but I'd still like to see it fall through those great branches." } },
@@ -1243,6 +1307,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior up here, among the candles. You've come a long way from the common room, and you'll want something more than ale, I hope." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, up all those stairs. I hope your companion didn't take them too fast; Farley's carpet is older than he is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, all the way from across the sea! I've always meant to see Teldrassil and always stayed right here, so you'll have to tell me what it's like." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and well-travelled by the look of your boots. I always meant to go far. Tell me where the spirits have taken you." },
       },
       again = { { id = "h_again", text = "What else? Mind the floorboard; it squeaks to Farley." } },
       choices = {
@@ -1258,6 +1323,7 @@ P:NPC {
         { text = "Does the Light heal beasts as well as people, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you envy the paladins who go out into the world, Josetta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why have you never gone, if you want to see it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you wish you had travelled, Josetta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -1330,6 +1396,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everything is interesting, my friend! Your spirits, my stable, the horses below. Tell me more." } },
+      choices = {
+        { text = "Curiosity is a fine virtue, Zaldimar. Keep it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Curiosity kills. Mind your own studies.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Whether you keep your own mind in the bear's shape, and whether you remember the taste of things afterward, which nobody in the Sanctum dares to ask. I suspect the answer would ruin three of my favourite theories." } },
@@ -1407,6 +1482,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my room above the stable. I'd ask you to sit, but the chair is for show and the bed is for me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion is staring at my candle, and I'd rather it didn't knock it over; I've only the one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Do sit down, because I've a dozen questions about how the change works, and I've never had anyone to ask who wouldn't bite." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! How fascinating. My view is a stable, but you are far more interesting. What do your spirits say about the arcane?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, before the singing starts downstairs." },
@@ -1428,6 +1504,7 @@ P:NPC {
         { text = "Have you ever studied a hunter's bond with its beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would a mage want with a paladin, Zaldimar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you want to know about shapeshifting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you find shamanism interesting, Zaldimar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1543,6 +1620,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That's my business. But I'll tell you this: I've been watching you since you came in." } },
+      choices = {
+        { text = "Watchfulness is wisdom, Keryn. I respect it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your watching doesn't worry me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "A bestiary from the Sanctum, which is mostly wrong, so I read it for the mistakes. It says your kind sleep in the branches and eat bark, and I've half a mind to correct it in the margin." } },
@@ -1629,6 +1715,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my rooms. You walked up those stairs like a cart on cobbles, and that's not a compliment." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You move well enough, but your beast doesn't, and I heard it on the second step." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're standing in my light. Sylvius, and no, I don't want to hear about the moon." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You've interrupted my reading. Your spirits would do well to be quieter." },
       },
       again = {
         { id = "h_again", text = "Still here? Then make it worth the page I've lost." },
@@ -1651,6 +1738,7 @@ P:NPC {
         { text = "Is there anything you'd like to talk about, Sylvius?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your students ever join the Defias, Sylvius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you read anything about the wild, or only city matters?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What are you reading, Keryn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Wrong room. Sorry.", next = "END" },
       },
     },
@@ -1759,6 +1847,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It's very dangerous indeed, so I make introductions carefully, and I'm not sure a shaman needs one." } },
+      choices = {
+        { text = "Then I'll leave your secrets alone, Remen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dangerous knowledge is worth having. Introduce me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "A page or two on the satyrs, which I'll not show you, because I suspect you'd burn it and I suspect you'd be right to. Some knowledge bites, as I told you, and that page has teeth." } },
@@ -1828,6 +1925,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the cellar. Mind your head on the beams, and mind your sword near the circle on the floor." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast has its hackles up; it knows exactly what we keep down here, and it's not impressed." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in Farley's cellar. If you're looking for roots, I'm afraid ours are mostly the figurative kind." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Farley never asks questions, and I like that. I'd ask you not to either." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep it low, because the floor's thin and Farley's ears aren't." },
@@ -1846,6 +1944,7 @@ P:NPC {
         { text = "What's the circle for, Marcot?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does my beast sense what you keep in the cellar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you keep any knowledge here about the old forests?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you keep dangerous knowledge here, Remen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

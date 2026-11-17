@@ -15,6 +15,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I hope so, friend, because a world where the dead cannae taste ale is a sad world indeed. The Light's still in ye, which surprises me, an' if the Light's still in ye then maybe the taste is too, an' I'd be glad tae find out." } },
+      choices = {
+        { text = "Duty first, Gregan. Ale can wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour me one. Duty can wait an hour.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strong enough to make a warrior forget the ogre that hit him, aye, and nearly strong enough to forget the ogre altogether. The fruit out here ferments wild, and I've had a barrel blow its own lid off, which is the mark of a proper brew." } },
@@ -94,13 +103,14 @@ P:NPC {
           text = "A mage! Could ye chill a barrel for me? The heat in these woods spoils a good brew before it's half done, and I'd give my right arm for a cold cellar." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light, out in the jungle! Now there's a blessing I'll take, friend, because a brewer needs watching over his kegs as much as any soldier needs it over his shield." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin in the jungle! Put that hammer down a moment and have a mug, because even the Silver Hand stopped for an ale now and then, or so my grandda claimed." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Ye'll want a strong ale after a day of knocking ogres about, and I've one brewing that'd make a Gordunni weep." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Ye'll know where the wild fruit grows, then, because the beasts always find it first and leave me the pits." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now don't ye be tellin' me the fruit out here belongs to the forest, because I've asked the forest, and it didnae object." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin in the jungle, an' a Forsaken one at that! Put down that hammer a moment an' have a mug, though I've no idea whether ye can taste it." },
       },
       again = { { id = "h_again", text = "What else, friend? The mash won't stir itself." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
       choices = {
@@ -114,10 +124,11 @@ P:NPC {
         { text = "Do you need something fetched quietly, Gregan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I could chill your barrels, Gregan.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Light have any place in brewing, Gregan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is it wise to brew alone with ogres in these hills?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is it wise to brew alone with ogres in these hills?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Do you really brew ale strong enough for warriors, Gregan?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which beasts steal your brewing fruit, Gregan?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you take only what the forest can spare, Gregan?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Can a Forsaken paladin still enjoy a brew, Gregan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -653,6 +664,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Go west against the gordunni and come back. The Light is a fine thing to carry, but I have seen fine things break, and I would rather see you stand against an ogre than hear you talk about your blessings." } },
+      choices = {
+        { text = "I'll prove it in battle, not in words.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My blessings speak for me. I owe you no proof.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "With great clubs and greater numbers, and with shamans who throw fire from behind the line. A warrior who breaks their front rank and keeps going until he reaches the shamans is worth more to Mojache than a hundred who stop at the first ogre." } },
@@ -702,6 +722,7 @@ P:NPC {
           text = "Warlock. You are of the Horde, and so I will fight beside you against the ogres, but I will not call what you do honorable." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Blades are proven against the gordunni, not in the telling, so I will judge you by what you bring back from their camps." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I trust a newcomer only as far as their blade has proven, and yours has proven nothing to me yet, Light or no Light." },
       },
       again = { { id = "h_again", text = "What else do you seek?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -716,6 +737,7 @@ P:NPC {
         { text = "Should I strike the Gordunni from hiding?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My power wins battles, Hadoken.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the gordunni fight, Hadoken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How can I prove myself to you, Hadoken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -782,6 +804,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Something I can't see, which bothers me, since I like to judge a thing by its hide. The Light holds you together the way good stitching holds armor, I think, and I'd not want to be the one who tests the seams." } },
+      choices = {
+        { text = "The Light holds me together. I trust it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My own will holds me. The Light only helps.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Beneath the mail, always, and well oiled, for the forests here are wet and the ogres strike hard. A warrior in a good leather jerkin feels the club less, and I would rather fit you properly than see you carried back by Hadoken's braves." } },
@@ -845,6 +876,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Your leathers are worn, and I can tell by the wear that you draw a bow more often than you swing a blade." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You wear the hide of the bear when you choose, so you'll hardly need mine, but I'd be glad to hear what you think of my work." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken in plate. You'll not want my leather, I suppose, but I'd like to know what keeps one of the dead walking, since it isn't anything I can stitch." },
       },
       again = { { id = "h_again", text = "Anything else, friend?" }, { id = "h_again2", text = "Ask away." } },
       choices = {
@@ -858,6 +890,7 @@ P:NPC {
         { text = "Should a warrior wear leather at all, Jangdor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What can you make for a hunter, Jangdor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you feel any guilt working the hides of Feralas, Jangdor?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "What keeps me walking, do you think, Jangdor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "A few, in the plague years, and the Scourge dug most of them up again before I could finish the prayers. I never thought I'd see one stand up and still mean the words, but here you are, so perhaps the prayers took better than I knew." } },
+      choices = {
+        { text = "They took, Mordo. The Light remembered me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayers didn't bring me back. My own will did.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "None, mostly, because I never knew the right ones and Sarvis says there aren't any. I just lay them in straight and shovel gently, and if a priest wants to say something, the dead won't mind and I'd rather like to hear it." } },
@@ -55,6 +64,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll want to see the old yew by the chapel, I expect; it's the only thing in Deathknell that died and didn't get back up." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen with an eye for tracks still in your head. The only beasts around Deathknell are the ones that come sniffing at the graves, I'm afraid." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, risen like the rest. I bury those who don't wake, and I'd be glad of someone to say a word over them, whatever the word is." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, back from the grave. You're not the first I've seen wake with the Light still in their hands, though there aren't many, and Aramis Hammerhand will want to see you." },
       },
       choices = {
         { text = "What words do you say over the ones who don't wake?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -67,6 +77,7 @@ P:NPC {
         { text = "Where do the dead learn their magic, Mordo?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the risen ever turn to warlockry, Mordo?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do beasts dig at your graves, Mordo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Did you bury many paladins here, Mordo?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll find Sarvis.", next = "END" },
       },
       again = {
@@ -345,6 +356,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I want them dead, but I'll take shamed first if it unsettles their ranks. Report what they do when they see you, because a Crusade that doubts itself is easier to break." } },
+      choices = {
+        { text = "I'll report it all, Executor, as ordered.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fight them my way. The Light isn't a trick.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Solliden Farmstead, where the Crusade's scouts shoot from the hedges and run before we can answer them. Keep my soldiers on their feet out there, and leave the sermons for Sarvis, who seems to enjoy them." } },
@@ -380,6 +400,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Can you fight? Then Deathknell has a use for you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Crusade's camp sits in open ground, and I want eyes on it from the treeline." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I'll want you mending my Deathguard, not preaching to them, so keep that in mind when you speak." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The Scarlets camped to the southeast think they hold the Light by right, and I'd like to see their faces when you walk in carrying it." },
       },
       choices = {
         { text = "Where do your Deathguard need mending most, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -391,6 +412,7 @@ P:NPC {
         { text = "My fire is yours to aim, Executor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would the Executor take a warlock's help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I watch the Crusade's camp from the trees, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you want me to shame the Crusade with the Light, Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
       },
       again = {

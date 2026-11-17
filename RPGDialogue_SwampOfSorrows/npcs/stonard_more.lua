@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Stones don't think much, but the people who built them did, and they'd have been as puzzled as I am. Still, the Horde's made a home out of stranger things than you, so I'd not worry about the stones." } },
+      choices = {
+        { text = "The Horde's my home too. I'll serve it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I serve the Light first. The Horde comes second.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because we're close enough to the Blasted Lands to smell them, and the demons that still wander out there don't care whose stones these are. These old walls were built to hold, and a warrior on top of them makes them hold a good deal better." } },
@@ -110,6 +119,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll find Stonard's walls a comfort, at least, since they're about the only comfort here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. There's not much to hunt round Stonard but crocolisks and spiders, though I'm told a swamp jaguar is good eating, if you can catch one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, in Stonard! The swamp's not much to look at, friend, but it's alive, I'll give it that, and more alive than I'd like some nights." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, in Stonard. Well, that's one more piece of history for these stones, and I didn't think they had room for any more." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got the time, which is the one thing Stonard has plenty of." },
@@ -128,6 +138,7 @@ P:NPC {
         { text = "Why does Stonard need warriors on its walls, Dar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's worth hunting around Stonard, Dar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What lives in the swamp that keeps you up at night, Dar?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "What would these old stones make of a Forsaken paladin, Dar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -247,6 +258,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They'll fly you, but they'll fuss about it. They know the smell of the dead and they know the shine of the Light, and they've never had both on their backs at once, so be gentle with the reins." } },
+      choices = {
+        { text = "They'll fly because they're bid to. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll be gentle, and let them learn me in their own time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Heavy and slow, which in a fight is the same thing, and a rider in plate on a wet beast is a rider who goes down in the swamp. I dry their wings every morning before they fly, and I'd ask a warrior to wait for it rather than complain." } },
@@ -329,6 +349,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't like the weight of plate when their wings are wet, so I'll ask you to be patient while they shake off the damp." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to look after a beast in this wet, I hope, because most folk don't and their animals suffer for it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I could use you, friend, because the wind riders' wings never dry in this swamp, and I've a feeling you know a better trick than my rags." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken in plate, and glowing besides. My riders are already miserable in this wet, and now they've got something new to sulk about." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got harness to scrape." },
@@ -345,6 +366,7 @@ P:NPC {
         { text = "Do wet wings make the wind riders dangerous, Breyk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do you keep beasts healthy in this swamp, Breyk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What does the swamp do to the wind riders, Breyk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Will your riders fly a Forsaken paladin, Breyk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -404,6 +426,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I think you're a contradiction with a hammer. Your Light burned the dead when they first rose, and now it lives in one of them, and my books have nothing to say about that, which is rare and annoying." } },
+      choices = {
+        { text = "Contradiction or not, the Light chose me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light's just power, like your books. I use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I don't dislike them, I simply have nothing to sell them, which is worse. Warriors think a demon can be killed like any other beast, and they're usually right, which annoys my customers no end." } },
@@ -487,6 +518,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You've no use for grimoires and I've no use for you, but Malosh is out in the yard if you want somebody to hit." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you keep beasts, which is a pity, though I suppose they're loyal." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You've no business here, then, and I'll tell you what I tell every druid: what I sell would make your Earth Mother weep." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You're no warlock, and the Light on you makes my books itch. A Forsaken paladin, of all things, so what do you want?" },
       },
       again = {
         { id = "h_again", text = "What else? Be brief." },
@@ -504,6 +536,7 @@ P:NPC {
         { text = "Why do you dislike warriors so much, Greshka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Are demons really better than beasts, Greshka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why would the Earth Mother weep at your grimoires, Greshka?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "What does a warlock's bookseller think of a Forsaken paladin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -572,6 +605,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I train warriors, not paladins, but I'll tell you what I tell them: the mud doesn't care what you pray to. If the Light makes you hard to kill, good, because the Horde needs soldiers who stay standing longer than their enemies." } },
+      choices = {
+        { text = "I'll stand and fight fair, mud or no mud.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll win however I can. The mud doesn't care either.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -644,6 +686,7 @@ P:NPC {
           text = "A warrior, and you've walked through the swamp to get here, so your legs are already half trained. Let's see about the other half." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my yard. A hunter's beast fights better in this mud than half my warriors do, and I don't mind saying so." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, in my yard! Change into a bear and wrestle one of my recruits, if you're willing; they need to learn what a real beast feels like." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in my yard. Can you fight in this mud, or does the Light keep your boots clean for you?" },
       },
       again = {
         { id = "h_again", text = "More questions? Swing a blade while you ask them." },
@@ -659,6 +702,7 @@ P:NPC {
         { text = "Can a warrior learn anything from a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your warriors ever train against beasts, Malosh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you really put your recruits against a druid's bear, Malosh?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Would you train a Forsaken paladin, Malosh?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Another time.", next = "END" },
       },
     },

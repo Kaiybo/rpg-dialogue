@@ -209,6 +209,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "No, for the Deadwood are lost to the corruption, and you are not lost, you only came back strange. Nafien thinks the Light found you where the corruption found them, and that is a great difference, so you may stand at our door." } },
+      choices = {
+        { text = "The Deadwood can still be saved, Nafien.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The corrupted are lost. Strike them down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "It troubles Nafien greatly, for the corruption of Felwood began with demons, and the Deadwood are what the corruption made. But Nafien judges by deeds, not smells, and if you hunt the Deadwood beside him, he will know whose side you are on." } },
@@ -296,7 +305,7 @@ P:NPC {
           text = "Nafien has counted the Deadwood who no longer walk, and the count is high. He takes no joy in it, and he hopes you take none either, but he is grateful." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. Nafien smells the fel on you, as he smells it on the Deadwood, and he does not like it, but he will speak with you because the Deadwood are worse." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Nafien has heard that your kind fight the dead, and he wonders if you would fight the Deadwood, who are not dead, only lost to the corruption." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Nafien is glad, for the Deadwood fight with claws and fury now, and a shield is a good answer to both." },
@@ -311,6 +320,7 @@ P:NPC {
           text = "A priest, Nafien thinks, and you will not like this hunt. Nafien does not like it either, but the Deadwood are past our shamans' help, and they have tried." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Then you have sat beside the dying, and you will understand why Nafien takes no joy in the hunting he must do." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The Timbermaw remember when the Circle and the furbolgs were friends, and Nafien remembers it too, though many of his people have forgotten." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, but Nafien smells the dead on you. Nafien has heard your kind fight the dead, so he wonders what you are, fighting from inside one." },
       },
       again = {
         { id = "h_again1", text = "What else?" },
@@ -328,8 +338,9 @@ P:NPC {
         { text = "Is there any rite left for the Deadwood dead, Nafien?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How do the Deadwood fight, Nafien?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is there a cure for the Deadwood's madness?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "What happened to the Deadwood, Nafien?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What happened to the Deadwood, Nafien?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Does the fel on me trouble you, Nafien?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do I seem like the Deadwood to you, Nafien?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, Nafien.", next = "END" },
       },
     },

@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The water, honest! Well, and maybe someone across it. But don't tell Ma, or Pa Maclure." } },
+      choices = {
+        { text = "Tell your family the truth, Tommy Joe. It's the brave way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep it secret. Love's worth a little sneaking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Nobody! Just a friend, who has a friend, on the other side, and their families don't speak. If you could conjure a bridge, or a boat, or a very thick fog, I'd be ever so grateful, and so would my friend." } },
@@ -107,6 +116,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You must know how to wait without being seen, and I've been trying to learn that for months." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out by the river! I'm only looking at the water, if anybody asks, which they shouldn't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I don't suppose you'd know a spell for getting across a river without anybody seeing, would you? Asking for a friend." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I'm only looking at the water, nothing else. Your spirits needn't tell anyone otherwise." },
       },
       again = {
         { id = "h_again", text = "What else? The river's not going anywhere, and neither am I, it seems." },
@@ -127,6 +137,7 @@ P:NPC {
         { text = "Will you stand up to your family for Maybell, Tommy Joe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the river keep secrets well, Tommy Joe?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Who's this friend who needs to cross the river, Tommy Joe?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What are you really looking at, Tommy Joe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Tommy Joe.", next = "END", fx = { affinity = 1 } },
       },
     },

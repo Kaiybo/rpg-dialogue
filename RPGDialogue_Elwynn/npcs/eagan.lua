@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I've never asked them, and I'm not about to start. A pelt's a living to me, and I don't waste any part of the animal. If that offends a spirit, it can tell me itself." } },
+      choices = {
+        { text = "Take what you need and waste nothing. That's fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Trap them all, Eagan. The forest has plenty.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "For a night, maybe, but they're hungry, and hunger comes back faster than fear does. Kill the worst of them and bring me their meat, and the rest will think twice about the ridge." } },
@@ -127,6 +136,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, by the look of those shoulders. The wolves won't care how hard you swing, so keep your back to a tree." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in Northshire. Good; the wolves pushing over the ridge need thinning by someone who knows the job." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Burn those wolves if you must, but leave me the pelts, for a scorched pelt's worth nothing in Goldshire." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, stepping on my snare line. Step where I step, and ask your spirits to keep the wolves off my traps while you're at it." },
       },
       again = {
         { id = "h_again", text = "Something else? Be quick about it; the traps don't check themselves." },
@@ -146,6 +156,7 @@ P:NPC {
         { text = "Do you ever say a word over the wolves you kill, Eagan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the wolves a danger to the Abbey itself, Eagan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would fire drive the wolves back over the ridge, Eagan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the spirits mind you trapping the beasts, Eagan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
