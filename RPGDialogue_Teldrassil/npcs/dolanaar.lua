@@ -183,6 +183,14 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Drink from a moonwell only if a priestess says it is well, and even then, only sip." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, and not as well as it looks. The wells say so before anyone else does." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle says the tree will grow strong in time, and I hope so, though the wells are less certain." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil drank from the Well and grew true, and our long lives came with it. Teldrassil drinks from the moonwells, and I listen to them every night for any sign that it is not enough." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The moonwells hum a little like the Dream, if you sit with them long enough. Lately the hum has been fainter on this tree, and I have not yet found out why." } },
+    elune = { { id = "tp_elune", text = "The moonwells are Elune's gift as much as the Circle's, and the priestesses never let us forget it. I don't mind, because the water has never once cared who blessed it." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children never blessed Teldrassil as they blessed the first tree. Fandral says it doesn't matter, and the moonwells say otherwise, very quietly." } },
+    tyrande = {
+      { id = "tp_tyrande", text = "The High Priestess comes to the moonwells herself now and then, and she listens to them longer than anyone but me. I think she hears what I hear, though she is too careful to say it." },
+      { id = "tp_tyrande2", when = { disposition = { min = 65 } }, text = "Since you ask kindly, I'll tell you that the High Priestess asked me once what the wells were saying. I told her, and she went very quiet, and she has not asked again." },
+    },
     _none = { { id = "tp_none", text = "The wells do not speak of that, and I have listened to little else for more years than I care to count." } },
   },
 }
@@ -386,6 +394,10 @@ P:NPC {
     fel_moss = { { id = "tp_moss", text = "It is the Gnarlpine's ruin, for wherever it grows, they turn." } },
     furbolgs = { { id = "tp_furbolgs", text = "They were peaceful, once. Ask me again when Ursal is dead." } },
     cenarion_circle = { { id = "tp_circle", text = "I serve the Circle as best I can from Dolanaar. They have bigger worries than furbolgs. Somebody has to have this one." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw of Felwood are what the Gnarlpine were before the corruption took them, proud and clear-eyed. I think of them when I put down another of our own furbolgs, and it doesn't help." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream shows the world as it should be. I'd like it to show me Teldrassil before the Gnarlpine went mad." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The fel in the Gnarlpine smells of the Legion, and I fought the Legion at Hyjal. I'd hoped never to smell it again, and certainly not on our own tree." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was blessed and this tree was not, and the Gnarlpine are suffering for the difference. I won't say more than that inside Dolanaar." } },
     _none = { { id = "tp_none", text = "That is not my concern, friend. The Gnarlpine are, and they have been since long before Teldrassil bore its first leaf." } },
   },
 }
@@ -578,6 +590,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My dresser is still in Starbreeze Village, with my good cloak in it, and some Gnarlpine is probably sleeping on both. These days I stay wherever the Gnarlpine aren't." } },
     advice = { { id = "tp_ad", text = "Help where the forest needs it. Dolanaar notices who does." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are furbolgs who never lost their minds, which makes them better neighbours than the ones who stole my dresser. I'd trade them for the Gnarlpine any day." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune that Starbreeze gets cleared out before my cloak is entirely chewed. She hasn't answered, but she's had a lot on." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took a girl from Starbreeze to the Darkmoon Faire once, years back. I won her a fish in a bowl, and the fish outlived the romance." } },
     _none = { { id = "tp_none", text = "Ask Athridas; he knows the furbolgs. I know only what they've done." } },
   },
 }
@@ -769,6 +784,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I bear the Council's orders. If I had a story, I'd have had to file it in triplicate." } },
     advice = { { id = "tp_ad", text = "Don't make bargains with anything that has hooves and smiles." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess's orders come down to me sealed, and I carry them sealed. I have never read one, and I sleep well because of it." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar sends the Council correspondence in a very fine human hand, and very long. I file it, and someone more important reads it." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels keep the roads and I keep the paperwork, and between us nothing is ever lost. Well, almost nothing." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's dispatches come in on the Auberdine boat, stamped with Lady Proudmoore's seal. Human seals use far too much wax." } },
     _none = { { id = "tp_none", text = "The Council of the Forest hasn't spoken on that, and I'll not speak before my elders do." } },
   },
 }
@@ -948,6 +967,10 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep a fire lit between Shadowglen and Darnassus. It's a good place for a fire." } },
     advice = { { id = "tp_ad", text = "Rest when you can, and take your boots off to do it. I've seen Sentinels lose toenails to Teldrassil's damp." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Folks who've been to the Darkmoon Faire come back with stories that grow every time they tell them at my fire. I let them, because a good story keeps people buying cider." } },
+    theramore = { { id = "tp_theramore", text = "We get a few humans through from Theramore, mostly on their way to Darnassus, mostly lost. I give them a bed and the right road in the morning." } },
+    elune = { { id = "tp_elune", text = "I keep a lamp lit for Elune at the window, as my mother did. Travellers see it from the road, and that's half of what prayer is for." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Sailors say Booty Bay's inn is built over a harbour full of sharks. I'll keep my little fire and my quiet road, thank you." } },
     _none = { { id = "tp_none", text = "I hear only the gentle gossip, the kind that drifts in with the moonlight. Ask a Sentinel for the other kind." } },
   },
 }
@@ -1124,6 +1147,9 @@ P:NPC {
     camping = { { id = "tp_camping", text = "A fire, first. Then each trade brings its piece: a tent, a rack for fish, a pot. Anyone who passes may share it." } },
     background = { { id = "tp_bg", text = "I'd rather sleep under the canopy than under a roof. That's most of my story." } },
     advice = { { id = "tp_ad", text = "Sit by a fire before you sleep, even a small one. You wake up a different person." } },
+    timbermaw = { { id = "tp_timbermaw", text = "I've camped near Timbermaw ground in Felwood, and they knew I was there before I'd lit a fire. They let me sleep, which is a kind of welcome." } },
+    centaur = { { id = "tp_centaur", text = "Centaur don't camp, from what the scouts say, they just ride until the beasts drop. I like a good night's sleep too much to respect that." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring's beautiful and Everlook is the only roof for miles. I've slept outside it in the snow, and I don't recommend it, though the stars were very good." } },
     _none = { { id = "tp_none", text = "I am only passing through, as my people have passed through forests since long before the maps were drawn, so ask in the village." } },
   },
 }

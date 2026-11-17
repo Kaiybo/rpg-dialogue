@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+
 ## 1.29.1 (2026-11-17)
 - Fix: Sergeant De Vries's "you look done in" remark used a condition that doesn't exist and never showed. It now comes up when your gear is badly worn.
 

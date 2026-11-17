@@ -97,6 +97,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've sold blades on this coast a long while, and I've been blind longer. That's as much story as I keep handy." } },
     advice = { { id = "tp_ad", text = "Listen to the steel before you buy it, friend. Your eyes will lie to you about a blade long before your ears do." } },
+    forsaken = { { id = "tp_forsaken", text = "I can't see the Forsaken who come to my door, but I can smell them, and they smell like old earth. Doesn't bother me, as long as their coin's good." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge walks past my door on the coast road sometimes, and I can hear them shuffling. They don't buy anything, so I don't mind them much." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans sealed their wall long before I lost my sight, and I've never heard a single word from the other side. Strange folk, by every account." } },
+    shadowfang = { { id = "tp_shadowfang", text = "I hear the worgen howling from Shadowfang Keep every night, and it's the one sound that still raises the hair on my neck. Blind or not, I know what that means." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Folk tell me about plenty, but not about that." } },
   },
 }

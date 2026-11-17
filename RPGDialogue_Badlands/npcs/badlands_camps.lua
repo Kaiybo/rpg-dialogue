@@ -195,6 +195,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons work metal like nae other dwarves alive, an' they work it for a fire lord, which spoils the lot. I've seen their blades an' I've seen what they're for." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine king tae them as stayed in Ironforge, an' I'm no' one o' them. I'll say nae more than that, an' ye'll no' ask me why." } },
+    uldaman = { { id = "tp_uldaman", text = "The diggers at Uldaman are pullin' old stone an' older secrets out o' the Badlands, an' I hear the stone fights back. I'd stay clear o' that hole if I were ye." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres up in the Steppes are buyin' iron from somebody, an' it's no' me. I've a fair guess who, an' I'm no' sayin' it aloud." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care. Ask someone with a city." } },
   },
 }
@@ -379,6 +383,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'd like to open a real kitchen someday, pal, with walls and a roof and customers who aren't covered in dust. Buzzard wings are the first step." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got Dirge Quikcleave, pal, and he thinks he's the best cook in Azeroth. Wait till he tries my buzzard wings." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's grunts eat anything, pal, and they pay in silver, so I'm a big fan of the Warchief. Tell him I said so, if you see him." } },
+    uldaman = { { id = "tp_uldaman", text = "The dwarves digging at Uldaman eat like miners, pal, which is to say a lot and not fussy. I'd sell to them if they'd stop shooting at me." } },
     _none = { { id = "tp_none", text = "Dunno, pal, and I don't sell what I don't know. Does it taste good with sauce?" } },
   },
 }

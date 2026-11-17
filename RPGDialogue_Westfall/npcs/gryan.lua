@@ -800,6 +800,22 @@ P:NPC {
   },
 
   topics = {
+    deadmines = {
+      { id = "tp_deadmines", text = "The Defias are dug into the old Moonbrook mines, and somewhere in the dark below that town VanCleef gives his orders. When we have the proof, I'll ask the bravest people in Westfall to go down after him, and I'll ask you first." },
+      { id = "tp_deadmines2", when = { class = "PALADIN" }, text = "The Deadmines will need a paladin's light in the dark, and I can't leave this hill to carry it myself. If you go down after VanCleef, go with the Light held high and come back to me." },
+    },
+    stonemasons = { { id = "tp_stonemasons", text = "I knew Edwin VanCleef when he was a master mason and the Stonemasons' Guild built this kingdom back from the ashes. The nobles cheated them, and I've said so to the House of Nobles' face, but it doesn't give him the right to take Westfall." } },
+    silver_hand = { { id = "tp_silver_hand", text = "I was trained by the Silver Hand, and I'd not trade a day of it for all the gold in Stormwind. The order's broken now, scattered by the plague in the north, but it trained me for a war like this." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light doesn't ask whether a man's a noble or a farmer, and it doesn't ask whether he can pay. That's the sermon I preach on this hill, and the militia hear it every morning." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "We serve the same Light, you and I, and on this hill it serves farmers who can't fight and fight anyway. Remember that whenever someone in Stormwind tells you the Light is for the gentry." },
+    },
+    bolvar = { { id = "tp_bolvar", text = "Bolvar Fordragon is an honest man trying to hold a kingdom together with both hands and a council around his wrists. I've no quarrel with him, only with the men who keep his ear." } },
+    varian = { { id = "tp_varian", text = "King Varian would have seen this injustice and set it right, I believe, before the Defias had a name. Now he's missing and the boy is too young, and Westfall pays for both." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor has the Highlord's ear, and she's never once spoken well of Westfall in council, so I'm told. I'll not judge a woman I've never met, but I'll note that she speaks against us easily." } },
+    second_war = { { id = "tp_second_war", text = "I came back from the Second War to a homeland I'd fought to keep, and found the Defias had taken it while I was away. The orcs never managed that, and I'll not let a mason's grudge manage it either." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Scarlet Crusade has the Light on its banners and murder in its heart, from what my brothers in the north write. I'd not trust a man who's sure of everything, and the Crusade is sure of everything." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Too many of the Defias I send to the Stockade come back to Westfall, and I've stopped wondering how. When I'm done with VanCleef, I'll have a word with whoever's holding the keys." } },
     knows = {
       { id = "tp_knows", text = "Every scout and farmer in Westfall reports to this hill sooner or later, so I've heard most of what goes on out there. Ask me about any of this." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll make the time, and I'll not soften any of it. Ask away." },

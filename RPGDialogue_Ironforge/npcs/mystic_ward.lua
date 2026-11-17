@@ -477,6 +477,12 @@ P:NPC {
     cenarion_circle = { { id = "tp_cenarion", text = "Druids, an' no' my faith, but they've asked for the Light's help in Azshara, an' we answer when asked.", next = "work_druids" } },
     silver_hand = { { id = "tp_silver_hand", text = "It brought the Light up this mountain. Tiza an' Brandur carry its oaths in this Hall now, an' they carry them well." } },
     tome_of_divinity = { { id = "tp_tome", text = "That's Tiza's charge, no' mine. I only patch up the paladins she sends out, an' patch up her husband when they bring him back." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light asks a dwarf tae do what dwarves already do: stand fast, keep faith wi' yer neighbours, an' work hard at somethin' worth doin'. The rest is just learnin' the words fer it." }, { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "Ye know it already, I'd wager, as a warmth that comes when ye've nothin' left tae give an' give anyway. Keep that, an' ye'll never need my sermons." } },
+    scourge = { { id = "tp_scourge", text = "The dead are an offence tae the Light, an' the Argent Dawn is right tae march against them. I send priests north every season, an' fewer come back each time." } },
+    forsaken = { { id = "tp_forsaken", text = "They say the Forsaken have their own minds now an' hate the Lich King as much as we do. I'd still no' turn my back on one, an' I'd still pray fer what they were." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Crusade was born o' grief an' good intentions, an' it's gone sour as old milk. They've burned priests o' the Light fer bein' too gentle wi' the sick." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the dead wi' faith an' good sense in equal measure, an' they take anyone who'll stand. That's the Light as I understand it." } },
+    elune = { { id = "tp_elune", text = "The night elves pray tae their moon goddess wi' as much faith as any priest o' the Light. I've talked wi' their priestesses, an' I'll no' say they're wrong." } },
     _none = { { id = "tp_none", text = "That's beyond the Hall's walls an' my knowledge, I'm afraid. Ask in the Commons; somebody there always thinks they know." } },
   },
 }
@@ -660,6 +666,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I'm a trainer, no' a gossip, but I've ears. Here's what I've heard worth repeatin'." } },
     background = { { id = "tp_bg", text = "I teach priests in the Hall, an' that's the whole o' it. My history's my own business, an' it's no' very interestin' besides." } },
     advice = { { id = "tp_ad", text = "Don't turn yer back on the Light. I say it tae everyone, an' I'll say it tae ye twice, for ye asked." } },
+    holy_light = { { id = "tp_holy_light", text = "Dinnae turn yer back on the Light, for it won't turn its back on ye, an' that's the whole sermon. I've given it a thousand times an' I'll give it a thousand more." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk because men turned their backs on the Light, an' I'll stand by that till I'm grey. Look at Lordaeron, an' tell me I'm wrong." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead who think they're free are still dead, an' they'll find that out soon enough. I'll no' pray fer them, an' I'll no' apologise fer it." } },
     _none = { { id = "tp_none", text = "Nae idea, an' I'll no' pretend tae one. Ask the High Priest; he walks about enough tae hear everythin'." } },
   },
 }
@@ -851,6 +860,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I train priests in the Hall o' Mysteries, an' I keep the night lamps lit. That's about all there is tae me." } },
     advice = { { id = "tp_ad", text = "Let someone help ye now an' then. It's harder than helpin', an' it's good practice." } },
     thandol_span = { { id = "tp_span", text = "The bridge where the Dark Irons struck. More than one family in Ironforge waits on news from it.", next = "night_widow" } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's a warm hand on a tired shoulder, an' I try tae be that fer anyone who comes through the Hall. Ye look tired, if ye dinnae mind my sayin'." } },
+    scourge = { { id = "tp_scourge", text = "I've sat wi' soldiers back from the north who couldnae sleep fer the screaming. The dead are hard enough tae fight an' harder tae forget." } },
+    stromgarde = { { id = "tp_stromgarde", text = "There's a priest at Refuge Pointe who writes me every month, an' every letter's more tired than the last. I send back what comfort I can, an' it's never enough." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. If it's important, the High Priest might, or the Library in the Hall o' Explorers." } },
   },
 }
@@ -1040,6 +1052,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Priest trainer, letter-sorter, an' the one who finds folk when the High Priest cannae. I like the work." } },
     advice = { { id = "tp_ad", text = "Write tae someone when ye've a moment. A priest on the road forgets that somebody's prayin' for her too." } },
     teldrassil = { { id = "tp_teldrassil", text = "That's where Alathea's letters come from, the Temple o' the Moon. They smell o' leaves, which is a strange thing tae find in a mountain." } },
+    elune = { { id = "tp_elune", text = "The night elf priestesses write tae us now an' then, an' their letters smell o' moonflowers. They pray tae Elune as we pray tae the Light, an' I think both prayers end up in the same place." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind leads the night elves, priestess an' general both, an' her letters tae the Hall are courteous an' very short. I've a great respect fer anyone who can say a lot in few words." } },
+    theramore = { { id = "tp_theramore", text = "The priests at Theramore send word through us now an' then, for Lady Jaina takes in all sorts an' needs all sorts o' help. I make sure their letters go out by the first gryphon." } },
     _none = { { id = "tp_none", text = "No letters about that, I'm afraid. Try the Commons, or the Library." } },
   },
 }
@@ -1297,6 +1312,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Help someone who cannae repay ye, an' don't tell anyone ye did it. That's the whole lesson; the rest is practice.", next = "path" } },
     tome_of_divinity = { { id = "tp_tome", text = "It's the book I give the young ones. It asks them tae be charitable an' patient, an' most find patience the harder.", next = "path" } },
     dark_iron = { { id = "tp_dark_iron", text = "There's a camp o' them south o' Helm's Bed Lake, an' a commander givin' orders. My husband has the stitches tae prove it.", next = "husband" } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's best served in the dirt, helpin' folk who'll never know yer name. That's where I send my young paladins, an' it's where they learn what they're for." }, { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Ye've chosen the hardest road there is, an' I'm proud o' ye fer it. Dinnae let anyone tell ye the Light's only fer the battlefield." } },
+    silver_hand = { { id = "tp_silver_hand", text = "Uther's order is broken, but the Hand still lives in every paladin who helps somebody who cannae pay. That's the oath, an' it outlives any banner." } },
+    scourge = { { id = "tp_scourge", text = "My husband's fought the dead, an' he came home quiet. Send yer prayers north, fer the paladins there need every one." } },
     _none = { { id = "tp_none", text = "That's no' somethin' I can speak tae. Ask the High Priest, or ask Muiredon, who'll talk about anythin'." } },
   },
 }
@@ -1541,6 +1559,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tiza's husband an' Narm's friend, an' that's about all anyone needs tae know about ol' Muiredon." } },
     advice = { { id = "tp_ad", text = "Don't go peekin' at Dark Irons wi' only two o' ya. Take five, an' a priest." } },
     dark_iron = { { id = "tp_dark_iron", text = "South o' Helm's Bed Lake, wi' a leader an' some writin's they guard close. I've the holes tae show for it.", next = "lake" } },
+    scourge = { { id = "tp_scourge", text = "I've only fought Dark Irons, an' look at me, so I'll leave the walkin' dead tae braver dwarves. Narm says they dinnae flinch at a hammer, an' Narm's never wrong about hammers." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light kept me breathin' long enough fer this priest tae stitch me up, an' I've thanked it twice already this mornin'. I'll thank it again when she's done." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Narm an' I spent a season at Refuge Pointe, an' Stromgarde's soldiers fight like they've nothin' left tae lose, because they don't. I'd go back wi' him tomorrow, once we're both on our feet." } },
     _none = { { id = "tp_none", text = "Couldnae tell ya, friend. I've been lyin' here gettin' stitched, no' readin' the news." } },
   },
 }
@@ -1764,6 +1785,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I hear everything twice in this Hall, once from the mages and once from the priests, and they never agree. Here's my half." } },
     background = { { id = "tp_bg", text = "I'm a mage trainer, and a gnome, and I taught arcane theory in Gnomeregan before the troggs gave us all an early recess. I've got a brother called Dink who trains mages too, so yes, we've heard all the jokes." } },
     advice = { { id = "tp_ad", text = "Befriend a mage! And if you are one, befriend a priest, because somebody has to put out the fires." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's the greatest city of mages in the world, and they're rebuilding it, and I'd love to go back. Mind you, they'd want to know where I got some of my tricks, and I'd rather they didn't." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are stuffy, slow and terribly clever, and they'll tell you so if you sit still long enough. I made a friend of one once, and he still won't lend me his books." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Kirin Tor before he turned to necromancy, and they don't like to talk about it. I'd not like to talk about it either, if I'd been the one who let him in." } },
     _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, because not knowing things gives me a sort of itch, like an unsolved equation." } },
   },
 }
@@ -1958,6 +1982,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know a great deal, most of it beyond you. Here is the part that isn't." } },
     background = { { id = "tp_bg", text = "I teach portal magic in the Hall of Mysteries. Before that I studied portal magic in Gnomeregan, and before that I wanted to study it, so you see the pattern." } },
     advice = { { id = "tp_ad", text = "Check where you're going before you go there. You'd be astonished how many people don't." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's portals are the finest ever woven, and I'd wager you wouldn't understand a single strand of them. The Kirin Tor are rebuilding, slowly, which is the proper speed for anything worth doing." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the only body of mages worth the name, and I've met most of them. They'd find you underqualified, I'm sure, but don't let that stop you trying." } },
+    theramore = { { id = "tp_theramore", text = "Lady Jaina's portal work is elegant, I'll grant you, though she cuts corners I wouldn't. Theramore's a fine city for a young mage, if you don't mind the swamp." } },
     _none = { { id = "tp_none", text = "That isn't a portal, so it isn't my concern." } },
   },
 }

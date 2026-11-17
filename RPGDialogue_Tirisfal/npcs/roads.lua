@@ -179,6 +179,9 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge left bodies all over these fields, and some of them are still useful. I collect them in tidy piles so the apothecaries don't have to go hunting." } },
+    forsaken = { { id = "tp_forsaken", text = "You're Forsaken now, so you'll need boots, a blade and somewhere to keep your bits together. I can't help you with the last one." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sets the order, and the order is that the newly risen get what they need and stop moaning. I find it a very sensible arrangement." } },
     _none = { { id = "tp_none", text = "No idea. Go and scavenge something useful instead; the dead can't afford idle hands." } },
   },
 }
@@ -354,6 +357,10 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge's mindless dead don't know what they are, and I can't help pitying them. We were all like them once, weren't we?" } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are taught that the will is everything and the Light is nothing. I'm still learning to believe it, and some days I'm not sure I ever will." } },
+    holy_light = { { id = "tp_holy_light", text = "I was taught to pray to the Light as a girl, and now I'm told it's a lie. It still feels warm when I remember it, which I'm not supposed to admit." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gave us back our minds, and we owe her for it. I only wish I knew what she means for us to do with them." } },
     _none = { { id = "tp_none", text = "I'm only a novice, I'm afraid; ask Sarvis, if you're brave." } },
   },
 }
@@ -524,6 +531,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "You're one of those walking corpses, aren't you? I don't care whose army you march in now, you're still a corpse, and I'm still the best fighter in Tirisfal." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge killed half my village, and I've been waiting for the chance to pay it back. You'll do for practice." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Crusade wanted me to join them, but I don't take orders from anybody, least of all men in red dresses. I'll fight the dead my own way." } },
     _none = { { id = "tp_none", text = "Ask me after you've beaten me, and even then I might lie." } },
   },
 }
@@ -707,6 +717,9 @@ P:NPC {
   },
 
   topics = {
+    new_plague = { { id = "tp_new_plague", text = "I'm not supposed to talk about the Society's work, but between us, it's going to change everything. And I'll be a full apothecary by then, if Master Johaan ever stops hogging the good reagents." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need clever minds as much as strong arms, and I intend to be one of the cleverest. Doom weed has its own surprising uses, you know." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge spreads its sickness, and we spread ours, except ours will be better. That's all I can say, really, and it may be more than I should." } },
     _none = { { id = "tp_none", text = "No idea, but I'll look it up, if you let me forget the doom weed." } },
   },
 }

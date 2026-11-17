@@ -173,6 +173,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm an engineer, pal, between employers, with very big plans and a very small hut." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company's got the best shredder plans this side of Undermine and the worst security, pal, so I'm liberatin' 'em in the name of free trade. They'd do the same to me, and they'd charge me for the privilege." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'm selling these plans, once I've got 'em, to the highest bidder with the shortest memory. Every engineer in the Cartel wants a shredder, and every one of 'em's too cheap to build their own." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of engineers who'd kill for a good shredder design, and some of 'em would, given the chance. That's why I'm selling through a cousin, at a reasonable markup." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's Gazlowe's town, and he don't ask where your goods come from as long as the duty gets paid. My kinda place, chum." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's legit, and the Venture boys ain't, and I'm somewhere in the middle, with a hut and a pair of binoculars. Business is business, kid." } },
     _none = { { id = "tp_none", text = "Couldn't tell ya, pal, and I don't do anything for free, including not knowing things." } },
   },
 }
@@ -337,6 +342,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a planter of seeds, and Sun Rock is my home." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company cuts the forest faster than I can plant it, but trees grow slowly and goblins grow old. I will outlast them, and so will the forest." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us seeds to remind us that nothing ends for good. I plant her reminders where the goblins have been, and she does the rest." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent us here to heal the land, and he trusts me with the seeds. I would rather plant a hundred trees than fight one goblin, and he understands that." } },
+    centaur = { { id = "tp_centaur", text = "The Gelkis and Magram to the south fight each other, and the land in Desolace suffers for it. I worry that Stonetalon will become the same if no one plants anything here." } },
     _none = { { id = "tp_none", text = "That I don't know, but the Earth Mother might, if you put your hand on the soil and listen long enough." } },
   },
 }
@@ -501,6 +510,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Kaya, from Camp Aparaje, though there isn't much of the camp left now." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem killed my family at Camp Aparaje and took me, and they did it smiling. I do not understand how a tauren could do that, and I do not want to." } },
+    cairne = { { id = "tp_cairne", text = "Cairne will punish the Grimtotem for what they did, I know he will. He is the High Chieftain, and he does not forgive cruelty." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother saw what the Grimtotem did, and she will judge them. I only want to go home, and let her do the judging." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were the monsters of my grandmother's stories, but the Grimtotem are worse. They look like us, and that is the most frightening thing of all." } },
     _none = { { id = "tp_none", text = "I don't know, I'm sorry. I only want to get home, Earth Mother keep me." } },
   },
 }

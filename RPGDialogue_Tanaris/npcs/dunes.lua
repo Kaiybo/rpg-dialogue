@@ -189,7 +189,17 @@ P:NPC {
       choices = { { text = "Learn from the past. Dig carefully.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Let the dead keep their cities.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Can't say I've dug that up yet, friend." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine town if ye like your ale warm and your water rationed, friend. The goblins sell a dwarf his own sweat back by the cup." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls o' Zul'Farrak sit on a pile o' treasure older than Ironforge, an' they guard it like their lives depend on it, which they do. I've looked at those walls from a dune, an' that's as close as I care to get." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni sent the Explorers' League to every corner o' the world, an' I came to this one on my own coin. I'd like to bring him somethin' from these sands that makes him laugh." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye've the look o' Ironforge about ye, so tell me, does the king still hold court in the Great Forge, or has the League got him readin' maps all day?" },
+    },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real secrets are, they say, under the Badlands, an' I'd be there now if I weren't so fond o' sand. Somebody's got to dig the desert, an' it may as well be me." } },
+    silithid = { { id = "tp_silithid", text = "The bugs to the west in Silithus are diggin' too, friend, an' they're better at it than me. I'd not like to meet one coming the other way in a tunnel." } },
+    _none = { { id = "tp_none", text = "Can't say I've dug that up yet, friend." } },
+  },
 }
 
 P:NPC {
@@ -338,7 +348,13 @@ P:NPC {
       choices = { { text = "Wandering is how you see the world.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Stay close to home next time, Tooga.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Tooga does not know, because Tooga is a turtle." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is very loud and very hot, and the goblins there walk very fast. Tooga does not go to Gadgetzan." } },
+    earth_mother = { { id = "tp_earth_mother", text = "Torta says the Earth Mother made the turtles first, because she wanted somebody to be slow and think about things. Tooga thinks this is true." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls in the big walls wanted to make soup of Tooga once, and Tooga walked away very slowly, and they forgot. Being slow is sometimes very good." } },
+    silithid = { { id = "tp_silithid", text = "The bugs in the west are fast and they click, and Tooga does not like them at all. Tooga hides in his shell when he hears clicking." } },
+    _none = { { id = "tp_none", text = "Tooga does not know, because Tooga is a turtle." } },
+  },
 }
 
 P:NPC {
@@ -501,7 +517,17 @@ P:NPC {
       choices = { { text = "Understanding beats killing every time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Beasts are for hunting. Study books instead.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, but I'd love to find out!" } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a marvel, really, a town built on nothing but sand and goblin stubbornness, and the water tower, of course, the water tower is everything. I'd love to see its schematics, if Bilgewhizzle would ever let me." } },
+    gnomeregan = {
+      { id = "tp_gnomeregan", text = "Gnomeregan was home, and the trogg, the troggs, the radiation, we all know how that ended, and I still dream about the workshop I left. Somebody had my second-best wrench on loan, too." },
+      { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "You'd remember it too, then, the halls and the lights, before Thermaplugg let the troggs in. Do you still dream about it? I do, nearly every night." },
+    },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "There's talk of a great bronze dragon somewhere in these dunes, guarding a cave where time itself is tangled, and I'd give anything to measure it. Imagine the readings, just imagine them!" } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "Zul'Farrak's architecture is remarkable, older than it looks and stranger than it ought to be, and the trolls inside are rather less remarkable and far more dangerous. I study it through a spyglass." } },
+    silithid = { { id = "tp_silithid", text = "The silithid build hives like an engineer builds a tower, layer on layer, and it fascinates me and horrifies me in equal measure. Mostly horrifies, if I'm honest about it." } },
+    _none = { { id = "tp_none", text = "I don't know, but I'd love to find out!" } },
+  },
 }
 
 P:NPC {
@@ -665,7 +691,14 @@ P:NPC {
       choices = { { text = "Fair prices build loyal customers.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "A goblin should get what he can.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Jabbey doesn't sell that, pal, but Jabbey might know a guy, and the guy gives Jabbey a cut." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best town in Kalimdor for a goblin with a stall, pal, because nobody's got anywhere else to shop for a hundred miles. Jabbey likes those numbers." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "Folks come out of Zul'Farrak with troll trinkets, pal, and Jabbey buys them cheap and sells them dear. Jabbey never goes in himself, because Jabbey can count." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got better shopping, pal, but worse prices, and Jabbey's prices are the best in Tanaris. Ask anybody, but ask Jabbey first." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel lets Jabbey keep his stall because Jabbey pays his dues on time, every time. That's the whole secret to staying in business here, pal." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells trinkets, and Jabbey sells trinkets, and Jabbey's are cheaper. Jabbey would like that written down somewhere." } },
+    _none = { { id = "tp_none", text = "Jabbey doesn't sell that, pal, but Jabbey might know a guy, and the guy gives Jabbey a cut." } },
+  },
 }
 
 P:NPC {
@@ -828,5 +861,10 @@ P:NPC {
       choices = { { text = "Looking sharp is half the battle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "A blade matters more than a hem.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Not my line of work, dearie, but I'll keep an ear open, and ears cost nothing." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the dustiest place a tailor can work, dearie, and every bolt I sell is gritty by the end of the week. The customers still pay, though, because there's nobody else." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's tailors sew sails more than silks, dearie, and it shows in what they wear. I'd like to dress that town properly someday." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak wear wraps that would fall apart in a stiff breeze, dearie, but I'll admit the colors are very fine. I'd love to know their dyes." } },
+    _none = { { id = "tp_none", text = "Not my line of work, dearie, but I'll keep an ear open, and ears cost nothing." } },
+  },
 }

@@ -184,6 +184,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I keep bats. That's what I do, and I do it well, so don't ask for a life story." } },
     advice = { { id = "tp_ad", text = "Hold on tight when the bat dives. They don't warn you, and the ground is a long way down." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have the bats, and the orcs have their wind riders, and I'd say we got the better beasts. Bats don't complain, and they don't eat my lunch." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people send their wind riders up to Tirisfal, and the bats don't care for them. I can't say I blame the bats." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The bats know every road in Lordaeron better than any map. They'll fly you over the ruins if you like, but don't look down too long." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has its own winged horrors, gargoyles and the like, and the bats are terrified of them. So am I, if I'm honest." } },
     _none = { { id = "tp_none", text = "I don't know. Ask a bat, they know more than you'd think." } },
   },
 }
@@ -352,6 +356,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I studied magic in life, and I study it still. Death interrupted me, but it didn't stop me." } },
     advice = { { id = "tp_ad", text = "Know your spells before you need them. Learning in the middle of a fight is how you die twice." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the finest school of magic in the world, and I studied there long enough to learn that most of its masters were fools. The rebuilt city will have fools in it too." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor hold their secrets as if they were the only ones clever enough to use them. They are wrong, and many of the dead are proof of it." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was the sort of mage the Kirin Tor feared most, one who would do whatever his studies demanded. He proved them right, which I suspect he enjoyed." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken make better mages than the living, because we don't fear death and we don't waste time on ethics. I find it very freeing." } },
     _none = { { id = "tp_none", text = "I don't concern myself with that. Ask someone with fewer things to do." } },
   },
 }
@@ -535,6 +543,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm an apothecary, and I serve the Society. Anything I was before doesn't matter now." } },
     advice = { { id = "tp_ad", text = "Don't drink anything you find in the Apothecarium. I mean that most sincerely." } },
+    new_plague = { { id = "tp_new_plague", text = "It's coming along, and it's none of your business beyond that. Hand me that flask, and don't touch the green one." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need clever minds as much as strong arms. I'm one of the clever ones, and I'd thank you to stop distracting me." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is old work, and we're improving on it. That's all you need to know." } },
     _none = { { id = "tp_none", text = "I haven't time for that. Try the Master Apothecary, if you dare." } },
   },
 }

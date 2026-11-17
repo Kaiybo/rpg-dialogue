@@ -175,6 +175,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Since Dalaran fell, the merchants of the Mage Quarter have come to me for what the Kirin Tor once sold them. I'd gladly give the trade back, if only the city would open its gates again." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me what little I know of enchanting, long ago, and they never charged a copper for it. I've tried to repay that by teaching others the same way." } },
+    scourge = { { id = "tp_scourge", text = "Enchanting was a gentle art in Lordaeron before the plague, and half its masters died with the kingdom. I carry what they taught me, and I'd like to pass it on before I'm gone too." } },
     background = { { id = "tp_bg", text = "An enchanter of Stormwind, trained in part in Dalaran, and teaching now because there are too few of us left." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't care to pretend that I do." } },
   },
@@ -342,6 +345,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Every mage in Stormwind came to Lucan once Dalaran shut its gates, and I've been guarding his time ever since. If the Kirin Tor ever open up again, I'll send them a very long bill." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells enchanted trinkets that glow for a week and then crumble to dust. Lucan looked at one and sighed, and I've never heard him sigh at anything else." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "A gnome apprentice from Gnomeregan came to us after his city fell, and he's the cleverest boy I've ever met. He blew up two shelves in his first week, but he's learned since, mostly." } },
     background = { { id = "tp_bg", text = "I'm a Cordell, and this shop is my family's. I sell what Lucan needs and what his students break." } },
     _none = { { id = "tp_none", text = "No idea. Ask Lucan, if you can catch him." } },
   },
@@ -510,6 +516,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The sharks off Booty Bay would snap one of my poles in half, I'm told, but they'd need to bite first, and they don't bite cheap bait. Best deals in all of Stormwind, my friend, and better than anything in Booty Bay." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells a fishing pole that's supposed to catch anything, and it caught Arnold's hat. I sell honest poles, and they catch honest fish." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet sell bait that's supposed to bring fish leaping into your boat. I bought some once, and it brought a murloc leaping into mine, so I'll stick with worms." } },
     background = { { id = "tp_bg", text = "I've sold tackle on these canals for years, beside Arnold. We fished together long before either of us made a living at it." } },
     _none = { { id = "tp_none", text = "Haven't a clue, friend; I know hooks, line and worms, and not much past the canal wall." } },
   },
@@ -678,6 +687,9 @@ P:NPC {
     },
   },
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Lordaeron refugees come in wearing rags, and Rema and I sew for them when we can. We don't charge, though don't tell the nobles, or they'll want theirs free." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's costumes are the finest silk I've ever touched, and I tried to buy a bolt once. They told me it wasn't for sale, and they told me so very kindly, which was worse." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Everyone wants sturdy clothes since the Stockade riot, and I've been sewing padded cloth night and day. Rema thinks the nobles know something, and I think they always do." } },
     background = { { id = "tp_bg", text = "I've kept the racks at the Canal Tailor and Fit Shop for years, with Rema at her needle behind me." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, I'm afraid, but I can tell you anything about wool and linen." } },
   },

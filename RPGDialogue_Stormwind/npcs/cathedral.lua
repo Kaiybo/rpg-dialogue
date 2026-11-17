@@ -394,6 +394,22 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light is not a lord who demands tribute, but a fire that burns in every soul, if only we tend it. I've seen it in a pauper and in a king, and I've seen it missing from both." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You serve the Light with your hands as well as your words, and that is the whole of our faith. Never forget that the beggar on the steps deserves your prayers as much as any lord." },
+    },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and the Church there fell with it, and I still pray for the priests who stayed to the end. I can't say their names without weeping, so I say them very quietly." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "The Forsaken claim to have broken free of the Scourge, and some among the Church say they're beyond the Light's reach. I'm not so sure, though I'd not say it too loudly in council." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You walk here in the Light's own house, and the Light hasn't struck you down, which teaches me something I'm still trying to understand. Be at peace while you're here, whatever you were and whatever you are." },
+    },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme's people were the Church's faithful, and they died in the prince's purge or worse. I've asked the Light many times what they did to earn that, and I've had no answer I could bear." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was the Church's sword in the world, and Uther was its heart. The order's scattered now, but the Light it carried isn't, and I see it in every young paladin who kneels here." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire keep the old abbey and train our priests and paladins. They're good men and women, and a little stubborn, which is what the Light requires sometimes." } },
+    varian = { { id = "tp_varian", text = "I pray for King Varian every morning, as I've done since the day his ship was lost. I believe he lives, because I must, and because the Light has not told me otherwise." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Scarlet Crusade began as men grieving their homes, and they've grown into something that grieves nothing. I've written to them to urge mercy, and they've written back to call me weak." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fight the Scourge without the Crusade's hatred, and I bless them for it. If the Light has soldiers in the north today, I think they wear silver, not red." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, and I've stood beside their priestesses in prayer and felt nothing strange about it. The Light and the moon may be different words for the same warmth, though I'd not say that before every bishop." } },
     knows = {
       { id = "tp_knows", text = "People bring the Cathedral their troubles from every corner of the kingdom, and some of it sticks to an old priest. Ask me about any of this, child." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I've all the time the bells allow. Ask me anything here, and I'll tell you what I know, and what I only hope." },
@@ -584,6 +600,15 @@ P:NPC {
   },
 
   topics = {
+    heroes_vigil = {
+      { id = "tp_heroes_vigil", text = "Henze and I were at Heroes' Vigil on Stone Cairn Lake when the Defias caught us goin' over their papers. He held them off so I could run, and I ran, and I'll not forgive myself until he's on his feet again." },
+      { id = "tp_heroes_vigil2", when = { questDone = TODO_QUEST("The Symbol of Life") }, text = "Henze is back on his feet, and he's already askin' to go back to Heroes' Vigil and finish the job. I've told him he's mad, and I'm goin' with him." },
+    },
+    magni = { { id = "tp_magni", text = "King Magni sent us south to keep an eye on the Defias, and I'd like to send him better news than I've got. He's a good king, {g:lad|lass}, and a patient one, but patience has its limits." } },
+    explorers_league = { { id = "tp_explorers_league", text = "Henze and I did a turn with the Explorers' League before the King gave us this work, diggin' in the Loch Modan hills. I miss the quiet of it, if I'm honest, and I miss not bein' shot at." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light healed my wounds when the priests here laid hands on me, and I'll not doubt it again. I've asked it to bring Henze back too, and Rall tells me it's listenin'." } },
+    deadmines = { { id = "tp_deadmines", text = "Henze and I followed the Defias trail far enough to know they've a nest under Moonbrook. We never got close enough to see it, and that's the only reason I'm still breathin'." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a curse on every dwarf, and I'd hammer them flat if I could. Henze always said we'd go after them once the Defias were done, and I mean to hold him to it." } },
     knows = {
       { id = "tp_knows", text = "I've been sitting by this altar long enough to hear half the Trade District's business, lad. Ask me about any of it, and I'll tell you what I can between prayers." },
     },
@@ -798,6 +823,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "The Light watches over every child in that orphanage, and I'd like it to send a few more blankets while it's watching. I pray every night, and I darn every night, and I think the Light prefers the darning." } },
+    scourge = { { id = "tp_scourge", text = "Half the new children come from Lordaeron, and some of them won't sleep without a candle. I don't ask what they've seen, because I can see it in their faces when the lights go out." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took the children to the Darkmoon Faire when it came to Goldshire, all thirty of them, and only lost one for an hour. He was found asleep in the fortune-teller's tent, and he said she'd promised him a dog." } },
+    deadmines = { { id = "tp_deadmines", text = "Some of my older boys talk about running off to join the Defias in their mines under Moonbrook. I tell them the Defias have no orphanage, and they go quiet, and I pray it's enough." } },
     knows = {
       { id = "tp_knows", text = "I hear all sorts on the way to the market and back, love, mostly from people who think a woman with a basket isn't listening. Ask me about any of this, quickly, before the children miss me." },
     },
@@ -975,6 +1004,9 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a man who juggles knives, and I want to be him, but my da says I'd lose all my fingers. I've been practising with spoons, and I've only broken one." } },
+    onyxia = { { id = "tp_onyxia", text = "Is there really a dragon in a swamp who sleeps on gold? I'd keep my kitten away from her, because dragons probably eat kittens, and that's why I need someone to take her." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are so big a kitten could live in one of the boots. I tried to tell the guards that, and they said no, but they didn't say why." } },
     background = { { id = "tp_bg", text = "I'm Timmy and I'm nearly big, and I find homes for kittens. That's my whole story so far." } },
     advice = { { id = "tp_ad", text = "If you're sad, get a kitten. If you're happy, get a kitten. I have one, if you need one." } },
     _none = { { id = "t_none", text = "I don't know. Do you want a kitten, though?" } },
@@ -1227,6 +1259,15 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light asks only that we tend it in ourselves and share it with others. That's simple to say and very hard to do, and I've watched many good priests fail at the second part." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You stand in the Light from the windows like a priest who's earned it, and I'll watch you a while longer to be sure. Don't take that badly, because I watch everyone, and most of them don't notice." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken were our neighbours once, and our priests, and some of them still call on the Light, I'm told. Whether it answers them is a question I've thought about for a long time and still can't settle." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took more of our clergy than any war ever did, and they raised some of them to fight against us. I pray for those souls, and I pray they've found their rest, because the alternative haunts me." } },
+    elune = { { id = "tp_elune", text = "The night elf priestesses who come here speak of Elune with the same love we have for the Light. I've prayed beside them, and I've never once felt out of place." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "I trained some of the Brotherhood's priests at Northshire, and they're the steadiest I've seen. The abbey's a quiet place, and quiet makes for good priests." } },
+    stratholme = { { id = "tp_stratholme", text = "I knew priests in Stratholme before the plague, good ones, kind ones. I don't know what happened to them, and I've decided to believe they died before the purge, because I can't think of the alternative." } },
     knows = {
       { id = "tp_knows", text = "I know the Cathedral and the people who come to its doors, and very little of what happens beyond them. Ask me about any of this, and keep your voice down." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer on these, briefly, and then I've a service to prepare." },
@@ -1386,6 +1427,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I teach here beside the altar because I've watched the first light come through that window every morning for years. Every time, it reminds me the Light comes back whether we deserve it or not." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a darkness that doesn't sleep, and I've seen priests come home from Lordaeron who'd forgotten how to pray. I sit with them, and sometimes they remember, and sometimes they don't." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire are good people, and they taught me how to pray when I was a boy who'd rather be fishing. I still go back now and then, mostly for the bread." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune by moonlight, and I've learned to love the quiet of their prayers. I've told them our Light comes with the morning, and they smiled, as if they knew something I didn't." } },
     background = { { id = "tp_bg", text = "A brother of the Cathedral, and nothing else I'd want to be." } },
     advice = { { id = "tp_ad", text = "When you heal someone, look at their face, not the wound. The wound is the easy part." } },
     _none = { { id = "tp_none", text = "I don't know. I'll pray on it, if you'd like." } },
@@ -1534,6 +1579,11 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "The Light is the most curious thing in the world, don't you think? It warms and heals and burns all at once, and I've spent twenty years trying to understand it, and I've barely started." } },
+    elune = { { id = "tp_elune", text = "The night elves say their goddess Elune is the moon herself, or lives in it, or watches from it, depending on which priestess you ask. I've asked several, and I love that none of them agree." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren speak of an Earth Mother, and they pray to her in the open air, I'm told. I'd like to meet a tauren someday and ask them how she answers, because I've so many questions." } },
+    the_elements = { { id = "tp_the_elements", text = "The orc shamans speak to the elements, they say, and the elements speak back. I'd give a year's study for a single conversation with a shaman, though I suspect I'd be told to stop asking questions." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to argue with the priests over whether the Light was a kind of magic. I'd love to hear that argument again, now that they're rebuilding, though I'd take notes." } },
     background = { { id = "tp_bg", text = "A brother of the Cathedral who can't sit still. That's all; the rest is pacing." } },
     advice = { { id = "tp_ad", text = "Sleep, eat, and then pray, in that order, whatever the abbots say." } },
     _none = { { id = "tp_none", text = "Couldn't say. Walk with me and we'll think about it." } },
@@ -1773,6 +1823,17 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge is a plague on the living and a mockery of the dead, and the Scarlet Crusade will burn it from Lordaeron or die in the trying. Every soul that stands aside is one more for the Lich King's army." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "The Forsaken are the Scourge with better manners, and nothing more. They walk, they speak, they claim to be free, and every one of them belongs in a pyre." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You dare walk in this Cathedral, corpse? The Crusade would put you to the torch on the steps, and I'd say the prayers myself." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was a hero once, and the Scourge made her a monster, and now she calls herself a queen. The Crusade will see her crowned in fire, if the Light grants us strength." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was the first to fall to the plague, and its people died screaming while the prince did what he thought was right. The Crusade holds the city now, part of it, and we'll take the rest." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil killed his own father and led the dead against his own people, and I'll not speak his name in the Light's house again. He's gone north, they say, and I pray he never comes back." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron was the greatest of the human kingdoms, and it's a graveyard now, ruled by the dead. The Crusade will take it back, one town at a time, and we'll bury every corpse properly." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a mage of Dalaran who sold his soul to the dead, and now he commands them from a floating citadel over the Plaguelands. The Crusade will drag him down from his tower, or die trying." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a fire, and fire burns away corruption, and that's all the Crusade asks of it. The soft-hearted priests here have forgotten that." } },
     knows = {
       { id = "tp_knows", text = "The Crusade keeps itself well informed, and so do I. Ask, and I'll answer honestly, which is more than the Church upstairs does about us." },
     },

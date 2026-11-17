@@ -172,6 +172,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a soldier before, and I'm a soldier now. What happened in between isn't worth the telling." } },
     advice = { { id = "tp_ad", text = "Never turn your back on a corpse until you've seen it fall over twice, because in Tirisfal once is a habit, not a promise." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Zygand worries about the Crusade, and he's right to. I worry about the Scourge, because they never stop coming and they never get tired." } },
+    scourge = { { id = "tp_scourge", text = "The mindless shamble up this road every few nights, and I cut them down like a farmer cuts wheat. It would be good to fight something that fought back properly, now and then." } },
+    forsaken = { { id = "tp_forsaken", text = "We're the Dark Lady's soldiers, and we do our duty without being thanked for it. If you want thanks, go join the Alliance and polish something." } },
+    sylvanas = { { id = "tp_sylvanas", text = "I'd die for the Dark Lady again, and I'd do it on a bloodier road than this one, if she'd only send me there." } },
+    stratholme = { { id = "tp_stratholme", text = "That's where the real fighting is, in Stratholme and the lands east of it. I've asked twice to be sent, and twice I've been told the west road needs me more." } },
     _none = { { id = "tp_none", text = "Ask someone who isn't watching a road. Renee at the inn hears more than I do." } },
   },
 }

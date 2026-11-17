@@ -101,6 +101,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The spices that come up from Booty Bay are the only reason my kitchen can compete with the Keep's. The goblins rob me blind for them, and I pay gladly, because a dull sauce is a sin." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells food on sticks to people who've never tasted a proper sauce. I visited once, and I've never recovered." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to dine here when they came south, and they had the most refined palates in the world. I'm told the city's being rebuilt, and I've written to them twice to say my table's ready." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean cooks were the best in the Seven Kingdoms, and they took every one of their recipes behind that wall. I've spent ten years trying to make their mutton pie, and I've failed every time." } },
     background = { { id = "tp_bg", text = "Head chef of the Blue Recluse. Before that, a great many kitchens, and before that, a boy who burned things." } },
     advice = { { id = "tp_ad", text = "Fresh, fresh, fresh. Everything else can be forgiven, but stale meat cannot." } },
     _none = { { id = "tp_none", text = "Does it go in a pot? No? Then I couldn't tell you, my dear." } },

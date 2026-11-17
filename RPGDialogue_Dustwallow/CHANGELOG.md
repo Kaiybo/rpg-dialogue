@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+
 ## 1.25.1 (2026-11-17)
 - Fix: one of Do'gol's replies about the burned inn was a question carrying alignment; it's a statement now.
 

@@ -168,6 +168,9 @@ P:NPC {
     },
   },
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "Every piece of armour that leaves this shop is blessed in the Light's name, and I say the prayer myself. A plate that hasn't been prayed over is only metal, and I'll not sell only metal." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand wore plate made by the finest smiths in Lordaeron, and I've studied every piece I could find. I'd give my shop to have made one, and I'd still feel I'd got the better deal." } },
+    scourge = { { id = "tp_scourge", text = "The dead in Lordaeron tear through mail as if it were cloth, I'm told, and only good plate turns their claws. I make mine heavier now, and I pray harder over it." } },
     background = { { id = "tp_bg", text = "I've kept Righteous Plates beside Theresa for many years, under the Cathedral's bells. It's a fine place to sell armour." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend. The Light has not seen fit to tell me." } },
   },
@@ -332,6 +335,10 @@ P:NPC {
     },
   },
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "May the Light guide your path, friend, and may these robes keep you warm while it does. I give robes to the poorer novices when I can, and the Light always seems to send me more cloth." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire sends me their young priests to be fitted, and they're always too shy to ask for anything. I give them a little extra, and they're always too shy to say thank you." } },
+    scourge = { { id = "tp_scourge", text = "The priests who come back from Lordaeron want their robes made plainer, and darker, and I don't ask why. I sew them as they ask, and I pray over every stitch." } },
+    elune = { { id = "tp_elune", text = "A night elf priestess bought a robe from me once and blessed it in Elune's name before she put it on. I felt the warmth of it, and I've wondered since whether the Light and the moon are on speaking terms." } },
     background = { { id = "tp_bg", text = "I've sold robes in the Cathedral's shadow for many years, and I hear the bells every hour. It's a good life." } },
     _none = { { id = "tp_none", text = "I don't know, I'm afraid, but I'll pray you find out." } },
   },
@@ -492,6 +499,10 @@ P:NPC {
     },
   },
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers at Aerie Peak raise gryphons the way I raise beasts, with patience and a lot of shouting. I've a fondness for them, though I'd never tell them so." } },
+    magni = { { id = "tp_magni", text = "King Magni sent me down the tram to keep the Dwarven District's stables, and I'll keep them till he calls me home. The beasts here are fine, though they're a wee bit soft from city living." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's beasts are kept better than any I've seen, and I've told their keepers so. They offered me a job, and I said no, because I'd miss my own beasts too much." } },
+    teldrassil = { { id = "tp_teldrassil", text = "I sang to a night elf's nightsaber once, and it purred like a kitten, and the elf looked at me like I'd grown a second head. I've been fond of Teldrassil's beasts ever since, and less fond of its elves." } },
     background = { { id = "tp_bg", text = "Born under Ironforge, raised among rams, and keeping stables in Stormwind now. There's worse lives for a dwarf." } },
     _none = { { id = "tp_none", text = "That's past me, I'm afraid; the rams and wolves in my stalls are all the news I follow." } },
   },
@@ -662,6 +673,10 @@ P:NPC {
     },
   },
   topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins of Gadgetzan make things that explode on purpose, and I make things that explode by accident, and we both call it engineering. Theirs are louder, but mine are more educational!" } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons build machines that run on lava, and I'd give anything to see one up close. From a safe distance, of course, with a bucket of water and Lilliam watching." } },
+    magni = { { id = "tp_magni", text = "King Magni gave us gnomes a home in Ironforge when our city fell, and I'll never forget it. I built him a little mechanical squirrel to say thank you, and it only exploded once." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet build boats from scrap and somehow they float. I've studied the plans, and I'm fairly sure it's luck, though they'd charge me to admit it." } },
     background = { { id = "tp_bg", text = "Out of Gnomeregan, through Ironforge and down the tram to here, with a cart full of parts and most of my fingers." } },
     _none = { { id = "tp_none", text = "No idea! But I could build you something that might find out." } },
   },

@@ -196,5 +196,10 @@ P:NPC {
     defias = { { id = "t_defias", text = "They don't buy steel, they take it. Somebody's arming them, and it isn't me." } },
     kobolds = { { id = "t_kobolds", text = "Kobold picks are terrible steel. I melt them down for nails." } },
     _none = { { id = "t_none", text = "Ask me about iron and I'll talk all day, but that I couldn't say." } },
+    second_war = { { id = "tp_second_war", text = "My father forged pikes for Lord Lothar's men in the Second War, and he swore the orcs' axes were heavier but ours stayed sharp longer. I've believed it ever since, because I've never had cause to test it." } },
+    scourge = { { id = "tp_scourge", text = "Lordaeron had the best smiths in the north, and their steel didn't save them, so don't tell me good armor is the whole answer. They say the dead up there don't feel a blade at all, and you can't put an edge on that." } },
+    stonemasons = { { id = "tp_stonemasons", text = "Good builders, every one of them, and they raised the city walls with their own hands. If the nobles had paid what they owed, I'd not be hearing about masked men on my road." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire camps by Goldshire I shoe more horses in a week than in a month, because half of Stormwind rides out to gawk at the strongman. I'd like to see him bend one of my shoes." } },
+    magni = { { id = "tp_magni", text = "King Magni's smiths make the finest steel I've ever held, and I hate admitting it. Janos up at the Abbey never lets me forget it, either." } },
   },
 }

@@ -114,6 +114,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A wife, once, in Lordaeron. Now I'm a Forsaken woman in a tauren city, and that's as much of my story as you'll get." } },
     advice = { { id = "tp_ad", text = "Don't marry anyone who loves a cause more than you. Take it from a woman who did." } },
     scarlet_crusade = { { id = "tp_sc", text = "Zealots who want people like me burned. Yuriv would have hated them, I think, or joined them, and I honestly can't say which." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took me in my own kitchen, and I woke up dead and hungry and answering to a voice in my head. The Dark Lady silenced that voice, and I have been grateful in my cold way ever since." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, which is a gloomy name, but an honest one. The tauren are kind to me here, which is more than the living of Lordaeron ever were." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us from the Lich King, and she asks for very little in return. Only everything, I suppose, but I gave that up when I died." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron was my home, and it is a graveyard now. My husband left it to fight for the Crusade, and I stayed to watch it fall, and I don't know which of us chose worse." } },
+    stratholme = { { id = "tp_stratholme", text = "My sister lived in Stratholme when the prince came, and I never heard from her again. I do not go looking for her, because I am afraid of what I would find." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care. Ask someone with a pulse; they still think everything matters." } },
   },
 }

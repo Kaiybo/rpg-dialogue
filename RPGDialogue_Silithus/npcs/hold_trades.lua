@@ -164,6 +164,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sell supplies to enchanters. I came to the Hold because they needed them here more than anywhere else." } },
     advice = { { id = "tp_ad", text = "Keep your dusts sealed, always. One sandstorm and you'll be enchanting with a pinch of desert and a dead beetle." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle holds the line against the hives. I make sure the people holding it have what they need." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The shards that come back from the hives are full of strange magic, old and humming. I enchant with them very carefully, and never at night." } },
+    elune = { { id = "tp_elune", text = "I keep a prayer to Elune tucked in each formula, written very small. My teacher said it was superstition, and my teacher's enchantments never held." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran think enchanting is a lesser art, and they have never once asked a kaldorei enchanter to teach them. Their loss, I say." } },
     _none = { { id = "tp_none", text = "I'm afraid I know very little outside my craft, though Elune may know more." } },
   },
 }
@@ -318,6 +321,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I walked from Mulgore to stand with the Circle. What I left behind there is my own business." } },
     advice = { { id = "tp_ad", text = "Carry an antivenom in Silithus, always. The scorpids here don't warn you before they strike." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle protects the land from those who would poison it, which is why I sell poison only to its friends." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives give me the best venoms in Kalimdor, and the bugs don't give them up willingly. I sell what the hunters bring, and I tell them to wash their hands." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made poison as well as medicine, and she made them both for a reason. I only sell what she made." } },
+    cairne = { { id = "tp_cairne", text = "Cairne would not approve of poison, I think, but he would approve of a tauren who sells honestly. That will have to do." } },
     _none = { { id = "tp_none", text = "I don't know that, friend, but the Commander might. Walk with the Earth Mother." } },
   },
 }
@@ -490,6 +496,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm young, as my people count it, which means barely a century, and this is my first post. I mean to do it well." } },
     advice = { { id = "tp_ad", text = "Shake out your boots every morning in Silithus, because scorpids love a warm boot." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle guards Silithus for all of Kalimdor, and I'm proud to keep its stables." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The beasts in my stables shy whenever the wind blows from the hives. I've learned to listen to them, because they hear what we don't." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm only a squire, but I pray to the Light every morning that I'll be a knight someday. Then I'll ride out to the hives and burn them myself." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar is the greatest knight in Stormwind, and I'd give anything to squire for him. Someday, perhaps, when I'm older." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The Knights of the Silver Hand are what every squire dreams of becoming, and I'm no different. I hear they're scattered now, but there must still be room for a few more." } },
     _none = { { id = "tp_none", text = "I don't know, I'm sorry. Ask Captain Kozus; he knows everything that happens in the Hold, and has for longer than I've been alive." } },
   },
 }

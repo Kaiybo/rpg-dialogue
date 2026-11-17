@@ -164,6 +164,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came from Stormwind to keep the birds, and the town kept me." } },
     _none = { { id = "tp_none", text = "I wouldn't know about that. I know the sky, not the ground." } },
+    wildhammer = { { id = "tp_wildhammer", text = "My gryphons came from Aerie Peak, raised by the Wildhammer, and they still won't eat until I've sung to them like a dwarf. My singing's dreadful, but they're polite about it." } },
+    dark_riders = { { id = "tp_dark_riders", text = "From the air you can see them some nights, black horses on the road to Deadwind, and the gryphons won't fly over them. Neither will I." } },
+    raven_hill = { { id = "tp_raven_hill", text = "I route every flight well north of Raven Hill, because the birds hate the smell. They can smell that cemetery from a mile up, and so can I when the wind's wrong." } },
   },
 }
 
@@ -329,5 +332,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've worked this forge since before the wood went dark, and I'll work it after, if the town lasts." } },
     _none = { { id = "tp_none", text = "Don't know, and in Duskwood it's healthier not to wonder." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Blunt weapons for Raven Hill and sharp ones for the worgen, and don't mix them up. I've told that to every adventurer who's come through, and half of them listen." } },
+    scourge = { { id = "tp_scourge", text = "If the Scourge ever comes south, they'll find Darkshire's smiths have been ready for years. That's the only good thing I can say about living here." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Nobody's ever brought me a Dark Rider's sword to look at, and I hope nobody does. Whatever forged those, it wasn't a smith." } },
   },
 }

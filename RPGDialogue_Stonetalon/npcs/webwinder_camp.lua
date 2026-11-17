@@ -161,6 +161,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Always label your crates, every one of them, and don't ask me why; just do it." } },
     venture_company = { { id = "tp_venture", text = "Greedy, wasteful and terrible engineers, and that last one offends me most of all." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not talk about Gnomeregan, if it's all the same to you. That's why I'm out here saving somebody else's home." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are the finest in the world, and I'd give my left eyebrow to study there. I've already given the right one to an experiment, so it's a fair trade." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding Dalaran, very slowly, very carefully, with a great many wards. I sent them a letter offering my services, and they haven't written back, which I'm choosing to take as a good sign." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the night elves' high priestess, and she's very serious about trees. I'm very serious about explosions, so we have a lot in common, if you squint." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief is a big fellow with a big hammer, and he's never once tried to blow me up. That puts him ahead of the Venture Company, at least." } },
     _none = { { id = "tp_none", text = "No idea! But give me a week and a workbench, and I'll have an opinion." } },
   },
 }
@@ -297,6 +301,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay off the Crag's lower roads after dark. The goblins post guards there, and they shoot at anything that moves." } },
     venture_company = { { id = "tp_venture", text = "They take what they want and burn what they don't, and they call it business." } },
     sentinels = { { id = "tp_sentinels", text = "We're spread thin from here to Feralas, and still we hold. Don't ask me how." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of Elune, and she leads us through the darkest times. I would follow her anywhere, though I would rather follow her home to Ashenvale." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the forests, and she weeps for the Charred Vale as I do. I pray to her every night that it will grow again." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief speaks of peace, but his people cut our forests and the goblins burn whatever is left. I do not believe in his peace, though I would like to." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream holds the forests as they were meant to be. I would like to see the Charred Vale there, green and whole, if only once." } },
     _none = { { id = "tp_none", text = "I couldn't say. Gaxim might know; he knows a little about everything, and too much about explosives, which a Sentinel tries very hard not to hold against him." } },
   },
 }

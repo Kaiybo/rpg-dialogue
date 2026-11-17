@@ -246,5 +246,9 @@ P:NPC {
     defias = { { id = "tp_defias", text = "They don't fight fair an' they don't leave witnesses, an' I'm the exception, which I'm very proud of." } },
     tome_of_divinity = { { id = "tp_tome", text = "Whatever's in that book, it brought me back. I'll read it myself one day, maybe." } },
     _none = { { id = "tp_none", text = "I was dead for a bit. I've missed some news." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "This island's for the humans' dead from the First War, an' I died on it too, which I reckon gives me a say. Them wizards in the ring don't respect the stone, an' that's another thing I'll be havin' words about." } },
+    holy_light = { { id = "tp_holy_light", text = "A young paladin brought me back with a symbol an' a prayer, an' I'll not hear a word against the Light now. I used to think it was mostly singin'." } },
+    magni = { { id = "tp_magni", text = "King Magni's a good king an' a loud one, an' I'll drink to him wherever I am. Even here, with a wet beard an' humans for company." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Me cousin flies with the Wildhammer an' says the Hinterlands are a fine place if ye like rain an' trolls. I like neither, so I came here an' got killed instead." } },
   },
 }

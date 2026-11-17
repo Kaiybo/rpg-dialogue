@@ -203,6 +203,10 @@ P:NPC {
     camping = { { id = "tp_camping", text = "A fire's the heart of any camp, and any cook can build one. Everything else just sits around it.", next = "camp" } },
     lions_pride = { { id = "tp_lions", text = "Farley owns it, Melika runs it, and I feed it. Ask anyone which of us they'd miss first." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask me about stew and I'll talk till the pot boils dry." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's in Goldshire I cook for twice the room on half the sleep, and their folk eat anything that sits still long enough. I've grown fond of them for it." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A goblin from Booty Bay sold me a crate of jungle spices that turned out to be red dirt and pepper. I bought a second one anyway, because the pepper was good." } },
+    scourge = { { id = "tp_scourge", text = "They say the plague in Lordaeron came in sacks of grain, so I bake with Elwynn wheat and nothing else. Toddrick laughs at me for it, but he eats the bread." } },
+    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot, because the Light knows I need the help with the stew some nights." } },
   },
 }
 
@@ -384,6 +388,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Always carry more water than you think. The road's longer than it looks from the inn door." } },
     hogger = { { id = "tp_hogger", text = "I don't sell on the southwest road. That's all I'll say, and I'll say it quietly." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, love. Ask me where the road goes and I'll know." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "I pass Stone Cairn Lake every morning and nod to the stone on the island, because my nan's folk are named on it. The wizards out there have never nodded back." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Faire week is the only week of the year I sell out before noon, because their tumblers eat my sweet rolls three at a time. I bake double and still run short." } },
+    varian = { { id = "tp_varian", text = "Folk on the road whisper about the king every day, where he went and whether he'll come back. I hand them a roll and say the Light knows, because somebody ought to say something kind." } },
   },
 }
 
@@ -529,6 +536,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't go near the lake by Stone Cairn. Ma says there's things in it, and Ma knows everything." } },
     hogger = { { id = "tp_hogger", text = "Mark says Hogger eats boys. I said he'd have to catch me first, but I didn't say it very loud." } },
     _none = { { id = "tp_none", text = "I dunno! Ask a grown-up. They don't know either, but they pretend better." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Mark says the Faire's coming back, and there's a man who breathes fire and a lady who tells your fortune! I'm saving my coppers, and I've got four already." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "There's a big stone on the island in the lake with lots of names on it, and Ma says they're people the orcs got a long time ago. I wanted to swim out and read them, but the wizards there throw fire." } },
+    varian = { { id = "tp_varian", text = "The king went away and now his little boy is king, which isn't fair, because he's not much bigger than me. I'd be a good king, though, I think." } },
+    scourge = { { id = "tp_scourge", text = "Mark says there are skeletons in the north that walk around and come for boys who don't eat their greens. I eat my greens now, just in case." } },
   },
 }
 
@@ -703,5 +714,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't stand where your shadow's on the water. I read that somewhere, or Lee said it." } },
     murlocs_east = { { id = "tp_murlocs", text = "They stole all the good fish out of Stone Cairn, I bet. That's why I can't catch any." } },
     _none = { { id = "tp_none", text = "Dunno. Fish don't talk about that sort of thing, so I wouldn't know." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "At the Faire you can win prizes and eat sweets and see a real strongman, and Lee says I can go if I catch ten fish first. I've caught three so far." } },
+    booty_bay = { { id = "tp_booty_bay", text = "When I'm the best fisherman in Elwynn I'm going to sail to Booty Bay and catch a shark. Lee says sharks catch you back, but I'll be quick." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The island in Stone Cairn Lake has a ring of stones with a big one in the middle, and the fish swim all round it. I'd fish there if the wizards would let me." } },
   },
 }

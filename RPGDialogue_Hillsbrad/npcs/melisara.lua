@@ -145,6 +145,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve Sharlindra, who serves the Dark Lady. That is all of me you need." } },
     advice = { { id = "tp_ad", text = "Thin the Crushridge before you strike at their chief. Ogres fight harder with friends around them." } },
     alterac = { { id = "tp_alterac", text = "A dead kingdom full of ogres and traitors. It suits them." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady was the Ranger-General of Quel'Thalas, and she died defending it, and she rose to free us all. Speak her name with care in my hearing, living one." }, { id = "tp_sylvanas2", when = { race = "Scourge" }, text = "You know her worth as well as I do, for she broke the chains on your mind as she broke mine. We owe her everything, and we will pay it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are slaves who do not know they are slaves, and the Lich King holds every chain. I remember the voice in my head, and I would see it silenced forever." } },
+    arthas = { { id = "tp_arthas", text = "The prince of Lordaeron killed me with his own sword, and then he bound me to his will. I do not need to tell you what I would do to him, given the chance." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, the dead who chose ourselves, and we serve the Dark Lady and no one else. The living may call us monsters, and some of them are right." } },
     _none = { { id = "tp_none", text = "That is not my concern, and I doubt it is yours." } },
   },
 }

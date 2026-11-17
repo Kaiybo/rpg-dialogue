@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+
 ## 1.22.0 (2026-11-17)
 - 24 new people: Brakgul Deathbringer, Kildar, Shenthul, Dran Droffers, and the trainers and merchants of the Valley of Honor, the Cleft of Shadow, the Drag and the Valleys of Spirits and Wisdom. New files: restart the game fully (a /reload won't load them).
 - Thrall asks what you make of the Apothecarium's new plague, and remembers your answer.

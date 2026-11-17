@@ -262,6 +262,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I was tracking before Kargath had a wall, and I'll be tracking after it falls down. Ask Helgrum about me; he'll exaggerate in my favor.", next = "helgrum" } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you need and look behind you every hundred paces. Nothing in the Badlands comes at you from the front." } },
     uldaman = { { id = "tp_uld", text = "Old dwarven ruins in the eastern hills, and the Explorers' League digging at them like they'd lost their keys there. I watch, I write it down, I don't go in." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me here to scout, and I've done it well. He doesn't need to know more than that." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire watch the road as closely as we watch them. I've seen their scouts on the ridges." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in the Barrens taught me to track, because they're the only thing faster than me. I learned the hard way." } },
     _none = { { id = "tp_none", text = "If it isn't on my maps, then it isn't worth knowing, or some orc has already killed it." } },
   },
 }
@@ -528,6 +531,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "Jarkal come with the Expeditionary Force because soldiers need potions and soldiers pay. Simple, mon." } },
     advice = { { id = "tp_ad", text = "Never drink a potion you didn't see poured. Even Jarkal's, mon, though Jarkal's be the safest you'll find." } },
     uldaman = { { id = "tp_uld", text = "The best fungus in the Badlands grows in the dark under those ruins, and so do the troggs. Go for the fungus, mon, and leave the troggs to somebody else.", next = "reagents" } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be the chief of the Darkspear, mon, and Jarkal be proud to call him chief. He keep the trolls out of the old madness." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be the best of the trolls, mon, because we remember loyalty. Jarkal never forget it." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be home, mon, before the sea witch drove us out. Jarkal hope to see them again someday." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi in Zul'Gurub be calling on Hakkar, mon, and that be bad for every troll. Jarkal would like to sell them a potion for stupidity." } },
     _none = { { id = "tp_none", text = "Don't know it, mon, and if Jarkal can't sell it or brew it, Jarkal don't care." } },
   },
 }
@@ -703,6 +710,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I raised wind riders in the Barrens before the Warchief sent me here, and an orc goes where Thrall points. I miss the Barrens, though, and so do they." } },
     advice = { { id = "tp_ad", text = "Never stand behind a wind rider, and never feed one from your hand. You'll want your fingers later." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built the wind rider routes, and I keep them running. My beasts hate the heat, and I hate it more." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in the Barrens shoot at my beasts for sport, and I don't forgive them for it." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's hotter than the Badlands, they say, and I'd like to see it before I believe it." } },
     _none = { { id = "tp_none", text = "Ask somebody on the ground, because I only know what's under the clouds." } },
   },
 }
@@ -871,5 +881,8 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sold goods in Orgrimmar until the Warchief needed someone out here who wouldn't waste anything. An orc who's been fed through a fence learns that lesson for life, so here I am." } },
     advice = { { id = "tp_ad", text = "Buy water, then buy more water, and then come back and buy more, because the Badlands kill more grunts than the Dark Irons do." } },
     _none = { { id = "tp_none", text = "I sell goods, not answers. Ask Neeka, because she knows everything out there that bleeds." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief needs somebody out here who won't waste anything, so he sent me. I don't waste anything." } },
+    second_war = { { id = "tp_second_war", text = "I sold supplies in the Second War, and the grunts wasted everything then. Not anymore." } },
+    internment = { { id = "tp_internment", text = "The camps taught me what it means to have nothing. Now I make sure the grunts have everything." } },
   },
 }

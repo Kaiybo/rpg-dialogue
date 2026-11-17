@@ -356,6 +356,15 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I command dispatches, which means I read every report and sign every order in Stonard. My story is in those papers, and it's dull until something goes wrong.", next = "grasp" } },
     advice = { { id = "tp_ad", text = "Carry your orders against your skin, never in a pack. Packs get lost in the swamp, and so do the people carrying them." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's name is on a regiment that died in this swamp, and I sign the reports that keep it from happening twice. He deserves better than another Thrall's Grasp, and I'll see he gets it." } },
+    second_war = { { id = "tp_second_war", text = "Stonard has been an orc fort since the old Horde held this swamp, and that Horde didn't care what it burned. We've kept the walls and thrown away the rest." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai in the Sunken Temple are up to something, and Fel'zerul feels it in his bones. I've doubled the scouts on the lake road, and I'd triple them if I had the bodies." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Forsaken send couriers through here now, and they're the quickest in the Horde because they don't stop to eat. I don't like them, but I sign their papers." } },
+    dark_portal = {
+      { id = "tp_dark_portal", text = "The Dark Portal is just south of us, past the Blasted Lands, and Nethergarde sits on top of it with a hundred mages. Every orc in Stonard remembers coming through it." },
+      { id = "tp_dark_portal2", when = { race = "Orc" }, text = "You've heard the stories from the old ones about coming through the Portal, I'd wager, and some of them still dream about it. I don't, and I'm glad." },
+    },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are good in the swamp, better than any orc. I'd take ten of them for every grunt the Warchief sends me." } },
     _none = { { id = "tp_none", text = "That's not charted yet. Do you want the job, or are you all talk?" } },
   },
 }
@@ -604,6 +613,13 @@ P:NPC {
     burning_blade = { { id = "tp_blade", text = "Fools! I walk the same road they did, and I stopped where the Warchief told us to, but they didn't." } },
     background = { { id = "tp_ba", text = "A warlock in the Warchief's service, sent to watch a temple. What I was before I served him isn't worth the telling.", next = "warlock" } },
     advice = { { id = "tp_ad", text = "If you go into the temple, count your companions on the way down and on the way back up. The Atal'ai have a way of keeping a few." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "Something stirs beneath the Pool of Tears, and the Atal'ai feed it with blood and chanting. I've felt it reach for me in my sleep, and I will not let it find me twice." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief does not like warlocks, and I don't blame him, for what we did to our own people. But he sent me here, and I serve him as well as I can." },
+      { id = "tp_thrall2", when = { class = "WARLOCK" }, text = "You walk the same path I do, so you know the Warchief watches us closer than the rest. Earn his trust and keep it, and never let a demon have the last word." },
+    },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi to the south serve the same god as the Atal'ai, and I've felt their magic on the wind. If Hakkar rises, it will be from one temple or the other." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal is where the warlocks of the old Horde opened the way, and I won't forget it. I wish I could." } },
     _none = { { id = "tp_none", text = "Ask me about the temple instead, because that I know too much about." } },
   },
 }
@@ -799,6 +815,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a runner, and that's the whole of it. Ask Neeka for the interesting stories; she's lived them.", next = "neeka" } },
     advice = { { id = "tp_ad", text = "Run on the road, never through the reeds. The reeds are where the things that eat runners wait." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's name on Thrall's Grasp meant something to all of us, and I'm sorry it ended the way it did. I run faster now because of them." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "I've run past the Sunken Temple on the lake road a hundred times, and every time I hear the trolls chanting. I run faster there, I won't lie." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal's down south past the Blasted Lands, and I've run messages to the edge of it. I don't go any closer than I have to." } },
+    uldaman = { { id = "tp_uldaman", text = "Neeka tells me there's something old under the Badlands at Uldaman, and she wants to see it. I'd rather run, honestly." } },
     _none = { { id = "tp_none", text = "Don't know, but ask Neeka when she's back, because she knows things." } },
   },
 }
@@ -982,6 +1002,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A soldier who carried orders south and didn't finish the road. The murlocs kept my boots, if you were wondering.", next = "ambush" } },
     advice = { { id = "tp_ad", text = "Never walk beside the water in this swamp. The murlocs wait where you can't see them, under the surface, and they don't make a sound until they're on you." } },
+    thrall = { { id = "tp_thrall", text = "I carried the Warchief's orders, and I carried them as far as my legs would go. It wasn't far enough." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War and lived through it, and I thought that meant I was hard to kill. The murlocs taught me otherwise." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "I saw the trolls' fires out on the lake, the night the murlocs came. I still see them when I close my eyes." } },
     _none = { { id = "tp_none", text = "Before my time, or after it, but either way, not mine. Ask a younger warrior." } },
   },
 }
@@ -1190,6 +1213,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I cook, I pour, and I make beds. Ask the Commander if you want a story; I only want to know if you're hungry, and if you are, scrape your boots first." } },
     advice = { { id = "tp_ad", text = "Dry your boots by the fire every night, or the swamp will take your toes before the crocolisks get a chance." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief eats what his grunts eat when he can, and I respect that. If he ever comes to Stonard, I'll feed him the same stew I feed the scouts." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The scouts who come back from the lake road eat like wolves and don't talk. I feed them and don't ask." } },
+    second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, before the camps, and I've cooked for it since. The stew's better now, and that's the only thing I'll say for the old days." } },
     _none = { { id = "tp_none", text = "I feed scouts, and the scouts know things, so ask them. Wait until they've eaten, though, or they bite like wolves of the old clans." } },
   },
 }

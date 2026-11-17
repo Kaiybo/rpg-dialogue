@@ -256,6 +256,10 @@ P:NPC {
     stalvan = { { id = "tp_stalvan", text = "Those are old murders, and I hunt the ones still happening." } },
     morbent_fel = { { id = "tp_morbent", text = "A necromancer on a hill, and a town that let him buy its dead. He's on my list, near the very top." } },
     _none = { { id = "tp_none", text = "If it isn't hunting us, I haven't made time for it." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill is where Duskwood's dead are thickest, and my household goes there on purpose. Somebody has to make sure they stay down." } },
+    scourge = { { id = "tp_scourge", text = "In Lordaeron they let the dead build an army before anybody took them seriously. We won't make that mistake in Duskwood, and that's why the Carevins hunt rather than wait." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders serve a master, and a master can be found. When I find him, the riders will have nothing left to ride for." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the dead in the north the way my household fights them here, and I've a letter from one of their officers I haven't answered. I'm not a joiner, but I respect the work." } },
   },
 }
 
@@ -490,6 +494,10 @@ P:NPC {
     worgen = { { id = "tp_worgen", text = "They appeared out of nowhere, near enough. One season the woods were only dark, and the next they were hungry." } },
     carevins = { { id = "tp_carevins", text = "Master Carevin is the only man in Darkshire with a plan that isn't waiting, and I'll back that over another month of prayers and shutters." } },
     _none = { { id = "tp_none", text = "Ask someone who sits still, because I'm going back out." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light lets me feel where the dead lie thickest, and in Duskwood that's more burden than gift. I'd not give it back, though." } },
+    raven_hill = { { id = "tp_raven_hill", text = "I walked a Watch post near Raven Hill for two years, and I still dream of the cemetery bell. It rings on its own, some nights." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the same sickness we have here, only bigger and better ordered. Light help us if anyone ever puts ours in order." } },
+    dark_riders = { { id = "tp_dark_riders", text = "I've felt them pass on the road, cold as a grave, and the Light went quiet in me till they'd gone. That's the only time it's ever done that." } },
   },
 }
 
@@ -777,6 +785,10 @@ P:NPC {
     carevins = { { id = "tp_carevins", text = "They're a Darkshire family who don't care for being written about, so I write about them quietly." } },
     embalmer = { { id = "tp_embalmer", text = "It was a nursery tale until I translated a certain note, and I've had to move it to the history shelf, where I don't like it at all." } },
     _none = { { id = "tp_none", text = "It's not in my papers, which means either it never happened or nobody here could spell it." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a mining and farming village with a fine stone church, and its cemetery was the best kept in the province. Read the stones before you fight anything there, because the dead are often wearing their own names." } },
+    second_war = { { id = "tp_second_war", text = "The Second War left Duskwood mostly untouched, which is why Brightwood grew while other towns rebuilt. We had a generation of peace before the dark came, and nobody thought to write it down." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I corresponded with a historian in Lordaeron until the plague. His last letter was about the harvest, and I've kept it, because it's the last ordinary page from that kingdom I own." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders appear in no record older than a few years, and every account places them near Deadwind Pass. Something in that pass is giving orders, and I'd rather study it from here." } },
   },
 }
 
@@ -1006,6 +1018,10 @@ P:NPC {
     worgen = { { id = "tp_worgen", text = "Either they came with the dark or the dark came with them, and I'd give my last lens to know which was cause and which effect." } },
     night_watch = { { id = "tp_watch", text = "Lovely people, but they keep asking me to put out my lamp, and I keep asking them to put out theirs, because of the light pollution, you see." } },
     _none = { { id = "tp_none", text = "That's not my field, I'm afraid; my field is roughly forty miles straight up." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to the moon and call her Elune, and from Duskwood I can see why, because the moon's the only light here that's never failed us. I don't pray to her, but I do keep her company." } },
+    green_dragons = { { id = "tp_green_dragons", text = "On clear nights I've seen great shapes over Twilight Grove, green against the stars and far too large for birds. My lenses aren't strong enough to say more, and my nerve isn't either." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids speak of a dreaming world beneath this one, and they say the green dragons guard it. If that's true, I'd dearly like to know what its stars look like." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran had the finest observatory in the world, and I wrote to its keepers twice. Nobody answers from there now, though I'm told the city is rebuilding." } },
   },
 }
 
@@ -1233,6 +1249,10 @@ P:NPC {
     night_watch = { { id = "tp_watch", text = "They eat at odd hours and tip in apologies, and I feed them anyway, because you don't let the lamp-holders go hungry." } },
     stalvan = { { id = "tp_stalvan", text = "That's Smitts's business, so ask him, and bring a chair, because it's a long one." } },
     _none = { { id = "tp_none", text = "I can't help you there, but can I interest you in a crab cake?" } },
+    raven_hill = { { id = "tp_raven_hill", text = "The Raven Hill farms used to send me the best pumpkins in Duskwood. Now nothing grows there but headstones, and I've had to change my soup." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sends me spices up the jungle road when the trolls let it through, and the goblins charge for the danger. It's worth every copper, because a stew without pepper is a sad thing in a sad town." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire never comes to Duskwood, and I can't blame it. I went once to the one in Elwynn and ate a candied apple I still think about." } },
+    holy_light = { { id = "tp_holy_light", text = "I say a little prayer over the bread every morning, because if the Light's anywhere in Darkshire it may as well be in the kitchen." } },
   },
 }
 
@@ -1494,6 +1514,11 @@ P:NPC {
     stalvan = { { id = "tp_stalvan", text = "That was before my time on the Council, and the file is thin. I suspect someone wanted it that way." } },
     morbent_fel = { { id = "tp_morbent", text = "A necromancer who buys corpses and a grave robber who sold them, and Stormwind protects one of them. You can guess which." } },
     _none = { { id = "tp_none", text = "Write it down and submit it to the Council, and we'll lose it properly." } },
+    varian = { { id = "tp_varian", text = "The council has sent nineteen letters to the throne since the king went missing, and I drafted fourteen of them. Each was more polite than the last, and each went unanswered." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar is an honorable man, and I've no doubt he'd act on our letters if they reached him. I'm beginning to doubt that they do." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor's name appears on every reply from the Keep, and every reply says no, very graciously. I've begun to admire her penmanship more than her policy." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was in the council's charge once, and we let it go. That's the sort of thing a councilman shouldn't say aloud, so please don't write it down." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The council has a standing order regarding the Dark Riders, which is that everyone should stay indoors. It's the only order we've ever passed that people actually follow." } },
   },
 }
 
@@ -1658,6 +1683,9 @@ P:NPC {
     night_watch = { { id = "tp_watch", text = "Half of them sleep here between shifts, and I don't charge, since they never stay long enough to count." } },
     worgen = { { id = "tp_worgen", text = "They don't come into the square, not yet, and I keep the shutters closed in case 'yet' turns up." } },
     _none = { { id = "tp_none", text = "Ask Smitts, because he knows everything, though he'll make you pay for it in listening." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Folk who come back from Raven Hill don't want to talk; they want a bed and a candle that'll last the night. I keep both, and I don't ask." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire never comes this far south, and I can't say I blame them. A bit of music would do Darkshire good, though." } },
+    booty_bay = { { id = "tp_booty_bay", text = "We get the odd sailor from Booty Bay on his way north, and they all say Duskwood's worse than the jungle. They never stay long enough to find out they're wrong." } },
   },
 }
 
@@ -1835,5 +1863,8 @@ P:NPC {
     worgen = { { id = "tp_worgen", text = "Claws like that go through cheap mail like wet paper, so don't buy cheap mail; buy ours." } },
     night_watch = { { id = "tp_watch", text = "I keep their pikes sharp for free, because it's the least I can do... well, the least I could do is nothing, so this is a bit more." } },
     _none = { { id = "tp_none", text = "If you can't hit it or wear it, I'm no help to you." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Every adventurer back from Raven Hill brings me mail with grave dirt in the links. I clean it before I mend it, because I'm not having that in my forge." } },
+    magni = { { id = "tp_magni", text = "The dwarves of Ironforge sell steel to half the kingdom, and they're welcome to it. Gnarltrees make our own, and it's held off worse than they've seen." } },
+    dark_riders = { { id = "tp_dark_riders", text = "I've seen one of their horseshoes, black iron and cold as ice even beside the forge. I threw it in the river, and I'd do it again." } },
   },
 }

@@ -112,6 +112,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A Darkspear, a boar-keeper, and Kor'ghan's worst student this week. Ask me next week, mon, maybe it change." } },
     advice = { { id = "tp_ad", text = "Carry the antidote before you need it, mon, because by the time you need it, you can't walk to get it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's got the finest axe in Durotar, and he's never once been stung by a venomtail. That's the kind of leader I want, one who doesn't step on scorpids." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls at Sen'jin know more about poisons than anybody in Durotar. I wish I'd asked one about venomtails before I got stung." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar have their own poisons, and they're worse than a scorpid's. That's the only good news I've had all day." } },
     _none = { { id = "tp_none", text = "Don't know that one, mon. My head be full of poison and boars right now." } },
   },
 }

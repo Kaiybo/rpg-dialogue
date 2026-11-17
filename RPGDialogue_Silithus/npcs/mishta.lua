@@ -79,6 +79,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A trader of Darnassus who said yes to the Circle once and has been waiting on deliveries ever since. Even a kaldorei's patience wears thin after the third season." } },
     advice = { { id = "tp_ad", text = "Pack twice the thread you think you'll need. Silithus eats cloth." } },
     steamwheedle = { { id = "tp_sw", text = "Reliable as the tide, they say. I've never seen the tide out here, so I can't argue." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hunters come back from the hives needing thread for their armor, and I'm always about to run out. It's the bugs' fault, mostly." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "My supplies come from Gadgetzan, on a goblin wagon, when the goblin remembers. He has never once remembered on time." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblin who supplies me claims he's from Booty Bay, and I believe him, because he lies like a pirate." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know, and I'm too worried about my salt to guess. Ask the Commander, and Elune keep you." } },
   },
 }

@@ -119,5 +119,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Assistant to Brother Paxton, keeper of the shelves, and the only person in Northshire who knows where the nearest tanner is." } },
     advice = { { id = "tp_ad", text = "Learn a trade early. You'll thank me when you're out of coin and full of copper ore." } },
     _none = { { id = "tp_none", text = "Hmm, that's not in any book I've counted. Brother Paxton might know, if you can catch him in a good mood." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "Archbishop Faol rebuilt this Abbey after the Second War and founded the Brotherhood to keep it, and Brother Paxton has made me copy that sentence out about forty times. I could recite it in my sleep, and some nights I do." } },
+    holy_light = { { id = "tp_holy_light", text = "Half the books on these shelves are about the Light, and the other half are arguments about the first half. I mostly dust them, which I like to think is a kind of prayer." } },
+    dalaran = { { id = "tp_dalaran", text = "Some of the sealed books in the library wing came from Dalaran before the Scourge took it, and nobody's allowed to touch them, me least of all. I've counted the spines, though, and there are forty-one." } },
+    scholomance = { { id = "tp_scholomance", text = "Brother Paxton says there's a school in the north where they teach the darkest arts, and that some of our sealed books would fetch a fortune there. That's why they're sealed, I suppose, and why he checks the locks twice." } },
   },
 }

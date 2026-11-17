@@ -197,6 +197,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came with the Lady's fleet and brought the birds with me from the Wildhammer roosts, and I've been drying them out ever since." } },
     advice = { { id = "tp_ad", text = "Never ride a wet gryphon into a cold wind. The bird won't forgive you, and neither will your knees." } },
+    onyxia = { { id = "tp_onyxia", text = "The whelps out of the south marsh harry my gryphons something terrible, and a gryphon that's been chased by fire won't fly straight for a week. I'd like that dragon gone more than most." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's the dampest posting I've had, and I've been posted to Wetlands. The gryphons hate it, I hate it, and we're both still here." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer would laugh at me for fussing over feathers, but they don't have to fly gryphons through a swamp. Their birds are a fine breed, I'll say that much." } },
+    ratchet = { { id = "tp_ratchet", text = "There's a boat to Ratchet and a gryphon to everywhere else, and I'd take the gryphon, though I'm hardly the one to ask." } },
     _none = { { id = "tp_none", text = "I know birds and weather and very little else, {g:lad|lass}. Try the citadel; they know everything there, or say they do." } },
   },
 }
@@ -424,6 +428,10 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I cooked for the fleet on the way over, and when the ships went home I stayed with the pots." } },
     advice = { { id = "tp_ad", text = "Boil the marsh water twice, then boil it again. You'll thank me, and so will your stomach." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a hungry city, friend, all those soldiers and refugees, and they eat whatever the boats bring. I make the turtle stretch." } },
+    jaina = { { id = "tp_jaina", text = "The Lady likes my chowder, or she's too polite to say otherwise, and either way I count it as a victory. She needs feeding more than anyone here." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The cooks in Booty Bay do things with sea salt and pepper that'd make a priest swear. I'd go back for a month and learn, if the place weren't full of pirates." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I cooked in a Lordaeron manor before the plague, roast and pudding every night. Now it's tortoise and marsh greens, and honestly, the tortoise is growing on me." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I'd not know how to cook it if I had." } },
   },
 }
@@ -639,6 +647,11 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I patched soldiers in Lordaeron, and then on the boats, and now here. The wounds change; the work doesn't." } },
     advice = { { id = "tp_ad", text = "Clean the wound before you close it. Every bad death I've seen in this marsh started with a dirty bandage." } },
+    scourge = { { id = "tp_scourge", text = "I treated plague victims in Lordaeron until there was no one left to treat, and then I treated the people fleeing it. I learned to keep a calm face, because there was nothing else I could give them." } },
+    onyxia = { { id = "tp_onyxia", text = "I've treated dragonfire burns from the south marsh, and they don't heal like ordinary ones. There's something in the black flame that sits in the wound, and I've no name for it." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm a surgeon, not a priest, but I'll take the Light's help over bandages when a priest is to hand. Neither of us wins every time." } },
+    theramore = { { id = "tp_theramore", text = "Theramore keeps me busy with fevers, crocolisk bites and soldiers who think a raptor wound will heal on its own. None of them heal on their own." } },
+    jaina = { { id = "tp_jaina", text = "The Lady visits the infirmary every week and remembers every patient's name, which does more for them than half my medicines." } },
     _none = { { id = "tp_none", text = "Not a medical question, so not my concern. Ask someone without blood on their apron." } },
   },
 }

@@ -110,6 +110,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I light the fire. That has been my life for many years, and I have no complaints about it." } },
     advice = { { id = "tp_ad", text = "Touch the earth at least once a day, even in a city. It reminds you where you came from." } },
     grimtotem = { { id = "tp_grim", text = "The Grimtotem keep their own fires, far from ours, and I wonder sometimes what they pray for." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother hears every prayer, and I say mine over the fire every evening. It is a small thing, but she likes small things done well." } },
+    centaur = { { id = "tp_centaur", text = "The Galak centaur guard the old places in Thousand Needles, and Rau Cliffrunner wants what they keep there. I help him because the past belongs to all of us, not only to those who hold it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne lights the great fire with me sometimes, on the high days. He says the prayer better than I do, and I do not mind." } },
+    the_elements = { { id = "tp_the_elements", text = "The fire spirit on the High Rise is old and calm, and it likes the prayer. I think it would burn without me, but I like to think it burns better with me." } },
     _none = { { id = "tp_none", text = "The fire hasn't told me of that one. Ask on the Elder Rise, and walk with the Earth Mother on your way." } },
   },
 }

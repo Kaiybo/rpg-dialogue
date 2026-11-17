@@ -228,6 +228,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "This is our farm, John's and mine, and we're leaving soon, as soon as the package is sent and the cart is packed." } },
     advice = { { id = "tp_ad", text = "Keep away from the fields after dark. Something walks there, and it doesn't stop to say hello." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I don't know what you mean about Lordaeron, dear, it's right where it always was. John will be home soon, and then we'll go to Stormwind to see my sister." } },
+    scourge = { { id = "tp_scourge", text = "There's been sickness in the villages, John says, but it won't come here. I'm sure it won't come here." } },
+    stratholme = { { id = "tp_stratholme", text = "John's cousin lives in Stratholme, and we were going to visit before the harvest. I hope he's well." } },
     _none = { { id = "tp_none", text = "I can't think about that now, not with the plague coming. Can't you smell it on the wind?" } },
   },
 }
@@ -461,6 +464,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't let the plague touch your skin, little one. I let it, and you can see where that has brought me." } },
     cenarion_circle = { { id = "tp_circle", text = "Arch Druid Hamuul will hear that I fell here, so tell him I wasn't alone at the end, and you'll be telling him the truth." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "I felt the great pots from Moonglade, and they're the reason I came. They've won this round, I'm afraid." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it was meant to be, without the plague and without the dead. I've tried to reach it from here, and I can't, because the land itself is sick." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge poisons the land and the beasts with it, and the beasts don't understand why they're suffering. Give them mercy if you can, because I couldn't." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother weeps in this land, and I've heard her weeping every night since I came. I came to mend her, and I failed, and now I'm only listening." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is a good leader for the orcs, and he's been a friend to the tauren. I wish he'd sent more of his shamans here, though I know he has troubles enough." } },
     _none = { { id = "tp_none", text = "I haven't the breath to spend on that, little one, so you'll have to forgive me. Walk with the Earth Mother, and ask someone younger." } },
   },
 }
@@ -638,6 +645,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I lived on Sorrow Hill, on the road to Darrowshire, and I suppose I still do, in a way.", next = "darrowshire" } },
     advice = { { id = "tp_ad", text = "If you go east to Darrowshire, go gently. The people there were brave, and some of them haven't stopped fighting." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I lived in Darrowshire, a little village on the edge of the forest, and it was a good place to raise a child. It's gone now, and I'm still here, which doesn't seem fair." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came to Darrowshire and my brother Joseph went out to fight them. I hid Pamela where they wouldn't find her, and I've been waiting for word of her ever since." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed to the Light every night for Pamela, and I still do. I don't know if it hears ghosts." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. I only know Darrowshire and the road there, and Pamela." } },
   },
 }
@@ -853,6 +863,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a scout for Stormwind, and that's all I'm allowed to say, so that's all I'm saying." } },
     advice = { { id = "tp_ad", text = "Never count guards from the same bush twice. Somebody always notices the second time, and usually with a crossbow." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're tougher than I gave them credit for, and crueler, too, and Hearthglen is full of them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the obvious enemy here, but I've learned that the Crusade can be just as deadly to a scout. At least the Scourge doesn't torture you first." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is crawling with Crusaders and Scourge both, and they hate each other almost as much as they hate everyone else. I'd love to see them finish each other off." } },
+    si7 = { { id = "tp_si7", text = "Who said anything about SI:7? I'm a scout, plain and simple, and I report to whoever's paying, which is Stormwind, generally." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar runs the kingdom for the young king, and he does it well enough. He keeps his scouts paid, which is more than I can say for some lords." } },
     _none = { { id = "tp_none", text = "That's above my pay, I'm afraid, and most things are." } },
   },
 }
@@ -1102,6 +1116,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I was head maid of House Barov for many years, {g:sir|madam}, and I'm afraid I still am, in a manner of speaking.", next = "story" } },
     advice = { { id = "tp_ad", text = "If you go into the keep, keep to the walls and mind the stairs. The servants' ways are the quietest, as Lucien and I learned." } },
     scholomance = { { id = "tp_scholomance", text = "It was a house, and a fine one, until the Barovs gave it away for a promise, and everyone in it paid." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad came to Caer Darrow as a guest, and the Barovs treated him like one. I served him tea myself, and I'll never forgive myself for not putting something in it." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Caer Darrow was a lovely house when Lordaeron was whole, with gardens on the lake and music in the evenings. I apologize for the state of it now, it isn't what it was." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came to learn necromancy at Caer Darrow, and I hid in the keep for six months watching them. I'd rather not describe what I saw." } },
     _none = { { id = "tp_none", text = "I'm afraid I wouldn't know, {g:sir|madam}, for we didn't hear much news inside the walls." } },
   },
 }

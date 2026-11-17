@@ -220,6 +220,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light every night for Theodore, for Blanchy and for whatever's left of our farm. I don't ask for much, and I think that's why it keeps listening." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Theodore bought me a little carved horse at the Darkmoon Faire once, years ago, and I still keep it in my apron pocket. It looks a little like Blanchy, if you squint and love her." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the old Moonbrook mines, I hear, and that's where our grain and our tools have gone. I don't want them back so much as I want the Defias to have to carry them." } },
+    theramore = { { id = "tp_theramore", text = "Theodore heard Lady Proudmoore's giving land in Theramore and talked about it for a week. I told him Blanchy would never survive a boat, and he went quiet, and that was the end of it." } },
     knows = {
       { id = "tp_knows", text = "You hear all sorts when you're stuck by the road waiting on a wagon wheel, dear. Ask me about any of this." },
     },

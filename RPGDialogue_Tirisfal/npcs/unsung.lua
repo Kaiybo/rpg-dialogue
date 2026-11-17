@@ -166,6 +166,10 @@ P:NPC {
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "Your hands don't feel the hilt anymore, so you'll have to learn to trust your eyes and your shoulders instead. Every Forsaken soldier has to relearn the sword, and none of us enjoy it." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I soldiered for Lordaeron for fifteen years and drank to the king's health every night. I don't drink anymore and the king is dead, and I find I miss neither as much as I expected." } },
+    second_war = { { id = "tp_second_war", text = "I fought orcs in the Second War, and now I'm allied with them. Life is strange, and death is stranger." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge fights without fear or pain, so you'd better learn to do the same. You're halfway there already, which is the one gift the plague gave you." } },
     _none = { { id = "tp_none", text = "I don't know that, and the grave didn't make me any wiser. Ask Executor Arren, or the shadow priest in the chapel." } },
   },
 }
@@ -315,6 +319,12 @@ P:NPC {
     },
   },
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light is a crutch for those afraid to stand on their own. The Forsaken have learned that faith is something we build ourselves, out of our own will, and it doesn't burn us." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You still cling to the Light, and you feel it burning you every time. I'd call that foolish, but I'll admit it takes a sort of courage." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a people of will above all, and the Dark Lady is our proof of it. She broke the Lich King's hold with nothing but her own fury, and so can you." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the opposite of us, all hunger and no will. Remember that whenever you're tempted to give in to something." } },
     _none = { { id = "tp_none", text = "That is no concern of mine. Ask Executor Arren, if you must." } },
   },
 }
@@ -478,6 +488,9 @@ P:NPC {
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken still need bread and water, which I find terribly funny, though I'm glad of it, since it keeps me in business. Don't ask me why, because nobody knows." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never paid for anything, and that's the worst thing I can say about a customer. At least the Forsaken have manners." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I kept a shop in Lordaeron before the plague, and I kept it well. It's a different shop now and a different city, but I still say good morning to everyone who comes in." } },
     _none = { { id = "tp_none", text = "Bread and candles are my whole trade, friend, so take that question to Executor Arren." } },
   },
 }
@@ -632,6 +645,10 @@ P:NPC {
     },
   },
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is the great power behind every demon I bind, and they'd love to come back to this world. I keep a respectful distance and a firm grip on the leash." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a dreadful bore, all moaning and grasping and no conversation. Demons are at least interesting to talk to, even if they lie constantly." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken use whatever tools are at hand, and a warlock's demon is a very good tool indeed. The Dark Lady appreciates practicality, and so do I." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad made a deal with powers he didn't understand and lost his kingdom for it. I always tell my students to read the contract twice." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, and I'm rarely afraid. Ask the magistrate." } },
   },
 }
@@ -794,6 +811,9 @@ P:NPC {
     },
   },
   topics = {
+    new_plague = { { id = "tp_new_plague", text = "The apothecaries talk about their great work as if it were the end of the world. I make healing potions, which actually help people, and I don't make a fuss about it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need potions more than anyone, since we can't feel how badly we've been hurt. A good draught of healing keeps a soldier on his feet long enough to notice." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge brought plague in grain, and I won't forget it as long as I can still hold a flask. I'd sooner make something that mends." } },
     _none = { { id = "tp_none", text = "Not my field. Ask Apothecary Johaan, or someone at the inn." } },
   },
 }
@@ -956,6 +976,9 @@ P:NPC {
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "Forsaken flesh doesn't heal on its own the way living flesh does, so you have to stitch it carefully and stitch it often. I was a nurse when I was alive, and I'm a better one now." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never stitched anything. They just piled bodies together and called it an army, and I've spent my death undoing their handiwork." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I nursed soldiers home from the Second War in Lordaeron's hospitals. They came back with arrows in them, and now my patients come back with arrows in them and don't notice." } },
     _none = { { id = "tp_none", text = "I wouldn't know that, dear. Ask Innkeeper Renee downstairs." } },
   },
 }
@@ -1116,6 +1139,9 @@ P:NPC {
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride skeletal horses because they don't tire and they don't need feeding. Any Forsaken worth his bones will want one, and I'll be happy to oblige." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has its own skeletal mounts, and they're terrible things, badly put together. Mine are built by craftsmen, and you can tell the difference in the gait." } },
+    thrall = { { id = "tp_thrall", text = "The orcs think my horses are an insult to the spirits, and they won't touch one. They ride wolves, and they think it's a grand idea, so I've no more to say on the matter." } },
     _none = { { id = "tp_none", text = "Don't know, friend. I only know horses, and dead ones at that." } },
   },
 }

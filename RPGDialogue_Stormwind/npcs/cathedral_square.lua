@@ -237,6 +237,12 @@ P:NPC {
   },
 
   topics = {
+    worgen = { { id = "tp_worgen", text = "The worgen of Duskwood are beasts that walk like men, and the people of Darkshire live behind their walls in terror of them. I pray for the town every night, and I pray the Night Watch has enough silver." } },
+    stalvan = { { id = "tp_stalvan", text = "Stalvan Mistmantle was a man of good family who did a terrible thing in a tower in Duskwood, years ago. Darkshire still won't speak of it plainly, and I've learned not to press." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is in Darkshire too, even in the gloom, and the people there cling to it harder than any congregation in Stormwind. I'd trade a dozen grand sermons here for one evening service there." } },
+    scourge = { { id = "tp_scourge", text = "Darkshire's graveyards have begun to stir, and I'm told it's not the Scourge, only something like it. I've sent priests and holy water, and I've asked the Light to make the distinction clearer." } },
+    raven_hill = { { id = "tp_raven_hill", text = "The dead of Raven Hill don't stay in their graves, and the Night Watch has buried some of them twice. I've given up asking why, and I've started asking for more priests instead." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire sent two of their brothers to Darkshire last winter, and only one came back. He doesn't speak of it, and I don't ask, because I can see it in his eyes." } },
     knows = {
       { id = "tp_knows", text = "Letters reach this altar from every frightened corner of the kingdom, and Darkshire's most of all. Ask me what you like, {g:brother|sister}; I'll tell you what I've read and what I've prayed over." },
     },
@@ -457,6 +463,10 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni's dwarves have a faith in the stone as deep as ours in the Light, and I'm building a sermon on it. Fortitude of the spirit, I'll call it, and the iron will be the metaphor." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a forge, I'll tell the congregation, and the spirit is the iron that's tempered in it. I've rehearsed it forty times, and it gets better every time, though the sexton disagrees." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League dig up the old world to find where the dwarves came from, and I'm told they think they were made from stone. I'd like to fit that into my sermon too, but I fear it's getting rather long." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a lesson in what happens when iron forgets its maker, and I'll use them as a warning in my sermon. I just need to find a way to say it that won't offend the dwarves in the front pew." } },
     knows = {
       { id = "tp_knows", text = "I stand outside the Cathedral all day rehearsing, so people tell me things to make me stop. Ask me about any of it." },
     },
@@ -678,6 +688,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I greet everyone who walks through these doors, because the Light lives in every one of them. Even the ones who come in to get out of the rain are welcome, and I tell them so." } },
+    scourge = { { id = "tp_scourge", text = "Some of the refugees who come through these doors have lost everything to the Scourge, even their names. I give them a blessing and a bowl, and I hope that's a start." } },
+    magni = { { id = "tp_magni", text = "King Magni gave the gnomes of Gnomeregan a home in Ironforge after their city was poisoned, and that's the Light at work, whether the dwarves call it that or not. I pray for him every week." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire visited Goldshire once while I was there, and a gnome there showed me a mechanical bird that sang hymns. I've not stopped thinking about it, and I'm sure the Light was pleased." } },
     knows = {
       { id = "tp_knows", text = "Everyone who comes through the Cathedral door says a little something to me on the way in, and it adds up. Ask me about any of it!" },
     },
@@ -875,6 +889,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I'm going to be a priest someday and fill the whole Cathedral with Light, enough so you can see it from Goldshire. Brother Joshua says I'll need to practise a lot more first." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a fortune-teller, and she said I'd become a great man of the Light! I asked her if she'd tell the Archbishop, and she just laughed at me." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I ran messages to the Valley of Heroes once, and I stopped to look up at the statues, and I was very late. Brother Joshua said they'd waited a long time already and could wait a little more." } },
+    scourge = { { id = "tp_scourge", text = "The new orphans from Lordaeron sometimes cry at night about the dead walking. I tell them the Light won't let it happen here, and I hope I'm right, because I promised them." } },
     knows = {
       { id = "tp_knows", text = "I hear lots of things walking up and down, because grown-ups forget I'm there. Ask me, but not about the secret." },
     },
@@ -1101,6 +1119,10 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge sends me more orphans than the orcs ever did, and they come with nightmares the orcs never gave anyone. I've given up asking the Keep for more beds and started asking for more candles." } },
+    second_war = { { id = "tp_second_war", text = "The Second War filled this orphanage once, and I thought we'd never see it so full again. Then the plague came, and I learned I was wrong, and I've stopped making that sort of promise." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias take older boys from the streets and teach them to steal, and some of them go west to the mines under Moonbrook. I've lost three that way, and I remember every one." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light keeps the roof over our heads and the bread on the table, with some help from the Cathedral's purse. I pray every night, and I count the beds every morning." } },
     knows = {
       { id = "tp_knows", text = "Children tell you everything if you wait long enough, and their parents' friends tell you the rest. Ask me what you like." },
     },
@@ -1271,6 +1293,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "The Light will see the children right, I'm sure of it, though I give it a nudge now and then. I tell them stories of the saints at bedtime, and they fall asleep before the end, which is the trick." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "We took the children to the Darkmoon Faire once, and one of them ate so much candy he turned green. The Light forgive me, but I laughed until I wept." } },
+    scourge = { { id = "tp_scourge", text = "The children from Lordaeron draw pictures of the dead walking, and I hang them on the wall because they asked me to. I pray for them every night, and some nights I pray I'll know what to say." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I take the orphans to the Valley of Heroes so they'll know there were brave people in the world before them. Some of them ask if their mothers and fathers will have statues, and I never know what to say." } },
     knows = {
       { id = "tp_knows", text = "Not much gets past a houseful of children, and they tell me all of it. Ask, dear." },
     },

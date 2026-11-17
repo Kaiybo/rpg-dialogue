@@ -84,6 +84,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A bowyer from Ashenvale, sent to the border because the Sentinels here break more bows than anyone." } },
     advice = { { id = "tp_ad", text = "Unstring your bow every night. A bow that's always bent forgets how to straighten." } },
     sentinels = { { id = "tp_sent", text = "My sisters on the wall. I make their bows, and they keep me alive; it's a fair trade." } },
+    elune = { { id = "tp_elune", text = "I carve a moon into every bow I make, small, under the grip where only the archer sees it. Elune guides the arrow, and I only make the wood straight." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande is the finest archer I've ever seen, and I've seen a great many. I made her a bowstring once, and I still think of it." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "These trees grew in the gardens of the queen's own city, and I won't cut them for bows. Some of them remember her, and I don't want her name in my wood." } },
+    loramus = { { id = "tp_loramus", text = "There is a hermit on an island in the bay, one of our people, who walks with demons on leashes. The Sentinels pretend he is not there, and I pretend with them." } },
+    thrall = { { id = "tp_thrall", text = "The orcs at Valormok cut our trees, and their warchief calls it trade. I call it theft with a peace treaty attached." } },
     _none = { { id = "tp_none", text = "Not my concern. Ask the Sentinels; they stand around long enough to hear everything, and they forget nothing for ten thousand years." } },
   },
 }

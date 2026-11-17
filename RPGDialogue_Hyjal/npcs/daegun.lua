@@ -280,6 +280,15 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Dae'gun, never fight with your back to the open ground. Doomguard come from the sky." } },
     burning_legion = { { id = "tp_bl", text = "They enslaved my people and broke this mountain. I need no other reason." } },
     malfurion = { { id = "tp_malf", text = "The night elves' shaman, whose horn called the wisps. I never saw him, only the light at the summit, and I have never seen anything like it since." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall freed me from the camps, as he freed many, and he brought us to this mountain to stand against the demons. I owe him my blade, and I have never once regretted the debt." },
+      { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You are of the Alliance, and still you ask about the Warchief with respect. He stood here with your people, and he remembers it." },
+    },
+    nordrassil = { { id = "tp_nordrassil", text = "The great tree stood behind us when the demons came, and the mountain held. I come to look at it sometimes, and I feel smaller, which is good for a warrior." } },
+    scourge = { { id = "tp_scourge", text = "The undead marched before the demons on this mountain, and they fell like grass. The ones in the north are the same, and I would cut them the same way." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is a wise chieftain and a great warrior, and the tauren saved many of us at the mountain. I bow to him whenever we meet." } },
+    tyrande = { { id = "tp_tyrande", text = "The high priestess and her Sentinels fought beside us on this mountain. In Ashenvale we fight them now, and I find no honour in it." } },
+    the_elements = { { id = "tp_the_elements", text = "A shaman saved my life once, when I should have died. I have honoured the spirits since, though I do not hear them as she did." } },
     _none = { { id = "tp_none", text = "I know nothing of that. Ask someone who spends less time with a sword in hand and less blood on the snow." } },
   },
 }

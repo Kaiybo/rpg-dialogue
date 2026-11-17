@@ -190,6 +190,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sorted parts in the great workshops of Gnomeregan, and I sort them here, though the workshops were rather larger." } },
     advice = { { id = "tp_ad", text = "Label your powders. Black powder and pepper look much the same in a dark tunnel." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblins sell parts that'll fail you in a week, and they'll sell you the replacement just as quick. I've built my whole business on the people who come back from there angry." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys my washers by the crate, and I've no idea what the pirates do with them. I've stopped asking, and I've raised the price." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Every part in this shop could've come from Gnomeregan once, and some of them did. I salvaged what I could on the way out, and I'm not ashamed of it." } },
     _none = { { id = "tp_none", text = "That's not a part I stock, I'm afraid, or one I've ever heard of, and I've catalogued every part that came out of Gnomeregan." } },
   },
 }
@@ -399,6 +402,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I designed pumps in Gnomeregan, and now I design legs, and someday I'll design something that does both." } },
     advice = { { id = "tp_ad", text = "Always keep a bucket of water near your workbench. Two, if you're working with powder." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the finest workshop the world's ever known, and I left half a prototype on my bench there. If the troggs have touched it, I'll never forgive them." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan build things that explode, and they think that's the point. A gnome builds things that explode only when we mean them to, and that's called engineering." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got a steam tonk that I designed, and somebody stole it, and they're running races on it now. I want royalties, or at least a ride." } },
     _none = { { id = "tp_none", text = "I'm sure I could invent something to do with that, but I don't know anything about it yet." } },
   },
 }
@@ -581,6 +587,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I mixed potions in Gnomeregan, before, and I mixed drinks in Gnomeregan too, just never in the same shop." } },
     advice = { { id = "tp_ad", text = "Stir clockwise, unless the recipe says otherwise. And if it smokes, step back." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan sell potions that do exactly what the label says, at least until they don't. I've a cousin who drank one and spoke only in rhymes for a week." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken brew plagues, so the rumors go, and I'd like a sample just to see how they did it. Purely for science, and with the lid on very tight, I promise." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sell my brightest potions at the Faire, the ones that make you glow for an hour, and the children love them. Don't tell their mothers, please." } },
     _none = { { id = "tp_none", text = "I don't know about that, sorry, and I can't distil an answer out of nothing, though I've tried! Ask me about potions instead." } },
   },
 }

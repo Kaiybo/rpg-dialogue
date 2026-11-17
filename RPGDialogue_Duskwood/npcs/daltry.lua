@@ -282,5 +282,9 @@ P:NPC {
     night_watch = { { id = "tp_watch", text = "Their roster changes so often that I've stopped using ink and gone over to pencil." } },
     ladimore = { { id = "tp_ladimore", text = "Ladimore, Morgan: status deceased, and then a note in Sirra's hand that says 'not entirely'. I haven't found a form for that yet." } },
     _none = { { id = "tp_none", text = "There's no file on that; I checked, as I always check." } },
+    raven_hill = { { id = "tp_raven_hill", text = "The Raven Hill registers are the saddest papers in my office, because half the names have a second date beside them now. I keep them up to date anyway; somebody has to." } },
+    dark_riders = { { id = "tp_dark_riders", text = "I've a file on the Dark Riders, and it's very thin, because nobody who's seen them up close has come back to make a statement. Make of that what you will." } },
+    scourge = { { id = "tp_scourge", text = "I've copied letters from Lordaeron's survivors for the council's records, and I had to stop twice to take a walk. They're the only papers in my office I've never re-read." } },
+    varian = { { id = "tp_varian", text = "The council's letters to the king are filed in triplicate, and since he went missing they're addressed to the Highlord instead. The replies fit in one folder, and it's a thin one." } },
   },
 }

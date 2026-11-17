@@ -180,6 +180,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I have kept hippogryphs for the Sentinels for a long time, and I go where they are needed. That is enough to know." } },
     advice = { { id = "tp_ad", text = "Drink nothing in Felwood that does not come from a clean moonwell, no matter how thirsty you are." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids of the Emerald Circle are trying to heal this forest. I pray they have more patience than I do." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds fly north to Hyjal when I let them, and they always come back calmer. The first tree does that to anything with sense." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw don't like my birds over their ground. I fly them high and I fly them fast." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's beyond the Timbermaw tunnels, in the snow. My birds go there when they must, and they come back shivering and cross." } },
     _none = { { id = "tp_none", text = "I cannot help you with that. My knowledge is of birds and of sky, and of what this forest was before the fel." } },
   },
 }
@@ -354,6 +357,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fly wind riders for the Horde. Where I came from and what I did before is my business." } },
     advice = { { id = "tp_ad", text = "Don't sleep under the trees in Felwood. Sleep at the post, or don't sleep at all." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief needs riders in Felwood, so I'm here. I'd rather be home, but home's where he sends me." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Furbolgs who throw rocks at my wind riders. I throw them back, which doesn't help relations." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's a goblin town past the tunnels. They take Horde gold and Alliance gold, and they don't care which, which is the only reason I tolerate them." } },
     _none = { { id = "tp_none", text = "I don't know. Ask someone who isn't busy; an orc's work doesn't wait for talk." } },
   },
 }
@@ -528,6 +534,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sell bread and water to tired people. There isn't much more to say than that, and I prefer it that way." } },
     advice = { { id = "tp_ad", text = "Buy more water than you think you need, because you can't refill it anywhere in Felwood." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids at the Emerald Sanctuary want to heal the forest, and I wish them all the strength the Earth Mother can give." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw buy bread off me sometimes, through a go-between. They pay in honey, and I don't complain." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins pass through on their way south and buy everything I've got. I don't like the prices I charge them, but I like the money." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids here say the Dream remembers Felwood green. I'd settle for remembering what clean water tastes like." } },
     _none = { { id = "tp_none", text = "I'm sorry, friend, but I don't know anything about that. Walk with the Earth Mother all the same." } },
   },
 }

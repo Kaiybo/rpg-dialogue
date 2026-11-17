@@ -282,6 +282,11 @@ P:NPC {
     powderfuse_port = { { id = "tp_port", text = "Mine, all of it, every grain of sand, so next question, pal." } },
     steamwheedle = { { id = "tp_cartel", text = "Fine people, thirsty people, and every cut they take, I take back from the boat fares, so it all comes out in the wash." } },
     twilights_hammer = { { id = "tp_hammer", text = "Terrible customers, pal. They never buy anything, and they keep looking at the sky like it owes 'em money, which, I mean, I understand the feeling." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine town, but it's not mine, and Powderfuse Port is. Every plank, every nail, every bucket of tar, all mine, pal." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the big port, sure, but it's crowded, and it's expensive, and it's run by a committee. Here, you deal with me, and I'm reasonable." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company would love to get its hands on Powderfuse Port, and it never will. I'll burn the place to the waterline before I let those clowns have it." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a nice little port on the Barrens coast, and it does a fair trade. Not as fair as mine, mind you." } },
+    thrall = { { id = "tp_thrall", text = "The Horde pays in gold like anybody else, and I'm happy to take it. The Brotherhood too, pal, gold is gold." } },
     _none = { { id = "tp_none", text = "Is it for sale? If it isn't, kid, I haven't got an opinion, and if it is, it's probably mine." } },
   },
 }
@@ -482,6 +487,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I ran a kitchen, then a galley, and now an inn, honey, and every step was a bigger pot and a bigger profit." } },
     advice = { { id = "tp_ad", text = "Breathe through your mouth on the docks at low tide, explorer, and never let Melbin hold your coin purse." } },
     powderfuse_port = { { id = "tp_port", text = "Best little port on the coast, honey! It's the only little port on the coast, but that still counts, and the rent says so." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The Tanaris boat brings news from Gadgetzan every week, and it's always the same news. Too much sand, too many scorpids, and not enough water." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a fine place for an explorer, full of pirates and trouble. I'd send you there, but you'd come back with fewer coins and more stories." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a nice little town on the coast of Dustwallow, and Lady Proudmoore keeps it tidy. I hear they don't care much for goblins, though." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a good port for anyone heading into the Barrens, explorer. The beer's warm and the sharks are hungry, so watch your toes." } },
     _none = { { id = "tp_none", text = "Never heard of it, explorer! Ask me tomorrow, though, because somebody'll have told me by then over a bowl of stew." } },
   },
 }
@@ -734,6 +743,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't stand too close to Demar when he's talking about Stormwind. He waves his hands." } },
     fern_crimsonleaf = { { id = "tp_fernnext", text = "Fern? Sit down and buy something, and then I'll tell you.", next = "fern" }, { id = "tp_fern", text = "She's alive, and don't argue with me about it." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Family, the kind you'd leave for an afternoon and never for good." } },
+    bolvar = { { id = "tp_bolvar", text = "The Regent can rot in his palace, for all I care. He never sent anybody when we needed them, and he won't now." } },
+    holy_light = { { id = "tp_holy_light", text = "I used to pray, before. I don't anymore, and I'd thank you to stop asking about it." } },
+    second_war = { { id = "tp_second_war", text = "The old war's what the Brotherhood was built for, and look where it got us. Stuck on an island with a drink in my hand." } },
     _none = { { id = "tp_none", text = "Ask somebody sober, and that's not me, not tonight." } },
   },
 }
@@ -896,6 +908,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a promoter, born one. Some goblins come out with a silver tongue; mine came with a ticket booth." } },
     advice = { { id = "tp_ad", text = "Every fight's a show. Win it pretty and somebody'll pay to watch the next one." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's the gold standard, pal, and I'm building the next one right here. No fights yet, but they're coming, and you could be the first." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's crowds would kill for a show like mine, and some of them would kill in it. That's what makes it a good show." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got its own fights, but they're small time. I'm thinking bigger, pal, much bigger." } },
+    thrall = { { id = "tp_thrall", text = "The orcs fight for free out in the fields every day, and that's money walking out the door. I'd put them in the ring and sell tickets." } },
     _none = { { id = "tp_none", text = "Can it fight? If it can't, I don't book it." } },
   },
 }
@@ -1097,6 +1113,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A cook, always a cook, buddy. This cafe's the first kitchen that's mine, paid off nearly, and it's on the water, which counts as floating." } },
     advice = { { id = "tp_ad", text = "Murloc eyes go in last, buddy. Everything goes in before the murloc eyes, including the bill." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best seafood in the world, and I've had to settle for boar and fish every single day. One week in Booty Bay, that's all I ask." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got nothing but scorpid meat and cactus, and it's the only place in the world where my cooking would look exotic. I'm not going." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's got good fish too, but they're the same fish I've got. I want something new, pal, something nobody's ever cooked before." } },
     _none = { { id = "tp_none", text = "Is it a recipe? If it isn't, buddy, it's wasted on me." } },
   },
 }
@@ -1283,6 +1302,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Born on a boat, matey, *hic*, and I'll die on a boat, and in between, I'm on a boat, owin' money to somebody." } },
     advice = { { id = "tp_ad", text = "Never trust a calm sea or a sober sailor, matey, and never lend either of 'em coin." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's *hic* the finest port in the world, and my boat's the finest in this one. I've sailed into Booty Bay a dozen times, and I've sailed out of it eleven." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail Buccaneers are pirates, and pirates are bad for business. I'd fight 'em myself, *hic*, if they ever came this far east." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a fine port, but the water's too calm. I like a sea that fights back, *hic*, like the one out by the murloc islands." } },
     _none = { { id = "tp_none", text = "Don't know, matey! *hic* Ask me after the next one, and you're buyin'." } },
   },
 }
@@ -1468,6 +1490,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've fished every coast a boat can reach, kid, and came here because the fish are stupider and the rent's cheaper. Don't tell them." } },
     advice = { { id = "tp_ad", text = "Fish at dawn, sell by noon, kid, and never eat what you can't name or can't sell." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing in the world, if you don't mind the sharks. I don't mind the sharks, because they mind me." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail pirates steal my catch when they think I'm not looking. I'm always looking." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's waters are calm and lazy, and the fish there are fat and stupid. I'll take a smart fish any day." } },
     _none = { { id = "tp_none", text = "Fish don't talk about that, kid, so neither do I, unless you're buyin'." } },
   },
 }

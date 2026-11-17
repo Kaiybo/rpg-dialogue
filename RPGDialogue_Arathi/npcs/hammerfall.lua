@@ -209,6 +209,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A prisoner here, then a wanderer, then a prisoner here again, of a different kind.", next = "night" } },
     advice = { { id = "tp_ad", text = "Never turn your back on a horseman. That is the only lesson the camps taught me worth keeping." } },
     doomhammer = { { id = "tp_doom", text = "He came for us, and he died for it, here.", next = "night" } },
+    internment = { { id = "tp_internment", text = "I was in this camp, chained and beaten, the night the Warchief and Doomhammer came. Doomhammer died here, and I watched him fall, and I've never stopped seeing it." } },
+    thrall = { { id = "tp_thrall", text = "Thrall was a slave like me, and he became the Warchief, and he came back for us. I'd die for him, if he asked, and I'd die gladly." } },
+    second_war = { { id = "tp_second_war", text = "The Second War was glory and then it was chains, and I don't remember which came first anymore. It doesn't matter, I suppose." } },
     _none = { { id = "tp_none", text = "I don't know, and I find I don't care. Ask Tor'gan; he cares about everything." } },
   },
 }
@@ -415,6 +418,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Darkspear, shaman, and keeper of Hammerfall's small fire of hope.", next = "shaman" } },
     advice = { { id = "tp_ad", text = "Never call on a spirit you won't thank afterward. They remember rudeness." } },
     syndicate = { { id = "tp_syn", text = "Thieves who play with demons. Watch them closely.", next = "northfold" } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of Arathi are angry, mon, angry at the ogres and the Syndicate and the bad magic in the ground. I listen to them, and I try to calm them, and sometimes they listen back." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are my people, and Vol'jin is my chief, and I came here to heal the orcs who need it. It's good work, mon, even if they don't always want to be healed." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a shaman, a true one, and the spirits speak to him like they speak to me. That's why I trust him, mon." } },
     _none = { { id = "tp_none", text = "The spirits say nothin' about that, friend, and I don't make up what they don't say." } },
   },
 }
@@ -589,6 +595,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know what the bones tell me, and a little of what Drum doesn't. Ask carefully." } },
     background = { { id = "tp_bg", text = "Drum's wife, and Hammerfall's augur. The second job is harder.", next = "secret" } },
     advice = { { id = "tp_ad", text = "Never tell a proud orc where his old enemy sleeps. Tell me instead." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps the Horde together with hope, and some days I think that hope is all we have. Drum believes in it, and I pray he's right." } },
+    the_elements = { { id = "tp_the_elements", text = "I read the auguries in the bones and the smoke, and they tell me things I don't want to hear. The spirits are troubled in Arathi, and so am I." } },
+    internment = { { id = "tp_internment", text = "I was young in the camps, and I remember the hunger more than the chains. Drum remembers the chains, and that is the difference between us." } },
     _none = { { id = "tp_none", text = "I've cast no augury on that, and I'll not waste good bones finding out." } },
   },
 }
@@ -751,6 +760,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Winds and routes are what I know, so ask me about those." } },
     background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone, and an orc goes where the Horde needs her. Here I am." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the Alterac foothills. The gusts come without warning." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rode a wind rider once, they say, and he didn't fall off. That's more than I can say for most orcs I've taught." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds of the Highlands are the fiercest I've ever flown, and they respect nothing but courage. I've learned to respect them back." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken fly bats from Tarren Mill, and I've raced them once or twice. My wind riders win, always, but the bats are faster on a turn." } },
     _none = { { id = "tp_none", text = "That's not my business, friend, since my business is wings and the Horde's letters." } },
   },
 }

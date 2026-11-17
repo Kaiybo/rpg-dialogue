@@ -298,5 +298,9 @@ P:NPC {
     eastvale = { { id = "tp_eastvale", text = "Loggers and their quotas. They'd cut through a bear if it stood still long enough." } },
     defias = { { id = "tp_defias", text = "Westfall's problem, mostly. Gryan Stoutmantle's handling it, without much help from the city." } },
     _none = { { id = "tp_none", text = "That's above my post, citizen; you'd do better to ask the Marshal in Goldshire." } },
+    scourge = { { id = "tp_scourge", text = "My uncle served in Lordaeron before it fell, and his last letter said the dead were walking in the villages. We never had another, and I stand at this bridge thinking of him more than I should." } },
+    varian = { { id = "tp_varian", text = "I'm a soldier, so I'll only say that the Stormwind Army misses its king. We'll serve the Highlord until His Majesty returns, and we'll do it gladly." } },
+    the_stockade = { { id = "tp_the_stockade", text = "I've walked a few thieves from this bridge to the Stockade in my time, and it's a long walk with a man who won't stop talking. I'd rather stand here." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire half the loggers cross my bridge with a week's wages, and half come back with none. I keep count, for the reports." } },
   },
 }

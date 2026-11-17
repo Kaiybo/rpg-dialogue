@@ -159,5 +159,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Burn nothing that still grows, small one, and the marsh will be kinder to you." } },
     dragonmaw = { { id = "tp_dm", text = "Orcs with chained beasts in the eastern hills. They burn more than any gnoll, and I can do nothing about them." } },
     _none = { { id = "tp_none", text = "The roots have said nothing of that. Ask in the harbour, where the small ones gather." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green ones dream over the old forests, and the marsh remembers when they passed this way. They were gentle then, small one, and I have not felt them close in a long while." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Beneath the waking world there is a dreaming one, the oldest roots say, and I have touched its edge in my long sleeps. It is greener than this, and quieter." } },
+    the_elements = { { id = "tp_the_elements", text = "Water, stone and the slow fire under the hills all speak in the marsh, small one. The orcs on the highland make the stone angry, and I feel it in my roots." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "Night elf druids walked these marshes once, and they spoke to me as an equal. Few do now, but you are speaking to me, which is a beginning." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol sits on the land like a wound that will not close. The roots grow around it, and so should you." } },
   },
 }

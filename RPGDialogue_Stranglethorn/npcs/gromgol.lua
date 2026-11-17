@@ -305,6 +305,17 @@ P:NPC {
       { id = "tp_ba2", text = "I command a camp, I guard caravans, and I count crates. If you want a song about it, ask Thulbek to make one up." },
     },
     advice = { { id = "tp_ad", text = "Never walk the jungle road alone at night, and never trust the quiet. When the birds stop, something bigger than you is listening." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief gave me this command and told me to hold the road to Stonard, and I've held it. He doesn't ask for much, only that we do what we say we'll do." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You serve the same Warchief I do, so you know what he asks of us. Hold your post, keep your word and don't let the jungle beat you, and he'll never forget it." },
+    },
+    voljin = { { id = "tp_voljin", text = "Vol'jin lent us his trolls for this camp, and they're the best jungle fighters the Horde has. I'd follow his lead in these trees before I'd follow mine." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear know this jungle better than any orc ever will, and they remember what the Gurubashi did to them before they came to us. I'm glad they're on our side of the wall." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a goblin town that sells to everyone, including the Alliance, and that's how it stays alive. I trade with them because I need the supplies, and I count my fingers after." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi priests at Zul'Gurub are bringing back their blood god, and if he walks, this camp won't be the first thing he eats, but it'll be close. The Zandalari are calling for help on Yojamba Isle, and I've sent whoever I can spare." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "My grunts go to the Arena to blow off steam, and I let them, because it keeps them sharp and keeps them out of Booty Bay's taverns. Most of them come back." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, on the other side of this coast, and I remember the jungle then too. It hasn't gotten any friendlier." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Forsaken have joined the Horde, and the Warchief says that's good enough for him. I'll take a dead soldier who holds the line over a living one who runs." } },
     _none = { { id = "tp_none", text = "That's not my problem, and I don't waste breath on what isn't. Find someone with time to talk." } },
   },
 }
@@ -573,6 +584,11 @@ P:NPC {
     yenniku = { { id = "tp_yenniku", text = "Every day he be gone, the chief carry it. I carry it too.", next = "yenniku" } },
     background = { { id = "tp_ba", text = "Nimboya be Darkspear, sent by the chief from Orgrimmar. That all you need to know, and more than most get." } },
     advice = { { id = "tp_ad", text = "The Bloodscalp hunt heads, so keep yours low in the ruins along the coast. They come from above, mon, always from above." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be the chief of the Darkspear, and he send Nimboya to find his son. Nimboya not go home without Yenniku, not ever." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be the best of the trolls, mon, and Nimboya be proud to be one of them. We be the ones who remember what loyalty mean." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be our home, mon, where the Darkspear lived before the sea witch drove us out. Nimboya hope to see them again someday, with Yenniku beside him." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi in Zul'Gurub be calling on Hakkar again, mon, the soulflayer, and that be bad for every troll in the world. The Darkspear remember what Hakkar did to our people." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave the Darkspear a home when we had none, mon, and Nimboya not forget that. We be his, and he be ours." } },
     _none = { { id = "tp_none", text = "Nimboya got one thing on his mind, and that not it." } },
   },
 }
@@ -871,6 +887,11 @@ P:NPC {
     yenniku = { { id = "tp_yenniku", text = "His spirit wander, mon. I bring it home, one way or another.", next = "hope" } },
     background = { { id = "tp_ba", text = "They call Kin'weelay the strongest witch doctor of the Darkspear, and I don't argue, because arguing be bad luck. The chief send me here, so here I be." } },
     advice = { { id = "tp_ad", text = "If a trinket in the ruins hum at you, leave it be, mon. Old magic in Stranglethorn always want a new owner." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Hakkar the Soulflayer be trying to come back through his priests at Zul'Gurub, and Kin'weelay can feel it in the spirits, mon. They be restless, and they be scared, and that make them rude." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be the chief, and he be wise, and he listen to the spirits better than he let on. Kin'weelay do what he say, mostly." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits talk to Kin'weelay all day long, mon, and most of them be complaining. The elements be the loudest, and the most impatient." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai priests in the Sunken Temple be trying to call Hakkar too, mon, in the swamp to the north. Two doors for one bad god, and Kin'weelay don't like it one bit." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be full of good spirits and bad ones, mon, and the sea witch's magic still be there. Kin'weelay would like to clean it out someday." } },
     _none = { { id = "tp_none", text = "Even the spirits don't know that one. Or they not telling." } },
   },
 }
@@ -1140,6 +1161,14 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was trained in Orgrimmar to listen to the elements, and Orgrimmar sent me here to listen to the jungle. So far the jungle mostly talks about rain." } },
     advice = { { id = "tp_ad", text = "Thank what you kill, even a raptor. It costs you nothing, and the land remembers the ones who don't." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements in this jungle are old and wild, and the beasts here carry some of that power in their blood. I'd like to bring it out of them, and give it back to the land." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall was the first shaman of our people in a generation, and he taught us to listen to the elements again. I wouldn't be here without him." },
+      { id = "tp_thrall2", when = { class = "SHAMAN" }, text = "You're a shaman yourself, so you know what the Warchief gave back to us. We were warlocks and slaves once, and now we listen, and that's his doing." },
+    },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren call the land the Earth Mother, and I've come to think they hear the same voice we do, by a gentler name. I don't argue with them." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The spirits around Zul'Gurub are sick, poisoned by blood magic, and the jungle feels it. I won't go near that place without a full war party." } },
+    burning_blade = { { id = "tp_burning_blade", text = "The Burning Blade still traffics with demons, and they'd have us go back to the old ways. They'll have to kill me first." } },
     _none = { { id = "tp_none", text = "That is beyond what the elements tell me, and I'll not invent an answer the spirits never gave." } },
   },
 }
@@ -1339,6 +1368,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "Just an orc who cooks where the Horde camps, because the Horde has to eat wherever it ends up, and a hungry grunt fights like a peon." } },
     advice = { { id = "tp_ad", text = "Sleep with your boots on and your axe within reach. Not because of anything in particular, just because it's Stranglethorn." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief eats at the same table as his grunts when he can, and I respect a leader who knows what a stew costs. That's the kind of chief I'd cook for." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got better rum than I do, and they charge three times as much for it. I tell the grunts to drink here and save their silver for something important." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The grunts come back from the Arena with cuts and bruises and stories, and they eat twice as much as usual. I'm glad they go, it's good for my business." } },
+    second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, before the camps, and the food was worse then than it is now. That's the one thing I'm proud of in my life." } },
     _none = { { id = "tp_none", text = "Ask the Commander. He hears everything in this camp, and he complains about most of it like a proper old warrior." } },
   },
 }

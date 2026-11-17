@@ -165,6 +165,12 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a teacher of druids, and the rest is under the hood, where it stays." } },
     advice = { { id = "tp_ad", text = "Learn the sick places as well as the healthy ones. A healer who only knows health is no healer." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle heals the south of the forest and we hold the north, but the middle belongs to the demons, for now." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "Every druid I teach finds the Dream sooner or later, and I tell them not to stay too long. The waking world needs us more." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You've touched the Dream, I think, so I'll say it plainly. It is beautiful and it is not yours, so come back each time." },
+    },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the oldest furbolgs, and the wisest. I'd send any druid to learn from them if they'd allow it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is our oldest tree, and Felwood was its forest. I teach here because I'd like to see it green again." } },
     _none = { { id = "tp_none", text = "I don't know, and I've lived long enough not to pretend otherwise." } },
   },
 }

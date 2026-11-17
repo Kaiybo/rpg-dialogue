@@ -129,6 +129,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A goblin of Ratchet with a workshop, an assistant, a crashed zeppelin and more questions than gold, pal. I'm working on the gold." } },
     advice = { { id = "tp_ad", text = "Always bring a second helmet, buddy. You never know when somebody's going to walk off with the first, and replacements aren't cheap." } },
     steamwheedle = { { id = "tp_sw", text = "Good people, mostly, so long as you remember they're keeping a tab. I keep one too." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "I went into the Sunken Temple once, pal, and came out with my life and not much else. There's a dragon down there, and trolls who want to bring back a god, and I'd rather not go back." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "Zul'Farrak's got more treasure than any place in Tanaris, pal, and more trolls too. I'd love to go in, if I had a small army." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where my workshop is, pal, and my assistant's minding it while I'm stuck in this desert. I hope he hasn't blown it up." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's full of old secrets, pal, and the dwarves are digging them out as fast as they can. I'd love to see what they've found." } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "There's a story about a cave in the dunes where the bronze dragons keep watch over time itself, pal. Scientifically speaking, it's nonsense, but I'd still like to see it." } },
     _none = { { id = "tp_none", text = "Haven't studied that one yet, pal! Give me a few weeks, a working zeppelin and a modest grant." } },
   },
 }

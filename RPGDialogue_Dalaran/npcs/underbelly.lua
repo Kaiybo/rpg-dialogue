@@ -116,6 +116,10 @@ P:NPC {
 
   topics = {
     trade = { { id = "tp_trade", text = "Buyin' low, sellin' high, and leavin' before anybody asks for a receipt, pal, which is all the business school a goblin ever needs." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's got more shiny stuff per square foot than anywhere on this continent, pal, and the magi don't count half of it. I'm just helpin' with the inventory, is all, very informally." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor think a borrowed robe and a serious face make you a magus, and you know what, mostly they're right! Don't tell 'em I said that, because it's my whole business plan." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I learned my trade, friend, and the Baron's still lookin' for me over a little matter of a misplaced crate. Call it a disagreement about who owned it, and call it settled if anybody asks." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got cousins of mine on every corner, and every one of 'em would sell me out for a copper. That's family, though, and I'd do the same." } },
     _none = { { id = "tp_none", text = "Never heard of it, sweetheart, and if I had, it'd cost ya." } },
   },
 }

@@ -165,6 +165,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know the skies, not that. Ask Thork; he knows the ground, and he likes reminding me of it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides wolves, but I've flown him once, and he held on like a recruit. Don't tell him I said so." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar shoot at my riders from the ground, and the riders shoot back from the sky, so it's an argument we usually win. Still, I keep the routes off their camps when I can." } },
+    ratchet = { { id = "tp_ratchet", text = "Bragok runs the birds down at Ratchet, and he complains about the goblins every time I see him. I've never once disagreed with him." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane can't shoot worth anything, so they're the least of my worries in the sky. It's what they do to the caravans that keeps me up." } },
   },
 }
 
@@ -327,6 +331,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I sell water, not answers, grunt, so go and ask Thork." } },
+    centaur = { { id = "tp_centaur", text = "A Kolkar will take your water before your life, because they know the Barrens will finish the job for them. Buy two waterskins, and keep one where they won't find it." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane are thick in the south and thicker every year, and they love a careless traveller. Don't be one, and buy some bandages while you're at it." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins sell the same things I do for twice the price, and they smile while they do it. I don't smile, but you save the difference." } },
+    wailing_caverns = { { id = "tp_wailing_caverns", text = "Every fool who goes into those caverns comes out wanting more torches. I keep a stack of them by the door for exactly that reason." } },
   },
 }
 
@@ -479,6 +487,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Hula'mahi not know that, mon. Ask Sergra; she know everything about this place." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear came over the sea with Thrall, and we been his people ever since. I sell to orc and tauren both now, but I still miss the sound of the waves." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin keeps the Darkspear proud even out here in the dust, mon. I pray he takes back the Echo Isles before I get too old to go home." } },
+    the_elements = { { id = "tp_the_elements", text = "The shaman buy my herbs to speak with the spirits, and the spirits seem to like them well enough. I never ask what they say about me." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet sells the salt herbs from the coast, but they charge too much and half of them be dead already. Mine are fresher, and you can tell the goblins I said so." } },
   },
 }
 
@@ -643,6 +655,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I couldn't tell you, grunt, so ask Thork or Sergra; they run this place." } },
+    centaur = { { id = "tp_centaur", text = "Centaur are fast, but an arrow is faster, and a bullet's faster still. That's why I sell both, and I'll tell you which to buy." } },
+    quilboar = { { id = "tp_quilboar", text = "A quilboar charge is all tusks and noise, and you'll have time for two shots if you keep your nerve. Most don't keep their nerve, which is why I sell bandages next door." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins make good guns and charge like they're made of gold. Mine are plainer, and they shoot where you point them." } },
+    second_war = { { id = "tp_second_war", text = "The old Horde didn't trust guns, and we lost to dwarves who did. I learned that lesson on a battlefield, and I've been selling it ever since." } },
   },
 }
 
@@ -806,6 +822,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "The sky I know, friend, but not that, so put your question to the camp's elders by the fire. Walk with the Earth Mother." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the sky as well as the ground, and my wind riders know both. I thank her every time one of them comes home." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The Razorfen lie just to the south of here, and the quilboar there grow strange and cold. My riders fly high over them now, and I do not fault them for it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne flew with me once, many years ago, and he laughed like a calf the whole way. I have never told anyone that, and you will not either." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's ships pass the coast and their soldiers hold Northwatch, which watches us in turn. Lady Proudmoore is said to want peace, and I would like her soldiers to remember it." } },
   },
 }
 
@@ -967,6 +987,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I wouldn't know, so ask Gazlowe, because he knows everything that happens in Ratchet and sells most of it." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's full of goblins who'd sell you your own boots back, and I'm the only one here who doesn't charge for advice. You're welcome." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The boat goes to Booty Bay, and the goblins on the other end are no better than the ones here. At least the beasts don't care where you're going." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave the goblins this town because he owed Gazlowe for Orgrimmar. Some days I think he should have given them the bill instead." } },
+    bloodsail = { { id = "tp_bloodsail", text = "They're pirates off the coast, with red sails and bad manners, and my riders spot them from the cliffs, and Gazlowe doesn't pay me extra for it." } },
   },
 }
 
@@ -1122,6 +1146,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I only know thread and dye, love. Ask Gazlowe." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The silks come up from Booty Bay in the boat, and the trolls down there dye them in colours you'll never see in the Barrens. Red like a sunset, and blue like the sea at noon." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's tailors buy my dyes, and they pay in good coin and better gossip. They make their uniforms in a blue I'd call plain, though I'd never say so to them." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's tents are the finest cloth I've ever seen, deep purple with gold thread through it. I'd give a season's earnings to know where they buy it." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where the cloth comes in from every port on the sea, and I get first pick of it if I'm up early enough. The goblins sleep late, which helps." } },
   },
 }
 
@@ -1281,5 +1309,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Don't know, friend, but for the right price, I can find out. Just kidding, ask Gazlowe, he charges less for gossip than I do." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got a blacksmith on every corner and a pirate who wants their wares on every other, so the prices down there are criminal, pal. Mine are only a little criminal, and that's a bargain." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's where the real money is, kid, because every scrapper there needs a blade and every blade gets broken. I ship a crate a month, and I'd ship two if they'd stop dying with my merchandise." } },
+    venture_company = { { id = "tp_venture_company", text = "Venture Company boys buy axes by the hundred and never ask for a discount, which tells you they ain't payin' with their own money. I sell to 'em anyway, because business is business." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar spears break, and when they break the riders want something better, and I'd sell to 'em if they'd stop stabbing my customers. That's the trouble with centaur, all market and no manners." } },
   },
 }

@@ -162,6 +162,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A cook in Auberdine who got into the doctoring business by accident. The deer don't seem to mind that I'm not qualified." } },
     advice = { { id = "tp_ad", text = "Never drink from a stream in Darkshore until you've seen a deer drink from it and walk away. And eat something, would you?" } },
     cenarion_circle = { { id = "tp_circle", text = "They answer letters, and they send help. I can't say that of most people.", next = "circle" } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids tell me the Dream is where the land goes to remember itself whole. I'd settle for Darkshore remembering how to keep its deer healthy." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune over every sick fawn I treat, because I don't trust my own hands that much. So far she's been more forgiving of my mistakes than the deer have." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The Twilight's Hammer have their temple at Blackfathom, down the coast, and the sickness in my deer seems to come from that direction. I'd rather not think about what that means over supper." } },
+    highborne = { { id = "tp_highborne", text = "There are Highborne ruins all over Darkshore, and they make the animals nervous. I've learned to cook upwind of them." } },
     _none = { { id = "tp_none", text = "I've no idea, {name}, but I can tell you how to cook it, whatever it is. My grandmother's recipes go back to Zin-Azshari, and they cover nearly everything." } },
   },
 }

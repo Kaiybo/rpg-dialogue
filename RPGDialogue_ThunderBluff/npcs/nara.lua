@@ -110,6 +110,10 @@ P:NPC {
     wailing_caverns = { { id = "tp_wc", text = "Beneath the Barrens, where Naralex sleeps. Don't go down there alone, and don't drink the water.", next = "fang" },
       { id = "tp_wc2", text = "The caverns were meant to be the start of healing the Barrens. Now they're the sickness at its heart." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids of the night elves and of the tauren, together. Hamuul believes in it with his whole heart, and I'm starting to." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is where my nightmares come from, I think, and where the Druids of the Fang went wrong. They wanted to heal the Barrens, and instead they let the Dream sicken them." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the doors to the Dream, and I have seen them in my sleep. They are beautiful and terrible, and they never speak." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, and Hamuul says she watches over the druids too. I pray to her sometimes, when the nightmares are bad." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great chieftain, and he believes in the druids. I hope I can repay his faith by ending the nightmares." } },
     _none = { { id = "tp_none", text = "I haven't dreamed of that one. Ask Hamuul; he's walked the Dream longer than any tauren alive." } },
   },
 }

@@ -231,6 +231,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "There's not much to tell. I came with the Horde, I stayed when the others marched on, and I send the meat to the beach." } },
     advice = { { id = "tp_ad", text = "Stay on the road, and if the road goes under water, stay where the road used to be." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief cares about places like this, places nobody else remembers. That's why I stay." } },
+    second_war = { { id = "tp_second_war", text = "Stonard's stones were laid by the old Horde, back in the wars, and they still remember it. I like to think someone should be here to remember with them." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls on the lake keep to themselves, mostly. I'd like it to stay that way." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask Ruag; he keeps the papers, and the papers know more than I do." } },
   },
 }
@@ -401,6 +404,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I keep wind riders. Before that I kept wind riders somewhere drier, in Durotar's red hills, and I'd like to again someday." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the swamp, because the air drops out from under you when you least expect it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built the wind rider routes, and I keep them running, rain or not. Mostly rain." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The wind riders won't fly near the Dark Portal, not for anything. They smell something there that I can't." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the driest place my beasts have ever landed, and they loved it. I'd give a lot to fly there again." } },
     _none = { { id = "tp_none", text = "I know the sky and the riders, not much else. Try Karakul at the inn." } },
   },
 }
@@ -580,6 +586,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I sell books. You're not owed my story, and the old Horde's warlocks taught me what talk costs." } },
     advice = { { id = "tp_ad", text = "Don't trust a demon who seems pleased with you. That means it's winning." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is the reason warlocks have the power we do, and the reason the old Horde fell. Remember both, or don't bother opening my books." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Portal is south of here, and the demons that guard the Tainted Scar still answer to old names. I'd send a student there only if I wanted to lose one." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief tolerates warlocks because he must. I tolerate him because he's right to be careful." } },
     _none = { { id = "tp_none", text = "If it isn't in a grimoire, I don't care to discuss it." } },
   },
 }
@@ -739,6 +748,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fought, I lived, and now I teach. I've two fewer fingers than I started with, and I don't talk about where they went." } },
     advice = { { id = "tp_ad", text = "Lean forward in the swamp. Always lean forward." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's a warrior first, and I'd follow him into any swamp. I'm already in this one, so I suppose I have." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I learned more there than any trainer could teach. I teach what I learned now, with fewer fingers." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls in that temple are no warriors, they hide behind their magic. Give me a troll with an axe any day." } },
     _none = { { id = "tp_none", text = "I teach warriors. Ask somebody who talks for a living; I bleed for mine." } },
   },
 }

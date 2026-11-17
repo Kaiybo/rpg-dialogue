@@ -150,6 +150,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know brewin' an' flyin', an' a wee bit about sunken temples. Ask, an' I'll answer, though maybe no' in order." } },
     background = { { id = "tp_bg", text = "Gryphon rider o' Aerie Peak, retired, involuntarily. Brewer, voluntarily." } },
     advice = { { id = "tp_ad", text = "Never fly on a full keg o' stout. I'm the cautionary tale." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I was the finest rider in all o' Aerie Peak once, an' now I'm the finest brewer in the Hinterlands, or the drunkest, dependin' who ye ask. Either way I still look up every time a gryphon goes over." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum's near as good as my brew, an' I'll no' say that sober. I'd fly down an' fetch a barrel if anybody would still lend me a gryphon." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine dwarf fer a Bronzebeard, but he's never tasted my brew, an' that's a gap in his education. I'd send him a barrel if I could stop drinkin' it long enough tae seal one." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend, hic. Ask Gilveradin, he's read every book there is." } },
   },
 }
@@ -286,6 +289,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know drink and I know people, and the two are seldom far apart. Ask, and I shall endeavour to enlighten." } },
     background = { { id = "tp_bg", text = "A high elf of no particular allegiance, which my family considers a scandal and I consider a liberation." } },
     advice = { { id = "tp_ad", text = "Never jostle the ripple. In life, as in wine, patience is everything." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was a city of real scholarship once, and I'm told it's being rebuilt. I'd return, if the Kirin Tor would have me, and if the honey trade weren't so lucrative." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are fine mages, but they've no head for commerce. I've often thought I'd teach them a thing or two, if they'd only listen." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins buy my bottles by the crate, and they sell them for triple. I admire their business sense, though I'd not say so in polite company." } },
     _none = { { id = "tp_none", text = "Alas, that lies beyond even my considerable learning. Rhapsody might know, if you catch him between drinks." } },
   },
 }

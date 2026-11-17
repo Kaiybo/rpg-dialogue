@@ -199,6 +199,14 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep Shadowglen. That's the whole of my story, and it's plenty." } },
     advice = { { id = "tp_ad", text = "Walk softly in a young forest, because it remembers everything." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle teaches what I try to practice. They're better at it than I am, but I'm more cheerful about it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Aldrassil grew from Teldrassil, and Teldrassil from Fandral's hopes for Nordrassil. Every young druid in Shadowglen asks me which is the oldest tree, and I always say the one on Hyjal." } },
+    elune = { { id = "tp_elune", text = "Elune watches over Shadowglen at night, and I watch over it in the day. Between us, the young ones are seldom left alone." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The young ones here weren't born when the Legion came to Hyjal. I'd like to keep it that way, as far as stories go." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Shadowglen's youngsters hear about the Darkmoon Faire from travellers and dream of it. I tell them to finish their training first, and they never listen." } },
+    malfurion = {
+      { id = "tp_malfurion", text = "Malfurion Stormrage taught the first druids, and he sleeps now in the Dream while the Circle waits for him. The young ones in Shadowglen ask about him more than anyone else, and I tell them he'll wake when he's needed." },
+      { id = "tp_malfurion2", when = { class = "DRUID" }, text = "You walk his path now, young druid, so remember he learned it slowly too. Even Malfurion was a student once, and Cenarius was not always pleased with him." },
+    },
     _none = { { id = "tp_none", text = "I have no idea! Isn't it lovely, though, not knowing things? It leaves room for wonder." } },
   },
 }
@@ -396,6 +404,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay on the paths until you know which roots trip." } },
     fel_moss = { { id = "tp_moss", text = "It's in the grells. Tarindrella thinks the furbolgs too. I hope she's wrong." } },
     cenarion_circle = { { id = "tp_circle", text = "Every druid in Shadowglen hopes the Circle will notice them one day. Few say so aloud." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Aldrassil's roots are deep, but Nordrassil's go down past where anything ought to grow. I've only seen them in drawings, and the drawings frightened me." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "When I sleep beside Aldrassil's roots, I dream green. I suppose that means something, though nobody in Shadowglen has told me what." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The dragons of the Dream care for the great trees, the old druids say. I've never seen one, and I've spent a long time looking up." } },
     _none = { { id = "tp_none", text = "I couldn't say, but Tenaron might, at the top of Aldrassil." } },
   },
 }
@@ -675,6 +686,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I watch over Shadowglen from up here. Someone should see the whole glade at once." } },
     advice = { { id = "tp_ad", text = "Stay on the road to Dolanaar. The forest has grown dangerous beasts of late." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, tall, and still growing. Too quickly, some say. I only see it from the top." } },
+    nordrassil = { { id = "tp_nordrassil", text = "From up here I can see half of Teldrassil, and on a clear night I imagine I can see Hyjal. I can't, of course, but it helps to look." } },
+    elune = { { id = "tp_elune", text = "The moon rises right over Shadowglen, and from this tower you can watch Elune climb the whole sky. I think I chose this post for that, more than the view." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Travellers tell me the Darkmoon Faire is all lanterns and music. From up here I'd see it coming from leagues away, if it ever came." } },
     _none = { { id = "tp_none", text = "That is beyond what I can see from here, and I can see a long way." } },
   },
 }
@@ -861,6 +875,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "These woods feel like home every time I come back, and that is my whole story. Iverron's is longer, and more foolish." } },
     advice = { { id = "tp_ad", text = "Never go into a spider cave alone. Tell Iverron that, if you see him." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune for patience with Iverron, which she has given me in very small portions. I think she finds him funny." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the furbolgs that stayed sane, in Felwood far north. I wish ours had been so lucky." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Iverron wants to go to the Darkmoon Faire and wrestle a bear. I've told him the bear will win, and he says that's the fun of it." } },
     _none = { { id = "tp_none", text = "I'm sorry, my mind is on Iverron." } },
   },
 }
@@ -1054,6 +1071,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came to Shadowglen to watch spiders, and I'm still watching them, from the steps, mostly." } },
     advice = { { id = "tp_ad", text = "Never stand under a web you can't see the end of." } },
+    blackfathom = { { id = "tp_blackfathom", text = "There are spiders in Blackfathom Deeps that grow larger than any on this tree, or so a scholar told me. I'd go and see, if they didn't also have nagas." } },
+    elune = { { id = "tp_elune", text = "Elune's light is good for spider-watching, actually, the webs catch it. I don't think the priestesses would approve of the use, but I find it devotional." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I'd like to know if there are spiders in the Emerald Dream. I asked a druid once, and she told me not to dream about it." } },
     _none = { { id = "tp_none", text = "Spiders I know, and the Webwood has kept me busy enough for a century. Most other things, less so." } },
   },
 }

@@ -190,6 +190,9 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer and the elves of Quel'Danil both hunt my people, mon, and they been doin' it longer than anybody remember. I'd take a dwarf's axe over an elf's cage, though, since at least the axe be quick." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be wise, mon, throwin' in with the orcs while the rest of us were busy starvin' in the hills. I'd walk all the way to their islands if somebody would open this cage." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi woke their blood god down south, mon, and the drums can be heard all the way up here at night. I want no part of it, and I'd be far away from it already if it weren't for these bars." } },
     _none = { { id = "tp_none", text = "Rin'ji don't know, and Rin'ji don't care, not while he be in this cage." } },
   },
 }

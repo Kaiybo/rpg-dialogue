@@ -181,6 +181,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I make potions and sell what other people need to make theirs. Nethergarde needed someone who could do that, so here I am." } },
     advice = { { id = "tp_ad", text = "Wear gloves when you pick anything out in the wastes. You'll be glad you did." } },
     nethergarde = { { id = "tp_ng", text = "A keep full of mages and soldiers staring at a dead portal, and the best-supplied alchemist in the south at the top of it." } },
+    draenethyst = { { id = "tp_draenethyst", text = "Draenethyst is a strange crystal, and it hums if you hold it close, and I've never seen anything like it in the books. I'd love to study it, but Kum'isha buys every one before I can." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages here talk about Dalaran like it was the center of the world, and maybe it was. I learned my trade in Stormwind, and I'm happy with it." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor mages upstairs ask me for potions and never ask what's in them. That's either trust or carelessness, and I haven't decided which." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The ogres trample the best herbs in the Blasted Lands, and I'd like to see them gone just for that." } },
     _none = { { id = "tp_none", text = "I don't know about that, I'm afraid. Ask one of the mages downstairs." } },
   },
 }

@@ -220,6 +220,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand an' a trainer in the Hall. I've sent more young ones up tae Tiza than I can count, an' I can count." } },
     advice = { { id = "tp_ad", text = "Mend yer armor before ye pray. The Light hears ye either way, but the troll's quicker." } },
     tome_of_divinity = { { id = "tp_tome", text = "Tiza teaches it here an' Rall teaches it in Stormwind. It's the same book, just in different accents." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's a plain thing at heart: ye stand up for folk who cannae stand up for themselves, an' ye mean it. The rest is sermons, an' I give a few o' those too." }, { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Ye know it already, I'd wager, in yer arms when ye swing an' in yer chest when ye stand fast. The Light's no' a book; it's a beard that grows on the inside." } },
+    scourge = { { id = "tp_scourge", text = "The dead are the Light's oldest enemy an' its plainest, an' there's nae question which side ye're on. Every paladin o' this hall will see the north sooner or later." } },
+    silver_hand = { { id = "tp_silver_hand", text = "Uther's order did right by the world until the plague, an' there's still a few o' them scattered through the Hinterlands an' the north. Them as are left are worth ten men each." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "Zealots, an' good men gone sour wi' grief. They fight the dead, aye, but they've started burnin' the livin' too, an' that's no' the Light I teach." } },
     _none = { { id = "tp_none", text = "That's no' a matter for the Hall o' Mysteries. Ask up in the Commons." } },
   },
 }
@@ -444,6 +448,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "John Turner, of the Stormwind orphanage: Stephanie's husband, collector of linen, and the most persistent man in Ironforge." } },
     advice = { { id = "tp_ad", text = "Ask twice. Most people say no the first time out of habit." } },
     tome_of_divinity = { { id = "tp_tome", text = "The young paladins bring Stephanie linen as part of their training, and it's the best thing the Church ever started." } },
+    varian = { { id = "tp_varian", text = "The children ask after the King every week, as if I'd know more than the town criers. I tell them he'll come home, because they need to hear it, and I pray it isn't a lie." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar visited the orphanage once and let the boys hold his shield, which nearly flattened two of them. They've talked about nothing else for a month." } },
+    scourge = { { id = "tp_scourge", text = "Some of our children came south from Lordaeron with nobody but strangers to carry them. They don't talk about the north, and I don't ask." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a warm meal and a dry bed for a child who had neither yesterday. If the sermons don't get to that, they're only noise." } },
     _none = { { id = "tp_none", text = "No idea! But the orphans of Stormwind could use your help." } },
   },
 }
@@ -672,6 +680,9 @@ P:NPC {
     tome_of_divinity = { { id = "tp_tome", text = "Faith first, then the hammer, and Rall's right about that. Being a smith, I'd put it the other way round, if he'd let me." } },
     westfall = { { id = "tp_westfall", text = "My Daphne keeps the farm there. She's a stubborn woman, and I married her for it." } },
     defias = { { id = "tp_defias", text = "Daphne fights them at our own door. Stormwind's advisors took a good deal longer to notice them than she did." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is like good iron: honest, plain, and better for the hammering. I pray at the anvil, mostly, since it's where I do my best listening." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord is a fair man and a soldier first, and the Church trusts him. If he holds the throne until the King is found, Stormwind could do far worse." } },
+    scourge = { { id = "tp_scourge", text = "I've seen smiths come down from the north who'd forged for Lordaeron's armies, and they don't speak of what they saw. The plague took their kingdom, and they're still forging as if they could win it back." } },
     _none = { { id = "tp_none", text = "I couldn't say, I'm afraid. I only know hammers and prayers." } },
   },
 }

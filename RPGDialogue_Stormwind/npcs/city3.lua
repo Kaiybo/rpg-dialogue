@@ -243,6 +243,12 @@ P:NPC {
   },
 
   topics = {
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the finest mind in the House of Nobles, and the Regent is lucky to have her counsel. We see eye to eye on most matters, and the ones we don't, she usually persuades me." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord is a soldier, and soldiers are not trained for the subtleties of a council chamber. He means well, I'm sure, but he relies on wiser heads than his own, and wisely." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild made demands the treasury couldn't meet, and the House of Nobles made the only sensible decision. That they chose to turn to banditry is their own affair, not mine." } },
+    syndicate = { { id = "tp_syndicate", text = "I've heard the name Syndicate, but I've no dealings with Alterac's fallen houses, I assure you. Those who claim otherwise are slanderers with their own agendas." } },
+    varian = { { id = "tp_varian", text = "We all pray for King Varian's return, of course, and I pray as fervently as anyone. Still, the kingdom must be governed in the meantime, and someone must make the difficult decisions." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's troubles are the city guard's affair, not the House of Nobles'. I'd advise anyone thinking of interfering to let the guards handle it, for their own safety." } },
     knows = {
       { id = "tp_knows", text = "A lord of the House hears a great deal, and repeats very little to strangers. Still, I might indulge you on one or two of these." },
     },
@@ -466,6 +472,10 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "I've done a night or two in the Stockade, and I'd do a few more if it meant a good scrap. Now the prisoners are running it, and I'm told it's a better tavern than the Pig and Whistle." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a strongman who'll fight anyone for a silver, and I've beaten him three times. He says it was twice, but he's wrong, and I'll fight him again to prove it." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "There's an arena in Stranglethorn where they fight for gold, and the goblins take bets on who'll live. I'd go if it weren't so far, and if there weren't trolls everywhere between here and there." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a lot of soot-faced cowards who hide in their mountain. I'd fight any three of them, and I'd buy the fourth a drink afterward." } },
     knows = {
       { id = "tp_knows", text = "I hear plenty in Old Town, mostly between the second ale an' the first punch. Ask me about any o' this." },
     },
@@ -664,6 +674,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "Elmore says the Dark Irons forge the best steel in the world, and then he says his is better. I'm still learning which of those is true, and I'd like to see a Dark Iron blade up close to decide." } },
+    magni = { { id = "tp_magni", text = "King Magni's armour was made by the finest smiths in Ironforge, and I'd give my right arm to see it. Elmore says I'd need both arms for the job, which is fair." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Thandol Span is held together by rivets as big as my head, Elmore says, and he's never lied to me about iron. I'd like to see it before the Dark Irons finish what they started." } },
+    second_war = { { id = "tp_second_war", text = "My father fought in the Second War with a blade he made himself, and it held. I keep it above my bench, and I measure every blade I make against it." } },
     background = { { id = "tp_bg", text = "Elmore's student. That's the only part that matters, an' he'd say it doesnae matter much yet.", next = "master" } },
     advice = { { id = "tp_ad", text = "Check yer straps before every fight. A good shield on a bad strap is a lid on a pot." } },
     _none = { { id = "tp_none", text = "Ask the master, if ye dare." } },
@@ -928,6 +942,14 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = {
+      { id = "tp_the_stockade", text = "The Stockade holds the worst of Stormwind, and right now it holds them very poorly. The prisoners took the place in a riot, and I'd rather not talk about it, so please don't." },
+      { id = "tp_the_stockade2", when = { questDone = TODO_QUEST("The Stockade Riots") }, text = "You went in after the ringleaders and came out again, which is more than my own guards managed. I'll be writing your name in a letter to the Keep, and I've not done that for anyone in years." },
+    },
+    deadmines = { { id = "tp_deadmines", text = "Half the Defias I've got locked up seem to know the way to Moonbrook's mines better than their own names. I've asked, and they just smile, and that's worse than any answer." } },
+    syndicate = { { id = "tp_syndicate", text = "We've had a Syndicate man or two in the Stockade, all very polite and very well-dressed. They never stay long, and I've stopped asking who pays their way out." } },
+    si7 = { { id = "tp_si7", text = "SI:7 visits the Stockade now and then, and they never tell me who they've come to see. I let them in, because I'd rather not know, and I suspect that's the arrangement." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord sends his regards and no more guards, and the regards don't hold a cell door. I'd like him to come and see for himself, though I'd prefer he didn't see it as it is." } },
     knows = {
       { id = "tp_knows", text = "A warden hears everything the cells whisper, though he'd rather not. Ask me about any of this, quietly, and I'll tell you what won't get me reassigned." },
     },

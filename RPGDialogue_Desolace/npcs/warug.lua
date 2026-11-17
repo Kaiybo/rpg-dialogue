@@ -131,6 +131,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am Warug, and I speak for the Magram because I am loud and I am strong. That is enough." } },
     advice = { { id = "tp_ad", text = "Never let a centaur get behind you. We do not fight fair, because fair is for losers." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are the strongest of the clans, and the Kolkar are dogs, and the Gelkis are crying children who hug rocks! Warug says so, and Warug is right." } },
+    maraudon = { { id = "tp_maraudon", text = "The Gelkis say Maraudon is holy, and the Maraudine say Maraudon is theirs. Warug says Maraudon is a big hole full of rocks, and the Magram do not need holes." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Warug hears the little gnomes had a city full of gadgets, and lost it! Warug would have kept it, and Warug would have all the gadgets." } },
+    scourge = { { id = "tp_scourge", text = "The dead in the Valley of Bones fight for the Magram now, so even death obeys the strong. Warug likes this very much." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The orcs in the fortress talk to demons, and the demons talk back. Warug thinks demons are strong, but Warug does not trust a thing that will not come out and fight." } },
     _none = { { id = "tp_none", text = "Warug does not know, and Warug does not care. Kill some Gelkis, and ask again." } },
   },
 }

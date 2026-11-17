@@ -207,6 +207,11 @@ P:NPC {
     background = { { id = "tp_ba", text = "I've called bids for the Cartel longer than you've been carrying that pack, pal, and I've never once missed a sale I could have made." } },
     advice = { { id = "tp_ad", text = "Never list something the morning after a big raid comes back, friend, because everyone else is selling the same thing and the price drops like a stone, and so does my cut." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel makes the rules here, and the rules are simple: everybody trades, nobody fights, and the house always takes its cut." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's auction house is the only place in the world where Horde and Alliance goods share a ledger, pal, and nobody's killed anybody over it yet. I count that as a success." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's auction house is busier, pal, but mine's better organized. Ask anybody who's bought from both." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls' trinkets from Zul'Farrak sell like hotcakes, pal, and I take my cut of every one. Keep bringing them in." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people bid hard and pay fast, pal, and they never haggle after the hammer falls. I like doing business with orcs." } },
+    bolvar = { { id = "tp_bolvar", text = "The Alliance bids high when the Highlord's tax collectors aren't looking, pal, which is most of the time. I don't ask." } },
     _none = { { id = "tp_none", text = "If it isn't up for auction, I couldn't tell you what it's worth, and if I can't price it, I don't know about it." } },
   },
 }
@@ -390,6 +395,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I took the stables because nobody else in Gadgetzan wanted to shovel after raptors, pal, and there's always money in the work nobody wants, not much, but always some." } },
     advice = { { id = "tp_ad", text = "Water your pet before you water yourself out there, buddy. You'll live through a dry afternoon, but it might not, and I don't refund the stabling." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the hottest place in the world to keep animals, pal, and I pay the Water Company a fortune to keep them alive. Every drop goes on the bill." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak ride raptors, pal, and they treat them worse than I'd treat a dog. I'd take them all off their hands if I could." } },
+    silithid = { { id = "tp_silithid", text = "The bugs to the west spook the animals, pal, even from this far. I don't know what they smell, but it's bad." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in Thousand Needles steal horses, pal, and they don't bring them back. I keep a close eye on anybody with four legs and a bow." } },
     _none = { { id = "tp_none", text = "Couldn't say, pal; if it doesn't eat, drink, bite or cost me water, it isn't my business." } },
   },
 }
@@ -582,6 +591,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I learned in a workshop that doesn't exist anymore, pal, for reasons I'd rather not explain to a paying customer." } },
     advice = { { id = "tp_ad", text = "Always measure the powder twice, buddy, and stand well back the first time you light it, however sure you are, because eyebrows are expensive to grow back." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a great place to teach engineering, pal, because there's plenty of open space for the explosions. I've only lost one hut so far." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan to their own inventions, pal, and I respect the ambition, if not the safety record. I'd love to see their workshops." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's got good engineers, pal, but they're too cautious. Engineering's about pushing things until they break, and then pushing them a little more." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak have no engineering at all, pal, which is why they keep losing to us. A good bomb solves most troll problems." } },
     _none = { { id = "tp_none", text = "If I can't build it, take it apart, sell it or blow it up, pal, I don't know much about it." } },
   },
 }
@@ -767,6 +780,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I dug for the Cartel before I taught for it, and teaching pays almost as well without the cave-ins or the blasting accidents." } },
     advice = { { id = "tp_ad", text = "Sell your ore raw if you're in a hurry, pal, but smelt it if you want to get paid properly." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's surrounded by good rock, pal, if you know where to dig. I know where, and I'll tell you for a price." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak are sitting on a mountain of good ore, pal, and they don't even mine it. What a waste." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's got the oldest mines in the world, pal, I hear, and the dwarves are digging them up as fast as they can. I'd love to see the veins down there." } },
+    silithid = { { id = "tp_silithid", text = "The bugs to the west dig better than any miner I know, pal, and they don't even get paid. I'd hire them if they didn't eat people." } },
     _none = { { id = "tp_none", text = "Not a rock, not my business, pal, and not my money." } },
   },
 }

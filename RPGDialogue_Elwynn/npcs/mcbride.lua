@@ -470,5 +470,18 @@ P:NPC {
     hogger = { { id = "t_hogger", text = "Dughan's problem, thank the Light. Don't go near him at your size." } },
     northshire_abbey = { { id = "tp_abbey", text = "The brothers pray and I post sentries, and between the two of us the Abbey stays standing." } },
     _none = { { id = "t_none", text = "That's not a garrison matter. Ask the brothers; they read." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire keeps this Abbey and its library, and I keep the Brotherhood. It's a fair division, recruit, and they pray for my soldiers, which I need more than I'll admit." } },
+    varian = { { id = "tp_varian", text = "The king is missing and the army's orders come from the Highlord now. A soldier's duty doesn't change because the man at the top does, so I'll hear no more of it on my ground." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is a paladin and a soldier both, and he signs my requests for men even when he can't fill them. I'd follow him into worse than Echo Ridge." } },
+    scourge = { { id = "tp_scourge", text = "Northshire was founded by clerics from Lordaeron, and the brothers still pray for that land every evening. Most of what they pray for is gone, recruit, and they know it." } },
+    second_war = { { id = "tp_second_war", text = "The Abbey was a ruin in the Second War, and the Twilight's Hammer made a nest of it. We built it back stone by stone, and I'll not see it lost again, to kobolds or anyone else.", fx = { learn = { "twilights_hammer" } } } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I'm no priest, but I've seen the brothers mend men I'd given up for dead. The Light doesn't need my belief, recruit, but it has my respect." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "A paladin, good. The Light needs more who'll carry it to the front instead of keeping it lit at home, and Brother Sammuel will see you right." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was blessed in this kingdom's own faith, and some of its first knights learned their prayers right here under the Archbishop. They're scattered since Lordaeron fell, and we're all still paying for that loss." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The stone ring on Stone Cairn Lake honors the dead of the First War, and rogue mages squat on it now. Dughan wants it cleared, and when you're ready, recruit, so will I." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Defias we catch in this valley go to the Stockade, and the warden sends word back that the cells are full. That's a problem for the city; my problem is the next one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire draws every recruit in the valley down to Goldshire the week it's there. I'll allow it, so long as they're back on watch at dawn." } },
   },
 }

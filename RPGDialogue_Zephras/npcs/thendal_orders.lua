@@ -216,6 +216,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Exercise your gifts, and never trust anyone who says the spirits don't matter." } },
     two_orders = { { id = "tp_orders", text = "We would bring the spirits home. They would replace them. Only one of those is gratitude.", next = "highorder" } },
     al_aketh = { { id = "tp_aketh", text = "They looked across Skywall, saw Al'Akir's might, and knelt to it. That isn't faith; it's fear in grey robes." } },
+    highborne = { { id = "tp_highborne", text = "The High Order is arrogant in exactly the way our Highborne ancestors were, and they wear it proudly. I can read it in their auras, and it looks like an old wound." } },
+    the_elements = { { id = "tp_the_elements", text = "We owe the spirits our lands, our lives and our gifts, and we've done very little to deserve them. The Windshapers mean to pay that debt, whatever it costs us." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren of the Earthen Ring speak to the elements as partners, and they call the earth their mother. I think we have a great deal to learn from them, and very little to teach." } },
+    dalaran = { { id = "tp_dalaran", text = "The High Order looks to the Kirin Tor in Dalaran for teaching, as if human wizards could give back what the Highborne lost. They'll learn power there, and very little wisdom." } },
+    elune = { { id = "tp_elune", text = "Our cousins pray to the moon, and I don't scorn them, but the spirits of the air raised us. I'll owe the moon when the moon has done as much." } },
     _none = { { id = "tp_none", text = "The winds don't speak of it, and neither will I." } },
   },
 }
@@ -434,6 +439,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Make the unknown known. Everything else is waiting to die politely." } },
     two_orders = { { id = "tp_orders", text = "One order reaches for knowledge, the other waits for spirits. History will judge which was wise.", next = "windshapers" } },
     al_aketh = { { id = "tp_aketh", text = "They kneel to a Windlord they've never met. At least the Windshapers' spirits once lived next door." } },
+    highborne = { { id = "tp_highborne", text = "We are Highborne, and it's time we stopped apologizing for it. Knowledge and power, child, that is our birthright, and the Windshapers would have us beg for it instead." } },
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor of Dalaran keep the greatest library of arcane study left in the world, and they've offered to share it. I can think of no finer place for a young mage of the High Order." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "Archmage Ansirem of the Kirin Tor showed us what a disciplined mage can do against wild elements. The Windshapers called it arrogance, and I called it competence." } },
+    the_elements = { { id = "tp_the_elements", text = "The Windshapers kneel to spirits who left us without a word. I'd rather stand on my own feet and master the winds than plead with them." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Azshara was a queen of extraordinary power, and her mistake was trusting the wrong allies, not the pursuit of power itself. The Windshapers will never admit there is a difference." } },
     _none = { { id = "tp_none", text = "An interesting question, which I can't answer, which makes it more interesting still." } },
   },
 }

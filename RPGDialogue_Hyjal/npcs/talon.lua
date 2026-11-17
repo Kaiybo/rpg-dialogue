@@ -399,6 +399,19 @@ P:NPC {
     cenarion_circle = { { id = "tp_cc", text = "The Talon answers to the Circle, mostly, when the Circle remembers we're up here." } },
     burning_legion = { { id = "tp_bl", text = "They came up this mountain once and the wisps blew their lord to pieces. The ones who ran are still hiding in the gorge and in Dae'gun, and I want them gone." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall rob my caravans, and the ones in the caves by Malorne's Retreat will have your arm off. Not every tribe has gone bad, but those have." } },
+    nordrassil = {
+      { id = "tp_nordrassil", text = "I was born under Nordrassil's shade, and I'll fight for it till the owls stop flying. It's wounded and it's old, but it's ours, and it's still the best tree in the world." },
+      { id = "tp_nordrassil2", when = { race = "NightElf" }, text = "You're kaldorei, so you feel it too, don't you, that tug at the heart when you see it. That's what our long lives feel like, from the inside." },
+    },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Skylord walks the Dream more than I do, and he comes back worried and won't say why. The owls are worried too, and they don't say why either." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight used to visit the mountain more often, the old druids say. I've only seen one, once, and it looked at me like I was an interesting beetle." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall's orcs fought on this mountain alongside us, and I like Yashiro, so I like Thrall. That's how it works, isn't it?" },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief's orcs held this mountain with us once, and I've not forgotten it. Tell him to stop cutting Ashenvale, though, would you?" },
+    },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess is very wise and very patient, and I'm neither. The owls think she'd be disappointed in me, and the owls are usually right." } },
+    scourge = { { id = "tp_scourge", text = "The undead came up the slopes before the demons, and the mountain buried them. Sometimes I find bones in the snow and the owls get very upset." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw guard the gorge into Winterspring, and they'll let you pass if you're polite. I wasn't, once, and I'm still apologising." } },
     _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask the owls; they're terrible gossips, and Elune made them that way on purpose, I'm sure of it." } },
   },
 }

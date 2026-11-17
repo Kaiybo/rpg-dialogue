@@ -100,5 +100,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Deputy Mayor to Lord Ebonlocke, member of the council, and the man who keeps the minutes nobody reads." } },
     advice = { { id = "tp_ad", text = "Don't wait for permission to do what's right in Duskwood. Nobody here will give it." } },
     _none = { { id = "tp_none", text = "That's not a matter for the council, as far as I know. Ask Clerk Daltry; he keeps the records." } },
+    varian = { { id = "tp_varian", text = "The Council of Darkshire expects more of the Crown, and the Crown, in the king's absence, expects less of itself. I keep the minutes of every letter, and nobody reads those either." } },
+    prestor = { { id = "tp_prestor", text = "Every reply from the Keep is signed on the Highlord's behalf by his advisers, and Lady Prestor's hand appears more than most. The people of Darkshire expect more than courtesy." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill is a failure of this council, and I've said so in session twice. Evil lingers in the air there, and we must act before it lingers here." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The riders are a matter for the council and the Watch, and neither has the men to deal with them. That's the plain truth, and the council would prefer I didn't say it." } },
   },
 }

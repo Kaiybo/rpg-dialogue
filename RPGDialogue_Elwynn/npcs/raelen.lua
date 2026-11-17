@@ -244,5 +244,9 @@ P:NPC {
     eastvale = { { id = "tp_eastvale", text = "Best timber in Elwynn and the worst luck to go with it. You can write that on my stone." } },
     kobolds = { { id = "tp_kobolds", text = "Not my problem until they start eating lumber. Give it time." } },
     _none = { { id = "tp_none", text = "Does it ship? If it doesn't, I don't know about it, and I don't need to." } },
+    lost_footmen = { { id = "tp_lost_footmen", text = "Two soldiers went up the river from Thomas's bridge and didn't come back, and now my loggers won't cut north of the stream. That's two men lost and a quarter of my quota with them." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Faire week, half my loggers go off to Goldshire and come back with sore heads and empty pockets. I dock their wages and they go anyway." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild used to buy our timber for their scaffolds, and now half of them are Defias stealing my carts. I preferred them as customers." } },
+    varian = { { id = "tp_varian", text = "No king, no orders and no new contracts from the city. I don't care where he went, I care that the lumber orders stopped coming." } },
   },
 }

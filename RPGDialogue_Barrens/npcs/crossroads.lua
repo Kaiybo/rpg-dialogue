@@ -234,6 +234,16 @@ P:NPC {
       { id = "tp_knows", text = "I hear every report that reaches these walls, and these are the ones I'll speak to." },
     },
     wailing_caverns = { { id = "tp_caverns", text = "That's the druids' business, and Tonga worries about it enough for all of us." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built the Crossroads the same year he built Orgrimmar, because he knew the Barrens would be lost without a fist in the middle of them. I hold it for him, and I'll hold it until he tells me otherwise." } },
+    centaur = { { id = "tp_centaur", fx = { learn = { "razorfen" } }, text = "The Kolkar raid the roads from their camps out west and south, and they'd raid my gates too if they thought they'd live through it. Regthar Deathgate deals with them for the Horde, and he deals with them hard." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The Razormane are thick around the Crossroads, and every season they get bolder. Their warrens lie south at Razorfen, and if half of what the scouts say is true, something worse than a quilboar is giving the orders down there." } },
+    theramore = { { id = "tp_theramore", text = "Jaina Proudmoore keeps her peace with the Warchief, and I respect the Warchief's word. But Theramore's soldiers built Northwatch Hold on our southern coast, and a fort full of human guns is not what I'd call peace." } },
+    second_war = { { id = "tp_second_war", text = "I was a grunt in the Second War, and I spent the years after it in a camp with the rest of the lost. I don't talk about either much, and the Crossroads is the first thing I've built that I'm proud of." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "The Warchief made a pact with the dead of Lordaeron, and I'll keep it. Their apothecaries work out of my town now, and I watch them the way I'd watch any guest who brings their own poisons." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You're one of the Dark Lady's, so I'll say it to your face. The Warchief's word protects you here, and as long as you keep it, so will mine." },
+    },
+    ratchet = { { id = "tp_ratchet", text = "The goblins' port on the coast to the east, and Gazlowe's town. Everything that comes into the Barrens by sea comes through Ratchet, and Gazlowe makes sure he's paid for it." } },
     _none = { { id = "tp_none", text = "That's not my concern. My concern is the walls, and keeping them standing for the Horde." } },
   },
 }
@@ -440,6 +450,11 @@ P:NPC {
 
   topics = {
     wailing_caverns = { { id = "tp_caverns", text = "Something's wrong in the deep places, and it's seeping into the oases. Tonga knows more than I do, so listen to him." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar think the Barrens are theirs because they've been riding over them longer. I think they're wrong, and I send people out every day to argue the point with an axe." } },
+    quilboar = { { id = "tp_quilboar", text = "It's the Razormane, and more of them every week, because they breed faster than we can thin them. If you've got a strong arm and a short temper, there's a fence of their tusks I'd like to see built." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief freed us from the camps, so I'll follow him into the sea if he says so. But I'll grumble about it, because I'm an orc and not a statue." } },
+    onyxia = { { id = "tp_onyxia", text = "She's a black dragon down in Dustwallow Marsh, and the grunts at Brackenwall say she has a lair in the hills there. I'd like a look at her, and the grunts say that's why I'm not allowed down there." } },
+    ratchet = { { id = "tp_ratchet", text = "It's goblins, salt air, and prices that make me want to hit somebody. Go if you need a boat, but count your coins before you leave and again after." } },
     _none = { { id = "tp_none", text = "Ask Thork, or better yet, go out there and find out for yourself. Deeds teach more than talk." } },
   },
 }
@@ -654,6 +669,10 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I don't know much beyond the quilboar and this wall. Ask about these, if you must." },
     },
+    centaur = { { id = "tp_centaur", text = "Kolkar or quilboar, it was one of them that caught Olgra on the road south, and I'll know which before I'm done. I've killed enough of both to stop caring which is which." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane run their raiders down the roads at dusk, and that's when the caravans burn. If you see their banners, kill the one carrying it first." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a good chieftain and a better orc than me. He'd tell me to let Olgra go, and I'd tell him no, and neither of us would be wrong." } },
+    second_war = { { id = "tp_second_war", text = "I fought for the old Horde, and I was proud of it then. I came home to Olgra after the camps, and she was the only good thing that came out of all those years." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care, grunt. Ask me about quilboar." } },
   },
 }
@@ -863,6 +882,15 @@ P:NPC {
     },
     wailing_caverns = { { id = "tp_caverns", text = "It's a cave with a poisoned dream at the bottom of it. That's the plain version, and the plain version is bad enough." } },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul brought us into it. The Barrens needs every druid it can get, and the Circle needs to hear about this place." } },
+    centaur = { { id = "tp_centaur", text = "The centaur are sons of Cenarius, so the old stories say, though they have little of his patience in them. The Kolkar war on everyone and on each other, and it is a sad thing to watch a whole people so angry." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The quilboar are children of Agamaggan, the great boar who bled to save the forest, and they still carry that wound in their temper. Their warrens at Razorfen grow thornier every year, and something dark has taken root among them." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "The Dream is the world as it might have been, untouched, and the druids walk it in their sleep. Naralex went into the Wailing Caverns to dream the Barrens green again, and I fear he went too deep." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You have felt it too, then, when you sleep and the world is greener than it should be. Be careful near Naralex's dream, because something in it has turned sour." },
+    },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made us, and she is in every root and stone of the Barrens. When the oases sicken, I feel it the way you might feel a fever in a friend." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight guards the Dream and the great trees where its doors open. They are not cruel, but they are old, and they do not always remember that small things like us can be hurt." } },
+    cairne = { { id = "tp_cairne", text = "High Chieftain Cairne sent me here to learn what is poisoning the land, and I will not go home until I can tell him. He is the wisest of us, and the most patient, which is why I try not to keep him waiting." } },
     _none = { { id = "tp_none", text = "I don't know, friend, but the land might. Listen to it a while, and walk with the Earth Mother." } },
   },
 }
@@ -1077,6 +1105,15 @@ P:NPC {
 
   topics = {
     wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into the water? Terrible, of course, but quite fascinating." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "We are the Forsaken, and we are free of the Lich King's voice, whatever the living whisper. The Dark Lady gave us back our minds, and the Society means to give us back a great deal more." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "Ah, a fellow citizen of the Undercity. Do mind the Crossroads folk, who still flinch, and do mind my samples, which are not for drinking." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "Our queen, the Banshee Queen, who walked out of the Scourge and took us with her. I serve her through the Society, and I find that I do not mind serving at all." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took my body and my name, and the Society is finding out how it did so. Study is a kind of revenge, if you are patient enough." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief offered us a place in his Horde when no living people would. He is generous, and I am grateful, and gratitude is a rare thing among the dead." } },
+    razorfen = { { id = "tp_razorfen", text = "There is a lich in Razorfen Downs, I am told, Amnennar the Coldbringer, who has made friends of the quilboar there. I would very much like a sample of whatever he is using." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron is a dead kingdom with dead people in it, and we are what is left. Undercity sits beneath the old capital, and we are rebuilding it in our own way." } },
     _none = { { id = "tp_none", text = "Not my field. Bring me a sample, preferably no longer twitching, and I'll make it my field." } },
   },
 }
@@ -1248,6 +1285,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "If it doesn't bleed, I'm not interested, and in the Barrens nearly everything bleeds." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief? Good orc, strong arm, and I'm told he's never once tried to make me cheaper. That's leadership." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's a clever troll, and he knows talent when he sees it, which is why he trusts the Darkspear with the hard work. Don't tell him I said he was clever." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins down on the coast who think they're the only ones who know how to make coin. They're wrong, and I'm the proof." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar camps out west, and they hire nobody and trust nobody, which is no way to run a business. I've patched up more than a few grunts after a Kolkar spear, and I charged them fair." } },
   },
 }
 
@@ -1403,6 +1444,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Don't know, friend. I know meat, so ask me about meat, grunt." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins buy my meat to ship to Booty Bay, or so they tell me, and I sell it to them because their coin spends the same. I don't ask what they charge for it after." } },
+    quilboar = { { id = "tp_quilboar", text = "Quilboar meat is tough and smells worse than it tastes, but it's cheap, because the Razormane bring themselves right to our walls. You'd be surprised how many grunts come back for seconds." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief came through the Crossroads once and ate my ribs, and he said they were good. I've not stopped telling people since." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar hunt the same zhevra I do, and we don't share. Bring me a centaur's catch and I'll at least cook it properly." } },
   },
 }
 
@@ -1583,5 +1628,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Ask Tonga, by the inn. He knows the Barrens better than anyone, and he listens to the grass as I never learned to." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave the tauren friendship when we needed it most, and so I give his people my best beds. That seems a fair trade to me." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest of us, and I mean that kindly, not in fear. He led us out of the wandering and onto the high mesas, and I would have walked further if he'd asked." } },
+    earth_mother = { { id = "tp_earth_mother", text = "She is the sky and the earth, and she sees every guest who passes through this inn. I like to think she approves of the stew." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided us when we wandered, and they raid us still, though less often since the Horde came. Travellers come in with their stories, and I keep a bowl ready for anyone who runs into the Kolkar." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire comes to Mulgore sometimes, with its lights and strange folk, and every guest that season talks about it until I could tell the stories myself. I have never been, but I keep meaning to." } },
   },
 }

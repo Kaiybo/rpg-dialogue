@@ -168,6 +168,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tharg is Stonemaul. Tharg had a home and a wife, and the black dragons took both, so now Tharg is old and angry in a wet village." } },
     advice = { { id = "tp_ad", text = "Do not run from what hurts you, because the running never stops after that. Tharg knows." } },
     black_dragonflight = { { id = "tp_black", text = "They burned Tharg's village and took Tharg's wife, and they sit in the south like they own it. Tharg has nothing good to say about black dragons, so Tharg says nothing else." } },
+    onyxia = { { id = "tp_onyxia", text = "Onyxia's whelps burned Tharg's village, and Tharg's wife was inside. Tharg would kill the big black dragon himself if Tharg's knees were young again, and if Tharg had an army." } },
+    thrall = { { id = "tp_thrall", text = "The orc chief let the Stonemaul who lived come to Brackenwall, and Tharg is grateful for it. Tharg's people had nowhere else to go." } },
+    theramore = { { id = "tp_theramore", text = "The humans have big boats and big walls, and they do not come to the south of the marsh where the dragons are. Tharg does not blame them for that." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "Tharg hears the black dragons have a mountain far away, where the dragon's brother sits on top. Too many black dragons in the world, Tharg thinks, far too many." } },
     _none = { { id = "tp_none", text = "Tharg does not know about that. Ask Draz'Zilb, because Draz'Zilb knows everything and says half of it." } },
   },
 }

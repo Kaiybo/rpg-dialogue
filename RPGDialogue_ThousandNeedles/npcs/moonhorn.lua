@@ -100,6 +100,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a brave of Freewind Post, posted to the lift. It isn't glorious, but it's needed." } },
     advice = { { id = "tp_ad", text = "Never stand with your back to a canyon in the Needles. Something's always climbing up it." } },
     grimtotem = { { id = "tp_grim", text = "Tauren who'd rather we weren't here. Watch them, and don't let them get behind you." } },
+    centaur = { { id = "tp_centaur", text = "The Galak raid from the south, and they grow bolder every season. I warn every traveller who comes up the lift, and I hope they listen." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the High Chieftain, and he trusts Freewind to hold the Needles. I mean to prove him right, even if the Grimtotem make it harder." } },
+    razorfen = { { id = "tp_razorfen", text = "The Razorfen Downs lie to the north, and the quilboar there have grown strange and cold. I don't know what has happened to them, and I'd rather not find out." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the Needles tall so that her children could see far. I watch from the top of the lift, and I see more than I'd like." } },
     _none = { { id = "tp_none", text = "I only know the lift and the road, traveler. Ask at Freewind, and may the Earth Mother keep the centaur off your trail." } },
   },
 }

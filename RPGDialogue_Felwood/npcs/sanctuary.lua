@@ -243,6 +243,13 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a druid of the Circle, sent where the land hurts most, and Felwood hurts most.", next = "what" } },
     advice = { { id = "tp_ad", text = "Don't drink from the streams, don't eat the fruit, and don't trust anything that glows green." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle is the Cenarion Circle's hands in Felwood, and our hands are tired, but they're still working." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "The Dream remembers Felwood as it was, green and quiet, and I go there in sleep to remind myself what we're fighting for. Waking up here is the hard part." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You've walked the Dream's edge, then, so you know what this forest is meant to be. Help me make the waking world a little closer to it." },
+    },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs left uncorrupted, and they guard their tunnels like their lives depend on it, which they do. Earn their trust and it's yours for good." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The fel that poisons this forest came from the Legion, and the Shadow Council keeps it fed at Jaedenar. Every spring we cleanse, they foul another." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is just across the gorge on Hyjal, and Felwood was its forest once. I'd like it to be again, before I die." } },
     _none = { { id = "tp_none", text = "I don't know, but the forest might, if you ask it gently, as my people have always asked." } },
   },
 }
@@ -450,6 +457,10 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I'm a daughter of Mulgore who followed the Circle north. Some days I think I'll go home, and then I see one clean spring, and I stay." } },
     advice = { { id = "tp_ad", text = "If something here offers you strength, ask what it wants back. It always wants something back.", next = "tempt" } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother weeps for this forest, and I can hear it in the springs when they're foul. When we cleanse one, she stops weeping, for a little while." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is our wisest chief, and he let me come north with the Circle. I write to my family in Mulgore, and they tell him I'm well." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are gentle when they trust you and fierce when they don't. I brought them salve once, and they've let me pass ever since." } },
+    elune = { { id = "tp_elune", text = "The elves pray to Elune, and I pray to the Earth Mother, and we both look up at the same moon. I think the moon is happy with that." } },
     _none = { { id = "tp_none", text = "That's not something the Circle has spoken of, and the ancestors taught me that it's better to say nothing than something wrong." } },
   },
 }
@@ -688,6 +699,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A tauren of the Emerald Circle, who came to Felwood to heal what she could. I'll leave when it's healed, or when I'm too old to carry the salve." } },
     advice = { { id = "tp_ad", text = "Don't drink from any stream in Felwood, however clear it looks. The poison here is patient, and it doesn't always show itself." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made this forest, and the demons hurt it, and I'm here to heal what I can. She'd want that, and so do I." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a good chief, and he trusts the Circle. I trust him, so here I am." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave my people a place among the Horde, and he honours the Earth Mother. He'd understand why I'm here healing trees instead of fighting." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw let me pass through their tunnels, because I carry salve and not axes. I wish more people did." } },
     _none = { { id = "tp_none", text = "I only know the forest, and only this bit of it. The Earth Mother gave me one patch of ground to tend, and that's enough." } },
   },
 }
@@ -907,6 +922,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "Kaldorei, Emerald Circle, and too stubborn to be told a forest can't be saved." } },
     advice = { { id = "tp_ad", text = "Do one good thing a day here, only one, and then do it again tomorrow, because that's how this works.", next = "harder" } },
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle's in this forest, where few others would come." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows Felwood healthy, every leaf of it, and I refuse to believe that can't be made real. That's why the Circle calls me stubborn." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw kept their minds when the rest of their people fell, and I admire that more than I can say. We work with them where we can." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's fel is in the soil, the water and the trees. I'll pull it out root by root if I have to." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess sends her Sentinels to Ashenvale, but nobody to Felwood. I don't blame her, but I'd like a few more hands." } },
     _none = { { id = "tp_none", text = "That I don't know, though the curse I know, and I have known it since the Legion left it here." } },
   },
 }

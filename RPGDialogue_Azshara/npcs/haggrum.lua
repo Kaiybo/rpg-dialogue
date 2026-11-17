@@ -123,6 +123,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "An orc of Durotar, brother to Ag'tor, survivor of a bad day in the ruins. I'd tell you more, but it's all sad and I'm saving my good stories." } },
     advice = { { id = "tp_ad", text = "Laugh when you can, friend. Azshara will give you plenty of reasons not to." } },
     rimtori = { { id = "tp_rim", text = "The elf who killed my brother's warriors. I don't say her name at the fire, and I'd thank you not to either." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave us Valormok and told us to make something of it, and my brother has. I'd follow Thrall anywhere, and my brother would follow him into the sea." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The elves named this land after their queen, and she drowned with her city. I wonder what kind of queen gets a whole land named for her and still ends up at the bottom of the sea." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elf priestess sends Sentinels to watch us from Talrendis, and they watch very well. I'd watch us too, if I were them." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I went to Booty Bay once, with my brother, before he got serious. We lost all our coin and one of his teeth, and he laughed the whole way home." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Jediga; she knows everything and charges for half of it, which is not the orcish way, but it works for her." } },
   },
 }

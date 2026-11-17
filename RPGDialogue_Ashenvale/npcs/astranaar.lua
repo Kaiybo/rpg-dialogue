@@ -292,6 +292,15 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "They were peaceful once, even wise. Something poisoned them, and I mean to find out what.", next = "furbolgs" } },
     warsong = { { id = "tp_warsong", text = "Their axes are the sound I hate most in this whole forest." } },
     cenarion_circle = { { id = "tp_circle", text = "The druids could help here, if they'd look up from their arguments in Darnassus. A few have, but not nearly enough." } },
+    thrall = { { id = "tp_thrall", text = "Thrall's a better warchief than the ones who burned this forest before him, and I've heard he means well. Meaning well doesn't stop the Warsong saws, so I'll judge him by his axes." } },
+    blackfathom = {
+      { id = "tp_blackfathom", text = "Blackfathom Deeps is on the coast west of here, an old temple of Elune full of nagas and Twilight's Hammer cultists. Korra won't go near the place, and Korra isn't afraid of anything." },
+      { id = "tp_blackfathom2", when = { class = "HUNTER" }, text = "You're a hunter, so take my advice and leave your cat outside Blackfathom if it hates water. Korra does, and I've never heard the end of it." },
+    },
+    green_dragons = { { id = "tp_green_dragons", text = "There's a dragon's grove in the south of Ashenvale, under great trees where the mist never lifts. Lately the beasts there have gone strange, and I keep Korra and Dagri well away." } },
+    centaur = { { id = "tp_centaur", text = "The centaur come up from the Barrens now and then and test our southern edge. They hunt well, and they don't care whose land it is, which I suppose is something we have in common." } },
+    elune = { { id = "tp_elune", text = "I'm a hunter, not a priestess, but I pray to Elune before every long patrol. Korra sits with me, and I like to think she's praying too." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw up in Felwood are what the Thistlefur used to be, before the madness. I'd like our furbolgs back, but I'll settle for keeping them out of Astranaar." } },
     _none = { { id = "tp_none", text = "That's not mine to know. Ask a Sentinel, or ask the trees, if you know how; they remember more than any of us." } },
   },
 }
@@ -479,6 +488,9 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I'm Relara's father. That's all I am at the moment, and I can't remember the last time I slept." } },
     advice = { { id = "tp_ad", text = "Hold on to the people you love while you can. I'm learning that at a bedside." } },
+    elune = { { id = "tp_elune", text = "I've prayed to Elune every night since Relara fell ill, and some mornings I think she's answering. Other mornings I just keep praying." } },
+    holy_light = { { id = "tp_holy_light", text = "Delgren prays to his Light over Relara sometimes, and I let him. I'd let anyone pray over her who wanted to." } },
+    warsong = { { id = "tp_warsong", text = "The orcs cut the forest a day's walk from my door, and I lie awake listening for them. I used to lie awake for other reasons, before Relara got sick." } },
     _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything else right now. Elune forgive me, there is only Relara." } },
   },
 }
@@ -671,6 +683,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm Relara Whitemoon, and I live in Astranaar with Papa, and I'm going to be a Sentinel when I'm better." } },
     advice = { { id = "tp_ad", text = "Always tell your papa when you have a bad dream, because he'll sit with you until morning." } },
+    elune = { { id = "tp_elune", text = "Papa says Elune watches over me at night, so I try to stay awake to see her. I always fall asleep first, but I think she comes anyway." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Somebody told me there's a fair with a carousel and a man who eats fire! When I'm better, I'm going to go and I'm going to eat fire too." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the bravest person in the whole world, and she has a big white tiger. When I'm a Sentinel I'm going to have a tiger even bigger." } },
+    centaur = { { id = "tp_centaur", text = "Are centaur half horse and half person? Papa won't tell me, so I think it must be true and also scary." } },
     _none = { { id = "tp_none", text = "Papa would know. Papa knows everything except how to make the dreams stop." } },
   },
 }
@@ -851,6 +867,10 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the list of who's out on the roads. It's a small job, until someone doesn't come back." } },
     advice = { { id = "tp_ad", text = "Tell someone where you're going before you go, and tell me, if there's no one else." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's off my list, because once someone goes in there, I stop counting days. I count them again when they come back out, if they do." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong hold the east, so I mark every road through it in red. Most of my missing names went east." } },
+    centaur = { { id = "tp_centaur", text = "Centaur on the southern roads, sometimes, coming up from the Barrens. I add a day to any trip that goes that way." } },
+    thrall = { { id = "tp_thrall", text = "Thrall sends his orcs, and I send our scouts, and I keep the list. I'd like a shorter list." } },
     _none = { { id = "tp_none", text = "Raene would know; she knows everything that moves in this forest, and Elune tells her the rest." } },
   },
 }
@@ -1041,6 +1061,10 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the inn on the island. There's not much more to me than a warm bed and a full pot." } },
     advice = { { id = "tp_ad", text = "Sleep when you can and eat when you can, because Ashenvale gives you fewer chances than you'd think." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Sentinels on leave sometimes talk about sneaking off to the Darkmoon Faire. I tell them to sleep instead, and they never listen." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's soldiers come through on their way to the coast now and then. They eat like bears and sleep like stones, and they always leave a coin for the pot." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've nursed more than one scout back from Blackfathom in my beds upstairs. They don't talk much about it, and I don't ask." } },
+    elune = { { id = "tp_elune", text = "Elune's moon shines on the lake right outside my door, and on clear nights the whole island glows. It's the best thing I can offer anyone, and it costs me nothing." } },
     _none = { { id = "tp_none", text = "Ask Raene, outside. She'll know, or she'll find out, as the Sentinels always do." } },
   },
 }
@@ -1238,6 +1262,18 @@ P:NPC {
       { id = "tp_strandnext", text = "The cult at the Tower of Althalaxx. Ask, and I'll tell you what I know.", next = "strand" },
       { id = "tp_strand", text = "Warlocks who think demons will keep their bargains. They're always wrong about that." },
     },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light brought me across the sea to stand with allies who never asked for it, and it's served me well here. The Sentinels pray to their moon and I pray to my Light, and we both pray for the same things." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You walk the Light too, so you'll know the strength it gives when you're far from home. Lean on it, and lean on the elves as well; they're braver than they let on." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was broken when Lordaeron fell, but its oaths weren't. My company holds to them, though we answer to Stormwind now and not to Uther." } },
+    scourge = { { id = "tp_scourge", text = "My company was formed to fight the dead, and we came here because the Legion's taint brings them in its shadow. I've seen what they did to Lordaeron, and I'll not let it happen to this forest." } },
+    thrall = {
+      { id = "tp_thrall", text = "I learned Orcish, over my superiors' frowns, and I've spoken with orcs who honour Thrall with their whole hearts. That doesn't stop the Warsong, but it reminds me there are people under the war paint." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "I speak your tongue, and I respect your warchief more than my superiors would like. Your Warsong still need to leave this forest alone." },
+    },
+    stratholme = { { id = "tp_stratholme", text = "The paladins who were at Stratholme don't speak of it, and the dead hold the city still. I'd rather not say more, if it's all the same to you." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar commands Stormwind's armies while the king is missing. He's a good paladin and a better man, and I'm proud to answer to him." } },
     _none = { { id = "tp_none", text = "I don't know, friend, but I'll pray on it, and that's a start." } },
   },
 }

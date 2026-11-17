@@ -208,6 +208,24 @@ P:NPC {
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because the Dark Lady expects it of me. Do not mistake that for a welcome." },
     },
     scarlet_crusade = { { id = "tp_crusade", text = "Every Crusader we kill is one fewer torch at our door. I keep count." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge does not tire and does not despair, and neither does the Deathguard, which is the only reason we can hold this land. Every mindless corpse we put down in Tirisfal was a neighbor of ours once, and we remember that while we do it." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You wore their chains for a time, as we all did. Use that, because you know how they move, and they no longer know how you do." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "We are the Dark Lady's people, freed from the Lich King's will and owing nothing to anyone else. The living call us monsters, and some of us have earned the name, and I don't lose sleep over either part, since I don't sleep." } },
+    sylvanas = {
+      { id = "tp_sylvanas", text = "The Dark Lady broke the Lich King's hold on us and gave us a city and a purpose, and she asks only loyalty in return. I give it to her without reservation." },
+      { id = "tp_sylvanas2", when = { disposition = { min = 65 } }, text = "She is harder than any commander I served in life, and I've known a few cruel ones, but she has never once wasted the lives of her soldiers. That counts for a great deal with me." },
+    },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief offered the Forsaken a place in his Horde when no one else would have us at their table. I respect the bargain, and I'll keep my side of it, whatever the orcs think of our smell." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your Warchief's people fight well beside mine, though they make the sign of their spirits when they think we aren't looking. Tell him the Deathguard keeps its word." },
+    },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a man of Dalaran who sold his own kingdom to the Scourge, and now he rules it from a floating necropolis over the east. When the Dark Lady turns her armies there, I mean to be at the front." } },
+    arthas = { { id = "tp_arthas", text = "He is the prince who murdered his own father and gave Lordaeron to the plague. Every Forsaken in Tirisfal has a reason to want him dead, and the Dark Lady has more reasons than any of us." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The kingdom died, and its capital is a ruin above our heads. What lives beneath that ruin now belongs to the Dark Lady, and we will not hand it back to anyone." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the Scourge in the east and asks fewer questions about our flesh than I expected. I don't trust them, but I don't need to, as long as they keep killing the same enemy." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is where the prince put his own people to the sword, and the Scourge holds the city still. The Crusade squabbles with the dead for its streets, which suits me, since every one of them that dies there is one I won't meet in Tirisfal." } },
     _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
   },
 }
@@ -374,6 +392,11 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "That's Zygand's department. I sign the orders, and he carries them out with alarming enthusiasm." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are citizens of a nation now, with laws and a magistrate and all the dull business that keeps a town from falling down. You would be surprised how much of the Dark Lady's war is paperwork." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Brill was a market town of Lordaeron, with fairs in the autumn and quarrels over boundary stones. We took it back from the mindless dead, and I mean to make it a proper town again, even if it's a colder one." } },
+    scourge = { { id = "tp_scourge", text = "When I came back to Brill, the Scourge's mindless filled every house and the inn, and we cleared them room by room. I keep the ledger of what we lost in my desk, and I don't care to open it often." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady appointed me, and she reads my reports, which is more than any magistrate in Lordaeron could say of King Terenas. I'd rather not disappoint her." } },
+    thrall = { { id = "tp_thrall", text = "The orcish Warchief is an ally, by the Dark Lady's arrangement, and his envoys pass through Brill on their way to the zeppelin tower. They're polite enough, and they don't linger." } },
     _none = { { id = "tp_none", text = "That's not a matter for the town hall." } },
   },
 }
@@ -535,6 +558,11 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "We are a people with a great deal of work still to do, and very little patience left for the living who stand in our way. The Royal Apothecary Society is doing its part." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is a crude and clumsy thing, and the Society means to make something better, purely for use against the Scourge, of course. I'll say no more than that, because Master Faranell prefers discretion." } },
+    new_plague = { { id = "tp_new_plague", text = "Oh, it's coming along very nicely, and it's all in the service of the Dark Lady's war on the Scourge. Bring me the reagents I ask for, and don't stand quite so close to the green ones." } },
+    stratholme = { { id = "tp_stratholme", text = "The plague first spread through the grain at Stratholme, carried in by the Cult of the Damned. From an alchemical point of view it was remarkably efficient, and I hope you'll forgive me for saying so." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's alchemists never shared their notes with anyone outside their towers. Now their city is rebuilding and still won't open its gates, so I expect nothing has changed." } },
     _none = { { id = "tp_none", text = "Unless it can be distilled, I've no interest." } },
   },
 }
@@ -683,6 +711,11 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "I'm Forsaken, if you like, though I'd say I was forgotten first and then forsaken afterwards. The Dark Lady at least remembered we existed, which is more than the Agamands did." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I worked the Agamand mills when Lordaeron still bought flour, and the old family sat up on the hill and counted sacks. When the plague came they told us to stand and defend their mill, so we did, and here we are." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge got into the grain long before it got into us. You didn't see it coming because it came in the bread, and that's the wickedest thing I ever heard of." } },
+    arthas = { { id = "tp_arthas", text = "My cousin served in the prince's company when it went north to Stratholme, and he wrote home that the prince had gone strange. We laughed, because we thought princes were always strange." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady keeps her word to her people, and I'll grant her that much freely. I could name a noble family on a hill above Brill that never did." } },
     _none = { { id = "tp_none", text = "I don't know, friend, but ask me about the Agamands; that I could talk about all night." } },
   },
 }
@@ -839,6 +872,11 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "Being Forsaken means you can't feel the fire, dear, but you can still sit by it and remember. I find that's most of what any of us do in here." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I was a farmer's wife outside Brill, and we had a good, plain, cold-handed life. I'd give anything to feel that cold again, and that's the silly truth of it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took our village in a single week, and I don't remember much of the week, which is a mercy I suppose. Leave it there, dear." } },
+    sylvanas = { { id = "tp_sylvanas", text = "She saved us from being nothing at all, and I'm grateful for it. I just wish she'd also found a way to keep us warm." } },
+    everlook = { { id = "tp_everlook", text = "I've heard there's a goblin town up in the snow where folk have to bundle up against the cold. Imagine having the luxury of shivering." } },
     _none = { { id = "tp_none", text = "Couldn't say, dear. Ask Renee; she listens to everyone." } },
   },
 }
@@ -991,6 +1029,11 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "I know them better than I'd like. Let's leave it there, love." } },
+    forsaken = { { id = "tp_forsaken", text = "Most of my regulars are Forsaken, love, and they're the best customers I've ever had, since they don't fall over drunk or start fights about the bill. They just sit and remember, and I let them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came through here before my time behind this bar. My guests talk about it some nights, quiet-like, and I don't make them stop." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady's people run Brill, and they run it fairly enough. I keep my head down and my glasses clean, and nobody bothers me." } },
+    thrall = { { id = "tp_thrall", text = "Orcs come through on their way off the zeppelins, all big shoulders and good manners, and they tip better than you'd think. I like them, if you want to know." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I hear the drinking in Booty Bay is rough and the bouncers are rougher. I'd sooner a quiet tavern full of dead men than a loud one full of pirates." } },
     _none = { { id = "tp_none", text = "I hear everything in this tavern, love, and the dead gossip worse than the living ever did, but not that." } },
   },
 }
@@ -1162,6 +1205,10 @@ P:NPC {
 
   topics = {
     camping = { { id = "tp_camping", text = "A fire first, then whatever your trade can add to it, whether you cook, work leather or fish. A camp is everyone's work." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I knew Lordaeron when it was green and the roads were safe for a woman walking alone. They aren't now, and that's why I teach people to build a fire properly." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge doesn't fear much, but it doesn't care for a good fire either. Keep one lit and keep your back to something solid, and you'll see more mornings than most." } },
+    forsaken = { { id = "tp_forsaken", text = "I don't mind the Forsaken, so long as they don't mind me. We've reached an understanding here in Brill, and I won't spoil it by asking too many questions." } },
+    scarlet_monastery = { { id = "tp_scarlet_monastery", text = "I've seen the Monastery from the road, all banners and bells, and I've no wish to see it any closer. I've told you already, I'm not one of them." } },
     _none = { { id = "tp_none", text = "I'm only passing through. Ask someone who lives here, if that's the word." } },
   },
 }

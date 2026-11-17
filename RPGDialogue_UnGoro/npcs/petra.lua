@@ -99,6 +99,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "An orc who traded the axe for a kodo's lead rope. I haven't regretted it once, not even in Un'Goro." } },
     advice = { { id = "tp_ad", text = "Look after your animals before yourself; they'll carry you when you can't carry on." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief walks among his people like any other orc, and I've seen him scratch a kodo behind the ears himself. Dadanga would have liked him." } },
+    cairne = { { id = "tp_cairne", text = "The tauren taught my people to keep kodos, and Cairne's people raise the finest in Kalimdor. Dadanga came from a Mulgore herd, and she has their patience." } },
+    earth_mother = { { id = "tp_earth_mother", text = "I'm no tauren, but I've come to think the Earth Mother watches over beasts of burden. Dadanga has never once been hurt on the road." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan want to buy Dadanga for meat, every time we pass through. I tell them she's worth more than their whole town, and I mean it." } },
     _none = { { id = "tp_none", text = "I couldn't say. Ask Williden, he's the one with the books; orcs of my clan learned from the land, not from paper." } },
   },
 }

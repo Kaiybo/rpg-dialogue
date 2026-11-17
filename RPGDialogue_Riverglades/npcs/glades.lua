@@ -123,6 +123,9 @@ P:NPC {
   topics = {
     brotherhood_horse = { { id = "tp_bh", text = "Best riders in the east, and the most stubborn. Tell them I kept the oath, right to the end." } },
     twilights_hammer = { { id = "tp_th", text = "There are more of them than anyone at Farholde wants to believe. It's all in the log, every wagon of it." } },
+    holy_light = { { id = "tp_holy_light", text = "Light keep me. I'm too far gone for prayers to mend, but say one for Abigail, if you would." } },
+    bolvar = { { id = "tp_bolvar", text = "Tell Stormwind the Marshal held his post. Tell them that, and tell Abigail I'm sorry." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy in the old war, and I swore I'd never let the glades fall again. I held them as long as I could." } },
     _none = { { id = "tp_none", text = "I don't know, and I won't be finding out now. Ask Demar." } },
   },
 }
@@ -236,6 +239,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Born with nothin' but ideas, and I've still got most of the ideas, chum. The money's comin', any day now, and when it does, I'll remember who bottled the gas." } },
     advice = { { id = "tp_ad", text = "Never tell anybody how it works until they've paid, chum. After they've paid, tell 'em it's under warranty." } },
     powderfuse_port = { { id = "tp_port", text = "Melbin's port, if you ask Melbin, and I don't, chum. I sell to anybody who comes by boat, and most of 'em don't ask questions." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of engineers who think they know fuel, pal, and none of them have even heard of marsh gas. When my engine runs, they'll come crawling to me for a license." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company would steal my design in a heartbeat, which is why I'm not telling anybody how it works. Nobody, not even you, especially not you." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's always looking for the next big thing, and I'm it. Marsh gas, pal, remember where you heard it first." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay runs on coal and rum, and both are going to be obsolete when my engine's done. Mark my words." } },
     _none = { { id = "tp_none", text = "Is that somethin' I can sell? No? Then I don't know about it, chum." } },
   },
 }
@@ -346,6 +353,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Gadgetzan born, ring-raised, kid. I've promoted fights between things you wouldn't believe, and I sold out every one, even the one that blew up the stands." } },
     advice = { { id = "tp_ad", text = "Never fight for free, kid. The war out here's the worst-paid job in Azeroth, and I've seen the books." } },
     powderfuse_port = { { id = "tp_port", text = "Nice port, small arena, smaller crowds. Cheapshot's got a lot to learn about crowds, kid, and I'm not givin' lessons for free." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's the best show in the world, pal, blood and gold and screaming crowds. I want to bring that kind of excitement to the Riverglades, and the war here's already half the show." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's where I got my start, promoting fights in the dust for anybody with a coin to bet. Good town, great customers." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's crowds love a good brawl, and they pay through the nose for a ringside seat. The Riverglades could be just as profitable, with the right management." } },
+    thrall = { { id = "tp_thrall", text = "The Horde's got some fine fighters, and the orcs especially put on a good show. I'd love to get a few of them in the ring, for the right price." } },
     _none = { { id = "tp_none", text = "Does it sell tickets? No? Then I can't help you, kid." } },
   },
 }

@@ -222,6 +222,10 @@ P:NPC {
     defias = { { id = "tp_defias", text = "Dreadful people with excellent taste in fabric. Life's complicated like that." } },
     eastvale = { { id = "tp_eastvale", text = "Sawdust in everything. My thread, my bread, my hair." } },
     _none = { { id = "tp_none", text = "Can I sew it? If not, I've no opinion on it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's costumes are the best stitching I see all year, and I've begged their seamstress for her patterns twice. She says they're a family secret, which means she stole them." } },
+    stonemasons = { { id = "tp_stonemasons", text = "Those red bandanas I buy off adventurers came off stonemasons' sons, I'd wager, and that's a waste of good hands. Cutting stone or cutting purses, it's the same pair of hands either way." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron silk used to come down the roads every spring, and now it doesn't come at all. I miss the silk and I'm sorry for the people, and some days not in that order, which I'm not proud of." } },
+    prestor = { { id = "tp_prestor", text = "Every lady at court wears whatever Lady Prestor wore the week before, so I watch her gowns closer than the guards do. She favours black, which is very hard to sell to a logger's wife." } },
   },
 }
 
@@ -457,5 +461,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry water, more than you think you'll need, and then a bit more." } },
     maybell_tommy = { { id = "tp_lovers", text = "I see things from the vines. I don't say things. That's how a vine-hand keeps his job." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. Have you got any water?" } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I'd like to go to the Faire when it's at Goldshire, but the Maclures don't stop picking for jugglers. Maybe when I'm old and they've stopped needing me." } },
+    holy_light = { { id = "tp_holy_light", text = "I say my prayers to the Light at night, and I ask for rain and fewer kobolds. Some years I get one of the two, and I'm grateful for it." } },
+    varian = { { id = "tp_varian", text = "I don't know much about kings, but a vine-hand knows when the master's away, because everybody gets slack. The roads feel like that to me now." } },
   },
 }

@@ -273,6 +273,11 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias have dug themselves in under Moonbrook like grubs in a turnip, and I'd plough the whole hill over if I had the horses. Instead I've got scarecrows that walk, and they're on the wrong side." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light the way I plough, which is straight and early and without complaining. It hasn't sent me rain in two summers, but it hasn't let me leave either." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Salma made me take her to the Darkmoon Faire once, and I spent the whole day worrying about the cows. She says I'm the only man alive who's been bored at a faire, and she may be right." } },
+    second_war = { { id = "tp_second_war", text = "I kept this farm through the Second War, when the orcs came close enough that we could see their fires. I'll keep it through the Defias as well, and I'll keep it after, if the Light permits." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The masons that went bad were once honest men, and I fed a few of them myself when they came through looking for work. I'd not feed them now, and that's a sorrow I didn't ask for." } },
     knows = {
       { id = "tp_knows", text = "I've farmed this land all my life, and there's not much happens on it I don't hear about. Ask me about any of this." },
     },

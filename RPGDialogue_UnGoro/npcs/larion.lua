@@ -116,6 +116,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A dwarf of the Marshal Expedition, an expert with a map and a hammer, and partner to the most stubborn human alive." } },
     advice = { { id = "tp_ad", text = "Never take a shortcut that a human recommends, and never let anyone else carry the map." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of goblins sellin' fertilizer that'd kill a weed and the garden with it. I make my own, and I don't tell Muigin what's in it." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine king, aye, and he'd never get lost in a crater. Unlike some people I could name, but won't, because I'm not speakin' to him." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League's always wantin' to dig things up, and I'm always wantin' to stop things comin' up out of my garden. We'd not get along." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron are a blight on the dwarven name, and I'd sooner have Muigin's pests than one of them in my garden. That's sayin' something." } },
     _none = { { id = "tp_none", text = "No idea. Ask Muigin, he thinks he knows everything." } },
   },
 }

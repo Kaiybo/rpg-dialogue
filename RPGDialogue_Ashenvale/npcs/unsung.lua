@@ -180,6 +180,9 @@ P:NPC {
     warsong = { { id = "tp_ws", text = "The Warsong watch the eastern road now. My carts go north and around." } },
     background = { { id = "tp_bg", text = "I keep the general goods in Astranaar. I've done it since before the orcs came to the forest." } },
     advice = { { id = "tp_ad", text = "Keep enough food for two days, even on a short trip. The roads here get closed without warning." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief seems a reasonable sort, from the stories. I'd like him a good deal more if his Warsong stopped cutting my neighbours' trees." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells trinkets that fall apart by the time you get home. I sell honest supplies that don't, and I still sell less." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Folk heading to Blackfathom buy rope, torches and extra bread. I've stopped asking what they need the rope for." } },
     _none = { { id = "tp_none", text = "Can't say I know. Ask Sentinel Thenysil; she hears everything, and has for longer than I've kept this shop." } },
   },
 }
@@ -362,6 +365,9 @@ P:NPC {
   topics = {
     warsong = { { id = "tp_ws", text = "The Warsong cut our trees and kill our Sentinels. Every blade I sell is meant for them." } },
     background = { { id = "tp_bg", text = "I sell weapons in Astranaar. I've lost friends to the orcs, and that's all I'll say about it." } },
+    thrall = { { id = "tp_thrall", text = "Thrall's orcs killed my brother at the lumber camps. I've nothing more to say about the warchief than that." } },
+    blackfathom = { { id = "tp_blackfathom", text = "If you're going into Blackfathom, buy a short blade. Long ones catch on the walls, and the nagas are faster than they look." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "There's an arena in Stranglethorn for people who like to fight for coin. I prefer to sell to people who fight for a reason." } },
     _none = { { id = "tp_none", text = "I don't know, and I've more urgent things to think about, with the Warsong camped on our eastern edge." } },
   },
 }
@@ -542,6 +548,9 @@ P:NPC {
   topics = {
     satyrs = { { id = "tp_sat", text = "They come out of the dark woods at night. I lock my door and don't look out the window." } },
     background = { { id = "tp_bg", text = "I sell cloth armor in Astranaar. I used to sew for festivals; now I sew for soldiers." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I used to sew costumes for festivals, and I'd love to sew for the Darkmoon Faire. Their colours are wild, I'm told, and nobody's ever asked them to tone it down." } },
+    elune = { { id = "tp_elune", text = "I sewed robes for Elune's festivals before the war came to Ashenvale. Now I sew padding for Sentinels, which is a prayer of a kind." } },
+    theramore = { { id = "tp_theramore", text = "Theramore cloth is heavy and plain, and very sensible. I'd make something lovelier, but nobody asks." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Perhaps Innkeeper Kimlya could tell you, for she hears all of Astranaar's news." } },
   },
 }
@@ -723,6 +732,9 @@ P:NPC {
     sentinels = { { id = "tp_sent", text = "They guard the bridges day and night. I make sure they eat something while they do it." } },
     background = { { id = "tp_bg", text = "I sell food and drink in Astranaar. I've fed more Sentinels than I can count." } },
     advice = { { id = "tp_ad", text = "Eat before a fight, not after. You'll fight better, and you might not get the chance afterwards." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells sweets that'd make any Sentinel forget her post. I'm glad it never comes this far into the forest." } },
+    theramore = { { id = "tp_theramore", text = "Theramore soldiers passing through always want something hot and heavy. I make them a stew, and they look at me like I've saved their lives." } },
+    elune = { { id = "tp_elune", text = "I say a little prayer to Elune over every pot. I can't swear it makes it taste better, but nobody's complained." } },
     _none = { { id = "tp_none", text = "I wouldn't know, friend. Have some bread and ask Haljan." } },
   },
 }

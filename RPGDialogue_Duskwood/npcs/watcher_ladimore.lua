@@ -124,5 +124,8 @@ P:NPC {
       { id = "tp_ladimore2", text = "You'll hear a dozen tellings of it in this town. Mine's the shortest, and I'll keep it that way." },
     },
     _none = { { id = "tp_none", text = "I couldn't say. Ask the Commander, or Sirra, if you can stand a long answer." } },
+    raven_hill = { { id = "tp_raven_hill", text = "My father's grave is at Raven Hill, and I visit when the dead are quiet, which isn't often. I talk to him there, which I should have done more when he was alive." } },
+    holy_light = { { id = "tp_holy_light", text = "My father kept the Light all his life, through the war and after, and I still keep his prayer book by my bed. I'm trying to believe enough for both of us now." } },
+    dark_riders = { { id = "tp_dark_riders", text = "My watch hears word of them on the roads, and I report it, and nothing changes. I'll keep reporting until something does." } },
   },
 }

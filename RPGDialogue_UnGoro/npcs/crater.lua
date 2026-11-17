@@ -168,7 +168,13 @@ P:NPC {
       choices = { { text = "Keep going. Discovery is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Pull out before you lose anyone else.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, and I don't think the crater does either." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's our lifeline, for water and powder and bandages, and the goblins know it, so they charge accordingly. My brother pays without blinking, and I blink for both of us." } },
+    silithid = { { id = "tp_silithid", text = "The bugs from Silithus have started crawling up out of the crater's southern edge, and I don't like it one bit. They didn't used to come this far north." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League would kill for half the bones we've dug up, and some of them have tried, in a manner of speaking. My brother keeps the best ones for himself." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I bought my first rifle in Booty Bay, from a goblin who swore it'd never misfire. It misfired twice the first week, and I've kept it twenty years anyway." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't think the crater does either." } },
+  },
 }
 
 P:NPC {
@@ -335,7 +341,13 @@ P:NPC {
       choices = { { text = "The hunt is part of the balance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Some beasts should be left to live.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That is not something the trails have taught me." } } },
+  topics = {
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is young here, I think, younger than anywhere else in the world, and her beasts are older. That is the strangeness of this crater." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great hunter, and he would understand why I chase Lar'korwi. Some prey is worth a lifetime of tracking." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people fight beside mine, and I am grateful, but there is no Warchief in Un'Goro. Here the beasts rule, and we only visit." } },
+    silithid = { { id = "tp_silithid", text = "The silithid are crawling north out of the desert, and they do not belong here. The Earth Mother does not weep for them." } },
+    _none = { { id = "tp_none", text = "That is not something the trails have taught me." } },
+  },
 }
 
 P:NPC {
@@ -492,7 +504,13 @@ P:NPC {
       choices = { { text = "Understanding is a form of respect.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Leave the crater's plants in peace.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, but it probably grows somewhere in the crater!" } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan want to buy my bloodpetals and grind them into potions, and I won't sell. They're friends, not ingredients." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I've heard the green dragons tend gardens in the Dream, great endless ones, and I'd give anything to see a single bed of them. I wonder what they'd make of my sprouts." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is the world as it was meant to be, all green and growing. Un'Goro is the closest I've ever been to it, I think, and I've been everywhere." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League go about digging up old bones, and I go about planting new things, and I think mine is the nicer job. Larion would disagree, but Larion disagrees with everything." } },
+    _none = { { id = "tp_none", text = "I don't know, but it probably grows somewhere in the crater!" } },
+  },
 }
 
 P:NPC {
@@ -637,7 +655,12 @@ P:NPC {
       choices = { { text = "Rules exist for good reason. Follow them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Sometimes you have to take your own path.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, buddy, I'm too tired to think about it." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got water, cold water, buddy, and I'd sell my mother's ledger for a single glass right now. I'm kidding, I'd sell it for half a glass." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel will hear about this, the whole expedition, the lack of maps, the lack of water, the dinosaurs! I'm filing a complaint as soon as I can hold a pen." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got sea breezes and shade and no dinosaurs, which I appreciate more now than I ever did when I lived there." } },
+    _none = { { id = "tp_none", text = "I don't know, buddy, I'm too tired to think about it." } },
+  },
 }
 
 P:NPC {
@@ -801,5 +824,11 @@ P:NPC {
       choices = { { text = "Nature shouldn't be for sale.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Profit is how anything gets done.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, friend, but if it's wet and warm, I bet I can bottle it." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan'll buy anything that comes out of these springs, pal, minerals, water, crystals, even the steam if I could bottle it. I'm working on the steam." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel takes its cut off the top, and I take my cut off what's left, and the springs take my eyebrows off whenever I'm careless. It all balances out." } },
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay they'd pay a fortune for a hot bath, buddy, and here I've got a whole crater full of 'em. Shipping's the problem, I'm still workin' on the shipping." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company tried to set up shop in here once and got trampled by a devilsaur, from what I hear. Can't say I'm sorry, more springs for me." } },
+    _none = { { id = "tp_none", text = "No idea, friend, but if it's wet and warm, I bet I can bottle it." } },
+  },
 }

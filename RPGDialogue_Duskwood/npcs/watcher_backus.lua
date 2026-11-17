@@ -105,5 +105,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stand still in Duskwood after dark. Something always notices." } },
     defias = { { id = "tp_defias", text = "They pass through here from Westfall more often than the council knows.", next = "road" } },
     _none = { { id = "tp_none", text = "Couldn't say, and wouldn't if I could. Ask in Darkshire." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill's on the far side of my road, and some nights I can hear the bell from my post. I stay on the road and let it ring." } },
+    dark_riders = { { id = "tp_dark_riders", text = "I've seen them pass twice on the road to the manor, and both times I stood very still and let them go. A watcher who lives is worth more than a brave one who doesn't." } },
+    scourge = { { id = "tp_scourge", text = "If the dead in the north are anything like ours, I'm glad I'm not up there. I'm not sure I'd be glad to be anywhere else, either." } },
   },
 }

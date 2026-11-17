@@ -212,6 +212,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was born in Southshore and I've never wanted to leave. There's no fish in Stormwind half as good as ours." } },
     advice = { { id = "tp_ad", text = "Keep your line dry when you're not using it, love, and it'll keep you fed for years." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got hooks that'll catch anything, and line that'll hold a shark, so the sailors say. I'd sell them here, if I could get them up the coast." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead up the hill don't fish, which is a pity, since they've got all the patience in the world for it. Donald says I shouldn't joke about them, and I tell him I'm not joking." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet sends hooks up the coast now and then, and they rust in a week, because that's goblin goods for you." } },
     _none = { { id = "tp_none", text = "That's not something they talk about on the docks, dear. Ask the loremaster; he knows all sorts." } },
   },
 }
@@ -400,6 +403,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I studied under an alchemist in Lordaeron, before the plague, and came south when the north went bad. I didn't think it would follow me here." } },
     advice = { { id = "tp_ad", text = "Never drink anything you didn't see bottled, friend. Not in Hillsbrad, not anymore." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are brewing something up the hill, and I'd give a great deal to know what. Every vial I sell is a vial that might save someone from it." } },
+    scourge = { { id = "tp_scourge", text = "The plague came from somewhere, and someone brewed it, and I think about that every day. I read every label twice, and I still can't sleep." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a mage of Dalaran before he turned necromancer, and he brewed the plague himself, or so the tales say. I read everything I can find on him, and it never helps me sleep." } },
     _none = { { id = "tp_none", text = "I'm sorry, friend, I wouldn't know. I keep to my shelves and my labels." } },
   },
 }
@@ -597,6 +603,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I took over the shop when the last keeper went north and never came back. I've done my best to keep it running ever since." } },
     advice = { { id = "tp_ad", text = "Buy your thread before a battle, not after. Afterwards, everyone needs it." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead up the hill don't buy thread or dye, so I've no idea what they're working on. I wish I did, and I'm glad I don't." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys dye by the barrel for its banners, and I sold them a cartload once. They paid in Darkmoon tickets, and I've still got most of them." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys fine silk from the south, and I'd love to see it. Pirates dress better than you'd think, I'm told." } },
     _none = { { id = "tp_none", text = "Not my trade, friend. Ask Loremaster Dibbs; he'll tell you more than you wanted to know." } },
   },
 }
@@ -822,6 +831,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came north from Booty Bay with a cart and a plan, and the cart blew up outside Refuge Pointe, but the plan's workin' beautifully." } },
     advice = { { id = "tp_ad", text = "Never travel the hills alone, friend, 'cause the bears up there don't haggle, and they don't pay either." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead are fine customers, pal, since they never haggle about the price of food and they never ask what's in the vials. I'd sell them sunlight if I could bottle it, and believe me, I've tried." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best market in the world, friend, and I'd be there now if the overhead weren't murder. Out here my rent's nothing and my robots are paid in oil, so you do the math." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got cousins of mine on every corner, and every one of 'em owes me money. Tell 'em Zixil says hello, and that the interest's still running." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's orcs buy good, and they pay in gold, which is all I ask of any warchief. Southshore's lot pay in gold too, so I don't see what the fuss is about." } },
     _none = { { id = "tp_none", text = "Don't know it, can't sell it, so I ain't interested. Next question, customer, and make it a profitable one!" } },
   },
 }

@@ -178,6 +178,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I grew up in Menethil, back when it was Lordaeron's harbor, and I've never wanted to leave it, damp and all." } },
     advice = { { id = "tp_ad", text = "Never feed a gryphon fish. They'll want it every day after." } },
     _none = { { id = "tp_none", text = "I can't help you with that, I'm afraid. Ask at the inn; Helbrek hears everything." } },
+    lordaeron = { { id = "tp_lordaeron", text = "When I was a girl, Menethil was Lordaeron's harbor and King Terenas's ships came in every week. Now the northern horizon is empty, and I try not to look at it." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer trained my first gryphons, and they still won't let me forget that I flinched on my first flight. Dwarves have long memories." } },
+    theramore = { { id = "tp_theramore", text = "I send letters and parcels down to the docks for the Theramore boat every day. Folk over there want news of home, and so do we." } },
+    scourge = { { id = "tp_scourge", text = "The gryphons won't fly north over the water anymore; they balk at the shoreline. I don't make them, because they know something I don't." } },
   },
 }
 
@@ -357,6 +361,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I made guns in the Great Forge for twenty years before the garrison here asked for a gunsmith, an' I've regretted sayin' yes every rainy day since." } },
     advice = { { id = "tp_ad", text = "Keep yer powder dry. It's the only advice that matters here." } },
     _none = { { id = "tp_none", text = "I don't know anythin' about that, an' I'm too wet tae care." } },
+    magni = { { id = "tp_magni", text = "I made guns in the Great Forge while King Magni walked the floor, an' once he picked one o' mine up an' fired it intae the roof. Said it was a fine piece, an' the roof disagreed." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Iron powder is the best in the world, an' I hate that. I've seen what they do wi' it at Dun Modr." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer throw hammers instead o' shootin', which shows a lack o' imagination, if ye ask me. Mind, they hit what they throw at." } },
   },
 }
 
@@ -536,6 +543,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I came from Stormwind to Menethil to sell rope, and I never left, though I meant to." } },
     advice = { { id = "tp_ad", text = "Seal everything in this town. Bread, powder, letters, the lot." } },
     _none = { { id = "tp_none", text = "Can't say I know about that. Try Helbrek at the inn." } },
+    theramore = { { id = "tp_theramore", text = "Half my rope goes to Theramore on the boat, because Lady Jaina's building and building needs rope. I'd raise my prices, but I like her." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I tried selling rope in Booty Bay once, and by the end of the week the goblins had sold me back my own rope. I came home." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I sold rigging to Lordaeron's ships before the plague. There aren't any Lordaeron ships now, and I still have a crate marked with their seal." } },
   },
 }
 
@@ -712,5 +722,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'd rather not discuss my past, friend. It's much less interesting than my present." } },
     advice = { { id = "tp_ad", text = "Never drink from a cup you didn't watch being poured." } },
     _none = { { id = "tp_none", text = "I'm afraid I know nothing about that, and I'm very good at knowing nothing." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt? Never heard of it, friend, and I'm very good at not hearing of things. You'd do well to practise the same." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate in Alterac are thieves who think they're nobles, or nobles who think they're thieves. I'd not cross them, and I'd not trust them either." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is the only town in the world where a man can sell his past and buy a new one by morning. So I hear, anyway." } },
   },
 }

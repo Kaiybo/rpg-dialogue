@@ -12,6 +12,14 @@ A new Myself page in the journal. No new files: a /reload is enough.
 - **Your beliefs in your own words.** Each opinion now quotes what you actually said, to whom, and when, and notes it if you once said otherwise. (Only for things said from now on; older ones show the stance as before.)
 - Towns are listed from warmest to coldest; books and subjects heard of sit together under "What I've learned".
 
+## 0.80.0 (2026-11-17)
+Much more to ask about. Every named NPC in every pack has new "Ask about..." answers, and townsfolk, guards and innkeepers everywhere have their own takes on the big subjects of the world. No new files, so a /reload is enough. Every pack got a minor version bump.
+
+- **52 new topics:** the Scourge, the Forsaken, Kel'Thuzad, Prince Arthas, the fall of Lordaeron, Stratholme, Shadowfang Keep, the internment camps, the Second War, Gilneas, Stromgarde, the Wildhammer; Thrall, Sylvanas, Cairne, Vol'jin and the Darkspear, Jaina, Bolvar, the missing king, Lady Prestor, Magni, Tyrande; Theramore, Booty Bay, Gadgetzan, Ratchet, Everlook, Dalaran and the Kirin Tor, Nordrassil, Zul'Gurub, Zul'Farrak, the Sunken Temple, Dire Maul, Razorfen, Maraudon, Blackfathom Deeps, the Gurubashi Arena, the Darkmoon Faire; Onyxia, the Emerald Dream, the green dragons, the centaur, the quilboar, the Timbermaw, Ravenholdt; the Holy Light, Elune, the Earth Mother, the spirits and the elements. Hear one named in conversation and it becomes a link, as usual.
+- **About 5,400 new answers from named NPCs** (plus about 460 from townsfolk and roles), 3 to 6 each, and 7 to 16 for leaders (Thrall, Cairne, Vol'jin, Sylvanas, Bolvar, Anduin, Magni, Tyrande, Jaina and others). Many react to who's asking: your faction, your race (Forsaken get their own answers), your class, or how much they like you.
+- **Topics that almost nobody answered now have plenty of answers**: the Deadmines, the Stockade, the Valley of Heroes, Heroes' Vigil, the Brotherhood of Northshire, the hives of Silithus, C'Thun, the Firegut, Dreadmaul and others.
+- **Everyone else:** each role (guards, innkeepers, citizens, soldiers, priests, scholars, nobles, vendors, trainers and more) answers the big topics with Alliance, Horde and Forsaken versions; every town's citizens have 2 to 6 local takes; capital guards and class trainers have their own; goblin staff in Booty Bay, Gadgetzan, Ratchet and Everlook stay neutral and talk business.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

@@ -196,6 +196,10 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The hunters bring word back to this fire, and some of it is worth hearing. Ask about these, and I'll tell you what the tribe knows." },
     },
+    earth_mother = { { id = "tp_earth_mother", text = "My mother is with the Earth Mother now, and I speak to them both when I stand on the hill above Narache. Neither answers, but I feel them listening." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback killed my mother, and they think they can take Narache next. They are wrong, and every brave I send out proves it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent word from the bluff when he heard of my mother's death, and his words carried me through the first nights. I will never forget that, and I will serve him until I die." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided us when we wandered, and they still raid the Barrens to the east. Mulgore is safe from them, and I mean to keep it that way." } },
     _none = { { id = "tp_none", text = "Ask in Bloodhoof Village. Baine knows the wider world better than an old chief, and may the Earth Mother walk with you there." } },
   },
 }
@@ -363,5 +367,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Ask my father. I'm better at the hunt than at answers, and he's had more seasons to gather them." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are cowards who strike from the brush and run. I hunt them, and I am faster than they are." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest hunter of our people, and I want to be like him. My father says I am too eager, and Cairne says the same, so I suppose they are both right." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives the hunt its meaning, and I thank her for every kill. My father taught me that, and I have never forgotten it." } },
   },
 }

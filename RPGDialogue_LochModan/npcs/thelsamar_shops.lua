@@ -185,6 +185,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I flew wi' the gryphon riders in the Second War, an' I've kept birds ever since." } },
     advice = { { id = "tp_ad", text = "Hold on wi' yer knees, no' yer hands. The bird knows the way." } },
     _none = { { id = "tp_none", text = "Couldnae say, friend. My birds know more about that than I do, an' they're no' talkin'." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I flew beside the Wildhammer in the Second War, an' they're the finest riders that ever lived. Ironforge forgets that, but the birds don't." } },
+    second_war = { { id = "tp_second_war", text = "I flew over the Wetlands in the Second War when the Dragonmaw had their red dragons, an' I watched good riders fall. I don't fly east o' Menethil now unless I must.", fx = { learn = { "grim_batol" } } } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's where the Dragonmaw chained their dragons, an' from the air it looks like a broken crown. No gryphon o' mine will fly over it, an' I don't blame them." } },
   },
 }
 
@@ -371,6 +374,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "The Coppertongues have sold metal in Loch Modan since before the dam was built, an' talked about it the whole time." } },
     advice = { { id = "tp_ad", text = "Oil yer mail after every rain. Loch Modan's damp, whatever the locals say." } },
     _none = { { id = "tp_none", text = "Now that's one thing I cannae talk about, an' there aren't many." } },
+    magni = { { id = "tp_magni", text = "King Magni's smiths in the Great Forge think they're the only metalworkers in Khaz Modan. The Coppertongues have been tellin' them otherwise for generations, an' loudly." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Iron ore's the finest in the world an' the most cursed, an' I'll no' touch it. My grandfather did once, an' he never stopped talkin' about the heat in it." } },
+    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "My family sold the bolts for the Stonewrought Dam, an' no' one o' them has failed yet. I tell Hinderweir that every time he looks worried, which is daily." } },
   },
 }
 
@@ -558,6 +564,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I learned tae bake from my mother, who baked for the dam workers when it was bein' built." } },
     advice = { { id = "tp_ad", text = "Never travel wi'out bread. It doesnae spoil as quick as meat." } },
     _none = { { id = "tp_none", text = "I wouldnae know about that, love. Ask someone who's no' covered in flour." } },
+    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "My mother baked for the dam workers while it was bein' built, an' she said they ate more bread than they poured stone. I still bake her rolls every mornin'." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've heard the Faire sells sweet cakes that taste o' cinnamon an' honey. I'd like tae try one, an' then make a better one." } },
+    magni = { { id = "tp_magni", text = "We bake a big loaf for King Magni's birthday every year an' send a slice tae Ironforge. I've no idea if it gets there, but it's tradition." } },
   },
 }
 
@@ -735,5 +744,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "I worked the deep mines under Ironforge till the dust got intae my chest, an' now I sell picks tae younger lungs." } },
     advice = { { id = "tp_ad", text = "Carry two picks. One always breaks when ye need it most." } },
     _none = { { id = "tp_none", text = "Don't know an' don't care, so ye'd best ask at the inn." } },
+    dark_iron = { { id = "tp_dark_iron", text = "I worked deep enough under Ironforge tae hear Dark Iron picks on the other side o' the stone. Ye never forget that sound." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "When Gnomeregan fell, the gnomes came through the tunnels intae Ironforge carryin' everythin' they owned. I gave a family my bunk for a month, an' they left me a clockwork mouse." } },
+    uldaman = { { id = "tp_uldaman", text = "The diggers say Uldaman's tunnels are older than any dwarf ever cut. I believe them, for I've seen Badlands stone, an' it's no' natural." } },
   },
 }

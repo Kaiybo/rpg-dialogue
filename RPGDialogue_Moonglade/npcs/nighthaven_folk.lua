@@ -150,6 +150,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Always put a book back where you found it. Do as I say, you understand, not as I do." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle's very good at trees and rather bad at paperwork, which is where I come in." } },
     silithid = { { id = "tp_sil", text = "Bugs, and big ones, from what Layo writes. I'd rather read about them than meet them, thank you." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Oh, now there's a subject! Ancient walls in Silithus and a war the druids won't discuss, and a library card that only goes so far. I'm working on it, slowly." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream is fascinating, and the druids won't let me anywhere near it. I've read everything they'll let me read about it, and some things they won't." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied near Dalaran once, a long time ago, before the walls went up. They're rebuilding now, I'm told, and slowly, as wizards do everything." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have marvellous libraries and terrible lending policies. I preferred the druids, who simply don't have a policy." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children are mentioned in every druidic text and explained in none of them. I've filled three notebooks with questions and no answers." } },
     _none = { { id = "tp_none", text = "I'm sure I've got a book about that somewhere. Now where did I put it?" } },
   },
 }
@@ -294,6 +299,12 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Fariel and I have kept the festival for longer than I'd like to admit. Every year I swear we'll bake fewer cakes, and every year Fariel bakes more." } },
     advice = { { id = "tp_ad", text = "Visit your elders while they're there to be visited. A coin is a poor substitute for a conversation." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire is all well and good, but our festival has better cakes and fewer goblins. Fariel would want me to say that, and it's also true." } },
+    elune = { { id = "tp_elune", text = "Elune's moon shines brightest during the Lunar Festival, and every elder in the world comes to see it. It's the best night of the year, and the busiest." } },
+    cairne = {
+      { id = "tp_cairne", text = "I've had tauren elders come for the festival who've known Cairne Bloodhoof since he was a calf. The stories they tell would curl your ears." },
+      { id = "tp_cairne2", when = { race = "Tauren" }, text = "Your Cairne sends an elder every year, and the old bull always eats the most cakes. Tell Cairne we'd be delighted to see him in person." },
+    },
     _none = { { id = "tp_none", text = "I'm afraid I think of little but the festival at this time of year. Ask Rabine; he keeps the rest of Nighthaven." } },
   },
 }
@@ -372,6 +383,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the birds fed, and they keep me up half the night squabbling. There isn't much more to it." } },
     advice = { { id = "tp_ad", text = "Hold on tight over Felwood, and don't look down. The birds don't like what they see there either." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds hatched on Hyjal, and they squabble less when the wind blows from the north. I think they're homesick." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw throw rocks at my birds when they fly too low. I've stopped arguing with the furbolgs and started flying higher." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a long flight south, and my birds don't love the marsh air. I'll send you if you insist, but bring them something nice." } },
     _none = { { id = "tp_none", text = "I only know the birds and the sky, I'm afraid, and the moon that lights them. Ask in the village." } },
   },
 }
@@ -450,6 +464,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A wind rider master, posted in a glade full of elves because the Warchief needs one here. I mind my manners and scrape a lot of droppings." } },
     advice = { { id = "tp_ad", text = "Don't spit on the grass here. They notice." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief needs a wind rider master here, so I'm here. I mind my manners among the elves, because he'd want me to." } },
+    cairne = { { id = "tp_cairne", text = "Cairne's people come through often for the Circle, and they're good riders. They're also heavy, and my wind riders complain." } },
+    tyrande = { { id = "tp_tyrande", text = "The elves' high priestess, the one whose Sentinels fight our people in Ashenvale. Here in the glade I keep my mouth shut about her, and I'd advise you to do the same." } },
+    centaur = { { id = "tp_centaur", text = "Centaur are a menace in the Barrens, and my riders have dropped a few rocks on them. I'm not sorry." } },
     _none = { { id = "tp_none", text = "Don't know. Ask one of the druids, if they'll talk to you; I'd rather face a charge than one of their riddles." } },
   },
 }

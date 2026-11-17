@@ -224,5 +224,9 @@ P:NPC {
     northshire_abbey = { { id = "tp_abbey", text = "The brothers have the halls with books. I have the one with the dents in the floor." } },
     kobolds = { { id = "t_kobolds", text = "Small, fast and cowardly, which makes them perfect practice." } },
     _none = { { id = "t_none", text = "Do I look like a librarian?" } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "I send recruits to Echo Ridge when they think they're ready, and the kobolds tell them otherwise. The ones who come back humble are the ones worth training." } },
+    second_war = { { id = "tp_second_war", text = "My father fought at Blackrock Spire in the Second War, and he said the orcs hit like falling trees. I teach shields because of him." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers pray and I drill, and between us the recruits leave here able to stand up in a fight and kneel after one. It's a good arrangement." } },
+    scourge = { { id = "tp_scourge", text = "If you're ever sent north against the dead, keep your shield up even after they stop moving, because sometimes they don't stay stopped." } },
   },
 }

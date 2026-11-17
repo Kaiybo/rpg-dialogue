@@ -181,6 +181,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know the road and the grass beside it, as my fathers knew it. For more than that, ask the elders." } },
+    centaur = { { id = "tp_centaur", text = "The centaur once rode through these plains like a storm, and I watched them burn our caravans. They come less often now, but they still come." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback burn caravans too, and they kill the drivers. I watch the road for both, and I do not sleep much." } },
+    cairne = { { id = "tp_cairne", text = "Cairne trusts me to watch this road, and I will not fail him. He is a great chieftain, and a patient one, but he does not forgive carelessness." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company's goblins dig their mine in the north of Mulgore, and they poison the land and they do not care, and I would see them gone." } },
   },
 }
 
@@ -323,6 +327,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That is not something the land has told me, little one. Sit with the Earth Mother a while; she may." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream is a green world beneath this one, and a druid learns to walk it in sleep. The night elves taught us the way, and I teach it to the young." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, the moon, and the tauren call her Mu'sha, the Earth Mother's eye. I find it comforting that our faiths agree on something so beautiful." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great friend to the druids, and he gave Hamuul a place on the bluff to teach us. Without him, the tauren would have no druids at all." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made every creature that walks, and a druid learns to take their shapes. It is her greatest gift, and her greatest test." } },
   },
 }
 
@@ -476,5 +484,8 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I track beasts, not rumors. Ask at the inn, where the rumors graze." } },
+    centaur = { { id = "tp_centaur", text = "The centaur train their beasts to fight, but they do not respect them. A hunter who does not respect their pet is only a rider, and a poor one." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar keep boars as pets, and they treat them better than they treat each other. I find that interesting, and a little sad." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the beasts, and a hunter must honour that. Treat your pet as a gift, and it will treat you as family." } },
   },
 }

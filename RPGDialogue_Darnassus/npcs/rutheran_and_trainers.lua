@@ -163,6 +163,9 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I have kept beasts of the air since long before Teldrassil was planted." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds came down from Hyjal with us, and they still turn their heads north sometimes. I think they remember the first tree, the way we do." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a goblin town up in Winterspring, and my birds hate the cold of it. Druids fly there anyway, being druids." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a long way south by hippogryph, over the Barrens and its Horde. I don't send my birds there lightly." } },
     _none = { { id = "tp_none", text = "That is beyond my knowledge. Ask in the city above, where the priestesses keep longer memories than mine." } },
   },
 }
@@ -328,6 +331,9 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I served among the Sentinels before I came to teach. My hands remember more than my mouth will tell." } },
+    centaur = { { id = "tp_centaur", text = "I fought centaur once in the Barrens, when our patrols ran farther south. They're stronger than you'd think, and smarter than they let you see." } },
+    warsong = { { id = "tp_warsong", text = "I've fought the Warsong in Ashenvale, and I'll fight them again if they ask. Strong arms, poor patience, which is what I teach my students to use against them." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The deeps swallowed a temple and more than one patrol. Fight with your back to stone and your feet out of the water." } },
     _none = { { id = "tp_none", text = "That is not something a blade can answer, and I have asked my blades a great many things." } },
   },
 }
@@ -493,6 +499,9 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I have hunted these woods since before the tree was grown. Before that, I hunted the old forests of Ashenvale." } },
+    centaur = { { id = "tp_centaur", text = "Centaur ride the southern plains in war bands, and they hunt the way we do, without mercy. I respect them, and I'd shoot one without hesitation." } },
+    green_dragons = { { id = "tp_green_dragons", text = "In the old forest I saw a green dragon once, sleeping under a great tree. The beasts all went quiet around it, and so did I." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw used to trade furs with us before the corruption came. Those who are left are as proud as ever, and twice as wary." } },
     _none = { { id = "tp_none", text = "I do not know. Ask the wind; it knows more than I." } },
   },
 }

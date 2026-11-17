@@ -243,6 +243,10 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "Terenthis has the furbolgs and I have the bears, and I would not trade with him for anything." } },
     fel_moss = { { id = "tp_moss", text = "The bears do not eat it, so far as I can see, and that is why I doubt it is the whole story." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle taught me that every beast has its place, even the ones I must put down. I try to remember it on the bad days." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The beasts of this shore were never meant to sicken like this. I've walked the Dream to look for the cause, and found only more questions, so I came back to wash bears." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs left untouched, up in Felwood. If ours ever recover, I'd want them to recover into something like that." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight keeps the Dream, and the Dream keeps the beasts, in its way. If the dragons are troubled, I'd expect the bears to feel it first." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The cult in Blackfathom poisons the water, and the beasts drink the water. I don't need a druid's wisdom to see where that ends." } },
     _none = { { id = "tp_none", text = "I could not tell you, friend. Ask me about bears, and I'll talk until you beg me to stop." } },
   },
 }
@@ -470,6 +474,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry more bandages than you think you need, because Darkshore has a way of using them up." } },
     dark_strand = { { id = "tp_strand", text = "Warlocks in the Tower of Althalaxx, and Delgren's paladins after them. I hope he gets there first." } },
     sentinels = { { id = "tp_sent", text = "We guard the village, the road and the boats, and we are never quite enough for all three." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've counted Twilight's Hammer patrols on the road south to Blackfathom, and the number goes up every month. I don't know how many there are inside, and I'd rather not count those myself." } },
+    theramore = { { id = "tp_theramore", text = "I log every Theramore ship that docks, crew and cargo. They're always correct, which makes me trust them more than I'd like to admit." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong in Ashenvale aren't my count, but I keep an ear on the numbers. They're growing too." } },
+    forsaken = { { id = "tp_forsaken", text = "There are reports of undead sailors on the coast now and then. I count those twice, and I count them with my bow." } },
     _none = { { id = "tp_none", text = "That's not in my tally, I'm afraid. Ask Thundris, for he hears everything sooner or later, and he forgets nothing." } },
   },
 }
@@ -651,6 +659,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I raise hippogryphs and send them where they're needed. There's not much more to me than feathers." } },
     advice = { { id = "tp_ad", text = "Never fly hungry and never fly angry, and that goes for the bird as well as for you." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds came from Hyjal's aeries, and on clear days they look north for it. Hippogryphs never quite forget where they hatched." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's too far south for my birds, so I send folk down to the ships. Hippogryphs don't love salt air." } },
+    everlook = { { id = "tp_everlook", text = "I've flown north to Everlook once, and the goblins there tried to buy my bird. I'll not be flying north again." } },
     _none = { { id = "tp_none", text = "I only know the sky, friend. Ask someone with their feet on the ground and their eyes off the moon." } },
   },
 }

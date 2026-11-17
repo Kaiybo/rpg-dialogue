@@ -188,6 +188,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a Sentinel officer, and Forest Song is the post nobody else wanted." } },
+    warsong = { { id = "tp_warsong", text = "Forest Song sits closest to the Warsong lumber camps of anything we hold. I hear their saws every morning, and I count the trees I can see from my post." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is far away in Orgrimmar, and his Warsong are right here. I deal with what's right here." } },
+    burning_legion = { { id = "tp_burning_legion", text = "There's a demon taint at the edge of this forest, near Felwood. If the Legion sends anything through, Forest Song will see it first." } },
+    centaur = { { id = "tp_centaur", text = "Not much centaur trouble this far east, which is the only luck this post has. I'll take it." } },
     _none = { { id = "tp_none", text = "I couldn't say, and out here, so close to Felwood, I've learned not to guess." } },
   },
 }
@@ -345,6 +349,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a bowyer, and that's the long and short of it." } },
+    centaur = { { id = "tp_centaur", text = "Centaur horn bows are strong, I've heard, though I've never held one. I'd like to, and I'd like the centaur not to be attached to it." } },
+    warsong = { { id = "tp_warsong", text = "Orc bows are crude and heavy, and their archers aren't much better. My bows keep the Sentinels ahead of them, and that's what matters." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw make a fine short bow, rough but true. I traded for one once, and I still think about it." } },
     _none = { { id = "tp_none", text = "Don't know, and I can't say I'm curious. After a few centuries you learn which questions are worth asking." } },
   },
 }
@@ -520,6 +527,13 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I serve the Horde, and Zoram'gar is where it sent me." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall freed my people from the camps and gave us a homeland, and I'd follow him anywhere. He sent me here, so here I am." },
+      { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You serve the Alliance and you ask about my warchief? He freed his people, and that's all you need to know of him." },
+    },
+    tyrande = { { id = "tp_tyrande", text = "The elves' high priestess, the one who sends her Sentinels against our camps. She's a fierce enemy, and I'll not say otherwise." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's down the coast from Zoram'gar, and the nagas and cultists there trouble us as much as anything. They don't care whose side we're on." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are good allies, and many serve at Zoram'gar. They've a long memory and a sharp spear." } },
     _none = { { id = "tp_none", text = "I don't know. Ask someone who stays indoors more; an orc's work is out here with the blade." } },
   },
 }
@@ -676,6 +690,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Ruul is a Thistlefur, the last one with clear eyes." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw are Ruul's cousins, and they kept their eyes clear when the Thistlefur did not. Ruul wishes he could go to them, but Ruul's own clan still needs someone." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Ruul's grandmothers spoke of the green dream that the forest dreams. Ruul has not dreamed green since the madness came." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The sickness in the Thistlefur smells like old fire from the north. Ruul does not know its name, but Ruul knows it is evil." } },
     _none = { { id = "tp_none", text = "Ruul does not know that, friend. Ruul knows trees and cages, mostly." } },
   },
 }

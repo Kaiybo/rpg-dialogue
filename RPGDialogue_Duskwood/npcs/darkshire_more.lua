@@ -270,6 +270,9 @@ P:NPC {
     carevins = { { id = "tp_carevins", text = "We hunt evil instead of waiting for it, and we feed the people who help us. That's the whole creed." } },
     night_watch = { { id = "tp_watch", text = "Good people holding lamps. I'd never say a word against them, though Calor says plenty." } },
     _none = { { id = "tp_none", text = "That isn't on any list of mine, I'm afraid." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The household keeps a list of every sighting of the Dark Riders, and it gets longer every month. I write each one down, and I try not to count." } },
+    scourge = { { id = "tp_scourge", text = "The Carevins had kin in Lordaeron, and their letters stopped when the plague came. I keep their names on a list of my own now." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn has written to Master Carevin twice asking for help in the north. I keep their letters filed under 'answer later', which is a list that never gets shorter." } },
   },
 }
 
@@ -511,6 +514,10 @@ P:NPC {
     nethergarde = { { id = "tp_nethergarde", text = "A keep full of mages at the end of the worst road in the kingdom, and every one of them wants something yesterday.", next = "crate" } },
     dark_portal = { { id = "tp_portal", text = "I've never seen it and I never mean to. I send it powerstones, and that's as close as I like to get." } },
     _none = { { id = "tp_none", text = "That's not something I keep a ledger on. Ask me about crates and wagons instead." } },
+    raven_hill = { { id = "tp_raven_hill", text = "I won't send a wagon down the road past Raven Hill without guards. The dead don't rob carts, but they frighten the horses, and that's worse." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders cross my road toward Deadwind Pass, and they never stop and never look at the wagons. I find that more frightening than if they did." } },
+    second_war = { { id = "tp_second_war", text = "I counted wagons for the Alliance in the Second War, and I learned that wars are won by whoever runs out of bread last. Nethergarde is running low, by the way." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Nethergarde's mages say the Portal is quiet but the things beyond it aren't, and they speak of the Legion in a way I don't like. I just count their supplies and send them south." } },
   },
 }
 
@@ -704,6 +711,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never drink moonshine on an empty stomach, and never walk home through the woods after drinking it on a full one." } },
     worgen = { { id = "tp_worgen", text = "They've never once come in for a drink, which is the only good thing I can say about them." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend, but I could pour." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Three different men have told me at this bar that they saw their grandfathers walking at Raven Hill. I pour them another and don't ask questions." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum is the only thing stronger than our moonshine, and I keep a bottle for medicinal purposes, mine mostly." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire never comes to Duskwood, so I tell my customers this bar is the Faire, with fewer jugglers and more crying." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Nobody talks about the riders in here above a whisper, and nobody sits by the window when they do. Ask someone else, friend, and ask them outside." } },
   },
 }
 
@@ -906,6 +917,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Buy your candles before you need them; nobody wants to be shopping when the lamps go out." } },
     stalvan = { { id = "tp_stalvan", text = "That name makes Grandmother go quiet, and nothing makes Grandmother go quiet." } },
     _none = { { id = "tp_none", text = "That's one for Grandmother, I'm afraid; ask her and bring coin." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire once offered my grandmother a tent, and she's never forgiven them for thinking she'd work for anyone else. She calls their fortune teller a fraud, with real feeling." } },
+    holy_light = { { id = "tp_holy_light", text = "Grandmother says the cards and the Light both tell the truth, only the cards are cheaper. I sell candles to both kinds of customer, so I don't argue." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Grave dust from Raven Hill would sell better than anything on my shelves, and I won't stock it. Grandmother calls me squeamish, and she's right." } },
   },
 }
 
@@ -1122,6 +1136,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never trust a bronze tube that rattles, or a gnome who says something's perfectly safe." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "My city, my workshop, my favourite chair, and all of it under the mountain with that traitor's mess.", next = "gnomeregan" } },
     _none = { { id = "tp_none", text = "Fascinating question, and I know nothing whatsoever about it." } },
+    magni = { { id = "tp_magni", text = "King Magni gave us gnomes a roof after Gnomeregan fell, and I'll always be grateful, but there's only so much rock a gnome can stare at. I came to Darkshire for a change of scenery, and I certainly got one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a gnome who builds clockwork toys, and I've studied his work from a careful distance. It's very good, and I hate him a little for it." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are stirring in Khaz Modan again, I hear, and Ironforge is very nervous about it. Darkshire has its own troubles, so I sleep better here, in a manner of speaking." } },
   },
 }
 
@@ -1328,6 +1345,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay in after dark, and if you hear the bells, stay in longer." } },
     night_watch = { { id = "tp_watch", text = "Good people, every one, but they're not soldiers, and the things out there know it." } },
     _none = { { id = "tp_none", text = "I wouldn't know. I don't go out much, not anymore." } },
+    raven_hill = { { id = "tp_raven_hill", text = "My father's buried at Raven Hill, and I can't get to him for the dead walking the rows. I'd only like to lay some flowers, that's all." } },
+    scourge = { { id = "tp_scourge", text = "They say in Lordaeron the dead get up and walk away from their graves for good. Here they get up and stay, which is worse, if you've somebody buried there." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light for my father every night, and I hope he's resting, wherever the rest of him is." } },
   },
 }
 
@@ -1515,5 +1535,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If your animal won't go down a road, don't make it. They know things." } },
     worgen = { { id = "tp_worgen", text = "The horses smell them before the Watch sees them. I've learned to watch the horses." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about hooves, if you like." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Their horses aren't right, friend; I've seen them pass, and every animal in my stable kicked its stall. No living horse makes mine do that." } },
+    raven_hill = { { id = "tp_raven_hill", text = "My horses won't take the west road past Raven Hill, not for oats and not for the whip. I've learned to trust them." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I've heard the Wildhammer up in the Hinterlands keep gryphons the way I keep horses, and I'd give a week's wages to see their stables. Felicia says gryphons have worse tempers than any horse." } },
   },
 }

@@ -154,6 +154,15 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write down where you found a thing before you pick it up. You'll thank me in ten years." } },
     explorers_league = { { id = "tp_league", text = "The finest minds in Ironforge, and a few of the dustiest. We're not treasure hunters, whatever the Wetlands lot say.", next = "warning" } },
     uldaman = { { id = "tp_uldaman", text = "There's a vault in the Badlands that's had the League up all night arguing. I'll say no more in a city of elves." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Now there's a name to make an archaeologist's hands shake, {g:lad|lass}. Old walls in Silithus with carvings nobody can read, and the night elves won't talk about them, which is the best sign of all." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's got the finest library in the human kingdoms and a lock on every door. I've written to the Kirin Tor four times, and they've answered once, to say no." } },
+    magni = { { id = "tp_magni", text = "Good King Magni signs my grants himself, so you'll hear nothing but praise from me. He's a fine one for history, too, he'd come dig with us if they let him off his throne." } },
+    dire_maul = {
+      { id = "tp_dire_maul", text = "Eldre'Thalas, out in Feralas, is a whole Highborne city with the roof still on, mostly. The ogres have got it now, and it near breaks my heart." },
+      { id = "tp_dire_maul2", when = { disposition = { min = 65 } }, text = "If you're bound for Dire Maul, mind the ogres and mind the walls even more, because Highborne masonry bites. Bring me back a rubbing of any inscription and I'll owe you a pint." },
+    },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Lost a few gnome friends when that city went bad, and more friends' tools than that. Gnomes build to last, so it's still down there, waiting for someone to clean it up." } },
+    highborne = { { id = "tp_highborne", text = "The night elves' old nobility, and the finest builders this side of Ironforge, I'll grant them that. Their ruins are all over Darkshore, and the locals would rather I left them alone." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid. If it's not under a hill or a hundred feet of good stone, I don't know it." } },
   },
 }

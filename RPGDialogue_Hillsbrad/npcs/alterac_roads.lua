@@ -207,6 +207,13 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Hired knives with a noble's crest stitched on. Cut away the crest and they are only thugs." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "You are standing in it, which tells me someone thought you worth the directions. Ravenholdt has outlived kings and kingdoms by being exactly as visible as it wishes to be." } },
+    alterac = { { id = "tp_alterac", text = "Alterac was a kingdom of proud fools who sold their neighbours to the Horde and then wondered why the Alliance dissolved them. Its heirs now play at banditry in the hills, and badly, which is why we watch them." } },
+    scourge = { { id = "tp_scourge", text = "The dead have no purses, no secrets and no fear of a knife in the dark, so they are of very little interest to my house. That they are also of very great danger to everyone else is a matter I leave to paladins." } },
+    prestor = { { id = "tp_prestor", text = "A lady of very sudden consequence in Stormwind, whose family seat is a place I cannot quite find on any map. I find that interesting, and I do not find many things interesting." } },
+    varian = { { id = "tp_varian", text = "A king does not vanish on a short road without someone having been paid to look the other way. I have my suspicions about who did the paying, and I am choosing, for now, to keep them." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A port where every guest is a thief and every host a goblin, which makes it the most honest town in the world. Several of my people keep rooms there." } },
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor have reopened their gates a little, and they have closed their eyes a little less than before. Mages and my house have always had an arrangement of mutual polite indifference." } },
     _none = { { id = "tp_none", text = "That is a question for someone who answers questions. I am not that person." } },
   },
 }
@@ -384,6 +391,11 @@ P:NPC {
 
   topics = {
     dalaran = { { id = "tp_dalaran", text = "A city of violet towers that will stand again, though not this year, I think." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have lost Antonidas, and Kel'Thuzad, and very nearly the city, and we are a smaller council and a warier one for it. Archmage Modera holds us together with a firmness I did not know she had." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "He sat at our tables and argued at our councils, and then he took his necromancy to the Cult of the Damned. That we did not see him for what he was is a shame every mage of my age carries." } },
+    scourge = { { id = "tp_scourge", text = "The plague came through Alterac and the hills below this very gate, and Dalaran's walls held it back only so long. We remember who brought it, and we keep the dome raised partly so that we never forget." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore was a student here, and one of Antonidas's best, before she led her people across the sea. She writes to the council now and then, and her letters are always sensible, which is more than I can say for most." } },
+    alterac = { { id = "tp_alterac", text = "The ogres have Alterac's ruins now, and the Syndicate its old estates, and neither has the manners to keep off our roads. We ward the gates and let the soldiers of Southshore do the rest." } },
     _none = { { id = "tp_none", text = "I'm afraid that falls outside my studies, and my studies are rather wide." } },
   },
 }
@@ -555,6 +567,9 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Cowards in black who beat chained men. I have long memory for their faces." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief freed my people from the camps, and one day his warriors will free me from these chains. Until then I wait, and I remember every face that held the whip." } },
+    internment = { { id = "tp_internment", text = "I was in Durnholde's camp before Thrall broke it, and the Syndicate put me back in chains as if nothing had changed. Humans are very fond of locks, and I am very tired of them." } },
+    alterac = { { id = "tp_alterac", text = "Alterac's nobles keep me in their hills like a prize ram, moving me from camp to camp. Their grandfathers sold their own people to the Horde, and now they sell orcs to anyone who'll pay." } },
     _none = { { id = "tp_none", text = "Ask me again when I am not wearing iron, because an orc in chains thinks of nothing else." } },
   },
 }
@@ -708,6 +723,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "We are the Dark Lady's people, and we brew what we brew because the living gave us no other choice. I measure my reagents with care, because carelessness was a luxury of the breathing." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gave us our minds back and a reason to use them, and that is more than any king of Lordaeron ever did for me. I serve her with my hands and my vials, and gladly." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge made me, and the Dark Lady unmade what it made of me, and I have not forgiven either half of that. My work is aimed at the Lich King's servants first, whatever Southshore believes." } },
     _none = { { id = "tp_none", text = "If it doesn't dissolve or distill, I've no opinion of it." } },
   },
 }

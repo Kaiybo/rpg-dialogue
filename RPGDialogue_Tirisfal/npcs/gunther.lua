@@ -152,6 +152,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "Kirin Tor once, a corpse briefly, and a free man since, if a man is what I am. That's the short version, and the long one is mostly cellars." } },
     advice = { { id = "tp_ad", text = "Never trust a friend who hasn't died. That's a joke, mostly, but it's served me well." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "The last living men who rowed out here wore red and carried torches, and they called me an abomination before they'd even reached the beach. My servants sent them home, those who could still swim." } },
+    scourge = { { id = "tp_scourge", text = "For years I thought every corpse that walked past my island belonged to the Lich King, and I hid from all of them. I learned too late that some of them had minds of their own, and a few were even good company." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a curious people, and I count myself among them now, though they'd rather I didn't. I spent too long alone to trust a crowd." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran, in the old days, among the finest libraries in the world. The city is rising again, I'm told, but I doubt the Kirin Tor would care to see me at its gates." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me to read the stars and keep my books dry, and then they forgot I existed. I return the favor most days." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "I knew of Kel'Thuzad when he was a magus of the Kirin Tor with odd ideas about death. Everyone thought him an eccentric, and I'll tell you that I thought the same, to my shame." } },
     _none = { { id = "tp_none", text = "I've been on this island too long to know about that. Ask someone in Brill, if Brill is still there." } },
   },
 }

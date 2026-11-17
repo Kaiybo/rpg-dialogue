@@ -296,6 +296,18 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "I was a sergeant in the Second War, and I watched orcs take hills like these in an afternoon. I'm not ashamed to say the Blackrock frighten me, because a soldier who isn't frightened of them hasn't been paying attention." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "Tharil'zun's orders come down from that black mountain to the north, I'm sure of it, and the mountain has more orcs than Stormwind has soldiers. I'd like a hundred men to hold the passes, and I'd settle for fifty." } },
+    bolvar = { { id = "tp_bolvar", text = "I've written to the Highlord three times, and the replies are courteous and empty. I don't blame him, because I know what's on his desk, but I wish Redridge were nearer the top of it." } },
+    prestor = { { id = "tp_prestor", text = "The Regent's letters come back in a lady's hand these days, I'm told, and they're very polite. Politeness doesn't hold a bridge, so I've stopped reading the second page." } },
+    varian = { { id = "tp_varian", text = "King Varian went to make peace and vanished on the way, and the kingdom hasn't been the same since. He'd have sent us soldiers, I believe that, though I suppose every captain says the same." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I pray to the Light before every patrol goes out, and I count heads when they come back. Some days the prayer works, and some days I just count." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "I pray before every patrol, paladin, and I'd ask you to say one too, because yours seem to carry further. I count the heads when they come back, and I'd like the count to come out right." },
+    },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs came through that gate in the Black Morass, and the Blackrock were the first of them. I'm told it lies broken now, and I'd still like more soldiers between it and Lakeshire than the few I have." } },
+    thrall = { { id = "tp_thrall", text = "Thrall leads the orcs in Kalimdor and talks of peace with Theramore, and the Blackrock clearly didn't get the letter. Either he can't control them, or he doesn't want to, and I don't like either answer." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons fight the Blackrock in the Steppes, and if they'd only finish each other I'd buy them both an ale. They won't, though, because neither side ever loses quickly enough to do us any good." } },
     knows = {
       { id = "tp_knows", text = "Every guard on the lake reports to me, so I hear the bad news before the town does. Ask me about any of this." },
     },

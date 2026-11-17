@@ -189,6 +189,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Ask Gornek; I just point the way. Lok'tar, recruit." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wants every new orc to start here, where the land tests you before the enemy does. So here I stand, greeting them, and I've not grown tired of it yet." } },
+    internment = { { id = "tp_internment", text = "I came out of the camps with nothing, and somebody met me at the gate with water and bread. I don't remember his name, but I remember his face, and I try to be him." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade are in the caves to the north, and they still worship the demons who cursed us. Kill them, and you'll be doing the whole Horde a favour." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls are our allies now, and you'll find them sharing the valley with you. Be polite, and they'll be polite back." } },
   },
 }
 
@@ -367,6 +371,11 @@ P:NPC {
       { id = "tp_knows", text = "Recruits talk in the Den when they think I'm asleep, and I never am. Ask about these, and then listen." },
     },
     burning_blade = { { id = "tp_blade", text = "There are cultists in the coven to the north, calling up imps. Zureetha deals with them, and you'll help her." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sends every new recruit to me, and he expects every one of them to get back up. I've never let him down yet, and I don't intend to start with you." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I was in the camps after. The Den is better than either, though the recruits don't believe me." } },
+    internment = { { id = "tp_internment", text = "The camps were a sickness of the spirit, not just the body, and many orcs never woke from it. Thrall woke us, and that's why I serve him." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear came with Thrall from the islands, and they train with us here in the Den. Treat them as brothers, because the Warchief does." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar are beyond the ridge, and you'll meet them soon enough. Learn here first, and learn it well, because the centaur won't wait for you." } },
     _none = { { id = "tp_none", text = "That's not your concern yet, recruit. Finish the valley first, and let your deeds do your asking." } },
   },
 }
@@ -539,6 +548,9 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "They hide in caves because they know what we'd do to them in daylight." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade wants the demons back, the same ones who drank our blood and gave us fire for it. I'd sooner drink scorpid venom." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief cleansed us of the demon curse, and every cultist in those caves is spitting on his gift. I'll see them burned for that." } },
+    dark_portal = { { id = "tp_dark_portal", text = "We came through the Dark Portal from a dying world, and the demons came with us, quietly. Some of them never left, and the Burning Blade are their children." } },
     _none = { { id = "tp_none", text = "I don't know, but I know the Blade, so ask me about them." } },
   },
 }
@@ -688,6 +700,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Don't ask me, mon; ask a peon, and wake him up first." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief says peons are the backbone of the Horde. I'd like to see him get them to stay awake." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls work harder than my peons, and they don't even get paid. I don't tell my peons that, because they'd stop working entirely." } },
+    second_war = { { id = "tp_second_war", text = "In the Second War, peons built the whole Horde from mud and wood. Now they build naps, and they're very good at it." } },
   },
 }
 
@@ -851,6 +866,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I'm a cook. Ask me about cactus apples." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief ate my scorpid stew once, and he said it was very filling. I've chosen to take that as praise." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls eat anything, and I mean anything, and they always come back for seconds. I like a troll in my kitchen." } },
+    centaur = { { id = "tp_centaur", text = "I've never cooked centaur, and I'm not about to start. Some meat is just too close to people." } },
   },
 }
 
@@ -988,5 +1006,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "If it's not a weapon, I don't sell it. Steel is the only thing an orc needs to bargain over." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar spears are long, so you'll want something that reaches. I've got a few, and they cost what they cost." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's hammer is older than this valley, and it's never once been dropped in the scrub. Take a lesson from it." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear buy my spears and then make them better with feathers and bone. I've stopped being offended, because they do look nicer." } },
   },
 }

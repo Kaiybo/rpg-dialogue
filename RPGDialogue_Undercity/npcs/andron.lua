@@ -126,6 +126,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A merchant before the plague, and a merchant after, only now I can't taste the wine. That's the whole tragedy, really." } },
     advice = { { id = "tp_ad", text = "Always count the coin twice, friend, and if you can't, find someone sober to do it." } },
     syndicate = { { id = "tp_syndicate", text = "The Syndicate? Never heard of them, no, not at all. Is that the time?" } },
+    forsaken = { { id = "tp_forsaken", text = "Oh, the Forsaken are wonderful customers, my friend, they never haggle over the price of a dead man's ring because they know exactly what it's worth! I've made more friends down here than I ever did up top." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron left a great many treasures lying about when it fell, and somebody ought to find them good homes. I like to think of myself as a sort of librarian." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran have the finest curios in the world locked away behind their shields. If they ever open those gates, I'll be first in line with a cart." } },
+    alterac = { { id = "tp_alterac", text = "Alterac's nobles were never short of pretty things, and some of them were never short of debts either. I'd say no more about that, if I were you." } },
     _none = { { id = "tp_none", text = "No idea, friend, but I know someone who might, for a price. Everybody knows someone." } },
   },
 }

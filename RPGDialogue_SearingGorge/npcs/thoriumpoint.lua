@@ -258,6 +258,12 @@ P:NPC {
     background = { { id = "tp_ba", text = "Born in the mountain, worked in the mountain, walked out o' the mountain. The last bit's the only part worth tellin'.", next = "escape" } },
     advice = { { id = "tp_ad", text = "Never trust a forge ye didnae light yerself, an' never lend Hansel money, for he'll sit on it." } },
     dark_iron = { { id = "tp_dark_iron", text = "They're my kin, my shame an' my sorrow, an' most of them still bend the knee down there. I pray they'll stop, though I've no' much hope." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "I've walked the halls o' Shadowforge City, under the mountain, an' I'll tell ye it's a furnace for the soul. We left it for a reason, an' that reason's still down there." } },
+    thaurissan = { { id = "tp_thaurissan", text = "Thaurissan was our first emperor, an' he called up Ragnaros, an' the whole land burned. The Dark Irons still pay for it, every day." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni's no friend o' the Dark Irons, an' I don't blame him, after what our people did. But the Brotherhood isn't our people, not anymore." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye're a Bronzebeard or a Wildhammer, by the look o' ye, an' ye've come to deal wi' a Dark Iron. That says more about ye than ye'd think, an' it's good." },
+    },
     _none = { { id = "tp_none", text = "If it's no' on the Point, it's no' my concern." } },
   },
 }
@@ -418,6 +424,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "Big, Dark Iron, free an' tired, an' mostly the last two.", next = "resting" } },
     advice = { { id = "tp_ad", text = "Sit down whenever ye can, because ye never know when somebody'll make ye stand." } },
     dark_iron = { { id = "tp_dark_iron", text = "They're no' us, for we're nicer, an' we sit down more." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "I worked in the forges under the mountain for years, an' I'll tell ye, I'd rather sit down. Now I can." } },
+    thaurissan = { { id = "tp_thaurissan", text = "The old emperor called up a fire lord an' burned the land, an' we've been payin' for it ever since. I'd like to have a word wi' him, sittin' down." } },
+    magni = { { id = "tp_magni", text = "Magni's a king, an' I'm a Dark Iron, so we'll no' be havin' a drink anytime soon. I'd sit down wi' him, though." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, an' couldnae be bothered either, so ask Lolo." } },
   },
 }
@@ -616,6 +625,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a lookout since before I lost my eyes, an' I kept the job after, for nobody's dared take it off me." } },
     advice = { { id = "tp_ad", text = "Listen more than ye look, because eyes lie an' the wind doesnae." } },
+    dark_iron = { { id = "tp_dark_iron", text = "I can smell a Dark Iron from the far side o' the Gorge, an' the ones up on the ridge smell like trouble. The ones here at the Point smell like ale, which I prefer." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Shadowforge folk under the mountain smell o' brimstone an' bad intentions. I've smelled them comin' for years." } },
+    magni = { { id = "tp_magni", text = "Magni's no friend o' ours, but he's no enemy either, not anymore. That's enough for me." } },
     _none = { { id = "tp_none", text = "Never seen it, ha, never seen anything! Ask someone else." } },
   },
 }
@@ -837,6 +849,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I am my father's son, and that is all I am until his killers are ash.", next = "father" } },
     advice = { { id = "tp_ad", text = "Never forgive what was taken from you, because forgiveness is how they win." } },
     dark_iron = { { id = "tp_dark_iron", text = "Murderers, every one of them. Don't let the ones at Thorium Point fool you; it's in the blood." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "My father's killers hide in their city beneath the mountain, and I'll have them out of it. Fire calls to fire, and I'm patient." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons are a power in this land, and I'd not speak lightly of them. Some debts are owed in fire." } },
+    thaurissan = { { id = "tp_thaurissan", text = "The Dark Iron emperor called a fire lord and burned his own kingdom. I've always thought he was a fool to do it, and a greater fool to think he could control it." } },
     _none = { { id = "tp_none", text = "That doesn't concern my vengeance, and nothing else matters." } },
   },
 }

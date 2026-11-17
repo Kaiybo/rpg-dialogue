@@ -134,6 +134,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am Uthek, and I hear the earth for the Gelkis. There is nothing else you need." } },
     advice = { { id = "tp_ad", text = "Walk softly on Desolace, outsider. The ground here remembers every footstep." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar, the Gelkis, the Magram, the Maraudine and the Galak are all children of Zaetar, and only the Gelkis remember the earth that bore him. The others worship only themselves." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon is the tomb of our father, and our mother Theradras guards it still. The Maraudine fool themselves that they serve her, but she weeps, and the earth tells me so." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren speak of an Earth Mother, and I hear something like our own faith in their words. The earth does not care what name we use, only that we listen." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The Circle calls Zaetar a son of Cenarius, and they are right, and they forget that Zaetar chose our mother over his father's forest. I do not forget." } },
+    scourge = { { id = "tp_scourge", text = "The Magram raise the dead in the Valley of Bones, and they call it strength. It is a sickness, and the earth refuses it." } },
     _none = { { id = "tp_none", text = "The earth does not speak of that to me, so I do not speak of it to you." } },
   },
 }

@@ -136,6 +136,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Never you mind what I was. Now I'm the fellow with the shovel, and that's enough of a story for anybody." } },
     advice = { { id = "tp_ad", text = "Don't stand downwind of the pit, and don't ask for a raise. Trust me on both." } },
     argent_dawn = { { id = "tp_argent", text = "Good folk, mostly. Terrible pay." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge sends me more work than any honest man could keep up with, and the Dawn pays me the same whether I toss in ten or a hundred. I don't complain, except to anyone who'll listen." } },
+    stratholme = { { id = "tp_stratholme", text = "There are souls still wandering Stratholme that never got a proper burial, and it keeps me up some nights. Somebody ought to see to them, and it won't be me, because I'm not that brave." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "That's his necropolis up in the sky to the east, and I've learned not to look at it too long. It gives me a crick in the neck and a chill in the heart." } },
+    holy_light = { { id = "tp_holy_light", text = "The chapel ground keeps the dead off it, and I thank the Light for that every morning. It's the only safe place I've slept in years." } },
     _none = { { id = "tp_none", text = "How should I know? I shovel things. Ask the Duke, he reads." } },
   },
 }

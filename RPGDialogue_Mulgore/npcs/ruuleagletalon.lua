@@ -100,6 +100,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A warrior who grew old enough to teach. There's no better thing a warrior can become, I think." } },
     advice = { { id = "tp_ad", text = "Let the wind always be at your back, and keep an eye on the sky. Most of what kills you out there comes from above or behind." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were our oldest enemies, and they taught the tauren how to fight. I teach the young the same lessons, though I use the harpies instead." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are a threat to the south of Mulgore, and the young braves must learn to face them. I would rather they learned from me first." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest warrior of our people, and the wisest. He taught me that strength is for protecting the herd, and I have never forgotten it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us strength, and it is our duty to use it well. A warrior who fights for no reason is no warrior at all." } },
     _none = { { id = "tp_none", text = "I don't know of that. Ask in Thunder Bluff; my brother hears more than I do, and the elders more than both of us." } },
   },
 }

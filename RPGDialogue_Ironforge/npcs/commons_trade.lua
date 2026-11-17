@@ -217,6 +217,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've run bids in the Commons since before the gnomes came, an' I'll run them after the last one's gone home tae Gnomeregan, whenever that is." } },
     advice = { { id = "tp_ad", text = "Never sell the day a new mine opens, for everybody else will be sellin' the same thing." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Everythin' that comes up from Booty Bay is a week behind the market an' twice the price. The goblins call it shipping, an' I call it robbery wi' a ledger." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's auctioneers will sell tae the Horde an' the Alliance in the same breath, an' they're rich for it. I'll stick tae our own buyers, though I'll watch their prices like a hawk." } },
+    scourge = { { id = "tp_scourge", text = "Since the north fell, nobody's buyin' Lordaeron wool an' everybody's buyin' holy water. A plague's bad fer folk an' strange fer trade." } },
     _none = { { id = "tp_none", text = "If it isnae on my ledger, I don't know about it, an' I don't much care." } },
   },
 }
@@ -429,6 +432,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I tallied water rates in Gnomeregan, and now I tally bids in Ironforge, which is much the same except nobody drowns if I get it wrong." } },
     advice = { { id = "tp_ad", text = "Write everything down, and then write down where you wrote it, and then cross-reference both, because a figure you can't find is the same as a figure you never had." } },
     _none = { { id = "tp_none", text = "That doesn't add up to anything I know about, I'm afraid, and I've checked the sum twice. Ask Redmuse; she's been here longer." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan runs the only market that'll sell tae both sides, an' it charges both sides for the privilege. I've been tryin' tae work out their commission for a year, an' I'm afraid it's simply 'yes'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's prices change wi' the tide an' the mood o' the Baron. I keep a column for it in my book an' it's mostly question marks." } },
+    everlook = { { id = "tp_everlook", text = "A goblin market in the snow sellin' furs an' frostsaber pelts, an' at prices that'd make a miner weep. I've written tae ask how they ship, an' they've written back askin' what I'd pay tae know." } },
   },
 }
 
@@ -638,6 +644,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've kept this counter thirty years, an' my mother kept it before me, an' neither of us ever let an adventurer leave hungry." } },
     advice = { { id = "tp_ad", text = "Eat when ye sit down tae rest, an' drink before ye're thirsty. It's no' complicated, but ye'd be amazed." } },
+    scourge = { { id = "tp_scourge", text = "I've had refugees from Lordaeron at this counter wi' nothin' but the clothes on their backs, an' I fed them what I could. The plague took their homes, an' they still said thank ye." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells food on sticks, an' half o' it's no' food at all, an' I'd thank ye no' tae eat it. Come back here fer a proper loaf after." } },
+    theramore = { { id = "tp_theramore", text = "Theramore buys our bread by the barrel, I'm told, for Lady Jaina feeds soldiers an' refugees both. I'm glad tae think somethin' o' mine is keepin' somebody warm across the sea." } },
     _none = { { id = "tp_none", text = "I sell bread, love, no' answers. Try the Library in the Hall o' Explorers." } },
   },
 }
@@ -836,6 +845,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fought in the Second War wi' a company that had no name an' no crest, an' I've thought ever since that we'd have held together better wi' both." } },
     advice = { { id = "tp_ad", text = "Choose yer officers for their patience, no' their swordarms." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Guilds that fight together come back from the Gurubashi Arena wi' scars an' stories, an' sometimes wi' fewer members. A good band shares the gold an' the bandages alike." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's a fine place tae recruit, for anybody who'll ride that great wheel will follow ye intae a dungeon. Bring a banner an' a stout voice." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The big guilds talk o' Blackrock Spire like it's a proving ground, an' it is. I've registered a dozen bands that went in an' come out wi' half their names." } },
     _none = { { id = "tp_none", text = "That's no' guild business, friend, so I couldnae tell ye." } },
   },
 }
@@ -1025,6 +1037,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned stitchin' from my grandmother, who made banners for the Bronzebeard clan's soldiers in the Second War." } },
     advice = { { id = "tp_ad", text = "Wash a tabard in cold water, never hot, or the crest'll run." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Wildhammer colors are all blues an' greens an' feathers, an' they wear them on their skin besides. I'd never get them intae a tabard, but I'd dearly love tae try." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand's tabard was the finest ever stitched, silver on blue an' a hand in mail. I've a sample in the back, an' nobody asks for it now, more's the pity." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "Red an' white an' far too much gold thread, an' I'll no' make one for anybody. A tabard should say who ye are, an' theirs says only who they hate." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye about that. I know thread an' crests, an' that's all I claim." } },
   },
 }
@@ -1223,6 +1238,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was born above the Vault, near enough, an' I've counted coins since I could count." } },
     advice = { { id = "tp_ad", text = "Leave what ye don't need wi' us before ye go somewhere ye might not come back from." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins keep their bank in Booty Bay, an' it's said tae have more locks than walls. I'd love tae see the door, though I'm sure ours is better." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin banks will keep yer gold for ye an' charge for the keepin', an' charge again for the remindin'. Our vault has never sent a customer a bill for remembering their name." } },
+    magni = { { id = "tp_magni", text = "The King's own treasury rests beneath us, an' the King never once asks what's in it, which I find very restful. He trusts the vault, an' the vault returns the favour." } },
     _none = { { id = "tp_none", text = "I'm afraid that's no' somethin' the Vault keeps a record of." } },
   },
 }

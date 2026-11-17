@@ -320,6 +320,11 @@ P:NPC {
   },
 
   topics = {
+    thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span in stone and iron without a foreman shouting at them, they say, which is how I know it's a legend. I'd have finished my own bridge by now if I had their stone and half their patience." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild built half of Stormwind and was cheated out of the pay, and I lost good men to that business. I kept my lads honest by keeping them busy, and the Everstill Bridge is still not done, so it's working." } },
+    deadmines = { { id = "tp_deadmines", text = "They say the Defias have dug themselves a hideout in the old Moonbrook mines and built a whole ship inside it. That's the sort of engineering I'd admire if it weren't done by thieves with my old crew in their ranks." } },
+    second_war = { { id = "tp_second_war", text = "The orcs pulled down this bridge's grandfather in the Second War, and we rebuilt it with our hands. Now they're pulling at it again, and I'm out of patience, out of tools, and very nearly out of stone." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "My father helped raise the Valley of Heroes gate, and every time I go to the city I check his joints for cracks. There aren't any, which is the best thing anyone can say about a builder." } },
     knows = {
       { id = "tp_knows", text = "A foreman hears plenty from a crew on a long shift, and most of it's about the lake. Ask me about any of this, and mind the measuring line." },
     },

@@ -260,5 +260,8 @@ P:NPC {
     },
     kobolds = { { id = "t_kobolds", text = "They make the candles. I don't ask how, and they don't ask why I want them." } },
     _none = { { id = "t_none", text = "Hmm? Sorry, I was counting drops. Ask me again later, would you?" } },
+    scourge = { { id = "tp_scourge", text = "The plague in Lordaeron spread through the grain, and the finest alchemists in the north couldn't stop it once it started. I've read every account I can find, and I still don't understand how it was made." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn writes to every apothecary in the kingdom for remedies against the plague. I've sent what I could, and I've a feeling they'll need more than any of us can make." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells little vials it calls elixirs, and I've tested a few out of curiosity. They're honest enough, mostly honey and a little ginger." } },
   },
 }

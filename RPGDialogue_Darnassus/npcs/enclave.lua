@@ -238,6 +238,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Visionary. Currently digging. The two will meet one day, and on that day you'll be glad you knew me." } },
     advice = { { id = "tp_ad", text = "Never let anyone tell you you're only a ditch digger, even if, at the moment, you are." } },
     cenarion_circle = { { id = "tp_circle", text = "Great druids, the lot of them, and not one of them has ever asked my opinion. Their loss." } },
+    dalaran = { { id = "tp_dalaran", text = "The wizards of Dalaran rebuilt their city with magic, which shows a lamentable lack of shovels. I'd have dug them proper foundations, if anyone had thought to ask me." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes tunnelled a whole city under a mountain, and I think about that every day. I've written to them twice offering my services, and I'm sure the replies are only delayed." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a strongman who can lift an anvil, I'm told. I'd like to see him dig a proper ditch, because lifting isn't everything." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree has roots deeper than any ditch anyone has ever dug. Someday I'll make it down to them, and I'll say hello on behalf of all of us." } },
     _none = { { id = "tp_none", text = "No idea, friend. I've been out here with the dirt; it doesn't gossip." } },
   },
 }
@@ -464,6 +468,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach rogues. What I did before that isn't anyone's business." } },
     advice = { { id = "tp_ad", text = "Watch the hands, not the face. The face lies more often." } },
     satyrs = { { id = "tp_satyrs", text = "Old enemies, twisted from our own people. They hide on the edges of Teldrassil, and they know more than they should." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "I've heard the name, and I've heard it from people who were careful to say it quietly. If they want you, they'll find you, so don't go looking." } },
+    highborne = { { id = "tp_highborne", text = "Azshara's court had its knives too, you know, more of them than anyone admits. Some of what I teach is older than this tree." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A goblin port where the law is whoever paid last. It's a useful place to sell what you'd rather not explain, though I'd never recommend it." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in the southern marsh, the stories go. Rogues who go after a dragon's hoard tend to become part of it." } },
     _none = { { id = "tp_none", text = "I don't know, and I wouldn't tell a stranger if I did." } },
   },
 }
@@ -711,6 +719,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Hunters bring back more than pelts; they bring news from every corner of the forest. Ask, and I'll share what's worth sharing." } },
     background = { { id = "tp_bg", text = "I teach hunters, and I teach them hard. Ask any of them in ten years whether it was worth it." } },
     advice = { { id = "tp_ad", text = "Feed your companion before you feed yourself. It's watching to see whether you will." } },
+    centaur = { { id = "tp_centaur", text = "The centaur of the Barrens and Desolace ride in war bands and hold nothing sacred but the hunt. Respect that, because it means they're good at it." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are proud and quick to anger, but they keep their word. That's more than I can say for most." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The drowned temple off Ashenvale's coast, where the nagas crawl. Bring a pet that can swim, and don't go alone." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I leave the Dream to the druids. A hunter's job is the waking world, and that keeps me plenty busy." } },
     _none = { { id = "tp_none", text = "That's no concern of the hunt, and Elune gave me only so many years to learn the hunt in. Ask someone else." } },
   },
 }
@@ -932,6 +944,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach the young druids before Mathrengyl takes them further. It's a gentle post, and I like it." } },
     advice = { { id = "tp_ad", text = "Listen to the forest before you speak for it. Most druids skip that step." } },
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle, and we serve the balance. Our leaders disagree sometimes, but the duty doesn't change." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "The Dream is the world as it might have been, green and unbroken, and every druid feels it at the edges of sleep. Don't chase it yet, because it will find you when you're ready." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You've felt it already, haven't you, at the edges of your sleep. Be patient with it, because it's been waiting a long time and can wait a little longer." },
+    },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the first World Tree, on Hyjal's summit, and it keeps our long lives. Every young druid should see it once before they decide they know everything." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight guards the Dream and the druids who walk it. Be respectful if you ever meet one, and don't ask them to explain themselves." } },
+    elune = { { id = "tp_elune", text = "Elune and Cenarius were close in the old stories, closer than the Temple and the Enclave are now. I'd like to see that again." } },
     _none = { { id = "tp_none", text = "The forest hasn't told me that one. Try the Temple, perhaps." } },
   },
 }

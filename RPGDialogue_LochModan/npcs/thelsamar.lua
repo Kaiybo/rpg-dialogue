@@ -283,6 +283,10 @@ P:NPC {
     troggs = { { id = "tp_troggs", text = "Stonesplinter, out o' the hills. Captain Rugelfuss counts 'em down in the Valley o' Kings, an' he's run out o' fingers." } },
     stonewrought_dam = { { id = "tp_dam", text = "It's holdin', though Hinderweir would tell ye otherwise every mornin'.", next = "spy_dam" } },
     _none = { { id = "tp_none", text = "Couldnae say. Ask at the inn, for they hear everythin'." } },
+    magni = { { id = "tp_magni", text = "King Magni's Mountaineers hold Loch Modan for him, an' I'm proud tae be one. He sends word tae Thelsamar now an' then, an' we all stand a bit straighter for a week." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Wildhammer riders come down tae the Stoutlager now an' then, loud as a storm an' twice as thirsty. I like them, whatever the old folk say." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's over the mountains in the Wetlands, an' a dark place by every account. The Dragonmaw use it now, an' I'm glad there's a range o' hills between them an' my road." } },
+    scourge = { { id = "tp_scourge", text = "If the dead come south, they'll come over the Span an' down through Algaz, an' I'll be standin' on this road when they do. Ironforge won't fall the way Lordaeron did." } },
   },
 }
 
@@ -567,6 +571,10 @@ P:NPC {
     troggs = { { id = "tp_troggs", text = "They're big an' mean, an' they go berserk near our idols. I'd like tae know why before they do.", next = "idols" } },
     uldaman = { { id = "tp_uldaman", text = "That's the big dig, down south. If my idols stir troggs, I shudder tae think what Uldaman stirs." } },
     _none = { { id = "tp_none", text = "That's no' my field. My field's six feet down." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol has the oldest dwarven stonework in Khaz Modan, an' I'd give my left hand tae dig it. The Dragonmaw would take my right, so I'm stayin' here." } },
+    magni = { { id = "tp_magni", text = "King Magni's set on findin' where dwarves came from, an' bless him for it, because his gold pays my diggers. I'll find his answers, or at least a very interestin' rock." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer's old songs speak o' stone men an' makers, an' my digs keep turnin' up things that sound like the songs. I'm no' sayin' they're right; I'm sayin' I'm listenin'." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city tae troggs that came up from below, an' my digs here turned up troggs too. I don't like what that says about what's under Khaz Modan." } },
   },
 }
 
@@ -773,6 +781,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Sit wi' yer back tae the wall an' yer face tae the fire, an' ye'll see everyone an' stay warm besides." } },
     stonewrought_dam = { { id = "tp_dam", text = "Ask the miners, for they've a song about it. Just don't ask them tae sing it.", next = "song" } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Buy a round an' ask the whole inn; ye'll get six answers." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've heard the Darkmoon Faire's ale is weak, an' I've told everyone who'll listen. Nobody's come from the Faire tae argue, so I must be right." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Wildhammer riders drink here when they pass through, an' they drink as if the barrels had insulted them. I keep the tab honest, which is more than they do." } },
+    magni = { { id = "tp_magni", text = "There's a toast tae King Magni every night at the Stoutlager, an' I've never once had tae start it. That's the kind o' king he is." } },
+    scourge = { { id = "tp_scourge", text = "A refugee from Lordaeron stopped here once on his way tae Ironforge, an' he wouldnae sit near the fire. Said he'd seen too many villages burnin', so I gave him the corner table an' left him be." } },
   },
 }
 
@@ -971,6 +983,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I cook, an' that's my story, an' it's got sausages in it." } },
     advice = { { id = "tp_ad", text = "Eat it fresh. That goes for everythin', but sausages most of all." } },
     _none = { { id = "tp_none", text = "I cook; ask someone who talks." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells sausages on sticks, I'm told, an' they're no' a patch on mine. I'd like tae go an' prove it." } },
+    magni = { { id = "tp_magni", text = "King Magni's a famous eater, an' I've heard he likes his sausages spiced. If he ever comes tae Thelsamar, I'll have a pot on." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor told me they put fish in their sausages down in Booty Bay. I've never been so offended in my life." } },
   },
 }
 
@@ -1242,6 +1257,10 @@ P:NPC {
     gnomeregan = { { id = "tp_gnomeregan", text = "The same troggs, or their cousins. They came up under the gnomes, and now they're coming up under us." } },
     troggs = { { id = "tp_troggs", text = "They're Stonesplinter, tunneling up from every crevice in the loch's hills.", next = "leader" } },
     _none = { { id = "tp_none", text = "That's not my post, I'm afraid. Ask in Thelsamar, at the Stoutlager, where every dwarf in the loch has an opinion." } },
+    magni = { { id = "tp_magni", text = "The regiment serves King Magni, and the regiment's book records every order he has sent us. There are fewer pages than I'd like, but each one is in his own hand." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons have a chapter in the regiment's book that goes back to the War of the Three Hammers. We're still writing it." } },
+    second_war = { { id = "tp_second_war", text = "The regiment's book has a whole volume on the Second War, when the Horde marched through Khaz Modan. Every name in it fought, and too many of them died in this valley." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer appear in our book as allies, which surprises the young soldiers. A dwarf is a dwarf when there's an orc in front of him." } },
   },
 }
 
@@ -1471,5 +1490,8 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "Don't say that name near my dam, please, just don't. I've enough to worry about as it is.", next = "threat" } },
     stonewrought_dam = { { id = "tp_dam", text = "She's mine. Well, she's the King's, but she's mine.", next = "old" } },
     _none = { { id = "tp_none", text = "I'm sorry, I cannae think about anything but the dam right now. I rarely can." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was an engineering marvel, a marvel, and now it's lost, which is, well, it's a lesson in maintenance, really. I check my seals twice a day because of it." } },
+    magni = { { id = "tp_magni", text = "King Magni visited the dam once, well, my grandfather says he did, or his father did, and called it a fine piece of work. Every Hinderweir since has been living up to it." } },
+    troggs = { { id = "tp_troggs", text = "The troggs dig, you see, and digging near a dam is, well, it's the worst thing, really, the very worst. I've asked the Mountaineers to keep them at least a mile off, and they've asked me how." } },
   },
 }

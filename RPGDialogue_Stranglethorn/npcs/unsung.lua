@@ -203,6 +203,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I started out selling scrap to the Bruisers and worked my way up to selling them things that work. In Booty Bay that counts as a respectable career, and it pays like one, almost." } },
     advice = { { id = "tp_ad", text = "Hit the thing with the heavy end, friend. You'd be amazed how many people get that backwards and come back to buy a second mace." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best town for selling maces, pal, because everybody here wants to hit somebody. I'm just helping them do it properly." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's my favorite showroom, pal, because every fight is a demonstration of my product. The ones holding my maces usually win." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make maces that'll break your arm before they break a skull, pal. I wouldn't sell one of theirs if it came free." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company buys maces for their foremen, pal, and they never tip. I make them pay double, which is as close to justice as I get." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and I can't sell what I've never heard of, so ask somebody else." } },
   },
 }
@@ -383,6 +387,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came south with a crate of thread and a lot of nerve, pal. The thread's sold, at a profit, but I've still got the nerve." } },
     advice = { { id = "tp_ad", text = "Salt your hides the same day you take them, buddy, or the jungle takes them back and you're out the money." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the place to be if you want to know what's coming out of the jungle, pal. Every hide and every crate goes through here, and I see them all." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub use dyes I've never seen, pal, reds that don't fade. I'd pay a fortune for the recipe, but I don't want to be the one who asks." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company sells me salt by the barrel, and I'm almost sure they stole it. But it's good salt, pal, and I don't ask questions." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena fighters bring me hides from things I've never heard of, pal, and they want top coin for them. I pay, because they're holding swords." } },
     _none = { { id = "tp_none", text = "Don't know, and there's no profit in guessing. Try the tavern, pal; they guess for free, and it's worth every copper." } },
   },
 }
@@ -598,6 +606,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned the trade in a workshop in Ratchet that blew up twice a week, regular as payday, so I've been careful ever since." } },
     advice = { { id = "tp_ad", text = "Always cork your vials, pal. You'd be amazed how many people forget, and how much it costs them." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's dirty, pal, dirty and damp, and every bottle I own has to be scrubbed twice. But the customers pay well, so I scrub." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's Noggenfogger makes elixirs that turn people into skeletons, pal, and he calls it a feature. I'd never sell anything that sloppy." } },
+    ratchet = { { id = "tp_ratchet", text = "I learned the trade in Ratchet, pal, in a workshop that blew up twice a week. Nobody died, but I learned to keep my bottles corked." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub use reagents I wouldn't touch with tongs, pal, blood and bones and worse. I sell the clean stuff only." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't mix things I don't know, not for any money. Ask somebody less careful." } },
   },
 }
@@ -810,6 +822,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Stormwind docks, then a goblin's contract, then this shop. It's not a grand story, but it's mine." } },
     advice = { { id = "tp_ad", text = "Keep your iron dry and your coal drier. The jungle ruins both." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a goblin town, and I'm just a man selling coal, but it pays. I came for the work and never left, and I don't regret it." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy in Stormwind during the Second War, carrying coal for the forges that made the swords. I've been doing it ever since." } },
+    stonemasons = { { id = "tp_stonemasons", text = "My father was a Stonemason, and he helped rebuild Stormwind after the war, and they never paid him what they owed. That's why I came south." } },
+    defias = { { id = "tp_defias", text = "The Defias are what happens when a city doesn't pay its debts, and I understand them better than I'd like. I don't hold with what they do, but I know why they do it." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, friend. I know iron and coal, and that's about the end of it." } },
   },
 }
@@ -990,6 +1006,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I kept the Cartel's books in Gadgetzan before they sent me here, at a raise of two silver a month. The ledgers are the same, but the customers carry more knives." } },
     advice = { { id = "tp_ad", text = "Leave your spare coin with us before you go into the jungle, friend. The trolls never bother robbing a vault, and the interest is better than anything a troll will give you." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of pirates and their money, pal, and somebody has to keep track of it. I'm the somebody, and I don't sleep much." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "I kept the books in Gadgetzan before they sent me here, and the sand got into everything, even the ledgers. Booty Bay's wetter, but at least the ink dries." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's the only bank I'd trust, pal, because I've seen the books. Every copper's counted twice, and everyone's watched three times." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail have tried to rob the vault twice, and I've counted the cost both times. They didn't get anything, but the repairs were murder." } },
     _none = { { id = "tp_none", text = "That's not in my ledgers, friend, and if it's not in the ledgers, it doesn't exist, and I certainly don't know it." } },
   },
 }
@@ -1191,6 +1211,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've been threading needles since I could hold one, dear, and I'll be threading them when I can't see the eye, because the rent doesn't stop." } },
     advice = { { id = "tp_ad", text = "Wear something light in the jungle, friend, and change your socks. Trust me, and buy the socks here." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's too hot for wool, dear, and every mage who walks in here wearing it is sweating through their robes. I sell silk for a reason." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's full of fighters in heavy armor, dear, but the casters who win are always wearing something light. I've sold to a few of them, and they always come back." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to come through here wearing the finest robes I've ever seen, dear. Now they're rebuilding their city, and nobody's buying robes anymore." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub wear robes of feathers and bone, dear, and I'll admit the craftsmanship is very fine. I wouldn't wear it myself." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, sweetie, but my cousin might, for a fee. Ask any Goodstitch; one of us knows everything." } },
   },
 }
@@ -1376,6 +1400,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My father cut timber in Elwynn, and I learned the axe from him before I learned to read. The jungle pays better than the forest ever did." } },
     advice = { { id = "tp_ad", text = "Keep your axe sharp and your back to a tree. That's all the advice I've got." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of pirates with cutlasses, and none of them know a thing about a proper axe. I'll stay up here with the hunters." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub use axes that would take your arm off, and I'd love to get my hands on one. I've seen what they can do from a distance, and that's close enough." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company's cutting down the jungle with machines, and they're doing it badly. My father would've wept to see it." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Barnil; he knows everything that goes on in this camp." } },
   },
 }
@@ -1580,6 +1607,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I cooked on a merchant ship until it sank under me, and I swam to Booty Bay and never left. That was a long time ago now." } },
     advice = { { id = "tp_ad", text = "Cook everything twice in the jungle, friend, and wash your hands three times." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best clams on the coast, and nobody here knows how to cook them properly. I'm doing what I can." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's cooking is all boiled meat and bread, the Kul Tiran way. I'd love to send them a recipe for clam chowder, but I don't think they'd appreciate it." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's full of fighters who eat nothing but jerky and ale. I keep telling them a good fish stew would win them more fights." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has the worst food I've ever tasted, and they charge a fortune for it. I keep asking them to let me cook for them." } },
     _none = { { id = "tp_none", text = "No idea, friend, but if you want to know how to cook it, I'm your cook." } },
   },
 }
@@ -1789,6 +1820,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned engineering by taking things apart and learned safety by putting them back together wrong." } },
     advice = { { id = "tp_ad", text = "Never light a fuse indoors, friend. Learn from my mistakes." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best place in the world for an engineer, pal, because nobody minds a little explosion now and then. I've had three this week alone." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan to their own mistake, pal, and I've heard the radiation still leaks out. I'd never build anything that dangerous, I'd only build things that explode." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the home of the best engineers on Kalimdor, pal, and they keep trying to recruit me. I tell them I'm happy here, which is mostly true." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where I learned my trade, pal, and I still miss the smell of oil and seawater in the morning. Booty Bay's got the seawater, at least." } },
     _none = { { id = "tp_none", text = "I don't know, but I could build a contraption to find out, if you'd like one, and if not, then suit yourself." } },
   },
 }

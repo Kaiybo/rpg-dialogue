@@ -145,5 +145,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "A princess of the tauren, I'll have you know, captured twice and rescued once, so far." } },
     advice = { { id = "tp_ad", text = "Never swim when you're upset. The Earth Mother gave tauren hooves for walking, and you end up on islands." } },
     _none = { { id = "tp_none", text = "A princess doesn't concern herself with that sort of thing, and the Earth Mother can't hear me out here anyway." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the high chieftain of my people, and I'll have you know he's met me personally, once. He'll be very upset to hear how I've been treated." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother watches over all her children, even princesses kidnapped by gorillas. I pray to her every night, very loudly, so the gorilla king hears." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I was on my way to Booty Bay for a little shopping when the gorillas took me. I suppose I'll have to buy twice as much when I get there now." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is an orc of great taste, I'm sure, and he'd never allow a princess to be held by a gorilla. Somebody should write to him about this." } },
   },
 }

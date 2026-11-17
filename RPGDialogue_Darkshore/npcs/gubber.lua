@@ -154,6 +154,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm Gubber Blump, and I fish, and that's most of it, really." } },
     advice = { { id = "tp_ad", text = "Always bring more bait than you think. Fish don't care what you think." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the biggest fishing contest anywhere, I hear, and I'd love to enter. I'd probably lose, but I'd fish the whole time, so that's a win." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's goblins buy fish, and they buy it quick, and that's all I ask of anybody." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's marsh water has catfish as big as you are, sailors say. I'd go, if I had a boat that floated." } },
     _none = { { id = "tp_none", text = "I don't know nothing about that. I know about fish, though, and crab." } },
   },
 }

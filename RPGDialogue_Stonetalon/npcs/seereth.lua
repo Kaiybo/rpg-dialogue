@@ -149,6 +149,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A shaman of Orgrimmar, young and promising, or so they told me before they sent me here. I was born in the camps and found the spirits only after Thrall freed us, and now I'm only tired." } },
     advice = { { id = "tp_ad", text = "Listen to a place before you fight in it. The spirits will tell you where not to stand, if you let them, and an orc who listens lives long enough to swing twice." } },
     venture_company = { { id = "tp_venture", text = "Goblins with axes and no shame. Every tree they fell is a voice that stops singing.", next = "venture" } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of Stonetalon scream when the goblins cut, and I hear every scream. I am young for a shaman, but I know pain when I hear it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is weeping in Stonetalon, and I am trying to comfort her. It is a big task for a small shaman, but I will not give up." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a shaman, and he would understand what I hear. I wish he would come to Stonetalon and see the Charred Vale for himself." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent Maggran to Sun Rock to protect the land, and I am glad he did. But even Maggran cannot stop the goblins alone." } },
     _none = { { id = "tp_none", text = "I don't know, {class}. My people forgot the spirits once, under the demon's shadow, and I'll not pretend to know what they haven't told me." } },
   },
 }

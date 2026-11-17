@@ -187,6 +187,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I flew birds out of the north until someone offered better pay to fly them out of a pirate cove. I'm still deciding if it was worth it." } },
     advice = { { id = "tp_ad", text = "Fly out at dawn. By noon the air off the jungle is thick enough to swim in." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the strangest flight path I've ever run, pal, with Alliance gryphons on one side and Horde wind riders on the other. Nobody fights, though, because nobody wants to explain it to the Baron." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught every gryphon master I ever learned from, and they still do it better than any of us. I'd give a year's pay to see the Aerie at Aerie Peak." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine ruler, from what I hear, though I've never set foot in Ironforge myself. The gryphon roosts there are famous, mind." } },
+    theramore = { { id = "tp_theramore", text = "The Theramore route's a long flight over open sea, and the gryphons hate it. I always send extra feed with anybody going that way." } },
     _none = { { id = "tp_none", text = "Ask somebody with their feet on the ground. I spend mine looking up." } },
   },
 }
@@ -364,6 +368,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned the beasts at Orgrimmar and came south for the money, and the money is why I stay, pal, same as everybody." } },
     advice = { { id = "tp_ad", text = "Never stand behind a wind rider, not even once, not even for a moment, not even for gold." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay pays me better than Orgrimmar ever did, and I've got gryphons for neighbors, which takes some getting used to. They're decent beasts, though their masters talk too much." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps the Horde strong, and he keeps it fed, and that's more than I can say for any other chief I've followed. I'd fly anywhere he sent me." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the hottest place a wind rider can land without catching fire, and the beasts hate every minute of it. I don't blame them." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in the Barrens shoot at wind riders for sport, pal. I lost a good beast to a Kolkar arrow once, and I haven't forgiven them." } },
     _none = { { id = "tp_none", text = "I fly beasts, pal, I don't answer riddles. Try the tavern; Krazek sells riddles." } },
   },
 }
@@ -566,6 +574,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Born to the Cartel, trained in the vaults, and never once robbed, friend. Twice almost, but almost isn't robbed, and almost doesn't show up in the ledger." } },
     advice = { { id = "tp_ad", text = "Never carry more gold than you can afford to lose to a raptor, pal; deposit the rest with me." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the most dangerous town I know, friend, which is exactly why a vault here is worth so much. Every pirate wants somewhere safe to keep what they stole." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's very good for business, friend, because the winners make deposits and the losers make withdrawals. I don't care which kind you are." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail have tried to rob this vault twice, and twice they failed, and I'd like it on the record that I wasn't worried either time. Much." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's the only bank that pays out the same to Horde and Alliance alike, friend, because gold doesn't care who carried it in." } },
     _none = { { id = "tp_none", text = "If it doesn't earn interest, I don't keep track of it, friend, and neither should you." } },
   },
 }
@@ -740,6 +752,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I started out buying swords off drunks, and I still do; I just pay a little more now." } },
     advice = { { id = "tp_ad", text = "Oil your blade every night down here. The sea air rusts steel quicker than any troll can blunt it." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best place in the world to buy a sword from a drunk, and the second best place to sell it to a fool. I love this town." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Half my best stock came out of the Arena, pal, dropped by fighters who didn't need it anymore. I don't ask whether they were alive when they dropped it." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Every blade I've seen out of Zul'Gurub is cursed, or the seller says it is, which puts the price up nicely. I've got one now, actually, if you're interested." } },
+    second_war = { { id = "tp_second_war", text = "This sword here was carried by an orc captain in the Second War, or so the drunk who sold it to me said. Maybe one in three of these stories is true." } },
     _none = { { id = "tp_none", text = "If it hasn't got an edge, I've no opinion on it." } },
   },
 }
@@ -945,6 +961,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned at a forge up north and came south when I'd learned enough to charge for it." } },
     advice = { { id = "tp_ad", text = "Buy the best blade you can afford once, not the cheapest blade you can afford six times." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of rust and secondhand steel, and I'm the only one who sells it new. You can tell my customers by how many fingers they have left." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Every blade I've sold to an Arena fighter has come back in one piece, though the fighter hasn't always. That's the difference between good steel and the rest." } },
+    magni = { { id = "tp_magni", text = "King Magni keeps the best smiths in the world in Ironforge, and I learned under one of them. I'd tell him so myself if I ever had the chance." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make fine steel, I'll give them that, but they'd sooner put it in your back than sell it to you. I've seen their work, and I don't sleep any easier for it." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't forge it, so I don't care." } },
   },
 }
@@ -1115,6 +1135,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I tried being a real pirate once. The costume was the best part and the wages were terrible, so I kept the costume and let the rest go." } },
     advice = { { id = "tp_ad", text = "Every pirate needs a good hat, pal. A hat says you've plundered, even if all you've plundered is a pie." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of real pirates, pal, and every one of them needs a proper hat. I sell the hats, and the tourists think they're getting the real thing." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail wear red bandanas, and I sell red bandanas, and the Blackwater boys get very nervous about it. I've told them it's just a costume, but they don't laugh." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire folk buy my costumes by the dozen, pal, because nobody dresses up better than carnival people. They pay well, and they haggle terribly." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I sold a pirate hat to a fighter going into the Arena once, and he won the chest wearing it. He said it was lucky, and I've doubled the price since." } },
     _none = { { id = "tp_none", text = "Never heard of it, buddy, but I could sell you a hat about it." } },
   },
 }
@@ -1300,6 +1324,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Booty Bay born, Booty Bay fed, pal. I've never been hungry a day in my life, and I'd like you to say the same, for a very reasonable price." } },
     advice = { { id = "tp_ad", text = "Never drink the water on a ship that's been out more than a week, chum. Drink the rum instead, which I happen to sell." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best-fed town on the coast, pal, and I like to think I've had a hand in that. Nobody goes hungry here, unless they're broke." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters coming back from the Arena eat like wolves, pal, and they pay in loot instead of coin half the time. I've got quite a collection of daggers now." } },
+    theramore = { { id = "tp_theramore", text = "Theramore cooking is all boiled meat and bread, pal, the Kul Tiran way, and I'd like to send them a few of my recipes. The marsh has fine crabs going to waste." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire food is overpriced and undercooked, pal, and I've told them so. They still sell more than I do when they're in town, which I'm trying not to take personally." } },
     _none = { { id = "tp_none", text = "Can't eat it, can't drink it, can't sell it, so I can't help you with it, pal." } },
   },
 }
@@ -1451,6 +1479,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sewed sails before I sewed silks, and I still say a sail is the harder job, though the silks pay better." } },
     advice = { { id = "tp_ad", text = "Store your cloth with cedar, never with fish, pal. You'd be amazed how many people need telling, and how many come back to buy new cloth." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a sailor's town, so I mend more sails than silks, and I don't complain. Every ship that comes in has something torn, and I've got the thread for it." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sails are badly sewn and patched with whatever they've stolen, and I can spot one from the dock. That's how I know they're coming, before anyone else does." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire tents are the finest silk work I've ever seen, pal, and I've tried for years to find out who sews them. Silas won't say a word." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's sailmakers do good work, the Kul Tiran way, tight stitches and heavy canvas. I've copied a few of their tricks." } },
     _none = { { id = "tp_none", text = "Not cloth, not thread, not my business, and not my money." } },
   },
 }

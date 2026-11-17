@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.34.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+
 ## 1.33.0 (2026-11-17)
 - Every Booty Bay NPC now talks: 26 new people (trainers, armorers, the Salty Sailor's Raiders, the wharf vendors, the stable master, Scooty, the auctioneers, the Zandalarian Emissary, Dudd, Rix, Bloads, Ruzzgot, Grizzlowe, Flora Silverwind). New files: restart the game fully (a /reload won't load them).
 - New story "The eye on the docks": tell Seahorn who the Bloodsail spy is, or keep the Baron's secret; Ian Strom reacts.

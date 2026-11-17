@@ -364,6 +364,14 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Soldier, then hunter, then writer, Light help us all. Barnil does the spellin'.", next = "hero" } },
     advice = { { id = "tp_ad", text = "Shoot what's chargin' ye first, then shoot what's watchin' ye, an' then have a drink." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, laddie, an' I've seen orcs charge, an' a tiger in full stride is a finer sight. I'll not say that in front of the veterans, mind." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, an' a fine hunter in his day, I'm told. I've half a mind to send him a copy of my book when Barnil finishes the spellin'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the nearest port with a decent pint, an' Barnil goes for supplies every week. I don't care for the place myself, too many folk an' not enough game." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "There are tigers in Zul'Gurub, they say, bred by the trolls an' fed on blood, an' I'd give my best rifle to hunt one. Barnil says I'm mad, an' he may be right." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's a waste of good fighting, laddie, men killin' each other over a box when the jungle's full of finer prey. Still, it's a fine place to find a strong arm for a hunting party." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, eh? Now there's a trophy, but I've a feeling she'd mount my head first. I'll leave that one to braver men." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a shooting gallery, an' I've never once lost at it. They've asked me not to come back, which I take as a compliment." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon back, an' I've seen one drop a boar from a hundred feet up. Finest hunters in the Alliance, after me." } },
     _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
   },
 }
@@ -636,6 +644,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Ironforge lad, soldier once, an' now the master's man. It's the best job I ever had, but don't tell him." } },
     advice = { { id = "tp_ad", text = "Keep yer powder dry an' yer pages weighted. The wind in this jungle has opinions." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, an' I'm proud to be his subject, though I've not been home to Ironforge in a good long while. The master keeps me busy." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I go to Booty Bay every week for supplies, an' I come back with a lighter purse an' a sore head. The goblins drive a hard bargain, but the beer's not bad." } },
+    second_war = { { id = "tp_second_war", text = "I fought alongside the master in the Second War, an' that's how we met. He saved my life twice, an' I've been with him ever since." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are a wild lot, an' I've never trusted a dwarf who'd rather fly than walk. The master likes them, though, an' that's enough for me." } },
     _none = { { id = "tp_none", text = "Ask the master; he'll tell ye, at great length." } },
   },
 }
@@ -856,6 +868,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My father, a bow, and tigers. That's my whole life, and I'd not trade a day of it.", next = "father" } },
     advice = { { id = "tp_ad", text = "Never hunt a cat from below it. They're always above you, always." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "There are tigers in Zul'Gurub bred for war, and my father once took one. I mean to take a bigger one." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where we sell the pelts, and where my father taught me to haggle. I'm better at it than he ever was." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've watched a few fights at the Arena, and I don't see the appeal. A tiger fights better than any man I've seen in there." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a shooting contest, and I've won it three times. Hemet won't go anymore, which makes it easier." } },
     _none = { { id = "tp_none", text = "If it isn't tigers, it isn't my concern." } },
   },
 }
@@ -1109,6 +1125,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a count once, and I'm a hunter now, which is the only title I ever earned.", next = "nobles" } },
     advice = { { id = "tp_ad", text = "Read who's paying for something before you do it. It's the only question that matters, here or in Stormwind." } },
     defias = { { id = "tp_defias", text = "Cheated men, turned thieves. I'd hang the thieves, but I'd want the cheats hanged first." } },
+    varian = { { id = "tp_varian", text = "I knew the king when he was a boy, before I left court, and he was a fine one. Whatever happened to him on that road, it was no accident, I'd stake my old title on it." } },
+    bolvar = { { id = "tp_bolvar", text = "Bolvar Fordragon is a good soldier, and he keeps the court in line better than most would. I'd rather hunt panthers than deal with those nobles, though." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor arrived at court after my time, and from what I hear, she's taken it over. I'm very glad I left before I had to dance with her." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I remember the Stonemasons rebuilding the city, and I remember the nobles refusing to pay them. That was the beginning of the Defias, and the beginning of my disgust with court." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is rough and honest about it, which I prefer to the polished dishonesty of Stormwind's court. I'd sooner deal with pirates than nobles." } },
     _none = { { id = "tp_none", text = "I've no opinion on it. I've given up having opinions in public; they cost too much." } },
   },
 }

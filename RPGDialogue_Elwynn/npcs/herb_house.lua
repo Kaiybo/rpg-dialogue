@@ -186,6 +186,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Taste nothing you've just brewed, friend. Let someone else be brave first." } },
     camping = { { id = "tp_camping", text = "Sam's campfires are fine for sausages. For anything finer, you want a steady flame and a good deal of patience." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and I can't stop stirring to find out." } },
+    scourge = { { id = "tp_scourge", text = "The plague that took Lordaeron was brewed, friend, not caught, and that frightens me more than any wolf. Somebody with training like mine did that, and I think of it every time I light the burner." } },
+    dalaran = { { id = "tp_dalaran", text = "The alchemists of Dalaran had the finest stills in the world, and I've heard they're only now rebuilding them. I'd like to see one before I die, preferably not because of one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells little vials of fizzing water and calls them elixirs, and every year somebody brings me one to ask what's in it. Water, mostly, and a great deal of sugar." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn buys healing potions by the cartload for the north, and I've sent them what I can spare. It's the one order I never haggle over." } },
   },
 }
 
@@ -365,5 +369,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Take the leaves and leave the root, dear, and the plant will be there for you next spring." } },
     camping = { { id = "tp_camping", text = "A campfire's a fine thing, but it's nothing without a few good leaves to put in the pot." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, dear. If it doesn't grow, I don't know much about it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's fortune teller buys my dried lavender for her tent, dear, and says it brings the spirits closer. I think it just makes the tent smell nicer, and that's enough for me." } },
+    holy_light = { { id = "tp_holy_light", text = "My grandmother said the Light grows in every green thing, and I've never found a reason to doubt her. You can feel it on a spring morning if you kneel in the mint." } },
+    scourge = { { id = "tp_scourge", text = "I've heard the very earth goes sick where the plague has walked, dear, and nothing will grow there but blight. I can't think of anything sadder for an herbalist to hear." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "There are druids, dear, the Cenarion Circle, who look after whole forests the way I look after my garden. I'd love to sit down with one of them and talk about roots." } },
   },
 }

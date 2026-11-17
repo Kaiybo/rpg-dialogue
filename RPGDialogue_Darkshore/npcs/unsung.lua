@@ -191,6 +191,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell fish in the Auberdine inn. I trade with Nessa Shadowsong in Rut'theran, though we'd both rather argue than admit we're friends." } },
     advice = { { id = "tp_ad", text = "Never fish alone on this coast. Bring a friend, or at least a sharp knife." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay pays well for fresh fish and badly for anything else. Nessa says I'd last a week there, and she's probably right." } },
+    ratchet = { { id = "tp_ratchet", text = "I went to Ratchet's fishing contest once and came home with a sunburn and no prize. Don't tell Nessa I admitted it." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's boats come in smelling of marsh, and the sailors want fish that doesn't. I sell them plenty." } },
     _none = { { id = "tp_none", text = "Not a thing, I'm afraid. I only know what swims and what's been caught, and Elune knows that's enough for one life." } },
   },
 }
@@ -370,6 +373,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the general goods in Auberdine. I've seen a lot of young people come through here, and I try to send them out with a spare bag and dry socks, which is more than most of their mothers managed." } },
     advice = { { id = "tp_ad", text = "Buy a bigger bag. You'll thank me in a week." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Young folk come through on their way to anywhere, and some of them mean to get to Booty Bay. I give them a spare bag and tell them to keep their purses in it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire's been near, everyone comes in with no money and wants credit. I give a little, because I remember being young." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's sailors buy socks, of all things. Something about the marsh, they say." } },
     _none = { { id = "tp_none", text = "Oh, I wish I knew. Ask Thundris Windweaver; he has been elder here longer than I have been alive, and he knows far more than I do." } },
   },
 }
@@ -550,6 +556,9 @@ P:NPC {
   topics = {
     highborne = { { id = "tp_high", text = "They drank from the Well until it swallowed them. My grandmother told me that story whenever I asked for a second cup." } },
     background = { { id = "tp_bg", text = "I sell drinks in Auberdine. Simple work, and nobody's ever unhappy to see me, unless I've run out of moonberry juice." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay drinks rum and calls it food, sailors say. I'll stick with my moonberry juice, and my customers' livers will thank me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells a drink that changes colour while you drink it, I'm told. I've tried to copy it, and mine just goes brown." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins sell a hot cider for the cold that I'd dearly love the recipe for. They want gold for it, of course." } },
     _none = { { id = "tp_none", text = "I couldn't say. Have a drink and ask around, for someone in Auberdine will remember." } },
   },
 }
@@ -729,6 +738,9 @@ P:NPC {
   topics = {
     dark_strand = { { id = "tp_dark", text = "Robed cultists out in the hills. I don't know their business, and I don't care to, as long as they stay up there." } },
     background = { { id = "tp_bg", text = "I sell weapons in Auberdine. I've sold blades to Sentinels and to fools, and the fools come back less often, usually carried." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's where blades go to rust. If you're going in, buy two, and dry them after." } },
+    warsong = { { id = "tp_warsong", text = "Warsong axes are heavy and cruel, and I've repaired a few Sentinel blades that blocked them. Buy something thick." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "There's an arena in Stranglethorn where fools fight for gold. I've sold to a few who went there, and none came back to complain." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care, so do you want a weapon or not?" } },
   },
 }
@@ -923,6 +935,13 @@ P:NPC {
     explorers_league = { { id = "tp_el", text = "Remtravel's lot dig south of here. Good customers, terrible singers." } },
     warsong = { { id = "tp_ws", text = "The orcs are cutting into Ashenvale with steel axes. The elves'll need steel of their own soon enough." } },
     background = { { id = "tp_bg", text = "I'm from Dun Morogh, and I sell smithing supplies in Auberdine. Long way from home, but the work's good." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni's the best king a dwarf could ask for, and he still sends a letter to us lot out here now and then. Makes the long way home feel a bit shorter." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye'll know the king, then, or ye'll know of him. Raise a glass to him tonight, and I'll pour, because there's few enough of us out here." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Iron dwarves, the ones who brought the fire down on us all. My grandfather fought them, and he never forgave a single one." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "My cousin had a stall near Gnomeregan before it fell. She came back to Ironforge with nothing but her hammer, and she's never said a word about what she saw." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are our cousins in the Hinterlands, and they ride gryphons and drink like the world's ending. I miss them, oddly." } },
     _none = { { id = "tp_none", text = "Ha! No idea, {g:lad|lass}. Ask one of the elves; they've been around long enough to know everything." } },
   },
 }

@@ -247,6 +247,15 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias have dug themselves into the old Moonbrook mine, and the scouts call it the Deadmines now. I'd send the militia in tomorrow if I thought a single farmer would come back out of it." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Defias started as masons the nobles wouldn't pay, and I'll grant them the grievance. What I won't grant them is my neighbours' farms, which is what they took for it." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord sends us his sympathy and not a single sword, and I'm tired of reading sympathy by lamplight. Gryan says he's a good man, so I'll leave it there." } },
+    varian = { { id = "tp_varian", text = "King Varian would have marched an army down the coast road by now, I'd wager, but the King's gone and the council sends letters. We hold Westfall with what we have, which is farmers." } },
+    second_war = { { id = "tp_second_war", text = "I was a pikeman in the Second War, and I came home to a farm that was still standing, which made me luckier than most. The Defias did what the orcs didn't, and I've not forgiven the city for letting them." } },
+    the_stockade = {
+      { id = "tp_the_stockade", text = "Half the Defias who get taken alive end up in the Stockade, and half of those seem to walk back out. I'd like to know who's holding the keys in that place, because it isn't anyone on our side." },
+      { id = "tp_the_stockade2", when = { disposition = { min = 65 } }, text = "Between us, the Stockade's in the prisoners' hands, and I've heard Defias names among the ringleaders. That's a knife pointed at Stormwind's belly, and nobody in the Keep seems to feel it." },
+    },
     knows = {
       { id = "tp_knows", text = "I command what passes for an army out here, so most of the bad news comes to me first. Ask me about any of this." },
     },

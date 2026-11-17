@@ -225,6 +225,10 @@ P:NPC {
     silver_hand = { { id = "tp_sh", text = "Trey's order. He wore their tabard as if it were the finest thing he owned, and to him I think it was." } },
     burning_legion = { { id = "tp_bl", text = "Gone from this forest, they say, except that everything here still remembers them, and so do the warlocks who serve them." } },
     cenarion_circle = { { id = "tp_cc", text = "The Emerald Circle's druids have been kind to me while I wait, though they've far more to worry about than my friends." } },
+    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he believes it goes with him everywhere. I'm a moon girl, myself, but I hope he's right tonight." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune for Arko'narin every night, and for Trey, and a little for myself. She hasn't said no yet." } },
+    satyrs = { { id = "tp_satyrs", text = "Shadow Hold is full of satyrs, and they took my friends. I'm not brave, but I'm not leaving them there." } },
+    scourge = { { id = "tp_scourge", text = "Trey fought the dead in the human lands before he came here, and he doesn't talk about it. He only goes very quiet." } },
     _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now, Elune forgive me. Ask Greta; she knows this forest far better than I do." } },
   },
 }

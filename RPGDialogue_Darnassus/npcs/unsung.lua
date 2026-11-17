@@ -185,6 +185,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the ledgers in the Temple Gardens with Idriana and Lairn. Nobody ever shouts at a ledger, which suits me." } },
     trade = { { id = "tp_trade", text = "More coin comes up from the boats every season. Most of it leaves again for Auberdine, but some of it stays with me for a while." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblin bank in Booty Bay charges for keeping your gold and charges again for giving it back. Ours does neither, though we do insist on legible handwriting." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle goblins keep accounts in four colours of ink and a code nobody else can read. I admire the discipline, though not the interest." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's credit is good at our counter. Lady Proudmoore runs a tidy treasury, which is rarer than you'd think among wizards." } },
     _none = { { id = "tp_none", text = "That isn't written in any ledger I keep, so I'm afraid I can't help you with it." } },
   },
 }
@@ -373,6 +376,9 @@ P:NPC {
     sentinels = { { id = "tp_sent", text = "The Sentinels take the best of us to Ashenvale, and I train the ones they haven't taken yet." } },
     background = { { id = "tp_bg", text = "I've been teaching on this terrace since Darnassus had a terrace. Before that I held a line in Ashenvale, and I'll leave it there." } },
     advice = { { id = "tp_ad", text = "Mend your shield before you sharpen your sword. A blunt sword still keeps you alive, but a cracked shield won't." } },
+    warsong = { { id = "tp_warsong", text = "I held a line against the Warsong in Ashenvale, and I'm here now, so I suppose I held it well enough. They swing hard and they don't plan, so plan." } },
+    centaur = { { id = "tp_centaur", text = "Centaur are all strength and charge. Make them turn, and make them turn again, and they'll tire before you." } },
+    burning_legion = { { id = "tp_burning_legion", text = "I was a girl at Hyjal, carrying arrows, and I saw the demons come over the hill. I'm still teaching because of that day." } },
     _none = { { id = "tp_none", text = "I don't know, and I won't guess. Ask someone who isn't busy shouting at recruits who think a few decades of practice is a lifetime." } },
   },
 }
@@ -553,6 +559,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell weapons on the Warrior's Terrace. I've handled more blades than I could count, and I still like the feel of a good one." } },
     advice = { { id = "tp_ad", text = "Oil your blade after the rain, even if you're tired. Rust doesn't care how tired you are." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The smiths of Booty Bay can make a fine cutlass, I'll admit, for twice the price and half the balance. Buy local." } },
+    magni = { { id = "tp_magni", text = "Ironforge steel is the best there is, and King Magni knows it. I stock a little when I can get it, and it sells before I've finished unpacking." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The arena in Stranglethorn wears blades out faster than anywhere I know. Good for business, if I sold there." } },
     _none = { { id = "tp_none", text = "I only know about steel and the people who carry it, as my mother did before me, so ask someone else about that." } },
   },
 }
@@ -748,6 +757,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've raised sabers since before Teldrassil was planted. I'll raise them until the sabers tell me to stop." } },
     advice = { { id = "tp_ad", text = "Never feed a saber from your hand unless you mean to do it every day after. They keep score." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Sabers don't like furbolgs, even friendly ones, and the Timbermaw don't like sabers. I've stopped trying to make introductions." } },
+    centaur = { { id = "tp_centaur", text = "I've heard the centaur ride their own kind into battle, in a manner of speaking. A saber would make short work of that." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring's frostsabers are the finest cats there are, and Everlook's goblins would sell them if they could catch one. They can't, and I'm glad." } },
     _none = { { id = "tp_none", text = "I couldn't tell you; my days are cats and more cats. Ask Jartsam, he talks to people more than I do." } },
   },
 }
@@ -921,6 +933,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've taught riding for a long time. I've only been thrown twice, and I'll deny one of those." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away from them. Your mount will thank you, and so will your back." } },
+    brotherhood_horse = { { id = "tp_brotherhood_horse", text = "Human horsemen, the Brotherhood of the Horse. They tame their mounts the way I tame mine, with patience and a few bruises." } },
+    centaur = { { id = "tp_centaur", text = "Centaur ride nothing, which seems a great waste of good legs. I'd like to teach one to ride a saber, just to see the look on its face." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has strider races, I'm told, and the goblins bet on them. I could win that if anyone let me enter." } },
     _none = { { id = "tp_none", text = "No idea, I'm afraid. Ask me about stirrups and I'm your elf." } },
   },
 }
@@ -1112,6 +1127,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the guild rolls of Darnassus. Every name in them made me a promise of some kind." } },
     advice = { { id = "tp_ad", text = "Choose your companions slowly and keep them long. Gold is easier to find." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Half the guilds in Darnassus were founded over a drink at the Darkmoon Faire, according to their charters. The other half were founded in arguments." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Many a new guild has gone into Blackfathom together and come back as old friends. Some came back as fewer friends, but they all came back closer." } },
+    onyxia = { { id = "tp_onyxia", text = "I've had guilds come in talking about Onyxia's lair, very bold. I've updated more than one roster afterwards." } },
     _none = { { id = "tp_none", text = "I can't say. If there's a guild that knows, I'll have its name in my rolls, but not the answer." } },
   },
 }
@@ -1281,6 +1299,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I design tabards on the Craftsmen's Terrace. My aunt wove banners for the Sentinels, and I suppose it runs in the family." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's tents are the brightest cloth I've ever seen, dyed in colours I can't name. I'd love to know where they get them." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's tabards are blue and gold, very neat, and very human. My aunt would have liked them." } },
+    sentinels = { { id = "tp_sentinels", text = "My aunt wove the Sentinels' banners for years, and I still use her patterns. Every owl on those banners has her stitch in the eye." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, I'm afraid. Ask me about dyes and I'll talk until dusk." } },
   },
 }
@@ -1455,6 +1476,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell meat on the Tradesmen's Terrace. Somebody in this city has to feed people who don't live on dew." } },
     advice = { { id = "tp_ad", text = "Salt anything you mean to carry past Darkshore. The damp there ruins meat in a day." } },
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay they eat raptor and call it a delicacy. I'll stay on my terrace and sell honest boar." } },
+    centaur = { { id = "tp_centaur", text = "I'm told the centaur eat what they kill, and they kill a great deal. Not a customer base I'm after." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells meat on sticks, and everyone loves it. I've thought about trying it here, but the priestesses would talk." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask me what's fresh today and I'll tell you." } },
   },
 }
@@ -1650,6 +1674,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I teach first aid on the Craftsmen's Terrace. I learned it bandaging Sentinels in Ashenvale, which is all I'll say about that." } },
     advice = { { id = "tp_ad", text = "Bandage before the fight is over, not after. Find a moment, even a short one." } },
+    scourge = { { id = "tp_scourge", text = "The human priests who come here talk about plague wounds that won't close. I've taught bandaging for a hundred years, and I've nothing for that." } },
+    warsong = { { id = "tp_warsong", text = "I bandaged Sentinels after Warsong raids for longer than I want to remember. Axe wounds are deep, so press hard and press long." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Bring extra linen to the Deeps, because everything gets wet and then everything gets worse. I've seen it more than once." } },
     _none = { { id = "tp_none", text = "I'm only a healer of small hurts, so I couldn't say. Ask someone wiser, perhaps a priestess of the Temple." } },
   },
 }
@@ -1830,6 +1857,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I teach alchemy on the Craftsmen's Terrace. I've stained my fingers green for longer than I care to count." } },
     advice = { { id = "tp_ad", text = "Label every vial, every time. You will forget, and you won't like guessing." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the bane of every alchemist I know. It looks like any other moss until you try to brew it, and then it tries to brew you." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say plants in the Dream are perfect, every one. I'd give a year to harvest there, though I suppose that's not what it's for." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblin alchemists in Booty Bay sell potions that explode, and some that are meant to. I prefer recipes where you know which is which." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid. I only know what boils and what doesn't, and I have spent a long life learning even that." } },
   },
 }

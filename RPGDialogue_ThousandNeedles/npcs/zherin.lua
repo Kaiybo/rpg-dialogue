@@ -102,6 +102,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A tracker from Thunder Bluff, working for goblins. My mother would have opinions about that." } },
     advice = { { id = "tp_ad", text = "Don't stand still on salt flats in the afternoon. Things here think anything still is either food or a rock." } },
     mirage_raceway = { { id = "tp_mr", text = "Gnomes on one side, goblins on the other, and a track down the middle that I keep clear. It's the loudest place in Kalimdor, and I've gotten used to it." } },
+    centaur = { { id = "tp_centaur", text = "The Galak are a danger in the canyons, but the salt flats are too open for them. They don't like being seen, and out here, you see everything." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the salt flats, and she made them strange. I've walked them for years, and I still find new things every day." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins from Gadgetzan hired me to keep the track clear, and they pay well. I don't understand why they race, but I understand their coin." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city to something they built, I'm told, and now they build race cars. I find that either very brave or very foolish, and I haven't decided which." } },
     _none = { { id = "tp_none", text = "Don't know. Ask a goblin; they'll tell you something, even if it's wrong, and charge you for the privilege." } },
   },
 }

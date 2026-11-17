@@ -137,6 +137,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter of Thunder Bluff once, and an elder of Mojache now. The space between those two is a story about harpies." } },
     advice = { { id = "tp_ad", text = "Always know your enemy. Learn what makes it strong before you learn what makes it bleed." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof gave our people a home on the mesas, and when I am old and done hunting, I will go back to Thunder Bluff and sit at his fire. That day is closer than it was." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother sent me the harpies to teach me humility, I think, and I learned it. I would have preferred a gentler teacher." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem are tauren who have forgotten that the land is shared. They camp in the hills of Feralas and would rather see us gone than see us thrive." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The great ruin north of here belonged to the night elves' ancestors, and now the ogres keep it. The spirits there are not at peace, and I do not hunt near it." } },
+    centaur = { { id = "tp_centaur", text = "The centaur have harried our people since before Thunder Bluff was ours. They are fierce, and they are cruel, and they do not forget a slight." } },
     _none = { { id = "tp_none", text = "That is not among my stories, young one. Ask someone younger, who goes out more than I do, and walk with the Earth Mother." } },
   },
 }

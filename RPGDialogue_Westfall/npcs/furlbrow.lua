@@ -243,6 +243,11 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias are down in the old Moonbrook mines, they say, and that's where all our stolen grain must have gone. I'd like to see it again, just to know it went somewhere." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Verna and I went to the Darkmoon Faire when it camped by Goldshire, years back, and I bought her a little carved horse. She said it looked just like Blanchy, and I thought so too." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm no churchman, but I've prayed more since we lost the farm than I did in thirty years of having one. The Light hasn't answered yet, but Verna says it's thinking it over." } },
+    second_war = { { id = "tp_second_war", text = "The orcs came within a mile of this farm in the Second War and turned back for reasons nobody ever explained. The Defias didn't turn back, and that's the difference, I suppose." } },
+    theramore = { { id = "tp_theramore", text = "A man came through on the road saying Lady Proudmoore's giving land to settlers in Theramore. Verna says we'd never survive a sea crossing with Blanchy, and she's right, and I'd never leave her anyway." } },
     knows = {
       { id = "tp_knows", text = "I've had a lot of time to think, sitting here by a broken wagon. Ask me about any of this, if you've a mind to." },
     },

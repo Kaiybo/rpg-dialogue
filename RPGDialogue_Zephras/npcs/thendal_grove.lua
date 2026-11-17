@@ -145,6 +145,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Go calmly among the stones. The sprites give back whatever you bring them." } },
     al_aketh = { { id = "tp_alak", text = "Grey robes and shaved heads, shouting at the sky. They've made the winds in our own grove hate us." } },
     windstones = { { id = "tp_ws", text = "The winds' last gift to us, and we're spending them faster than I like. Ask Dalia; she counts every one." } },
+    the_elements = { { id = "tp_the_elements", text = "The sprites aren't wicked, they only feel what's near them, and something near them has been angry. Rorian says I must learn to tell the anger that's theirs from the anger that's ours." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne used magic without asking anything first, Rorian says, and the sprites remember that kind of carelessness. I try very hard to ask first." } },
+    elune = { { id = "tp_elune", text = "I've never prayed to the moon, but I sometimes thank it when it lights my way back from the stones. I don't think it minds." } },
     _none = { { id = "tp_none", text = "I don't know. Rorian might; he knows most things eventually, the way the wind finds every gap in a wall." } },
   },
 }
@@ -275,6 +278,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Thendal born, ranger by trade, and bug-catcher by misfortune, which is not a heirloom anyone hopes to inherit." } },
     advice = { { id = "tp_ad", text = "Watch the big ones. It's good advice for bugs and better advice for people." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds used to keep the pests down, and now the cirrusflies breed unchecked. When the spirits come back, I hope they bring a swatter." } },
+    highborne = { { id = "tp_highborne", text = "The High Order keeps telling me I'm Highborne, as if I'd misplaced it. I'm a ranger, and that's a perfectly good thing to be." } },
+    elune = { { id = "tp_elune", text = "The rangers pray to the winds before a hunt and to nothing after. A few of the young ones have taken to the moon, and they shoot no straighter for it." } },
     _none = { { id = "tp_none", text = "Not my department. Ask Rorian, or Aetheen, if you've the nerve to interrupt an elder reading the winds." } },
   },
 }
@@ -395,6 +401,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the southwest paths, and the children off them. That's my whole story, and on an isle that has lost so much, it's enough." } },
     advice = { { id = "tp_ad", text = "A hungry beast is more dangerous than an angry one. Remember that, wherever you go." } },
+    the_elements = { { id = "tp_the_elements", text = "When the winds were with us, the beasts were calmer, I'm certain of it. The ursera came to the elder tree out of hunger, and I think the island is hungry too." } },
+    elune = { { id = "tp_elune", text = "I've started speaking to the moon at night, after the ursera. I don't know whether I believe, but I need to speak to someone who won't tell me it was necessary." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were said to command beasts with a word. I'd give a great deal for a word that would have turned that ursera aside." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask Aetheen; she reads the grove's winds better than anyone on the Council." } },
   },
 }
@@ -513,6 +522,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I collect windstones. Before that I collected other things, but nothing that mattered as much." } },
     advice = { { id = "tp_ad", text = "Learn to gather from the land, whatever you gather. The island won't always provide as it once did." } },
     windstones = { { id = "tp_ws", text = "The winds' own energy, made solid. I could talk about them all day, and some days I do." } },
+    the_elements = { { id = "tp_the_elements", text = "The windstones are what the winds left behind, and I count every one, because nobody's seen a new one form since the spirits went quiet. As far as anyone can tell, that is." } },
+    highborne = { { id = "tp_highborne", text = "The High Order's apprentices drain a windstone a week practicing Highborne spells, and I've told the elders so. They don't count, so I count for them." } },
+    elune = { { id = "tp_elune", text = "The moon doesn't make windstones, so I've no professional interest in her. Personally, I think she's lovely." } },
     _none = { { id = "tp_none", text = "That's not a thing I collect, I'm afraid, and I've collected a great deal. Ask Rorian." } },
   },
 }

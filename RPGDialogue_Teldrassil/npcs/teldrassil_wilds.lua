@@ -171,6 +171,10 @@ P:NPC {
   },
 
   topics = {
+    emerald_dream = { { id = "tp_emerald_dream", text = "My sprouts were meant to be a small piece of the Dream made real, healthy and green. Instead they grow twisted, and I fear the soil of this tree knows something I don't." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Seeds from Nordrassil's grove grow straight and true, I'm told. I've begged the Circle for a handful, and they keep telling me to make do." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss twists everything it touches, and I've found traces of it near the lake. I'm watching my sprouts very closely now." } },
+    green_dragons = { { id = "tp_green_dragons", text = "If Ysera's children had blessed this tree, my sprouts might grow right. I don't say it in Darnassus, but I say it to the lake." } },
     _none = { { id = "tp_none", text = "I do not know, friend. The soil and I keep to ourselves, and we have both found it a peaceful arrangement." } },
   },
 }
@@ -341,6 +345,9 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "I prayed to Elune the whole time that spider's venom was in me, and Dirania prayed louder. I'm not sure which of us she listened to." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When my legs work properly again, I'm going to the Darkmoon Faire. Dirania says I'll come back poorer, and I say it'll be worth it." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've heard Blackfathom Deeps has spiders too, and nagas, and cultists. I think I'll stay on Teldrassil for a while yet." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. I've spent too long lying in the grass to hear the news." } },
   },
 }
@@ -519,6 +526,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay they cook with peppers that make grown warriors weep, I'm told. I'd give a month's spices to taste just one dish there." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has food from every land under the moon, and smells you've never imagined. I mean to go some day and come back with a whole new cookbook." } },
+    elune = { { id = "tp_elune", text = "We used to bake moon cakes for Elune's festivals in the old days, and I still do. The recipe is older than this tree, and I've only changed it a little." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne ate like kings, the old recipes say, and wasted half of it. I keep their recipes and none of their manners." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend. Ask me about food instead, for I know recipes older than most kingdoms." } },
   },
 }

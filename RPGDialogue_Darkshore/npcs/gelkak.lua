@@ -144,6 +144,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tinker by trainin', pirate by choice, castaway by accident. That's the whole of me, landlubber." } },
     advice = { { id = "tp_ad", text = "Never sail where the water's darker than it ought to be. That's where the Threshadons sleep." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I left before the trouble, and I'm not proud of how glad I am of it. Them as stayed deserved better." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay! Now there be a proper port, landlubber, with grog and sharks and goblins who'll sell ye yer own boots. I'd be there now if me ship hadn't sunk." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail? Bah, fancy pirates with fancy hats. I sailed me own course, and sank it too, but at least it were mine." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a goblin port on the far shore, good for repairs and bad for yer purse. I've owed money there for three years." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I've sailed near everywhere, by my own reckonin' to three decimal places. Well, near here, anyhow." } },
   },
 }

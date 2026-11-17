@@ -174,6 +174,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am a druid who stayed where others left, and I watch the old city because someone should." } },
+    highborne = { { id = "tp_highborne", text = "I watch the old Highborne city because the Highborne never stay dead the way they ought to. They loved their magic more than their lives, and some of them still do." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the first tree, and it holds our people's life on Hyjal. I'd rather watch over it than this, but somebody has to watch the dead." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows the land as it should be, and I have seen this shore there, green and quiet. It is hard to come back from that and look at the ruins." } },
     _none = { { id = "tp_none", text = "I've no answer for that, I'm afraid; the ruins keep their own counsel and so do I." } },
   },
 }
@@ -361,6 +364,13 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Explorers' League, thirty years in the field, and only lost twice, whatever Gorbold tells you." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni funds the League, and I've a letter from him on my wall that says 'Find something, Remtravel.' I'm working on it." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king's a fine patron, {g:lad|lass}, and I'd say so even if he weren't. Mind you, he wants results, and I'd rather he didn't hear how often I get lost." },
+    },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Silithus has walls older than any dwarf city, with carvings nobody can read. One day I'll go and get lost there properly." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas, the night elves' old city in Feralas, mostly intact. If I didn't have a fossil to find here, I'd be there." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Lost good friends in Gnomeregan, and my best brush. I'm told it's still full of radiation and angry machinery." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, {g:lad|lass}. I can barely tell ye where I left my lunch, and that was under a perfectly good rock." } },
   },
 }
@@ -536,6 +546,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am an Ancient of Lore, and the memory of this forest lives in my roots." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the root of all our forests' memories, young one. I was a sapling when it was young, and I remember the songs it taught." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as Cenarius and the Ancients first knew it, before anything was broken. I visit it in my long thoughts, and come back slowly." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion came at the Well and again at Hyjal, and both times the forest bled. My roots remember, and they will not forget." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne cared little for the forest, and the forest has not forgotten that either. It is slow to forgive, as I am." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children walk the Dream as I walk my roots, slowly and with care. Something troubles them, and I feel it as a chill in the soil." } },
     _none = { { id = "tp_none", text = "That is a question for younger minds than mine, little one, and for quicker ones." } },
   },
 }
@@ -715,6 +730,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a scout of Auberdine, or I was, before the Blackwood took me." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are what the Blackwood were, before the corruption. I'd give a lot to see a furbolg with sense again, after what the Blackwood did to me." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've scouted near Blackfathom, and the Twilight's Hammer guard it well. Don't go in alone, and don't go in tired." } },
+    elune = { { id = "tp_elune", text = "I prayed to Elune when the Blackwood had me, and I'm here, so I'll keep praying." } },
     _none = { { id = "tp_none", text = "I don't know, and I haven't time to wonder about it just now. Elune willing, I'll have centuries to wonder later." } },
   },
 }
@@ -890,6 +908,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am a druid of the Cenarion Circle, and very nearly a bridegroom, if I can stay awake." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream pulls at me every time I close my eyes, and Liladris would very much like me to stay awake. I'm trying, I promise you, but it's beautiful in there." } },
+    elune = { { id = "tp_elune", text = "Liladris and I mean to be married under Elune's moon at Auberdine. If I can get there without falling asleep, that is." } },
+    nordrassil = { { id = "tp_nordrassil", text = "I studied under the roots of Nordrassil, and I slept a great deal of my study there. The Circle wasn't surprised." } },
     _none = { { id = "tp_none", text = "I'm not sure, and I think I may have dreamed the answer once and forgotten it." } },
   },
 }

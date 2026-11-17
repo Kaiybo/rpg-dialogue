@@ -176,6 +176,10 @@ P:NPC {
     },
   },
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias are holed up in the mines under Moonbrook, and they're buying more thread than this whole hill. Sails, I'd guess, though what they want with sails underground I couldn't tell you." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The best dye in the world comes out of Booty Bay, red as a sunset and twice as dear. I'd stock it, but the Bloodsail would want it too, and they've a better way of getting it than paying." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I bought a bolt of cloth at the Darkmoon Faire that changed colour in the moonlight, and I've never seen its like since. I made it into a shirt, and I still don't know which colour it is." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes used to sell me flux that never failed, back when they had a city to make it in. Since Gnomeregan fell, I make do with dwarven flux, which works, but not with any charm." } },
     background = { { id = "tp_bg", text = "I sell trade goods on a hill full of soldiers. That's about all there is to know about me." } },
     advice = { { id = "tp_ad", text = "Learn to mend your own gear. Out here, nobody's coming to do it for you." } },
     trade = { { id = "tp_trade", text = "Thread, dye, flux, salt and spice: what keeps a crafter working.", next = "thread" } },
@@ -346,6 +350,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay know how to haggle, and I learned from one of them when I was a girl. Hewen never did, which is why he's always undercharging and I'm always right." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are buying thread and canvas from somebody, and I'd bet my stall it's going down into the Moonbrook mines. I don't sell to them, but somebody does, and that somebody is undercharging, I'd wager." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire drives a harder bargain than any goblin, and I've the empty purse to prove it. I respect them for it, though I'll not go back." } },
     background = { { id = "tp_bg", text = "I've sold goods on this hill since the militia came. Before that I sold them to farmers, and they haggled harder." } },
     advice = { { id = "tp_ad", text = "Buy salt. It keeps meat, it keeps wounds clean, and it keeps its price." } },
     trade = { { id = "tp_trade", text = "Spice, salt and thread at an honest price for a dishonest road.", next = "price" } },
@@ -507,6 +514,10 @@ P:NPC {
     },
   },
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias steal horses for their carts into the Moonbrook mines, and I've lost two good mares to them already. I'd like them back, but I'd settle for knowing they're being fed." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a stable full of beasts I've never seen the like of, striped and spotted and stranger. I'd give a year's wages to tend them for a single night." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers ride gryphons the way we ride horses, without saddles, and they talk to them the same way I talk to my beasts. I've great respect for them, and none at all for anyone who kicks a mount." } },
+    ratchet = { { id = "tp_ratchet", text = "A hunter came back from Ratchet with a raptor that bit everything it saw except him. I've never been so frightened in my own stable, and never so impressed." } },
     background = { { id = "tp_bg", text = "I keep the animals while the people fight. Someone has to, and I'm better with animals." } },
     advice = { { id = "tp_ad", text = "Water your beast before yourself. It's carrying more than you are." } },
     moonbrook = { { id = "tp_moonbrook", text = "Ask the grey in the third stall. He won't go near the place, and I don't blame him.", next = "horse" } },
@@ -682,6 +693,10 @@ P:NPC {
     },
   },
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias are dug into the mines under Moonbrook, eating bread made from flour they stole off the farms that should've been making mine. That's the whole tragedy of Westfall, in one loaf." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold sweet rolls at the Darkmoon Faire once and ran out by noon. I've never baked so fast in my life, and I've never been so proud of a sore arm." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor once told me they bake bread in Booty Bay with coconut, and I nearly believed him until he said it was good. I'll stick with Elwynn wheat, thank you, even if it does come the long way." } },
+    holy_light = { { id = "tp_holy_light", text = "I bless every loaf before it goes in the oven, the way my mother taught me. The Light's never burnt a single one, and the oven's burnt a good many." } },
     background = { { id = "tp_bg", text = "I'm a baker. With a name like Miller, folk expect flour on my sleeves, and they're never disappointed." } },
     advice = { { id = "tp_ad", text = "Carry bread, not cake. Cake's lovely until it's crumbs in your pack." } },
     harvest_watchers = { { id = "tp_watchers", text = "Scarecrows that walk, in fields that should be wheat. That's Westfall now in a sentence.", next = "flour" } },

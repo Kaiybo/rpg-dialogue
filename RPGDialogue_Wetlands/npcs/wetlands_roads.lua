@@ -190,6 +190,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I know Dark Irons and walls, and naught else these days." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was the Wildhammer's home till the Dark Irons cursed it. We've enough Dark Irons in Dun Modr without diggin' up their old curses." } },
+    magni = { { id = "tp_magni", text = "King Magni gave me Dun Modr's edge tae hold, an' I'm holdin' it. When he wants it back whole, I'll give him that too." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's the only road from Khaz Modan tae Arathi, an' the Dark Irons want it. They'll have tae come through my lads first." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons took Dun Modr while we were lookin' the other way, an' I've no' looked away since. Every one o' them I see goes in the loch." } },
   },
 }
 
@@ -356,6 +360,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask Longbraid." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hold Dun Modr an' they're spyin' on the Span. I've no time for anythin' else, so that's all ye'll get from me." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's broken an' the Dark Irons did it, an' every day it stays broken they get bolder. That's all the history I've time for." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Don't ask me about Grim Batol. I've enough tae think about on this side o' the hills." } },
   },
 }
 
@@ -519,6 +526,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I couldnae tell ye. All I think about these days is raptors." } },
+    dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw on the highland don't bother me half as much as the raptors on this ridge. Ye can see an orc comin'." } },
+    magni = { { id = "tp_magni", text = "I'll tell King Magni himself I cleared this ridge once it's cleared. Until then I'm no' fit tae stand before him." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons? Let Longbraid have them. I've raptors tae deal wi' first, an' then I'll see." } },
   },
 }
 
@@ -676,5 +686,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "That's beyond me, I'm afraid, though I'll talk about old stones all day." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League sent me out here wi' Merrin tae dig, an' we turned up bones bigger than anythin' that ought tae walk. Then the raptors came, an' now we're diggin' wi' one eye on the trees." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the great prize, deep in the Badlands, an' Ironband's lot say its stones are older than Ironforge. I believe them, for I've seen the drawings." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Old stones are my trade, an' Grim Batol's the oldest in these hills, but I'll no' go near it. Some stones are best studied in books." } },
+    magni = { { id = "tp_magni", text = "King Magni reads our reports himself, so I write them neat. That's the only reason my handwritin's improved in fifty years." } },
   },
 }

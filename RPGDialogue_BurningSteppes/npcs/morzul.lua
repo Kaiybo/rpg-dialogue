@@ -148,6 +148,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I am a scholar of the nether, a teacher of warlocks, and a connoisseur of blood, and I was all three when the Shadow Council still met. The rest is no concern of yours." } },
     advice = { { id = "tp_ad", text = "Never step into a circle you didn't draw yourself." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion are the source of all true power, and the warlocks who serve them wisely grow strong. The fools who serve them foolishly grow dead." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain have a fire lord, and the fire lord has power. I'd like to study it, very carefully." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages called what I do forbidden. Their city is in ruins, and I'm still teaching." } },
     _none = { { id = "tp_none", text = "I haven't troubled to learn that, and I doubt it would have been worth the trouble, any more than the shamans' prattle about spirits." } },
   },
 }

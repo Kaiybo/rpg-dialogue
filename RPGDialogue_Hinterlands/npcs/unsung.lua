@@ -210,6 +210,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Born on the Peak, raised with the birds, and I'll die on the Peak, with any luck, somewhere near the roost." } },
     advice = { { id = "tp_ad", text = "Never stand downwind of a gryphon that's just eaten, friend. I lost a good cloak that way, an' most o' my dignity." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer gryphons are our comrades, not our mounts, and I'll not hear otherwise. I send them out and I welcome them back, every one." } },
+    second_war = { { id = "tp_second_war", text = "My gryphons' grandsires flew in the Second War, and they were the terror of the Horde. I tell the young ones the stories, and they listen." } },
+    magni = { { id = "tp_magni", text = "The Bronzebeards call their gryphons mounts, and I'll never forgive them for it. Magni's a fine king otherwise." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask Falstad's folk; they hear more than I do." } },
   },
 }
@@ -416,6 +419,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've been hauling iron up this mountain since my beard was short. It's a living, and I'm too stubborn to change it." } },
     advice = { { id = "tp_ad", text = "Buy coal in the summer, friend. In the winter, the path freezes and the price doubles." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer forges need coal and iron, and I haul it up the mountain. It's hard work, but somebody has to keep the fires lit." } },
+    magni = { { id = "tp_magni", text = "The Bronzebeards have mines under their mountain, and I'd give my beard for one. Hauling it up from the valleys is no work for a dwarf." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys iron from the south, they say, and sells it for twice the price. I'd sell to them, if they'd fly up here to fetch it." } },
     _none = { { id = "tp_none", text = "Don't know, and I've no time to find out. Ask at the inn." } },
   },
 }

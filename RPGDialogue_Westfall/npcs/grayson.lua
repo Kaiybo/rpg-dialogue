@@ -266,6 +266,12 @@ P:NPC {
   },
 
   topics = {
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail fly a flag I flew myself once, and I'm not proud of it now. They're cruel even by a pirate's measure, and they'd sink this whole coast for a chest of silver." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I made port at Booty Bay more times than I can count, and I left more coin there than I'll ever see again. The goblins were kind to me while my purse was full, and that was kind enough." } },
+    deadmines = { { id = "tp_deadmines", text = "They've built a ship inside the hill, I'm told, which is a fool's place for a ship and a ghost's joke if ever I heard one. Every night I watch the coast for it to sail, and every night it doesn't." } },
+    third_fleet = { { id = "tp_third_fleet", text = "The Third Fleet sailed for Stormwind once, and I raced them along this coast in my younger days. They're gone now, scattered or sunk, and I wish I had a few of their lanterns to keep this one lit." } },
+    gilneas = { { id = "tp_gilneas", text = "I sailed past Gilneas once, in a fog thick enough to chew, and the wall they'd built was black against the cliffs. Nobody came out to hail us, and I've wondered since whether anybody's left behind it." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's harbour was a pirate's grave in my day, with Lady Proudmoore's ships lying in wait. I'm glad I never tried it, because I'd not like to haunt that marsh." } },
     knows = {
       { id = "tp_knows", text = "A dead man sees a good deal from the top of a lighthouse, and hears even more in the wind off the water. Ask me about any of this." },
     },

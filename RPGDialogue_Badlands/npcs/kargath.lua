@@ -344,6 +344,17 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "They swarm out of the mountain like ants out of a kicked nest, so we kick back, and the Horde kicks hard." } },
     background = { { id = "tp_ba", text = "I was a young warrior once, and I lived every dream I had. Now I command, and I live them again through the soldiers I send up that road.", next = "dream" } },
     advice = { { id = "tp_ad", text = "Read the postings by the road before you go into the mountain. They'll tell you who to kill, and that saves a great deal of thinking once you're down there." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief built a new Horde out of the old one's ashes, and Kargath is one of the walls that keeps the old one out. I'd rather be in the field, but I hold this post because he asked." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You march under the Warchief's banner too, so you know what we owe him. Every grunt in Kargath was a slave or a child of slaves before Thrall, and none of us forget it." },
+    },
+    second_war = { { id = "tp_second_war", text = "I was young in the Second War, and I lived every dream a warrior could have. Now I send others to live them, and I watch from this tower." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock clan in the Spire still serve the old Horde's masters, the dragons and the warlocks. Kargath was built to watch them, and someday I'll lead the assault myself." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain are no friends of the Blackrock, though they share a roof. I'd let them kill each other, if I thought they'd finish the job." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Forsaken came to us through the Warchief's word, and they've sent their best to Kargath. I don't understand them, but they fight, and that's enough." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock have been doing something with fire and chanting, and I sent a platoon to find out what. They haven't come back." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are some of my best soldiers, and Thal'trak is the best of them. I'd say so to Vol'jin's face, if I ever met him." } },
+    internment = { { id = "tp_internment", text = "I wasn't in the camps, but I've commanded orcs who were, and I can tell. They don't break, because they've already been broken once." } },
     _none = { { id = "tp_none", text = "Never heard of it, but can I hit it?" } },
   },
 }
@@ -582,6 +593,15 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "Grim little people, though their ale is wonderful, or so I'm told." } },
     background = { { id = "tp_ba", text = "The Undercity sent me, the Expeditionary Force keeps me, and the Warlord amuses me. Before that is none of your business, darling, and most of it is buried." } },
     advice = { { id = "tp_ad", text = "Never let a Dark Iron see you're impressed by his golem, darling. They're vain about them, and vanity makes them careless." } },
+    sylvanas = {
+      { id = "tp_sylvanas", text = "Our Lady freed us from the Scourge and gave us back our minds, darling. Some of us have wondered since what to do with them." },
+      { id = "tp_sylvanas2", when = { race = "Scourge" }, text = "You've felt her will the same as I have, darling, so I needn't explain. We are hers, and gladly, and we needn't discuss the rest in front of the living." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are the dead who woke up, darling, and found that nobody wanted them back. So we kept ourselves, and here we are." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took everything from us, darling, our homes, our lives and our names. I won't forgive it, and I won't forget it." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron was my home, darling, before it was a graveyard. I still remember the court, the music and the gossip." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is charming in his way, darling, though he looks at us as if we might bite. Some of us might." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed to the Light once, darling, in the cathedral at Lordaeron. It didn't answer, or if it did, I wasn't listening." } },
     _none = { { id = "tp_none", text = "Never heard a whisper of it, darling, and I hear every whisper." } },
   },
 }
@@ -857,6 +877,11 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "Their fire magic is crude but powerful, like a hammer made of lava, and I'd love to study it from a safe distance." } },
     background = { { id = "tp_ba", text = "The Apothecarium trained me, the Expeditionary Force sent me, and the Badlands bore me to tears until the Dark Irons gave me something to study." } },
     advice = { { id = "tp_ad", text = "Never touch a golem's heart with bare hands, my dear, even a broken one. Ask me how I know, and then count my fingers." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sees farther than the rest of us, and she'll lead us where we need to go. I'm very composed about it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are the dead who refused to stay dead, and the living hate us for it. I don't mind, mostly." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge made us, and we unmade ourselves. The Apothecarium is working on how to unmake the rest of them." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron fell, and the Undercity grew in its ruins. It's not the same, but it's ours now." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied magic near Dalaran, before. The Kirin Tor wouldn't let me in now, I'm sure." } },
     _none = { { id = "tp_none", text = "Hm! That's not my field, not yet." } },
   },
 }
@@ -1091,6 +1116,13 @@ P:NPC {
     blackrock = { { id = "tp_blackrock", text = "I know their shift changes, their drinking songs and their names, because that's my job." } },
     background = { { id = "tp_ba", text = "I watch, I report, and I keep the rest to myself, as a scout of the Horde should. That's the whole story." } },
     advice = { { id = "tp_ad", text = "Count the guards on your way in, and count them again on your way out. If the numbers don't match, run." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are planning something. I don't know what yet, but I'll know before anyone else." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief values information, and I give it to him. That's all I'll say about the Warchief." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons trade with the Blackrock and fight them too. Whoever's winning this week, I'll know." } },
+    ravenholdt = {
+      { id = "tp_ravenholdt", text = "There's a manor in Alterac where my kind of work is taken seriously. I've never been invited, but I know where it is." },
+      { id = "tp_ravenholdt2", when = { class = "ROGUE" }, text = "You'd know about Ravenholdt, then, if you know what's good for you. Don't speak the name in an inn, even one as quiet as Kargath's." },
+    },
     _none = { { id = "tp_none", text = "That's nothing I'll share, not even with one of the Horde." } },
   },
 }
@@ -1309,6 +1341,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An innkeeper who followed the Expeditionary Force out here because soldiers need feeding, and I've fed orcs since we ate gruel behind the camp fences. That's all there is to me, and it's enough." } },
     advice = { { id = "tp_ad", text = "Drink water before you drink grog, and drink both before you go near the Searing Gorge. The heat up there will have you seeing things." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief eats with his grunts, and I'd feed him the same stew I feed them. He'd like it, I'm sure." } },
+    second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, and the food was worse then. That's the only thing I'll say for the old days." } },
+    uldaman = { { id = "tp_uldaman", text = "The dwarves dig at Uldaman, and their stew smells good from the road. I'd like the recipe." } },
     _none = { { id = "tp_none", text = "Don't know, but tell me about your battles instead, because I like those." } },
   },
 }

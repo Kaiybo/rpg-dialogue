@@ -154,6 +154,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "One o' Longbraid's lads, an' a brewer on the side. The brewin' goes better than the soldierin'." } },
     advice = { { id = "tp_ad", text = "Never drink on watch. I'm livin' proof o' why, an' I'm stuck here provin' it." } },
     thandol_span = { { id = "tp_span", text = "Broken on both sides o' me, as ye can see. It's no' a view I'd recommend." } },
+    magni = { { id = "tp_magni", text = "The King'll be angry about the Span, an' rightly, but I didnae blow it up. I was asleep at the time, which I'm told is a poor excuse." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best moonshine south o' the Wetlands, an' I owe a man there more than I'd like tae say. He's patient, but no' that patient." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer'll fly me off this bridge, if I can only get one tae stop laughin' at me. I've been waitin' a week now." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Bilger, he knows everythin', or says he does after a pint." } },
   },
 }

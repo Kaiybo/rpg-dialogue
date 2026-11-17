@@ -130,6 +130,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "Darkspear born, witch doctor trained, and sent out here to find what da land got to give. Dat's all you need, mon." } },
     advice = { { id = "tp_ad", text = "Never kill a big beast and walk away whistlin'. Somethin' might be followin' you home." } },
     cenarion_circle = { { id = "tp_cc", text = "Da druids would not like my jars, mon, so I don't invite dem over." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin lead the Darkspear well, mon, and he keep us close to the Warchief, which is smart. A troll alone in this world is a troll in a cookpot." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be small in number and big in spirit, mon. We come from the Echo Isles, and one day we be going back there to clean house." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Zul'Gurub got the Blood God himself wakin' up, and the Gurubashi priests be fools for it. You don't want a god who drinks blood, mon, because he never stop being thirsty." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief save the Darkspear from the sea witch and the humans both, and Uzer'i don't forget a debt like that. Uzer'i put a little extra spirit in the weapons for him." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The ogres in Dire Maul got all kinds of spirits trapped in that place, old ones, elf ones. Uzer'i would like a jar or two of them, mon, if anybody be brave enough to fetch them." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elf priestess think her moon goddess keep her safe. Uzer'i got a little vessel ready for her too, just in case." } },
     _none = { { id = "tp_none", text = "Dat I don't know, mon, and da loa not tellin' me either, no matter how many chickens I offer." } },
   },
 }

@@ -135,6 +135,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Us does not remember before. Before is very dark and very cold, and now is weeds." } },
     advice = { { id = "tp_ad", text = "Do not pick the weeds too hard, because then they is not weeds anymore, they is mush." } },
+    scourge = { { id = "tp_scourge", text = "Gordo was Scourge, before, and Gordo did not like it. Gordo likes Brill better, because here nobody shouts in Gordo's head." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken let Gordo stay and give Gordo jobs. Gordo is Forsaken now too, Gordo thinks, but Gordo does not ask, in case the answer is no." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Gordo saw the Dark Lady once, from far away. She was very small and very scary, and Gordo stood up very straight." } },
     _none = { { id = "tp_none", text = "Gordo does not know that one. Ask Master; he knows all the words." } },
   },
 }

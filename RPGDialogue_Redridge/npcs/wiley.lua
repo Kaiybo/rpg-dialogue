@@ -254,6 +254,12 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Deadmines are under Moonbrook, and they're full of Defias, and VanCleef's at the bottom of them. That's all I'll say about that, and that's more than I said to Stoutmantle." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of men who wore red with me, and some of them would love to see me in a cell beside them. I sleep with one eye open, and I sleep in this corner for a reason." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I was a mason once, before the nobles cheated us, before the red bandanas. Stoutmantle says that's the past now, and I'd like to believe him." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are just the Defias with family crests and better wine. I'd not go near them, and I'd not let you go near them either." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of people like me who did something wrong and paid enough not to talk about it. The goblins don't care who you were, as long as your gold's good." } },
+    si7 = { { id = "tp_si7", text = "SI:7 has a file on me thicker than a Moonbrook mine cart, I'd wager. I'd like to see it one day, just to know which lies they believed." } },
     knows = {
       { id = "tp_knows", text = "I sit here and people talk, and what they say has a price. These, I might part with." },
     },

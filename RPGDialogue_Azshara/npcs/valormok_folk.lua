@@ -172,6 +172,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I came with the others when Belgrom Rockmaul sent us here. I feed people, and that's all there is to say about it." } },
     advice = { { id = "tp_ad", text = "Eat before you go out to fight in Azshara, because you won't find anything out there you'd want to eat." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief doesn't drink on duty, and neither do his warriors, so I don't sell grog. Take it up with Thrall, if you dare." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay ships want to sell me rum by the barrel, and I send them away every time. It's bad for business, but good for the camp." } },
+    cairne = { { id = "tp_cairne", text = "The tauren know how to drink milk without complaining, which is more than I can say for orcs. I'd like a few more of them in camp." } },
     _none = { { id = "tp_none", text = "Don't know. Ask Ag'tor; he's the one who gives the orders, and he's earned the right with his blood." } },
   },
 }
@@ -337,6 +340,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I make weapons. I've made them for longer than you've been alive, and I'll make them until I can't." } },
     advice = { { id = "tp_ad", text = "Never fight with a dull blade. Sharpen it every night, even if you don't think you need to, because Spitelash scales chip an edge faster than rock." } },
     rimtori = { { id = "tp_rimtori", text = "The elf mage who led them. Ag'tor wants her head, and every blade on my rack is for that." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries the Doomhammer, and that is a weapon. Everything I make is a pale shadow of it, and I make good weapons." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron make fine steel and serve a lord of fire, and I would like their forges without their masters. I will settle for their ore." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elves' priestess sends archers to pick off our woodcutters. One day I will sharpen an axe for her personally." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblin blades from Booty Bay look fine and break in a week, and I spend half my days fixing them. That is good business, but bad for my mood." } },
     _none = { { id = "tp_none", text = "I couldn't tell you; ask me about blades and I'll talk all night, for a good edge is an orc's best friend." } },
   },
 }

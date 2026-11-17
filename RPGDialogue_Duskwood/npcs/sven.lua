@@ -305,5 +305,9 @@ P:NPC {
     dark_riders = { { id = "tp_riders", text = "Black horses and black cloaks, out of Deadwind Pass. Somebody sends them, and I'll find out who." } },
     carevins = { { id = "tp_carevins", text = "They feed this camp, and Elaine sends whoever's passing with the supplies. I don't know why they bother, but I'm glad they do." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care, unless it wears black and rides." } },
+    raven_hill = { { id = "tp_raven_hill", text = "From this camp I can see lights at Raven Hill some nights, and they aren't lanterns. I've stopped wondering whose they are." } },
+    scourge = { { id = "tp_scourge", text = "I've heard the Scourge raises whole villages at once. Here they took my family one at a time, and I'll find the ones who did it one at a time too." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed to the Light every day of my life until I came home to the farm that night. I haven't since, and I don't know if I'll start again." } },
+    varian = { { id = "tp_varian", text = "Stormwind's lost its king and I've lost my wife and children, and nobody's come looking for either of us. I've made my peace with doing the looking myself." } },
   },
 }

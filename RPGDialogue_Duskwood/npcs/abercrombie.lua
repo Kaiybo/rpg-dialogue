@@ -293,5 +293,9 @@ P:NPC {
     morbent_fel = { { id = "tp_morbent", text = "The fellow on the hill? Crude work, all bones and no heart, and I'd never let anything of mine go out looking like that." } },
     embalmer = { { id = "tp_embalmer", text = "It's a silly story they tell children in Darkshire, and I've always thought the ending was unkind." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. I'm out of touch up here, pleasantly out of touch." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a lovely little village once, dear, with a church and a well and my Eliza's garden. It's quieter now, and the cemetery's grown, as cemeteries do." } },
+    scourge = { { id = "tp_scourge", text = "They say in Lordaeron the dead get up and walk about at somebody else's bidding, which seems terribly rude to them, dear. Here, at least, our dead only get up for love." } },
+    holy_light = { { id = "tp_holy_light", text = "Eliza used to take me to the chapel every week to hear about the Light, and I'd sit at the back counting herbs in my head. I miss those mornings more than I can say." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Those riders come through the hills on black horses some nights, dear, and I draw the curtains and keep very still. They've never knocked, and I'd rather they never did." } },
   },
 }

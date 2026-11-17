@@ -373,6 +373,15 @@ P:NPC {
     highborne = { { id = "tp_highborne", text = "Elves who lived in the ruins to the south and threw their strength away. The old one on the hill is all that walks there now, apart from the ghosts." } },
     background = { { id = "tp_bg", text = "I am Magram, and I serve my clan with the dead of this valley. That is all you need to know about me, outsider." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the bones in this valley, even the ones that seem to be resting. Especially those ones." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are strong, and the strong survive, and the dead serve the strong as well as the living do. The Gelkis call this a sickness, and they say it from their knees." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon is the tomb of our father, and the Gelkis and the Maraudine squabble over it like dogs. The Magram have their own dead to tend, here in this valley." } },
+    scourge = { { id = "tp_scourge", text = "I hear of a great power in the north that raises the dead by the thousand, and sends them where it wishes. It is wasteful, I think, but I would like to see how it binds them." } },
+    forsaken = {
+      { id = "tp_forsaken", when = { race = "Scourge" }, text = "You were raised and then you broke free of the one who raised you, I am told. Tell me, did you feel the moment it happened, and did it hurt?" },
+      { id = "tp_forsaken2", text = "The dead who walk in the north and serve no master are called the Forsaken, I am told. I would like to meet one, and ask how it feels to break a binding." },
+    },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback grow fat on the land the Magram need, and they are pushed out of somewhere better, I think, by their hungry look. They will make good bones when they are done." } },
+    cairne = { { id = "tp_cairne", text = "The tauren chief in Mulgore is old and strong, and his people are many. The Magram do not need his friendship, and he would not offer it." } },
     _none = { { id = "tp_none", text = "That is no business of the Magram, and so it is no business of mine." } },
   },
 }
@@ -534,6 +543,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am a Magram warrior, I hold the front, and I have not slept dry in a month. That is all the story there is." } },
     advice = { { id = "tp_ad", text = "Keep away from the pigs' tunnels unless you want to meet the whole herd at once, and if you go in anyway, burn your boots after." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback hold the ground between us and food, and my warriors are hungry. Every quilboar you kill is a meal my warriors can eat." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are strong, but strength does not fill a belly. Orgrul talks to bones more than to warriors, and the warriors notice." } },
+    maraudon = { { id = "tp_maraudon", text = "The Gelkis cry over Maraudon and the Maraudine hide in it, and none of them hold the Front. Let them keep their holy hole." } },
+    scourge = { { id = "tp_scourge", text = "Orgrul's dead do not eat, which is the only thing I like about them. They do not fight hungry either, which makes me jealous." } },
+    cairne = { { id = "tp_cairne", text = "The tauren in Mulgore are fat and many, and they do not come south. If they ever do, my warriors will at least have something to eat." } },
     _none = { { id = "tp_none", text = "Ask Orgrul. He knows more things, and cares about more of them." } },
   },
 }
@@ -663,6 +677,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am a Gelkis, a child of the earth, and I watch the Magram so my clan does not have to." } },
     advice = { { id = "tp_ad", text = "Never trust a Magram who smiles at you. They only smile when they have already decided what you are worth." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren say Earth Mother, and the Gelkis say Theradras, and I think the earth hears us both. She does not want the Magram's dead walking on her." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon holds our father, and Theradras weeps over him, and the Magram never visit. They are too busy digging up other graves." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are our kin and our shame, and Uthek tells me to wait for her word before I act. I am tired of waiting while their dead march." } },
+    scourge = { { id = "tp_scourge", text = "The Magram's necromancers raise the bones of this valley, and the earth refuses them. I can feel it in the ground, a sickness that wants to be cut out." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback fight the Magram for the valley's edge, and I hope they both bleed. That is not kind, but the earth is not always kind either." } },
     _none = { { id = "tp_none", text = "Ask Uthek at Gelkis Village. She knows everything, given enough time to think about it." } },
   },
 }

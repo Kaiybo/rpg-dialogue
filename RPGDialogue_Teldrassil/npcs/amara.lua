@@ -160,6 +160,10 @@ P:NPC {
     sisterhood_of_elune = { { id = "tp_sisters", text = "The Sisterhood keeps the Temple, and some of us keep the roads. Elune does not mind which.", next = "both" } },
     sentinels = { { id = "tp_sentinels", text = "They hold the forest's edges so the Temple can keep its peace. I ride with them gladly." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were not always like this, and I pray they will not always be. Until then, the road comes first." } },
+    elune = { { id = "tp_elune", text = "Elune rides with me on every road I patrol, and she is better company than most of my sisters. She never asks why I'm late back to the Temple." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The first tree stands on Hyjal, and I rode up its slopes once as a girl to see it. Teldrassil is grand, but it has never made me catch my breath like that." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess gave me this saber and these roads, and she trusts me to keep both. I'd ride through fire for her, and she knows it, which is why she never asks." } },
+    blackfathom = { { id = "tp_blackfathom", text = "That was Elune's temple once, on the Ashenvale shore, before the sea took it. Cultists pray in it now, and I'd ride in and drag them out myself if the Temple let me." } },
     _none = { { id = "tp_none", text = "I keep a road, {class}, not a library, and my saddle's softer than most books besides. Ask the priestesses in Darnassus." } },
   },
 }

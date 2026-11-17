@@ -188,6 +188,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I go where the Cartel sends me, and the Cartel sent me somewhere cold. That's all the story you'll get without a bid, chum, and the reserve's high." } },
     advice = { { id = "tp_ad", text = "List your runecloth in stacks, friend, because single bolts sit on the board for days." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel built Everlook, guards Everlook and takes a share of everything sold in Everlook. That's how a town stays neutral." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the best place in the world to run an auction house, because nobody stands about in the snow to haggle. They bid fast, and they bid high, and I like that." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got an auction house too, and the bidding is cutthroat, and now and then it's cutthroat in the other sense too. I prefer Everlook, where the only thing that freezes is the price." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the other neutral house, down in Tanaris, and the Cartel likes to keep an eye on all three. Prices travel faster than you'd think." } },
     _none = { { id = "tp_none", text = "If I can't list it, pal, I can't tell you about it, and I can't take a cut of it either." } },
   },
 }
@@ -371,6 +374,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've sold guns in warmer places, pal, and I'll sell 'em in warmer places again, but right now the money's in the snow, and I go where the money is." } },
     advice = { { id = "tp_ad", text = "Keep your powder inside your coat, friend, next to your chest, where it stays dry." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's cold enough to freeze a gun barrel, which is why I sell only the ones that work in the cold. Gun oil's the secret, pal, and I've got the best there is." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got good gunsmiths, but they don't know the first thing about the cold. Try firing one of their pieces up here, and you'll see what I mean." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw don't use guns, and they don't like them either. I keep my stock out of sight when they come through." } },
     _none = { { id = "tp_none", text = "If it doesn't fire or cut, pal, I've no idea and no margin in it." } },
   },
 }
@@ -545,6 +551,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I sell supplies, friend. I've always sold supplies, my mother sold supplies, and I expect I'll be selling 'em at a fair markup when the snow finally melts." } },
     advice = { { id = "tp_ad", text = "Buy thread before you need it, because nobody likes running out halfway through a cloak." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's tailors are always short of something, and I know exactly what to the copper. Thread is a serious matter up here, because a torn seam in this cold is the end of you." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw make their own cloth from their own fur, and it's warmer than anything I sell. I've tried to buy some, and they looked at me as though I'd asked for their ears." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's tailors sell silk and nothing else, and silk is no use at all up here. I'll take wool every time." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, and I don't stock it either, which in my book is the same thing." } },
   },
 }
@@ -705,6 +714,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I like animals more than I like people, pal, and the Cartel was kind enough to give me a job where that counts as a skill and draws a wage." } },
     advice = { { id = "tp_ad", text = "Feed your pet before a long walk in the snow, because it burns food faster than you do." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's stables are the warmest in the north, and the animals sleep better than most of their owners. I like it that way." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw keep no mounts that I've ever seen, and I can't say I blame them. Their tunnels are too low for a horse." } },
+    thrall = { { id = "tp_thrall", text = "Orcs ride wolves, and they treat them better than most folk treat their horses. I've a soft spot for an orc and his wolf." } },
     _none = { { id = "tp_none", text = "No idea, pal. Ask me about a beast and I'll talk your ear off, free of charge." } },
   },
 }
@@ -891,6 +903,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I mix potions and I sell what other people need to mix theirs, love, at prices that keep the stove lit. The snow is new to me, but the bubbling isn't, and neither are the little explosions." } },
     advice = { { id = "tp_ad", text = "Keep your potions inside your coat in Winterspring, because a frozen potion is just a cold rock." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the best place in the world for snow herbs, and I find a new one every week. The cold keeps them fresh, and my bottles packed in straw keep them safe." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got herbs too, but they're all sweaty and wilting. I like a herb that stands up straight in the snow." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I've heard the druids say every herb has a twin in their Dream, all greener and finer. I'd love to see it, but I'm told it's not a place you can buy a ticket to." } },
     _none = { { id = "tp_none", text = "Oh, I don't know about that, love, but I'd love to know if it can go in a potion, and what it'd sell for if it did." } },
   },
 }

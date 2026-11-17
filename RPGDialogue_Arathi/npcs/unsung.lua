@@ -211,6 +211,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I worked a forge in Ironforge for longer than ye've been alive, friend, and came here when the League called for smiths." } },
     advice = { { id = "tp_ad", text = "Swing from the shoulder, not the wrist. Yer wrist will thank ye." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's soldiers need maces, and I forge them as fast as I can. Every cracked ogre skull is a step closer to taking the city back." } },
+    magni = { { id = "tp_magni", text = "The King of Ironforge sent me here to help Stromgarde, and I'll stay until the job's done. He's a good king, and a better dwarf." } },
+    second_war = { { id = "tp_second_war", text = "I forged maces for the Second War too, and I'm still forging them, and I'll be forging them when I'm grey. Wars don't end, they just change their faces." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask Captain Nials; he hears everything first." } },
   },
 }

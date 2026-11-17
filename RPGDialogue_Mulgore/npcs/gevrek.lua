@@ -208,6 +208,10 @@ P:NPC {
     al_aketh = { { id = "tp_aketh", text = "Grey robes and shaved heads. If you ever see them on this side of the sky, tell me before you tell anyone else." } },
     windstones = { { id = "tp_windstones", text = "Power and coin both, on the isle. Down here they're a reminder of home, mostly." } },
     cenarion_circle = { { id = "tp_circle", text = "Our druids feel a pull toward them, and I won't stand in the way; the elements are generous enough to share." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided the wandering tauren for generations, and my people have heard the stories at every fire. Thunder Bluff gave us shelter from all that, and we do not forget it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne gave the Windshapers a place in Mulgore when we had nowhere else to go. I owe him more than I can say, and I mean to repay it with loyalty." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is the land, and the Windshapers have always listened to her through the wind. We hear her clearly here, more clearly than we ever did on the road." } },
+    the_elements = { { id = "tp_the_elements", text = "The wind spirits are our oldest friends, and they guided us across the plains when the land itself was against us. We still follow them, though now we follow them home." } },
     _none = { { id = "tp_none", text = "I don't know. Down here, there's a great deal I don't know yet." } },
   },
 }

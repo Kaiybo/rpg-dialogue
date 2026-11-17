@@ -97,6 +97,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A leatherworker of Southwind, famous once, dead a long while, and not finished yet." } },
     advice = { { id = "tp_ad", text = "Never hurry a hide. The hide remembers, and so does whoever wears it." } },
     southwind = { { id = "tp_sw", text = "My home. Speak of it gently, if you speak of it at all." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives grow like tumors on the desert, and the chitin they shed is the finest hide I have ever worked. I wish it came from a gentler beast." } },
+    elune = { { id = "tp_elune", text = "I died with Elune's name on my lips, a long time ago, and she let me come back to teach. I do not question a gift like that." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "I saw the walls of Ahn'Qiraj from a distance, in life, when the Shifting Sands war was young. I was a craftswoman, not a soldier, and I made armor for those who went closer." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande was High Priestess even in my day, and she will be High Priestess long after mine. Some lights do not go out." } },
     _none = { { id = "tp_none", text = "That was not in the world when I lived, or not in my corner of it." } },
   },
 }

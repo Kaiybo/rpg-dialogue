@@ -79,6 +79,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A tauren who learned the wind riders' ways in Thunder Bluff and was sent south because nobody else wanted the sand." } },
     advice = { { id = "tp_ad", text = "Never fly into a storm you can see. The ones you can't see are bad enough." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "My wind riders won't fly near the hives, because the bugs throw sand and the sand gets in their eyes. They're smart beasts, smarter than me sometimes." } },
+    cairne = { { id = "tp_cairne", text = "Cairne rode a kodo, not a wind rider, and I've always thought it a waste of a good chief. Imagine him in the air!" } },
+    thrall = { { id = "tp_thrall", text = "The Warchief flew a wind rider once, they say, and didn't care for it. I don't hold it against him." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The flight to Gadgetzan is long and hot, and the wind riders hate the goblins' landing pads. I hate the goblins' prices, so we're even." } },
     _none = { { id = "tp_none", text = "I know riders and wind, and the winds were my teachers. Ask someone else about the rest." } },
   },
 }
@@ -159,6 +163,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A keeper of hippogryphs from Ashenvale, sent south with the Circle and the sand. I'd go back tomorrow, but the birds would miss the work." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away. Every new flier leans away, and every one of them regrets it." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives look like scabs from the air, ugly and swollen, and the hippogryphs won't go near them. I don't blame them." } },
+    teldrassil = { { id = "tp_teldrassil", text = "My birds came from Teldrassil, and I sing them the songs of the high branches when the sand blows. It keeps them calm, and me too." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the flyers, my grandmother said, and I've never fallen, so she must. I'd like to keep it that way." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan feed my hippogryphs dried fish, and the birds come home sick. I bring my own grain now." } },
     _none = { { id = "tp_none", text = "I only know the sky and the birds, friend, and neither the sky nor the moon is talking today." } },
   },
 }

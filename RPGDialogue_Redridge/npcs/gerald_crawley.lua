@@ -83,6 +83,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "Some of my customers speak of a manor in the Alterac foothills where people like them are welcomed, if they can find it. I've never been asked to visit, and I'm in no hurry to be." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate buys from the same kind of seller as I do, but they don't pay, they steal, and they make the trade look bad. I keep my stock locked and my door shut when a man in a black mask asks about it." } },
+    si7 = { { id = "tp_si7", text = "SI:7 has never troubled my shop, and I've never troubled them, which is the best sort of friendship. I suspect a few of my regulars draw their wages from that office in Old Town." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The jungle trolls of Stranglethorn brew poisons that would make my stock look like table salt. I'd give a good deal to see their recipes, and a good deal more not to see their altars." } },
     background = { { id = "tp_bg", text = "I sell what I sell, and I've no story worth telling you." } },
     advice = { { id = "tp_ad", text = "Always wipe your blade before you sheathe it. You'd be surprised how many lose a finger to that." } },
     _none = { { id = "tp_none", text = "I don't know, and if I did I'd charge you for it." } },

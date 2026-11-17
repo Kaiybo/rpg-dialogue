@@ -202,6 +202,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "The Deepforges have worked metal beside the Great Forge since before there was a king in this mountain, an' I'm the latest an' the loudest of them." } },
     advice = { { id = "tp_ad", text = "Quench slowly, an' never in front o' the customer." } },
+    second_war = { { id = "tp_second_war", text = "I forged blades fer the Second War, day an' night fer months, an' every one o' them saw a Horde shield. Soft hands didnae win that war, I'll tell ye." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have the best forges in the world under that mountain, an' it pains me tae say it. They've fire from the Firelord himself, an' they use it fer weapons that'd make ye weep." } },
+    thaurissan = { { id = "tp_thaurissan", text = "A smith-king who sold his people tae a fire lord fer better forges, an' what's left o' them is still payin'. Never trust a dwarf who wants the fire hotter than the work needs." } },
     _none = { { id = "tp_none", text = "I hammer metal, {g:lad|lass}, no' rumors. Ask someone who's got the time." } },
   },
 }
@@ -393,6 +396,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I dug for forty years before my knees told me tae teach instead, an' I listened tae them for once." } },
     advice = { { id = "tp_ad", text = "If the tunnel goes quiet, stop swingin' an' listen. Stone talks before it falls." } },
+    troggs = { { id = "tp_troggs", text = "Troggs dinnae mine, they dig, an' there's a world o' difference. They wreck a good seam an' leave nothin' but rubble an' stink." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons mine deeper than anybody, down where the stone's hot tae the touch. I'd give my pick tae see one o' their seams, though I'd want it back after." } },
+    uldaman = { { id = "tp_uldaman", text = "The League found titan stone in Uldaman, harder than any ore I know, an' I'd love tae put a pick tae it. They say it hums when ye strike it, an' I believe them." } },
     _none = { { id = "tp_none", text = "If it isnae in the rock, I couldnae tell ye about it." } },
   },
 }
@@ -610,6 +616,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Our father ran a kitchen in the Military Ward, an' Emrul an' me grew up peelin' potatoes for half the army." } },
     advice = { { id = "tp_ad", text = "Taste as ye go. A cook who doesn't taste is only guessin'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The pirates in Booty Bay eat better than kings, so I've heard, all fish an' spice an' rum. I'd like tae cook fer them one night, though I'd want my wages paid in advance." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Food on a stick, every bit o' it, an' half o' it fried in oil older than me. Still, I've never had a better roast from a cart in my life." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins import their spice from Booty Bay an' sell it fer triple. My brother Emrul thinks that's a fine business model, an' it's why I'm worried about him." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend. If it's no' edible, it's no' my business." } },
   },
 }
@@ -799,6 +808,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Daryl got the cookin' an' I got the head for figures, an' between us we make one decent dwarf." } },
     advice = { { id = "tp_ad", text = "Keep yer salt dry. Ye'd be amazed how many adventurers don't." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The finest spices in the world come through Booty Bay, an' I pay through the beard fer them. My brother complains about my prices, but I'd like tae see him haggle wi' a goblin." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells spices from the desert that'd blister yer tongue, an' I keep a pinch on the shelf fer the brave. Daryl says it's a menace, an' he's right." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys my cheapest spices an' sells them back tae the crowds as Darkmoon magic. I'm no' complainin', mind, fer they pay on time." } },
     _none = { { id = "tp_none", text = "Never heard of it, an' I've heard of most things that come through the Great Forge." } },
   },
 }
@@ -1001,6 +1013,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I patched up soldiers in the Second War, an' I've been patchin' up adventurers ever since. Adventurers are worse patients." } },
     advice = { { id = "tp_ad", text = "Bandage first, ask questions after. The wound won't wait for yer curiosity." } },
+    scourge = { { id = "tp_scourge", text = "The plague wounds dinnae close right, an' they smell wrong, an' I've seen a few come through here from the north. Burn the bandages an' wash yer hands twice." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests mend with prayer an' I mend wi' linen, an' between us we lose fewer than we would alone. Dinnae tell Rohan I said that, for he'd be insufferable." } },
+    second_war = { { id = "tp_second_war", text = "I learned my trade in the Second War, stitchin' soldiers who came back from the front wi' axe cuts I couldnae believe they'd survived. Most o' them did, an' I'm proud o' that." } },
     _none = { { id = "tp_none", text = "That's no' a wound, so it's no' my concern." } },
   },
 }
@@ -1174,6 +1189,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I enchanted in Gnomeregan before the fall, three levels down from the Clean Room, and I enchant here now, upstairs, where I can hear people coming." } },
     advice = { { id = "tp_ad", text = "Never disenchant anything you might want back later. I turned my grandmother's brooch into dust once, and she still writes to remind me." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran once, for a season, and they nearly caught me reading a formula I wasn't supposed to have. Oh, you didn't hear that, and if anyone asks, I was in the library the whole time." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor guard their secrets like dragons guard gold, and they think a gnome can't be trusted with any of them. They're right, of course, but it's rude of them to say so." } },
+    scourge = { { id = "tp_scourge", text = "Necromancy is enchanting gone wrong, just wrong in every possible direction, and I won't have it near my shop. Kel'Thuzad was a Dalaran mage once, you know, and it makes my skin crawl.", fx = { learn = { "kelthuzad" } } } },
     _none = { { id = "tp_none", text = "I don't know anything about that, and I'd rather not, frankly, because every new fact is one more thing somebody can steal." } },
   },
 }

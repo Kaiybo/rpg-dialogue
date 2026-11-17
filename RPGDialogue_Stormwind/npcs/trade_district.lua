@@ -248,6 +248,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold wine at the Darkmoon Faire last summer, and I gave away only half of it, which Suzetta says is a record for me. The fire-eaters loved it, and that's the finest compliment a wine can have." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys our wine by the barrel, and the goblins sell it to pirates, and the pirates sing about it. That's fame, my friend, and fame is worth more than any tally Suzetta keeps." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean wine was our only rival in the north, and now it's all behind their wall. I miss the competition, and I don't miss it at all, which is a very Gallina sort of feeling." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran were our finest customers, and they had the most refined palates in the world. When they open their gates again, I'll be first in line with a case of our best." } },
     knows = { { id = "tp_knows", text = "A man who stands in the Trade District all day hears everybody's business whether he wants to or not. Ask, and I'll tell you what the square's been saying." } },
     background = { { id = "tp_bg", text = "I'm a Gallina, and the Gallinas sell wine. The rest is just the years I've spent shouting about it.", next = "family" } },
     advice = { { id = "tp_ad", text = "Never buy wine from a man who won't drink it in front of you. I drink mine in front of everybody, friend, which is why I trust it." } },
@@ -475,6 +479,10 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have the Stockade, and I'm told a few of them are friends of friends. I keep my shop's stairs well watched, and I'd advise everyone in the Trade District to do the same." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate sent a man to my shop once, very polite, asking about the cellar. I sent him away with a wheel of cheese, and I've had the cellar watched ever since." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "I've heard of Ravenholdt, and I've heard enough to know I'd rather not hear more. Some names are best left unspoken in a cheese shop." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor buys her cheese from us, through a servant who never smiles. I've never seen her myself, which is odd for a lady with such fine taste." } },
     knows = { { id = "tp_knows", text = "I hear what's said across the counter and a little of what's said upstairs. Ask, and I'll tell you what a cheesemaker can." } },
     background = { { id = "tp_bg", text = "I make cheese, I married a cheesemaker's husband, and I raised a cheesemaker's son. That's the story I tell, and it's a good one.", next = "craft" } },
     advice = { { id = "tp_ad", text = "Keep your hands off what's aging, whether it's cheese or a plan. Poke at either and it spoils." } },
@@ -653,6 +661,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's folk buy more water than anyone in Stormwind, and they never say why. I suspect it's the fire-eaters, though I've never asked." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Water in Gadgetzan costs more than ale in Stormwind, so I'm told, and the goblins don't apologise for it. I've added an extra waterskin to my list, for anyone going that way." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a long way from here, and travellers forget half their kit on the way. I keep a list of what they forget, and I'll read it to you, if you've a minute." } },
+    camping = { { id = "tp_camping", text = "Everyone forgets a bedroll, and everyone regrets it on the first cold night. I've sold more bedrolls than anything else, and I've never once been thanked for the warning, only for the bedroll." } },
     knows = { { id = "tp_knows", text = "I hear what people say while they count their coins, which is more than you'd think. Ask away." } },
     background = { { id = "tp_bg", text = "A shopkeeper on a corner, and glad of it. Not much of a story, but it's a steady one." } },
     advice = { { id = "tp_ad", text = "Two waterskins, always. You'll drink one and spill the other, and you'll thank me for both." } },
@@ -829,6 +841,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons forge blades with a balance I've never been able to match, and I've studied every one that's come through this shop. I'd sell them if I could get them, and I'd keep one for myself." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The knights of the Silver Hand carried hammers that were balanced for the Light, I'm told, and I've tried to make one. It's very heavy, and it doesn't glow, so I suppose I failed." } },
+    second_war = { { id = "tp_second_war", text = "The orcs carried axes in the Second War that were all weight and no balance, and still they cut through everything. I've spent my life making blades that do the opposite." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters at the Gurubashi Arena buy weapons from anyone who'll sell them, and I've sold a few. I've heard most of them don't come back to complain." } },
     knows = { { id = "tp_knows", text = "Folk talk while they test an edge. Ask what you like, and I'll tell you if I've heard it over the whetstone." } },
     background = { { id = "tp_bg", text = "I sell steel with Marda, by the auction house. That's the part of my life anybody needs to hear about." } },
     advice = { { id = "tp_ad", text = "Hold it before you buy it, and swing it before you trust it. Shine never saved anybody." } },
@@ -1080,6 +1096,12 @@ P:NPC {
   },
 
   topics = {
+    varian = { { id = "tp_varian", text = "Hear ye, hear ye: the King is missing, and the Regent asks all good citizens to pray for his return! I've said it every morning for months, and I'll say it every morning until I'm told to stop." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord Regent rules in the King's name, and he's a fine man, and you'll hear no word against him from me! I'll shout that to anyone who asks, and to many who don't." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the Regent's adviser, and a great lady of the court, and I've been told to say so whenever she's mentioned. I'll say it louder, if you like, though I've never met her." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Hear ye: the Stockade is held by its prisoners, and the guard advises all citizens to avoid the Canals after dark! I'm told it's temporary, and I'm told that every morning." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Hear ye, hear ye: the Darkmoon Faire comes to Goldshire again soon, with games and wonders for all! I'm not told when, but I shout it anyway, because people like to hear it." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "Hear ye: visitors to the city are welcome through the Valley of Heroes, and are asked not to climb the statues! That last part's for the children, mostly, though not entirely." } },
     knows = { { id = "tp_knows", text = "Every notice in the city crosses my throat sooner or later! Ask, and I'll cry what I can." } },
     background = { { id = "tp_bg", text = "A crier, born with a voice and the sense to use it for the crown. I've shouted the news on these streets longer than some of those statues have stood." } },
     advice = { { id = "tp_ad", text = "Read the whole notice before you set off, hero. Half the dead in this world only read the reward." } },
@@ -1293,6 +1315,10 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "My gryphons came from the Wildhammers of Aerie Peak, and they've a better temper than most of the nobles I fly. I'll take the birds every time, and I'll thank the Wildhammers for them." } },
+    theramore = { { id = "tp_theramore", text = "The ships to Theramore sail from Menethil, but I've a bird or two who'd fly there if you asked nicely. I'd not ask, though, because the swamp's no place for a gryphon." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I fly folk south to Booty Bay now and then, and the birds always come back smelling of rum. I don't ask, and they don't tell." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "My birds won't fly near the black mountain north of Redridge, and I'd not ask them to. There's something up there they don't like, and I trust their noses more than my maps." } },
     knows = { { id = "tp_knows", text = "My birds come home from every corner of the kingdom, and so do their riders, with all their gossip. Ask what you like." } },
     background = { { id = "tp_bg", text = "Gryphons all my working life, and I'm human, before you ask. The name came with the family, and so did the thirst, according to my wife." } },
     advice = { { id = "tp_ad", text = "Learn the roost at every town you reach, even if you're only passing. You'll thank yourself the day you need to get home fast." } },
@@ -1491,6 +1517,10 @@ P:NPC {
   },
 
   topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins of Gadgetzan sell potions that do three things at once, and two of them are bad for you. I'd not stock them, though my brother in Goldshire would." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The herbs that come up from Booty Bay are the finest in the world, and the most expensive. I buy them anyway, because a potion's only as good as what goes into it." } },
+    scourge = { { id = "tp_scourge", text = "The refugees from Lordaeron ask for remedies for the plague, and I've nothing to give them. I'd give my shop for a cure, and so would every apothecary in the city." } },
+    new_plague = { { id = "tp_new_plague", text = "The plague in Lordaeron was brewed in cauldrons, they say, by the Cult of the Damned. I'd like to see the recipe, so I could brew the cure, and then burn the recipe after." } },
     knows = { { id = "tp_knows", text = "Folk tell their apothecary things they wouldn't tell their priest. Ask, and I'll tell you what's proper to repeat." } },
     background = { { id = "tp_bg", text = "A Pestle, an alchemist and William's younger brother, in about that order.", next = "william" } },
     advice = { { id = "tp_ad", text = "Carry a healing potion you hope you'll never drink. It's the cheapest insurance in Stormwind." } },
@@ -1700,6 +1730,10 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners took the Stockade, and suddenly every noble in the city wants a sword by his bed. Business is good, and I don't like what it's telling me." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are dug in under Moonbrook, and adventurers come through here every day to buy armour before they go down. Half of them come back to sell it, and I don't ask about the other half." } },
+    syndicate = { { id = "tp_syndicate", text = "A man from Alterac came in last week and bought six daggers, all the same. He paid in old Alterac gold, and I've never seen a coin like it since the kingdom fell." } },
+    scourge = { { id = "tp_scourge", text = "The Lordaeron refugees come in looking for weapons that'll put the dead down for good. I tell them anything will, if you hit hard enough, and I hope I'm right." } },
     knows = { { id = "tp_knows", text = "When folk buy armor they tell you where they're going, and why. Ask me what I've heard." } },
     background = { { id = "tp_bg", text = "I keep an armory, and I keep the books for it. There's no more to tell than that, though the books have got thicker this year." } },
     advice = { { id = "tp_ad", text = "Buy the armor before you need it. Everyone's figured that out this year except the ones still standing in my queue." } },

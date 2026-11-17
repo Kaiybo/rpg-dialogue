@@ -146,6 +146,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A grunt who could count, so they made me a scout. I was born in an internment camp, and I've been fighting for the Horde since the day the gates broke, and that's all of it." } },
     advice = { { id = "tp_ad", text = "Centaur ride in circles before they charge. When they stop circling, run or swing." } },
+    centaur = { { id = "tp_centaur", text = "All five clans want us dead, and they all want each other dead more, so we have time. Bring me ears." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief needs this coast held, so it is held. Do you have more questions, or ears?" } },
+    maraudon = { { id = "tp_maraudon", text = "The centaur call Maraudon holy, and they defend it like rabid wolves, so no orc goes there. Good, there is enough to kill out here." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Takata hunts demon-lovers. I hunt centaur. Both of us have more work than hands, so if you want work, ask either of us and stop talking." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care, so ask me something useful, something with blood in it." } },
   },
 }

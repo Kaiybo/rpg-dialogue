@@ -179,7 +179,14 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Can't say I know, friend. If it doesn't ferment, I don't pay it much mind." } } },
+  topics = {
+    magni = { { id = "tp_magni", text = "King Magni keeps the best cellars in all of Ironforge, and I've had the honor of tastin' from them once. The man knows a good stout, whatever else you say about him." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron brew with fire salts and spite, and you can taste both. I'd not drink a drop of it if you paid me, and I've been paid to drink worse." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's rum would strip the paint off a ship and the hair off a goblin, and I've seen it do both. It's no brew for a civilized dwarf." } },
+    dire_maul = { { id = "tp_dire_maul", text = "There's ogres in Dire Maul brewin' something foul in the old elf halls, and I'd give my left boot to see their recipe, just to know what not to do." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells a cider that's more sugar than apple, and I've told Silas so to his face. He just laughed and charged me double." } },
+    _none = { { id = "tp_none", text = "Can't say I know, friend. If it doesn't ferment, I don't pay it much mind." } },
+  },
 }
 
 P:NPC {
@@ -346,7 +353,14 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, pal, and if it doesn't pay, I've got no time to learn." } } },
+  topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the center of the world, pal, if the world's a ledger, and I'm out here on the edge of it in a swamp of giants. You can see how a guy gets bitter." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best auction house in Kalimdor, but the overhead's murder, so I keep my own little shop out here. Lower costs, higher risk, and the giants are the risk." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel keeps things civilized, and civilized is good for business, and business is good for me. You see how it all works out, friend." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Dire Maul's a gold mine with ogres in it, and nobody's figured out how to get the gold out without the ogres getting it first. I'll be the first, someday, when I hire the right muscle." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company gives goblins a bad name, chum, and that takes some doin'. They cut down forests and cut down their partners, and I prefer my partners in one piece." } },
+    _none = { { id = "tp_none", text = "No idea, pal, and if it doesn't pay, I've got no time to learn." } },
+  },
 }
 
 P:NPC {
@@ -515,7 +529,14 @@ P:NPC {
       choices = { { text = "Free the creatures. Revenge is not our charge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Drive the Grimtotem out. They've earned it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That I cannot say. The forest keeps its own secrets." } } },
+  topics = {
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem trap the beasts of Feralas and pen them for their own ends. I free what I can, and I mark the hills where they camp." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "I keep the Circle's watch over the beasts of this forest, and there is a great deal of forest and very few of us. Every hand helps." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Dream's gate here in Feralas, and they have grown angry of late. I would not walk near them until they calm.", fx = { learn = { "emerald_dream" } } } },
+    elune = { { id = "tp_elune", text = "Elune watches over the hunted as well as the hunter. I try to remember that when I set my traps." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion taught the first druids to listen to the land, and he still sleeps in the Dream while we keep his lessons. I hope he finds us worthy when he wakes." } },
+    _none = { { id = "tp_none", text = "That I cannot say. The forest keeps its own secrets." } },
+  },
 }
 
 P:NPC {
@@ -701,7 +722,14 @@ P:NPC {
       choices = { { text = "Study them. Ignorance is a danger of its own.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Seal them. Some knowledge should stay buried.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I know little of that, I'm afraid." } } },
+  topics = {
+    highborne = { { id = "tp_highborne", text = "I watch the old Highborne ruins scattered across Feralas, because some of what they left still hums. Old magic does not sleep as soundly as old bones." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas was a jewel of the old empire, and the ogres crawl over it like flies on a corpse. Some of us think the Highborne in its depths are worse than the ogres." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Azshara's name still lies carved in the ruins along this coast, and the naga still sing it from the water. I hate the sound of both." } },
+    elune = { { id = "tp_elune", text = "Elune keeps the Sentinels' watch with us, every night, and her light is the only friendly thing in some of these ruins." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande keeps the Sentinels strong while the druids sleep in their Dream. Without her, Kalimdor would have fallen to the orcs long ago." } },
+    _none = { { id = "tp_none", text = "I know little of that, I'm afraid." } },
+  },
 }
 
 P:NPC {
@@ -841,7 +869,14 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "The Earth Mother has not shared that knowledge with me." } } },
+  topics = {
+    thrall = { { id = "tp_thrall", text = "The Warchief does not need me to praise him, and I do not need to praise him, because his deeds do it. I serve him by killing ogres." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest warrior of my people, and he is old now, but I would not fight him even so. Old bulls know every trick young bulls have not learned." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The gordunni come out of Dire Maul and raid our camp, and I hunt them back into it. I have never followed them all the way in, and I am not a fool." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem are a shame to every tauren, and they fight beside the ogres when it suits them. I trust a stranger with a blade more than I trust a Grimtotem with a promise." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave me a strong arm and a sharp eye, and I give her the ogres in return. She seems pleased with the arrangement." } },
+    _none = { { id = "tp_none", text = "The Earth Mother has not shared that knowledge with me." } },
+  },
 }
 
 P:NPC {
@@ -982,5 +1017,11 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I know leather, not that." } } },
+  topics = {
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us every hide, and I work each one so she will not be ashamed of me. A poor stitch dishonors the beast." } },
+    cairne = { { id = "tp_cairne", text = "Cairne wears leather I would be proud to have made. The craftsmen of Thunder Bluff are fine, though I will say mine is finer." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The beasts near Dire Maul have thick hides from fighting ogres, and they make good armor. Bring me their skins and I will judge them fairly." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem take hides with no prayer and leave the beast to rot, and their leather is poor for it. You can see the shame in every stitch they make." } },
+    _none = { { id = "tp_none", text = "I know leather, not that." } },
+  },
 }

@@ -204,6 +204,10 @@ P:NPC {
 
   topics = {
     worgen = { { id = "tp_worgen", text = "Wolves that walk like men. Keep your fire bright and your back to a wall." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal's worgen pour out of that keep like water out of a broken dam. I've no wish to go anywhere near it, and I'll admit it freely." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans built a wall to keep the world out, and now they've got worgen inside it, I hear. Serves them right, though I wouldn't say so near the woods at night." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are meant to be fearless, and mostly we are. Silverpine at night is the exception, and you'll understand once you've heard the howling." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady wants her enemies dead and her roads safe. I'm working on the roads, and I'd appreciate a little company while I do it." } },
     _none = { { id = "tp_none", text = "Ask Yorick; she knows the woods, and I know the road." } },
   },
 }
@@ -372,6 +376,9 @@ P:NPC {
   },
 
   topics = {
+    shadowfang = { { id = "tp_shadowfang", text = "Shadowfang Keep sits on the hill above Pyrewood, and its master breeds the wolves that walk on two legs. I watch the road for them, and I've seen enough to fill a ledger." } },
+    forsaken = { { id = "tp_forsaken", text = "My brother and I came back together, which is more than most Forsaken can say. I'd take that over a full heart any day." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's ghouls shamble past the farm sometimes, and I let them pass if they don't stop. Worgen are a different story." } },
     _none = { { id = "tp_none", text = "That's not my concern, for Pyrewood is my concern." } },
   },
 }
@@ -532,6 +539,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride bats because bats don't fear the dead the way horses do. I've grown fond of them, more than I'm fond of most people." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has gargoyles that hunt in the night sky, and my bats know to fly low when they hear them. I've lost one or two, and I don't care to lose more." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The bats know every road from here to Tarren Mill, and they'll carry you over the ruins of Lordaeron in a night. Mind you don't fall off." } },
     _none = { { id = "tp_none", text = "Ask someone with fewer bats to feed, and fewer droppings in their hair." } },
   },
 }

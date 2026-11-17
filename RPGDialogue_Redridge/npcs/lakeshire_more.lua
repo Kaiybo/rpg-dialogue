@@ -194,6 +194,11 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons brew a stout down in their mountain that's said to melt a man's teeth, and I'd risk my teeth for a taste. That's the only thing I'd ever thank them for, mind, and I'd still hit them afterward." } },
+    magni = { { id = "tp_magni", text = "King Magni can drink any dwarf in Ironforge under the table, and I've tried twice, though not with him personally. Some day I'll have the honour, and I'll lose gladly." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs in that mountain north of the Steppes drink some foul black grog, I hear, and they fight better for it. That's a lesson in brewing nobody should take, and I'll not say it twice." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers drink their ale on the backs of gryphons, which is a courage test I've never dared set anyone. Come to think of it, I might write that down for later." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "They sell a drink at the Darkmoon Faire that makes you see things that aren't there, and they charge twice what my family's brew does. Mine makes you see gnolls, and those are real enough." } },
     knows = { { id = "tp_knows", text = "I know brewin', fightin' and the shortest way to the Rethban Caverns, in roughly that order. What'll it be?" } },
     background = { { id = "tp_bg", text = "A Barleybrew, a warrior and a dwarf a long way from home, and only the first one matters to my mother." } },
     advice = { { id = "tp_ad", text = "Run west o' town past the herb garden before ye turn north, and ye'll miss most o' the gnolls." } },
@@ -412,6 +417,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "There's a manor in the Alterac foothills where the best of my trade gather, and you'll find it when they decide you've found it. Don't ask me where, because I'd only tell you wrong on purpose." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves with family crests, which makes them worse thieves and worse nobles. I'd not take a job from one, because they'd pay in a knife." } },
+    the_stockade = { { id = "tp_the_stockade", text = "A good half of my old students have done a spell in the Stockade, and a few of them are running it now, from what I hear. I'm proud and ashamed in about equal measure." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the only port in the world where a rogue can walk down the street with his hood down. The goblins don't care what you've done, just what you're spending." } },
     knows = { { id = "tp_knows", text = "I know locks, boats and who's been where they shouldn't, which is a longer list than you'd think. Choose." } },
     background = { { id = "tp_bg", text = "I'm a dwarf on a dock, and that's as much as anyone gets, friend." } },
     advice = { { id = "tp_ad", text = "Never pick a lock you haven't looked at twice, and never trust a door that's already open." } },
@@ -607,6 +616,10 @@ P:NPC {
   },
 
   topics = {
+    onyxia = { { id = "tp_onyxia", text = "Is there really a dragon in a swamp who eats knights for breakfast? Hilary says she's real, and I said I'd fight her, and now Hilary won't stop laughing at me." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "My da took me to Stormwind once, and I saw the statues in the Valley of Heroes, and they were so big I fell over looking up. I'm going to be up there one day, right next to the biggest one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Hilary and I saved our coppers all year for the Darkmoon Faire, and then I spent mine on a whistle and she got a little stuffed murloc. She won, I think, though the whistle's very loud." } },
+    thrall = { { id = "tp_thrall", text = "The soldiers say the orcs have a big chief called Thrall who lives across the sea. I asked if he was bigger than the Blackrock ones, and they told me to go fish." } },
     knows = { { id = "tp_knows", text = "I know lots of things! Mostly about the dock, and Hilary, and Effsee. Ask me!" } },
     background = { { id = "tp_bg", text = "I live in Lakeshire and I'm going to be a hero, that's my whole story so far." } },
     advice = { { id = "tp_ad", text = "Don't swim in the lake, my mom says, so I'm saying it too." } },
@@ -796,6 +809,10 @@ P:NPC {
   },
 
   topics = {
+    murlocs_east = { { id = "tp_murlocs_east", text = "The murlocs in Everstill have learned where every good trout lies, and they get there first and leave nothing behind. I've fished this lake since I was a boy, and I've never been out-fished by a fish before." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing in the world, so the sailors say, and a goblin there pays good gold for a big catch. I'd go and see, but somebody's got to keep this lake honest." } },
+    gilneas = { { id = "tp_gilneas", text = "I fished with a Gilnean once, a sour old fellow who said the sea had better manners than people. I didn't argue with him, because I'd met people." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet sell a lure they swear brings fish leaping into the boat, and I bought one once, out of curiosity. It exploded in my tackle box, which I suppose is a goblin's idea of fishing." } },
     knows = { { id = "tp_knows", text = "I know the lake, its fish, and a few of its stories, true and otherwise. Which do you want?" } },
     background = { { id = "tp_bg", text = "I fish, and I teach others to fish, and that's been enough for one life so far." } },
     advice = { { id = "tp_ad", text = "Fish where the guards can see you; no fish is worth an arrow in the back." } },
@@ -985,6 +1002,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Half my customers ask if I've got Booty Bay rum, and I don't, and I've got milk, which somehow disappoints them more. The road from the south has orcs on it, and milk doesn't sail." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells a cheese that's been aged in a cave somewhere in Kalimdor, and I tasted it once. I've been ashamed of my own cheese ever since, though nobody else seems to mind." } },
+    dark_iron = { { id = "tp_dark_iron", text = "I was asked for Dark Iron ale three times this morning by a dwarf, and I told him I had milk. He looked at me the way an orc looks at a gnoll, and I've decided to take it as a compliment." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm not much of a churchman, but I bless the bread before I set it out, the way my mother did. It's a habit more than a prayer, though the Light can take it either way." } },
     knows = { { id = "tp_knows", text = "Everyone talks at a bar, even one with no ale, so I hear a fair bit. What would you like to know?" } },
     background = { { id = "tp_bg", text = "I'm the bartender who doesn't serve drink, which is the only interesting thing about me." } },
     advice = { { id = "tp_ad", text = "Eat before you go into the hills; a hungry fighter makes mistakes, and gnolls don't." } },
@@ -1169,6 +1190,10 @@ P:NPC {
   },
 
   topics = {
+    emerald_dream = { { id = "tp_emerald_dream", text = "A night elf druid passed through looking for herbs once and spoke of a green dream where the world grows as it should. I'd like to sleep there one night, if it's anything like the hills before the gnolls." } },
+    elune = { { id = "tp_elune", text = "The night elves leave a little water out for their moon-goddess before they cut any herb, and I've started doing it too. I don't know if it helps the plants, but it slows me down, and that does." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids of the Cenarion Circle know more about growing things than anyone in Stormwind, and they're kind enough to share it if you don't trample their roots. I'd study with them if I could get to Moonglade." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs stripped the hills bare all the way north to the Steppes, and from what I hear, nothing grows near that black mountain of theirs. I can't imagine living somewhere with no green at all." } },
     knows = { { id = "tp_knows", text = "Herbs, soil, and who in Lakeshire needs a poultice this week, which is most of us. Ask away." } },
     background = { { id = "tp_bg", text = "I grow things and teach others to, and that's all the story I've got." } },
     advice = { { id = "tp_ad", text = "Cut the stem and leave the root, and the plant will be there for the next person." } },
@@ -1368,6 +1393,10 @@ P:NPC {
   },
 
   topics = {
+    thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span over a gorge you could drop a city into, and Oslow still says ours is harder. That's because he's not had to carry stone across theirs." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the old Moonbrook mines, I hear, and they took half Stormwind's stonemasons with them. Oslow's never been prouder that we stayed honest, and never been shorter of good hands." } },
+    stonemasons = { { id = "tp_stonemasons", text = "A lot of the lads I trained with joined the Stonemasons' Guild and went bad when the nobles wouldn't pay them. I'd have gone too, maybe, if Oslow hadn't found me first and shouted at me until I stayed." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I won a strength contest at the Darkmoon Faire once, and the prize was a ribbon and a very sore back. Oslow made me carry stone the next morning anyway." } },
     knows = { { id = "tp_knows", text = "I know stone, the bridge, and what the foreman likes for breakfast. That's about the lot." } },
     background = { { id = "tp_bg", text = "I carry stone for a living, and I'm carrying this bridge across a lake, that's all." } },
     advice = { { id = "tp_ad", text = "Lift with your legs, not your back, and never stand downhill of a block." } },

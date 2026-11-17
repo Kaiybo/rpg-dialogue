@@ -161,6 +161,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Ashenvale, look up as often as you look ahead. The forest has more than one floor." } },
     sentinels = { { id = "tp_sentinels", text = "We are fewer than we should be and more stubborn than the Horde expects. That has served so far." } },
     warsong = { { id = "tp_warsong", text = "Orc axes in our oldest trees, and the forest bleeding sap where they cut. I try not to go and look too often.", next = "horde" } },
+    thrall = { { id = "tp_thrall", text = "The Horde's warchief is a name in every report I send Darnassus, usually beside the Warsong. I'd rather write about birds, honestly." } },
+    centaur = { { id = "tp_centaur", text = "Centaur raids on the Barrens edge of Stonetalon come up in my letters too. Darnassus never writes back about those." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess reads my reports herself, I'm told. I try to keep them short, and I always fail." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's a cult nest and a naga nest at once. I write that in every report, and I'll keep writing it until someone sends more arrows." } },
     _none = { { id = "tp_none", text = "I don't know, {class}. Faldreas keeps track of the roads; ask him." } },
   },
 }

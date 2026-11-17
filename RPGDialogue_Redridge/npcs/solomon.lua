@@ -526,6 +526,18 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade was meant to keep Stormwind's worst where they couldn't harm anyone, and now the prisoners hold it. If the King's own prison can't be held, I don't know how Stormwind expects Lakeshire to hold its walls." } },
+    bolvar = { { id = "tp_bolvar", text = "I have written to Highlord Fordragon so many times that his clerks must recognise my seal by now. He means well, I believe, but meaning well has never yet driven an orc out of Redridge." } },
+    prestor = {
+      { id = "tp_prestor", text = "Lady Prestor sends replies to my letters on the Regent's behalf, gracious and long and entirely empty of soldiers. I'm beginning to wonder whether the Highlord sees my letters at all." },
+      { id = "tp_prestor2", when = { disposition = { min = 65 } }, text = "Between us, I've begun to wonder whether Lady Prestor reads my letters before the Regent does, and whether he ever sees them at all. I'd say that to no one else, so keep it to yourself." },
+    },
+    varian = { { id = "tp_varian", text = "King Varian never would have left a town of his to hold the line alone, and I believe that with all my heart. But he's gone, and Lakeshire is still here, and someone must write the letters." } },
+    second_war = { { id = "tp_second_war", text = "Lakeshire was burned to the waterline in the Second War and rebuilt on the King's promises. I'm still waiting for the King's promises, so you see my patience is quite well practised." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs who raid Redridge answer to that black mountain north of the Steppes, I'm told, and no army of Stormwind's has gone near it in years. I'd like to know why before I write my next letter." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild rebuilt Stormwind and was never paid, and now they're the Defias, and now we pay for it in Redridge too. The House of Nobles may yet learn that a debt never stays where it was left." } },
+    syndicate = { { id = "tp_syndicate", text = "Letters from Arathi say the Syndicate is a band of fallen Alterac nobles playing at being thieves. I've enough trouble with honest orcs without dishonest lords." } },
+    theramore = { { id = "tp_theramore", text = "Lady Proudmoore holds Theramore with a fleet and a handful of soldiers, and I'm told the city is safe. I'd like her to write to me and explain how, because I've a handful of soldiers and no fleet at all." } },
     knows = {
       { id = "tp_knows", text = "Every report from the ridge and every letter from the Keep crosses this table, so the court is well informed, if poorly defended. Ask me about any of this." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "The court will answer on these matters, and only these." },

@@ -120,6 +120,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a shaman before the Horde forgot shamans, and I am one again now that it remembers. The years between are not worth the telling." } },
     advice = { { id = "tp_ad", text = "Listen first. Most mistakes are made by people who have not finished hearing." } },
     venture_company = { { id = "tp_vc", text = "Goblins who would sell the mountain itself if they could find a buyer. The spirits do not bargain, and they will learn that." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is a shaman, and that is why I trust him. A chieftain who listens to the land will not lead his people off a cliff, at least not on purpose." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead of Lordaeron are bound to this world by something that should have let them go. I pity them, and I watch them, and I pray the land will forgive us for taking them in." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore is a human with a long view, and that is rarer than you would think. She and the Warchief understand each other, and I hope their people learn to do the same." } },
+    prestor = { { id = "tp_prestor", text = "The humans' king is gone, and a boy sits on the throne, and a noblewoman named Prestor whispers in his court. I know only what the traders say, but the land in the east is uneasy, and I do not know why." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of Stonetalon are screaming as the goblins cut the forest down. I hear them even here, and I fear what will happen if no one answers." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great leader and a great friend to the Horde. He listens to the land as I do, and he hears it more clearly." } },
     _none = { { id = "tp_none", text = "The spirits have said nothing to me of that, and I will not guess on their behalf." } },
   },
 }

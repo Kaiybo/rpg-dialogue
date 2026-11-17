@@ -165,7 +165,18 @@ P:NPC {
       choices = { { text = "Every hand matters. Theramore needs its mages.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "You owe nobody your solitude. Stay out here.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I can't say I know, dear, and I've read a great many books." } } },
+  topics = {
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran when it had towers instead of rubble, and a great many arguments, and some of them were mine. They're rebuilding now, I hear, though they keep the gates shut, which is very like them." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are clever people who believe a good committee can solve anything, and I have never seen a committee kill a raptor. I prefer my hut, my frogs and my own counsel." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a fine city with fine towers and a great many people knocking on the door of every one of them. I visit for tea and come home for quiet." } },
+    onyxia = { { id = "tp_onyxia", text = "The black dragon's whelps fly over the southern marsh, and I've learned to keep my lantern low at night. She sleeps in a cave down in Wyrmbog, and I'd rather she kept sleeping." } },
+    jaina = { { id = "tp_jaina", text = "Jaina was a bright girl in Dalaran, terribly earnest, always the last one out of the library. She's carrying more than any of us expected, and she carries it rather well." } },
+    scourge = {
+      { id = "tp_scourge", when = { race = "Scourge" }, text = "I knew a few people who went north with the plague and came back like you, dear, and I'd rather not talk about it, if it's all the same. Have some tea instead." },
+      { id = "tp_scourge2", text = "The plague came out of Lordaeron and swallowed half the people I studied with. That's a great part of why I live in a swamp, where the worst thing that wanders in is a raptor." },
+    },
+    _none = { { id = "tp_none", text = "I can't say I know, dear, and I've read a great many books." } },
+  },
 }
 
 P:NPC {
@@ -350,7 +361,13 @@ P:NPC {
       choices = { { text = "Your home, your choice. Stay put.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "You'd be safer in the city. Swallow your pride.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Never seen it, never heard of it, and I see everything." } } },
+  topics = {
+    theramore = { { id = "tp_theramore", text = "Theramore's full of soldiers who think a swamp is a lawn that needs mowing. They don't come out this far, and I like it that way." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a dragon down south, a big black one, and folk who go looking for her come back as charcoal, if they come back. I mind my own business and she minds hers." } },
+    jaina = { { id = "tp_jaina", text = "The Lady Proudmoore's a fine lady, I'm told, and I'm told it by people who want me off my land. I've never met her, and I don't expect to." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I sailed into Booty Bay once as a young man and sailed out a good deal lighter in the purse. Pirates and goblins, and I couldn't tell you which robbed me first." } },
+    _none = { { id = "tp_none", text = "Never seen it, never heard of it, and I see everything." } },
+  },
 }
 
 P:NPC {
@@ -525,7 +542,12 @@ P:NPC {
       choices = { { text = "Anyone can change. I believe you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "An ogre is an ogre. Prove it first.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Ogron not know that, but Ogron know fish!" } } },
+  topics = {
+    onyxia = { { id = "tp_onyxia", text = "The big black dragon live in the south and eat ogres, and Ogron not want to be eaten, so Ogron stay north. That smart, Ogron think!" } },
+    theramore = { { id = "tp_theramore", text = "The humans in the stone town not like ogres, but some of them let Ogron help, and that make Ogron happy. Ogron want to be good friend to humans." } },
+    thrall = { { id = "tp_thrall", text = "Ogron hear the orc chief good chief, and he let Ogron's cousins live in Brackenwall. But Ogron not like Brackenwall, too much shouting." } },
+    _none = { { id = "tp_none", text = "Ogron not know that, but Ogron know fish!" } },
+  },
 }
 
 P:NPC {
@@ -678,7 +700,16 @@ P:NPC {
       choices = { { text = "Peace is worth the risk. Lady Jaina is right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "The Horde can't be trusted. The ranks are right.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Not something I know about. Move along, citizen." } } },
+  topics = {
+    theramore = { { id = "tp_theramore", text = "Theramore's my home, and Sentry Point is where I keep it safe, out at the edge where the marsh meets the road. Every bit of trouble that heads for the city comes past me first." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore is the reason there's anything here worth guarding. I'd stand this post another twenty years for her and not ask why." } },
+    onyxia = { { id = "tp_onyxia", text = "Folk say there's a black dragon nesting in the south of the marsh, and I've seen the whelps myself. Orders are to watch the road, so that's what I watch." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Lady says we keep the peace with the orcs and their warchief, so we keep it. I don't have to like it, citizen, I only have to follow orders." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief signed a peace with the Lady, so you'll get no trouble from me. See that I get none from you." },
+    },
+    _none = { { id = "tp_none", text = "Not something I know about. Move along, citizen." } },
+  },
 }
 
 P:NPC {
@@ -861,7 +892,14 @@ P:NPC {
       choices = { { text = "The Horde keeps you safe. Stay loyal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "An overlord bows to no one. Rule alone.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Mok'Morokk not know, and Mok'Morokk not care!" } } },
+  topics = {
+    thrall = { { id = "tp_thrall", text = "The orc chief let Mok'Morokk keep his village, so Mok'Morokk let the orc chief be chief! It is good arrangement, very fair, mostly to Mok'Morokk." } },
+    onyxia = { { id = "tp_onyxia", text = "The black dragon burn the Stonemaul village, so Mok'Morokk bring the clan north to Brackenwall! Mok'Morokk not afraid of dragon, Mok'Morokk just like it here better." } },
+    theramore = { { id = "tp_theramore", text = "The little humans in the stone town think Mok'Morokk burn their inn, and Mok'Morokk not burn it! If Mok'Morokk burn something, everybody know who did it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "Many ogres live in the black mountain, and they think they are big and strong, but Mok'Morokk is bigger. Mok'Morokk never been there, and Mok'Morokk not need to go." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblins come to sell Mok'Morokk shiny things, and Mok'Morokk eat one goblin once. Now the goblins charge more, which Mok'Morokk think is very rude." } },
+    _none = { { id = "tp_none", text = "Mok'Morokk not know, and Mok'Morokk not care!" } },
+  },
 }
 
 P:NPC {
@@ -1013,5 +1051,13 @@ P:NPC {
       choices = { { text = "Strength holds a people together. Follow him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "A leader without wisdom fails. You should lead.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Even I do not know everything, though I would never say so to Mok'Morokk." } } },
+  topics = {
+    thrall = { { id = "tp_thrall", text = "The Warchief is wiser than most orcs, and that is why Brackenwall still stands under his protection. I advise the overlord to remember it, often and quietly." } },
+    onyxia = { { id = "tp_onyxia", text = "Onyxia broke the Stonemaul clan from her lair in the south, and the survivors came here with nothing but grief and hunger. She is a patient creature, and patience in a dragon frightens me more than rage." } },
+    theramore = { { id = "tp_theramore", text = "The humans of Theramore want someone to blame for the burned inn, and a village of ogres is very convenient to blame. I would prefer they found the truth before they found their swords." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "There are ogres in Blackrock Spire who serve the Dark Horde and its warlords. They are fools, because a master who needs ogres for walls will spend them like stones." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "I have heard of the human wizards of Dalaran and their tidy rules about magic. Ogre magi learn our arts in harder schools, and we keep fewer rules because we keep fewer survivors." } },
+    scourge = { { id = "tp_scourge", when = { race = "Scourge" }, text = "You walked out of the plague and kept your mind, which is a feat I would like very much to understand. The overlord would only want to know if you are edible." } },
+    _none = { { id = "tp_none", text = "Even I do not know everything, though I would never say so to Mok'Morokk." } },
+  },
 }

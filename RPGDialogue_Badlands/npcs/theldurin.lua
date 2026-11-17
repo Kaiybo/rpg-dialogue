@@ -221,6 +221,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a miner, then a cultist, then a thief, and now I'm a madman on a rock, and of the four I liked mining best, for honest stone never lied to me." } },
     advice = { { id = "tp_ad", text = "Never say a name you don't want answering you, friend, because some of them are always listening." } },
+    uldaman = { { id = "tp_uldaman", text = "There's something under the stone at Uldaman, and it breathes. I heard it when I was digging, and I'll never dig again." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "The Hammer took me in, once, and I served them. They wanted the thing under the stone, and I ran before they found it." } },
+    the_elements = { { id = "tp_the_elements", text = "The earth here is angry, and I don't know why. It shakes when nobody's watching." } },
     _none = { { id = "tp_none", text = "I don't know that one, and by my beard I'm glad of it, for every new thing I learn seems to be something else to be afraid of." } },
   },
 }

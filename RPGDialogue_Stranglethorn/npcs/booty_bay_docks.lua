@@ -209,6 +209,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm an old fisherman, and that's all I ever wanted to be. Some men chase gold; I chase snappers, and I sleep better for it." } },
     advice = { { id = "tp_ad", text = "Be patient, youngster. The fish don't care how busy you are, and neither do the sharks." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing in the South Seas, and nobody here ever bothers an old man with a line in the water. That's all I've ever asked of a town." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire comes through sometimes and sets up a fishing contest, and the youngsters always think they can beat old Heming. They never do." } },
+    second_war = { { id = "tp_second_war", text = "I was fishing these waters during the Second War, and the orc ships scared the fish worse than they scared me. The snapper didn't come back for a whole season." } },
+    theramore = { { id = "tp_theramore", text = "I fished off Theramore once, and the fish there are fat and lazy and practically jump into the boat. Proudmoore's people don't know what they've got." } },
     _none = { { id = "tp_none", text = "Never heard of it, and if it doesn't swim, I don't much care." } },
   },
 }
@@ -376,6 +380,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I came to Booty Bay to sell guns, and I stayed because nobody here complains about the noise, or the occasional small fire." } },
     advice = { { id = "tp_ad", text = "Always carry more shot than you think you need, pal. The jungle's got more teeth than you've got bullets." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the only town I know where firing a gun indoors is a matter of opinion rather than law. I love it here, pal, the noise is wonderful." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's my best market, pal, because every fighter in there wants a bigger bang than the next. I sell to all sides, and I sleep like a baby." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's Bruisers don't let you fire a gun in town, pal, which is a crime against engineering. I'll stay here where the rules are reasonable." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company buys guns in bulk, pal, and pays in bulk too, so I don't ask what they're shooting at. It's probably trees, mostly." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if I can't shoot it or sell it, I can't help you." } },
   },
 }
@@ -552,6 +560,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I make bows, and I came south where the hunting is good and the customers are many. That's all there is to it." } },
     advice = { { id = "tp_ad", text = "Keep your bowstring dry, friend. A wet string won't fire, and the jungle won't wait for it to dry." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's loud, and I'm not, so we get along by mostly ignoring each other. The hunting in the jungle is worth it." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've seen fighters at the Arena try to use guns in close quarters, and it's the bow users who walk out alive more often than not. I don't say it to anyone, but I notice." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub are fine archers, I'll grant them that, and their tiger-riders are better hunters than any of us. I give that city a wide berth when I'm in the north." } },
+    elune = { { id = "tp_elune", when = { race = "NightElf" }, text = "You'll have heard the priestesses say the hunt is sacred to Elune, and I've come to think they're right, even this far from Ashenvale. I say a word to the moon before every long shot." } },
     _none = { { id = "tp_none", text = "I don't know about that. I know about bows." } },
   },
 }

@@ -131,6 +131,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fish, I drink, and I sit. Been doin' all three a good long while, and I'm still not tired of the last one." } },
     advice = { { id = "tp_ad", text = "Don't yank the line the second it twitches, or you'll spend the afternoon fishin' your hook out of the reeds. Let the fish think it's winnin'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing on the coast and the worst company to go with it, which is how you know it's good water. I'd go back if the pirates would let a man sit still." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a fine little town with too many boots marching on the docks, and every one of them scares the fish. I come out here where the water's quiet." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's got good docks and goblins who'll sell you bait that's half sawdust. Fished there a season, and I've no complaints about the fish." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a dragon down in the south of the marsh, they tell me, and I don't fish down there. A man who wants peace and a full bottle doesn't go poking at dragons." } },
+    jaina = { { id = "tp_jaina", text = "The Lady built a town on the best stretch of coast in the marsh, so she knows her water, I'll give her that. Never seen her fish, though, and I think it's a pity." } },
     _none = { { id = "tp_none", text = "Can't say I know a thing about that. Ask me about fish, or don't ask me at all." } },
   },
 }

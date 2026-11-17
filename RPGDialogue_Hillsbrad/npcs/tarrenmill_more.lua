@@ -204,6 +204,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "One of the Warchief's warriors, sent from Durotar. The rest of the story is unfinished.", next = "ambush" } },
     advice = { { id = "tp_ad", text = "Never go into Durnholde with fewer than you'd need. Count, then double it." } },
     syndicate = { { id = "tp_syn", text = "Thieves with noble names.", next = "syndicate" } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me here, and I came, and my companions died at Durnholde for it. I'd follow him into the sea, but I'd rather he'd sent me somewhere with fewer dead." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken fight the Scourge, and they fight the humans, and they smell like both. I share a town with them because the Warchief asks it, and that's all I'll say." } },
+    internment = { { id = "tp_internment", text = "Durnholde was my prison once, before the Warchief broke it open. Going back there with my companions and losing them in its shadow was the worst thing I've ever done." } },
     _none = { { id = "tp_none", text = "I'm a warrior, not a scholar of this land. Ask one of the dead; they've been here longer." } },
   },
 }
@@ -368,6 +371,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know my master's rites and Southshore's sins. Ask about either." } },
     background = { { id = "tp_bg", text = "Helcular's apprentice, and his avenger.", next = "helcular" } },
     advice = { { id = "tp_ad", text = "Never let the living bury your dead. They do it wrong on purpose." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken gave me a place to work, and a master to raise, and I'll serve them as long as they let me. Southshore killed Helcular, and I'll see them pay for it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are slaves, and we are free, and the difference is everything to me. I'll raise my master as one of the free dead, or not at all." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady lets me work, and that's all I ask of any queen. Helcular bowed to no king in life, and I mean to raise him free, with only the Dark Lady above him." } },
     _none = { { id = "tp_none", text = "That has nothing to do with Master Helcular, so it doesn't interest me." } },
   },
 }
@@ -543,6 +549,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the town and the road to Dun Garok. Ask." } },
     background = { { id = "tp_bg", text = "Deathguard of Tarren Mill, presently unarmed.", next = "lost" } },
     advice = { { id = "tp_ad", text = "Keep your gear on, and trust me on that." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken guard their own, and I'm a Deathguard of Tarren Mill, which sounds grander when I've a sword to go with it. Ask me again once I've got my gear back from those dwarves." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are slow and stupid, and we fight them whenever they come south. I'd fight them now, if I had a sword." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady would be ashamed of me if she knew about my gear. I'm hoping she never finds out." } },
     _none = { { id = "tp_none", text = "I don't know. I don't even know where my sword is." } },
   },
 }
@@ -716,6 +725,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know everyone who comes and goes from this town, since I'm always here. Ask." } },
     background = { { id = "tp_bg", text = "Deathguard, collector, and doorman. Not by choice, the last.", next = "post" } },
     advice = { { id = "tp_ad", text = "Clean the skulls before you bring them. I'm not a barbarian." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken all need a purpose, and mine for now is standing at this post and collecting Hillsbrad's skulls. It passes the time, and the skulls never argue." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are boring, really, all shambling and groaning and no conversation at all. I'd rather fight humans, they at least scream interestingly." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady would approve of my skull collection, I think. I'm hoping to show it to her someday." } },
     _none = { { id = "tp_none", text = "Can't say. I've been at this post too long to know anything else." } },
   },
 }
@@ -880,6 +892,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know who's weak. Ask about anything else and I'll decide if you're worth answering." } },
     background = { { id = "tp_bg", text = "Warrior before, warrior after. The middle part was unpleasant." } },
     advice = { { id = "tp_ad", text = "Hit first. The ogres will hit harder." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need your pity or your admiration, so keep both. If you want to prove you're worth talking to, go to Hammerfall and come back with fewer limbs than you'd like." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge come south, and we cut them down, and they come again. I don't tire of it, and I hope you don't either." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sends his orcs to Hammerfall and asks us for help, and I send what I can. I don't much care if they survive, but the Dark Lady does." } },
     _none = { { id = "tp_none", text = "Ask someone who cares, because that isn't me." } },
   },
 }
@@ -1040,6 +1055,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Routes and bats are my whole world, I'm afraid." } },
     background = { { id = "tp_bg", text = "I was something else once. Now I fly bats, and I like it better." } },
     advice = { { id = "tp_ad", text = "Hold still when you land, because the bats hate a fidget." } },
+    forsaken = { { id = "tp_forsaken", text = "My bats carry the Forsaken over every ruined field in Lordaeron, and the living shriek when they pass overhead. I find that delightful, and so do the bats." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge have their own bats, and gargoyles, and worse. Mine are faster, and they don't answer to the Lich King." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady rides my bats when she visits the front, though she hasn't visited in some time. She'd approve of their care, I think." } },
     _none = { { id = "tp_none", text = "Ask somebody on the ground. I'm mostly in the air." } },
   },
 }
@@ -1195,6 +1213,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Stock and prices, and who buys what. Ask." } },
     background = { { id = "tp_bg", text = "I kept a shop before the plague. I keep one after. It's the same shop, nearly." } },
     advice = { { id = "tp_ad", text = "Buy rope. Everyone always needs rope, and nobody ever has it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have very different appetites to yours, which is why the living allies' food sits on its own shelf. Please don't reach past it, because nothing on the other shelves is for eating, not by you." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's orcs come through Tarren Mill now and then, and they eat like wolves. I keep the shelf stocked, and I don't ask what they think of our cooking." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge don't shop, which is a mercy. I'd hate to know what they'd want." } },
     _none = { { id = "tp_none", text = "Not something I carry, I'm afraid, and the Tarren Mill gossip hasn't mentioned it either." } },
   },
 }

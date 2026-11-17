@@ -188,6 +188,17 @@ P:NPC {
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get the short version, since I've no time for the long one with you." },
     },
     worgen = { { id = "tp_worgen", text = "Arugal's creatures, a Dalaran mage's mistake loose in my forest. I'd like the mage, too." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge pushes in from the north and east, and the Deathguard pushes back every day. It doesn't tire and neither do we, so it becomes a question of who has the better commanders." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know what they are, because you were one. Use that, and you'll last longer than the living ones I send out." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken hold the Sepulcher because the Dark Lady ordered it held, and I hold it because I don't fail her. That's the whole chain of command, and it's enough." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal sits in his keep and lets his wolves run wild through Silverpine. I've sent Deathstalkers after him, and none came back, which tells me something about his defenses." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans hid behind their wall when Lordaeron needed them most, and now there are worgen on our side of it. If Genn Greymane wants his land back, he'll have to come through me." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages hold Ambermill and claim it as theirs, and they hide their city behind shields while they rebuild. I count them among my enemies, and I'm not short of enemies." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady trusts me with the Sepulcher, and I've never given her reason to doubt it. I don't intend to start now." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people come through Silverpine now and then, on their way somewhere else. They fight well enough, and I'm glad of any blade that points at my enemies." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Silverpine was Lordaeron's western forest, and its people fled or died when the plague came. The forest has forgotten them, but I haven't." } },
     _none = { { id = "tp_none", text = "Ask Allister; information is his business, not mine." } },
   },
 }
@@ -339,6 +350,10 @@ P:NPC {
   },
 
   topics = {
+    new_plague = { { id = "tp_new_plague", text = "I'm improving on a recipe for death, and that's all I'm going to say. The Society doesn't care for loose talk, and neither do I." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken will win this war with clever minds and sharp poisons, not with swords alone. I'm doing my part, out here in this miserable damp." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is a blunt instrument, and we're making a scalpel. Don't ask me which way it cuts." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Worgen blood has fascinating properties, I'm told, and I'd love a fresh sample from Arugal's keep. Nobody seems willing to fetch one." } },
     _none = { { id = "tp_none", text = "If it can't be bottled, it can't hold my attention." } },
   },
 }
@@ -527,6 +542,11 @@ P:NPC {
 
   topics = {
     worgen = { { id = "tp_worgen", text = "Arugal's mess, and a fool with power is the most dangerous creature in any forest." } },
+    dalaran = { { id = "tp_dalaran", text = "I was an archmage of Dalaran, and I warned the Kirin Tor of what was coming, and nobody listened. Now they rebuild behind their shields and send their apprentices to squat in Ambermill, and they still don't listen." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor stopped calling me Archmage the moment I died, which I find extraordinarily rude. I haven't forgotten a single one of their names." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal was one of ours, a fine mage once, and the Kirin Tor let him summon the worgen to fight the Scourge. He lost his mind, and now he hides in Shadowfang Keep calling the wolves his children." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Council once, before he chose a different master. I remember him well, and I remember how many of us thought him merely eccentric." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken gave me a place when Dalaran wouldn't, and I serve the Dark Lady gladly. I'd serve her more gladly still if she let me burn Ambermill." } },
     _none = { { id = "tp_none", text = "Beneath my notice, or above my current research. Either way, not today." } },
   },
 }
@@ -695,6 +715,11 @@ P:NPC {
       { id = "tp_knows", text = "My watchers bring me a great deal, and some of it I'm even permitted to share. These, for instance, if you ask nicely." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've been discreet, and I reward discretion, so I'll tell you rather more than I tell most." },
     },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have eyes in every corner of Lordaeron, and most of those eyes report to me. I trade in what they bring back, and business is very good." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady values information above gold, and I give her plenty of it. In return, she lets me keep the rest for my own uses." } },
+    dalaran = { { id = "tp_dalaran", text = "My watchers tell me Dalaran is rebuilding steadily, and that the Kirin Tor keep the gates shut to all but their own. They also tell me which of their own are unhappy about it." } },
+    gilneas = { { id = "tp_gilneas", text = "Nothing comes over the Greymane Wall, not even rumors, and that bothers me more than I'd like. I hate a closed door." } },
+    shadowfang = { { id = "tp_shadowfang", text = "I know a good deal about what goes on inside Shadowfang Keep, and none of it is pleasant. Arugal is mad, but a madman can still be useful." } },
     _none = { { id = "tp_none", text = "If I knew, I wouldn't tell you for free, and I don't know." } },
   },
 }
@@ -851,6 +876,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't sleep, but they like a slab of their own to lie on, all the same. I keep them clean, and I keep the spiders out, mostly." } },
+    shadowfang = { { id = "tp_shadowfang", text = "I can tell the worgen apart by their howls now, and the ones from Shadowfang Keep are the worst. They sound like they're laughing." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge comes knocking at the crypt door sometimes, and we answer with the Deathguard. My guests sleep through it, or they would, if they slept." } },
     _none = { { id = "tp_none", text = "I keep the fire. Ask the High Executor for the rest." } },
   },
 }

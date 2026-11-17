@@ -341,6 +341,13 @@ P:NPC {
     dreadmaul = { { id = "tp_dreadmaul", text = "Big, loud and regular as the tides. They come at the walls, the soldiers send them home, and I order more arrows.", next = "wastes" } },
     stonemasons = { { id = "tp_masons", text = "They built these walls, and built them well. What became of them after is Stormwind's business, not mine." } },
     burning_legion = { { id = "tp_legion", text = "Ask the mages; they lose sleep over it. I lose sleep over the arrow count, which is worry enough for one man." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord signs my requisitions when they reach him, and they reach him about one time in three. I've stopped blaming him, because I've seen the queue." } },
+    varian = { { id = "tp_varian", text = "The king went missing, and the supply wagons got lighter the same month. I'm not saying the two are connected, only that I've noticed." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor sits on the committee that approves Nethergarde's budget, and our budget has gone down twice since she joined it. I'm sure she has her reasons, and I'm sure I'll never hear them." } },
+    second_war = { { id = "tp_second_war", text = "The Second War is why Nethergarde exists, so somebody would always be watching the Portal. I count crates so the watchers don't have to." } },
+    draenethyst = { { id = "tp_draenethyst", text = "Draenethyst crystals turn up out in the wastes, and Kum'isha pays for them, and I've no idea why. I've written him into the ledger as a regional curiosity." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took the north, and every soldier Stormwind sends there is one it can't send here. I understand it, but my ledger doesn't." } },
+    khadgar = { { id = "tp_khadgar", text = "Archmage Khadgar founded this keep, and he left orders so thorough I'm still finding them in the drawers. I'd have liked to meet him, if only to ask what he meant by half of them." } },
     _none = { { id = "tp_none", text = "If it doesn't come in a crate, it isn't in my ledgers. Try the Watcher upstairs." } },
   },
 }
@@ -659,6 +666,11 @@ P:NPC {
     khadgar = { { id = "tp_khadgar", text = "The greatest mage of his age, and this keep was his idea. I'll gladly tell you everything, if you have a while.", next = "khadgar" } },
     burning_legion = { { id = "tp_legion", text = "The masters behind the orcs and the Scourge alike, and their remnant here in the Tainted Scar. Lord Kazzak commands them, if the scouts who came back are to be believed." } },
     tainted_scar = { { id = "tp_scar", text = "A gash in the southwest full of demons and fel, and the one place in these lands I won't go even with an escort." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran before the Scourge came, and I still dream about the libraries. They're rebuilding now, behind their shield, and they haven't written to us in months." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor sent us here to watch the Portal, and they still pay our stipends, mostly on time. I'd like them to send more mages, but they're busy with their own ruins." } },
+    second_war = { { id = "tp_second_war", text = "The Second War ended when Khadgar and the Alliance closed the Portal, and I've spent my life studying what they did. It's still the finest piece of magic I've ever seen." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the work of a necromancer from Dalaran, and the Kirin Tor have never forgiven themselves for Kel'Thuzad. Neither have I, and I never met him." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Kirin Tor, a scholar like me, and he turned to necromancy and gave the north to the dead. When I read too late into the night, I think about him." } },
     _none = { { id = "tp_none", text = "I'm afraid that's outside my studies. The Quartermaster hears everything, though; try him." } },
   },
 }
@@ -947,6 +959,11 @@ P:NPC {
     dark_portal = { { id = "tp_portal", text = "A door wi' the latch on the far side, an' the reason my scryin' gets crowded at night." } },
     burning_legion = { { id = "tp_legion", text = "Them I don't scry for, ever. Some things notice when ye look at them." } },
     nethergarde = { { id = "tp_nether", text = "Grim folk an' good books. I've lived in worse places, though no' many." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer o' Aerie Peak are my kin, an' they fly free an' drink free an' think a book is somethin' ye light a fire with. I love them dearly an' I left." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine king for the Bronzebeards, I'll grant ye, an' he doesn't tell the Wildhammer what to do, which is the best thing a king can do for us." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was ours once, before the Dark Irons cursed it an' the orcs used it to break dragons. No Wildhammer goes there now, an' none ever should." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages taught me what I know, an' they never let me forget I was a dwarf. I learned anyway, an' I learned more than most o' them." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres are thick as stone an' twice as stubborn, an' they've no business near the Portal. I'd like them gone, an' I'd pay to see it." } },
     _none = { { id = "tp_none", text = "That's no' somethin' I've ever cared tae look for. Ask the Watcher; he cares about everythin'." } },
   },
 }
@@ -1227,6 +1244,13 @@ P:NPC {
     tainted_scar = { { id = "tp_scar", text = "Where the demons gather, and where the lord of these lands keeps his court, if the whispers are right." } },
     nethergarde = { { id = "tp_nether", text = "A fine keep full of people watching the wrong door. The Portal's closed, but the demons are already on this side." } },
     dark_portal = { { id = "tp_portal", text = "An old wound, and the Legion is the infection. The mages stare at the wound and ignore the fever." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the elves sent their best students there. It will be rebuilt, I am told, though it may not open its gates as quickly as some would like." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are a council of mages who believe they can govern magic, and they have been wrong before. I respect their learning more than their judgment." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Lady Sylvanas Windrunner was Ranger-General of Silvermoon, and she died defending our homeland. What walks in her name now is something I cannot speak of without grief." } },
+    arthas = { { id = "tp_arthas", text = "Prince Arthas led the dead through our gates and into the heart of Quel'Thalas. I will not say more about him, because I cannot say it politely." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge broke my homeland, and the Alliance was too divided to stop it. That is why I say the Alliance and the Horde must stop fighting each other, if anyone will listen." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron fell because its people would not believe what was coming until it was at their gates. I fear the same lesson is being forgotten in Stormwind." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde has made peace with Theramore, and I think that wiser than most in Stormwind will admit. I say so quietly, and only to those who ask." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beneath an ambassador's notice. Or above it; I can never remember which." } },
   },
 }
@@ -1474,6 +1498,13 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never trust a dwarf who doesnae drink, an' never trust a Dark Iron who does." } },
     dark_iron = { { id = "tp_darkiron", text = "Thieves an' worse, the lot o' them. If ye find any o' Ragnar's ale down there, bring it home." } },
     nethergarde = { { id = "tp_nether", text = "Good walls, good soldiers an' terrible beer. Two out o' three's no' bad." } },
+    magni = { { id = "tp_magni", text = "King Magni's a good king, an' he drinks Thunderbrew, which shows his taste. I'll not say more, or I'll get homesick." } },
+    gnomeregan = {
+      { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan right up the road from Kharanos, an' I remember the refugees comin' down the mountain. My family fed every one o' them." },
+      { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "Ye'd have been one o' them comin' down the hill, maybe, an' if so my mother likely fed ye. I hope ye found a warm bed in Ironforge." },
+    },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres are a nuisance, an' I've put an arrow through a few. They don't stop comin', though." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer drink their ale too strong an' brew it too fast. I'd teach them a thing or two, if they'd ever sit still long enough." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend. Ask me about ale an' I'll talk till dawn." } },
   },
 }
@@ -1646,6 +1677,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the birds at Nethergarde, and I keep them alive, which out here is a full-time job." } },
     advice = { { id = "tp_ad", text = "Fly before noon or after sunset. Midday air over the Blasted Lands throws a gryphon about like a leaf." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught me most of what I know about gryphons, though they'd laugh at the way I keep mine. They ride without saddles, and they have the bruises to prove it." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The birds hate flying anywhere near the Portal. They know something I don't, and I've learned to trust them." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres throw rocks at my gryphons, and I've lost one to them already. I'd like to see them all driven out of the Blasted Lands." } },
+    theramore = { { id = "tp_theramore", text = "I've sent birds to Theramore, and they come back fat and happy and smelling of the sea. I'd like to see it someday." } },
     _none = { { id = "tp_none", text = "I only know birds and weather. Ask the Quartermaster about the rest." } },
   },
 }
@@ -1822,6 +1857,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I cook for soldiers, and I'll cook for soldiers until the caravans stop coming. That's all there is to me." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, not after. Out there you'll lose your appetite quick, and you'll want the strength." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres raid our caravans for the food, of all things, and they've got terrible taste. I've seen what they eat, and it's not something I'd serve." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord sends us supplies when he can, and I've learned to make them last. A good stew can feed a garrison for a week, if you're careful." } },
+    second_war = { { id = "tp_second_war", text = "My father fought in the Second War, and he came home thin as a rake. I made a promise then that no soldier I cooked for would go hungry." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The soldiers don't talk about the Portal at supper, and I don't ask. A man eats better if he isn't thinking about demons." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. I know bread, and I know who's been complaining." } },
   },
 }
@@ -1975,6 +2014,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a dwarf wi' a hammer, sore feet an' a pay chit three months late. Nothin' more to tell." } },
     advice = { { id = "tp_ad", text = "Oil yer buckles every night out here, or the dust will seize them by morning." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "Ogres break things, an' I fix them. That's the Dreadmaul an' me, in one sentence." } },
+    magni = { { id = "tp_magni", text = "The king's a good king. He'd know my pay's late, if anybody told him." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons make good steel an' bad neighbors. I've fixed a few o' their blades, an' I washed my hands after." } },
     _none = { { id = "tp_none", text = "Don't know, and don't much care, so ye'd best ask the Quartermaster upstairs." } },
   },
 }

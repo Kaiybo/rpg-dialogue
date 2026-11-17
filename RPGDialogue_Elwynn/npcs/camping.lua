@@ -252,5 +252,8 @@ P:NPC {
       { id = "tp_camping2", text = "Sit down and I'll walk you through it.", next = "camp" },
     },
     _none = { { id = "tp_none", text = "No idea! I've only just got here, so ask in Goldshire." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire camps up by Goldshire some months, and I learned more about sleeping outdoors from their wagon folk than from any book. They pitch a whole town in one afternoon and pack it up before breakfast!" } },
+    booty_bay = { { id = "tp_booty_bay", text = "One day I want to walk all the way to Booty Bay and camp every night of the road. Everyone says the jungle will eat me, which only makes me want to go more." } },
+    everlook = { { id = "tp_everlook", text = "I've heard the goblins in Everlook sell you a seat by the fire by the hour. I'd like to see somebody try that at my campfire, because I'd invite them to sit down for free." } },
   },
 }

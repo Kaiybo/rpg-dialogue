@@ -167,6 +167,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know steel and I know sweat. Anything else, ask Gryshka at the inn." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I lost, and I learned more in the losing than I ever did in the winning. I teach that, and I teach it with bruises." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief fought in a human arena before he fought in a war. That's the kind of warrior I respect, one who's been knocked down and got back up." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge don't feel pain, which means you have to hit them harder. I teach my students to hit hard, so I suppose I'm ready." } },
   },
 }
 
@@ -320,6 +323,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Unless it leaves tracks or wears fur, I've nothing to teach you about it." } },
+    centaur = { { id = "tp_centaur", text = "Centaur run fast, and a hunter's pet runs faster. Teach your beast to go for the legs, and the centaur won't run at all." } },
+    quilboar = { { id = "tp_quilboar", text = "Quilboar keep boars, and boars make good pets if you can tame them. They're stubborn, but they're loyal, which I like." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a wolf, and I've watched the way he talks to it. That's a hunter's heart, whatever else he is." } },
   },
 }
 
@@ -488,6 +494,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "The spirits have not shown me that. Perhaps they will, in time." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements spoke to the orcs long before the demons came, and they speak to us again now. Listen to them, and they will tell you more than any book." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is the greatest shaman of our people, and he learned it from Drek'Thar in the mountains of Alterac. He is proof that the old ways can come back." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren speak of the Earth Mother, and the spirits of earth know her well. I find their faith a comfort, though I do not share it." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The warlocks turned away from the spirits and called demons instead, and the spirits went silent for a generation. I do not forgive that, and I do not forget it." } },
   },
 }
 
@@ -630,5 +640,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Some things are better left unasked in the Cleft, friend." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's power is a tool, nothing more, and a tool can be used by anyone with the will to master it. The old warlocks lost that mastery, and I do not intend to make their mistake." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief tolerates us, which is wiser than most. He knows the Horde needs every weapon it can find, even ones that make him uncomfortable." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have warlocks too, and they are less squeamish than ours. I find them refreshing company, if a little cold." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal was our door into this world, and the warlocks of the old Horde opened it. Whatever lies on the other side is still waiting, and I would very much like to know what." } },
   },
 }

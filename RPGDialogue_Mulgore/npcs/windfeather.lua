@@ -97,6 +97,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a brave of Camp Narache. I walk this road, and I'll keep walking it until it's safe." } },
     advice = { { id = "tp_ad", text = "Never walk a road you don't know without a spear in your hand. The quilboar can smell an empty one." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback under Chief Sharptusk have killed our people and burned our camps. I mean to see Sharptusk dead, and I will not rest until he is." } },
+    cairne = { { id = "tp_cairne", text = "Cairne led us to this land, and we paid for it in blood. I mean to see that price paid back, every drop, by those who would take it from us." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were our enemies on the plains, and the quilboar are our enemies here. A tauren must always be ready to fight, and I am always ready." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us this land, and I will defend it with my life. That is the only thanks she asks of me." } },
     _none = { { id = "tp_none", text = "I don't know about that. Ask Chief Hawkwind, or Grull at the hunting camp; may the Earth Mother speed your hooves." } },
   },
 }

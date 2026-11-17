@@ -201,6 +201,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Not my concern, {g:lad|lass}. Ask someone with less to do and a shorter beard." } },
+    magni = { { id = "tp_magni", text = "King Magni's Mountaineers hold Loch Modan, an' I'm one, an' that's all the speechmakin' I've time for." } },
+    troggs = { { id = "tp_troggs", text = "Troggs on the ridges, kobolds in the mine an' me in between. They're no' my concern, the troggs, but they keep makin' themselves my concern." } },
+    second_war = { { id = "tp_second_war", text = "I served at the dam in the Second War when the orcs came up the valley, an' I've been guardin' holes in the ground ever since. Now it's kobolds, which is a step down." } },
   },
 }
 
@@ -381,6 +384,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Can't help ye there, but somebody in Thelsamar might know." } },
+    troggs = { { id = "tp_troggs", text = "Troggs come up out o' the ground faster than we can put them back. Ask in Thelsamar where they came from, for I only know where they're goin'." } },
+    magni = { { id = "tp_magni", text = "We serve King Magni from this tower, an' he's a good king. Somebody in Thelsamar can tell ye more about him than a gatekeeper can." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons skulk about near the dam, I hear, but I've only seen troggs on my stretch. Ask Kadrell; he keeps the posters." } },
   },
 }
 
@@ -547,6 +553,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Can't say I know. I've been up this pass too long to keep up with gossip." } },
+    thandol_span = { { id = "tp_thandol_span", text = "Everythin' that comes down from the Wetlands passes my station, an' lately it's soldiers wi' bandages from the Span. That bridge is costin' us dear." } },
+    dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw hold the highland past the pass, an' when the wind's from the north I can smell their smoke from here. I keep the station shut tight on those nights." } },
+    magni = { { id = "tp_magni", text = "King Magni wants the pass open an' the road safe, an' I want a fire that stays lit in this wind. One o' us'll get his wish." } },
   },
 }
 
@@ -728,5 +737,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Hmm, fascinating, but I have no idea. Ask me again after I've found my notes." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan! Oh, the workshops were marvellous, and now they're full of troggs and worse, so I've set up beside a lake. Lakes are very nice, though, very reflective." } },
+    magni = { { id = "tp_magni", text = "King Magni let us gnomes live in Ironforge after we lost our city, which was terribly kind of him, though his dwarves do complain about the noise. And the smoke, and the occasional small fire." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a gnome who makes clockwork toys, and I've always wanted to borrow his gears to see how they spin. I'd return them, mostly, eventually." } },
+    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "The dam is a lovely bit of engineering, and Hinderweir won't let me near it with anything that goes bang. I can't think why!" } },
   },
 }

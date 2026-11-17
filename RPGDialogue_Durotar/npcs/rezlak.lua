@@ -122,6 +122,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Born in Undermine, raised on invoices, working my way up one caravan at a time. That's all you get for free, pal." } },
     advice = { { id = "tp_ad", text = "Never trust a canyon, buddy, and never pay up front. Those two rules have kept me alive and solvent longer than any armor." } },
     steamwheedle = { { id = "tp_steam", text = "Gazlowe's in with the Steamwheedle folk down in Ratchet, pal, and that means a port that'll sell to anybody with coin. You want neutral, that's as neutral as it gets, and as profitable." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's a great customer, pal, pays his bills, never haggles, and keeps the roads mostly clear. Mostly, I said, because these harpies don't read his treaties." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's home office, and Gazlowe's my boss, and every caravan I lose comes out of his ledger and then out of mine. I'd like to keep my hide, so I'd like to keep my caravans." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the same problem I do, only with pirates instead of harpies. Different predator, same overhead, friend." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture boys tried to hire me once, good pay, terrible benefits, mostly in explosions. I'm loyal to the Cartel, and I'm not just saying that because they might be listening." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, unless there's money in it. Is there money in it?" } },
   },
 }

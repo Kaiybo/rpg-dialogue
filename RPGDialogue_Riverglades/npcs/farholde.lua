@@ -457,6 +457,20 @@ P:NPC {
     krol_dok = { { id = "tp_kroldok", text = "Where they ran after the siege, and where they plan the next one." } },
     fern_crimsonleaf = { { id = "tp_fernnext", text = "Our knife in the dark, and the best of us. Ask what you came to ask.", next = "fern" }, { id = "tp_fern", text = "She's dead, and a hero, and dead all the same. Don't let Gray tell you different." } },
     defias = { { id = "tp_defias", text = "Stormwind's own mess, on its own doorstep, and even then they couldn't be bothered. I'm not surprised." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar holds Stormwind for a boy king, and he holds it tight, because he hasn't spared a single rider for the Riverglades. I'll respect him the day he sends us more than letters." } },
+    varian = { { id = "tp_varian", text = "King Varian went missing, and Stormwind's been run by nobles and committees ever since. If he were here, I'd tell him to his face what his kingdom has done to mine." } },
+    prestor = { { id = "tp_prestor", text = "Lord Prestor has the court's ear and the Regent's patience, and he's never once looked east of Stormwind's walls. A noble who's never smelled a battlefield shouldn't decide who gets steel." } },
+    second_war = {
+      { id = "tp_second_war", text = "The Horde came to Farholde's gate in the old war and found the Brotherhood waiting for them. We broke them then, and we'll break whoever comes next, Horde or cult or anything else." },
+      { id = "tp_second_war2", when = { faction = "Horde" }, text = "Your people came to Farholde's gate once, and we sent them back down the road in pieces. I'll remember that, so you'd better give me reason to forget it." },
+    },
+    thrall = { { id = "tp_thrall", text = "The orcs have a new warchief who's said to be honorable, and I'll believe that when his warriors stop raiding my loggers. Until then, they're invaders in my glades, whatever their chief says." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock clan led the Horde against us in the old war, and their remnants still crawl about the mountains to the west. I'd wager some of the cult's muscle comes from that stock." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light didn't hold Farholde's walls, my riders did, and I'll thank the Light when it starts carrying a lance. Sister Rowland would scold me for saying that, and she'd be right to." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "A paladin in the Riverglades is worth ten soldiers who stayed home in Stormwind. Stand with my riders, and the Light will have more to do here than it's ever had." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hold the mountain to the west, and they've no love for anyone. I keep a watch on that side, though they haven't troubled us yet." } },
     _none = { { id = "tp_none", text = "If it isn't in the Riverglades, it isn't my concern. Ask Ashe; she reads." } },
   },
 }
@@ -802,6 +816,16 @@ P:NPC {
     sunnyglade = { { id = "tp_sunnyglade", text = "There's a mage tower in the ruins that the Horde couldn't bring themselves to burn. I think about it more than is healthy." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Knights, mostly, and a few of us who can't sit a horse but can read. It works, somehow." } },
     fern_crimsonleaf = { { id = "tp_fern", text = "Presumed dead, the stone says. My father said she could vanish in a lit room. I like to think she's still practising." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was where every mage dreamed of studying, and my father did, and he wanted me to as well, but I learned from him instead, which was better. They're rebuilding it now behind shields, and I'd love to see their libraries, though I doubt they'd let me in." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are very great and very slow, and they'd still be debating the siege of Farholde if they'd been here. I'm sorry, I'm being unkind, but it's true." } },
+    second_war = { { id = "tp_second_war", text = "The old war broke against these walls, and the book in the hall tells it far better than I can. Have you read it? You should, and then come back and tell me what you thought." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar is a good man with too many duties, and I think the Knight Commander is unfair to him. I'd never say so in front of Demar, mind, so please don't repeat it." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I'm no priest, but I've seen Sister Rowland keep a dying soldier calm with nothing but a prayer and a steady voice. I don't understand it, but I'd never mock it." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "Sister Rowland would be glad of another pair of hands in the chapel, and so would the soldiers. Go and see her, because she won't ask for help herself." },
+    },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs were the Horde's iron fist in the old war, and the histories say they came this way more than once. I keep wondering whether any of them stayed in the mountains." } },
+    theramore = { { id = "tp_theramore", text = "Lady Proudmoore's Theramore is the only Alliance city that's made peace with the orcs, and I think it's very brave of her. Demar thinks it's very foolish, so I don't mention it." } },
     _none = { { id = "tp_none", text = "I don't know! I'd love to, though, so write it down for me, would you? I'll look into it." } },
   },
 }
@@ -998,6 +1022,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Brotherhood a long time, out here longer. That's all of it." } },
     advice = { { id = "tp_ad", text = "When they start chanting, back up. Whatever they're calling, you don't want to be the first thing it sees." } },
     twilights_hammer = { { id = "tp_hammer", text = "They pray louder than they fight. I'd rather they just fought." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy when the old war came, and I remember the drums. I've heard drums in my sleep ever since, though these days they're cultist drums." } },
+    holy_light = { { id = "tp_holy_light", text = "I don't pray much, but Sister Rowland does enough for the whole keep. I let her pray for me, and I keep the cultists off her." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind's Regent doesn't know my name, and I don't need him to. I need him to send us more men, which he won't." } },
+    blackrock = { { id = "tp_blackrock", text = "The orcs in the mountains wear Blackrock colors sometimes, and they fight beside the cult. Or near it, anyway, and I've stopped caring which." } },
     _none = { { id = "tp_none", text = "Nothing I'd know about out here. Ask at the keep." } },
   },
 }
@@ -1181,6 +1209,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "I go where the sick are. Farholde has more than its share, so here I am." } },
     advice = { { id = "tp_ad", text = "Boil your water and wash your wounds. The Light helps those who've already done the dull part." } },
     twilights_hammer = { { id = "tp_hammer", text = "I pray for them too. Someone should, and nobody else will." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light doesn't always heal, and I never tell the soldiers that it does. It gives them comfort, though, and that's more than nothing." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "A paladin in the chapel would lift the soldiers' spirits more than any prayer of mine. Come and sit with them, if you've a moment." },
+      { id = "tp_holy_light3", when = { class = "PRIEST" }, text = "You know what it's like, then, to pray over someone and not know if it's working. Keep praying anyway, because they're listening even when the Light isn't." },
+    },
+    bolvar = { { id = "tp_bolvar", text = "The Regent writes to us about duty, and the Knight Commander burns the letters. I keep one, because I think he meant well." } },
+    theramore = { { id = "tp_theramore", text = "I've heard Theramore has fine healers, trained by Lady Proudmoore's own priests. I'd give a great deal for one of them here." } },
     _none = { { id = "tp_none", text = "I'm sorry; my world's been this room, lately." } },
   },
 }
@@ -1405,6 +1440,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "No. That one stays with me." } },
     advice = { { id = "tp_ad", text = "Watch the birds over the river, the way the rangers of Eversong taught me. When they go quiet, something's moving in the fog." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Good riders and bad singers, and they keep their word, which is rarer than either." } },
+    sylvanas = { { id = "tp_sylvanas", text = "She was the Ranger-General of Silvermoon, and I trained under her rangers when I was young. I won't say what she is now, but I'll say she was the best of us once." } },
+    arthas = { { id = "tp_arthas", text = "Arthas marched on Quel'Thalas and burned it. I don't talk about him, and I'd thank you not to either." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to the moon, and I've never seen the harm in it. Luna seems to like the moonlight too, though she likes most things that aren't the dog." } },
+    dalaran = { { id = "tp_dalaran", text = "My people studied in Dalaran alongside the humans, before the Scourge came. I don't know who's left, and I've stopped asking." } },
     _none = { { id = "tp_none", text = "Not mine to know, and I've learned that even an elf's long life doesn't cover everything." } },
   },
 }
@@ -1590,6 +1629,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've been around horses since before I could walk. Ask them about me; they're more honest." } },
     advice = { { id = "tp_ad", text = "A horse that won't cross a bridge has a reason. Get off and look." } },
     siege_of_farholde = { { id = "tp_siege", text = "We lost more horses than riders, and I mourned every one. Don't tell the riders." } },
+    second_war = { { id = "tp_second_war", text = "The Brotherhood's horses broke the Horde at Farholde in the old war, and I'll tell anyone who'll listen. The riders get the credit, but it was the horses that did the work." } },
+    thrall = { { id = "tp_thrall", text = "Orcs ride wolves, and I'll say this for them, they keep their wolves well. I'd still rather a horse." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has pony rides for children, and I went once just to check on the ponies. They were well kept, I'll give them that." } },
     _none = { { id = "tp_none", text = "Does it eat hay? If not, you'd best ask somebody else." } },
   },
 }
@@ -1781,6 +1823,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned to fly before I learned to swim, and Farholde's surrounded by water, so that's been an education." } },
     advice = { { id = "tp_ad", text = "Visit every roost you pass. The birds don't forget a face that brought them a treat." } },
+    second_war = { { id = "tp_second_war", text = "The Wildhammer flew gryphons in the old war, and they taught the Alliance how. I've kept the tradition going, and my birds are the best in the Riverglades." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer know gryphons better than anyone, and I'd give a year's pay to learn from them. My birds are grumpy, but they'd be grumpier without what the Wildhammer taught us." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind sends us gryphons now and then, and I'm grateful for every one. I'd be more grateful if they sent riders to go with them." } },
     _none = { { id = "tp_none", text = "Can't help you there. I only know the sky and the birds in it." } },
   },
 }
@@ -1974,6 +2019,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A smith, and a smith's son, and that's the whole of it." } },
     advice = { { id = "tp_ad", text = "Oil your blade after the river. The damp here eats steel faster than cultists do." } },
     krol_dok = { { id = "tp_kroldok", text = "Ogre steel's thick and stupid, like ogres." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the best steel in the world, and the worst tempers. I'd learn their secrets if I could, and I'd keep my distance while I did it." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs forge crude and heavy, all strength and no patience. You can tell an orc blade by the way it's never been properly tempered." } },
+    second_war = { { id = "tp_second_war", text = "My master forged blades for Farholde in the old war, and I learned on his anvil. I still use his hammer." } },
     _none = { { id = "tp_none", text = "Don't know, and don't need to." } },
   },
 }

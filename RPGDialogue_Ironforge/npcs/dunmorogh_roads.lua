@@ -176,6 +176,9 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer ride gryphons an' we ride rams, an' a ram's the better beast fer the snow. They'll tell ye otherwise, an' they're wrong." } },
+    frostmane = { { id = "tp_frostmane", text = "The Frostmane come down from the hills an' take whatever's no' nailed down, an' my rams are no' nailed down. I count the herd twice a day an' I sleep wi' one ear open." } },
+    magni = { { id = "tp_magni", text = "The King keeps a ram from my ranch, an' I'm prouder o' that than anythin' else I've done. He rides it badly, mind, but it's a fine ram." } },
     _none = { { id = "tp_none", text = "I raise rams, friend, and I know nothin' about that. Ask in Kharanos." } },
   },
 }
@@ -366,6 +369,9 @@ P:NPC {
   },
 
   topics = {
+    everlook = { { id = "tp_everlook", text = "I spent a winter in Winterspring once, an' Everlook was the only warm place fer fifty miles. The goblins charge fer the fire, but I'd have paid double." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Bears that talk, up north, an' they're the friendliest bears I ever met, which says somethin' about the bears round here. Mine run off wi' my food." } },
+    camping = { { id = "tp_camping", text = "Make yer camp where the wind cannae find ye an' the bears cannae smell ye, an' that's all I know. I failed at the second part, as ye can see." } },
     _none = { { id = "tp_none", text = "No idea, friend, and I've had a lot of quiet hours to think about it." } },
   },
 }
@@ -549,6 +555,9 @@ P:NPC {
   },
 
   topics = {
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan built the best flying machines in the world, and I'd fly one back in there if I didn't think the troggs would eat it. Someday, someday, and I'll be at the controls." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan fly their machines on whatever they can find in the desert, and they crash more than they land. I've a cousin there who flies one, and he's lost three eyebrows and most of a moustache." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a zeppelin tower, they say, though I've never been, and I'd love to look at it and tut. Goblins never use enough rivets." } },
     _none = { { id = "tp_none", text = "Hmm, not my field. My field is the sky, roughly four thousand feet of it, and that's not in it." } },
   },
 }
@@ -698,6 +707,9 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells guns that'll blow up in yer hand an' charge ye extra fer the explosion. Mine'll only blow up the thing ye're aimin' at." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got a goblin gunsmith who claims he's better than me, an' I've never met him, an' he's wrong. Ye can tell him I said so." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer throw hammers instead o' shootin' guns, which is a fine tradition an' a waste o' good powder. Each tae their own, I suppose." } },
     _none = { { id = "tp_none", text = "If it doesnae go bang, I couldnae tell ye about it." } },
   },
 }

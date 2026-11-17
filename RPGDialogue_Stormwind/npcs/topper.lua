@@ -1254,6 +1254,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "The Light's been kind to me, friend, even if the world hasn't. I get soup from the Cathedral, and a smile from the priests, and I'll take both." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias took my farm, and now they're hiding in the old Moonbrook mines, they say. I'd go and ask for it back if I thought they'd listen." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire comes to Goldshire every so often, and I go and watch the lights from the road. I've never had the copper to go in, but the lights are free." } },
+    second_war = { { id = "tp_second_war", text = "I was a farmer before the Second War and a farmer after it, and then the Defias came and I wasn't a farmer at all. The orcs never managed that, and I'll not forgive the Defias for doing what the orcs couldn't." } },
     background = { { id = "tp_bg", text = "Farmer, then not. The middle bit changes depending on who's listening and what they've got in their purse.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Never build your house in front of anyone's tower; that one's free. The rest costs a copper." } },
     defias = { { id = "tp_defias", text = "They asked me to join, once, and I said I'd think about it. I'm still thinking, and it's very restful, thinking." } },

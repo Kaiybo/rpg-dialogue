@@ -182,6 +182,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry a spare candle, dear, and never let it be your last one." } },
     night_watch = { { id = "tp_nw", text = "Good lads and lasses, all of them, and they buy more lamp oil than anyone." } },
     _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask Smitts; he collects stories." } },
+    raven_hill = { { id = "tp_raven_hill", text = "When this was Brightwood, folk from Raven Hill came to market every week with eggs and turnips. I still keep a corner of the counter for them, out of habit, and nobody comes." } },
+    holy_light = { { id = "tp_holy_light", text = "There was a chapel bell in Brightwood you could hear all the way to Raven Hill. The Light hasn't left us, dear, it's only got harder to hear." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Faire in Elwynn once as a girl, when this was still Brightwood and the roads were safe. I still have a paper flower from it in my drawer." } },
   },
 }
 
@@ -350,6 +353,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "My family traded in Brightwood for three generations, and I'll likely be the last of us to do it." } },
     advice = { { id = "tp_ad", text = "Buy what you need before nightfall, friend. Nobody opens a door here after dark." } },
     _none = { { id = "tp_none", text = "That's not in my ledger, and what's not in my ledger I don't bother with." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay goods come up the jungle road at three times their price, and I sell them at four, because the trolls and the dead take their cut too. That's Duskwood trade for you." } },
+    raven_hill = { { id = "tp_raven_hill", text = "My grandfather bought wool from Raven Hill every spring. I've no wool and no Raven Hill now, only ledger pages for both." } },
+    varian = { { id = "tp_varian", text = "Trade from Stormwind stopped being reliable about the time the king went missing. I don't say there's a connection; I only keep the ledger." } },
   },
 }
 
@@ -510,6 +516,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've hammered armour in Darkshire since it was Brightwood, and I've mended more of it since the dark came than I made before." } },
     advice = { { id = "tp_ad", text = "Mend it before it fails, friend, not after." } },
     _none = { { id = "tp_none", text = "Don't know a thing about that, friend, so ask me about rivets instead." } },
+    raven_hill = { { id = "tp_raven_hill", text = "I've mended more armour from Raven Hill than from the worgen, and that's saying something. The dead hit slow, friend, but they never stop." } },
+    scourge = { { id = "tp_scourge", text = "If the Scourge ever comes south, Darkshire will be the best-armoured town in the kingdom, because we've been practising on our own dead for years." } },
+    magni = { { id = "tp_magni", text = "Ironforge sends some fine plate south now and then, and I take it apart to see how it's done. Then I put it back together better, but don't tell the dwarves." } },
   },
 }
 
@@ -687,6 +696,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I mined these hills since I was a boy, and now I teach other people to do what I won't." } },
     advice = { { id = "tp_ad", text = "Bring a lantern and a friend, and if you can only bring one, bring the friend." } },
     _none = { { id = "tp_none", text = "Not something you can dig up, so I couldn't tell you." } },
+    raven_hill = { { id = "tp_raven_hill", text = "There was good copper under Raven Hill once, and the miners dug it until the dead came up through the shafts. I won't teach anyone to dig there now, not for any price." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron dwarves are said to dig deeper than anyone, and folk say what they found down there changed them. Keep that in mind before you dig too deep yourself." } },
+    magni = { { id = "tp_magni", text = "The best miners in the world are King Magni's dwarves, and they'll tell you so before you ask. They're right, which is the annoying part." } },
   },
 }
 
@@ -859,6 +871,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Zipstitches have sewn in Darkshire since before it was dark, and Sheri and I don't mean to be the last." } },
     advice = { { id = "tp_ad", text = "Mend a tear the day you get it, love. In Duskwood, tomorrow you'll have three." } },
     _none = { { id = "tp_none", text = "I haven't heard a thing about that, and believe me, I hear a great deal." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Sheri and I went to the Faire in Elwynn once and came home with sore feet and new patterns. We've been copying those patterns for years, love." } },
+    raven_hill = { { id = "tp_raven_hill", text = "We buried our mother at Raven Hill, before it turned. Sheri doesn't speak of it, so please don't ask her." } },
+    holy_light = { { id = "tp_holy_light", text = "We sew a little circle of gold thread into every Watch cloak for the Light's protection. Whether it works I can't say, but nobody's sent a cloak back." } },
+    prestor = { { id = "tp_prestor", text = "The ladies of Stormwind wear black now, I'm told, because Lady Prestor does. We sell a great deal of black in Darkshire too, love, though for different reasons." } },
   },
 }
 
@@ -1030,6 +1046,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've sewn in this house since I was a girl, and I've never once slept well in it." } },
     advice = { { id = "tp_ad", text = "Keep the shutters closed and the candles lit, and don't open the door to anyone who won't say their name." } },
     _none = { { id = "tp_none", text = "I don't know, and I'd rather not find out, if it's all the same to you." } },
+    raven_hill = { { id = "tp_raven_hill", text = "I can see the road to Raven Hill from my window, and I keep the shutters closed on that side. Danielle says I'm being silly, and maybe I am." } },
+    dark_riders = { { id = "tp_dark_riders", text = "They went past the house one night, the black horses, and I didn't breathe until they were gone. I'd rather not talk about it, if it's all the same to you." } },
+    holy_light = { { id = "tp_holy_light", text = "I say the old prayers every night with the candles lit, because my mother did and her mother did. I'd be too frightened to sleep if I stopped." } },
   },
 }
 
@@ -1215,6 +1234,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I farmed east of town until the dark came, and now I petition the council for a living, if you call it living." } },
     advice = { { id = "tp_ad", text = "Don't trust any promise made in this hall, friend. Trust the Watch, and your own two feet." } },
     _none = { { id = "tp_none", text = "Don't know, and don't care. Ask me about the dead, that's all anyone here talks about." } },
+    varian = { { id = "tp_varian", text = "The king's gone missing, the council writes letters, and my farm's still under the dark. Nobody in Stormwind's coming, friend, with a king or without one." } },
+    prestor = { { id = "tp_prestor", text = "They say Lady Prestor decides what the Highlord reads now, and I've sent the Keep four petitions. Draw your own conclusions; I've drawn mine." } },
+    dark_riders = { { id = "tp_dark_riders", text = "They burned my neighbour's barn and didn't take a thing out of it. Who rides that far to burn a barn and leave the grain? Something that isn't hungry, that's who." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill's full of the dead and this hall's full of excuses, and I know which I'd rather argue with." } },
   },
 }
 
@@ -1392,5 +1415,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Booty Bay born, Duskwood stuck, and rich enough to leave whenever I want, pal, which is never, 'cause business is good and nobody out here charges rent." } },
     advice = { { id = "tp_ad", text = "Never pay the first price, pal, unless it's mine, 'cause mine's always fair, and on my last copper I'd never lie to a payin' customer." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, but if you find one, bring it here and I'll make you an offer." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay, pal, best port in the world and my old home, where everything's for sale and everybody's buyin'. I'd go back tomorrow, but the margins up here are somethin' beautiful." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The arena down in Stranglethorn's a gold mine, chum: bet on the right fighter and you're set for a year. Bet on the wrong one and you're a cautionary tale, and I've sold to both kinds." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel keeps the ports neutral and the profits flowin', and I pay my dues like a good boy. Overhead's overhead, pal, and the alternative is sharks." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill? Old church silver, grave candles and bone charms, pal, and all of it sells in the right market. I happen to know all the right markets." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Riders who don't trade, don't talk and don't pay? Worst customers in Duskwood, pal, and I've sold to a man who was mostly dead." } },
   },
 }

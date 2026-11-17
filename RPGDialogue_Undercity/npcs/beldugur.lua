@@ -123,6 +123,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep books. What I was before I kept them doesn't merit a page." } },
     advice = { { id = "tp_ad", text = "Never let a scruple stop you halfway. Either don't begin, or finish." } },
     worgen = { { id = "tp_worgen", text = "Arugal's failure, walking on four legs. Instructive, if you study it rather than run from it." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages hoard knowledge they're too squeamish to use, and they keep it behind walls now while they rebuild. I've made a career of collecting what they left behind." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are brilliant, timid people who would rather debate a spell for a decade than cast it. Their dead are far more useful to me than their living." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal called the worgen into Silverpine because the Kirin Tor's courage failed them, and the wolves ate him from the inside out. I find the whole affair very instructive." } },
+    scholomance = { { id = "tp_scholomance", text = "The school at Caer Darrow teaches what Dalaran forbade, and it does so with appalling sloppiness. I'd study its library, given the chance, and then I'd burn it." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was the most gifted necromancer the Kirin Tor ever produced, and they expelled him for it. They're still paying for that mistake, which I find rather satisfying." } },
     _none = { { id = "tp_none", text = "Not a subject I've collected. Perhaps you'll bring me a book on it someday." } },
   },
 }

@@ -145,7 +145,13 @@ P:NPC {
       choices = { { text = "Your health matters more than gold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "No risk, no profit. That's the goblin way.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, buddy, and right now I don't care unless it's an antidote." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got doctors, buddy, and they'd have me cured by now, at triple the price. Here I'm getting cured slow and cheap, and I can't decide which is worse." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The bugs from the hives bite, did you know that? And they don't bill you first, which is unprofessional." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I sold insurance in Booty Bay, once, before the pirates sank the business. Ironic, isn't it, me not having any now." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel doesn't cover poison, I checked, so this one's all on my own ledger. Remind me to renegotiate when I'm feeling better." } },
+    _none = { { id = "tp_none", text = "No idea, buddy, and right now I don't care unless it's an antidote." } },
+  },
 }
 
 P:NPC {
@@ -300,7 +306,14 @@ P:NPC {
       choices = { { text = "We fight. There is always hope.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Prepare for the worst. Hope is a luxury.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That has not been revealed to me, traveler." } } },
+  topics = {
+    cthun = { { id = "tp_cthun", text = "The bugs speak a name in the dark, traveler, and I have heard it with my own ears, and I dare not say it! Pray the wall holds." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives are mouths, I tell you, mouths in the sand, and they're hungry, and they're patient! Everyone laughs at me until they look closely." } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The bronze dragons sealed the city once, and they will not come again, mark my words! They have left us to the bugs." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk in the north, the bugs dig in the south, and the world is ending at both ends! Nobody listens to Jonathan." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light won't save you from the bugs, friend, not when the bugs come out of the ground. Nothing will save you, but you might as well pray." } },
+    _none = { { id = "tp_none", text = "That has not been revealed to me, traveler." } },
+  },
 }
 
 P:NPC {
@@ -455,7 +468,13 @@ P:NPC {
       choices = { { text = "Victory first, grudges later.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde fights alone. Always.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "If I cannot fight it or sharpen a blade on it, I know nothing about it." } } },
+  topics = {
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me to hold this desert against the bugs, and I'll hold it until the bugs are dead or I am. Thrall doesn't send warriors where they're not needed." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives must burn, every one, and the Horde will burn them. Bring me oil and axes and stop asking questions." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen sends her dead to fight in the north. Good, then they don't come here and smell up the camp." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elves' priestess sends archers here too, and they fight well, for elves. I'll tell her so to her face, if she ever comes." } },
+    _none = { { id = "tp_none", text = "If I cannot fight it or sharpen a blade on it, I know nothing about it." } },
+  },
 }
 
 P:NPC {
@@ -624,5 +643,11 @@ P:NPC {
       choices = { { text = "Work with them. The swarm is the real enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "Never trust the Horde. Watch your back.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Not something I know, friend." } } },
+  topics = {
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives keep growing, and we keep burning them, and neither side's winning yet. I'd like more men and fewer scorpids in my boots." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar sends what he can spare from Stormwind, which is never enough. He's a good man doing a hard job." } },
+    magni = { { id = "tp_magni", text = "The dwarves sent a few rifles and a promise of more, and the rifles arrived. I'm still waiting on the promise." } },
+    thrall = { { id = "tp_thrall", text = "The Horde fights the bugs here as hard as we do, and I'll say that to anyone who asks. I'll also keep my eye on them, and they keep their eye on me." } },
+    _none = { { id = "tp_none", text = "Not something I know, friend." } },
+  },
 }

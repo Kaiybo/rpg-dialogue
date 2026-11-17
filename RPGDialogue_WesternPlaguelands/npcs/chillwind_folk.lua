@@ -196,6 +196,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I count crates for the Dawn. Before that I counted gears and pressure readings in Gnomeregan, until there was nothing left down there worth counting, and I find this a much better use of my arithmetic." } },
     advice = { { id = "tp_ad", text = "Always carry more bandages than you think, because the plague doesn't care how brave you are." } },
     argent_dawn = { { id = "tp_dawn", text = "The Dawn is everyone who's decided the Scourge matters more than old grudges, and I write all their names down." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge eats supplies faster than any army I've ever stocked, because every battle costs us bandages, blades and soldiers, and it costs them nothing. I keep the ledgers straight so at least we know what we've lost." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's necropolis floats over the east, and the Dawn keeps a careful eye on it. I keep a careful eye on the scourgestones, which is a smaller job, but somebody has to do it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is where the Dawn will need the most supplies when we finally move on it. I'm stocking for that day already, and I'd rather it came sooner." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken trade with the Dawn the same as anyone, and they're careful about their accounts. I respect that in a customer, dead or alive." } },
     _none = { { id = "tp_none", text = "That's not in any of my ledgers, I'm afraid, and I've cross-referenced all six of them, so I can't help you." } },
   },
 }
@@ -365,6 +369,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a tanner who came north because the soldiers needed boots. That's the whole of it, and it's enough." } },
     advice = { { id = "tp_ad", text = "If a hide smells sweet, burn it, because nothing out here should smell sweet." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has plagued half the beasts in these lands, and their hides are worthless or worse. I check every one that comes to me, and I burn more than I keep." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron had the finest leather in the north, from the cattle of the Eastweald and the deer of the Alterac foothills. Now I'm lucky to find a hide that doesn't rot in my hands." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was the great market town of the north, and every tanner worth his salt sold there. I'd never set foot in it now." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. I know leather, and that's about where it ends." } },
   },
 }

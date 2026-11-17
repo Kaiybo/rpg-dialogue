@@ -251,6 +251,14 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An alchemist, a Forsaken and a cat lover, and two of those are true! *cackles* You decide which." } },
     advice = { { id = "tp_ad", text = "Never let anything in Felwood lick you. *laughs* I mean it, actually, that one's serious." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "We're the free dead, darling, and we've the Dark Lady to thank for it, and a great many test subjects to thank for the progress! *cackles* You should see the apothecaries' halls in the Undercity." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "Ah, a fellow survivor of the grave! Don't let the living stare at you too long, darling, they always want to know what it's like and never like the answer." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us from the Lich King, and I'd follow her into any swamp she pleased. She doesn't care much for cats, but nobody's perfect." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are what we were before the Dark Lady's gift, mindless and dreary. I won't say I miss it, and I'll thank you not to ask again." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief lets us into the Horde, and I'm grateful in my way, which isn't a very warm way. The orcs eye my potions like they might bite, which is fair." } },
+    new_plague = { { id = "tp_new_plague", text = "The apothecaries are working on something, darling, and I'm not to talk about it. *cackles* Ask me again when I've had a drink." } },
     _none = { { id = "tp_none", text = "No idea! *laughs* Isn't that exciting? Being dead has made me ever so fond of not knowing things." } },
   },
 }
@@ -480,6 +488,13 @@ P:NPC {
     cenarion_circle = { { id = "tp_circle", text = "The druids south of here are honest, as far as I can tell. That's rare enough to report." } },
     background = { { id = "tp_ba", text = "I gather what Orgrimmar needs to know and send it home. My own story isn't something anyone's asked for." } },
     advice = { { id = "tp_ad", text = "Take the tunnels through Timbermaw country politely, if the furbolgs let you. The other way round is longer and colder." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief wants to know what's happening in Felwood, so I find out and send it home. He reads every report, which is more than I can say for most of Orgrimmar." },
+      { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You're Alliance, and you ask about the Warchief? He's the best thing that's happened to my people, and you'll get nothing else out of me." },
+    },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs in Felwood worth talking to, and they don't like me much. I don't take it personally; they don't like anyone." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Jaedenar's full of Shadow Council warlocks and their demons. Orgrimmar wants to know what they're doing, and I want to know before they do it." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Forsaken queen is an ally, the Warchief says, and so she's an ally. I read her people's reports twice, all the same." } },
     _none = { { id = "tp_none", text = "Not in my reports. An orc reports what he has seen with his own eyes, and nothing else." } },
   },
 }

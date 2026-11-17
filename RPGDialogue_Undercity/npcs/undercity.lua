@@ -537,6 +537,25 @@ P:NPC {
     syndicate = { { id = "tp_syndicate", text = "Human thieves squatting in the ruins of Alterac's nobility. Those my people catch, they hang, and I sign the orders without reading the names." } },
     argent_dawn = { { id = "tp_dawn", text = "Some of my own sit with the Dawn, and the Dawn has the grace to treat them as allies, which surprises me more than I would like." } },
     scholomance = { { id = "tp_scholo", text = "Kel'Thuzad's old school in Caer Darrow, where the Cult still teaches the living to raise the dead, and I would very much like to see it burn." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge is the Lich King's will made flesh, and once it was mine as well. I broke that will, and I mean to see every last thread of it cut." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know the silence that came when the voice left you, because I gave it to you. Remember who gave it, when your loyalty is tested." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "My people were the Lich King's slaves, and now they are free, and they owe that freedom to no one but themselves and to me. The living call us monsters, and they may call us what they like, so long as they keep out of our way." } },
+    arthas = {
+      { id = "tp_arthas", text = "Arthas killed me on the road to Silvermoon and then made me his servant, and I will not rest until I have repaid him in full. He went north to his master, and one day I will follow him there." },
+      { id = "tp_arthas2", when = { disposition = { min = 65 } }, text = "He took everything I had, my people, my death and my peace, and he did it smiling. I will be there when he falls, and he will know my face." },
+    },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad holds the east from Naxxramas and sends his Cult to teach the living to die. He served Arthas before Arthas served anyone, and his death is on my list, though not at the top." } },
+    thrall = {
+      { id = "tp_thrall", text = "The orcish Warchief offered us a place in his Horde, and I accepted, because enemies on every side is a poor position even for the dead. He is an honorable sort, which is useful, and I intend to keep him that way." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your Warchief is an honorable sort, and I trust him further than I trust most of the living. That is not very far." },
+    },
+    lordaeron = { { id = "tp_lordaeron", text = "This was once the greatest kingdom of men, and now it lies in ruins above my throne room. I've no wish to restore it, only to keep what is left out of the Lich King's hands." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is where Arthas first proved what he was, and the Scourge holds it still. The Crusade throws its zealots at the gates, and I do not mourn them." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages hide behind their shields while they rebuild, and they claim the lands of Silverpine as their own. They forget that I remember what they did, and failed to do, when the plague came." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore led the living west to Kalimdor while Lordaeron burned. She has her island and her peace with the orcs, and she will not trouble me, if she is wise." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof spoke for my people in the Warchief's councils, when the others would have turned us away. I don't forget a debt, and that is one." } },
     _none = { { id = "tp_none", text = "That isn't my concern. Varimathras will tell you if it should be." } },
   },
 }
@@ -736,6 +755,14 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "The Dark Lady values you, and therefore so do I, naturally. Ask me anything you like." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer, though purely out of loyalty to my queen, which, I assure you, is boundless." },
     },
+    sylvanas = { { id = "tp_sylvanas", text = "My queen is the wisest ruler on this world, and I am honored, deeply honored, to serve her. I always choose wisely, and I chose her." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a remarkable people, so determined, so very loyal. I am privileged to have a place among them, however humble." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge was a crude instrument, and I never cared for its methods. My queen has freed her people from it, and I serve her gladly." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is a name I would rather not speak in my queen's halls. I have left that past behind me entirely, I assure you." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad is a tiresome lich who thinks himself the master of the east. My queen will deal with him in her own time, and I will be there to help." } },
+    arthas = { { id = "tp_arthas", text = "Arthas is my queen's great enemy, and therefore mine. I have nothing more to say about him, except that he deserves everything that is coming to him." } },
+    thrall = { { id = "tp_thrall", text = "The orc Warchief is a useful ally, and my queen values his friendship. I find him rather earnest, but earnestness has its uses." } },
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor are clever little creatures who think their shields will keep them safe. They may even be right, for now." } },
     _none = { { id = "tp_none", text = "That is beneath my notice, and possibly beneath yours. Ask an apothecary." } },
   },
 }
@@ -942,6 +969,14 @@ P:NPC {
       { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },
     },
     wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into water? Oh, I'd give a great deal for a sample. Helbrim is being very slow about it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is a marvel of crude engineering, and I have the deepest admiration for its efficiency! Of course, we mean to do better, purely for use against the Scourge." } },
+    new_plague = { { id = "tp_new_plague", when = { race = "Scourge" }, text = "You're one of us, so I'll tell you that it's coming along splendidly, and that you mustn't breathe near the vats. Our enemies will never know what hit them." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are the finest scholars in the world, because we've already conquered death and can now focus on more interesting problems. The Royal Apothecary Society is proof of that!" } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady supports our research with great generosity, and she asks only for results. I intend to give her results she will never forget." } },
+    stratholme = { { id = "tp_stratholme", text = "The plague spread through Stratholme in the grain, a very elegant delivery, if you think about it scientifically. Don't look at me like that, I'm only admiring the method." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's Cult perfected the plague, and I've read every scrap of their notes I can get my hands on. Brilliant work, really, though I'd never say so in front of the Dark Lady." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's alchemists hoard their recipes behind their shields and refuse to share them with anyone. I don't hold it against them, because I'd do the same." } },
+    thrall = { { id = "tp_thrall", text = "The orcs are terribly suspicious of our work, which I find charming. I've offered to show them around the Apothecarium, but they always seem to have somewhere else to be." } },
     _none = { { id = "tp_none", text = "Not my department, I'm afraid! My department is bubbling, so do excuse me." } },
   },
 }
@@ -1118,6 +1153,11 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "I swore an oath in Dalaran as an apprentice, with friends who swore it beside me, and I still carry the wand. The city is rising again, but it isn't my city anymore, and I doubt it would have me." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me everything I know, and then they watched the plague take Lordaeron and did nothing useful about it. I've grown cold, and they deserve most of the credit." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad walked the halls of the Violet Citadel when I was young, and the masters thought him a genius. They were right, and that's the terrible part." } },
+    scholomance = { { id = "tp_scholomance", text = "One of the friends who swore the apprentice's oath beside me sold himself to the Lich King, and the school at Caer Darrow is where such men go. I don't speak his name." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have use for a mage who remembers Dalaran's secrets. I give the Dark Lady what I know, and she gives me a purpose, and I'd call that a fair trade." } },
     _none = { { id = "tp_none", text = "Research it; that's what we do here." } },
   },
 }
@@ -1301,6 +1341,10 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need beds, but we need a place of our own, and a chair that nobody else will take. That's what I keep for them, and I keep it well." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I kept an inn in the capital before it fell, and some of my regulars still find their way down here. They sit in their old chairs, and I don't ask what they remember." } },
+    thrall = { { id = "tp_thrall", text = "Orcs come through now and then, and they look about my common room like they expect to be eaten. I give them a chair by the door, and they seem grateful." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady has never once set foot in my inn, and I don't expect her to. Still, I keep a chair free, in case." } },
     _none = { { id = "tp_none", text = "Ask in the Apothecarium, since they know all sorts, but don't drink anything they offer." } },
   },
 }

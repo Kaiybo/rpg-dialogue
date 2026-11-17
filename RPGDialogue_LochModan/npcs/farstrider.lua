@@ -165,6 +165,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never turn yer back on a croc that's stopped movin', for it's only thinkin'." } },
     troggs = { { id = "tp_troggs", text = "Nothin' sporting about troggs. Ye kill them because they're there, an' ye don't hang them on any wall." } },
     _none = { { id = "tp_none", text = "Never hunted it, never ate it, so I couldnae tell ye. Ask Vyrin, for she's read more books than I've skinned crocs." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon-back, which is cheatin', but I'll grant ye they're good at it. I'd love tae see one try it in a Loch Modan fog." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire bought a bear pelt off the lodge once for their strongman's cape. It was a better bear than he was a strongman." } },
+    magni = { { id = "tp_magni", text = "King Magni loves a hunt as well as any dwarf, an' he's sent word he'd like tae hunt the valley someday. We've kept the best stretch o' the loch ready for him for years." } },
   },
 }
 
@@ -326,5 +329,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "I came to the lodge to make my name, and I've very nearly made it. Daryl the Bold, remember that." } },
     advice = { { id = "tp_ad", text = "Never hunt in a cave alone. That's just good sense, and it has nothing to do with anything." } },
     _none = { { id = "tp_none", text = "That's beneath my notice, I'm afraid. Try Marek, for he notices everything and never lets you forget it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've been to the Faire, naturally, and won every game there twice. They asked me not to come back, which I consider a compliment." } },
+    onyxia = { { id = "tp_onyxia", text = "Onyxia? A black dragon in some swamp in Kalimdor, I'm told. I'd hunt her myself, of course, only I'm needed here." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The arena in Stranglethorn is where real hunters prove themselves, and I'll be going any day now. Any day." } },
   },
 }

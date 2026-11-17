@@ -98,6 +98,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I drilled footmen before the plague, and I drill corpses now. The corpses complain less." } },
     advice = { { id = "tp_ad", text = "Keep your shield up even when you're winning, because that's exactly when people stop." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I drilled recruits for King Terenas once, in a yard much like this one, and not one of those lads lived to see the plague's end. Lordaeron fell because the people who loved it most were the first to die for it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has no stance and no form, only numbers and hunger, and numbers will still beat a poor stance every time. So learn a good one, and stand where they have to come at you one at a time." } },
+    second_war = { { id = "tp_second_war", text = "I held a pike at Lordaeron's gates when the Horde came up out of the south. We beat them, and I'll tell you plainly that I'd sooner face a hundred orcs than one more field of walking dead." } },
+    arthas = { { id = "tp_arthas", text = "I saluted the prince on parade, back when he was a fine boy with a fine seat on a horse. Don't ask me more than that, because I've no wish to think on it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are what's left of Lordaeron's people when you take away the warmth and keep the stubbornness. I'll take a stubborn recruit over a warm one any day." } },
     _none = { { id = "tp_none", text = "I teach fighting, and I stopped caring about much else when I died. Ask Renee at the bar." } },
   },
 }

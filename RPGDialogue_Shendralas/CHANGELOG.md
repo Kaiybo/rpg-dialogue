@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+
 ## 1.2.2 (2026-11-17)
 - The Magram and Gelkis now react to your standing with their clan, not only to how many of the other clan you've killed. Orgrul, Hagiak and Nerlokh have new greetings for anyone their clan hates.
 

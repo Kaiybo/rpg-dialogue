@@ -71,6 +71,9 @@ P:NPC {
   topics = {
     trade = { { id = "tp_trade", text = "Old things, odd things and the occasional heirloom. The stories come free; the candlesticks don't." } },
     explorers_league = { { id = "tp_league", text = "Good folk, if they'd stop diggin' long enough to sell anything. I do the sellin' for them, in a manner of speaking." } },
+    magni = { { id = "tp_magni", text = "King Magni would love this city, if he could stand the magi. He'd buy every relic in my shop and argue about every price, an' I'd enjoy every minute." } },
+    uldaman = { { id = "tp_uldaman", text = "The Explorers' League found titan relics in Uldaman, an' the magi here would pay a fortune fer one. I'd sell, if I could get my hands on any." } },
+    wildhammer = { { id = "tp_wildhammer", text = "A Wildhammer came in once, lookin' fer a gryphon saddle from the Second War, an' I found her one. She paid in gold an' a song, an' the song was better." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye. If it isn't old, or dug from under a mountain, I don't know about it." } },
   },
 }
@@ -136,6 +139,9 @@ P:NPC {
 
   topics = {
     gnomeregan = { { id = "tp_gnomeregan", text = "Home, once. I won't talk about it here, if it's all the same." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor let me fix things, and they let me keep my cats, which are not mine. I'm happy here, mostly." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's walls were broken, and now they're fixed, and I fixed some of them myself. It's the best work I've ever done, and I'm proud of it." } },
+    magni = { { id = "tp_magni", text = "King Magni took my whole family in after Gnomeregan fell, and I still send him a letter every winter about the cats. He has never answered, but I like to think he reads them." } },
     _none = { { id = "tp_none", text = "No idea! Ask in the Citadel, they love a question, nearly as much as a gnome loves a spare gear." } },
   },
 }
@@ -196,6 +202,9 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's Path of Renewal is a garden I tend with my own hands, and it's only just been planted. It'll take years to grow, and I'll be here for every one." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding, and I'm one of them, though I'd rather tend gardens than cast spells. Zara agrees, though she'd rather I fed her." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge burned the old gardens of Dalaran, and the Legion burned what was left. I'm planting new ones, one seed at a time." } },
     _none = { { id = "tp_none", text = "That's beyond my street, I'm afraid. Try the Citadel." } },
   },
 }

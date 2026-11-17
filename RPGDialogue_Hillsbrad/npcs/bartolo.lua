@@ -150,6 +150,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Born in Lordaeron, gifted at birth, and making cloaks since my hands could hold a needle." } },
     advice = { { id = "tp_ad", text = "Never wear wet wool in the hills. Wear Bartolo's cloak instead." } },
     alterac = { { id = "tp_alterac", text = "Snow, yetis, ogres and bandits. Bartolo goes there only in his thoughts." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's strongman challenged Bartolo to a contest of strength, and Bartolo won, naturally. The Faire did not invite Bartolo back, which Bartolo considers a compliment." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead men up the hill buy no cloaks, because they do not feel the cold, which is a tragedy for Bartolo's business. Bartolo pities them a little, and fears them a great deal more." } },
+    scourge = { { id = "tp_scourge", text = "Bartolo has never met the Scourge and intends never to meet them, since Bartolo is far too handsome to rot. Southshore's guards tell stories that make Bartolo hold his cloak a little tighter." } },
     _none = { { id = "tp_none", text = "Bartolo does not know, and if Bartolo does not know, it is not worth knowing." } },
   },
 }

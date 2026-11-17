@@ -143,7 +143,13 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, but I'm only young, so maybe that's fine." } } },
+  topics = {
+    centaur = { { id = "tp_centaur", text = "The Galak are big and fast and there are so many of them, and they chased me all the way across the canyon. I never want to see a centaur again, ever, unless it's from very far away." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the High Chieftain, and my uncle says I'm too young to even think about meeting him. I think about it anyway, all the time." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother kept me safe, I think, or maybe it was you. Maybe it was both, and maybe she sent you, which would be very nice of her." } },
+    grimtotem = { { id = "tp_grimtotem", text = "My uncle says the Grimtotem are tauren, but they don't act like tauren. I saw some of them on the canyon road, and they looked at me the way the centaur did." } },
+    _none = { { id = "tp_none", text = "I don't know, but I'm only young, so maybe that's fine." } },
+  },
 }
 
 P:NPC {
@@ -299,7 +305,13 @@ P:NPC {
       choices = { { text = "Cairne is wise. Leave the door open.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "They chose their path. Let them walk it.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "The winds haven't spoken of that to me." } } },
+  topics = {
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem hold Darkcloud Pinnacle and look down on the rest of us, in more ways than one. I watch them as closely as I watch the Galak, and I trust them less." } },
+    centaur = { { id = "tp_centaur", text = "The Galak raid the canyon roads, and the Grimtotem do nothing to stop them. I've begun to wonder if they've made some kind of bargain." } },
+    cairne = { { id = "tp_cairne", text = "Cairne trusts the Grimtotem more than I would. He's a great chieftain, but he has a blind spot for Magatha, and it may cost us." } },
+    razorfen = { { id = "tp_razorfen", text = "The Razorfen Downs lie to the north, and the quilboar there have gone strange. I've heard talk of a lich, and I'm not sure I believe it, but I'm not sure I don't." } },
+    _none = { { id = "tp_none", text = "The winds haven't spoken of that to me." } },
+  },
 }
 
 P:NPC {
@@ -443,7 +455,13 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That I do not know, friend." } } },
+  topics = {
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem are a stain on the tauren, and I'm tired of pretending they're not. They murder our people and smile at our chieftain, and someone needs to say it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great chieftain, but he's too patient with Magatha. One day she'll show him what she really is, and I hope it isn't too late." } },
+    centaur = { { id = "tp_centaur", text = "The Galak are honest enemies, at least. They want to kill me, and they say so, and I respect that more than a Grimtotem smile." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother would weep to see what the Grimtotem have become. I've wept for her, and now I'm angry instead." } },
+    _none = { { id = "tp_none", text = "That I do not know, friend." } },
+  },
 }
 
 P:NPC {
@@ -616,7 +634,13 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Never heard of it, pal, but if it's fast, I want to drive it, and if it explodes, I want to drive it twice." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the money, pal, and the money's what keeps this track running. Every bet on the Flats goes through a Gadgetzan bookie, and every bookie takes a cut." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel sponsors half the races on the Flats, and they want to see goblins win. I want to see goblins win too, mostly because I'm the goblin in the car." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city, and now they've got nothing to do but build race cars. I'd feel sorry for 'em if they weren't so fast." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best mechanics in the world, pal, and I've been tryin' to hire one for three seasons. They keep sayin' no, on account of my last three mechanics." } },
+    _none = { { id = "tp_none", text = "Never heard of it, pal, but if it's fast, I want to drive it, and if it explodes, I want to drive it twice." } },
+  },
 }
 
 P:NPC {
@@ -768,7 +792,12 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, hon. I only know what happens on the track, and what it pays." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's where the money comes from, and the money's what keeps me on this track. Every second you waste is coin out of somebody's pocket, so let's not waste any." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel likes a good race, and they like a fast one even better. I keep the races fast, and they keep paying me." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay runs a tight schedule on the boats, and I respect that. I'd run a tighter one, if they let me." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, hon. I only know what happens on the track, and what it pays." } },
+  },
 }
 
 P:NPC {
@@ -937,5 +966,11 @@ P:NPC {
       choices = { { text = "Pushing limits is how you learn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "There are better uses for your brains.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I'm not sure, friend, but I could probably build something to find out!" } } },
+  topics = {
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the greatest city of engineering in the world, and it'll be again, as soon as we get it back. Until then, we race, and we win." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of goblin engineers who think they're better than us. They're not, and we prove it every race." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's goblins sponsor Pozzik's team, which is very unfair. We're sponsored by our own genius, which is much more reliable." } },
+    magni = { { id = "tp_magni", text = "King Magni gave the gnomes a home in Ironforge after Gnomeregan fell. I'm grateful, though I'd rather he gave us a racing budget." } },
+    _none = { { id = "tp_none", text = "I'm not sure, friend, but I could probably build something to find out!" } },
+  },
 }

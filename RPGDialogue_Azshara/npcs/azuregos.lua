@@ -159,6 +159,13 @@ P:NPC {
     eldarath = { { id = "tp_el", text = "My ruins, these days, whatever the naga think. The Highborne would be appalled at the upkeep.", next = "eldarath" },
       { id = "tp_el2", text = "A drowned jewel, still shining a little under the waves." } },
     xylem = { { id = "tp_xy", text = "The human in the tower? He thinks he's studying Azshara. Azshara is studying him, and it isn't impressed." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "My elders remember her, and they do not speak of many mortals that way. She was the most beautiful thing in the world and the most dangerous, and she knew both facts precisely." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are mortals who learned a few tricks from my kind and decided they were the custodians of magic. My master Malygos would find them amusing, if he still found anything amusing." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was a city of mages stacking spells on top of each other like children with blocks, and then something knocked the blocks over. I am told they are rebuilding it, and I expect the same result." } },
+    onyxia = { { id = "tp_onyxia", text = "Deathwing's daughter lairs in the marsh to the south, and she is clever, which is worse than being strong. If I were you I would not go near her, and if I were her I would not want you to.", fx = { learn = { "black_dragonflight" } } } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The bronze flight keep time, and they do not like anyone stepping on it. They are courteous, terribly patient and terribly boring, and I respect them more than I let on." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children dream while the world burns, and they call it vigilance. I have nothing against them, except that they never answer a question directly, which I suppose I have no right to resent." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion came for the Well of Eternity because of the magic my kind protect, and it will come again for the same reason. That is why I take magic away from careless mortals like you." } },
     _none = { { id = "tp_none", text = "That is beneath my interest, little one, and very little is beneath a dragon." } },
   },
 }

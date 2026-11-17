@@ -200,6 +200,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came over on one of the first ships with Lady Jaina's people, and I've kept shop here since the walls went up." } },
     advice = { { id = "tp_ad", text = "Change your socks every single night in this marsh, dear, and I mean every night, or your feet will rot." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a lovely town, if you can keep the mildew out of your flour, and I can't. Everything I sell is half a step from going green." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Half my stock comes up from Booty Bay on goblin ships, and the goblins charge me for every mile of sea between here and there. I charge less than they do, mind." } },
+    onyxia = { { id = "tp_onyxia", text = "The soldiers who come back from the south buy salve and bandages by the armful, and they don't say much. I don't need them to, I can count bandages." } },
+    jaina = { { id = "tp_jaina", text = "The Lady buys her own ink here, if you'll believe it, and pays like anybody else. I keep the good bottles back for her." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. Ask the adjutant at the citadel; he knows everything that's written down." } },
   },
 }
@@ -403,6 +407,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was a shieldsmith in Kul Tiras before I followed Lady Jaina's ships here. The work's the same, but the weather's worse." } },
     advice = { { id = "tp_ad", text = "Oil it every night, or don't bother buying it." } },
+    theramore = { { id = "tp_theramore", text = "Theramore eats armor, plain and simple. The damp gets into every rivet and every strap, and I spend half my days scraping rust off soldiers." } },
+    onyxia = { { id = "tp_onyxia", text = "Dragonfire warps a plate so it'll never sit right again, and I've seen enough of that from the south to know it. A good shield buys you a breath, and that's all it buys you." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron make fine metal and do terrible things with it, and that's a waste that offends me as a smith. I'd like a look at their forges, from a safe distance." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I learned the trade in Lordaeron, and my old master's forge is ash now. I still use his hammer, and it still swings true." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, and I've plates cooling. Ask the inn." } },
   },
 }
@@ -599,6 +607,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned the trade in Lordaeron and came south with the refugees when the plague came. Theramore gave me a forge, and I've not looked back since." } },
     advice = { { id = "tp_ad", text = "Clean your blade after every fight, friend. The marsh water eats steel overnight." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a peace that keeps its swords sharp, and I'm the man who sharpens them. I'd sooner sell to soldiers who never need them, but that's not how it goes." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief kept his word to the Lady, and I sell fewer blades to angry men because of it. You'll forgive me if I think kindly of him." } },
+    onyxia = { { id = "tp_onyxia", text = "A blade won't do much against a dragon, but it does well enough against her whelps, and they're the ones you'll meet. Aim under the wing, where the scales are thin." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay steel is fine work if you buy from the right goblin and robbery if you buy from the wrong one. I've had a few customers bring me the wrong kind to fix." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, sorry. I only know steel and the weather, and the weather's always wet." } },
   },
 }

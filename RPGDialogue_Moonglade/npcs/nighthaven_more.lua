@@ -183,6 +183,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I keep the Circle's stores, and I keep them honestly." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw trade with the Circle now and then, mostly hides for honey. They drive a hard bargain, and they never cheat." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids talk about the Dream as though it's another country. I keep the stores here in this one, and that's enough for me." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins sell us winter supplies at a price I'd call robbery if they weren't the only ones who'd make the trip." } },
     _none = { { id = "tp_none", text = "That I couldn't tell you, I'm afraid, and I've kept the Circle's stores for longer than most kingdoms have stood." } },
   },
 }

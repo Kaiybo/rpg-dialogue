@@ -186,6 +186,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I came north for the Cartel's trade, darling, and stayed because nobody up here ever banged on anything. Then Umi arrived with a hammer and a mechanical yeti, and the rent went up besides." } },
     advice = { { id = "tp_ad", text = "Never turn your back on a goblin who's whistling, darling. That's free, and it's the best bargain you'll get up here." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's a lovely little town, cold as a banker's heart and twice as profitable. I've got no complaints, except for Umi and whatever she's building this week." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the place to be if you want to get rich or get stabbed, and usually both. I prefer the snow." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's gone, and every gnome in the world wants to tell you about it. I'd rather they told me something useful, like where they hid the treasure." } },
     _none = { { id = "tp_none", text = "No idea, sugar, and if Umi told you about it, don't believe a word, and don't pay for any of it either." } },
   },
 }
@@ -401,6 +404,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I make parts, I make them right and I make them on time. That's all there is to tell, and it's more than most can say." } },
     advice = { { id = "tp_ad", text = "Wear gloves. Always wear gloves, in Winterspring and everywhere else." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "My employer works near Blackrock Spire, and that's all I'll say about it. I make the parts, and I don't ask what they're for, because asking isn't part of the price." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's cold enough to keep a horn from cracking, which is the whole reason I'm here. The goblins are pleasant enough, though I wear gloves when I shake their hands." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I lost a good workshop with it. I don't talk about it much, and I'd rather you didn't either." } },
     _none = { { id = "tp_none", text = "Not my department, friend. Ask somebody who isn't busy recalibrating a frost coil for the third time since breakfast." } },
   },
 }
@@ -652,6 +658,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a daughter of Lordaeron once, and now I'm a refugee in the snow. Neither one was my idea." } },
     advice = { { id = "tp_ad", text = "Say what you mean to the people you love before you leave home. I didn't." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I fled Lordaeron before the Scourge came, and I've been waiting for news of my family ever since. I came all the way to Everlook because a trader said he'd heard of them, and he hadn't." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Darrowshire, I'm told, and my family with it. I don't know what happened to them, and I'm afraid to know." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was a day's ride from home, and we used to go to market there. I can't imagine it as it is now, and I don't want to." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is the farthest I could get from Lordaeron without falling into the sea. It's cold here, but nobody asks about the plague." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Gregor might; he hears more than I do." } },
   },
 }
@@ -889,6 +899,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was born under the mountain and I forged for a master of fire. Now I forge for myself, and for whoever pays." } },
     advice = { { id = "tp_ad", text = "Don't bring me anything less than perfect. It saves us both a walk." } },
+    dark_iron = { { id = "tp_dark_iron", text = "My people are slaves to the fire in the mountain, the ones who stayed, and the Brotherhood is what's left of the ones who chose otherwise. Don't call me Dark Iron unless you mean it as a compliment, ant." } },
+    thaurissan = { { id = "tp_thaurissan", text = "Emperor Thaurissan rules the Dark Irons in Blackrock Depths, and he's welcome to it. I'd sooner forge in the snow than kneel to that one." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Blackrock Depths is a city of fire and chains under the mountain, and I spent enough of my life there. The Brotherhood's forge is the only thing I miss." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is cold and quiet, and the goblins pay on time, which is more than I can say for most ants. The forge burns hot enough up here, if you feed it right." } },
     _none = { { id = "tp_none", text = "The Brotherhood doesn't waste time on that. Neither will I." } },
   },
 }
@@ -1089,6 +1103,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I learned the hunt on the plains of Mulgore, and I came north to test it. So far, the north is winning." } },
     advice = { { id = "tp_ad", text = "Watch the tracks, not the trees. The beasts here are white, and they hide in plain sight." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the great beasts of the snow, and I've come to hunt them with respect. A bear here will teach you more about her than a year on the plains." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the greatest of our people, and he'd stand in front of a charging bear without blinking. I measure everyone else against him." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is a good warchief, and he's been a friend to the tauren. He hunts like an orc, though, all charge and no patience." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are proud hunters in their own way, and they guard their tunnels well. I've learned to respect them, and they've learned to respect me." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a good place to rest between hunts, and the goblins don't bother you much. The cold keeps the meat fresh, too." } },
     _none = { { id = "tp_none", text = "I know tracks and beasts, and the Earth Mother's ways in the snow. That is neither." } },
   },
 }
@@ -1263,6 +1282,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I flew for the Horde across the Barrens before they sent me here to freeze. I don't complain much, though the riders do." } },
     advice = { { id = "tp_ad", text = "Wear something warm when you fly. The wind up there bites harder than the riders." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built Orgrimmar out of the desert and sent us to the ends of the world to keep the Horde strong. I'd follow him anywhere, even here, where the snow comes up to your knees." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's too cold for an orc, but the wind riders like it, and the goblins pay well. I keep my beasts wrapped in blankets and my complaints to myself, mostly." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw don't trust orcs, and I don't blame them, since we've given them reason. I keep my distance, and they keep theirs." } },
     _none = { { id = "tp_none", text = "I keep wind riders, and that's all I know. Ask a shaman if you want the spirits' answers." } },
   },
 }
@@ -1439,6 +1461,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I have tended hippogryphs since before the Third War, and I go wherever they are needed." } },
     advice = { { id = "tp_ad", text = "Do not stare at the hippogryphs when you mount. They find it rude." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess leads our people from Darnassus, and her wisdom has kept us whole through every trial. I serve her by keeping the Alliance's birds ready for flight." } },
+    elune = { { id = "tp_elune", text = "Elune watches over us from the moon, and in Winterspring the nights are long enough to feel her watching. My hippogryphs fly by her light." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a goblin town, and the goblins trade with everyone, Horde and Alliance alike. I watch their bargains carefully, though I keep my opinions to myself." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree stands on Mount Hyjal, just south of here, and my people guard it still. I've seen it from a hippogryph's back, and I'll never forget it." } },
     _none = { { id = "tp_none", text = "I do not know, and I do not think the hippogryphs do either, though they remember more than they let on." } },
   },
 }

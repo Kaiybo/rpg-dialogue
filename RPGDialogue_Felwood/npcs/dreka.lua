@@ -147,6 +147,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a warrior's wife. Now I'm a warrior's widow, and that's all you need to know." } },
     advice = { { id = "tp_ad", text = "If a druid asks you to go somewhere dangerous with them, ask how many came back the last time." } },
     furbolgs = { { id = "tp_furb", text = "The Deadwood are mad with the forest's poison, and the druids say they were a wise people once. I say one of them killed my husband." } },
+    thrall = { { id = "tp_thrall", text = "Thrall gave my husband his freedom and his honour. Ror died with both, and I'll not hear a word against the Warchief." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The demons in this forest killed my husband, or near enough. I want every one of them dead, and I want to watch." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw keep to their tunnels and don't bother us. That's all I need from anyone." } },
     _none = { { id = "tp_none", text = "Don't know, and don't care. My husband's blood is in this forest, and that is all I think about." } },
   },
 }

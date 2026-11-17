@@ -184,6 +184,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a logger, with an axe in my hands since I was twelve, and a worrier since I met Curly." } },
     advice = { { id = "tp_ad", text = "If you hear singing in the woods and it isn't us, run." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "The cult takes people from the glades, and they never come back. I worry about Curly every day he goes into the woods, and every day he comes back, I worry about tomorrow." } },
+    thrall = { { id = "tp_thrall", text = "The Horde raids our woodpiles, and Turner says they're just stealing timber, but I don't sleep well knowing they're out there. I'd sleep better if they were somewhere else." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray every night that Curly comes home safe. I don't know if the Light's listening, but it doesn't hurt to ask." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Halligan; he knows things, or says he does." } },
   },
 }
@@ -368,6 +371,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "This is Turner's camp. My name's on it, so the blame is too." } },
     advice = { { id = "tp_ad", text = "Never stand downhill of a falling tree, or of a falling logger." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Best customers I've got, and the only customers I've got." } },
+    thrall = { { id = "tp_thrall", text = "The Horde's new warchief can call himself honorable all he likes, but his warriors steal my timber twice a week. Honor doesn't pay for lost wood." } },
+    bolvar = { { id = "tp_bolvar", text = "The Regent wants the Riverglades held, and he wants it held cheaply, which means me and my loggers holding it with axes. I'd like to see him swing one." } },
+    second_war = { { id = "tp_second_war", text = "The old war came through these woods, and my father cut timber for Farholde's walls. I'm still cutting it, and the walls still need it." } },
     _none = { { id = "tp_none", text = "That's not my business; trees are my business." } },
   },
 }
@@ -555,6 +561,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A farmer: was, is, and will be. There's nothing more to say about it that the dirt doesn't." } },
     advice = { { id = "tp_ad", text = "Stay off the rows after dark. The reapers don't sleep, and they don't ask who you are." } },
+    holy_light = { { id = "tp_holy_light", text = "I used to pray for a good harvest, and now I pray the reapers stop clicking. Neither prayer seems to get answered." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind doesn't care about the fields out here, and it never has. We grow what we can, and we keep our heads down." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Somebody said a gnome could fix the reapers, but no gnome's come this far east. I'd pay well for one, if I had anything to pay with." } },
     _none = { { id = "tp_none", text = "I'm a farmer, so ask me about weather, or about reapers even, but not that." } },
   },
 }

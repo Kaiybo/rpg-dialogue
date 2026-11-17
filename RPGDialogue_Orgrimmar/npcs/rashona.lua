@@ -95,6 +95,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sew, I count, and I make sure the cloth goes where the Horde bleeds. That's all the story there is, and it's enough." } },
     advice = { { id = "tp_ad", text = "Carry spare bandages. The grunt bleeding next to you will never have brought his own." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is spreading in the north, and the wounded keep coming in from everywhere. I collect cloth for all of them, and it's never enough." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need bandages, which is a mercy. They do need clothes, though, and some of them have forgotten how to sew." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wants the cloth to go where it's needed most, and I make sure it does, even when the donors grumble. A leader who thinks of the poor deserves a collector who does the same." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, grunt. Ask me about cloth and I'll talk your ear off." } },
   },
 }

@@ -181,6 +181,10 @@ P:NPC {
   topics = {
     venture_company = { { id = "tp_vc", text = "The goblins cut and burn the valleys south of here. I see their smoke every morning." } },
     background = { { id = "tp_bg", text = "I keep the hippogryphs on Stonetalon Peak. Before that I flew the coast of Darkshore, which was gentler." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind leads the night elves, and her Sentinels keep our borders. I serve her by keeping the hippogryphs ready, which is a small thing, but a necessary one." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief claims he wants peace, and perhaps he does. But his people's axes are in Ashenvale, and the goblins' smoke is in Stonetalon, and I watch both from this peak." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the hippogryphs as she does over us. I thank her each night that none of mine were lost to the goblins' smoke." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is our new home, and the hippogryphs fly there from every corner of Kalimdor. I miss the old forests, but Teldrassil is beautiful in its own way." } },
     _none = { { id = "tp_none", text = "I couldn't say. Ask Faralia at the inn, or the Keeper, if he's not too deep in his thoughts; his memory runs back further than mine." } },
   },
 }

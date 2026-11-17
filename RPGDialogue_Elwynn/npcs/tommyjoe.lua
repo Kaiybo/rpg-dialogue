@@ -263,5 +263,8 @@ P:NPC {
     maybell_tommy = { { id = "tp_us", text = "She's the cleverest person in Elwynn and she likes me. I don't understand it either." } },
     murlocs_east = { { id = "tp_murlocs", text = "Murlocs? Further east, folk say, though I keep an eye on the water all the same." } },
     _none = { { id = "tp_none", text = "Couldn't say. I'm just a farmer who stands by rivers." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's the best week of the year, because everybody's watching the jugglers and nobody's watching the river. That's all I'll say about it." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed to the Light for the first time in years the night I met Maybell properly. I'm not saying it answered, but I'm not saying it didn't, either." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "Maybell says there are Maclures and Stonefields both on the old stone out on the lake, side by side, and nobody minded then. I'd like to row her out to see it one day, once the wizards are gone." } },
   },
 }

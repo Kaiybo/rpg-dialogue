@@ -211,6 +211,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came out here to make my fortune, friend, and I'm still making it, very slowly and very nervously, one copper at a time, with an ogre watching the till." } },
     advice = { { id = "tp_ad", text = "Don't mine alone in the Badlands, buddy, because something will always find you, and it's usually got more teeth than you've got pick. Also, buy a spare pick; I've got several." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's grunts pay in silver, friend, and they don't haggle much. I'm a big fan of the Warchief, very big." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'd like to retire, friend, someday, if the orcs don't eat me first. Nobody eats anybody in Booty Bay, it's in the contract." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons sell coal cheaper than me, friend, but they're Dark Irons. The orcs prefer to buy from a goblin they can shout at." } },
     _none = { { id = "tp_none", text = "No idea, friend! Ask somebody who isn't busy counting coal, and come back when you want to buy some." } },
   },
 }

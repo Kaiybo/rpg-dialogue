@@ -110,6 +110,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A goblin of taste in a world that has none, sweetie. It's a lonely calling, but it pays, and it pays very well." } },
     advice = { { id = "tp_ad", text = "Charge what it's worth to them, not what it cost you. That's the only rule in fashion, and in life." } },
     bloodsail = { { id = "tp_bloodsail", text = "Dreadful pirates with dreadful hats, nothing like the Southsea ones. Red is so obvious." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a fashion desert, sweetie, in every sense, and I'm the only oasis. Everyone here dresses as though the sand chose their wardrobe." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a certain pirate charm, sweetie, but the hats are a disgrace. I've offered to help, and they keep throwing me off the docks." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the best-dressed woman in Stormwind, sweetie, and I've heard she has her gowns made specially. I'd give anything to know who her tailor is." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore dresses like a sensible mage, sweetie, all blues and practical sleeves. It's a crime, with a face like that." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has the most dreadful costumes, sweetie, all patches and tassels. I've offered to redesign them, and Silas laughed at me." } },
     _none = { { id = "tp_none", text = "I don't concern myself with that, sweetie. Is it wearable? Is it sellable? No? Then it isn't my problem." } },
   },
 }

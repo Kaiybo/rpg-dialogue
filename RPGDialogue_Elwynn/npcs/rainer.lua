@@ -239,5 +239,9 @@ P:NPC {
     defias = { { id = "tp_defias", text = "They're coming up from Westfall like rats from a flood, and we hold the road, mostly." } },
     westfall = { { id = "tp_westfall", text = "Next door, and worse off. Stoutmantle's doing the Army's job with pitchforks." } },
     _none = { { id = "tp_none", text = "If it's not on the west road, it's not my problem, so try Dughan in Goldshire." } },
+    stonemasons = { { id = "tp_stonemasons", text = "Some of the Defias I've caught had masons' calluses on their hands, and that sits wrong with me. They built the city, and now they're on the wrong side of it." } },
+    the_stockade = { { id = "tp_the_stockade", text = "I send every Defias I catch to the Stockade under guard, and the guard comes back saying the warden's short of cells. I'm short of men, so we're even." } },
+    varian = { { id = "tp_varian", text = "Westbrook asked for soldiers and got adventurers, and I'd wager that's because the army is busy looking for its king instead of watching its roads. I'll say no more than that." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire draws every cutpurse in Elwynn to Goldshire for a week, and it's the only time my road goes quiet. I can't decide whether I like it." } },
   },
 }

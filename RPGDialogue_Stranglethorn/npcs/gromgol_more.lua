@@ -180,6 +180,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a goblin with a good job, a nice view, a steady wage and a tower all my own. Not much else to say, pal." } },
     advice = { { id = "tp_ad", text = "Don't lean over the rail, pal. The ones who do always find out how far down it is." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a good town, pal, but the zeppelin here is better, and it gets you out of Booty Bay faster. That's my sales pitch, and it hasn't failed yet." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where a lot of zeppelin engineers got their start, pal, and most of them still have all their limbs. That's what I call a good school." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief signed off on these zeppelins personally, pal, and he's never once complained about the service. That's practically an endorsement." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got a few zeppelin men, but none as good as me, pal. I'd swear to it, and I'd swear to it twice." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if it can't ride a zeppelin, I can't help." } },
   },
 }
@@ -347,6 +351,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I keep the riders, as my mother kept them for the clans before me. That's my work, and I do it well." } },
     advice = { { id = "tp_ad", text = "Fly high over the jungle, because the Bloodscalp throw spears and the gorillas throw worse." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent us to the jungle and we came, and we've held this camp under worse than rain. I'd go anywhere he asked." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear trolls guard the ridge, and the riders trust them more than they trust the orcs. That should tell you something." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls at Zul'Gurub ride bats and raptors, and they fly over the ridge at night sometimes. My riders hate them, and so do I." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I've flown to Booty Bay more times than I can count, and every time the goblins try to sell me something before my feet touch the ground. They never succeed." } },
     _none = { { id = "tp_none", text = "I don't know that one, and I won't pretend to. Ask the Commander; he knows the camp better than I do." } },
   },
 }
@@ -510,6 +518,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I sell supplies. I came with the Commander, I'll leave with him, and until then I keep his grunts in rations." } },
     advice = { { id = "tp_ad", text = "Keep your bags dry, or everything in them rots. I opened a sack of flour last week, and something in it opened its eyes at me." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps us supplied, and I keep the stock, and the jungle tries to eat both. So far we're winning." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells everything, at a price, and I don't pay their prices if I can help it. I'd rather wait for the next zeppelin." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company buys up everything in the jungle and sells it back at triple the price. I've told the Commander we should burn their camps, and he's thinking about it." } },
+    second_war = { { id = "tp_second_war", text = "I hauled supplies in the Second War, and I'm hauling them now, and nothing about it has changed. The grunts still complain about the bread." } },
     _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories, and an orc who wants stories goes to Thulbek." } },
   },
 }

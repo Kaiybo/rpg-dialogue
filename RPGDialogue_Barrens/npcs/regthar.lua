@@ -157,6 +157,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fought in the old wars, I came to Kalimdor with the Warchief, and now I fight centaur. A soldier's life doesn't need more telling than that." } },
     advice = { { id = "tp_ad", text = "Never fight a centaur on open ground if there's a rock to put your back against. Learn that one cheap, before they teach it to you dear." } },
+    centaur = { { id = "tp_centaur", fx = { learn = { "maraudon" } }, text = "The Kolkar are the worst of a bad breed, and the Barrens are full of them. They and their cousins out in Desolace come from some old union of stone and forest, if the shaman are to be believed, and none of it made them any friendlier." } },
+    thrall = { { id = "tp_thrall", text = "Thrall gave me this war, and I mean to give it back to him finished. He doesn't need to know the details, just that the roads are safe." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I learned how to hold a line against horses. Centaur aren't so different, except they're angrier and the horse half bites." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane are a nuisance and the Kolkar are a war, and I keep those two separate in my head. If the quilboar get between me and a centaur, though, they're in my way." } },
     _none = { { id = "tp_none", text = "Not my concern. If it isn't Kolkar, ask someone at the Crossroads." } },
   },
 }

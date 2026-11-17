@@ -163,6 +163,10 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "Red robes, white knuckles, and a fire for every question. I know them far too well." } },
+    scarlet_monastery = { { id = "tp_scarlet_monastery", text = "The Crusade taught me my first spells at their monastery, and they taught me well. They never imagined I'd use those lessons to walk among them wearing a borrowed face." } },
+    holy_light = { { id = "tp_holy_light", text = "The Crusade's priests say the Light shows them who is pure and who is damned. I've stood in their halls wearing a stranger's skin, and the Light didn't say a word." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has no interest in an old woman on a hill, and I've given it no reason to. I'm much more interested in the Crusade." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a sour lot, but they pay well for what I know about the Crusade. I'm not particular about my customers." } },
     _none = { { id = "tp_none", text = "Ask the bones by the door, dearie. They're better listeners than talkers." } },
   },
 }
@@ -350,6 +354,9 @@ P:NPC {
 
   topics = {
     darrowshire = { { id = "tp_darrowshire", text = "A brave little town, and a terrible day, and a story with one more chapter in it." } },
+    andorhal = { { id = "tp_andorhal", text = "Andorhal was the busiest grain town in the north, and the Cult of the Damned shipped its plague out through these very streets. I like to stand here and remember how it was, and how it is, both at once." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is a city with a very bad day stuck in it, and the day hasn't ended for some of its people. I'd rather not talk about it, which is unusual for me." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is everywhere in Andorhal, and they never notice me. I'm very small, and I'm very good at being somewhere they aren't." } },
     _none = { { id = "tp_none", text = "I could tell you, but then it wouldn't be a surprise later." } },
   },
 }

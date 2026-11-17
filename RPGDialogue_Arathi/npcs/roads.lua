@@ -185,6 +185,9 @@ P:NPC {
 
   topics = {
     new_plague = { { id = "tp_plague", text = "Whatever the Forsaken are brewing, it travels in sealed crates and comes through Go'Shek." } },
+    forsaken = { { id = "tp_forsaken", text = "The orc farm below the ridge has Forsaken visitors now and then, and they carry vials. I write down everything, and I don't like what I'm writing." } },
+    scourge = { { id = "tp_scourge", text = "The plague came from the north, and it's spreading, and I'm sure the Forsaken have a hand in it now. I'll find out how, if it's the last thing I do." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Refuge Pointe needs to know what the Horde is doing here, and I'm the one watching. Captain Nials gets my notes first, and the Syndicate never sees them." } },
     _none = { { id = "tp_none", text = "Ask me in Southshore, over a drink, when I'm not counting orcs." } },
   },
 }
@@ -353,6 +356,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are brewing a new plague, I'm sure of it, and they're testing it here in the Highlands. Quae thinks I'm frightened, and she's right, but I'm going anyway." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague emptied half of Lordaeron, and I'll not stand by while someone brews a second one. Whatever the Forsaken are making down there, I mean to stop it." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light every night, and I ask it to keep me brave. It hasn't answered yet, but I'm still here." } },
     _none = { { id = "tp_none", text = "I don't know, and I'm too jumpy to guess." } },
   },
 }
@@ -530,6 +536,9 @@ P:NPC {
   },
 
   topics = {
+    gnomeregan = { { id = "tp_gnomeregan", text = "I studied in Gnomeregan before the troggs came, and I lost all my notes in the evacuation. Now I've lost them again, to kobolds, which is somehow worse." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are clever, I'll grant you, but they've no head for engineering. I'd show them a thing or two, if they'd only let me in." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins build things that explode, and they think that's the point. I build things that explode only when I want them to, and that's science." } },
     _none = { { id = "tp_none", text = "Fascinating question, and I haven't the faintest idea, which I shall note as a gap in the data." } },
   },
 }

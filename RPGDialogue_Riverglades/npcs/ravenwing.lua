@@ -113,6 +113,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I ask the questions, friend. That's rather the point of me." } },
     advice = { { id = "tp_ad", text = "Listen to what a man doesn't say. It's usually louder." } },
     twilights_hammer = { { id = "tp_hammer", text = "Cultists who look forward to the end of the world, and who'd like to hurry it along. I've questioned enough of them to know they mean it." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light doesn't help me get answers from cultists, but it helps me sleep afterward, a little. I won't say more than that." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind's Regent wants reports, and I give him reports. What he does with them is his business, and what I do to get them is mine." } },
+    si7 = { { id = "tp_si7", text = "I'm not SI:7, though I've worked with them, and they've borrowed my methods more than once. They're welcome to them." } },
+    blackrock = { { id = "tp_blackrock", text = "The cultists I question sometimes speak of orcs in the mountains, Blackrock by their colors. I've written it down, and nobody's asked me about it yet." } },
     _none = { { id = "tp_none", text = "Not something the prisoners have mentioned. If they do, I'll let you know, perhaps." } },
   },
 }

@@ -114,6 +114,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I have been a seer on this mesa longer than most braves have been alive. The rest is between me and the Earth Mother." } },
     advice = { { id = "tp_ad", text = "Protect first, and ask questions after. The Earth Mother forgives a careful brave far more often than a late one." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The Bristleback took the Greatmother, and they will take more if we let them. I send the young out to face them because a tauren who has met the quilboar is a tauren who will not be surprised by them." } },
+    centaur = { { id = "tp_centaur", text = "The centaur are older enemies, and harder ones, but the quilboar are closer. One threat at a time, I tell the young, and the nearest one first." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives each of us a test, and the Rite of Strength is only the first. Pass it, and she will give you another, because that is how she shows her love." } },
     _none = { { id = "tp_none", text = "That is beyond what the mesa tells me, young one. Ask in Bloodhoof Village." } },
   },
 }
