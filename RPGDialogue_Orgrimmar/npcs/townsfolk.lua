@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Your vault is where you left it, and so is everything in it. I'd know if it weren't." },
+    { id = "g_hi", text = "Your vault is where you left it, {class}, and so is everything in it. In the camps an orc owned nothing worth locking up; I'd know if a single coin of yours went missing." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Put it in or take it out, and I'll write it down either way. If it's another sack of murloc eyes, though, I'm charging you for the smell." },
     { id = "g_goblin", when = { race = "Goblin" }, text = "A goblin at an orc's counter. Count it twice if you like, but you'll find I counted it three times." },
   },
@@ -120,7 +120,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've seen stranger deposits, but not many stranger depositors. Your vault is your own, whatever you pray to." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my counter. Your kind don't deposit much, I find, though you come back for your coin more often than most." },
-        { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde." },
+        { id = "h_default", key = true, text = "Karus, of the bank of Orgrimmar. Whatever you leave with me stays locked away until you come for it, and you can reach the same vault from any bank in the Horde. My father owned a chain and a bowl; I like keeping what orcs own now." },
         { id = "h_orc", when = { race = "Orc" }, text = "When we were in the camps, the only thing an orc could own was his anger. Now look at us, queuing for our own vaults like merchants. Your vault is ready, {g:brother|sister}." },
         { id = "h_rich", when = { money = { min = 1000000 } }, text = "You carry more gold than most warbands ever saw. Leave some of it with me before a Kolkar cuts your purse off your belt in the Barrens." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, which is more than most of my depositors do with their gold." },
@@ -191,7 +191,7 @@ P:NPC {
 
   topics = {
     trade = { { id = "tp_trade", text = "Bring it to me if you want it safe, or take it to the auction house if you want it gone." } },
-    _none = { { id = "tp_none", text = "I keep coin and keepsakes, not answers. Ask Gryshka at the inn; people tell her everything." } },
+    _none = { { id = "tp_none", text = "I keep coin and keepsakes, not answers. Ask Gryshka at the inn; grunts tell her everything." } },
   },
 }
 
@@ -306,7 +306,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin at the auction house. You list your goods like anyone else, and if any grunt complains about the glow, he can complain to me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the auction house. If you've come to bid on bandages, you're in luck, because the warriors keep selling theirs for ale money." },
-        { id = "h_default", key = true, text = "Auctioneer Thathung. You list your goods, other people bid, and the house takes a deposit and a cut. That's the whole of it, though you'd be amazed how many warriors want it explained twice." },
+        { id = "h_default", key = true, text = "Auctioneer Thathung. You list your goods, other people bid, and the house takes a deposit and a cut. That's the whole of it, though you'd be amazed how many warriors who'd charge a line of knights want it explained twice." },
         { id = "h_low", when = { maxLevel = 15 }, text = "New to the house, are you? Start by selling the linen and the copper you've been carrying around, because somebody here always needs it more than you do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you're selling totems this isn't the place, and if you're buying them it isn't either, because no shaman I know would trust one made by another hand." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the auction house! You'll be selling herbs, I expect, because every druid who comes through that arch has a bag of peacebloom and an opinion on the price." },
@@ -368,7 +368,7 @@ P:NPC {
   topics = {
     steamwheedle = { { id = "tp_steam", text = "The goblins' cartel runs the neutral houses. They're cheerful, they're thorough, and they always get paid." } },
     trade = { { id = "tp_trade", text = "Price it fairly and it sells. Price it greedily and it comes back to you in the mail." } },
-    _none = { { id = "tp_none", text = "If it isn't for sale, I don't know much about it. Try the bank across the valley." } },
+    _none = { { id = "tp_none", text = "If it isn't for sale, I don't know much about it. Try the bank across the valley, grunt." } },
   },
 }
 
@@ -384,7 +384,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Where to? The wind riders are rested, so don't keep them waiting." },
+    { id = "g_hi", text = "Where to, {class}? The wind riders are rested, so don't keep them waiting; they respect a rider who doesn't dither." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the tower. Mind the one on the end; she bites when she's bored." },
   },
 
@@ -489,7 +489,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin wants a wind rider? They don't like the smell of the dead, and I can't say how they'll take the Light, so we'll learn together." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Then you'll be calm in the saddle, I hope, because the wind riders can smell a nervous passenger and they don't like it." },
-        { id = "h_default", key = true, text = "Doras. I keep the wind riders, and they'll carry you to the Crossroads, to Thunder Bluff, or anywhere else the Horde has a roost. Have you flown before, or will you be holding on with your eyes shut?" },
+        { id = "h_default", key = true, text = "Doras. I keep the wind riders, and they'll carry you to the Crossroads, to Thunder Bluff, or anywhere else the Horde has a roost. Have you flown before, or will you be holding on with your eyes shut like a fresh grunt?" },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren up my tower! You'd make a wind rider sweat, but they've carried heavier, so climb on and keep your hooves tucked in." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders like your kind, because you smell of storms, and they were flying through storms long before the Horde came to this land." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The wind riders get skittish when your kind change shape on the platform, so stay on two legs until you're in the saddle, if you please." },
@@ -543,7 +543,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "From up here everything below looks small, so I couldn't tell you. Ask someone on the ground." } },
+    _none = { { id = "tp_none", text = "From up here everything below looks small, so I couldn't tell you. Ask some grunt on the ground." } },
   },
 }
 
@@ -857,7 +857,7 @@ P:NPC {
           text = "A full war band, and eager by the look of you. When I marched under Doomhammer, a band your size held a ridge for three days against Lordaeron's knights, so make sure you're worth the comparison before you go boasting in the Drag." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin in the Valley of Strength. I fought the humans' knights in the Second War, recruit, and I know that glow. Mind yourself here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Keep your prayers quiet in the Valley of Strength, because the recruits will think you're casting at them and start a fight over it." },
-        { id = "h_default", key = true, text = "Overlord Runthak. I keep the peace in the Valley of Strength, which mostly means stopping new recruits from fighting each other outside the inn. What do you want?" },
+        { id = "h_default", key = true, text = "Overlord Runthak. I keep the peace in the Valley of Strength, which mostly means stopping new recruits from proving their strength on each other outside the inn. Save your blood for the Horde's enemies. What do you want?" },
         { id = "h_young", when = { maxLevel = 10 }, text = "Fresh from the Valley of Trials, by the look of you. Don't get lost in the Drag, and don't buy anything a goblin calls a bargain." },
         { id = "h_vet", when = { minLevel = 50 }, text = "You've seen real fighting; it's in how you stand. The young ones here could learn something from watching you walk, so walk slowly." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, eh? Mind the recruits, because they've heard your kind can turn into bears, and half of them want to find out whether they could win." },
@@ -923,7 +923,7 @@ P:NPC {
   topics = {
     burning_blade = { { id = "tp_blade", text = "Traitors who miss the demons. I'd hang every one of them from the city walls, if the Warchief would let me." } },
     wailing_caverns = { { id = "tp_caverns", text = "A druid's den in the Barrens with something sick inside it. That's the tauren's mess, but our young ones go and help." } },
-    _none = { { id = "tp_none", text = "That isn't my concern unless it starts a fight in my valley." } },
+    _none = { { id = "tp_none", text = "That isn't my concern unless it starts a fight in my valley. Lok'tar." } },
   },
 }
 
@@ -942,7 +942,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the pups; they nip, but they mean it kindly." },
+    { id = "g_hi", text = "Mind the pups; they nip, but they mean it kindly, the way a good orc does." },
     { id = "g_orc", when = { race = "Orc" }, text = "{g:Brother|Sister}! Come and meet the new litter. There's a grey one that looks at you like an old chieftain." },
     { id = "g_back", when = { metBefore = true }, text = "Back to visit the wolves, are you? They remember your smell, which is more than I can say for most visitors." },
   },
@@ -1030,7 +1030,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin wants to see the wolves. They'll smell the grave on you, and they'll smell that light too, so stand still and let them decide." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The wolves don't care what you pray to, but they'll know if you're afraid of them, so don't be." },
-        { id = "h_default", key = true, text = "Ogunaro Wolfrunner, kennel master. I raise the wolves the Horde rides to war, and every one of them was raised by my hand. Have you come to look, or have you come to buy?" },
+        { id = "h_default", key = true, text = "Ogunaro Wolfrunner, kennel master. I raise the wolves the Horde rides to war, as our clans did on Draenor, and every one of them was raised by my hand. Have you come to look, or have you come to buy?" },
         { id = "h_orc", when = { race = "Orc", minLevel = 40 }, text = "You're ready for one of my wolves, and they can tell. Come and choose, though the truth is the wolf will choose you." },
         { id = "h_friend", when = { ["not"] = { race = "Orc" }, reputation = { faction = "Orgrimmar", min = "exalted" } },
           text = "The whole city speaks well of you, so I'll sell you a wolf, whoever your people are. Come and choose one." },
@@ -1222,7 +1222,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin wants to fish. Well, the river doesn't care, and it was a river that gave me my first peace after the camps, so sit down." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the river. Sit a while if you like; the water's the quietest temple in Orgrimmar." },
-        { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. Then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
+        { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. In the camps nobody ever fed us enough, so I learned; then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear wants fishing lessons from an orc? Your people were fishing off the Echo Isles before mine ever saw the sea. You could probably teach me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here by the water. Keep your voice low, because the water spirits are easier to frighten than the fish, and a good deal harder to catch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, here at the river. Sit down and be quiet a while, because you'll know better than most that the water gives more to those who wait for it." },
@@ -1277,7 +1277,7 @@ P:NPC {
 
   topics = {
     echo_isles = { { id = "tp_isles", text = "The trolls say the fishing there was the best on the coast. They don't talk about what's there now." } },
-    _none = { { id = "tp_none", text = "I don't know, friend. Throw a line in the water and think about it; that's what I'd do." } },
+    _none = { { id = "tp_none", text = "I don't know, {class}. Throw a line in the water and think about it; that's what I'd do." } },
   },
 }
 
@@ -1398,7 +1398,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin with a pick? The rock won't care about your Light, but it'll test your back, if the dead still have backs that ache." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll not want to learn mining, I expect, but you'll want to know which caves the Burning Blade have taken, and I can tell you that." },
-        { id = "h_default", key = true, text = "Makaru, and I teach mining. The city was built from the stone of these hills, and every forge in the Valley of Honor burns ore that somebody dug out with a pick and a bad back." },
+        { id = "h_default", key = true, text = "Makaru, and I teach mining. The city was built from the stone of these hills by orcs who'd been slaves a year before, and every forge in the Valley of Honor burns ore that somebody dug out with a pick and a bad back." },
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "A smith! Then you know what bad ore does to a blade, so learn to dig your own and never trust a stranger's bars." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the miners' hall. You'll ask the earth's leave before you dig, I suppose, and I won't laugh at you for it, because the hills here have dropped a roof on more than one miner who didn't." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid among the miners. You'll not like what a pick does to a hillside, I expect, so say your piece about it now and let's be done with it." },
@@ -1456,7 +1456,7 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "Cultists in the caves around Durotar. They frighten off the miners, and I'll never forgive them that." } },
-    _none = { { id = "tp_none", text = "I know rock, and I know what's in it. For anything else, ask someone who works above ground." } },
+    _none = { { id = "tp_none", text = "I know rock, and I know what's in it. For anything else, ask some orc who works above ground." } },
   },
 }
 
@@ -1592,7 +1592,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I'd want to see your hammer before I trusted you, and I'd want to know who forged it, because that matters more than who you pray to." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the forges. You'll want a mace, then, because a priest who carries a blade is either a liar or a Forsaken, and I've met both." },
-        { id = "h_default", key = true, text = "Saru Steelfury. I teach smithing at these forges, and everything the Grunts on the walls carry was hammered here. Do you want to learn, or have you only come to watch?" },
+        { id = "h_default", key = true, text = "Saru Steelfury. I teach smithing at these forges, and everything the grunts on the walls carry was hammered here by orc hands. Do you want to learn, or have you only come to watch?" },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior at my forge! Good, because you'll understand why a blade's balance matters more than its shine. Learn to make your own, and you'll never have to trust a trader's." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my forge! Good, because you'll want a weapon that can take a jolt of lightning, and most of what the traders sell will crack the first time you try." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my forge, with claws you grew yourself. I'll not pretend I can make a better weapon than that, but I can make you a staff that won't split on a centaur's skull." },
@@ -1650,7 +1650,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Unless it's made of metal, I'm no use to you. Ask at the inn." } },
+    _none = { { id = "tp_none", text = "Unless it's made of metal, I'm no use to you, grunt. Ask at the inn." } },
   },
 }
 
@@ -1944,7 +1944,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one carryin' the Light. The beasts in my pens be nervous of you, mon, so speak soft and let them get used to you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest come to the stables, mon. The beasts be calm around you already, which tell me you got a quiet way about you." },
-        { id = "h_default", key = true, text = "Xon'cha, and I keep the stables. You leave your beast with me and it be fed, brushed and talked to every day until you come back for it. Most hunters forget the talkin', but I don't." },
+        { id = "h_default", key = true, text = "Xon'cha, and I keep the stables, mon. You leave your beast with me and it be fed, brushed and talked to every day until you come back for it. Most hunters forget the talkin', but the loa watch how we treat the beasts, so I don't." },
         { id = "h_troll", when = { race = "Troll" }, text = "Ah, a Darkspear! You come up from Sen'jin, or from further? Leave your beast here and I treat it like family." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, mon! The beasts in my pens feel you comin' before they see you, so walk slow and let them get a good look at you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon! The beasts in my pens know you be half one of them, so don't be surprised if they all want to say hello." },
@@ -1994,6 +1994,6 @@ P:NPC {
 
   topics = {
     echo_isles = { { id = "tp_isles", text = "Home, mon, and not home right now. We get it back one day." } },
-    _none = { { id = "tp_none", text = "I don't know that one. Ask the beasts, maybe; they know more than they say." } },
+    _none = { { id = "tp_none", text = "I don't know that one, mon. Ask the beasts, maybe; they know more than they say." } },
   },
 }

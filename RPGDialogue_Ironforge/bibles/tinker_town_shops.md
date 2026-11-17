@@ -30,6 +30,6 @@ Craft: engineers.
 ## Their quests
 - none.
 ## Identity
-Bubbly, curious. Authored: the blue customer; labeled shelves.
+Bubbly, curious. Speech: gnomish; exact proportions, timings and overhead. Authored: the blue customer; labeled shelves.
 ## What they notice
 Craft: herbalists.

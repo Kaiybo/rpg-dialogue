@@ -132,7 +132,7 @@ P:NPC {
           text = "A warrior, welcome! You'll want a few bags, I'd guess, because warriors always carry more than they need and never have anywhere to put it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, welcome! You'll want arrows and food for your companion, I expect, and I keep both, though Narianna's arrows are better than mine." },
-        { id = "h_default", text = "I'm Daeolyn Summerleaf, and I keep the general goods for Nighthaven: water, thread, bags and the small things that travelers run short of. Most who come here are druids, but anyone the grove lets in may buy from me." },
+        { id = "h_default", text = "I am Daeolyn Summerleaf, and I keep the general goods for Nighthaven: water, thread, bags and the small things that travellers run short of. Most who come here are druids, but anyone the grove lets in may buy from me, as it has always been." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, welcome to Nighthaven! The grove is quieter than any temple, and I've seen priests of every sort stay a day longer than they meant to." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, welcome! You needn't skulk here, because nobody in Nighthaven is looking for anyone, and that's the whole charm of the place." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The druids get a bit prickly about magic, but I've always thought a mage's company makes the evenings shorter, and Nighthaven's evenings are very long." },
@@ -194,7 +194,7 @@ P:NPC {
     cenarion_circle = { { id = "tp_cc", text = "The Circle keeps Moonglade for every druid, whoever they march with outside. I only keep the shop." } },
     background = { { id = "tp_bg", text = "I sell supplies in Nighthaven. I came chasing a druid, he took up with a bear, and I stayed anyway." } },
     advice = { { id = "tp_ad", text = "If you take the road through Felwood, keep to the Timbermaw tunnels and say nothing rude to the furbolgs." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know. Rabine Saturna might; he knows most things that happen in the grove." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. Rabine Saturna might; he knows most things that happen in the grove, and has for centuries." } },
   },
 }
 
@@ -505,8 +505,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You've claws and moonfire, so you'll not need a bow, I suppose, but the roads out of Moonglade are cruel ones, and I'd still feel better if you carried something." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Go on, ask." },
+        { id = "h_again", text = "What else? Ask, and then mind the roads out; Felwood has not been kind since the Legion came." },
+        { id = "h_again2", text = "Go on, ask. A sanctuary is a good place for questions, if not for bows." },
       },
       choices = {
         { text = "Show me your bows.", next = "BUSINESS" },
@@ -556,6 +556,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell bows in Nighthaven. I used to be a Sentinel, and I still like to see people leave well armed." } },
     advice = { { id = "tp_ad", text = "In Felwood, don't drink from anything green. You'll thank me." } },
-    _none = { { id = "tp_none", text = "I don't know. I sell bows; that's my whole wisdom." } },
+    _none = { { id = "tp_none", text = "I don't know. I sell bows, as my mother did in Ashenvale before the Sundering, and that's my whole wisdom." } },
   },
 }

@@ -1597,7 +1597,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shop", text = "Gears, bolts, blasting powder and tubes, all of it guaranteed not to explode unless you want it to! Mostly." },
+    { id = "g_shop", text = "Gears, bolts, blasting powder and tubes, all of it rated at ninety-eight percent not to explode unless you want it to! The other two percent are a learning opportunity." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with both your eyebrows! You're doing better than I am." },
   },
 

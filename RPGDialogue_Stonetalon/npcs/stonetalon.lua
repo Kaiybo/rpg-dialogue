@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rock", text = "The wind is strong on Sun Rock and the sun stronger, which is good for old wounds. Say what you need." },
+    { id = "g_rock", text = "The wind is strong on Sun Rock and An'she stronger, which is good for old wounds. Say what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the rock, good. I've work for the ones who come back." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the rock {away}, and the wind has been blowing hard the whole time. I've work for the ones who come back, so say what you need." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were green when you first climbed to Sun Rock, and now you carry yourself like a warrior who has bled for it. The years do that, and so do battles." },
@@ -323,7 +323,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't walk the Webwinder Path at night, and if you must, don't walk it alone." } },
     venture_company = { { id = "tp_venture", text = "Goblins with saws who think a mountain's worth what they can cut off it. We spend our days mending after them." } },
     cenarion_circle = { { id = "tp_circle", text = "Their keeper watches the peak to the north. We leave each other be, mostly. Mostly is a fragile word up here." } },
-    _none = { { id = "tp_none", text = "That's not my concern. Ask Tammra; she has more patience than I do." } },
+    _none = { { id = "tp_none", text = "That's not my concern. Ask Tammra; she has more patience than I do, and the Earth Mother gave her my share of it." } },
   },
 }
 
@@ -452,7 +452,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, while my hands are in the dirt? I can listen and plant at once." },
-        { id = "h_again2", text = "Ask on. The seeds don't mind company." },
+        { id = "h_again2", text = "Ask on. The seeds don't mind company, and the Earth Mother likes a little talk over her soil." },
       },
       choices = {
         { text = "Why bring the ground back?", next = "why" },
@@ -569,7 +569,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never step on a green shoot up here. It might be the only one for a mile." } },
     venture_company = { { id = "tp_venture", text = "They cut until there's nothing left to cut, and then they move on and leave the burning for us." } },
     cenarion_circle = { { id = "tp_circle", text = "They want the same thing I want, a living mountain. I wish we could plant side by side instead of glaring across the ridges." } },
-    _none = { { id = "tp_none", text = "I don't know, I'm afraid; I mostly know seeds." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm afraid; I mostly know seeds, and what the Earth Mother is willing to grow in burned ground." } },
   },
 }
 
@@ -1068,7 +1068,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Weapons down, boots off, and tell me who you've been fighting. That's how we do it on Sun Rock." },
+    { id = "g_inn", text = "Weapons down, boots off, and tell me who you've been fighting. That's how we do it on Sun Rock, and how my clan did it round the fires in Durotar." },
     { id = "g_home", when = { homeInn = { "Sun Rock Retreat" } }, text = "Home on the rock again! The wind's howling tonight, so it's a good night to be indoors." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back on the rock after {away}! Weapons down, boots off, and tell me everybody you fought while you were gone." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The whole inn's been talking about the help you've given Sun Rock. Sit down and tell me the story yourself, and your drink's on me." },
@@ -1124,7 +1124,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Weapons down, boots off, and tell me who you've been fighting. I don't care what you pray to." },
-        { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and that's the job." },
+        { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and an orc who feeds the Horde's fighters serves it as well as any grunt." },
         { id = "h_harpies", when = { metBefore = true }, text = "The harpies screamed all night, the braves screamed back, and nobody slept. Breakfast?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know the wind howling round this inn isn't angry, only talkative, and you can tell the other guests so." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, take your boots off, and tell me who you've been patching up, because the braves who come in here never tell me the whole story." },
@@ -1136,8 +1136,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and I can see the forest on you, leaves and all. Boots off, sit down, and tell me what's been happening down in the Charred Vale." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The fire's warm and the stew's hot, so take your time." },
-        { id = "h_again2", text = "Sit a while longer if you like. Nobody hurries on the rock." },
+        { id = "h_again", text = "Anything else? The fire's warm and the stew's hot, so sit and tell me a story with some blood in it." },
+        { id = "h_again2", text = "Sit a while longer if you like. Nobody hurries on the rock, and a warrior who rests fights better." },
       },
       choices = {
         { text = "Do you like it up here?", next = "rock" },
@@ -1249,7 +1249,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_grove", text = "Peace, little one. This grove is old, and wise, and wary. Tread softly and you'll find it kind." },
+    { id = "g_grove", text = "Peace, little one, and Elune's light upon you. This grove is old, and wise, and wary; tread softly and you'll find it kind." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, little one, and the grove has grown a little older while you were gone. Tread softly, and welcome back." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I heard someone on the peak was left angry after speaking with you, little one. Anger spreads like fire in dry timber, so I'd ask you to be careful." },
   },
@@ -1400,7 +1400,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the mountain folk, little one. The earth of Stonetalon remembers the fires in the vale, and I think you will hear it weeping." },
       },
       again = {
-        { id = "h_again", text = "Ask what you will, little one. The grove has time, and so do I." },
+        { id = "h_again", text = "Ask what you will, little one. The grove has time, as it has had since before the Sundering, and so do I." },
         { id = "h_again2", text = "Speak on. The wind is gentle up here, and so are the trees, most days." },
       },
       choices = {
@@ -1529,7 +1529,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Go around the Charred Vale if you can, little one, and if you can't, go quickly and look up. The harpies come from above." } },
     venture_company = { { id = "tp_venture", text = "They brought fire and machines to a sacred mountain and called it business. The mountain will outlast them, but not without help." } },
     cenarion_circle = { { id = "tp_circle", text = "My father's children and their students. We keep the old places, and not everyone thanks us for it." } },
-    _none = { { id = "tp_none", text = "The grove doesn't know, little one. Nor do I." } },
+    _none = { { id = "tp_none", text = "The grove doesn't know, little one, nor do I. Some things not even ten thousand years will tell you." } },
   },
 }
 
@@ -1544,7 +1544,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Rest here. It's quiet on the peak, and the trees keep the wind off." },
+    { id = "g_inn", text = "Ishnu-alah. Rest here; it's quiet on the peak, and the trees keep the wind off." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've counted a great many stars from this step without you. Rest here a while, it's quiet tonight." },
     { id = "g_word_helped", when = { word = "helped" }, text = "People on the peak say you've been helping out, and I'm glad of it. Rest here as long as you like, and mind the path down after dark." },
   },
@@ -1645,7 +1645,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up on the peak. The wind here is strong enough to carry a voice to the stars, so if the spirits ever answer you, tell them I've been counting." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak." },
+        { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak; it has watched the moon rise for longer than my people can remember." },
         { id = "h_again2", text = "Ask whatever you like while the kettle's on." },
       },
       choices = {
@@ -1708,6 +1708,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the inn on the peak. There isn't much more to it than that, and I like it that way." } },
     advice = { { id = "tp_ad", text = "You look worn through. Rest under a roof tonight, and let Elune see to your dreams." } },
-    _none = { { id = "tp_none", text = "Ask the Keeper. He's lived here longer than the trees." } },
+    _none = { { id = "tp_none", text = "Ask the Keeper. He's lived here longer than the trees, and he remembers what the Sentinels have long forgotten." } },
   },
 }

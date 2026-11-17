@@ -132,11 +132,11 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in armour that rings like a bell! Stand easy by the roost, please, because my birds take all that steel for a predator until they learn your step." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, at Talonbranch. Thank Elune; my hippogryphs breathe easier with one of you near, and so do I, with Jaedenar so close to the road." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The wind over Felwood is sick, and my hippogryphs feel it; perhaps you feel it too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The wind over Felwood has been sick since the Legion came, and my hippogryphs feel it, so perhaps you feel it too." },
       },
       again = {
         { id = "h_again", text = "Is there more you would ask? The birds are patient, but the light is fading." },
-        { id = "h_again2", text = "Speak, then, and I will listen." },
+        { id = "h_again2", text = "Speak, then, and I will listen, as the kaldorei have learned to listen to grief." },
       },
       choices = {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
@@ -180,7 +180,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I have kept hippogryphs for the Sentinels for a long time, and I go where they are needed. That is enough to know." } },
     advice = { { id = "tp_ad", text = "Drink nothing in Felwood that does not come from a clean moonwell, no matter how thirsty you are." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids of the Emerald Circle are trying to heal this forest. I pray they have more patience than I do." } },
-    _none = { { id = "tp_none", text = "I cannot help you with that. My knowledge is of birds and of sky." } },
+    _none = { { id = "tp_none", text = "I cannot help you with that. My knowledge is of birds and of sky, and of what this forest was before the fel." } },
   },
 }
 
@@ -305,13 +305,13 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Hm, a rogue, and I didn't hear you come up the path, which is more than I can say for the satyrs. Want a ride, or did you just want to prove you could sneak up on an old orc?" },
         { id = "h_default", key = true,
-          text = "Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
+          text = "I am Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My wind riders won't drink from the river and neither should you, so if you've a blessing for clean water, start with the troughs." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll not like Felwood, tauren, and you'll like flying over it less, because the air down near Jaedenar burns the throat." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've no patience for this forest, and none for anything strange that crawls out of it, so tell me where you're flying and let's be done." },
       },
       again = {
-        { id = "h_again", text = "What else? The beasts are waiting." },
+        { id = "h_again", text = "What else? The beasts are waiting, and so is the Horde." },
         { id = "h_again2", text = "Speak. I've time, but not much patience." },
       },
       choices = {
@@ -354,7 +354,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fly wind riders for the Horde. Where I came from and what I did before is my business." } },
     advice = { { id = "tp_ad", text = "Don't sleep under the trees in Felwood. Sleep at the post, or don't sleep at all." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask someone who isn't busy." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask someone who isn't busy; an orc's work doesn't wait for talk." } },
   },
 }
 
@@ -370,7 +370,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome, traveler. I have clean water and bread that did not grow in this forest, and that is the best thing I can offer you here." },
+    { id = "g_default", text = "Welcome, traveler, and may the Earth Mother keep you. I have clean water and bread that did not grow in this forest, and that is the best thing I can offer you here." },
   },
 
   notice = {
@@ -478,14 +478,14 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde, and far from any city. Could you keep my water cold with a spell, I wonder, or is that a foolish question to ask someone who studies the arcane?" },
         { id = "h_default", key = true,
-          text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it brought in from outside, because nothing that grows in Felwood is fit to eat." },
+          text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it carried in from cleaner land, because nothing that grows in Felwood is fit to eat, and the Earth Mother weeps for it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here where nothing grows clean. The Earth Mother would welcome any healing you can give this soil, whatever name you give it in." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and a tauren besides. You'll understand, I think, why I sell nothing that grew in Felwood, because even the water here tastes of rot." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The land here is sick and does not heal, and yet you were sick once, and something healed you." },
       },
       again = {
         { id = "h_again", text = "Is there something more I can find for you on these shelves, friend?" },
-        { id = "h_again2", text = "Take your time. There's no hurry in my corner." },
+        { id = "h_again2", text = "Take your time. There's no hurry in my corner; the herd always waits for the slowest calf." },
       },
       choices = {
         { text = "Can the earth of Felwood ever heal, Bale?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -528,6 +528,6 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sell bread and water to tired people. There isn't much more to say than that, and I prefer it that way." } },
     advice = { { id = "tp_ad", text = "Buy more water than you think you need, because you can't refill it anywhere in Felwood." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids at the Emerald Sanctuary want to heal the forest, and I wish them all the strength the Earth Mother can give." } },
-    _none = { { id = "tp_none", text = "I'm sorry, friend, but I don't know anything about that." } },
+    _none = { { id = "tp_none", text = "I'm sorry, friend, but I don't know anything about that. Walk with the Earth Mother all the same." } },
   },
 }

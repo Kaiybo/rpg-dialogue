@@ -17,3 +17,6 @@
 
 ## Authored, not canon
 - Carlin's guilt at surviving; Pamela's view of the "pale people"; Smokey's pipe; Betina's opinion of Scholomance's architecture.
+
+## Race voice (0.80.0)
+- Betina: gnome; percentages, measurements, failure rates, Gnomeregan's loss. Smokey: dwarf; heavy burr ("me", "ye", "an'").

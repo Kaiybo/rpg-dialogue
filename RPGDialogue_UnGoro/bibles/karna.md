@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Karna Remtravel · Marshal's Refuge · neutral · dwarf (female) · engineer
 Personality: eager, cheerful, proud, curious
-Speech: bright, exclamatory, "oh!"
+Speech: bright, exclamatory, "oh!"; dwarf: light burr ("aye", "{g:lad|lass}", "wee"), forge and Ironforge oaths
 Relationships: uncle Prospector Remtravel (Explorers' League); A-Me 01
 Never says: who built the pylons (unknown to her)
 

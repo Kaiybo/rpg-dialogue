@@ -9,7 +9,7 @@
 ## Identity
 TODO_NPC · Dorion · Cenarion Enclave, Darnassus · Darnassus · night elf · hunter trainer
 Personality: quiet, dry, patient, devoted to his wolf
-Speech: short dry sentences that still join up; defers to Shadow.
+Speech: short dry sentences that still join up; defers to Shadow. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Never says: anything after Year 1.
 
 ## Threads he could carry

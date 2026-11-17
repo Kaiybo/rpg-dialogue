@@ -181,7 +181,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, in my father's glade. You carry your weapon lightly here, little one, and I thank you for it, for Moonglade has long been a place where blades rest." },
         { id = "h_default", key = true,
-          text = "Remulos, son of Cenarius, keeper of this glade. Moonglade is the heart of the druids' craft. I guard it for all of them, whatever banners they fly beyond its hills." },
+          text = "I am Remulos, son of Cenarius, keeper of this glade. Moonglade has been the heart of the druids' craft since Malfurion first learned it here, and I guard it for all of them, whatever banners they fly beyond its hills." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "The tauren came to the Circle late and were made welcome. Not everyone in Darnassus wished it, but I did, and I do still." },
         { id = "h_nightelf", when = { race = "NightElf" },
@@ -449,7 +449,7 @@ P:NPC {
     cenarion_circle = { { id = "tp_circle", text = "My father's children, in a way, and not all of them agree with one another. That is how I know it lives." } },
     malfurion = { { id = "tp_malf", text = "He walks the Dream while his body sleeps, and I keep the glade for him until he wakes." } },
     worgen = { { id = "tp_worgen", text = "Wolves that are not wolves, in the human forests. I have heard of them, and I am troubled, for such things do not happen without a cause." } },
-    _none = { { id = "tp_none", text = "That is beyond the glade. Rabine keeps better track of the world than I do." } },
+    _none = { { id = "tp_none", text = "That is beyond the glade, little one, and I have listened to the glade alone for ten thousand years. Rabine keeps better track of the world than I do." } },
   },
 }
 
@@ -604,7 +604,7 @@ P:NPC {
           text = "A warrior, in Nighthaven. I'll write your name in the ledger, as I do everyone's, and I'll note that you carried a weapon and kept it sheathed, which I hope you will." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your beast is welcome in Nighthaven, provided it hunts nothing within the hills, because the Keeper is particular about that." },
-        { id = "h_default", text = "Rabine Saturna, majordomo to Keeper Remulos. He watches the glade; I watch everything else, so he needn't. It's a quieter job than it sounds, most days." },
+        { id = "h_default", text = "I am Rabine Saturna, majordomo to Keeper Remulos. He watches the glade, and I watch everything else so that he needn't, which is a quieter task than it sounds, most centuries." },
         { id = "h_locket", tags = { "news" }, when = { questActive = TODO_QUEST("A Reliquary of Purity") },
           text = "Southwind's ruins are deep in Silithus, and I've known for a while that a Reliquary of Purity lay there. I kept it quiet so as not to stir our enemies, but Eldre'Thalas leaves me no more time for quiet." },
         { id = "h_locket_done", when = { questDone = TODO_QUEST("Shards of the Felvine") },
@@ -753,7 +753,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've served the Keeper as majordomo for longer than I'll admit, and I keep his house and the Circle's ledgers." } },
     advice = { { id = "tp_ad", text = "Don't go listening to the hearts of the world for answers. The answer is usually in you, and you already know it." } },
     cenarion_circle = { { id = "tp_circle", text = "The Keeper's charge, the Archdruid's pride, and my paperwork, though not in that order, some days." } },
-    _none = { { id = "tp_none", text = "I'd have to look into it, and I do look into things. Give me time." } },
+    _none = { { id = "tp_none", text = "I'd have to look into it, and I do look into things. Give me time; Nighthaven has never lacked for that." } },
   },
 }
 
@@ -881,7 +881,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You aren't here for the trials, I'd guess, though you'd do better at some of them than my students, since you already know how to listen to a beast." },
         { id = "h_default", key = true,
-          text = "I'm Dendrite Starblaze, and I guide young druids through the Circle's first trials: the bear, the cleansing, the water. Each one teaches you something your trainer couldn't." },
+          text = "I am Dendrite Starblaze, and I guide young druids through the Circle's first trials: the bear, the cleansing, the water. Each one teaches you something your trainer couldn't, as they taught me when Malfurion was still among us." },
         { id = "h_bear", tags = { "news" }, when = { questActive = TODO_QUEST("Great Bear Spirit") },
           text = "West along the mountains, you'll find the Great Bear Spirit, so listen to it. It doesn't say much, which makes what it says worth hearing." },
         { id = "h_bear_done", when = { questDone = TODO_QUEST("Great Bear Spirit"), maxLevel = 15 },
@@ -1023,7 +1023,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the Circle's guide for young druids in Nighthaven, and I've watched more bears take their first clumsy steps than I can count." } },
     advice = { { id = "tp_ad", text = "Learn the lesson before you learn the spell. I once had a student turn into a bear before he knew why, and he spent a week in the Keeper's honey." } },
     cenarion_circle = { { id = "tp_circle", text = "Our order and our duty, and Nighthaven is its hearth." } },
-    _none = { { id = "tp_none", text = "That's not my trial to teach, but Loganaar might know, or Rabine." } },
+    _none = { { id = "tp_none", text = "That's not my trial to teach, but Loganaar might know, or Rabine, who forgets nothing in all his long years." } },
   },
 }
 
@@ -1146,7 +1146,7 @@ P:NPC {
           text = "A warrior, in Nighthaven. You carry your balance in your shoulders, I see, which is good for a shield and poor for sitting still." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, in Nighthaven. You carry your balance between you and your beast, I think, and that's a wise way to carry it." },
-        { id = "h_default", text = "I'm Loganaar, and I train the druids who find their way to Nighthaven. Balance isn't somewhere you go; it's something you carry, and I help you pack." },
+        { id = "h_default", text = "I am Loganaar, and I train the druids who find their way to Nighthaven. Balance isn't somewhere you go but something you carry, as Cenarius taught us, and I help you pack." },
         { id = "h_dream", when = { minLevel = 20, class = "DRUID" },
           text = "One day the Dream will call you, and you'll sleep a long while among the purest of things. Learn all you can awake, first." },
         { id = "h_tea", when = { metBefore = true }, text = "Sit, if you have a moment, not for training but only to sit. Most druids forget to, and it shows in their bears." },
@@ -1521,7 +1521,7 @@ P:NPC {
           text = "A warrior! I'm afraid my birds only fly for druids, and they'd find all that steel very heavy besides, but you're welcome to sit with them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! My birds only fly for druids, I'm afraid, but they're curious about your companion, so you may stand close if it's polite." },
-        { id = "h_default", text = "I'm Silva, and I keep the Circle's hippogryphs. They fly one road only, to Rut'theran by Teldrassil, and only for druids; they're very particular." },
+        { id = "h_default", text = "I am Silva, and I keep the Circle's hippogryphs. They fly one road only, to Rut'theran beneath Teldrassil, and only for druids, for they are as particular as any elder of the Enclave." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You'd rather have your own wings, I imagine. These ones bite less than you'd think, if only slightly less." },
         { id = "h_names", when = { metBefore = true }, text = "The oldest of my hippogryphs won't fly unless I say her name first, and politely. I've stopped finding it strange." },
@@ -1532,7 +1532,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'm sorry, but you'll need to stand a little further off, because the birds can smell the fel on you and it makes them very cross." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The birds are restless, but they'll wait for you." },
+        { id = "h_again", text = "Anything else? The birds are restless, but they'll wait for you, as patient as the moon." },
         { id = "h_again2", text = "Ask away; Rut'theran isn't going anywhere." },
       },
       choices = {
@@ -1585,7 +1585,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the Circle's hippogryphs and fly druids home to Teldrassil. That's the whole of it, apart from a great deal of feather-sweeping." } },
     advice = { { id = "tp_ad", text = "Never walk behind a hippogryph you haven't been introduced to. I mean that more than I'd like to." } },
-    _none = { { id = "tp_none", text = "I fly birds; Rabine knows everything else." } },
+    _none = { { id = "tp_none", text = "I fly birds, friend; Rabine knows everything else, and has for longer than I have been alive." } },
   },
 }
 
@@ -1713,7 +1713,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! The spirits on you smell of mountain stone instead of the plains, and I find I'm curious about it." },
       },
       again = {
-        { id = "h_again", text = "Something more, friend? The riders can wait a little." },
+        { id = "h_again", text = "Something more, friend? The riders can wait a little, as the herd waits for the slowest calf." },
         { id = "h_again2", text = "Ask, and I'll answer if I can. Wind riders aren't much for conversation, so I'm glad of it." },
       },
       choices = {
@@ -1768,6 +1768,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the wind riders for the Circle and fly druids home to the Bluff, and that is work enough for one tauren." } },
     advice = { { id = "tp_ad", text = "Hold on with your knees, not your hands, and don't look down until you're over water." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle took my people in when others would not, and we remember that. The tauren remember everything kind." } },
-    _none = { { id = "tp_none", text = "I fly the riders, friend. Ask the elves in the village." } },
+    _none = { { id = "tp_none", text = "I fly the riders, friend. Ask the elves in the village; their memories are as long as the plains are wide." } },
   },
 }

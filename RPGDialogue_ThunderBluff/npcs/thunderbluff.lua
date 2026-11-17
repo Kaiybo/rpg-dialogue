@@ -23,7 +23,7 @@ P:NPC {
     { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you stood on this rise, and you come back with more nicks in your armour than you left with. The Earth Mother has kept you, and I'm grateful to her for it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When we first met you were a calf with a weapon, and now you stand like a warrior of the plains. I've lived long enough to know how rare that is." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The people of Thunder Bluff speak well of the help you've given them. That is the truest honour our tribes can give, and you've earned it." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "I'm told someone in this city went away from you angry. Our people have known enough strife, young one, so mend it if you can." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I'm told someone in this city went away from you angry. Our people wandered long enough with strife at our heels, young one, so mend it if you can." },
   },
 
   notice = {
@@ -537,7 +537,7 @@ P:NPC {
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer you, because the tauren do not turn away a question, but I will not pretend to trust you yet." },
     },
     cenarion_circle = { { id = "tp_circle", text = "That is Hamuul's road, and the night elves let him walk it, some more gladly than others. I'm proud of him." } },
-    _none = { { id = "tp_none", text = "Ask the elders on their rise. They've more patience for questions than an old warrior." } },
+    _none = { { id = "tp_none", text = "Ask the elders on their rise. They've more patience for questions than an old warrior, and the Earth Mother gave them longer memories." } },
   },
 }
 
@@ -553,7 +553,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rise", text = "Peace, traveller. You're on Elder Rise, so speak softly; the old ones are thinking." },
+    { id = "g_rise", text = "Peace, traveller, and may the Earth Mother keep you. You're on Elder Rise, so speak softly; the old ones are thinking." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Another druid! Come, come; every one of you is a gift, when not so long ago there were none of us at all." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, traveller, and I'm glad to see you back on Elder Rise. Sit, and tell me what the wild places showed you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, and I can see it as plainly as a sapling grown to an oak. It gladdens an old druid's heart." },
@@ -710,7 +710,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask, ask; I'm too old to be in a hurry." },
-        { id = "h_again2", text = "Go on. The old ones on the Rise won't mind a little more talk." },
+        { id = "h_again2", text = "Go on. The old ones on the Rise won't mind a little more talk, and the grass grows whether we hurry or not." },
       },
     },
     pupil = {
@@ -796,7 +796,7 @@ P:NPC {
 
   greetings = {
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young druid. Keep your mind clear and your heart strong, and the Great Balance will keep a place for you." },
-    { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "Balance in all things, friend. Even in a city built on cliffs." },
+    { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "Balance in all things, friend, as the Earth Mother keeps it between sun and moon. Even in a city built on cliffs." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and I hope you kept your balance out there. Come and tell me how the land is faring." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your words was found false here in the city. Balance is practised daily, friend, and honesty is part of the practice." },
   },
@@ -984,7 +984,7 @@ P:NPC {
 
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "Our order, and the Arch Druid's pride. Go to Moonglade when you can; it's quieter than here." } },
-    _none = { { id = "tp_none", text = "Ask Hamuul. I only teach what I'm sure of." } },
+    _none = { { id = "tp_none", text = "Ask Hamuul. I only teach what I'm sure of, and the land teaches the rest in its own season." } },
   },
 }
 
@@ -1162,7 +1162,7 @@ P:NPC {
         { text = "I'll go.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Still here? Then ask, and be quick about it." },
+        { id = "h_again", text = "Still here? Then ask, and be quick about it; the Grimtotem were never a herd that waited on stragglers." },
         { id = "h_again2", text = "Well? I've no time for children who stand about thinking." },
       },
     },
@@ -1223,7 +1223,7 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Night elves teaching tauren to be tauren! Hamuul is proud of it, and I find it embarrassing." } },
     grimtotem = { { id = "tp_grimtotem", text = "You've heard about Arnak, I suppose. Every clan has its hotheads. Mine simply has more of them, and better reasons." } },
-    _none = { { id = "tp_none", text = "Not my concern, and not yours either, I expect." } },
+    _none = { { id = "tp_none", text = "Not my concern, and not yours either, I expect. The earth tells me what I need to know." } },
   },
 }
 
@@ -1238,7 +1238,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "In out of the wind with you. There's always room by my fire." },
+    { id = "g_inn", text = "In out of the wind with you. There's always room by my fire, and the Earth Mother never turned a traveller away." },
     { id = "g_home", when = { homeInn = { "Thunder Bluff", "Lower Rise" } }, text = "Your blanket's by the fire, love. I aired it out this morning." },
     { id = "g_away", when = { away = 14 }, text = "There you are, love! You've been gone {away}, and I kept your blanket aired the whole time, just in case." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, love, and I'd started to worry myself sick over you. Sit by the fire, and I'll bring you a bowl before you say a word." },
@@ -1248,7 +1248,7 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
-      text = "Oh, look at you! Sit, sit; stew first, then sleep, and then you can go and get hurt again." },
+      text = "Oh, look at you! Sit, sit; stew first, then sleep, and then you can go and get hurt again, though the Earth Mother knows I wish you wouldn't." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "You look chilled through, but sit by the fire anyway; warm's warm, whatever's underneath." },
   },
@@ -1418,6 +1418,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I only keep the beds, friend. Ask on the rises." } },
+    _none = { { id = "tp_none", text = "I only keep the beds, friend. Ask on the rises, and may the eternal sun light your way up the lifts." } },
   },
 }

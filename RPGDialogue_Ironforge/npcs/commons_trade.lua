@@ -234,8 +234,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello, hello! Listing, bidding or browsing? I can do all three at once, if you talk quickly." },
-    { id = "g_back", when = { metBefore = true }, text = "You again! I've already worked out what you're going to ask, so go on and ask it." },
+    { id = "g_default", text = "Hello, hello! Listing, bidding or browsing? I can do all three at once, with a margin of error under two percent, if you talk quickly." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! I've already worked out the three most probable things you're going to ask, so go on and tell me which one it is." },
   },
 
   notice = {
@@ -336,19 +336,19 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! You'll want healing potions, I suppose, though I always think your sort shouldn't need them, and then I remember you're the one healing everybody else." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a ledger column just for hammers and plate, and your sort fills it up faster than anybody." },
         { id = "h_default", key = true,
-          text = "Lympkin, auctioneer, and the fastest pencil in the Commons, if I do say so, which I do. What can I tally for you today?" },
+          text = "Lympkin, auctioneer, and the fastest pencil in the Commons, eleven sums a minute on a good day, if I do say so, which I do. What can I tally for you today?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You'd be amazed how many Gnomeregan mages sold their books in this very house to pay for a bed in Tinker Town, and I tallied every one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Oh my, a warlock. Some of the brightest gnomes of Gnomeregan studied your sort of magic before the fall, you know, so I've stopped being shocked." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your sort keeps the arms market lively, and I'm grateful, though I'd be more grateful if you broke fewer swords." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your sort keeps the arms market lively, and I'm grateful, though I'd be more grateful if you broke swords at a steadier rate, because the spikes ruin my averages." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be selling, not buying, I expect, and I can tell you what anything's worth before you've finished saying what it is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a night elf druid! I've tallied a great many kaldorei goods but very few kaldorei, so forgive me if I count you twice." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! I keep my ledgers in gnomish shorthand, you know, so there's no use reading them over my shoulder, though I'd be impressed if you tried." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! That's a column I don't have in my ledger, so I'll have to rule a new one, and I do love ruling a new column." },
       },
       again = {
-        { id = "h_again", text = "Next question! I've a column waiting." },
+        { id = "h_again", text = "Next question! I've a column waiting, and a column with nothing in it is a terrible waste of good ruled paper." },
         { id = "h_again2", text = "Go on, I can listen and carry a column of figures at the same time." },
       },
       choices = {
@@ -372,7 +372,7 @@ P:NPC {
 
     how = {
       lines = {
-        { id = "hw_default", text = "I came up from Gnomeregan with the rest, and Redmuse caught me correcting her sums on the back of a list. Instead of throwing me out, she gave me a stool, and I've been sitting on it ever since." },
+        { id = "hw_default", text = "I came up from Gnomeregan with the rest, and Redmuse caught me correcting her sums on the back of a list, four errors in thirty lines. Instead of throwing me out, she gave me a stool, and I've been sitting on it ever since." },
       },
       choices = {
         { text = "That was generous of her.", next = "BACK", fx = { affinity = 1 } },
@@ -409,7 +409,7 @@ P:NPC {
 
     price = {
       lines = {
-        { id = "pr_default", text = "Look at what the same thing sold for this week, not what you wish it sold for, and list a copper or two under the cheapest. It isn't romantic, but it's arithmetic, and arithmetic is on your side." },
+        { id = "pr_default", text = "Look at what the same thing sold for this week, not what you wish it sold for, and list a copper or two under the cheapest. It isn't romantic, but it's arithmetic, and arithmetic is the one machine in Ironforge that never jams." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -427,8 +427,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I tallied water rates in Gnomeregan, and now I tally bids in Ironforge, which is much the same except nobody drowns if I get it wrong." } },
-    advice = { { id = "tp_ad", text = "Write everything down, and then write down where you wrote it." } },
-    _none = { { id = "tp_none", text = "That doesn't add up to anything I know about, I'm afraid. Ask Redmuse; she's been here longer." } },
+    advice = { { id = "tp_ad", text = "Write everything down, and then write down where you wrote it, and then cross-reference both, because a figure you can't find is the same as a figure you never had." } },
+    _none = { { id = "tp_none", text = "That doesn't add up to anything I know about, I'm afraid, and I've checked the sum twice. Ask Redmuse; she's been here longer." } },
   },
 }
 

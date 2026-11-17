@@ -752,8 +752,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Stand at attention when you approach, soldier! Winky, look sharp, we've got company." },
-    { id = "g_back", when = { metBefore = true }, text = "Soldier! Back on the ridge and reporting, are we? Good, good, because Winky's been telling lies about you again." },
+    { id = "g_default", text = "Stand at attention when ye approach, soldier! Winky, look sharp, we've got company, and by my beard it's a sturdy one." },
+    { id = "g_back", when = { metBefore = true }, text = "Soldier! Back on the ridge and reporting, are we? Aye, good, because Winky's been telling lies about ye again." },
     { id = "g_away", when = { away = 14 }, text = "Soldier! You've been absent without leave for {away}, and Winky noticed first, so I'll let it slide this once if you fall in smartly." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Winky tells me you were caught fibbing to someone on the ridge, soldier. Winky's a liar himself, mind, but he's never once been caught." },
   },
@@ -823,7 +823,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Winky says we oughtn't to enlist demons, soldier, but Winky also says the moon is a cheese, so I've stopped listening to Winky." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, reporting for duty! Excellent, soldier; Winky says artillery wins wars, and you're the nearest thing to artillery we've had all month." },
         { id = "h_default", key = true,
-          text = "Oralius, of the Vigil, and the only one here who keeps his head about him, whatever Captain Winky says. We strike the enemy before the enemy strikes us, soldier, and today is a striking sort of day." },
+          text = "Oralius, of the Vigil and of Ironforge before that, and the only one here who keeps his head about him, whatever Captain Winky says. We strike the enemy before the enemy strikes us, soldier, and today is a striking sort of day." },
         { id = "h_firegut", when = { questActive = TODO_QUEST("Extinguish the Firegut") },
           text = "The Firegut keep Dreadmaul Rock and the Blackrock supply lines open, and the plan is to cripple them, so why is there so little blood on your uniform? Out you go, soldier." },
         { id = "h_gortesh", when = { questActive = TODO_QUEST("Gor'tesh the Brute Lord") },
@@ -843,7 +843,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, soldier? Speak up, because Winky's listening and he's a terrible gossip." },
-        { id = "h_again2", text = "Next item on the agenda! Quickly now, the war won't wait." },
+        { id = "h_again2", text = "Next item on the agenda! Quickly now, {g:lad|lass}, the war won't wait." },
       },
       choices = {
         { text = "Who's Captain Winky?", next = "winky" },
@@ -974,10 +974,10 @@ P:NPC {
       { id = "tp_knows", text = "Intelligence, soldier, I've got it coming out of my ears, and Winky's got the rest. Ask me about any of this and keep your voice down." },
     },
     background = { { id = "tp_bg", text = "A soldier, soldier, which is all you need to know and all the Marshal knows too. Winky says otherwise, but Winky would.", next = "served" } },
-    advice = { { id = "tp_ad", text = "Always keep a horn handy and a head on a pike, soldier. You'd be amazed how many problems one or the other solves." } },
+    advice = { { id = "tp_ad", text = "Always keep a horn handy and a head on a pike, soldier, and a wee flask of stout for after. You'd be amazed how many problems one or the other solves." } },
     firegut = { { id = "tp_firegut", text = "Big, blue, stupid and frightened of their own shadows, once you know which shadow to show them.", next = "orders" } },
     blackrock = { { id = "tp_blackrock", text = "They wear medallions like they're proud of something, soldier. Bring me fifty and we'll find out what." } },
-    _none = { { id = "tp_none", text = "That's classified, soldier, and Winky can stop laughing right now." } },
+    _none = { { id = "tp_none", text = "That's classified, soldier, by order of the forge and the hammer, and Winky can stop laughing right now." } },
   },
 }
 
@@ -993,8 +993,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Oh! Oh, you startled me. Everything up here is either on fire or about to be, so I've become rather jumpy." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back, and you're not even singed! Well, not very singed." },
+    { id = "g_default", text = "Oh! Oh, you startled me. By my count about eighty percent of everything up here is on fire and the rest is about to be, so I've become rather jumpy." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and you're not even singed! Well, not very singed, perhaps two or three percent at the cuffs." },
   },
 
   notice = {
@@ -1051,7 +1051,7 @@ P:NPC {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Oh, you startled me, though everything startles me lately, so please don't take it personally." },
         { id = "h_default", key = true,
-          text = "Jalinda Sprig. I lead the expedition that's meant to get into Blackrock Depths, which is going very badly, because everything that guards the way in is made of fire." },
+          text = "I'm Jalinda Sprig, and I lead the expedition that's meant to get into Blackrock Depths, which is going very badly, because everything that guards the way in is made of fire and none of my calculations allowed for quite so much of it." },
         { id = "h_pyron", when = { questActive = TODO_QUEST("Overmaster Pyron") },
           text = "Overmaster Pyron guards the quarry at the mountain's foot, and every time we try to get past him we lose eyebrows. Please, please be careful." },
         { id = "h_incendius", tags = { "news" }, when = { questActive = TODO_QUEST("Incendius!") },
@@ -1171,7 +1171,7 @@ P:NPC {
       { id = "tp_knows", text = "Oh, I've taken measurements of nearly everything around here, though not all of it was wise. Ask me about any of these, if you like." },
     },
     background = { { id = "tp_bg", text = "A gnome of Gnomeregan who now measures volcanoes for a living. I don't recommend the career; I've lost both eyebrows twice.", next = "why" } },
-    advice = { { id = "tp_ad", text = "Carry water, carry more water, and if anything made of fire starts talking to you, don't answer it." } },
+    advice = { { id = "tp_ad", text = "Carry water, then carry more water, roughly twice what any sensible formula suggests, and if anything made of fire starts talking to you, don't answer it." } },
     blackrock_depths = { { id = "tp_depths", text = "The Dark Iron city, built into the mountain's heart. My expedition was meant to go in, but the fire elementals had other ideas.", next = "mountain" } },
     dark_iron = { { id = "tp_darkiron", text = "They serve the fire, or the fire owns them, and I'm honestly not sure which is worse." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, I'm afraid. Helendis might; he knows a great deal and is very patient about it." } },

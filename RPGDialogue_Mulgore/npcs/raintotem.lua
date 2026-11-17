@@ -41,8 +41,8 @@ P:NPC {
           text = "Eyahn sent you with the ceremony preparations? Good, then the dead will be honored properly, once the quilboar are gone from among them." },
       },
       again = {
-        { id = "h_again", text = "What else would you know of this place?" },
-        { id = "h_again2", text = "Ask, and I will answer, as the lorekeepers always have." },
+        { id = "h_again", text = "What else would you know of this place, and of the honored dead who rest here?" },
+        { id = "h_again2", text = "Ask, and I will answer, as the lorekeepers always have, since the tribes first wandered." },
       },
       choices = {
         { text = "Who is buried at Red Rocks?", next = "buried" },

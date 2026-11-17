@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "The Altar of Storms receives few visitors, and fewer still who leave the way they came. Speak, and let us see which kind you are." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still whole. How encouraging." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still whole, with your blood where it belongs. How encouraging." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}. The circle doesn't care, but I confess I noticed." },
     { id = "g_lock_back", when = { metBefore = true, class = "WARLOCK" }, text = "Ah, my student returns. Have you brought me something red?" },
   },
@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Mor'zul Bloodbringer, and I study what lies between this world and the burning ones beyond it. If you aren't a warlock, I'll thank you to keep your distance from the circle, for it bites." },
+          text = "I am Mor'zul Bloodbringer, and I study what lies between this world and the burning ones beyond it, as orcs did long before Thrall taught them to be ashamed of it. If you aren't a warlock, I'll thank you to keep your distance from the circle, for it bites." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Your mastery over the denizens of other worlds has grown, I see, and you've come to me for the greatest of steeds. The dreadsteeds dwell on the Plains of Xoroth, and binding one is not a task for the impatient." },
         { id = "h_blood", tags = { "news" }, when = { questActive = TODO_QUEST("Rage of Blood") },
@@ -146,8 +146,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A scholar of the nether, a teacher of warlocks, and a connoisseur of blood. The rest is no concern of yours." } },
+    background = { { id = "tp_ba", text = "I am a scholar of the nether, a teacher of warlocks, and a connoisseur of blood, and I was all three when the Shadow Council still met. The rest is no concern of yours." } },
     advice = { { id = "tp_ad", text = "Never step into a circle you didn't draw yourself." } },
-    _none = { { id = "tp_none", text = "I haven't troubled to learn that, and I doubt it would have been worth the trouble." } },
+    _none = { { id = "tp_none", text = "I haven't troubled to learn that, and I doubt it would have been worth the trouble, any more than the shamans' prattle about spirits." } },
   },
 }

@@ -78,7 +78,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Perhaps not yet! But a mechanical bear's no' so far from a mechanical chicken, an' I've built several o' those. Ye'd be surprised what clockwork can imitate." } },
+      lines = { { id = "dq_default", text = "Perhaps not yet! But a mechanical bear isn't so far from a mechanical chicken, and I've built several of those. You'd be surprised what clockwork can imitate." } },
       choices = {
         { text = "Some things should stay natural, Tinkmaster.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Invention has its place beside nature.", next = "BACK", fx = { align = { order = 1 } } },
@@ -146,7 +146,7 @@ P:NPC {
         { id = "h_gnome_eng", tags = { "news" }, when = { questActive = TODO_QUEST("Gnome Engineering") },
           text = "You've brought the manual! A young engineer answering the call of true engineering, how splendid. Read it all, then sign the pledge, and mean it." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid in Tinker Town! Fascinating, absolutely fascinating, because yer shapeshifting is precisely the sort o' thing I'd love tae build a machine for." },
+          text = "A druid in Tinker Town! Fascinating, absolutely fascinating, because your shapeshifting is precisely the sort of thing I'd love to build a machine for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Some of my best students were gnome mages before Gnomeregan fell, and they built the most marvellous arcane-powered gadgets." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },

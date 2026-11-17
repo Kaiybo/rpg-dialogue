@@ -9,7 +9,7 @@
 ## Identity
 Moorane Hearthgrain · the Crossroads · Horde · Tauren · baker
 Personality: warm, motherly, practical
-Speech: 'Little one', food talk
+Speech: 'Little one', food talk; tauren warmth, Mulgore grain and the Earth Mother
 Relationships: Thork (eats two loaves a day), Sergra (recovers grain)
 Never says: anything after Year 1; no foreshadowing.
 

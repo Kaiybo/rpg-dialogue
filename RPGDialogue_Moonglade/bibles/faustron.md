@@ -9,7 +9,7 @@
 ## Identity
 Faustron · Moonglade · Horde · orc, male · Wind Rider Master
 Personality: gruff, self-restrained
-Speech: plain orc speech, whole sentences.
+Speech: plain orc speech, whole sentences. Orc voice (0.80.0): blunt and proud; honor, blood, deeds over talk; "Lok'tar" sparingly.
 Relationships: Bunthen Plainswind flies druids; Sindrayl across the glade.
 Default attitudes: minds his manners on night elf ground; remembers Hyjal.
 

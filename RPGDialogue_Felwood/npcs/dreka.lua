@@ -43,8 +43,8 @@ P:NPC {
           text = "A tauren. Your druids are always telling us the furbolgs are a sick people and not a wicked one, and maybe that's so, but sick or not, one of them killed my husband." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak plainly." },
-        { id = "h_again2", text = "You're still here. Ask, then." },
+        { id = "h_again", text = "What else? Speak plainly, as an orc should." },
+        { id = "h_again2", text = "You're still here. Ask, then, and then go and earn some honor in that forest." },
       },
       choices = {
         { text = "Tell me about your husband.", next = "husband" },
@@ -147,6 +147,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a warrior's wife. Now I'm a warrior's widow, and that's all you need to know." } },
     advice = { { id = "tp_ad", text = "If a druid asks you to go somewhere dangerous with them, ask how many came back the last time." } },
     furbolgs = { { id = "tp_furb", text = "The Deadwood are mad with the forest's poison, and the druids say they were a wise people once. I say one of them killed my husband." } },
-    _none = { { id = "tp_none", text = "Don't know, and don't care. Ask someone else." } },
+    _none = { { id = "tp_none", text = "Don't know, and don't care. My husband's blood is in this forest, and that is all I think about." } },
   },
 }

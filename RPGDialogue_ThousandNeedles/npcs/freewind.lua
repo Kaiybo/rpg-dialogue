@@ -133,7 +133,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
-        { id = "h_again2", text = "Go on. The Galak won't wait for us to finish talking." },
+        { id = "h_again2", text = "Go on. The Galak won't wait for us to finish talking, and the canyon has eyes of its own." },
       },
       choices = {
         { text = "Can the canyon floor recover from the Galak?", next = "druid_q", when = { class = "DRUID" } },
@@ -326,7 +326,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I watch the cliffs for Freewind, and I have a brother in Desolace who thinks I've forgotten him. I'm better at one of those duties than the other.", next = "nataka" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, smile at the Grimtotem and keep your back to the wall." } },
     grimtotem = { { id = "tp_grimtotem", text = "Watch them. Smile if you must, but watch them." } },
-    _none = { { id = "tp_none", text = "That is beyond what I can see from this mesa." } },
+    _none = { { id = "tp_none", text = "That is beyond what I can see from this mesa, and I can see a long way when An'she is high." } },
   },
 }
 
@@ -342,7 +342,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_study", text = "Ah, a visitor. Forgive the mess; I've been staring at centaur carvings since dawn." },
+    { id = "g_study", text = "Ah, a visitor. Forgive the mess; I've been staring at centaur carvings since An'she rose." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! I hoped you might, because I've had questions piling up." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and my questions have been piling up the entire time! Sit down, please, I've a dozen carvings to ask you about." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I heard you talked someone round to your way of thinking, which is a fine scholarly skill. I wish you could persuade the centaur to let me see their carvings up close." },
@@ -446,7 +446,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've been staring at centaur carvings all morning, and now I have something even more puzzling to stare at." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'll warn you, I can talk about centaur until the moon sets." },
+        { id = "h_again", text = "Anything else? I'll warn you, I can talk about centaur until Mu'sha sets." },
         { id = "h_again2", text = "Go on, ask. Questions are the only thing I never tire of." },
       },
       choices = {
@@ -545,7 +545,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I study the centaur from up here, and the Circle's teachers taught me to listen before I study anything." } },
     advice = { { id = "tp_ad", text = "Never fight the Galak on open ground. Make them come up to you; centaur hate a slope." } },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul's teachers. I owe them more than I can say; the land speaks to me because they taught me to listen." } },
-    _none = { { id = "tp_none", text = "I don't know, but now I want to. Thank you for that." } },
+    _none = { { id = "tp_none", text = "I don't know, but now I want to, and the Earth Mother loves a curious calf. Thank you for that." } },
   },
 }
 
@@ -655,7 +655,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Forgive me, my mind keeps wandering back to that shell." },
-        { id = "h_again2", text = "Ask, please. I've been talking to myself for days." },
+        { id = "h_again2", text = "Ask, please. I've been talking to myself for days, and the wind serpents make poor listeners." },
       },
       choices = {
         { text = "Should that egg be disturbed at all, Hagar?", next = "druid_q", when = { class = "DRUID" } },
@@ -777,7 +777,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Sit if you like, but don't expect me to be good company." },
+    { id = "g_inn", text = "Sit if you like, but don't expect me to be good company; the Earth Mother hasn't given me much to be good company about." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Have you come with news, or just for the stew? It's kodo and grit today, and the grit's free." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nothing has changed here, which is about what I expected. Sit if you like." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I heard one of your lies was found out at the post. I've no patience for lies any more, not since the Grimtotem told so many." },
@@ -981,7 +981,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Lakota Windsong is my friend, and that's all you need to know about me right now.", next = "lakota" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, don't trust a single smile you see there." } },
     grimtotem = { { id = "tp_grimtotem", text = "Ask me again when they've answered for it." } },
-    _none = { { id = "tp_none", text = "I don't care about that, not today." } },
+    _none = { { id = "tp_none", text = "I don't care about that, not today, not while Lakota's still on that pinnacle." } },
   },
 }
 
@@ -1091,7 +1091,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Welcome to Freewind, and don't look down. You're the first Forsaken paladin to sleep at my inn, and the wind will sing louder for you, I think." },
       },
       again = {
-        { id = "h_again", text = "Something more, friend? There's no hurry on the mesa." },
+        { id = "h_again", text = "Something more, friend? There's no hurry on the mesa; the Earth Mother made the canyons over a great many seasons." },
         { id = "h_again2", text = "Ask away. The stew won't spoil while we talk." },
       },
       choices = {
@@ -1185,6 +1185,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the inn at Freewind, and I keep it high and dry. That's the whole of me, friend." } },
     advice = { { id = "tp_ad", text = "Hold the rope rail on the bridges, and never cross one after a second mug." } },
     grimtotem = { { id = "tp_grimtotem", text = "I feed whoever comes to my door, but I've never fed a Grimtotem, and I don't expect to." } },
-    _none = { { id = "tp_none", text = "Ask the Cliffwatcher; little happens in the Needles that he misses." } },
+    _none = { { id = "tp_none", text = "Ask the Cliffwatcher; little happens in the Needles that he misses, and nothing that the wind doesn't tell him." } },
   },
 }

@@ -312,7 +312,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Lok'tar, warrior! Speak quickly; the Horde has a war to prepare." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade, and half of mine are on their backs with the runs from bad oasis water." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade, and half of mine are on their backs with the runs from bad oasis water, which is no death for an orc." },
   },
   start = "hello",
   nodes = {
@@ -408,7 +408,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can you hold an axe? No, a hammer, then, and I hear the Light burns bugs as well as anything." },
       },
-      again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Speak, and quickly." } },
+      again = { { id = "h_again", text = "Anything else? Speak it plainly, warrior." }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
         { text = "Will the Horde fight beside the Circle here?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "The earth here is sick with hives. How does the Horde fight it?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },

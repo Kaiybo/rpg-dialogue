@@ -502,7 +502,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_spec", text = "Greetings. Please state your class specification and the nature of your inquiry." },
+    { id = "g_spec", text = "Greetings. Please state your class specification and the nature of your inquiry, in that order, for filing purposes." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Ah, a warrior unit, returning for calibration. Excellent." },
   },
 
@@ -684,7 +684,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I have catalogued a number of facts, of varying reliability. Select one." } },
     background = { { id = "tp_bg", text = "I left Gnomeregan with the rest, learned to fight, and now I train others to do it more efficiently. That is the summary." } },
     advice = { { id = "tp_ad", text = "Check your equipment's tolerances before a fight, not during. During is very inconvenient." } },
-    _none = { { id = "tp_none", text = "That falls outside my area of specification." } },
+    _none = { { id = "tp_none", text = "That falls outside my area of specification, and I don't guess outside my specifications; it voids the warranty." } },
   },
 }
 

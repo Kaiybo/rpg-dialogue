@@ -13,7 +13,7 @@ P:NPC {
     third = "{name} met Morin Cloudstalker, who watches the roads of Mulgore.",
   },
   greetings = {
-    { id = "g_road", text = "The road is long and the plains are wide, traveler. Stand with me a moment." },
+    { id = "g_road", text = "The road is long and the plains are wide, traveler, and the Earth Mother watches both. Stand with me a moment." },
     { id = "g_back", when = { metBefore = true }, text = "You return to my stretch of road. The Earth Mother keeps you, I see." },
   },
   notice = {
@@ -180,7 +180,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I know the road and the grass beside it. For more than that, ask the elders." } },
+    _none = { { id = "tp_none", text = "I know the road and the grass beside it, as my fathers knew it. For more than that, ask the elders." } },
   },
 }
 
@@ -294,7 +294,7 @@ P:NPC {
         { text = "Can the Light heal the land as druids do, Gennia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows." } },
+      again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows, slowly, as the roots grow." } },
     },
     elves = {
       lines = { { id = "e_default", text = "Hamuul Runetotem studied with the great Malfurion Stormrage himself, and he brought the teachings home to our people. Some elves still grumble about it, but the Cenarion Circle welcomes us." } },
@@ -322,7 +322,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "That is not something the land has told me, little one." } },
+    _none = { { id = "tp_none", text = "That is not something the land has told me, little one. Sit with the Earth Mother a while; she may." } },
   },
 }
 
@@ -336,7 +336,7 @@ P:NPC {
     third = "{name} met Yaw Sharpmane, the hunter trainer at Bloodhoof Village.",
   },
   greetings = {
-    { id = "g_hi", text = "You walk softly enough. Good, because the plainstriders hear everything." },
+    { id = "g_hi", text = "You walk softly enough, like a hunter who respects the grass. Good, because the plainstriders hear everything." },
   },
   start = "hello",
   nodes = {
@@ -475,6 +475,6 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I track beasts, not rumors. Ask at the inn." } },
+    _none = { { id = "tp_none", text = "I track beasts, not rumors. Ask at the inn, where the rumors graze." } },
   },
 }

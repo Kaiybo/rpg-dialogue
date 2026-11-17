@@ -29,6 +29,7 @@
 - Gossip verbatim (Bilgewhizzle's "the name's Bilgewhizzle", Tran'rek's "make our profits", Pestlezugg's "in need of some alchemy supplies").
 
 ## Voices
+- Race voice (0.80.0): Bera Stonehammer keeps a Dun Morogh burr; Trenton Lighthammer speaks with a kaldorei's long memory; Curgle counts and estimates like a gnome.
 - Marin: eager, hot, money-minded inventor.
 - Sprinkle: warm cook; "Noggy" is hers.
 - Bilgewhizzle: harried water engineer.

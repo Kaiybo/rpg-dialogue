@@ -1400,15 +1400,15 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_sigh", text = "Oh, hello. You're not going to hit me, are you? Everyone hits me, and I've stopped asking why." },
+    { id = "g_sigh", text = "Oh, hello. You're not going to hit me, are you? Everyone hits me, and I stopped asking the Earth Mother why a long time ago." },
     { id = "g_low", when = { maxLevel = 5 }, text = "Another young one. Let me guess: you heard there's a tauren in the inn you can beat up. There is, but please don't." },
-    { id = "g_away", when = { away = 14 }, text = "Oh, it's you again, after {away}. Nobody else stops to talk instead of hitting me, so I noticed you were gone." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "People in the inn say you've been helping folk around the city. I wish somebody had done that for me, back when I could still stand up straight." },
+    { id = "g_away", when = { away = 14 }, text = "Oh, it's you again, after {away}. Nobody else stops to talk instead of hitting me, so I noticed you were gone, the way the grass notices when the rain stops." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "People in the inn say you've been helping folk around the city. I wish somebody had done that for me, back when I could still stand as tall as my herd." },
   },
 
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior? I was one too, once, and then I started drinking, and then people started hitting me. I'm not sure which came first anymore." },
+      text = "A warrior? I was one too, once, back in Mulgore, and then I started drinking, and then people started hitting me. I'm not sure which came first anymore." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "You're drunk too, finally someone who understands! Sit down, only please don't hit me." },
   },
@@ -1417,7 +1417,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Because everyone does, and the last thing I saw with that glow around it was a human knight in Lordaeron putting me on my back for good. I got up then too, though it took the camps and ten years to do it." } },
+      lines = { { id = "xfpala_default", text = "Because everyone does, and the only glow I ever saw in Mulgore was the sunrise over the grass. The orcs here tell me what that Light did to them in the camps, though, so I expect you'll hit me harder than most." } },
       choices = {
         { text = "I'll not be the next to knock you down.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Then stay down this time and save us both trouble.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1426,7 +1426,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Because tomorrow somebody will knock me down again, and then the healing's wasted on me. I was a warrior once, you know, and a good one, and I think I'd rather keep the bruises than pretend I'm still that orc." } },
+      lines = { { id = "xhpriest_default", text = "Because tomorrow somebody will knock me down again, and then the healing's wasted on me. I was a warrior of Bloodhoof once, you know, and a good one, and I think I'd rather keep the bruises than pretend I'm still that tauren." } },
       choices = {
         { text = "A warrior who keeps getting up is still a warrior.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Then stop getting up, Gamon, and stop being their sport.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1436,7 +1436,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hunt? I used to chase boar through the scrub with my brothers once, and I could gut one faster than any of them. Now the only thing I track is the ale barrel, and Tazan says I'm losing the scent of that too." },
+        { id = "xhuntcl_default", text = "Hunt? I used to run plainstriders through the grass of Mulgore with my brothers, and I could bring one down faster than any of them. Now the only thing I track is the ale barrel, and Tazan says I'm losing the scent of that too." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week. Can it stay a while? It's warmer than the floor." },
       },
       choices = {
@@ -1447,7 +1447,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Once, I think, back before the drinking, when I still carried an axe for the Warchief. The wind told me to duck, and I did, and the spear went over my head, and I've been trying to hear it again ever since, mostly at the bottom of a mug." } },
+      lines = { { id = "xhsham_default", text = "Once, I think, back before the drinking, when I still rode against the centaur for Cairne. The wind told me to duck, and I did, and the spear went over my horns, and I've been trying to hear it again ever since, mostly at the bottom of a mug." } },
       choices = {
         { text = "The wind still speaks, Gamon. Put the mug down and listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some warriors only have one good day in them.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1468,7 +1468,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. I saw what the warlocks became in the old wars, though, and I'd rather be knocked down by grunts every night than end up like them." },
+        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and I'd rather be knocked down by grunts every night than end up like that." },
       },
       choices = {
         { text = "You're right to be wary. I'll stay careful.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1478,7 +1478,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Maybe it would, but out there nobody knocks you down, and I'm not sure I'd know who I was anymore. In here at least I know I'll get back up, and that's the one thing I'm still good at." } },
+      lines = { { id = "xdruid_default", text = "Maybe it would, and the Earth Mother is patient with fools, they say. But out there nobody knocks you down, and I'm not sure I'd know who I was anymore. In here at least I know I'll get back up, and that's the one thing I'm still good at." } },
       choices = {
         { text = "You keep getting up, Gamon. That takes guts.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Pride's no use to you. Walk away and start over somewhere.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1501,7 +1501,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha! A dead paladin. I've been knocked down by everything else in this inn, so I suppose you're next, are you?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
         { id = "h_default", key = true,
-          text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again." },
+          text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again. My herd is a long way off in Mulgore, and it's better they don't see me like this." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and I'd rather not add a bear to the list." },
@@ -1527,7 +1527,7 @@ P:NPC {
       },
     },
     warrior = {
-      lines = { { id = "wa_default", text = "I carried a big hammer once, and I wasn't bad with it either. I don't really remember when I put it down, which tells you most of what you need to know about me, I suppose." } },
+      lines = { { id = "wa_default", text = "I carried a big totem-hammer once, the kind my grandfather carved, and I wasn't bad with it either. I don't really remember when I put it down, which tells you most of what you need to know about me, I suppose." } },
       choices = {
         { text = "You could pick that hammer back up.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then stay away from the ale, Gamon.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
@@ -1536,7 +1536,7 @@ P:NPC {
     why = {
       big = true,
       lines = {
-        { id = "w_default", text = "I'm here, I suppose, and I always get back up. Maybe that's the trouble; maybe if I stayed down, they'd get bored." },
+        { id = "w_default", text = "I'm here, I suppose, and I always get back up, the way the grass does after the kodo walk over it. Maybe that's the trouble; maybe if I stayed down, they'd get bored." },
       },
       choices = {
         { text = "Never stay down, Gamon.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
@@ -1547,6 +1547,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know. I spend most days looking at the ceiling, and it's a nice ceiling." } },
+    _none = { { id = "tp_none", text = "I don't know. I spend most days looking at the ceiling, and it's a nice ceiling, though not as nice as the sky over Mulgore." } },
   },
 }

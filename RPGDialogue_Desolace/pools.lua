@@ -22,6 +22,6 @@ P:Pool {
   choices = { { text = "Hold fast.", next = "END", fx = { standing = { nijels_point = 1 } } } },
   topics = {
     cenarion_circle = { { id = "t_circle", text = "The keeper and his sisters keep to themselves. They're after something in the south, something big." } },
-    _none = { { id = "t_none", text = "Ask the Captain; he's got the maps." } },
+    _none = { { id = "t_none", text = "Ask the Captain; he's got the maps, and the Light knows he's earned them." } },
   },
 }

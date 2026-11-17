@@ -198,7 +198,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Wind's greetings, friend." },
+    { id = "g_default", text = "Wind's greetings, friend, and welcome to the Sky Enclave's portal." },
     { id = "g_skyborne", when = { race = "Skyborne" }, text = "Winds be with you, {g:kinsman|kinswoman}. Stormwind is only a step away." },
   },
 
@@ -223,7 +223,7 @@ P:NPC {
           text = "Wind's greetings. You're from Stormwind, perhaps? I'd ask you a hundred questions about it, if I didn't think it would be rude." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've nowhere to be but here." },
+        { id = "h_again", text = "Anything else? I've nowhere to be but here, and the ley lines under this city are louder than anything I knew on Zephras, so I'm glad of a voice to listen to instead." },
       },
       choices = {
         { text = "Why only Skyborne through the portal?", next = "only" },
@@ -301,7 +301,7 @@ P:NPC {
 
   topics = {
     two_orders = { { id = "tp_orders", text = "Our cousins chose the Horde and the old spirits; we chose the Alliance and the arcane. I'd rather not say more than that in a city that's been kind to us." } },
-    _none = { { id = "tp_none", text = "I'm afraid I've only been on Azeroth a little while. Ask one of the Kirin Tor." } },
+    _none = { { id = "tp_none", text = "I'm afraid I've only been on Azeroth a little while, and my studies so far have taught me how much I don't know. Ask one of the Kirin Tor." } },
   },
 }
 
@@ -329,7 +329,7 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Winds be with you. Every bolt you bring me becomes a cloak for someone still learning what snow is, so bring what you can." },
       },
-      again = { { id = "h_again", text = "Anything else I can tell you?" } },
+      again = { { id = "h_again", text = "Anything else I can tell you? Winds be with you, whatever you need." } },
       choices = {
         { text = "Why does the High Order need cloth?", next = "why" },
         { text = "Does clothcraft matter to your people?", next = "craft" },
@@ -356,7 +356,7 @@ P:NPC {
 
   topics = {
     two_orders = { { id = "tp_orders", text = "I keep the High Order's accounts, not its quarrels. Ask someone with a louder voice than mine." } },
-    _none = { { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it." } },
+    _none = { { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it. Clothcraft is an old art among my people, and I've had little time for any other." } },
   },
 }
 

@@ -587,7 +587,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Where were we? Ah, I remember; I always remember." },
-        { id = "h_again2", text = "Go on, ask me what ye like. I've nowhere to be, for I'm a historian." },
+        { id = "h_again2", text = "Go on, ask me what ye like. I've nowhere to be, for I'm a historian, an' the mountain's not going anywhere either." },
       },
       choices = {
         { text = "What do dwarven records say about druids?", next = "druid_q", when = { class = "DRUID" } },
@@ -613,7 +613,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "t_default", key = true,
-          text = "The dwarven clans were at war with each other then. The Dark Iron city burned in one great blast, and the land round it turned to ash. What crawled out of the ash went into the mountain and built again." },
+          text = "The dwarven clans were at war with each other then. The Dark Iron city burned in one great blast, an' the land round it turned to ash, and what crawled out o' the ash went into the mountain and built again, stubborn as any dwarf." },
       },
       choices = {
         { text = "What made the blast?", next = "burn" },
@@ -623,7 +623,7 @@ P:NPC {
     },
     burn = {
       lines = {
-        { id = "bu_default", text = "We do not know. Every account I've read stops at the same place, like a road that ends at a cliff." },
+        { id = "bu_default", text = "We do not know, {g:lad|lass}, and I've asked every book in the mountain. Every account I've read stops at the same place, like a tunnel that ends at bare rock." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -748,13 +748,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've spent my life on the histories o' this mountain, an' now I have them read tae me, which is slower but no less thorough. Ask me about any o' these." },
     },
-    background = { { id = "tp_bg", text = "I'm historian to the King. My eyes went but my memory didn't, and a patient scribe writes down what I say, so between us we've filled a shelf." } },
+    background = { { id = "tp_bg", text = "I'm historian to the King. My eyes went but my memory didn't, an' a patient scribe chisels down what I say, so between us we've filled a shelf." } },
     advice = { { id = "tp_ad", text = "Write down what ye saw on the day ye saw it. By the next day ye'll have improved it." } },
     dark_iron = { { id = "tp_dark_iron", text = "They were our kin once, and our enemies for far longer. History doesn't forgive, but it remembers both.", next = "thaurissan" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes kept poor records and lost the rest, so I've offered my scribe to Mekkatorque. He's still thinking about it." } },
     explorers_league = { { id = "tp_league", text = "They dig it up and I write it down, and Magellas and I argue about which is the harder job. I'm right, of course." } },
     stonewrought_dam = { { id = "tp_dam", text = "A wonder of the world, built by a method its keepers would rather not trace.", next = "dam" } },
-    _none = { { id = "tp_none", text = "Not in my memory, and my memory's longer than most." } },
+    _none = { { id = "tp_none", text = "Not in my memory, and my memory's longer than most beards in this city." } },
   },
 }
 
@@ -770,13 +770,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_league", text = "This is the Hall of Explorers, so touch nothing with a label on it, and nothing without one, either, until you've asked." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back! Have you seen anything worth writing down?" },
+    { id = "g_league", text = "This is the Hall o' Explorers, so touch nothing with a label on it, and nothing without one either, until ye've asked." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, ye've come back! Have ye seen anything worth writing down, or digging up?" },
   },
 
   notice = {
     { id = "n_far", cat = "travel", when = { visited = "Darkshire" },
-      text = "You've been south, past the forest! Did you write anything down while you were there? Nobody ever writes anything down." },
+      text = "You've been south, past the forest! Did ye write anything down while ye were there? Nobody ever writes anything down, by my beard." },
     { id = "n_miner", cat = "lore", when = { profession = "Mining" },
       text = "A miner! If you ever break into a hall that isn't on any map, stop swinging and send for us, please." },
   },
@@ -878,7 +878,7 @@ P:NPC {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
           text = "You've been to the bottom of Uldaman, past Archaedas himself, I'm told! Sit down, please, because I want every detail, and I want them in order." },
         { id = "h_default", key = true,
-          text = "Muninn Magellas, High Explorer of the Explorers' League. We map the world, catalogue what lives in it and dig up what used to, and while my Prospectors do the digging, I do the worrying." },
+          text = "Muninn Magellas, High Explorer of the Explorers' League. We map the world, catalogue what lives in it and dig up what used to, and while my Prospectors swing the picks, I do the worrying." },
         { id = "h_discs", tags = { "news" }, when = { questActive = TODO_QUEST("The Platinum Discs") },
           text = "Discs from Uldaman, and they speak? Do you understand what this might mean, where we came from and what we really are? Let me sit down." },
         { id = "h_brann", key = true, when = { minLevel = 30 },
@@ -897,11 +897,11 @@ P:NPC {
           text = "A mage! My Prospectors keep bringin' home relics that hum, an' I'd dearly love someone who can tell me whether they're dangerous before I put them on a shelf." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in the Hall o' Explorers? I'll ask ye no' tae touch anythin', for some o' these relics have opinions about yer sort o' magic." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Don't touch anything with a label, please, and especially don't lean on it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Don't touch anything with a label, please, and especially don't lean on it; that case has stood since before yer grandsire's beard came in." },
       },
       again = {
-        { id = "h_again", text = "What else? The catalogue can wait, as it always does." },
-        { id = "h_again2", text = "Go on. Questions are the one thing we never run short of here." },
+        { id = "h_again", text = "What else? The catalogue can wait, as it always does, like a seam o' ore that isnae going anywhere." },
+        { id = "h_again2", text = "Go on, then. Questions are the one thing we never run short of here, after dust." },
       },
       choices = {
         { text = "Does the League respect the places it digs?", next = "druid_q", when = { class = "DRUID" } },
@@ -926,7 +926,7 @@ P:NPC {
     },
 
     league = {
-      lines = { { id = "l_default", text = "Everything nobody else has time for: ruins, relics, beasts and maps. If it's old, odd or underground, someone of ours has a notebook out." } },
+      lines = { { id = "l_default", text = "Everything nobody else has time for: ruins, relics, beasts and maps. If it's old, odd or underground, someone o' ours has a notebook out and a pick in the other hand." } },
       choices = {
         { text = "Who started it?", next = "league_start" },
         { text = "Sounds like my kind of work.", next = "BACK", fx = { affinity = 1, learn = { "explorers_league" } } },
@@ -934,7 +934,7 @@ P:NPC {
     },
     league_start = {
       lines = {
-        { id = "ls_default", text = "The King founded it, when our miners broke into halls older than Ironforge. He told a kingdom of miners to start digging for answers instead of ore." },
+        { id = "ls_default", text = "The King founded it, when our miners broke into halls older than Ironforge. He told a kingdom o' miners to start digging for answers instead of ore, and we've been at it ever since." },
       },
       choices = {
         { text = "Did the League go north, too?", next = "northrend" },
@@ -955,7 +955,7 @@ P:NPC {
     hope = {
       big = true,
       lines = {
-        { id = "h2_default", text = "Where the dwarves came from, before there were clans or kings. There are halls in the old places that weren't built to our size, and I want to know whose they were." },
+        { id = "h2_default", text = "Where the dwarves came from, before there were clans or kings or even beards worth the name. There are halls in the old places that weren't built to our size, and I want to know whose they were." },
       },
       choices = {
         { text = "I hope you find out.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -1073,13 +1073,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The League's charted more o' this world than any king's cartographer, an' I've read every report. Ask me about any o' this, an' pull up a chair." },
     },
-    background = { { id = "tp_bg", text = "Curious since I could crawl, and paying for it since I could read. Now I steer the League and answer all its letters." } },
-    advice = { { id = "tp_ad", text = "Write it down: dates, places, who was with you. Memory is a liar with very good manners." } },
+    background = { { id = "tp_bg", text = "Curious since I could crawl, and paying for it since I could read. Now I steer the League and answer all its letters, which is a deal more ink than stone." } },
+    advice = { { id = "tp_ad", text = "Write it down: dates, places, who was with ye. Memory is a liar with very good manners, and stone is the only honest witness." } },
     explorers_league = { { id = "tp_league", text = "Mine to steer, for my sins, with hundreds of Prospectors across the world, and every one of them writes to me at once.", next = "league" } },
     dark_iron = { { id = "tp_dark_iron", text = "They're digging in Uldaman, and they're not digging for history. That frightens me more than their axes." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "We sent a team to chart the outer halls, and they came back with maps and a terrible cough." } },
     uldaman = { { id = "tp_uldaman", text = "Ours first, then the troggs', then the Dark Irons'. One day it'll be ours again, and I'd like to be alive for it." } },
-    _none = { { id = "tp_none", text = "That's not catalogued yet. Write it down for me, would you, with dates and places, and sketches if you can manage them." } },
+    _none = { { id = "tp_none", text = "That's not catalogued yet. Write it down for me, would ye, with dates and places, and sketches if ye can manage them." } },
   },
 }
 

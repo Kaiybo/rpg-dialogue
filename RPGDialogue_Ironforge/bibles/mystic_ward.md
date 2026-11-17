@@ -187,7 +187,7 @@ knows, background, advice
 
 ## Identity
 Milstaff Stormeye · Hall of Mysteries · Gnome · portal trainer (service)
-Personality: proud, sharp, secretly fond of a funny story. Speech: precise, dry.
+Personality: proud, sharp, secretly fond of a funny story. Speech: precise, dry, gnomish (no burr); geometry, measurements, defined terms.
 Authored, not canon: the apprentice who left his boots in Stormwind.
 
 ## What they notice

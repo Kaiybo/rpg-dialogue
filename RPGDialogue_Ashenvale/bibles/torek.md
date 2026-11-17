@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Torek · near the Warsong Labor Camp · Orgrimmar · orc · warrior, raid leader
 Personality: eager, boisterous, honest, respectful of foes
-Speech: loud, cheerful, "{class}".
+Speech: loud, cheerful, "{class}". Orc voice (0.80.0): blunt and proud; honor, blood, deeds over talk; "Lok'tar" sparingly.
 Relationships: Ertog Ragetusk (superior, Splintertree), his raiders.
 Never says: anything after Year 1.
 

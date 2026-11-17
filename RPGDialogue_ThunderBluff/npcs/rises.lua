@@ -13,7 +13,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Do come in, and don't mind the smell. The tauren tell me it's an acquired tolerance." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing, and how very temporary." },
     { id = "g_rise", when = { origin = "tauren_spirit_rise" }, text = "Ah, the water-carrier! You used to haul jugs past my door for the seers every morning, and now I'm told the elements speak to you. Do tell them the smell from my workshop is entirely deliberate." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and you're still breathing, which is more than I can say for most of my samples. Do come in." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The tauren are whispering that one of them believed a tale of yours, and I find that terribly amusing. They're such trusting creatures, aren't they?" },
@@ -155,7 +155,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "More questions? I do like a curious mind, while it lasts." },
-        { id = "h_again2", text = "Ask what you will, child; the healing waters of the Spirit Rise are patient." },
+        { id = "h_again2", text = "Ask what you will. The pools are patient, and so, I've found, is the grave." },
       },
     },
     why = {
@@ -197,7 +197,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I'm afraid that falls outside my research, and my interest." } },
+    _none = { { id = "tp_none", text = "I'm afraid that falls outside the Society's research, and therefore outside my interest." } },
   },
 }
 
@@ -211,7 +211,7 @@ P:NPC {
     third = "{name} met Holt Thunderhorn, the hunter trainer on Thunder Bluff's Hunter Rise.",
   },
   greetings = {
-    { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today." },
+    { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today; the Earth Mother is in a generous mood." },
   },
   start = "hello",
   nodes = {
@@ -323,7 +323,7 @@ P:NPC {
         { text = "Would a Thunderhorn hunt beside a paladin, Holt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
+      again = { { id = "h_again", text = "Something else? A hunter's patience includes listening, as the plains listen for rain." } },
     },
     kin = {
       lines = { { id = "k_default", text = "Mull is family, yes, though he prefers the village to the bluffs. He keeps an eye on the young braves at Bloodhoof, and I keep an eye on him." } },
@@ -351,7 +351,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I have not heard of that. The plains keep many secrets." } },
+    _none = { { id = "tp_none", text = "I have not heard of that. The plains keep many secrets, and the Earth Mother shares them slowly." } },
   },
 }
 
@@ -481,7 +481,7 @@ P:NPC {
         { text = "Must the Light be used carefully, Ker?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
-      again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings." } },
+      again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings, as the bull knows the ground before he charges." } },
     },
     fight = {
       lines = { { id = "f_default", text = "The centaur have hunted our people for generations, and only with the orcs' help did we finally drive them from Mulgore. Now the quilboar and the Venture Company test our borders instead." } },
@@ -509,6 +509,6 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I am a warrior, not an elder. Ask on Elder Rise." } },
+    _none = { { id = "tp_none", text = "I am a warrior, not an elder. Ask on Elder Rise, and walk with the Earth Mother." } },
   },
 }

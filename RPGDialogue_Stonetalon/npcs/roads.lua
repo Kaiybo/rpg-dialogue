@@ -247,7 +247,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! The Earth Mother's own healers, here at last, and the Charred Vale has waited a long time for hands like yours." },
       },
       again = {
-        { id = "h_again1", text = "What else, friend?" },
+        { id = "h_again1", text = "What else, friend? Speak freely; the seedlings like a gentle voice." },
         { id = "h_again2", text = "Ask what you like while I sort these seeds by size." },
       },
       choices = {
@@ -337,7 +337,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a planter of seeds, and Sun Rock is my home." } },
-    _none = { { id = "tp_none", text = "That I don't know, but the earth might, if you listen long enough." } },
+    _none = { { id = "tp_none", text = "That I don't know, but the Earth Mother might, if you put your hand on the soil and listen long enough." } },
   },
 }
 
@@ -501,6 +501,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Kaya, from Camp Aparaje, though there isn't much of the camp left now." } },
-    _none = { { id = "tp_none", text = "I don't know, I'm sorry. I only want to get home." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm sorry. I only want to get home, Earth Mother keep me." } },
   },
 }

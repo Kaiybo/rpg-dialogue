@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Haggrum Bloodfist, brother to Ag'tor, who runs this camp. He does the frowning and I do the smiling, and between us we make one decent orc." },
+        { id = "h_default", key = true, text = "I am Haggrum Bloodfist, brother to Ag'tor, who runs this camp. He does the frowning and I do the smiling, and between us we make one decent orc, though we both bleed for the Horde the same." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Betrayed") },
           text = "If my brother tells you about the elf, listen to him. He doesn't speak of it often, and when he does, he means every word." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 3 } },
@@ -44,7 +44,7 @@ P:NPC {
           text = "A troll! Good, you'll know how to laugh at a bad situation; my brother never learned." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? I've got all evening and a full pot." },
+        { id = "h_again", text = "What else, friend? I've got all evening and a full pot, and an orc never turns away a guest at his fire." },
         { id = "h_again2", text = "Go on. Talking keeps the cold off." },
       },
       choices = {
@@ -123,6 +123,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "An orc of Durotar, brother to Ag'tor, survivor of a bad day in the ruins. I'd tell you more, but it's all sad and I'm saving my good stories." } },
     advice = { { id = "tp_ad", text = "Laugh when you can, friend. Azshara will give you plenty of reasons not to." } },
     rimtori = { { id = "tp_rim", text = "The elf who killed my brother's warriors. I don't say her name at the fire, and I'd thank you not to either." } },
-    _none = { { id = "tp_none", text = "No idea, friend. Ask Jediga; she knows everything and charges for half of it." } },
+    _none = { { id = "tp_none", text = "No idea, friend. Ask Jediga; she knows everything and charges for half of it, which is not the orcish way, but it works for her." } },
   },
 }

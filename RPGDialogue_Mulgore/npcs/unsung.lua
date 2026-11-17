@@ -131,7 +131,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you will, young one. The sun is high, and there is time." },
-        { id = "h_again2", text = "Something more? Speak, and I will listen." },
+        { id = "h_again2", text = "Something more? Speak, and I will listen, as the mesa listens to the wind." },
       },
     },
     patience = {
@@ -181,7 +181,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "The wind told me you were coming, young one. Sit with me, and tell me what the elements have whispered to you." },
-    { id = "g_other", when = { ["not"] = { class = "SHAMAN" } }, text = "Peace be on you, traveler. The morning is clear, and the spirits are calm." },
+    { id = "g_other", when = { ["not"] = { class = "SHAMAN" } }, text = "Peace be on you, traveler. The morning is clear, An'she is warm, and the spirits are calm." },
   },
   notice = {
     { id = "n_ghost", cat = "form", when = { form = { "ghostwolf" } },
@@ -447,7 +447,7 @@ P:NPC {
         { text = "Farewell, Gart.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Ask what you will, and I will answer as well as I can." },
+        { id = "h_again", text = "Ask what you will, and I will answer as well as I can, Earth Mother willing." },
       },
     },
     history = {
@@ -481,7 +481,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I know the beasts and the grass, but I don't know that. Ask Grull Hawkwind." } },
+    _none = { { id = "tp_none", text = "I know the beasts and the grass, but I don't know that. Ask Grull Hawkwind; he roams farther than I do." } },
   },
 }
 
@@ -501,7 +501,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior comes down from the mesa! Come here, and let us see whether Harutt taught you anything." },
-    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Welcome to Bloodhoof, stranger. Keep your weapon sheathed in the village, and we will get along." },
+    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Welcome to Bloodhoof, stranger. Keep your weapon sheathed in the village, as the bull keeps his horns low in the herd, and we will get along." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -605,7 +605,7 @@ P:NPC {
         { text = "Will the braves fight beside a paladin, Krang?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
-      again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it." } },
+      again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it, before my old bones stiffen." } },
     },
     threats = {
       lines = { { id = "t_default", text = "The Venture Company goblins cut down our trees and dig in our hills to the north, and the Palemane gnolls hold Palemane Rock to the southwest. Worse are the dwarves at Bael'dun, who dig into Mulgore's earth without asking anyone." } },
@@ -649,7 +649,7 @@ P:NPC {
     third = "{name} met Mahnott Roughwound, the weaponsmith of Bloodhoof Village.",
   },
   greetings = {
-    { id = "g_shop", text = "Maces, axes and staves, all made big enough for a tauren's hands. Take a look." },
+    { id = "g_shop", text = "Maces, axes and staves, all made big enough for a tauren's hands and blessed by the Earth Mother's good oak. Take a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend? I hope you're here to buy, and not to complain about the last one." },
   },
   notice = {
@@ -794,7 +794,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Weapons I know, but not that. Ask someone else in the village." } },
+    _none = { { id = "tp_none", text = "Weapons I know, but not that. Ask someone else in the village; the elders keep the long stories." } },
   },
 }
 
@@ -809,7 +809,7 @@ P:NPC {
     third = "{name} bought bread from Jhawna Oatwind, the baker of Bloodhoof Village.",
   },
   greetings = {
-    { id = "g_shop", text = "Fresh bread from Mulgore's wheat, still warm. Come and have a look, little one." },
+    { id = "g_shop", text = "Fresh bread from Mulgore's wheat, still warm, and the Earth Mother gave every grain of it. Come and have a look, little one." },
     { id = "g_morning", when = { timeOfDay = "dawn" }, text = "You're up with the sun, and so is the bread. Come and take some while it's hot." },
   },
   notice = {
@@ -955,6 +955,6 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Oh, I wouldn't know that, little one. I know flour and ovens, and that's about it." } },
+    _none = { { id = "tp_none", text = "Oh, I wouldn't know that, little one. I know flour and ovens and the Earth Mother's wheat, and that's about it." } },
   },
 }

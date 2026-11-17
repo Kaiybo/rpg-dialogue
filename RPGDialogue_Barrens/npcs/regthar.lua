@@ -54,7 +54,7 @@ P:NPC {
           text = "Not one of Krom'zar's riders reached the hills, and my grunts sing about it at night. Lanti'gah doesn't sing, and he's taken to walking the perimeter facing west." },
       },
       again = {
-        { id = "h_again", text = "What else? I've a war to run." },
+        { id = "h_again", text = "What else? I've a war to run, and the Kolkar don't respect talk, only blood." },
         { id = "h_again2", text = "Speak. The centaur don't wait, and neither do I, and my boots are full of sand besides." },
       },
       choices = {

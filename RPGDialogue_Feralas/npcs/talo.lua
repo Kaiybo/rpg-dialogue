@@ -49,7 +49,7 @@ P:NPC {
           text = "The elf mage hides among the satyrs in the old city's broken quarter. Bring me her web, so its stolen magic can be let go into the wild again." },
       },
       again = {
-        { id = "h_again", text = "Another question? Good, an elder likes to be asked." },
+        { id = "h_again", text = "Another question? Good, an elder likes to be asked, as the old grass likes the rain." },
         { id = "h_again2", text = "Go on. The fire is warm and I have nowhere to be." },
       },
       choices = {
@@ -64,7 +64,7 @@ P:NPC {
       },
     },
     ambush = {
-      lines = { { id = "a_default", text = "I was in the forest, sharpening my blade after a hard fight, when they came down out of the trees. They surrounded me, and I barely dragged myself to safety, and even now I can hear their cries." } },
+      lines = { { id = "a_default", text = "I was in the forest, sharpening my blade after a hard hunt, when they came down out of the trees like a black storm over the plains. They surrounded me, and I barely dragged myself to safety, and even now I can hear their cries." } },
       choices = {
         { text = "Were you badly hurt?", next = "ambush_hurt" },
         { text = "Something else.", next = "BACK" },
@@ -129,7 +129,7 @@ P:NPC {
       choices = { { text = "I'll remember, elder.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     after = {
-      lines = { { id = "af_default", text = "I have held her heart and felt how cold it is, and now I know. You did here what I could not, and I will keep that heart in memory of it." } },
+      lines = { { id = "af_default", text = "I have held her heart and felt how cold it is, and now I know. You did here what I could not, and I will keep that heart in memory of it, and tell your name to the ancestors when I go to them." } },
       choices = { { text = "Rest easy now, Talo.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -137,6 +137,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter of Thunder Bluff once, and an elder of Mojache now. The space between those two is a story about harpies." } },
     advice = { { id = "tp_ad", text = "Always know your enemy. Learn what makes it strong before you learn what makes it bleed." } },
-    _none = { { id = "tp_none", text = "That is not among my stories, young one. Ask someone younger, who goes out more than I do." } },
+    _none = { { id = "tp_none", text = "That is not among my stories, young one. Ask someone younger, who goes out more than I do, and walk with the Earth Mother." } },
   },
 }

@@ -50,8 +50,8 @@ P:NPC {
           text = "One of our own, good. You'll understand why I don't let the island go unwatched for a single night." },
       },
       again = {
-        { id = "h_again", text = "Something else? Make it quick." },
-        { id = "h_again2", text = "Go on. I can spare a moment more." },
+        { id = "h_again", text = "Something else? Make it quick; the naga have had ten thousand years to plan, and I'd rather not give them another hour." },
+        { id = "h_again2", text = "Go on. I can spare a moment more, Elune grant me patience." },
       },
       choices = {
         { text = "What are the naga doing at Solarsal?", next = "naga" },
@@ -128,7 +128,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Yes, may I help you? Forgive the books; they multiply when I'm not looking." },
+    { id = "g_default", text = "Ishnu-alah! Yes, may I help you? Forgive the books; they multiply when I'm not looking, like moonmoths." },
     { id = "g_relic", when = { questDone = TODO_QUEST("Delivering the Relic") }, text = "Still working on that relic of yours, I'm afraid. It's being very stubborn, much like the man who sent it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've filled another notebook in that time. Come and tell me where you've been." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "People here speak warmly of you, and in Feathermoon that's no small thing. Elune's blessings on you." },
@@ -154,7 +154,7 @@ P:NPC {
           text = "A sister of the moon, or nearly! Sit down, please, and tell me what news there is from the Temple." },
       },
       again = {
-        { id = "h_again", text = "Was there something else? I'm happy to put the book down." },
+        { id = "h_again", text = "Was there something else? I'm happy to put the book down; it's waited a few centuries, it can wait a few minutes more." },
         { id = "h_again2", text = "Ask away. I've been talking to parchment all morning." },
       },
       choices = {
@@ -219,6 +219,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "A priestess, a scholar and Latro's wife. I've been asked which matters most, and I've never managed an answer." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory is a kind priestess but a poor scholar." } },
     highborne = { { id = "tp_hb", text = "Brilliant and reckless, and their reckless brilliance broke the world. I study them so I'm never tempted to admire them." } },
-    _none = { { id = "tp_none", text = "I'm afraid that isn't in any of my books. Not yet, at least." } },
+    _none = { { id = "tp_none", text = "I'm afraid that isn't in any of my books, and not in the Temple's either. Not yet, at least." } },
   },
 }

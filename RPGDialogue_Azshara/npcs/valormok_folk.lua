@@ -123,13 +123,13 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. You'll want plenty of water, I expect, since your kind drink it like it's going out of style, and I've got barrels of it." },
         { id = "h_default", key = true,
-          text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, so what we need is sharp eyes and full bellies, and that's what I sell." },
+          text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, and a warrior fights no better than his belly, so sharp eyes and full bellies are what I sell." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll take milk with your bread, and no grog, because a priest who can't keep his head is no use to a camp with naga in the water." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Good, you'll know what's safe to eat in these woods, and I'd be glad to hear it, because I haven't trusted a single berry since we got here." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. You'll not want milk or juice, I'd guess, and you'll not get grog, so you're the easiest customer in Valormok." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The bread's going stale while we talk." },
+        { id = "h_again", text = "Anything else? The bread's going stale while we talk, and a grunt can taste stale bread even in the middle of a battle." },
         { id = "h_again2", text = "Ask, then. I've nothing better to do until supper." },
       },
       choices = {
@@ -172,7 +172,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I came with the others when Belgrom Rockmaul sent us here. I feed people, and that's all there is to say about it." } },
     advice = { { id = "tp_ad", text = "Eat before you go out to fight in Azshara, because you won't find anything out there you'd want to eat." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask Ag'tor, he's the one who gives the orders." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask Ag'tor; he's the one who gives the orders, and he's earned the right with his blood." } },
   },
 }
 
@@ -188,7 +188,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you've come for a blade, you've come to the right orc, because Valormok needs fighters with sharp steel more than it needs anything else." },
+    { id = "g_default", text = "Lok'tar. If you've come for a blade, you've come to the right orc, because Valormok needs fighters with sharp steel more than it needs anything else." },
   },
 
   notice = {
@@ -294,7 +294,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you came to ask, and I'll keep the whetstone moving while you do." },
-        { id = "h_again2", text = "Speak, but quickly. I have blades to finish." },
+        { id = "h_again2", text = "Speak, but quickly. I have blades to finish, and the dead of this camp are still waiting to be avenged." },
       },
       choices = {
         { text = "What does Azshara's earth give a weaponsmith, Gruul?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -337,6 +337,6 @@ P:NPC {
     background = { { id = "tp_ba", text = "I make weapons. I've made them for longer than you've been alive, and I'll make them until I can't." } },
     advice = { { id = "tp_ad", text = "Never fight with a dull blade. Sharpen it every night, even if you don't think you need to, because Spitelash scales chip an edge faster than rock." } },
     rimtori = { { id = "tp_rimtori", text = "The elf mage who led them. Ag'tor wants her head, and every blade on my rack is for that." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you; ask me about blades and I'll talk all night." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you; ask me about blades and I'll talk all night, for a good edge is an orc's best friend." } },
   },
 }

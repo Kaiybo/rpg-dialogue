@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Rashona Straglash, cloth quartermaster for the Horde. A simple donation of cloth goes a long way here, because cloth makes garments and bandages, and the Horde never has enough of either." },
+        { id = "h_default", key = true, text = "Rashona Straglash, cloth quartermaster for the Horde. In the camps we bled through rags, so a simple donation of cloth goes a long way here; it makes garments and bandages, and the Horde never has enough of either." },
         { id = "h_lowlevel", when = { maxLevel = 40 }, text = "Rashona Straglash, cloth quartermaster. You're young for donating, {class}, but keep your scraps when you find them, and come back when your packs are heavy." },
         { id = "h_rune_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Donation of Runecloth"), days = 3 } },
           text = "The runecloth you brought went to the healers at the Valley of Honor this morning. They said it was the best weave they'd seen this season, and I didn't tell them where it came from, but I thought it." },
@@ -93,8 +93,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I sew, I count, and I make sure the cloth goes where it's needed. That's all the story there is, and it's enough." } },
+    background = { { id = "tp_bg", text = "I sew, I count, and I make sure the cloth goes where the Horde bleeds. That's all the story there is, and it's enough." } },
     advice = { { id = "tp_ad", text = "Carry spare bandages. The grunt bleeding next to you will never have brought his own." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about cloth and I'll talk your ear off." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, grunt. Ask me about cloth and I'll talk your ear off." } },
   },
 }

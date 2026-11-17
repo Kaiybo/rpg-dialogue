@@ -14,7 +14,7 @@ P:NPC {
 
   greetings = {
     { id = "g_tent", text = "Be welcome in Bloodhoof Village. My father keeps the bluffs; I keep the plains below them." },
-    { id = "g_back", when = { metBefore = true }, text = "Friend, sit with me a moment; the village can spare me." },
+    { id = "g_back", when = { metBefore = true }, text = "Friend, sit with me a moment; the village can spare me, and the grass will grow without my watching it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the plains {away}, friend, and the village asked after you more than once. Sit with me a moment and tell me where the road took you." },
     { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you walked these plains, and you come back carrying yourself like a seasoned warrior. My father will want to hear of it, and so do I." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The village has been telling me of the help you've given us, and I'm grateful for every bit of it. Bloodhoof does not forget its friends." },
@@ -154,7 +154,7 @@ P:NPC {
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
-        { id = "h_again", text = "What else, friend? The village is quiet for now, so ask." },
+        { id = "h_again", text = "What else, friend? The village is quiet for now, and An'she is still high, so ask." },
         { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip at Kauth's fire, where every plainstrider grows a foot in the telling." },
       },
     },
@@ -301,7 +301,7 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul studies with them. My father trusts them, and so do I. The land needs friends who listen to it." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're tauren, whatever else they are. I'd rather reason with them than fight them, for as long as reason works." } },
-    _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first." } },
+    _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first. May the Earth Mother guide you to someone who does." } },
     venture_company = { { id = "tp_venture", text = "We refused them the right to mine, and they poisoned our wells anyway. I'd still rather they sat down and talked, though I'm starting to doubt they know how." } },
   },
 }
@@ -467,7 +467,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "The spirits haven't spoken of that. I won't speak for them." } },
+    _none = { { id = "tp_none", text = "The spirits haven't spoken of that, and the ancestors keep their own counsel. I won't speak for them." } },
   },
 }
 
@@ -482,7 +482,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_plains", text = "Watch the sky over Mulgore for a while. You'll see what I mean about the swoops." },
+    { id = "g_plains", text = "Watch the sky over Mulgore for a while, the way the hawks do. You'll see what I mean about the swoops." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the sky over Mulgore has changed its mind a dozen times since. My knees could have told you it would." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the village round to your way of thinking. That's a rarer thing among tauren than you'd guess, because we're stubborn as old kodo." },
   },
@@ -623,7 +623,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Couldn't say. Ask Baine; he hears more than I do." } },
+    _none = { { id = "tp_none", text = "Couldn't say. Ask Baine; he hears more than I do, and he listens like the Earth Mother listens, all the way through." } },
   },
 }
 
@@ -748,7 +748,7 @@ P:NPC {
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
-        { id = "h_again", text = "Anything else? Speak softly; voices carry out on the grass." },
+        { id = "h_again", text = "Anything else? Speak softly; voices carry out on the grass, and the Earth Mother's beasts have long ears." },
       },
     },
     hunter = {
@@ -780,7 +780,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "That's not something I've tracked." } },
+    _none = { { id = "tp_none", text = "That's not something I've tracked, friend, not in all my seasons on the plains." } },
   },
 }
 
@@ -795,7 +795,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_wells", text = "Forgive me, my mind is on the wells. It's always on the wells, lately." },
+    { id = "g_wells", text = "Forgive me, my mind is on the wells. It's always on the wells lately, for the Earth Mother's water is sick." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Tell me the water runs clean somewhere, please." },
   },
 
@@ -910,7 +910,7 @@ P:NPC {
         { text = "Can a druid help the land heal the wells?", next = "druid", when = { class = "DRUID" } },
       },
       again = {
-        { id = "h_again", text = "Something more? Forgive me; half my mind is still at the wells." },
+        { id = "h_again", text = "Something more? Forgive me; half my mind is still at the wells, where the earth is weeping oil." },
       },
     },
     shaman = {
@@ -937,7 +937,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I'm sorry, my thoughts are with the water. Ask Baine." } },
+    _none = { { id = "tp_none", text = "I'm sorry, my thoughts are with the water and the land that drinks it. Ask Baine." } },
     venture_company = { { id = "tp_venture", text = "They wanted to mine our mountains, and we said no, so they took the wells instead. That is how they listen." } },
   },
 }
@@ -1065,7 +1065,7 @@ P:NPC {
         { text = "Do you think Kyle would come to a druid, Ahab?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
       again = {
-        { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back." },
+        { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back, the way a cow watches for a strayed calf." },
       },
     },
     hunter = {
@@ -1090,7 +1090,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Sorry, I can't think about anything else until Kyle's home." } },
+    _none = { { id = "tp_none", text = "Sorry, I can't think about anything else until Kyle's home, Earth Mother keep him." } },
   },
 }
 
@@ -1206,7 +1206,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. No traveller leaves my inn unfed, though I admit I'm not sure what feeds you." },
         { id = "h_default", key = true,
-          text = "I'm Kauth. Travelers come through here on the way to the bluffs, and all of them leave my inn fed." },
+          text = "I'm Kauth. Travelers come through here on the way to the bluffs, and the Earth Mother would never forgive me if one left my inn hungry." },
         { id = "h_task", when = { questActive = TODO_QUEST("A Task Unfinished") },
           text = "There's a task left undone that weighs on me. You'll carry it further than I can." },
         { id = "h_view", when = { metBefore = true }, text = "The bluff folk come down for my stew and say they're here for the view. The view's fine, but the stew's better." },
@@ -1255,7 +1255,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I hear a little of everything and keep less. Ask Baine." } },
+    _none = { { id = "tp_none", text = "I hear a little of everything and keep less, like a river keeps the rain. Ask Baine." } },
   },
 }
 
@@ -1410,6 +1410,6 @@ P:NPC {
 
   topics = {
     camping = { { id = "tp_camping", text = "Start with a fire, which any cook can make, and then add what your hands know how to make." } },
-    _none = { { id = "tp_none", text = "I don't know. The wind hasn't told me." } },
+    _none = { { id = "tp_none", text = "I don't know. The wind hasn't told me, and the wind tells me most things eventually." } },
   },
 }

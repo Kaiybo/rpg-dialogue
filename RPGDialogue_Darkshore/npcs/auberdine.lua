@@ -163,11 +163,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, and kaldorei besides. Then you will feel the sickness in this land as I do, and you will understand why my lamps burn so late." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Auberdine's lamps burn later than any in Darnassus, because the boats come in at all hours. I sleep little these days in any case." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with spirits. Auberdine has fears enough these days, so I will ask plainly: do your spirits say what troubles this coast?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with spirits. Auberdine has fears enough these days, so I will ask plainly, as one who has watched this coast for many centuries: do your spirits say what troubles it?" },
       },
       again = {
         { id = "h_again", text = "What else would you ask? I have time, and Auberdine has troubles." },
-        { id = "h_again2", text = "Go on. An elder's work is mostly listening." },
+        { id = "h_again2", text = "Go on. An elder's work is mostly listening, and my people have had ten thousand years to practise it." },
       },
       choices = {
         { text = "What's sickening the land?", next = "sick" },
@@ -314,7 +314,7 @@ P:NPC {
     fel_moss = { { id = "tp_moss", text = "Terenthis knows more of it than I do, so ask him. I know only that it turns gentle creatures savage." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Blackwood were our friends once. What we learned cleansing their food may yet free them from their torment for good." } },
     cenarion_circle = { { id = "tp_circle", text = "I am of the Circle, in my small way. Darnassus argues and Moonglade dreams, while Auberdine simply tries to keep its rivers clean." } },
-    _none = { { id = "tp_none", text = "I don't know, but I will find someone who does." } },
+    _none = { { id = "tp_none", text = "I don't know, but I will find someone who does. Auberdine is small, but its memory is long." } },
   },
 }
 
@@ -424,7 +424,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Terenthis. I came to Darkshore to learn how far the Fel Moss has spread, and it is farther than I feared, so I mean to find out why and put an end to it." },
+          text = "I am Terenthis, and I came to Darkshore to learn how far the Fel Moss has spread. It is farther than I feared, and I have seen the fel at work before, so I mean to find out why and put an end to it." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("How Big a Threat?") },
           text = "Find one of the furbolg camps and tell me what you see there. Some of my brethren had to be rescued from a corrupted furbolg on Teldrassil, and I will not wait for more of our kind to be hurt." },
         { id = "h_grimclaw", tags = { "news" }, when = { questActive = TODO_QUEST("A Lost Master") },
@@ -440,7 +440,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've tracked the furbolgs, haven't you, and seen how they've changed." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Then you know that sickness can live in the spirit as well as the body, and I would swear that is what ails the furbolgs." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I hope you will hear me out before you raise that hammer, because the furbolgs you meet were once our friends." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Then perhaps you will believe me when I say the furbolgs are sick, not evil. The fel moss grows back no matter how much I burn." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Then perhaps you will believe me when I say the furbolgs are sick, not evil, for the fel moss grows back no matter how much of it I burn." },
       },
       again = {
         { id = "h_again", text = "What else? The moss won't wait, but I can spare you a moment." },
@@ -520,7 +520,7 @@ P:NPC {
     },
     furbolgs = { { id = "tp_furbolgs", text = "They are sick, not evil, and I'll keep saying so until someone believes me." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle sent me, more or less, though I would have come regardless. Someone had to look at this up close." } },
-    _none = { { id = "tp_none", text = "Not now, I'm afraid. The moss comes first, and everything else after." } },
+    _none = { { id = "tp_none", text = "Not now, I'm afraid. The moss comes first, and everything else after, for the fel has had its way with this land once already." } },
   },
 }
 
@@ -649,7 +649,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Whether you pray to the Light or to Elune, you are welcome to stand beside me on this sad beach." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, here on our shore! The Temple speaks of your order with respect, though few of us have met one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like someone who's used to not being seen, and I'll not ask why. The Sisterhood tends everyone who comes to Auberdine, the ones who come in by the back door included." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Temple sent me to tend Auberdine's people, and instead I tend the dead creatures the sea casts up. Forgive me if I am wary of spirit-talk." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Temple sent me to tend Auberdine's people, and instead I tend the dead creatures the sea casts up, so forgive me if I am wary of any voice but Elune's." },
       },
       again = {
         { id = "h_again", text = "What else? I'm listening, though I keep one eye on the tide." },
@@ -712,7 +712,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "The Temple of the Moon sent me to see to Auberdine's troubles. I expected sick villagers, not dead threshers." } },
     advice = { { id = "tp_ad", text = "Stay out of the water near the carcasses, because whatever the murlocs leave behind, something larger may come for." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We go where we are needed, and the Temple decided I was needed here, among the bones." } },
-    _none = { { id = "tp_none", text = "I'm sorry. I only know the shore, and lately not even that." } },
+    _none = { { id = "tp_none", text = "I'm sorry. I only know the shore, and lately not even that; the sea has grown stranger than it was in all my years here." } },
   },
 }
 
@@ -856,10 +856,10 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I watch the beach for murlocs and the groves for corruption, and I'll be watching you as well until I know which of the two you are." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Greymist", min = 30 } },
           text = "The beach has been quieter since you started on the Greymist, and I count fewer tracks each morning. I am still only one Sentinel, but this week I have felt like two." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Sentinels watch everyone, and I will watch you too. Do not take it personally." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Sentinels watch everyone, and I will watch you too, so do not take it personally; we watched the Highborne as well." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm due on the beach soon." },
+        { id = "h_again", text = "What else? I'm due on the beach soon, and the murlocs keep no hours but their own." },
         { id = "h_again2", text = "Speak, but keep it short; the tide is turning." },
       },
       choices = {
@@ -920,7 +920,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I am a Sentinel, and I report to Auberdine's council. That's all the story a Sentinel needs." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the water along this coast, because the murlocs are counting on you doing it." } },
-    _none = { { id = "tp_none", text = "Ask the elder, for I only watch the roads." } },
+    _none = { { id = "tp_none", text = "Ask the elder, for I only watch the roads, as the Sentinels have done since before this village was raised." } },
   },
 }
 
@@ -1041,7 +1041,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Do you know anything of spirits that will not rest? I have asked everyone else, and they look at me as though I were a ghost myself." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your order buries its dead with honour, which is more than the ruins of Ameth'Aran ever gave mine." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a cold about you that reminds me of Ameth'Aran, warlock. I hope you've come to Darkshore for some reason other than to stir what sleeps there." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Do your spirits walk the water? I watch it, as if Anaya might step out of it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Do your spirits walk the water? I watch it day after day, as if Anaya might step out of it after ten thousand years." },
       },
       again = {
         { id = "h_again", text = "Ask what you will. I have nothing but time, and the water." },
@@ -1122,7 +1122,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rest", text = "Your spirit is tired, I can tell. Rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
+    { id = "g_rest", text = "Ishnu-alah. Your spirit is tired, I can tell, so rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
     { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again! The sea air is good for you, mostly, when the wind isn't coming off that dead thresher on the beach." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and your spirit looks more tired than ever. Sit, and I'll bring you tea, and this time do try to drink it." },
     { id = "g_away_long", when = { away = 60 }, text = "It's been {away} since you slept to the sound of these waves, and I wondered if they'd ever sing you to sleep again. Welcome back, friend." },
@@ -1218,7 +1218,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Shaussiy, and I keep the inn by the docks. My guests come off the boats from Teldrassil and Menethil, mostly, and they all arrive seasick." },
+        { id = "h_default", text = "I am Shaussiy, and I keep the inn by the docks of Auberdine. My guests come off the boats from Teldrassil and Menethil, mostly, and every one of them arrives seasick, though my people have sailed these waters since before the Sundering." },
         { id = "h_cerellean", when = { heardLine = "cerellean.h_default" },
           text = "So you've spoken with Cerellean. He stands on that dock every day, and I bring him tea, and he forgets to drink it, and I bring him more." },
         { id = "h_boards", when = { metBefore = true }, text = "The sailors swear the floorboards creak in a different key before a storm. I've started listening, and they're right." },
@@ -1228,10 +1228,10 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, under my roof! Then you will understand why I say a prayer in every room before a guest sleeps in it, because nobody sleeps well on Darkshore just now." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin off the boat from Menethil! Sit down before you fall down, because that armour is no friend on a rolling deck." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've a pot of tea that's gone cold while my guests forgot it, if you'd care to warm it, and I won't tell a soul you did." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Here, tea. The waves will sing you to sleep after a night or two. Do your spirits sing too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Here, take some tea, and let the waves sing you to sleep after a night or two. I wonder, do your spirits sing as well?" },
       },
       again = {
-        { id = "h_again", text = "Is there anything else, love? There's always tea on." },
+        { id = "h_again", text = "Is there anything else, traveller? There's always tea on, and Elune's light on the water to drink it by." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
@@ -1302,6 +1302,6 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the inn by the docks, and I've heard every traveller's story twice. Mine is mostly about leaky barrels." } },
     advice = { { id = "tp_ad", text = "Sleep on the landward side of the inn if you want quiet, and on the water side if you want to dream." } },
-    _none = { { id = "tp_none", text = "Ask the elder, love; he knows everything worth knowing in Auberdine." } },
+    _none = { { id = "tp_none", text = "Ask the elder, friend; Thundris knows everything worth knowing in Auberdine, and he has had a long while to learn it." } },
   },
 }

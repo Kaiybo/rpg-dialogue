@@ -12,7 +12,7 @@
 ## Identity
 TODO_NPC · Gaerolas Talvethren · upstairs in the largest house in Starbreeze Village · Darnassus · night elf · Great Warden
 Personality: grave, proud, dutiful, self-reproaching, kind underneath
-Speech: plain and formal; "the Sleeping"; asks after others before himself.
+Speech: plain and formal; "the Sleeping"; asks after others before himself. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Knows and cares about: the hibernating druids in the Ban'ethil Barrow Den, the relics of wakening (Athridas keeps them), the Gnarlpine.
 Relationships: Athridas Bearmantle (trusts him), Tallonkai Swiftroot (gave him the dreamcatcher), Oben Rageclaw (one of the sleepers).
 Never says: anything about the Burning of Teldrassil or his later fate.

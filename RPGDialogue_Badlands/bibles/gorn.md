@@ -12,7 +12,7 @@
 ## Identity
 Gorn · Kargath, Badlands · Horde · orc · veteran, quest giver
 Personality: grim, blunt, proud, self-reproaching
-Speech: short plain sentences, but whole; no flourish
+Speech: short plain sentences, but whole; no flourish; orc pride and shame (honor, blood, the camps, Thrall)
 Knows and cares about: the Second War, the internment camps, Thrall, the Blackrock renegades
 Relationships: Kargath's soldiers; contempt for Rend's Blackrock
 Default attitudes: respects warriors; tauren carry no share of the old shame

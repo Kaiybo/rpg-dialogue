@@ -102,7 +102,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the top of my mesa. The riders don't know what to make of you, so stand still and let them look." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? The wind is changing." },
+        { id = "h_again", text = "What else would you ask? The wind is changing, and the riders feel it in their wings before I do." },
         { id = "h_again2", text = "Speak, friend. The riders can wait a little longer." },
       },
       choices = {
@@ -169,7 +169,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've kept wind riders on these mesas for many seasons. That's my life, and I'm content with it." } },
     advice = { { id = "tp_ad", text = "Stay off the canyon floor at night. That's when the centaur ride." } },
-    _none = { { id = "tp_none", text = "I don't know, friend. The wind carries a great deal past this mesa, but not that." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. The wind carries a great deal past this mesa, but not that, and the Earth Mother keeps what the wind doesn't." } },
   },
 }
 
@@ -258,7 +258,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there more you would like to know about the stables?" },
-        { id = "h_again2", text = "Take your time; the animals aren't going anywhere." },
+        { id = "h_again2", text = "Take your time; the animals aren't going anywhere, and the Earth Mother made them patient." },
       },
       choices = {
         { text = "Are the beasts content up here on the mesa?", next = "druid_q", when = { class = "DRUID" } },
@@ -310,7 +310,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've always been better with animals than with people, and Freewind needed someone with patience." } },
     advice = { { id = "tp_ad", text = "Keep your companion close on the rope bridges, because a frightened animal doesn't look where it's stepping." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I don't know. Ask me about the animals, though, and I'll tell you everything." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I don't know. Ask me about the animals, though, and I'll tell you everything, from the kodo calves to the wind riders." } },
   },
 }
 
@@ -452,7 +452,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Good, because if anyone crashes while you're standing there, you'll be on the clock for free, and we've got two races before supper." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The next race starts soon!" },
+        { id = "h_again", text = "Anything else? The next race starts in roughly eleven minutes, give or take a flaming wheel!" },
         { id = "h_again2", text = "Ask away! I can talk and count gears at the same time." },
       },
       choices = {
@@ -497,6 +497,6 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sell parts. Wherever there are engineers breaking things, there's somebody like me selling them the bits to fix it." } },
     advice = { { id = "tp_ad", text = "Always carry a spare tube, because the one you need is always the one you didn't bring." } },
     mirage_raceway = { { id = "tp_race", text = "The best place in Kalimdor to watch things explode at speed, and the best place to sell bolts." } },
-    _none = { { id = "tp_none", text = "Oh, I don't know about that, but I'd be happy to sell you something that does!" } },
+    _none = { { id = "tp_none", text = "Oh, I don't know about that, but I'd be happy to sell you a sprocket that's eighty percent likely to help!" } },
   },
 }

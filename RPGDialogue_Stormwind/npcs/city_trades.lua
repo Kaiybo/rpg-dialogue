@@ -13,7 +13,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Have you come to learn which leaves heal and which ones kill?" },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back. Have your hands learned the difference between peacebloom and silverleaf yet?" },
+    { id = "g_back", when = { metBefore = true }, text = "Elune's light on you again. Have your hands learned the difference between peacebloom and silverleaf yet, or must the moon turn a few more times?" },
   },
   start = "hello",
   nodes = {
@@ -107,7 +107,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The sisters of Elune grow herbs for healing in our temples, and I think you'd find our ways and yours closer than either would admit." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Park! You walk heavily for a guest of the trees, but you mean well, I think, and that counts for something." },
-        { id = "h_default", text = "I am Tannysa. I teach herbalism to any who will listen, though in this city most would rather buy their herbs than gather them." },
+        { id = "h_default", text = "I am Tannysa. On Teldrassil every child learns the herbs at her mother's knee, but in this city most would rather buy them than gather them, so I teach any who will listen." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A sister of the forest, so far from home! You will find the herbs here tamer than ours, but they still answer to a gentle hand." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk softly, as the Sentinels do, though I suspect you learned it in a different forest. Mind the seedlings, because they cannot hear you coming." },
@@ -160,7 +160,7 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I crossed the sea when our peoples first made their pact, and I have not regretted it." } },
+    background = { { id = "tp_bg", text = "I crossed the sea when our peoples first made their pact, and traded Teldrassil's shade for these tidy human gardens. I have not regretted it, though I miss the moonwells." } },
     _none = { { id = "tp_none", text = "That I do not know, and the trees have not told me." } },
   },
 }

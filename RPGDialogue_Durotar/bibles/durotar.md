@@ -41,7 +41,7 @@
 - Kaltunk: gruff greeter; points the way.
 - Gornek: hard taskmaster; "get back up".
 - Zureetha: watchful warlock; hates the Blade for what it means to her own art.
-- Thazz'ril: exasperated foreman; sleeping peons.
+- Thazz'ril: exasperated foreman; sleeping peons. A Darkspear troll: light lilt ("mon", "be" now and then), loa oaths.
 - Galgar: long-suffering cook; cactus apples.
 - Kzan: curt weaponsmith.
 - Gar'Thok: terse commander; the crossroads.

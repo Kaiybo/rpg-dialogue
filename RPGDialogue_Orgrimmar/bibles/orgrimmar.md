@@ -27,7 +27,7 @@
 - Vol'jin: wry, dropped verbs, "mon" sparingly; loyal to Thrall, wary of the Blade, carries Yenniku quietly.
 - Neeru: silky, ironic, "useful friends".
 - Gryshka: hearty innkeeper, flustered about Zargh.
-- Gamon: resigned, gentle, keeps getting knocked down.
+- Gamon: resigned, gentle, keeps getting knocked down. A tauren far from Mulgore: slow, soft-spoken, plains and herd imagery, the Earth Mother; never an orc backstory (no camps, no Lordaeron).
 
 ## Depth pass (0.25.0, authored, not canon)
 Gryshka sends Zargh's bones back clean after Meats to Orgrimmar and is still wondering what it means herself; a quiet Tusk means trouble; Gamon's short list of people who didn't hit him.

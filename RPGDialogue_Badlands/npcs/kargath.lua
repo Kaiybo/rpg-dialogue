@@ -14,11 +14,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_tower", text = "Another one climbs my tower, good! I was starting to talk to the vultures." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and still alive! That's more than I can say for the last three I sent up the road." },
+    { id = "g_tower", text = "Another one climbs my tower, good! Lok'tar, {class}; I was starting to talk to the vultures, and they have no honor and worse jokes." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and with your blood still on the inside! That's more than I can say for the last three I sent up the road." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and I was back to talking to the vultures. Good, you can take their place." },
     { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away} and come back with more muscle than you left with! The road east will be glad of it, even if the ogres won't." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, stronger than the last time you climbed my tower! Now I can send you somewhere properly dangerous." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, stronger than the last time you climbed my tower, and strength like that is earned in blood! Now I can send you somewhere properly dangerous." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you scared one of my people so badly they're still twitching. That's good work, but save it for the Dark Irons." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Kargath's been talking about you, and it's good talk for once. Keep it up, because the vultures don't sing anyone's praises." },
   },
@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_cl_lbrs", tags = { "news" }, when = { cleared = "Lower Blackrock Spire", faction = "Horde" },
           text = "Wyrmthalak is dead in his own citadel, and they say your hand was in it. The Spire will be quieter for a while, and I mean to use every hour of it." },
         { id = "h_default", key = true,
-          text = "I am Warlord Goretooth, and Kargath is mine to hold. Up the road sits Blackrock Spire, full of orcs who call themselves the true Horde, and I sit here watching, and waiting, and getting old." },
+          text = "I am Warlord Goretooth, and Thrall gave me Kargath to hold. Up the road sits Blackrock Spire, full of orcs who call themselves the true Horde, and I sit here watching, and waiting, and getting old, which is no death for a warrior." },
         { id = "h_kos", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves") }, { questActive = TODO_QUEST("KILL ON SIGHT: High Ranking Dark Iron Officials") } } },
           text = "So you read the posting, good! Kill Dark Irons, all of them, and the officers twice over, and bring me proof." },
         { id = "h_angerforge", when = { questActive = TODO_QUEST("Operation: Death to Angerforge") },
@@ -143,7 +143,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "More? Good, talking keeps me from counting vultures." },
-        { id = "h_again2", text = "Speak up, the wind on this tower steals every second word." },
+        { id = "h_again2", text = "Speak up, {class}; the wind on this tower steals every second word, and I'd rather hear a boast than miss it." },
       },
       choices = {
         { text = "The land here is sick, Warlord. Can it heal?", next = "druid_q", when = { class = "DRUID" } },
@@ -340,8 +340,8 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "A warlord hears every boast and every report that comes down that road. Ask me about any of these, and I'll tell you how it really went." },
     },
-    blackrock = { { id = "tp_blackrock", text = "Rend Blackhand sits up there in the Spire calling himself Warchief. There's one Warchief. I'd like to remind Rend of that with an axe." } },
-    dark_iron = { { id = "tp_dark_iron", text = "They swarm out of the mountain like ants out of a kicked nest. We kick back." } },
+    blackrock = { { id = "tp_blackrock", text = "Rend Blackhand sits up there in the Spire calling himself Warchief, but there is only one Warchief, and his name is Thrall. I'd like to remind Rend of that with an axe." } },
+    dark_iron = { { id = "tp_dark_iron", text = "They swarm out of the mountain like ants out of a kicked nest, so we kick back, and the Horde kicks hard." } },
     background = { { id = "tp_ba", text = "I was a young warrior once, and I lived every dream I had. Now I command, and I live them again through the soldiers I send up that road.", next = "dream" } },
     advice = { { id = "tp_ad", text = "Read the postings by the road before you go into the mountain. They'll tell you who to kill, and that saves a great deal of thinking once you're down there." } },
     _none = { { id = "tp_none", text = "Never heard of it, but can I hit it?" } },
@@ -360,7 +360,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust." },
+    { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust, and the dead do get so bored." },
     { id = "g_away", when = { away = 14 }, text = "Darling, you've been gone {away}, and it's been simply the dullest stretch of dust imaginable. Sit down and tell me everything dreadful." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Everyone's been saying the loveliest things about you, darling, and I adore being the last to hear gossip almost as much as being the first. Do sit." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you put one over on somebody in Kargath, darling, and I'm only cross that I wasn't there to watch." },
@@ -440,7 +440,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, darling, how lovely! Do tell me which you pray to, the shadow or the Light or the loa, because I've tried more than one and only the gossip ever answered." },
         { id = "h_default", key = true,
-          text = "Hierophant Theodora Mulvadania, of the Undercity and the Kargath Expeditionary Force. I keep the Warlord company. Someone has to, and Vivian can't do it alone." },
+          text = "Hierophant Theodora Mulvadania, of the Undercity and the Kargath Expeditionary Force, and by the Dark Lady's grace no longer of any grave. I keep the Warlord company, because someone has to, and Vivian can't do it alone." },
         { id = "h_109th", tags = { "news" }, when = { questActive = TODO_QUEST("The 109th Division") },
           text = "The 109th Division were our people, Expeditionary Force, and they were my friends, and General Angerforge and his golem lord butchered them in the depths. I'm done being charming about it, darling: kill them both." },
         { id = "h_guzzler", when = { questActive = TODO_QUEST("The Grim Guzzler") },
@@ -598,7 +598,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fire", text = "Oh! You startled me, not that I'm easily startled, of course; I'm a Shadowmage, and we're very composed." },
+    { id = "g_fire", text = "Oh! You startled me, not that I'm easily startled, of course; I'm a Shadowmage of the Undercity, and the dead are very composed." },
   },
 
   notice = {
@@ -873,7 +873,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shadow", text = "You found me, and most don't, which is either good news for you or bad news for me." },
+    { id = "g_shadow", text = "You found me, and most don't, which is either good news for you or bad news for me. Speak low, {class}; a warrior shouts, but a scout of the Horde listens." },
   },
 
   notice = {
@@ -955,11 +955,11 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. Good, because my scouts come back cut up, and they'd rather be patched by you than by the alchemist upstairs." },
         { id = "h_default", key = true,
-          text = "Lexlort. The Expeditionary Force needs eyes on the Spire, and I'm the eyes, but sometimes I need hands." },
+          text = "Lexlort, Grandmaster of the Warlord's scouts. The Expeditionary Force needs eyes on the Spire, and I'm the eyes, but sometimes I need hands that don't shake when the blood starts." },
         { id = "h_grark", tags = { "news" }, when = { questActive = TODO_QUEST("Grark Lorkrub") },
-          text = "Grark Lorkrub sold our plans to the Blackrock. He's hiding under their wing in the Burning Steppes. Put him in thorium shackles and walk him to the Searing Gorge. My men will be waiting." },
+          text = "Grark Lorkrub sold our plans to the Blackrock, and an orc who sells his own clan has no honor left to lose. He's hiding under their wing in the Burning Steppes, so put him in thorium shackles and walk him to the Searing Gorge, where my men will be waiting." },
         { id = "h_predicament", when = { questActive = TODO_QUEST("Precarious Predicament") },
-          text = "You've got Grark moving. Keep him close through the mountain. If he runs, he dies, and what he knows dies with him." },
+          text = "You've got Grark moving, so keep him close through the mountain. If he runs, he dies, and what he knows dies with him." },
         { id = "h_bijou", when = { questActive = TODO_QUEST("Operative Bijou") },
           text = "Bijou went into Blackrock Spire and hasn't come out. Bring her back alive, and don't let her talk you into anything on the way." },
         { id = "h_report", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bijou's Reconnaissance Report"), days = 3 } },
@@ -971,7 +971,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'd heard there were a few of you, but I hadn't heard you'd be so loud." },
       },
       again = {
-        { id = "h_again", text = "Something else. Quickly." },
+        { id = "h_again", text = "Something else? Say it quickly, then." },
         { id = "h_again2", text = "Ask, but keep your voice down; the wind carries." },
       },
       choices = {
@@ -1089,9 +1089,9 @@ P:NPC {
       { id = "tp_knows", text = "I watch, I remember, and I'll talk about these if you ask me plainly." },
     },
     blackrock = { { id = "tp_blackrock", text = "I know their shift changes, their drinking songs and their names, because that's my job." } },
-    background = { { id = "tp_ba", text = "I watch, I report, and I keep the rest to myself. That's the whole story." } },
+    background = { { id = "tp_ba", text = "I watch, I report, and I keep the rest to myself, as a scout of the Horde should. That's the whole story." } },
     advice = { { id = "tp_ad", text = "Count the guards on your way in, and count them again on your way out. If the numbers don't match, run." } },
-    _none = { { id = "tp_none", text = "Nothing I'll share." } },
+    _none = { { id = "tp_none", text = "That's nothing I'll share, not even with one of the Horde." } },
   },
 }
 
@@ -1107,7 +1107,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in out of the dust and sit. There's water, there's grog, and there's a bunk nobody's bled on, recently." },
+    { id = "g_inn", text = "Come in out of the dust and sit, {class}. There's water, there's grog, and there's a bunk nobody's bled on recently, which in an orc camp counts as luxury." },
     { id = "g_home", when = { homeInn = { "Kargath" } }, text = "Back from the badlands! Tell me what you killed, because the grunts like a good story with their supper, and my cooking needs the help." },
     { id = "g_away", when = { away = 14 }, text = "Back from the badlands after {away} away! Sit down and tell me what you killed while you were gone, because the grunts are bored of my stories." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in Kargath's been grumbling your name into their grog all week. I don't care who started it, but don't finish it in my inn." },
@@ -1207,7 +1207,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest at my fire! The grunts will be glad of you, because they come back from the Gorge with cuts they won't show the alchemist, but they'll show a healer." },
         { id = "h_default", key = true,
-          text = "I'm Shul'kar, and I keep the inn. Out here a hot meal and a dry bunk are worth more than gold, and I don't charge much more than gold for them." },
+          text = "I'm Shul'kar, and I keep the inn. A warrior fights on his stomach, and out here a hot meal and a dry bunk are worth more than gold, though I don't charge much more than gold for them." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he fought a Dark Iron the size of a door, and then it was two doors, and by morning it was a castle. Good story, though." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter at my fire. If you've anything fresh, I'll take it for the pot, because the grunts are sick of salted coyote, and so am I." },
@@ -1307,7 +1307,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "An innkeeper who followed the Expeditionary Force out here because soldiers need feeding. That's all there is to me, and it's enough." } },
+    background = { { id = "tp_ba", text = "An innkeeper who followed the Expeditionary Force out here because soldiers need feeding, and I've fed orcs since we ate gruel behind the camp fences. That's all there is to me, and it's enough." } },
     advice = { { id = "tp_ad", text = "Drink water before you drink grog, and drink both before you go near the Searing Gorge. The heat up there will have you seeing things." } },
     _none = { { id = "tp_none", text = "Don't know, but tell me about your battles instead, because I like those." } },
   },

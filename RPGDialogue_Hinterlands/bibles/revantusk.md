@@ -9,7 +9,7 @@
 - Lard (ogre innkeeper; keeps the peace, sells fish): Lard Lost His Lunch (Vilebranch drove him off his picnic on the island to the north).
 - Smith_Slagtree (orc smith; a gnome saved his life when he was young and gave him tools): Vilebranch Hooligans (tools at the northeastern temples or Skulk Rock).
 - Otho_Moji'ko (cooking supplies): Message to the Wildhammer (Highvale high elves at Quel'Danil), Another Message to the Wildhammer (gryphon feathers), The Final Message to the Wildhammer (feathered spear planted by the well at Aerie Peak).
-- Gorkas (orc wind rider master, Orgrimmar; fishes off the pier, wants a huge grouper).
+- Gorkas (orc wind rider master, Orgrimmar; fishes off the pier, wants a huge grouper). Speaks as an orc (plain, proud, no troll dialect); Slagtree likewise.
 
 ## Their quests
 - Torntusk: Kidnapped Elder Torntusk!, Wanted: Vile Priestess Hexx and Her Minions, Job Opening: Guard Captain of Revantusk Village.

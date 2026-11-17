@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Who's that? Oh, it's you, it's only you, and you're not wearing their robes, so come closer and keep your voice down." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back, and nobody followed you, did they? Good, because the wind out here has ears, I'm sure of it, and a lizard has been watching me for three days running." },
+    { id = "g_default", text = "Who's that? Oh, it's you, it's only you, and ye're not wearing their robes, so come closer, {g:lad|lass}, and keep your voice down." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye came back, and nobody followed ye, did they? Good, because the wind out here has ears, I'm sure of it, and a lizard has been watching me for three days running." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted every night of it, because the ground hums louder when nobody listens with me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown stronger since you last stood here, I can see it in how you hold yourself. Good, because you'll need it for what sleeps below." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone says you told them a lie, and I know all about lies, for I wore a robe full of them once. Don't let it become a habit." },
@@ -50,7 +50,7 @@ P:NPC {
           text = "A warlock, and I've met your kind in the cult, where they'd bargain with anything that answered. Keep your little friend back from me and we'll get along." },
       },
       again = {
-        { id = "h_again", text = "What else, what else? Ask quickly before the ground starts humming again." },
+        { id = "h_again", text = "What else, what else? Ask quickly, {g:lad|lass}, before the stone starts humming again." },
         { id = "h_again2", text = "Go on, I'm listening, though I'm also listening to the rocks, so speak up." },
         { id = "h_again3", text = "Anything else? I've plenty of fears to share, so don't be shy." },
       },
@@ -219,8 +219,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I was a miner, then a cultist, then a thief, and now I'm a madman on a rock, and of the four I liked mining best." } },
+    background = { { id = "tp_ba", text = "I was a miner, then a cultist, then a thief, and now I'm a madman on a rock, and of the four I liked mining best, for honest stone never lied to me." } },
     advice = { { id = "tp_ad", text = "Never say a name you don't want answering you, friend, because some of them are always listening." } },
-    _none = { { id = "tp_none", text = "I don't know that one, and I'm glad of it, for every new thing I learn seems to be something else to be afraid of." } },
+    _none = { { id = "tp_none", text = "I don't know that one, and by my beard I'm glad of it, for every new thing I learn seems to be something else to be afraid of." } },
   },
 }

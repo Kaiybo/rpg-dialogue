@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bristleback", min = 25 } }, text = "The Bristleback on the mesa are thinning out, and I can walk this road without a spear in both hands. I know who to thank for it." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Keep walking while you ask." },
+        { id = "h_again", text = "Anything else? Keep walking while you ask; the plains reward the ones who keep moving." },
         { id = "h_again2", text = "Go on, I'm listening, but I'm watching the brush too." },
       },
       choices = {
@@ -97,6 +97,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a brave of Camp Narache. I walk this road, and I'll keep walking it until it's safe." } },
     advice = { { id = "tp_ad", text = "Never walk a road you don't know without a spear in your hand. The quilboar can smell an empty one." } },
-    _none = { { id = "tp_none", text = "I don't know about that. Ask Chief Hawkwind, or Grull at the hunting camp." } },
+    _none = { { id = "tp_none", text = "I don't know about that. Ask Chief Hawkwind, or Grull at the hunting camp; may the Earth Mother speed your hooves." } },
   },
 }

@@ -658,7 +658,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Ishnu-alah. You walked in from the hills, so you've seen what Desolace has become." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Good; I've more work than allies." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Good; I've more work than allies, and Elune has given me a long time to notice the difference." },
   },
   start = "hello",
   nodes = {
@@ -753,7 +753,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "I've been counting the Burning Blade's patrols, and they're thinner than they were before you came. Whatever you've been doing out at Thunder Axe, don't stop." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Our druids say the elements were wounded when the Well of Eternity fell, and I wonder whether you can hear them still aching." },
       },
-      again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
+      again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk, any more than the Legion did in my grandmother's day." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
       choices = {
         { text = "What have the demon-worshippers done to this land?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about the Burning Blade.", next = "b1_1" },
@@ -910,7 +910,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one carrying the Light. Misha doesn't like your smell, and I'm not sure I do either, but I've learned not to judge a creature by its scent alone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I have seen orcs and tauren walk with the elements, never one of the mountain folk, so I'll hear you out." },
       },
-      again = { { id = "h_again", text = "Speak your mind." }, { id = "h_again2", text = "Misha's listening too." } },
+      again = { { id = "h_again", text = "Speak your mind, plainly. The wilds have no patience for wasted words, and neither do I." }, { id = "h_again2", text = "Misha's listening too." } },
       choices = {
         { text = "Why do you walk the wilds alone, Rexxar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do you trust the shamans of the Horde, Rexxar?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
@@ -1155,6 +1155,6 @@ P:NPC {
       { id = "tp_knows", text = "I hear things on the road, mostly from people who don't know I'm listening. Ask, and I'll tell you what I know." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Misha doesn't trust you yet, so neither do I, but I'll answer a question or two if you keep it short." },
     },
-    _none = { { id = "tp_none", text = "I don't know that, and I don't much care to." } },
+    _none = { { id = "tp_none", text = "I don't know that, and I don't much care to. Misha cares even less." } },
   },
 }

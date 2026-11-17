@@ -11,7 +11,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Well met, friend! Shake the sand off yer boots before ye come any closer." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? The desert didn't swallow ye, then. Good." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? The desert didn't swallow ye, then, and by my beard I'm glad of it." },
   },
   start = "hello",
   nodes = {
@@ -139,7 +139,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my dig, is it? Keep yer wee beastie away from the tomb mouths, because I've a feelin' some o' what's buried out here would be glad o' the company." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'd heard tell o' this, but I didnae believe it till now. Out here the sand's the enemy o' us all, so say yer piece an' mind the dig." },
       },
-      again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
+      again = { { id = "h_again", text = "Anything more, {g:lad|lass}? Ask away, but mind ye don't kick sand in the trench." }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
         { text = "What lies buried under these dunes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "The earth here is dry and old. What have your digs disturbed?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
@@ -349,8 +349,8 @@ P:NPC {
     third = "{name} met Curgle Cranklehop, a gnome in Gadgetzan.",
   },
   greetings = {
-    { id = "g_main", text = "Oh! A visitor, how wonderful. Do you have a moment for some science?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! I've been thinking about what we discussed." },
+    { id = "g_main", text = "Oh! A visitor, how wonderful. Do you have a moment for some science? Five minutes, say, or seven if the scorpids cooperate?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! I've been thinking about what we discussed, and I've revised my estimate by at least twelve percent." },
   },
   start = "hello",
   nodes = {
@@ -437,7 +437,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I've read that your people speak with the elements, which is either superstition or the most fascinating field study in Kalimdor, and I'd dearly like to know which." },
-        { id = "h_default", key = true, text = "Curgle Cranklehop, at your service! I study the creatures of Tanaris, from the scorpids to the basilisks, because the desert hides more marvels than anyone in Gadgetzan gives it credit for." },
+        { id = "h_default", key = true, text = "Curgle Cranklehop, at your service! I study the creatures of Tanaris, from the scorpids to the basilisks, and I've catalogued forty-one distinct behaviors so far, because the desert hides more marvels than anyone in Gadgetzan gives it credit for." },
         { id = "h_c0", when = { race = "Gnome" }, text = "A fellow gnome! Oh, splendid, someone who'll understand when I talk about mechanical reproduction of insect behavior." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Oh, wonderful, you can settle an argument I've been having with myself: do basilisks really turn things to stone, or do they just stare very hard?" },
@@ -453,7 +453,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, wonderful, do you know I've always wondered whether a basilisk's gaze works on someone who's glowing with the Light? Purely academic, of course." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh, you startled me! You move like a sand scorpid, all quiet and sudden, and I mean that as a compliment, a scientific one." },
       },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "More questions? Wonderful!" } },
+      again = { { id = "h_again", text = "What else, friend? Ask quickly, before I lose my place in these notes, which I've numbered but not, unfortunately, in order." }, { id = "h_again2", text = "More questions? Wonderful!" } },
       choices = {
         { text = "Do the desert beasts feel the elements the way I do?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What creature in Tanaris fascinates you most, Curgle?", next = "druid_q", when = { class = "DRUID" } },

@@ -391,7 +391,7 @@ P:NPC {
 
   greetings = {
     { id = "g_deck", text = "Up the stairs and still breathing! That's a good start, for I've watched orcs come down those stairs headfirst." },
-    { id = "g_back", when = { metBefore = true }, text = "The tide's brought you back! I like a sailor who can find the way home." },
+    { id = "g_back", when = { metBefore = true }, text = "The tide's brought you back! I like a sailor who can find the way home, which is more than this old bull ever managed with Mulgore." },
     { id = "g_away", when = { away = 14 }, text = "The tide's brought you back after {away} away! I knew a good sailor would find the way home sooner or later." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you put a scare into somebody down on the docks. Save it for the Bloodsail, because the Bay's on your side." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The whole cove's talking about what you did for us. That's the kind of talk a Fleet Master likes to hear." },
@@ -503,12 +503,12 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest ashore, ha! Sailors are a superstitious lot, so if you linger in Booty Bay they'll be lining up to have you bless their hulls, though I doubt any of them will pay you in more than rum." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in Booty Bay! You'll find more pirates here than honest men, and I'm one of the pirates, but I like to think I'm an honest one, which makes me a rarer beast than anything in the jungle." },
         { id = "h_default", key = true,
-          text = "Fleet Master Seahorn, of the Blackwater Raiders! The fleet answers to me, I answer to the Baron, and the Baron answers to his ledger." },
+          text = "Fleet Master Seahorn, of the Blackwater Raiders! I traded the plains for the sea a long time ago, and never once regretted it. The fleet answers to me, I answer to the Baron, and the Baron answers to his ledger." },
         { id = "h_bloodsail", tags = { "news" }, when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") },
           text = "The Bloodsail are scheming against the town, and their camp's up the Wild Shore. Raid it, bring me their letters, and we'll see whose name is on the plan." },
         { id = "h_treasure", when = { questActive = TODO_QUEST("Sunken Treasure") },
           text = "A treasure under the waves, and somebody wants me to have the best of it? Bring that gem straight here, and don't let it near a Bloodsail." },
-        { id = "h_storm", when = { metBefore = true }, text = "Smell that? There's a storm coming by morning, and my knees know it before the sky does. That's the old sailor's curse for you." },
+        { id = "h_storm", when = { metBefore = true }, text = "Smell that? There's a storm coming by morning, and my knees know it before the sky does, the way the herds on the plains knew the rain before it came. That's the old sailor's curse for you, and the tauren's too." },
         { id = "h_crazz", when = { heardLine = "crazz.h_default" }, text = "Crazz has been at you about the Bloodsail? He's a good lad, if too eager, but I was just as eager once myself, and it got me a fleet." },
         { id = "h_eye_resolved", tags = { "news" }, when = { thread = { id = "bloodsail_eye", state = "resolved" } },
           text = "Two ships out this week and not a red sail between here and the Cape! I'd call it luck if I didn't know better, and I know exactly who to thank for it." },
@@ -951,9 +951,9 @@ P:NPC {
       { id = "tp_knows", text = "Every ship that sails these waters sends word back to me, one way or another! Ask, and I'll tell you what the sea's been saying." },
     },
     background = { { id = "tp_bg", text = "I was a plains calf who grew into a sea-going bull. The grass raised me, and the waves finished the job.", next = "why" } },
-    advice = { { id = "tp_ad", text = "Respect the sea, laugh at the storm, and never, ever trust a red sail." } },
+    advice = { { id = "tp_ad", text = "Respect the sea as you would the Earth Mother, laugh at the storm, and never, ever trust a red sail." } },
     bloodsail = { { id = "tp_bloodsail", text = "Their fleet master would dearly love my horns on his wall. He'll have to get in line." } },
-    _none = { { id = "tp_none", text = "That's a landlubber's question, so ask somebody with dry boots." } },
+    _none = { { id = "tp_none", text = "That's a landlubber's question, so ask somebody with dry boots and dry hooves." } },
   },
 }
 

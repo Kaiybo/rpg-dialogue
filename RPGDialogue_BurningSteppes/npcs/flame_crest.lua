@@ -1506,7 +1506,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Lok'tar. You need a rider, or you're lost?" },
+    { id = "g_default", text = "Lok'tar, {class}. Do you need a rider, or are you lost?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The riders are rested, and so am I, almost, though I still cough up black every morning from the ash." },
   },
 
@@ -1609,7 +1609,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Blackrock up on the mountain keep warlocks too, the old kind, and my riders can't tell the difference by smell." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open your own way home, but my riders show you the Steppes on the way, and the Steppes should be seen once, burning." },
         { id = "h_default", key = true,
-          text = "Vahgruk. I keep the Horde's wind riders at Flame Crest, so that anyone the Warchief sends this far north has a way home again." },
+          text = "I am Vahgruk, and I keep the Horde's wind riders at Flame Crest, so that any warrior the Warchief sends this far north has a way home again." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. The riders will take you, and the armour, but they'll want you to sit still, and warriors never sit still." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -1663,6 +1663,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve the Warchief where he sends me, and he sent me to a rock full of goblins. Don't ask me how I feel about it." } },
     advice = { { id = "tp_ad", text = "Fly high over the lava; the heat lifts you, and the riders like it, though they come down smelling of singed feathers." } },
     blackrock = { { id = "tp_blackrock", text = "Orcs who never learned what Thrall taught the rest of us. That makes them more dangerous than humans, not less." } },
-    _none = { { id = "tp_none", text = "I keep wind riders. Ask the goblins; they know everything for a price." } },
+    _none = { { id = "tp_none", text = "I keep wind riders, nothing more. Ask the goblins, because they know everything, for a price." } },
   },
 }

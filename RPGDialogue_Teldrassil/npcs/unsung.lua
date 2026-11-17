@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Arrows, bows, quivers, whatever you need for the road, and advice for free if you stand still long enough." },
-    { id = "g_back", when = { metBefore = true }, text = "Back already? You must be using those arrows, which is the whole idea." },
+    { id = "g_default", text = "Arrows, bows, quivers, whatever you need for the road, and advice for free if you stand still long enough. Every Sentinel on Teldrassil has heard it, so you may as well too." },
+    { id = "g_back", when = { metBefore = true }, text = "Back already? You must be using those arrows, which is the whole idea. Elune guide the next ones straighter." },
   },
 
   notice = {
@@ -126,11 +126,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a bow I didn't sell you, by the look of it. Let me see how you hold it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need my bows, I know, but half the young druids who pass through still buy a quiver for a friend, so I'm always glad to see you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You can't draw a bow, I know, but I'd love to know what you'll do when the Gnarlpine get close and your spells run dry." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You hold your bow wrong, spirits or no. Let me show you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You hold your bow wrong, spirits or no, and the Sentinels have shot this way since the War of the Ancients, so let me show you." },
       },
       again = {
         { id = "h_again", text = "What else? I've arrows to fletch, but I can talk while I do it." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening. Fletching is slow work, and my people have never minded slow work." },
       },
       choices = {
         { text = "Show me your bows.", next = "BUSINESS" },
@@ -190,7 +190,7 @@ P:NPC {
     furbolgs = { { id = "tp_furb", text = "The Gnarlpine used to be peaceful, but now they snarl at anyone who goes near Ban'ethil. Shoot first if they come running." } },
     background = { { id = "tp_bg", text = "I make and sell bows in Dolanaar. My hands have more splinters than skin." } },
     advice = { { id = "tp_ad", text = "Carry twice the arrows you think you need. You'll lose half of them in the undergrowth." } },
-    _none = { { id = "tp_none", text = "I don't know about that. Ask Keldamyr at the inn; everyone talks to her." } },
+    _none = { { id = "tp_none", text = "I don't know about that. Ask Keldamyr at the inn; everyone talks to her, and she remembers all of it." } },
   },
 }
 
@@ -206,7 +206,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Dolanaar. If you've come to learn the blade, you've found the right elf." },
+    { id = "g_default", text = "Ishnu-alah, and welcome to Dolanaar. If you've come to learn the blade, you've found the right elf, though I warn you that the Sentinels trained me hard." },
     { id = "g_back", when = { metBefore = true }, text = "There you are. You're standing better than last time, so something's sinking in." },
   },
 
@@ -310,7 +310,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't train with me, but I've watched young druids take a beating from the Gnarlpine and get back up in bear shape, and that's half of what I teach." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, in Dolanaar? You're a long way from any tower, and I'd guess you've noticed by now how far a Gnarlpine can run while you're still casting." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I train warriors to stand their ground, and I see you've brought something to stand it for you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I measure students by how they get up, not how they fall. Your spirits might help you up." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I measure students by how they get up, not by how they fall, and I suspect your spirits have helped you up more than once." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, I don't bite." },
@@ -373,7 +373,7 @@ P:NPC {
     sentinels = { { id = "tp_sent", text = "The Sentinels guard our forests and our roads, and every warrior I train might one day stand beside them." } },
     background = { { id = "tp_bg", text = "I teach the first lessons of the blade in Dolanaar. Someone has to, and I like seeing them improve." } },
     advice = { { id = "tp_ad", text = "Fight one enemy at a time when you can. Pull them apart and you can beat them all." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you. My world is drills and bruises." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. My world is drills and bruises, and has been for longer than you'd believe." } },
   },
 }
 
@@ -389,7 +389,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello. Please keep your voice low, the tincture is settling." },
+    { id = "g_default", text = "Ishnu-alah. Please keep your voice low, for the tincture is settling, and it is as easily startled as a fawn." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Have you found any interesting herbs since we last spoke?" },
   },
 
@@ -497,11 +497,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You walk where the herbs grow, so tell me, have you seen any peacebloom near the lake?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm glad, because you'll hear what the herbs are saying better than I can, and I've been worried about the peacebloom near the Gnarlpine camps." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll teach you alchemy if you'd like, the same as anyone, though I'll ask you to leave your servant outside, because the herbs don't like it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lean in, please. I speak softly. Every herb has something to tell me, and perhaps your spirits do too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lean in, please, for I speak softly. Every herb on Teldrassil has something to tell me, and perhaps your spirits do too." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know?" },
-        { id = "h_again2", text = "Go on, quietly." },
+        { id = "h_again", text = "What else would you like to know? Ask gently, as you would ask the forest." },
+        { id = "h_again2", text = "Go on, quietly, as if Elune herself were listening." },
       },
       choices = {
         { text = "Teach me alchemy.", next = "BUSINESS" },
@@ -561,7 +561,7 @@ P:NPC {
     furbolgs = { { id = "tp_furb", text = "The Gnarlpine have gone wild, and I treat the wounds they leave. I pray Athridas finds a cure." } },
     background = { { id = "tp_bg", text = "I teach alchemy in Dolanaar, mostly to students who taste things they shouldn't." } },
     advice = { { id = "tp_ad", text = "Keep a healing potion on your belt, not in your pack. You won't have time to dig." } },
-    _none = { { id = "tp_none", text = "I don't know, I'm sorry. Perhaps someone at the inn could tell you." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm sorry. Perhaps someone at the inn could tell you, or a druid of the Enclave." } },
   },
 }
 
@@ -679,11 +679,11 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll trample half my peacebloom walking in, so please step where I step." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have walked over more herbs than you know, chasing whatever you were chasing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll want to know which herbs your potions need, I expect, and I'll teach you, so long as you take them the way the forest offers them." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every root is borrowed from the forest. Do your spirits borrow too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every root I gather is borrowed from the forest and repaid in time, so tell me, do your spirits borrow too?" },
       },
       again = {
         { id = "h_again", text = "What else would you know? Speak softly; the seedlings are listening." },
-        { id = "h_again2", text = "Ask what you will." },
+        { id = "h_again2", text = "Ask what you will. The forest has waited this long for its answers, and so can I." },
       },
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
@@ -742,7 +742,7 @@ P:NPC {
     teldrassil = { { id = "tp_teld", text = "The tree is young and its soil is thin. It gives freely, but it can't give forever." } },
     camping = { { id = "tp_camp", text = "Lyreena teaches the fire, and I teach the herbs that go beside it. Ask her first." } },
     background = { { id = "tp_bg", text = "I teach herbalism in Dolanaar. I've walked every glade on this tree with my eyes on the ground." } },
-    _none = { { id = "tp_none", text = "That is beyond my knowledge. The forest hasn't told me." } },
+    _none = { { id = "tp_none", text = "That is beyond my knowledge, and the forest has not seen fit to tell me." } },
   },
 }
 
@@ -758,7 +758,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Come in, come in, you're welcome here. We haven't much, but what we have is yours to share." },
+    { id = "g_default", text = "Ishnu-alah, come in, you're welcome here. We haven't much beneath this roof, but what we have is yours to share." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to our home. Let me see your stitches; I hope they've gotten smaller." },
   },
 
@@ -869,7 +869,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting leather that moves quietly through the brush, and that I can do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in our house! Come in, and mind the hides by the door, because Radnaal says the Circle always looks at them as though they were old friends." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Come in all the same, but mind that your servant doesn't scorch my hides, because a scorch mark ruins a whole day's stitching." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, welcome as a guest! I am particular about small things. Your spirits must be particular too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome as a guest! I am particular about small things, the way my mother's mother was, and I imagine your spirits must be particular too." },
       },
       again = {
         { id = "h_again", text = "What else, dear? Sit down by the fire, if you like." },
@@ -949,7 +949,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hm, a visitor. If you're here to learn skinning, come and stand by the rack." },
+    { id = "g_default", text = "Hm, a visitor. If you're here to learn skinning, come and stand by the rack, and thank the beast before you touch the knife." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your knife looks sharper than last time." },
   },
 
@@ -1059,11 +1059,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know already that a clean kill makes a clean hide." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll understand if you'd rather not watch me work, though I'd sooner you did, because I skin nothing that wasn't hunted with respect." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll want to learn skinning, I suppose, or you've come to see Nadyia. Either way, the hides are out back." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I skin with respect. Do your spirits respect the beasts?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I skin nothing without thanking it and the forest that fed it, so tell me, do your spirits respect the beasts as well?" },
       },
       again = {
-        { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Ask, if you need to." },
+        { id = "h_again", text = "What else? Ask plainly; Elune gave me hands for skinning, not a tongue for speeches." },
+        { id = "h_again2", text = "Ask, if you need to. The hides will wait, and so will I." },
       },
       choices = {
         { text = "Teach me skinning.", next = "BUSINESS" },
@@ -1113,7 +1113,7 @@ P:NPC {
   topics = {
     camping = { { id = "tp_camp", text = "A skinner brings hides to sit on. Ask Lyreena about the rest." } },
     background = { { id = "tp_bg", text = "I skin, and I teach skinning. Nadyia does the talking for both of us." } },
-    _none = { { id = "tp_none", text = "Don't know, so ask Nadyia." } },
+    _none = { { id = "tp_none", text = "Don't know, so ask Nadyia. She has a longer memory for gossip than I have for anything." } },
   },
 }
 
@@ -1129,7 +1129,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Rut'theran! Lines, hooks and bait, and the best gossip on the shore for nothing." },
+    { id = "g_default", text = "Ishnu-alah, and welcome to Rut'theran! Lines, hooks and bait, and the best gossip on the shore of Teldrassil for nothing." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! Did the fish bite, or did you only feed them?" },
   },
 
@@ -1241,7 +1241,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll appreciate a good catch more than most, since you know what it took to land it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've seen your sort slip into the water as a seal and come up halfway to Auberdine, and you don't know how much I envy you on a cold morning." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Rut'theran! The fish won't bite with your servant leaning over the water, I promise you, so let it wait on the dock." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every boat and every fisherman. Auberdine is like home across the water." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every boat and every fisherman on this shore, and Auberdine across the water is like a second home to me." },
       },
       again = {
         { id = "h_again", text = "Anything else? The boats won't be in for a while yet." },
@@ -1435,12 +1435,12 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit down if you like, because fishing's the nearest thing to prayer I know, and nobody has to say a word." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've the look of someone who doesn't sit still often, so I'll warn you now that my lessons go slowly." },
-        { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a great deal of time to practice." },
+        { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a few centuries to practice it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit down, put the sword aside and hold this pole, and see whether you can stand to wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know about waiting already, I expect, so we'll get along." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Patience is the heart of fishing, and I'm told the Circle can sleep for years, so you may be the only students who find my lessons too short." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll have to be patient to learn fishing, and I've found your kind usually are, if only because you're waiting for something." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I do everything slowly, fishing and talking alike. Your spirits might enjoy the pace." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I do everything slowly, fishing and talking alike, as my people always have, and your spirits might enjoy the pace." },
       },
       again = {
         { id = "h_again", text = "Another question? The fish are patient, and so am I." },

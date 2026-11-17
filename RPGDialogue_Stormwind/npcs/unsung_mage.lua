@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Lilyssia Nightbreeze, a night elf alchemist teaching in Stormwind's Mage Quarter.",
   },
   greetings = {
-    { id = "g_default", text = "Come in, and close the door behind you. This little house is the only battlefield they allow me." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned, and with the smell of the wild still on you. Tell me where you've been." },
+    { id = "g_default", text = "Ishnu-alah, and close the door behind you. My sisters walk Ashenvale under Elune's moon, and this little house is the only battlefield they allow me." },
+    { id = "g_back", when = { metBefore = true }, text = "You return with the smell of the wild still on you, and I envy every league of it. Tell me where you've been, and whether the moon was bright there." },
   },
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" }, place = "before",
@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I wish it every day. But someone must teach, and duty is duty. Your spirits must understand that better than most." } },
+      lines = { { id = "xdsham_default", text = "I wish it every day, but someone must teach, and duty does not bend because a heart is restless. Your spirits must understand that better than most." } },
       choices = {
         { text = "Duty kept is the truest honour, Lilyssia.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Go and fight, then. Duty can wait.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -115,21 +115,21 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Then you know what it is to tend the wounded while others stand guard, and you'll understand why I envy them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My sisters in Ashenvale would respect you, I think, for you fight where the danger is and not behind a bench." },
-        { id = "h_default", text = "I am Lilyssia Nightbreeze. I teach alchemy here, shut up among the humans' stone, while others fight the battles I dream of every night. Still, someone must teach, so I do." },
+        { id = "h_default", text = "I am Lilyssia Nightbreeze. I teach alchemy here, shut up among the humans' stone, while my sisters fight the battles I dream of under every new moon. Still, someone must teach, and a daughter of the kaldorei keeps the post she is given." },
         { id = "h_nightelf", when = { race = "NightElf" }, text = "A child of the forest! Then you understand what it is to be kept from the fight while our sisters stand watch in Ashenvale. Sit, and let me teach you something useful at least." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. My sisters would frown at me for teaching your kind, but alchemy needs a steady hand, and yours look steady enough." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You bring the fel into my workshop, and the herbs wilt on the bench. I will teach you, because I must, but my sisters in Ashenvale would not." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You will fight the battles I dream of every night, while I stay here among the humans' stone. I envy you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You will fight the battles I dream of every night while I stay here among the humans' stone, and I envy you more than a Sentinel's daughter ought to say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The hunters of my people walk the forests beside the night sabers, and I think of them often, here among the stone." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Elune guide you, druid. Some days I'd trade my mortar for your claws, because my place is outside these walls with the Sentinels." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like one of my sisters on the watch, and that's rare among humans. Have you come to learn alchemy, or to steal it?" },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'd rather be fighting outside the walls, but I teach alchemy out of duty. Do your spirits demand duty too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I would rather be on the Ashenvale road with a glaive, but I teach alchemy out of duty, as Elune asks of me. Do your spirits demand duty too?" },
       },
       again = {
         { id = "h_again", text = "Speak, and I will answer while the still drips; the forest taught me to listen and work at once." },
-        { id = "h_again2", text = "Ask, while the flask is cooling." },
+        { id = "h_again2", text = "Ask, while the flask is cooling; it will not hurry for either of us, and neither will I." },
       },
       choices = {
         { text = "Teach me alchemy.", next = "BUSINESS" },
@@ -173,8 +173,8 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I crossed the sea when our peoples made their alliance, and I have taught here ever since, though I count the days." } },
-    _none = { { id = "tp_none", text = "That I cannot tell you. Ask me about herbs and flasks instead." } },
+    background = { { id = "tp_bg", text = "I crossed the sea when our peoples made their alliance, and I have taught here ever since. My people seldom count the days, but I count every one of mine." } },
+    _none = { { id = "tp_none", text = "That I cannot tell you, and I will not pretend otherwise, as the younger races sometimes do. Ask me about herbs and flasks instead." } },
   },
 }
 
@@ -301,7 +301,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. In Teldrassil, we would call you something akin to a druid, though rougher. Welcome; these herbs are gifts between our peoples." },
       },
       again = {
-        { id = "h_again", text = "What else may I tell you?" },
+        { id = "h_again", text = "What else may I tell you? Elune grants me patience enough for every question." },
         { id = "h_again2", text = "The Great Tree's gifts are patient, and so am I; ask what you wish." },
       },
       choices = {
@@ -342,7 +342,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I crossed from Kalimdor with the first of our people to come to Stormwind, and I have kept this corner of the shop since." } },
-    _none = { { id = "tp_none", text = "I do not know, and I would not wish to guess." } },
+    _none = { { id = "tp_none", text = "I do not know, and my people learned long ago that a careless guess can do more harm than silence." } },
   },
 }
 

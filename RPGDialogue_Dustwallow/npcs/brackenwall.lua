@@ -14,10 +14,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_boss", text = "You're here because the Warchief wants answers, and so do I. Talk." },
-    { id = "g_back", when = { metBefore = true }, text = "Back, good. What did you find?" },
+    { id = "g_boss", text = "You're here because the Warchief wants answers, and so do I, so talk plainly, the way an orc should." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, good. What did you find, and is there blood on it?" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the marsh hasn't gotten any quieter while you were away. Tell me you found something worth the wait." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when I first sent you out, and that's good, because what I need from you now is harder." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when I first sent you out, and that's good, because what I need from you now is harder, and the Horde honors those who carry the hard things." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you scared someone in camp half to death, and I don't care unless it gets back to Theramore. Keep your fists for the people I point you at." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you talked circles around somebody in the camp and they believed every word, which is a useful skill, so long as you never try it on me." },
   },
@@ -141,7 +141,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You read tracks, so go read the ones around the Shady Rest, and tell me what Theramore's soldiers missed." },
         { id = "h_default", key = true,
-          text = "Krog. The Warchief ordered the Horde to leave Theramore's humans in peace, and now a human inn has burned with our name on it. I'll find who made a liar of him." },
+          text = "Krog. The Warchief ordered the Horde to leave Theramore's humans in peace, and now a human inn has burned with our name on it. Thrall gave us back our honor after the camps, and I'll find who tried to make a liar of him." },
         { id = "h_command", when = { any = { { questActive = TODO_QUEST("Warchief's Command: Dustwallow Marsh!") }, { questActive = TODO_QUEST("Flight to Brackenwall") } } },
           text = "The Warchief sent you, so you know what's at stake: a peace he worked for, burning on a road in the fog." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Inspecting the Ruins") },
@@ -168,7 +168,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The humans of Theramore have paladins too, and they'd look at you and see something worse than an orc." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it useful." },
+        { id = "h_again", text = "What else? Make it useful, warrior." },
         { id = "h_again2", text = "Go on. I'm listening, and the marsh isn't." },
       },
       choices = {
@@ -334,7 +334,7 @@ P:NPC {
     grimtotem = { { id = "tp_grimtotem", text = "Cairne's problem, and now mine too. They'd burn the whole peace to warm their hands." } },
     background = { { id = "tp_ba", text = "The Warchief put me in charge of finding out who burned that inn. That's all you need to know about me, and it's all I need to know about myself until it's done.", next = "inn" } },
     advice = { { id = "tp_ad", text = "In this marsh, trust tracks before you trust words. Mud doesn't lie about who walked through it." } },
-    _none = { { id = "tp_none", text = "I don't care about that. Find me the burners." } },
+    _none = { { id = "tp_none", text = "I don't care about that. Find me the burners, and bring me deeds, not talk." } },
   },
 }
 
@@ -350,7 +350,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_watch", text = "The Alliance smiles from its island. I keep count of the smiles, and of the knives behind them." },
+    { id = "g_watch", text = "The Alliance smiles from its island. I keep count of the smiles, and of the knives behind them, as any orc who remembers the internment camps should." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted the Alliance patrols while you were away, as I always do. There were more of them than before, which I'm sure is a coincidence." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone here caught you in a lie, and I keep count of liars just as I keep count of smiles. You're on my list now, so give me a reason to take you off it." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in camp round to your view, and I'd like to know what you told them, because a tongue like that would be useful on the road to Theramore." },
@@ -433,7 +433,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll hear the marsh better than my spies do, so tell me if the water ever carries a voice from Theramore." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in the marsh. Theramore's chaplains will want to talk theology with you, so don't, because everything you tell them ends up in a report." },
         { id = "h_default", key = true,
-          text = "Nazeer Bloodpike, and I watch Theramore for the Horde. There's a peace, on paper, but in the marsh, paper gets wet." },
+          text = "Nazeer Bloodpike, and I watch Theramore for the Horde. There's a peace, on paper, and Thrall paid for it in blood, but in the marsh paper gets wet." },
         { id = "h_head", tags = { "news" }, when = { questActive = TODO_QUEST("The Severed Head") },
           text = "A severed head, and a question of whose. Someone wants us to read something into it. I'd like to know who first." },
         { id = "h_witchdoctor", when = { questActive = TODO_QUEST("The Troll Witchdoctor") },
@@ -560,7 +560,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I watch Theramore, and I know more about it than the humans would like. Ask, and keep your voice low." },
     },
-    background = { { id = "tp_ba", text = "I'm the Horde's spymaster in this marsh, and a spymaster's story is the one thing he never tells." } },
+    background = { { id = "tp_ba", text = "I'm the Horde's spymaster in this marsh, and a spymaster's story is the one thing he never tells, not even to his own clan." } },
     advice = { { id = "tp_ad", text = "Keep a copy of every report in your head as well as in your pack. Marg's report came home in his hand, and his head came home separately." } },
     _none = { { id = "tp_none", text = "If I knew, I'd have reported it, and I haven't, so I don't." } },
   },

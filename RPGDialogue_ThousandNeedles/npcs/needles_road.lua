@@ -70,7 +70,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You're a druid, from Thunder Bluff maybe? My mother wanted me to study with the druids, but I wanted to see the canyons first, and now look at me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin? I've heard about the Forsaken, but nobody told me they could glow. Are you here to help me get back to Freewind?" },
       },
-      again = { { id = "h_again", text = "What else? I'm listening, just a bit nervous." }, { id = "h_again2", text = "Ask me anything; it helps to talk." } },
+      again = { { id = "h_again", text = "What else? I'm listening, just a bit nervous, and the Earth Mother knows I've reason to be." }, { id = "h_again2", text = "Ask me anything; it helps to talk." } },
       choices = {
         { text = "Why didn't you want to study with the druids?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How did you get lost?", next = "b1_1" },
@@ -155,7 +155,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Peace, friend. You've come a long way up the mesas." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. The wind keeps blowing you up here, same as the dust." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. The wind keeps blowing you up here, same as the dust off the plains." },
   },
   start = "hello",
   nodes = {
@@ -252,7 +252,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 25 } }, text = "The Galak below the mesa are fewer than they were, and I have seen you on the canyon road often enough to know why. Be careful, because they will come looking for you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, with the Light still in him. Freewind watches everything that climbs these mesas, and you are a new thing to watch." },
       },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
+      again = { { id = "h_again", text = "What else, friend? Speak; the mesa has time." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
         { text = "What are the Grimtotem doing to the mesas?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Grimtotem?", next = "b1_1" },
@@ -311,7 +311,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Welcome, traveler. Come, but watch your step on the mesa edges." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned. Good." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; the Earth Mother keeps those who walk her paths." },
   },
   start = "hello",
   nodes = {
@@ -379,7 +379,7 @@ P:NPC {
           text = "A rogue of the Horde. The Grimtotem are many, and they fight like cornered bulls, but a blade in the dark is something they don't expect." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Grimtotem would spit at you, so you're already on my side." },
       },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask, if you have more." } },
+      again = { { id = "h_again", text = "What else? Speak plainly, as the Bloodhoof do." }, { id = "h_again2", text = "Ask, if you have more." } },
       choices = {
         { text = "What does Magatha want from the Needles?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are the Grimtotem doing?", next = "b1_1" },
@@ -780,7 +780,7 @@ P:NPC {
     third = "{name} met Wizzle Brassbolts of the gnome racing team at the Mirage Raceway.",
   },
   greetings = {
-    { id = "g_main", text = "Oh, hello! Careful with that, that's a very expensive wrench." },
+    { id = "g_main", text = "Oh, hello! Careful with that, that's a very expensive wrench, calibrated to a sixteenth of a turn!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you come to see our new design?" },
   },
   start = "hello",
@@ -902,7 +902,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! Could you ask the winds to blow the goblin car off the track? No? Not even a little gust?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Could you ask the winds to blow the goblin car off the track? Just a little gust, for the Alliance?" },
       },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Questions? I love questions!" } },
+      again = { { id = "h_again", text = "What else? I've seventeen adjustments left before the next heat, so make it quick!" }, { id = "h_again2", text = "Questions? I love questions!" } },
       choices = {
         { text = "Shapeshifting isn't machinery, Wizzle. Why measure it?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How do you beat the goblins?", next = "b1_1" },

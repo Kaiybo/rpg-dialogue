@@ -45,7 +45,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Maerion Thaelemaches. They call this place the Cradle of Tranquility, and I suppose it is tranquil, if you ignore what lies under the mountain and what still hides on its slopes. If this is what we call a victory, you would not want to know the full breadth of a defeat." },
+          text = "I am Maerion Thaelemaches. They call this place the Cradle of Tranquility, and I suppose it is tranquil, if you ignore what lies under the mountain and what still hides on its slopes. I have hunted the Legion since the Well of Eternity burned, and if this is what we call a victory, you would not want to know the full breadth of a defeat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the human Light. You will want to save me, I expect, and I will decline politely, and we will both be disappointed." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -257,7 +257,7 @@ P:NPC {
     burning_legion = { { id = "tp_bl", text = "They are patient, and they are not finished. The ones hiding in Dae'gun are the least of them." } },
     highborne = { { id = "tp_hb", text = "Their hunger for magic called the Legion here the first time. I see little reason to admire them." } },
     malfurion = { { id = "tp_malf", text = "The Shan'do called the wisps and saved us all. He would not want me here, I think; he has never forgiven anyone who walked his brother's road." } },
-    _none = { { id = "tp_none", text = "I do not know, and if it is not a demon, I likely do not care." } },
+    _none = { { id = "tp_none", text = "I do not know, and if it is not a demon, I likely do not care. Ten thousand years of hunting leaves little room for other questions." } },
   },
 }
 

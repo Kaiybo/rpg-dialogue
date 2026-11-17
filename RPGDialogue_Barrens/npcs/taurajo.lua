@@ -227,7 +227,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know. The plains might; ask them, quietly." } },
+    _none = { { id = "tp_none", text = "I don't know. The plains might; ask them quietly, and the Earth Mother may let the grass answer." } },
   },
 }
 
@@ -588,11 +588,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Welcome, traveler. Taurajo's fire is always lit, and there's always room by it." },
-    { id = "g_home", when = { homeInn = { "Camp Taurajo" } }, text = "You've come back to us. Your bed's ready, and the kodo stew is hot." },
+    { id = "g_inn", text = "Welcome, traveler. Taurajo's fire is always lit, as An'she keeps the sun lit over the plains, and there's always room by it." },
+    { id = "g_home", when = { homeInn = { "Camp Taurajo" } }, text = "You've come back to us, like a calf to the herd. Your bed's ready, and the kodo stew is hot." },
     { id = "g_away", when = { away = 14 }, text = "You've come back to Taurajo after {away} on the road. The fire's lit and the stew's hot, so sit down before the herders take your seat." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The herders have been talking about the help you've given the camp. They eat first here, but tonight you can eat with them." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in camp says you told them a lie and they saw right through it. We're plain folk out here, traveler, and we'd rather have the truth." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in camp says you told them a lie and they saw right through it. We're plain folk out here, traveler, and the Earth Mother hears every word, so we'd rather have the truth." },
   },
 
   notice = {
@@ -720,9 +720,9 @@ P:NPC {
           text = "You've come with your own people, and that's good to see down here, where the dwarves at Bael Modan and the quilboar both like to pick off stragglers. Stay together on the road to the Razorfen, and stay inside the palisade at night." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The kodo herders eat first, because they've earned it, but there's stew enough for a curious stranger." },
         { id = "h_default", key = true,
-          text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, and I make sure they leave rested." },
+          text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, the way the herds stop at water, and I make sure they leave rested." },
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when the moon's up. I've never once found it funny." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when Mu'sha's eye is open. I've never once found it funny." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so sit by the fire. The kodo herders say it burns brighter when a shaman sits near it, and I've stopped arguing with the kodo herders." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at Taurajo's fire, and welcome. Sit and eat, and if the hyenas start laughing out past the walls, you'll forgive me if I don't laugh along." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and covered in dust from the road south. Taurajo welcomes you, and so does my fire." },
@@ -732,7 +732,7 @@ P:NPC {
         { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Travellers up from the south say the cold has lifted off the Downs, and that somebody's been to the bottom of the place. If it was you, sit nearer the fire, because I've heard what lives down there." },
       },
       again = {
-        { id = "h_again", text = "What else can I get you? The stew keeps, and so do I." },
+        { id = "h_again", text = "What else can I get you? The stew keeps, and so do I, as patient as the grass." },
         { id = "h_again2", text = "Ask away. The kodo herders won't be in for supper for a while yet." },
       },
       choices = {
@@ -760,6 +760,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask Jorn; he knows the Barrens, and I only know soup." } },
+    _none = { { id = "tp_none", text = "Ask Jorn; he knows the Barrens, and I only know soup. May the eternal sun shine upon you." } },
   },
 }

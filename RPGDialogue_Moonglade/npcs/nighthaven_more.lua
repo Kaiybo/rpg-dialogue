@@ -12,7 +12,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Good evening, traveller. The Circle's wares are here for those who have earned them." },
+    { id = "g_default", text = "Ishnu-alah, traveller. The Circle's wares are here for those who have earned them." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me see if the Circle thinks better of you than it did last time." },
     { id = "g_away", when = { away = 14 }, text = "Welcome back after {away}, traveller. I'll need to look again at what the Circle thinks of you, because a great deal can change in that time." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word in the village is that you've helped Nighthaven, and the Circle notices who comes to mend, so I've made a note of it." },
@@ -134,8 +134,8 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle sells its wares to those it trusts, and I'll admit I'm curious how a child of Ironforge earns it." },
       },
       again = {
-        { id = "h_again1", text = "Anything else I can help you with?" },
-        { id = "h_again2", text = "Yes?" },
+        { id = "h_again1", text = "Anything else I can help you with? The Circle's memory is long, and so is mine." },
+        { id = "h_again2", text = "Yes? Speak, and I'll listen as the glade does." },
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
@@ -183,6 +183,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I keep the Circle's stores, and I keep them honestly." } },
-    _none = { { id = "tp_none", text = "That I couldn't tell you, I'm afraid." } },
+    _none = { { id = "tp_none", text = "That I couldn't tell you, I'm afraid, and I've kept the Circle's stores for longer than most kingdoms have stood." } },
   },
 }

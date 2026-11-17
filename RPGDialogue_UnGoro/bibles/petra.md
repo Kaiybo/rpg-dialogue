@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Petra Grossen · Marshal's Refuge · neutral · orc (female) · packmaster
 Personality: calm, warm, patient, protective
-Speech: gentle, plain, "friend"; "Throm-ka" to orcs
+Speech: gentle, plain, "friend"; "Throm-ka" to orcs; orc: honor through her kodo, the land over the axe
 Relationships: Dadanga (raised her), Spark (teasing), Williden
 Never says: anything about Dadanga's later fate
 

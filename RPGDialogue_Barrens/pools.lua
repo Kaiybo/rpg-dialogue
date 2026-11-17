@@ -23,7 +23,7 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Something in the grass! Out where I can see you, or I'll put a spear where I think you are." } },
   lines = {
-    { id = "l_default", text = "Quilboar to the south, centaur to the west, harpies in the hills and the Alliance at Northwatch. The Crossroads sits in the middle and holds, on stale bread and less sleep than you'd believe." },
+    { id = "l_default", text = "Quilboar to the south, centaur to the west, harpies in the hills and the Alliance at Northwatch. The Crossroads sits in the middle and holds for the Horde, on stale bread and less sleep than you'd believe." },
     { id = "l_disrupt", when = { questDone = TODO_QUEST("The Disruption Ends") }, text = "The centaur raids have slowed. I don't trust it yet, but I'll take the sleep, and so will my feet." },
   },
   choices = { { text = "Lok'tar.", next = "END", fx = { standing = { crossroads = 1 } } } },

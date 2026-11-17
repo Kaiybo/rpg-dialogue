@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Let us not mince words, for my time here is limited, and I would rather spend it on the demon than on pleasantries." },
-    { id = "g_back", when = { metBefore = true }, text = "Still here, and still lingering, which surprises me more than you. Ask quickly." },
+    { id = "g_default", text = "Let us not mince words, {class}, for my time here is limited, and an orc who dies twice should spend what's left on the demon rather than on pleasantries." },
+    { id = "g_back", when = { metBefore = true }, text = "I'm still here, and still lingering, which surprises me more than you. Ask quickly, before the ancestors call me home." },
   },
 
   notice = {
@@ -142,8 +142,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A lieutenant of Thrall's Grasp, and later a demon's plaything, and now neither, which I'm grateful for." } },
+    background = { { id = "tp_ba", text = "I was a lieutenant of Thrall's Grasp, and then a demon's plaything, as our fathers were before Thrall freed them, and now I'm neither, which I'm grateful for." } },
     advice = { { id = "tp_ad", text = "If they cage you, don't listen to the voice that says it would be easier to agree. That's how they get in." } },
-    _none = { { id = "tp_none", text = "I don't know that, and I haven't time to wonder about it." } },
+    _none = { { id = "tp_none", text = "I don't know that, and a dead warrior hasn't time to wonder about it." } },
   },
 }

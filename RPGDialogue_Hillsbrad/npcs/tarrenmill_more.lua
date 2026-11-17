@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You're Horde, and you're breathing. Good, I need both." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Any word of my brothers?" },
+    { id = "g_default", text = "You're Horde, and your blood still runs warm. Good, because I need both, and the dead here fight for their Dark Lady, not for orcs." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Speak plainly, {class}: is there any word of my brothers?" },
   },
 
   notice = {
@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. The Syndicate had spellcasters in Durnholde's ruins, and if you can burn theirs before they burn yours, I'll call you friend." },
         { id = "h_default", key = true,
-          text = "Krusk. The Warchief sent a band of us from Durotar to retrieve something from Durnholde and to learn what this Syndicate is, and the humans caught us in the ruins with three times our number. I got away, and the others didn't." },
+          text = "Krusk, of the Warchief's Horde. Thrall sent a band of us from Durotar to retrieve something from Durnholde and to learn what this Syndicate is, and the humans caught us in the ruins with three times our number. I got away and my brothers did not, and there is no honor in being the one who lived." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("The Rescue") },
           text = "Drull and Tog'thar are held in Durnholde, southeast across the river. Get them out before the Syndicate decide they're not worth feeding." },
         { id = "h_infil", when = { questActive = TODO_QUEST("Infiltration") },
@@ -128,7 +128,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are one of the dead, and you call on the Light like the human knights who guarded the camps. I do not know what to make of that, but I have seen stranger things since I came to these hills." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I sharpen." },
+        { id = "h_again", text = "What else? Talk while I sharpen; an orc's blade should never be duller than his tongue." },
         { id = "h_again2", text = "Go on, I'm listening. This blade's got more nicks than a quilboar's hide, so I'll be at it a while." },
       },
       choices = {
@@ -151,7 +151,7 @@ P:NPC {
     },
     ambush = {
       big = true,
-      lines = { { id = "a_default", text = "We went in to look around and they were waiting, more humans than we'd ever seen in one place outside a war. We fought well, and it made no difference; they took the ones who fell, and I ran." },
+      lines = { { id = "a_default", text = "We went in to look around and they were waiting, more humans than we'd ever seen in one place outside a war. We fought well, and it made no difference; they took the ones who fell, and I ran, and that shame burns hotter than any wound." },
         { id = "a_freed", when = { questDone = TODO_QUEST("The Rescue") }, text = "We went in to look around and they were waiting, more than we'd ever seen outside a war. Drull and Tog'thar are free now, thanks to you, but I still see that courtyard when I sleep." } },
       choices = {
         { text = "Running kept you alive to free them.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -204,7 +204,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "One of the Warchief's warriors, sent from Durotar. The rest of the story is unfinished.", next = "ambush" } },
     advice = { { id = "tp_ad", text = "Never go into Durnholde with fewer than you'd need. Count, then double it." } },
     syndicate = { { id = "tp_syn", text = "Thieves with noble names.", next = "syndicate" } },
-    _none = { { id = "tp_none", text = "No idea. Ask one of the dead; they've been here longer." } },
+    _none = { { id = "tp_none", text = "I'm a warrior, not a scholar of this land. Ask one of the dead; they've been here longer." } },
   },
 }
 
@@ -1146,7 +1146,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. You'll not need the living allies' shelf, I expect, though I've never been sure whether the Light gives your kind an appetite." },
       },
       again = {
-        { id = "h_again", text = "Anything else on your list?" },
+        { id = "h_again", text = "Anything else on your list? Take your time; the dead buy slowly, and the shelves aren't going to rot any faster." },
       },
       choices = {
         { text = "Do you sell arrows, or only reagents?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },

@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You climbed all the way up here on foot? Then you've earned a ride down, wherever you're bound." },
+    { id = "g_default", text = "You climbed all the way up here on foot? Then you've earned a ride down, wherever you're bound, and Elune keep the wind steady under you." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the peak again. The birds know your scent by now, so they won't fuss." },
   },
 
@@ -122,7 +122,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks to the winds. My hippogryphs fly through the smoke from the vale every day and tell me nothing, so perhaps the wind will tell you." },
       },
       again = {
-        { id = "h_again", text = "What else? The wind's steady, so there's no hurry." },
+        { id = "h_again", text = "What else? The wind's steady, so there's no hurry; my people learned long ago that haste is a young race's habit." },
         { id = "h_again2", text = "Ask whatever you like while the hippogryphs settle their feathers." },
       },
       choices = {
@@ -181,6 +181,6 @@ P:NPC {
   topics = {
     venture_company = { { id = "tp_vc", text = "The goblins cut and burn the valleys south of here. I see their smoke every morning." } },
     background = { { id = "tp_bg", text = "I keep the hippogryphs on Stonetalon Peak. Before that I flew the coast of Darkshore, which was gentler." } },
-    _none = { { id = "tp_none", text = "I couldn't say. Ask Faralia at the inn, or the Keeper, if he's not too busy." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Ask Faralia at the inn, or the Keeper, if he's not too deep in his thoughts; his memory runs back further than mine." } },
   },
 }

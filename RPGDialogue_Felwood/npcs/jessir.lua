@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Have you come up the road from Jaedenar? Forgive me, I ask everyone that." },
+    { id = "g_default", text = "Ishnu-alah. Have you come up the road from Jaedenar? Forgive me, I ask everyone that." },
     { id = "g_della", text = "Della, sit. She growls at strangers, but she doesn't mean a word of it." },
     { id = "g_wait", when = { questBefore = TODO_QUEST("Rescue From Jaedenar") }, text = "Still no word from them, and they're days late now. I keep telling myself the road is simply slow." },
     { id = "g_arko", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Arko's on her way to Darnassus because of you. I can breathe again, a little." },
@@ -225,6 +225,6 @@ P:NPC {
     silver_hand = { { id = "tp_sh", text = "Trey's order. He wore their tabard as if it were the finest thing he owned, and to him I think it was." } },
     burning_legion = { { id = "tp_bl", text = "Gone from this forest, they say, except that everything here still remembers them, and so do the warlocks who serve them." } },
     cenarion_circle = { { id = "tp_cc", text = "The Emerald Circle's druids have been kind to me while I wait, though they've far more to worry about than my friends." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now. Ask Greta; she knows this forest far better than I do." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now, Elune forgive me. Ask Greta; she knows this forest far better than I do." } },
   },
 }

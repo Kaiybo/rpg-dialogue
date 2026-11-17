@@ -87,7 +87,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Oh, mind the pot, dearie. That's my peacebloom, and it's the only one in the city." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Did you bring me anything green? No? Well, never mind." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did you bring me anything green? No? Well, never mind; nothing grows down here but mould and grudges." },
   },
 
   notice = {
@@ -136,6 +136,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask me about roots, and I'll talk your ear off." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask me about roots, and I'll talk your ear off, since I've no breath left to run short of." } },
   },
 }

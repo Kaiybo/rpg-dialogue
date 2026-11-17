@@ -780,7 +780,7 @@ P:NPC {
         { text = "Just a rest, thanks.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else? The fire's not going anywhere." },
+        { id = "h_again", text = "Anything else? The fire's not going anywhere, and neither are the rest of us; we've already made our last journey once." },
       },
     },
     living = {

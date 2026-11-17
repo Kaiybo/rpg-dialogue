@@ -372,8 +372,8 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, then? Ask quick, before my nose starts itching again." },
-        { id = "h_again2", text = "Go on, friend. I've nothing to do but sit here and resent the Bloodsail." },
-        { id = "h_again3", text = "More questions? Aye, ask away, I've all night." },
+        { id = "h_again2", text = "Go on, {g:lad|lass}. I've nothing to do but sit here and curse the Bloodsail by my beard." },
+        { id = "h_again3", text = "More questions? Aye, ask away, I've all night and half a cask." },
       },
       choices = {
         { text = "Why does a pirate fleet need so much snuff?", next = "snuff" },
@@ -513,7 +513,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Deckhand out of Menethil, taken by the Bloodsail, rescued by the Blackwater, and never left.", next = "origin" } },
     bloodsail = { { id = "tp_bloodsail", text = "They've got my snuff, and I'll not rest until I've got it back." } },
     defias = { { id = "tp_defias", text = "They've made Westfall's tobacco fields a dangerous place, and the price of leaf has doubled since." } },
-    _none = { { id = "tp_none", text = "Never heard of it, friend, and if it's not snuff or Bloodsail, I've no interest in learning." } },
+    _none = { { id = "tp_none", text = "Never heard of it, {g:lad|lass}, and if it's not snuff or Bloodsail, I've nae interest in learning." } },
   },
 }
 

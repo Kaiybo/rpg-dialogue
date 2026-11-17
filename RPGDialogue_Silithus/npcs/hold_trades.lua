@@ -113,7 +113,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You've come up the stairs very quietly, which I appreciate, because the sand-shakers who stomp up here ruin my dusts." },
         { id = "h_default", key = true,
-          text = "I am Kania, and I sell enchanting supplies to the Hold. Rods, vellum, dusts and a few rare formulae, kept up here in the inn where the sandstorms can't scour them." },
+          text = "I am Kania, and I sell enchanting supplies to the Hold. Rods, vellum, dusts and a few rare formulae, kept up here in the inn where the sandstorms can't scour them, and where I can see the moon rise over the dunes." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Please stand still while you're in here, because every step in those boots shakes sand into my dusts." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -121,7 +121,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The dusts I sell came out of things you'd probably rather were left whole, so I'll not take offence if you wrinkle your nose." },
       },
       again = {
-        { id = "h_again", text = "Was there something more you wished to ask?" },
+        { id = "h_again", text = "Was there something more you wished to ask? My people learned patience long before they learned enchanting." },
         { id = "h_again2", text = "I'm listening, though I'll keep sorting while we talk." },
       },
       choices = {
@@ -164,7 +164,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sell supplies to enchanters. I came to the Hold because they needed them here more than anywhere else." } },
     advice = { { id = "tp_ad", text = "Keep your dusts sealed, always. One sandstorm and you'll be enchanting with a pinch of desert and a dead beetle." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle holds the line against the hives. I make sure the people holding it have what they need." } },
-    _none = { { id = "tp_none", text = "I'm afraid I know very little outside my craft." } },
+    _none = { { id = "tp_none", text = "I'm afraid I know very little outside my craft, though Elune may know more." } },
   },
 }
 
@@ -276,7 +276,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome. I keep your herbs and seeds dry in the back, away from the sand, because the Earth Mother gives little enough in this place." },
       },
       again = {
-        { id = "h_again", text = "What else would you know, friend, while the desert wind is quiet?" },
+        { id = "h_again", text = "What else would you know, friend, while the desert wind is quiet and the Earth Mother listens?" },
         { id = "h_again2", text = "Ask. I am in no hurry, and neither is the desert." },
       },
       choices = {
@@ -318,7 +318,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I walked from Mulgore to stand with the Circle. What I left behind there is my own business." } },
     advice = { { id = "tp_ad", text = "Carry an antivenom in Silithus, always. The scorpids here don't warn you before they strike." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle protects the land from those who would poison it, which is why I sell poison only to its friends." } },
-    _none = { { id = "tp_none", text = "I don't know that, friend, but the Commander might." } },
+    _none = { { id = "tp_none", text = "I don't know that, friend, but the Commander might. Walk with the Earth Mother." } },
   },
 }
 
@@ -438,7 +438,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could you cool the stables with a spell, perhaps? The desert heat is terrible for the beasts, and I'm running out of water to keep them comfortable." },
         { id = "h_default", key = true,
-          text = "Squire Leoren Mal'derath, stable master of Cenarion Hold! I board the companions of every hunter who comes to fight for the Circle, and I treat them as I would the commander's own mount." },
+          text = "Squire Leoren Mal'derath, stable master of Cenarion Hold! I board the companions of every hunter who comes to fight for the Circle, and I treat them as I would the nightsabers of Darnassus." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Is your mount well? Not that I'd presume, but a war-mount in this sand needs looking after, and I'm the one who looks after them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll understand my charges better than most of their own masters do, and you'll forgive me if I ask how the desert beasts seem to you." },
@@ -487,9 +487,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I'm young, as my people count it, and this is my first post. I mean to do it well." } },
+    background = { { id = "tp_ba", text = "I'm young, as my people count it, which means barely a century, and this is my first post. I mean to do it well." } },
     advice = { { id = "tp_ad", text = "Shake out your boots every morning in Silithus, because scorpids love a warm boot." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle guards Silithus for all of Kalimdor, and I'm proud to keep its stables." } },
-    _none = { { id = "tp_none", text = "I don't know, I'm sorry. Ask Captain Kozus; he knows everything that happens in the Hold." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm sorry. Ask Captain Kozus; he knows everything that happens in the Hold, and has for longer than I've been alive." } },
   },
 }

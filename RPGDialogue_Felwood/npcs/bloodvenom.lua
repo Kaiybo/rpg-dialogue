@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Do you know, the water in the Jadefire well does something arcane to it, I'm almost certain, though I haven't found a mage willing to taste it yet. *cackles*" },
         { id = "h_default", key = true,
-          text = "Winna Hazzard, alchemist of a sort and keeper of one kitten! Felwood is the most interesting place I've ever been, because everything in it is wrong in some new way. *cackles*" },
+          text = "Winna Hazzard, alchemist of a sort, servant of the Dark Lady and keeper of one kitten! Felwood is the most interesting place I've been since I died, because everything in it is wrong in some new way. *cackles*" },
         { id = "h_strange", tags = { "news" }, when = { questActive = TODO_QUEST("A Strange One") },
           text = "Someone told you I was strange, didn't they? *laughs* Then there's hope for you yet, because you came anyway. Are you here to help me?" },
         { id = "h_well", when = { questActive = TODO_QUEST("Well of Corruption") },
@@ -251,7 +251,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An alchemist, a Forsaken and a cat lover, and two of those are true! *cackles* You decide which." } },
     advice = { { id = "tp_ad", text = "Never let anything in Felwood lick you. *laughs* I mean it, actually, that one's serious." } },
-    _none = { { id = "tp_none", text = "No idea! *laughs* Isn't that exciting?" } },
+    _none = { { id = "tp_none", text = "No idea! *laughs* Isn't that exciting? Being dead has made me ever so fond of not knowing things." } },
   },
 }
 
@@ -370,7 +370,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, at Bloodvenom. I'll be watching you as closely as I watch the forest, so don't take it personally when you catch me at it." },
         { id = "h_default", key = true,
-          text = "Trull Failbane. Orgrimmar wants eyes in Felwood, and these are them; this forest hides a great deal, and I'm paid to find out what." },
+          text = "I am Trull Failbane. Orgrimmar wants eyes in Felwood, and these are them, because this forest is full of the same fel that once poisoned my own people, and I'm paid to find out where it hides." },
         { id = "h_guardians", tags = { "news" }, when = { questActive = TODO_QUEST("Wild Guardians") },
           text = "Back with word? Good, then sit and tell me everything, slowly, because I'll know if you skip a part." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Guarding Secrets") },
@@ -383,7 +383,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'm paid to find out what Felwood hides, and now I'll have to find out what you hide too." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Make it worth writing down." },
+        { id = "h_again", text = "Anything else? Make it worth writing down; the Warchief reads what I send." },
       },
       choices = {
         { text = "What do the elements tell you about this forest, Trull?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -480,6 +480,6 @@ P:NPC {
     cenarion_circle = { { id = "tp_circle", text = "The druids south of here are honest, as far as I can tell. That's rare enough to report." } },
     background = { { id = "tp_ba", text = "I gather what Orgrimmar needs to know and send it home. My own story isn't something anyone's asked for." } },
     advice = { { id = "tp_ad", text = "Take the tunnels through Timbermaw country politely, if the furbolgs let you. The other way round is longer and colder." } },
-    _none = { { id = "tp_none", text = "Not in my reports." } },
+    _none = { { id = "tp_none", text = "Not in my reports. An orc reports what he has seen with his own eyes, and nothing else." } },
   },
 }

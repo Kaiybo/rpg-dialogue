@@ -11,7 +11,7 @@
 ## Identity
 TODO_NPC · Sentinel Velene Starstrike · Silverwind Refuge above Mystral Lake · Darnassus, Sentinels · night elf · Sentinel commander
 Personality: sharp, impatient, proud, dry
-Speech: clipped but whole sentences; "{class}".
+Speech: clipped but whole sentences; "{class}". Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Never says: Silverwind's later fall; anything after Year 1.
 
 ## Threads he could carry

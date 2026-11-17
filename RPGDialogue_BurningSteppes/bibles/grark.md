@@ -12,7 +12,7 @@
 ## Identity
 Grark Lorkrub · Blackrock Stronghold, Burning Steppes · Horde traitor · orc · prisoner, quest giver
 Personality: sneering, defiant, ambitious, resentful
-Speech: contemptuous, rhetorical questions in full sentences
+Speech: contemptuous, rhetorical questions in full sentences; a renegade orc sneering at "Thrall's collar" and praising the old Horde's strength and blood
 Knows and cares about: Kargath's operations, the Blackrock's strength
 Relationships: Lexlort (captor), Goretooth (his likely executioner)
 Default attitudes: despises Thrall's "soft" Horde, mocks shamans

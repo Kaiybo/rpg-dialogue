@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Come in off the bridge. Whatever you need for the road, I likely have it, or I'll have it when the next cart gets through." },
+    { id = "g_default", text = "Ishnu-alah, and come in off the bridge. Whatever you need for the road, I likely have it, or I'll have it when the next cart gets through." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece. Good; I like customers who come back." },
   },
 
@@ -114,7 +114,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Haljan Oakheart, and I keep the general goods here in Astranaar: bread, water, bags and thread. With the orcs on the roads, half my work is getting the goods here in the first place." },
+        { id = "h_default", text = "I am Haljan Oakheart, and I keep the general goods here in Astranaar: bread, water, bags and thread. With the orcs on the roads, half my work is getting the goods here in the first place, and the other half is praying to Elune that they stay." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I keep my eye on the satchels when your sort come in, no offence meant, because a shop under siege can't spare a single loaf. If you're buying, though, you're as welcome as anyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -125,7 +125,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The carts could use one riding alongside them, because the Warsong have turned back more than I'd like." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'd guess you came through the woods instead of along the road, and I wish my supply carts could do the same." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you thread and bread like anyone else, though I'd ask you not to bring your companion in among the flour sacks." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Supply carts keep getting turned back by the Horde, but I keep Astranaar stocked. Your spirits might guard the carts." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The supply carts keep getting turned back by the Horde, but I keep Astranaar stocked all the same, and perhaps your spirits might guard the carts." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away." },
@@ -180,7 +180,7 @@ P:NPC {
     warsong = { { id = "tp_ws", text = "The Warsong watch the eastern road now. My carts go north and around." } },
     background = { { id = "tp_bg", text = "I keep the general goods in Astranaar. I've done it since before the orcs came to the forest." } },
     advice = { { id = "tp_ad", text = "Keep enough food for two days, even on a short trip. The roads here get closed without warning." } },
-    _none = { { id = "tp_none", text = "Can't say I know. Ask Sentinel Thenysil; she hears everything." } },
+    _none = { { id = "tp_none", text = "Can't say I know. Ask Sentinel Thenysil; she hears everything, and has for longer than I've kept this shop." } },
   },
 }
 
@@ -196,7 +196,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're fighting for Ashenvale, I'll arm you. If you're not, there are other shops." },
+    { id = "g_default", text = "If you're fighting for Ashenvale, I'll arm you. If you're not, there are other shops, though none this side of the Falfarren that the Sentinels trust." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. How many orcs did that blade see?" },
   },
 
@@ -297,7 +297,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Xai'ander, and I sell weapons in Astranaar. Every blade I sell might be the one that keeps an orc axe off a tree, so I don't sell bad ones." },
+        { id = "h_default", text = "I am Xai'ander, and I sell weapons in Astranaar. Every blade I sell might be the one that keeps an orc axe off a tree that was old when the Well of Eternity still shone, so I don't sell bad ones." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You carry yourself like a rogue, and that suits me, because an orc can't swing an axe at what he never sees coming. I've daggers in the back sharp enough for the work." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -308,7 +308,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you've seen orcs at war, and you'll understand why I don't sell anything blunt or badly made." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Warsong are felling the old trees by the dozen, and I'll wager you feel every one of them come down." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Warsong drank demon blood before they ever came to these woods, so you'll forgive me if I don't care to see that craft again." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Orc shamans call lightning down on Astranaar's scouts. You'll forgive me if I flinch at your totems." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Orc shamans call lightning down on Astranaar's scouts, so you'll forgive me if I flinch at your totems." },
       },
       again = {
         { id = "h_again", text = "What else? I've blades to sharpen." },
@@ -362,7 +362,7 @@ P:NPC {
   topics = {
     warsong = { { id = "tp_ws", text = "The Warsong cut our trees and kill our Sentinels. Every blade I sell is meant for them." } },
     background = { { id = "tp_bg", text = "I sell weapons in Astranaar. I've lost friends to the orcs, and that's all I'll say about it." } },
-    _none = { { id = "tp_none", text = "I don't know, and I've more urgent things to think about." } },
+    _none = { { id = "tp_none", text = "I don't know, and I've more urgent things to think about, with the Warsong camped on our eastern edge." } },
   },
 }
 
@@ -378,7 +378,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome. Robes, gloves, a good cloak for the rain; whatever you need, I hope I have it." },
+    { id = "g_default", text = "Elune's light on you. Robes, gloves, a good cloak for the rain; whatever you need, I hope I have it." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. I'm glad; it's nice to see a familiar face these days." },
   },
 
@@ -488,10 +488,10 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'm afraid my cloth won't stop an axe, but I could line your gambeson if it's rubbing under the plate." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The priestesses wear my robes, but your people always ask for colours that won't show the moss, and I've never decided whether that's practical or sad." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd want something dark and close-fitting, I imagine, that won't catch on the branches. I've a forest-green cloth that does better in Ashenvale than black, if you'll let me show you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I try to keep a little beauty in a town at war. Do your spirits remember Ashenvale before the orcs?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I try to keep a little beauty in a town at war, so tell me, do your spirits remember Ashenvale before the orcs came?" },
       },
       again = {
-        { id = "h_again", text = "Something else?" },
+        { id = "h_again", text = "Something else? Take your time; we kaldorei rarely hurry a guest." },
         { id = "h_again2", text = "Ask what you like; it's quiet today, and every cloak I own is still damp from last week's rain." },
       },
       choices = {
@@ -542,7 +542,7 @@ P:NPC {
   topics = {
     satyrs = { { id = "tp_sat", text = "They come out of the dark woods at night. I lock my door and don't look out the window." } },
     background = { { id = "tp_bg", text = "I sell cloth armor in Astranaar. I used to sew for festivals; now I sew for soldiers." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I don't know. Perhaps Innkeeper Kimlya could tell you." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I don't know. Perhaps Innkeeper Kimlya could tell you, for she hears all of Astranaar's news." } },
   },
 }
 
@@ -657,7 +657,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Maliynn, and I keep Astranaar fed: bread, fruit, cheese and water for the road. The Sentinels come in from the forest hungry, and so does everyone else, so I'm never short of customers." },
+        { id = "h_default", text = "I am Maliynn, and I keep Astranaar fed: bread, fruit, cheese and water for the road. The Sentinels come in from the forest hungry, and so does everyone else, so by Elune's grace I'm never short of customers." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You crept in so quietly I nearly dropped the bread, dear, and you're far too thin for someone who sneaks about for a living. Sit down and eat something before you vanish again." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -668,10 +668,10 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! That armour must take some feeding, so let me find you something hearty before you go out to the roads." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and thin as a sapling, like all of you who live on berries and moonlight. Sit down and let me find you something with a little more to it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock, and pale as a candle, dear. Whatever you've been dealing with hasn't been feeding you, so sit down and eat something." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You look too thin, like everyone from the forest. Eat some bread; your spirits will thank me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You look too thin, like everyone from the forest, so eat some bread, and your spirits will thank me." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear? There's more in the oven." },
+        { id = "h_again", text = "Anything else, friend? There's more in the oven, and the moonberries are fresh." },
         { id = "h_again2", text = "Go on, I'm listening, and eat while you talk. Mind the bones in the stew, for the fish put up a fight." },
       },
       choices = {
@@ -723,6 +723,6 @@ P:NPC {
     sentinels = { { id = "tp_sent", text = "They guard the bridges day and night. I make sure they eat something while they do it." } },
     background = { { id = "tp_bg", text = "I sell food and drink in Astranaar. I've fed more Sentinels than I can count." } },
     advice = { { id = "tp_ad", text = "Eat before a fight, not after. You'll fight better, and you might not get the chance afterwards." } },
-    _none = { { id = "tp_none", text = "I wouldn't know, dear. Have some bread and ask Haljan." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, friend. Have some bread and ask Haljan." } },
   },
 }

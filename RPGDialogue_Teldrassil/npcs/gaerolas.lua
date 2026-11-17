@@ -181,6 +181,6 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were good neighbours before the fel moss, and I would like to believe they will be again.", next = "gnarlpine" } },
     fel_moss = { { id = "tp_felmoss", text = "It grows where something rotten feeds it, and it rots whatever eats it. Keep it off your hands." } },
     teldrassil = { { id = "tp_tree", text = "We were told the tree was blessed and whole, and I believed it, and I would still like to." } },
-    _none = { { id = "tp_none", text = "I have kept a barrow's watch too long to know much of that. Ask in Dolanaar." } },
+    _none = { { id = "tp_none", text = "I have kept a barrow's watch over the Sleepers too long to know much of that. Ask in Dolanaar, where the waking world still turns." } },
   },
 }

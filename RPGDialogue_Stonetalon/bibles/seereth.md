@@ -13,7 +13,7 @@
 ## Identity
 TODO_NPC · Seereth Stonebreak · Stonetalon/Barrens border by the Greatwood Vale · Orgrimmar · orc · shaman
 Personality: intense, earnest, young, haunted
-Speech: whole sentences, urgent; "{class}".
+Speech: whole sentences, urgent; "{class}"; orc plainness: honor, deeds over talk, the spirits his people once lost to the demons.
 Relationships: Magatha (only by reputation), Orgrimmar.
 Never says: anything negative or knowing about Magatha's Grimtotem schemes (not foreshadowed); anything after Year 1.
 

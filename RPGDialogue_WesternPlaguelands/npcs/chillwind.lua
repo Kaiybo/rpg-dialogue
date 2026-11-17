@@ -1710,7 +1710,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Oh, the gryphons won't like that, no, not one bit, {class}, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
       },
-      again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
+      again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time; I've measured their patience at about eleven minutes, give or take a feather." } },
       choices = {
         { text = "Where's safest to fly?", next = "routes" },
         { text = "How do the gryphons cope up here?", next = "gryphons" },
@@ -1777,6 +1777,6 @@ P:NPC {
 
   topics = {
     advice = { { id = "tp_ad", text = "Never feed a gryphon from your hand unless you're fond of only having nine fingers!" } },
-    _none = { { id = "tp_none", text = "No idea at all, I'm afraid! But I can fly you to someone who might know." } },
+    _none = { { id = "tp_none", text = "No idea at all, I'm afraid! But I can fly you to someone who might know, at a very respectable forty miles an hour with a tailwind." } },
   },
 }

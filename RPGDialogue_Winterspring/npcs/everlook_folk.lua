@@ -325,7 +325,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Gloves, rogue, gloves. If you're going to handle anything on my bench, you'll wear gloves, and you'll not pocket a single spring, because I count them." },
         { id = "h_default", key = true,
-          text = "Felnok Steelspring, and I build things for people who can't build them for themselves. Right now that's Tinkee Steamboil, down in the Burning Steppes, and she wants her order finished yesterday." },
+          text = "Felnok Steelspring, and I build things for people who can't build them for themselves, to tolerances you could measure a gnat's whisker by. Right now that's Tinkee Steamboil, down in the Burning Steppes, and she wants her order finished yesterday, which is a schedule I've never once managed." },
         { id = "h_from_tinkee", tags = { "news" }, when = { questActive = TODO_QUEST("Felnok Steelspring") },
           text = "Tinkee sent you? Then she's sent me something she needs freezing, and I'm nearly ready for it. Nearly, mind you, because I'm missing one thing." },
         { id = "h_horns_before", when = { questDone = TODO_QUEST("Felnok Steelspring"), questBefore = TODO_QUEST("Chillwind Horns") },
@@ -340,7 +340,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, all the way up here in the snow? I build machines for a living, so I expect you'll disapprove of me, but I'll answer anything you like while I work." },
       },
       again = {
-        { id = "h_again", text = "What else? I've a coil to wind and it won't wind itself." },
+        { id = "h_again", text = "What else? I've a coil to wind to exactly forty-two and a half turns, and it won't wind itself." },
         { id = "h_again2", text = "Ask, but mind the bench." },
         { id = "h_again3", text = "Go on. I'll listen while I count these springs again." },
       },
@@ -401,7 +401,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I make parts, I make them right and I make them on time. That's all there is to tell, and it's more than most can say." } },
     advice = { { id = "tp_ad", text = "Wear gloves. Always wear gloves, in Winterspring and everywhere else." } },
-    _none = { { id = "tp_none", text = "Not my department, friend. Ask somebody who isn't busy." } },
+    _none = { { id = "tp_none", text = "Not my department, friend. Ask somebody who isn't busy recalibrating a frost coil for the third time since breakfast." } },
   },
 }
 
@@ -1020,7 +1020,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, in a land of frost. You will feel at home here, I think, though the ice in Winterspring does not answer to any spell I have seen." },
         { id = "h_default", key = true,
-          text = "I am Storm Shadowhoof, and I hunt the great beasts of Winterspring. Every herd and pack in these hills has a leader, and those leaders are the hunts worth telling of." },
+          text = "I am Storm Shadowhoof, and I hunt the great beasts of Winterspring, as my fathers hunted the plains of Mulgore. Every herd and pack in these hills has a leader, and those leaders are the hunts the Earth Mother means to test us with." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You are of the Alliance, and I don't share my hunts with the Alliance lightly. Still, the goblins say this is neutral ground, so speak, and I will listen." },
         { id = "h_ursius", tags = { "news" }, when = { questActive = TODO_QUEST("Ursius of the Shardtooth") },
@@ -1033,7 +1033,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The great beasts of Winterspring do not fear prayers, but they respect anyone who stands their ground, and so do I." },
       },
       again = {
-        { id = "h_again", text = "Ask what you will, for the tracks will keep a while." },
+        { id = "h_again", text = "Ask what you will, for the tracks will keep a while, and a tauren does not hurry a hunt." },
         { id = "h_again2", text = "Speak on, but quietly; sound carries over snow." },
       },
       choices = {
@@ -1089,7 +1089,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I learned the hunt on the plains of Mulgore, and I came north to test it. So far, the north is winning." } },
     advice = { { id = "tp_ad", text = "Watch the tracks, not the trees. The beasts here are white, and they hide in plain sight." } },
-    _none = { { id = "tp_none", text = "I know tracks and beasts. That is neither." } },
+    _none = { { id = "tp_none", text = "I know tracks and beasts, and the Earth Mother's ways in the snow. That is neither." } },
   },
 }
 
@@ -1212,7 +1212,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde! If you've got a spell to keep the cold off my wind riders, I'd like to hear it, because these blankets only do so much." },
         { id = "h_default", key = true,
-          text = "I am Yugrek, and I keep the wind riders here for the Horde. They'll take you south to Felwood and on to Orgrimmar, if your business is with the Horde." },
+          text = "I am Yugrek, and I keep the wind riders here for the Horde. They'll take you south to Felwood and on to Orgrimmar, if your business is with the Horde, and no orc should stay in this cold longer than his honor demands." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "My riders don't carry the Alliance. The night elf with the hippogryphs will see to you; she's just over there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, this far north! The wind riders will carry you south over Felwood, though I'd keep my eyes shut over the worst of it, because the trees down there aren't right." },
@@ -1220,7 +1220,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, in the snow. My riders are wrapped in blankets and still they shiver, but you won't feel the cold at all, I suppose." },
       },
       again = {
-        { id = "h_again", text = "Something else? The riders grow cold while we talk." },
+        { id = "h_again", text = "Something else? The riders grow cold while we talk, and an orc doesn't waste his beasts." },
         { id = "h_again2", text = "Speak, then, and quickly." },
       },
       choices = {
@@ -1263,7 +1263,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I flew for the Horde across the Barrens before they sent me here to freeze. I don't complain much, though the riders do." } },
     advice = { { id = "tp_ad", text = "Wear something warm when you fly. The wind up there bites harder than the riders." } },
-    _none = { { id = "tp_none", text = "I keep wind riders, and that's all I know." } },
+    _none = { { id = "tp_none", text = "I keep wind riders, and that's all I know. Ask a shaman if you want the spirits' answers." } },
   },
 }
 
@@ -1387,16 +1387,16 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. My hippogryphs are nervous around the arcane, so speak softly near them and keep your hands still while they settle." },
         { id = "h_default", key = true,
-          text = "I am Maethrya, and I keep the hippogryphs for the Alliance in Everlook. They will carry you to Talonbranch Glade in Felwood, and on to the rest of Kalimdor." },
+          text = "I am Maethrya, and I keep the hippogryphs for the Alliance in Everlook. They will carry you to Talonbranch Glade in Felwood and on to the rest of Kalimdor, over forests my people have known since the world was whole." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "My birds will not carry you, but Yugrek's wind riders will, and he keeps them well enough. You'll find him a few paces away, complaining about the cold." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. My hippogryphs fly south over Felwood every day, and they always climb higher over the worst of it, as if they can smell what's wrong with the trees." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance. Everlook has the goblins' bruisers and the goblins' prices, but it has no shrine at all, and I have missed the sound of prayer." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. My hippogryphs have never flown one of you, but the winds of Winterspring seem to know you already." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. My hippogryphs have never flown one of you, but the winds of Winterspring seem to know you already, and they are older than either of our peoples." },
       },
       again = {
-        { id = "h_again", text = "Is there something else you wish to know?" },
+        { id = "h_again", text = "Is there something else you wish to know? Ask; Elune has granted me patience enough for the cold." },
         { id = "h_again2", text = "Speak; the birds are patient, and so am I." },
       },
       choices = {
@@ -1439,6 +1439,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I have tended hippogryphs since before the Third War, and I go wherever they are needed." } },
     advice = { { id = "tp_ad", text = "Do not stare at the hippogryphs when you mount. They find it rude." } },
-    _none = { { id = "tp_none", text = "I do not know, and I do not think the hippogryphs do either." } },
+    _none = { { id = "tp_none", text = "I do not know, and I do not think the hippogryphs do either, though they remember more than they let on." } },
   },
 }

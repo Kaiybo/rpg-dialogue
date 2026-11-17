@@ -245,7 +245,7 @@ P:NPC {
 
   greetings = {
     { id = "g_dying", text = "Come closer, little one, for my voice doesn't carry the way it did, and neither do my legs." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned, and I'm still here, though not for long, so let's not waste the time we have." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned, and I'm still here, though not for long, so let's not waste the time the Earth Mother has left me." },
     { id = "g_dead", when = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
       text = "(The tauren lies still. Whatever he was holding onto, he has let it go.)" },
   },
@@ -363,7 +363,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "There is more you would ask? Ask it gently, and I'll answer while I can." },
-        { id = "h_again2", text = "Sit a while longer, if you like. I don't mind the company." },
+        { id = "h_again2", text = "Sit a while longer, if you like. I don't mind the company, and the wind through the broken roof sounds a little like the plains." },
       },
       choices = {
         { text = "Were the wolves so quiet, Mulgris, before the plague?", next = "xrogue", when = { class = "ROGUE" } },
@@ -461,7 +461,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't let the plague touch your skin, little one. I let it, and you can see where that has brought me." } },
     cenarion_circle = { { id = "tp_circle", text = "Arch Druid Hamuul will hear that I fell here, so tell him I wasn't alone at the end, and you'll be telling him the truth." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "I felt the great pots from Moonglade, and they're the reason I came. They've won this round, I'm afraid." } },
-    _none = { { id = "tp_none", text = "I haven't the breath to spend on that, so you'll have to forgive me." } },
+    _none = { { id = "tp_none", text = "I haven't the breath to spend on that, little one, so you'll have to forgive me. Walk with the Earth Mother, and ask someone younger." } },
   },
 }
 

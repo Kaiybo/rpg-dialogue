@@ -123,7 +123,7 @@ P:NPC {
           text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
-        { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river." },
+        { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river. I remember Felwood when it was still Ashenvale, and I stay for that." },
         { id = "h_hood", when = { metBefore = true },
           text = "You're wondering about the hood, as everyone does. It keeps the ash off, and that's all, though people prefer a better story." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -132,7 +132,7 @@ P:NPC {
           text = "A priest, at the last clean moonwell. Whether you pray to Elune or the Light, your prayers are welcome here, so long as you say them quietly." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. I teach druids to heal what is broken, and I'd wager the earth teaches you the same lesson in a rougher voice." },
       },
-      again = { { id = "h_again", text = "What else?" } },
+      again = { { id = "h_again", text = "What else? Ask, and I'll answer, though the moonwell has been my only company for a long while." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why teach here?", next = "why" },
@@ -165,6 +165,6 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a teacher of druids, and the rest is under the hood, where it stays." } },
     advice = { { id = "tp_ad", text = "Learn the sick places as well as the healthy ones. A healer who only knows health is no healer." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle heals the south of the forest and we hold the north, but the middle belongs to the demons, for now." } },
-    _none = { { id = "tp_none", text = "I don't know." } },
+    _none = { { id = "tp_none", text = "I don't know, and I've lived long enough not to pretend otherwise." } },
   },
 }

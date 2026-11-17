@@ -492,7 +492,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Goggles, always! I can't say it enough, and some of my colleagues can't see it at all, any more." } },
     mirage_raceway = { { id = "tp_raceway", text = "My finest achievement, shared, regrettably, with a goblin." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not. Let's talk about rockets instead, because rockets go up, and things should go up." } },
-    _none = { { id = "tp_none", text = "Not my department, unless it has an engine!" } },
+    _none = { { id = "tp_none", text = "Not my department, unless it has an engine, in which case it's absolutely my department, and probably on fire!" } },
   },
 }
 

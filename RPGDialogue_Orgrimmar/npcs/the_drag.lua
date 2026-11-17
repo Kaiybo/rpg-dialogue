@@ -187,7 +187,7 @@ P:NPC {
     third = "{name} met Magar, the tailoring trainer who owns Magar's Cloth Goods on Orgrimmar's Drag.",
   },
   greetings = {
-    { id = "g_hi", text = "Mind the bolts, they're stacked for Rashona, and she counts every one." },
+    { id = "g_hi", text = "Mind the bolts, {class}; they're stacked for Rashona, and she counts every one like a warband counts its dead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another lesson? Show me your stitches first, and I'll tell you if you're ready." },
   },
   notice = {
@@ -200,7 +200,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Magar, and this is my shop, Magar's Cloth Goods. I teach tailoring to anyone with a steady hand, and I sell thread and dye to everyone else, though most orcs think sewing is for those who can't swing an axe." },
       },
-      again = { { id = "h_again", text = "What else? My needle's getting cold." } },
+      again = { { id = "h_again", text = "What else? My needle's getting cold, and a cold needle bites." } },
       choices = {
         { text = "Why would an orc learn to sew?", next = "why" },
         { text = "Does Rashona work for you?", next = "rashona" },
@@ -230,7 +230,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I wouldn't know about that. Ask me about cloth, and I'll have an answer." } },
+    _none = { { id = "tp_none", text = "I wouldn't know about that. Ask me about cloth, and I'll have an answer; ask a grunt about the rest." } },
   },
 }
 
@@ -258,7 +258,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Yelmak, alchemist, and this is my shop on the Drag. I teach anyone who wants to learn, sell vials to everyone, and only blow up the back room once a season, which is a very good record." },
+        { id = "h_default", key = true, text = "Yelmak, alchemist, and this is my shop on the Drag. I teach anyone who wants to learn, sell vials to everyone, and only blow up the back room once a season, which is a better record than the old warlocks ever kept with their brews." },
       },
       again = { { id = "h_again", text = "Anything else? I've got something on the boil." } },
       choices = {
@@ -290,7 +290,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Don't know, but I could probably make a potion for it. Come back with the right herbs." } },
+    _none = { { id = "tp_none", text = "Don't know, but I could probably make a potion for it, grunt. Come back with the right herbs." } },
   },
 }
 
@@ -307,7 +307,7 @@ P:NPC {
     third = "{name} met Karolek, the leatherworking trainer on Orgrimmar's Drag.",
   },
   greetings = {
-    { id = "g_hi", text = "Hides on the left, tools on the right, and don't touch either without asking." },
+    { id = "g_hi", text = "Hides on the left, tools on the right, and don't touch either without asking. A beast gave its life for each one, and an orc honors that." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me your work and I'll show you what's wrong with it." },
   },
   notice = {
@@ -320,7 +320,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Karolek, and I work leather. I teach the craft to those who can skin a beast cleanly and stitch without wasting the hide, and if you can't do both, you'll learn or you'll leave." },
+        { id = "h_default", key = true, text = "I'm Karolek, and I work leather. In the camps we wore human rags; now I teach orcs to skin a beast cleanly and stitch without wasting the hide, and if you can't do both, you'll learn or you'll leave." },
       },
       again = { { id = "h_again", text = "What else? The hides won't tan themselves." } },
       choices = {
@@ -352,7 +352,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Not my business. Go and ask someone who sits still long enough to gossip." } },
+    _none = { { id = "tp_none", text = "Not my business. Go and ask some grunt who sits still long enough to gossip." } },
   },
 }
 
@@ -380,7 +380,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and half the ones in the Valley of Honor. If it's small, cheap and you'll need fifty of it, I sell it." },
+        { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and half the ones in the Valley of Honor. The Horde builds on small things, and if it's small, cheap and you'll need fifty of it, I sell it." },
       },
       again = { { id = "h_again", text = "Anything else? There's a line forming." } },
       choices = {

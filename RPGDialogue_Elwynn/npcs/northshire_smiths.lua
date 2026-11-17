@@ -324,7 +324,7 @@ P:NPC {
     third = "{name} met Janos Hammerknuckle, a dwarf weaponsmith at Northshire Abbey.",
   },
   greetings = {
-    { id = "g_default", text = "Swords, maces, axes. Pick one and hold it the right way round, if ye please." },
+    { id = "g_default", text = "Swords, maces an' axes, every one forged honest. Pick one an' hold it the right way round, if ye please." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer fingers. Good, that means ye listened." },
   },
   start = "hello",
@@ -340,7 +340,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A plain dagger, for the times when the spell fails and the wolf doesn't. La Salle's students always want something curved and wicked-looking, and I tell them a straight blade cuts just as deep and doesn't make the guards nervous." } },
+      lines = { { id = "xlock_default", text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. La Salle's students always want somethin' curved an' wicked-lookin', an' I tell them a straight blade cuts just as deep an' doesn't make the guards nervous." } },
       choices = {
         { text = "Plain it is. I've no need to frighten anyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll take the wicked-looking one. Fear has its uses.", next = "BACK", fx = { align = { light = -1 } } },
@@ -349,7 +349,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "We love what's under it, mostly, the ore and the stone, though I'll admit Dun Morogh's pines smell better than any forge. You keep the trees and I'll keep the iron, and we'll get on fine." } },
+      lines = { { id = "xdruid_default", text = "We love what's under it, mostly, the ore an' the stone, though I'll admit Dun Morogh's pines smell better than any forge. Ye keep the trees an' I'll keep the iron, an' we'll get on fine." } },
       choices = {
         { text = "The earth gives you ore. A little thanks wouldn't hurt.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Ore's there for whoever digs. The earth won't miss it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -379,7 +379,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Point away from you, edge down, and loose enough that it doesn't twist in your hand, which is more than half the recruits manage. I'd rather sell a dagger to a rogue than a sword to a farmhand, because at least I know you'll use it." } },
+      lines = { { id = "xrogue_default", text = "Point away from ye, edge down, an' loose enough that it doesn't twist in yer hand, which is more than half the recruits manage. I'd rather sell a dagger tae a rogue than a sword tae a farmhand, because at least I know ye'll use it." } },
       choices = {
         { text = "I'll use it well and honorably, Janos.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll use it however the moment calls for.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -388,7 +388,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "The smart ones carry one for when the spell fizzles and the kobold's still coming, because kobolds don't wait for you to finish casting. I've sold a few to Khelden's students, and they all held them like quills." } },
+      lines = { { id = "xmage_default", text = "The smart ones carry one for when the spell fizzles an' the kobold's still comin', because kobolds don't wait for ye tae finish castin'. I've sold a few tae Khelden's students, an' every one o' them held it like a quill." } },
       choices = {
         { text = "A sensible precaution. I'll carry one and learn to use it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If my spell fizzles, a dagger won't save me anyway.", next = "BACK", fx = { align = { order = -1 } } },
@@ -420,18 +420,18 @@ P:NPC {
         { id = "h_default", text = "Janos Hammerknuckle. I sell steel to the Abbey's recruits, and I've given up counting how many of them grip a sword like a soup ladle." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well now, a proper dwarf! Ye've no idea how good it is to hear a sensible voice up here among all these tall folk." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue. You'll be wanting a dagger, I suppose, and at least you'll hold it the right way round." },
+          text = "A rogue, is it? Ye'll be wantin' a dagger, I suppose, an' at least ye'll hold it the right way round." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage. You won't be wanting steel, I suppose, unless it's a dagger to open letters with." },
+          text = "A mage, eh? Ye'll no' be wantin' steel, I suppose, unless it's a wee dagger tae open yer letters with." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who'll hold a blade like it means somethin', or I'll know why." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do ye carry a gun, or one o' those bows? I'll forgive the bow, if ye're a good shot." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've not seen one of your folk since Ironforge, and never one who walked into a smithy on purpose." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell daggers and staves, and I'll sell one to you, though I'd guess you mean to do your killing some other way." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf! And a shaman, by the look of it. Well, at least you know how to hold a blade, unlike these humans." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell daggers an' staves, an' I'll sell one tae ye, though I'd wager my beard ye mean tae do yer killin' some other way." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, an' a shaman by the look o' ye! Well, the stone talks tae ye, an' at least ye know how tae hold a blade, unlike these humans." },
       },
       again = {
-        { id = "h_again", text = "What else is on your mind, then? Out with it." },
-        { id = "h_again2", text = "Still here? Ask away, lad, I've a blade to quench." },
+        { id = "h_again", text = "What else is on yer mind, then? Out with it afore the forge cools." },
+        { id = "h_again2", text = "Still here? Ask away, {g:lad|lass}, for I've a blade tae quench." },
       },
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
@@ -470,8 +470,8 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Dun Morogh born, Northshire by choice. Mostly by choice." } },
-    _none = { { id = "tp_none", text = "Bah, ask me about steel or don't ask me at all." } },
+    background = { { id = "tp_bg", text = "I was born in Dun Morogh, under the snow an' the stone, an' I came tae Northshire by choice. Mostly by choice, mind." } },
+    _none = { { id = "tp_none", text = "Bah, ask me about steel or don't ask me at all, for I'm a smith an' no' some scholar from the Explorers' League." } },
   },
 }
 

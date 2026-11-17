@@ -14,10 +14,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Hey, {class}, come here! I've got a fight that needs one more blade." },
+    { id = "g_hello", text = "Lok'tar, {class}, come here! I've got a fight that needs one more blade, and there's honor enough in it for both of us." },
     { id = "g_active", when = { questActive = TODO_QUEST("Torek's Assault") }, text = "Ready? My raiders are itching, and the elves won't wait forever to notice us." },
     { id = "g_done", when = { questDone = TODO_QUEST("Torek's Assault") }, text = "Silverwing burned, and Duriel Moonfire fell! I'm still picking splinters out of my arm, and I couldn't be happier." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with all your limbs? You're not trying hard enough, {class}." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with all your limbs? You're not trying hard enough, {class}, so come and bleed with us." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've put on muscle since we hit Silverwing together. Come raid with me again and add some scars to match." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Heard you put the fear into somebody at the post. Good! Save some for the elves, though." },
   },
@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Torek, and my raiders and I are about to hit the Silverwing Outpost to the west. Our target is its leader, Duriel Moonfire, and the scouts say it's thick with Sentinels, so the battle will be glorious." },
+          text = "I am Torek, and my raiders and I are about to hit the Silverwing Outpost to the west. Our target is its leader, Duriel Moonfire, and the scouts say it's thick with Sentinels, so the battle will be glorious and the blood will be worth the songs." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Torek's Assault") },
           text = "Stay close and keep my raiders alive, and when it's over, you report our success to Ertog Ragetusk. With luck, we'll all gain some good scars today." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Torek's Assault"), days = 3 } },
@@ -47,8 +47,8 @@ P:NPC {
           text = "One of the Forsaken. You don't scar, do you? That seems unfair, but I'll still take your blade." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask fast, my raiders are getting bored." },
-        { id = "h_again2", text = "Speak up, {class}. Talking's fine, but fighting's better." },
+        { id = "h_again", text = "What else? Ask fast; my raiders are getting bored, and a bored orc is a dangerous thing." },
+        { id = "h_again2", text = "Speak up, {class}. Talking's fine, but an orc proves himself with deeds, not words." },
       },
       choices = {
         { text = "Why attack Silverwing Outpost?", next = "why" },
@@ -147,6 +147,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In these woods, the arrow comes before the sound. Keep your shield up even when it's quiet." } },
     warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and I'd rather it was me." } },
     sentinels = { { id = "tp_sentinels", text = "Good fighters, every one, and quieter than any orc. I like them better than I should." } },
-    _none = { { id = "tp_none", text = "No idea. Ask Ertog in Splintertree; he does the thinking." } },
+    _none = { { id = "tp_none", text = "No idea. Ask Ertog in Splintertree; he does the thinking, and I do the bleeding." } },
   },
 }

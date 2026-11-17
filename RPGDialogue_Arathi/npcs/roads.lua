@@ -368,7 +368,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_gorge", text = "A rescuer! Or at least a person with a weapon, which at this point I'll gladly take." },
+    { id = "g_gorge", text = "A rescuer! Or at least a person with a weapon, which at this point raises my odds of survival by a good forty percent, and I'll gladly take it." },
   },
 
   notice = {
@@ -466,7 +466,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, by my notes! Do your kind take an interest in kobolds, I wonder, or only in creatures that don't steal candles?" },
         { id = "h_default", key = true,
-          text = "Professor Phizzlethorpe, scholar and, at present, hostage to circumstance. I came to Drywhisker Gorge for my research, and the kobolds came for my candles." },
+          text = "Professor Phizzlethorpe, scholar, engineer, late of Gnomeregan and, at present, hostage to circumstance. I came to Drywhisker Gorge for my research, and the kobolds came for my candles." },
         { id = "h_escort", tags = { "news" }, when = { questActive = TODO_QUEST("Sunken Treasure") },
           text = "Lead on, then, and keep the kobolds off my coattails! My work waits for me down at the coast, and so does a very dull goblin." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, splendid! The kobolds respect nothing but the sharp end of things, and you appear to have several sharp ends about your person." },
@@ -494,7 +494,7 @@ P:NPC {
         { text = "Have you never met a warlock before, Professor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck, Professor.", next = "END" },
       },
-      again = { { id = "h_again", text = "Yes, yes? Quickly, before they come back for the rest of my wax." } },
+      again = { { id = "h_again", text = "Yes, yes? Quickly, please, before they come back for the rest of my wax and the last of my calculations." } },
     },
     research = {
       lines = {
@@ -530,6 +530,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Fascinating question, and I haven't the faintest idea." } },
+    _none = { { id = "tp_none", text = "Fascinating question, and I haven't the faintest idea, which I shall note as a gap in the data." } },
   },
 }

@@ -467,10 +467,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_corner", text = "Something you want? Say it quickly, then, because I'm not sitting here for the company." },
+    { id = "g_corner", text = "Something you want? Say it quickly, then, because an orc doesn't sit in a goblin tavern for the company." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Sit down if you're sitting, and keep your voice low." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "You're not riding with that marshal, are you? No, you haven't got the boots for it." },
-    { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors. Don't salute me, because I stopped saluting a while back and I haven't missed it." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors. Don't salute me, because I stopped saluting when I struck my sergeant, and I haven't missed it." },
   },
 
   notice = {
@@ -485,7 +485,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Tokal. I'm waiting on a boat, and until it comes I'm minding my own business, which is a habit I'd recommend to anybody who wanders into this corner." },
+          text = "Tokal. I'm waiting on a boat, and until it comes I'm minding my own business, which is a habit I'd recommend to anybody, orc or otherwise, who wanders into this corner." },
         { id = "h_lam", tags = { "news" }, when = { questActive = TODO_QUEST("On the Lam") },
           text = "That goblin in Desolace sent you after me, didn't he? Well, you've found me, so say what you came to say and make it quick, because I don't sit still for long." },
         { id = "h_cherry", tags = { "news" }, when = { questActive = TODO_QUEST("Cherry for Your Thoughts?") },
@@ -511,12 +511,12 @@ P:NPC {
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "One of Strom's students, I'd guess, from the way you came in along the wall. Tell your teacher to stop staring at my boots." },
         { id = "h_warrior", when = { class = "WARRIOR" },
-          text = "I swung an axe for a living long enough to know a soldier when I see one, so stand easy and don't loom." },
+          text = "I swung an axe for the Horde long enough to know a soldier when I see one, so stand easy and don't loom." },
         { id = "h_wait", when = { metBefore = true },
           text = "Still no boat. Skindle keeps telling me tomorrow, and he's been saying tomorrow for three weeks now." },
       },
       again = {
-        { id = "h_again", text = "What else? I've nowhere to be, but I'd rather not advertise it." },
+        { id = "h_again", text = "What else? I've nowhere to be, but an orc with no clan doesn't advertise it." },
         { id = "h_again2", text = "Go on. The grog's not getting any warmer, or any colder either." },
         { id = "h_again3", text = "Ask, then, and keep your eyes off the door while you do it." },
       },
@@ -861,10 +861,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Durotar, then a sergeant's jaw, then Desolace, then this stool. That's the short of it, and the long of it costs a drink.", next = "who" } },
-    advice = { { id = "tp_ad", text = "Never work for anybody who pays too well. I learned that one the expensive way." } },
+    advice = { { id = "tp_ad", text = "Never work for anybody who pays too well. I learned that one the expensive way, and there's no honor in the lesson either." } },
     burning_blade = { { id = "tp_blade", text = "Demon-drunk orcs out in Desolace. Even raiders kept clear of them." } },
     steamwheedle = { { id = "tp_cartel", text = "The goblins run this town, and they'll sell you out with a smile, which is more honest than some." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care, and I'm not paid to find out." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care, and I'm not paid to find out. Ask someone who still has a warchief." } },
   },
 }
 
@@ -882,7 +882,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ishnu-alah, friend, and welcome to the quietest stretch of boards in Booty Bay. The gulls make up for it." },
-    { id = "g_back", when = { metBefore = true }, text = "You've come back to the water's edge. It does that to people, and to me most of all." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back to the water's edge. The sea does that to people, as Elune's tides do, and to me most of all." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You wear Horde colors and this is neutral ground, so you have my courtesy, and I hope I have yours." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The moon's up, so speak softly; she's listening, and so are the pickpockets." },
   },
@@ -899,7 +899,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Elril Everlight. Half the Bay thinks I'm a paladin and the other half has a wager on it, and I've found it's more fun for everyone if I don't settle the matter." },
+          text = "Elril Everlight, of the kaldorei, a long way from the forests. Half the Bay thinks I'm a paladin and the other half has a wager on it, and I've found it's more fun for everyone if I don't settle the matter." },
         { id = "h_pala", when = { class = "PALADIN" },
           text = "Another paladin, come to greet a fellow servant of the Light, I expect. Look at me as long as you like, and if you see a glow, do tell me, because I've never managed to catch it myself." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -924,8 +924,8 @@ P:NPC {
           text = "Still no glow, before you ask. I checked in a puddle this morning, just to be sure." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? The tide's in no hurry, and neither am I." },
-        { id = "h_again2", text = "Go on. I'm better at listening than talking, but I'll do my best." },
+        { id = "h_again", text = "What else would you ask? The tide's in no hurry, and after a few centuries neither am I." },
+        { id = "h_again2", text = "Go on. My people are better at listening than talking, and I'm no exception, but I'll do my best." },
         { id = "h_again3", text = "Another question? Ask it, and I'll decide how much of it to answer." },
       },
       choices = {

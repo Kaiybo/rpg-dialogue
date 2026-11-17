@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You walked in from the west, and you didn't look behind you once. Remember to do that next time." },
-    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, so the Badlands haven't eaten you yet. Give them time." },
+    { id = "g_default", text = "You walked in from the west, and you didn't look behind you once. An orc who forgets the back trail dies with an arrow in it, so remember that next time." },
+    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, so the Badlands haven't eaten you yet. Give them time, {class}; this rock is patient, and it is hungry." },
     { id = "g_coyotes", when = { questActive = TODO_QUEST("Coyote Thieves") }, text = "The coyotes were at the sacks again last night, so I hope you've brought me jaws." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you still walked in without looking behind you. Some things don't change, I suppose." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody caught you in a lie here in Kargath. Out in the Badlands people remember the liars longer than the dead, so watch yourself." },
@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. Keep your robes out of the gullies, because the thorns out here shred cloth and the basilisks love an easy target." },
         { id = "h_default", key = true,
-          text = "Neeka Bloodscar, head scout of Kargath. I know every gully between here and the Gorge, and I can tell you which of them you'll die in, if you'd like to know before you go." },
+          text = "Neeka Bloodscar, head scout of Kargath, and I earned the scar before I earned the name. I know every gully between here and the Gorge, and I can tell you which of them you'll die in, if you'd like to know before you go." },
         { id = "h_from_helgrum", tags = { "news" }, when = { questActive = TODO_QUEST("Neeka Bloodscar") },
           text = "Helgrum sent you, did he? He'd have come himself if he could find his way through the Badlands without running in circles, so sit, and I'll write him something worth the trip back." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Helgrum") },
@@ -123,7 +123,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Something else? Ask it quickly, because the light's going and I scout at dusk." },
         { id = "h_again2", text = "Go on, then. I'm listening, and I'm watching the ridge while I do it." },
-        { id = "h_again3", text = "More questions? You'd make a poor scout, but a decent clerk." },
+        { id = "h_again3", text = "More questions? You'd make a poor scout, but a decent clerk, and the Horde needs both, I suppose." },
       },
       choices = {
         { text = "What else stalks these gullies, Neeka?", next = "druid_q", when = { class = "DRUID" } },
@@ -262,7 +262,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "I was tracking before Kargath had a wall, and I'll be tracking after it falls down. Ask Helgrum about me; he'll exaggerate in my favor.", next = "helgrum" } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you need and look behind you every hundred paces. Nothing in the Badlands comes at you from the front." } },
     uldaman = { { id = "tp_uld", text = "Old dwarven ruins in the eastern hills, and the Explorers' League digging at them like they'd lost their keys there. I watch, I write it down, I don't go in." } },
-    _none = { { id = "tp_none", text = "If it isn't on my maps, it isn't worth knowing, or it's already dead." } },
+    _none = { { id = "tp_none", text = "If it isn't on my maps, then it isn't worth knowing, or some orc has already killed it." } },
   },
 }
 
@@ -544,8 +544,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're flying, say where, and if you're not, stand out of the shade, because the riders want it." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and the riders remember your smell. Don't take that as a compliment." },
+    { id = "g_default", text = "If you're flying, say where, and if you're not, stand out of the shade, because the riders want it and they don't care whose blood you carry." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and the riders remember your smell. Don't take that as a compliment, {class}; they remember a dead coyote's smell too." },
   },
 
   notice = {
@@ -646,7 +646,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Leave your demon outside the pen, because the riders would sooner bite it than fly near it, and so would I." },
         { id = "h_default", key = true,
-          text = "Gorrik, wind rider master of Kargath. From here the riders go north to Hammerfall and the Undercity and south to Stonard, Grom'gol and Booty Bay, so pick one and stop wasting my shade." },
+          text = "Gorrik, wind rider master of Kargath, and I've flown for the Horde since the Warchief first tamed these beasts. From here the riders go north to Hammerfall and the Undercity and south to Stonard, Grom'gol and Booty Bay, so pick one and stop wasting my shade." },
         { id = "h_noon", when = { timeOfDay = "day" },
           text = "Midday's the worst of it, because the rocks are hot enough to cook on and the riders won't leave the shade. You'll fly when they're ready, not before." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -701,7 +701,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I raised wind riders in the Barrens before the Warchief sent me here. I miss the Barrens, and so do they." } },
+    background = { { id = "tp_ba", text = "I raised wind riders in the Barrens before the Warchief sent me here, and an orc goes where Thrall points. I miss the Barrens, though, and so do they." } },
     advice = { { id = "tp_ad", text = "Never stand behind a wind rider, and never feed one from your hand. You'll want your fingers later." } },
     _none = { { id = "tp_none", text = "Ask somebody on the ground, because I only know what's under the clouds." } },
   },
@@ -719,7 +719,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Waterskins, bandages, food that won't spoil in the heat. That's what you need, so buy it. The jerky's coyote, but nobody's died of it yet that I know of." },
+    { id = "g_default", text = "Waterskins, bandages and food that won't spoil in the heat are what a warrior needs out here, so buy them. The jerky's coyote, but nobody's died of it yet that I know of." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more water? Good, because the ones who don't come back for water don't come back at all." },
   },
 
@@ -809,7 +809,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Your demon doesn't eat my food, I hope, because I count every ration and I'll know." },
         { id = "h_default", key = true,
-          text = "Grawl, general goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, so I don't waste it, and I'd rather you didn't either." },
+          text = "I'm Grawl, and I keep the goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, and I ate camp gruel too long to waste a crumb of it, so I'd rather you didn't either." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You'll want arrows, and I've a crate, but the next one won't come over the Gorge road for weeks, so don't waste them on buzzards." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and probably here to tell me the land's suffering. I know it's suffering, I live in it, so either buy something or tell me something I don't know." },
@@ -868,8 +868,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I sold goods in Orgrimmar until the Warchief needed someone out here who wouldn't waste anything. So here I am." } },
-    advice = { { id = "tp_ad", text = "Buy water. Then buy more water. Then come back and buy more." } },
-    _none = { { id = "tp_none", text = "I sell goods, I don't sell answers. Ask Neeka; she knows everything out there." } },
+    background = { { id = "tp_ba", text = "I sold goods in Orgrimmar until the Warchief needed someone out here who wouldn't waste anything. An orc who's been fed through a fence learns that lesson for life, so here I am." } },
+    advice = { { id = "tp_ad", text = "Buy water, then buy more water, and then come back and buy more, because the Badlands kill more grunts than the Dark Irons do." } },
+    _none = { { id = "tp_none", text = "I sell goods, not answers. Ask Neeka, because she knows everything out there that bleeds." } },
   },
 }

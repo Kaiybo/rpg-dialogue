@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "My name's Petra, and to my right is my kodo, Dadanga. We've been with Marshal Expeditions a few years now, ever since Dadanga was a babe." },
+        { id = "h_default", key = true, text = "My name's Petra, and to my right is my kodo, Dadanga. We've been with Marshal Expeditions a few years now, ever since Dadanga was a babe, and I've had more honor from that beast's trust than I ever had from an axe." },
         { id = "h_hungry", when = { questBefore = TODO_QUEST("Dadanga is Hungry!") },
           text = "Dadanga's eyeing you hopefully, which means she's hoping you brought a snack. She's a big girl, so if you find something growing out there, bring a lot of it." },
         { id = "h_fed", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dadanga is Hungry!"), days = 3 } },
@@ -42,7 +42,7 @@ P:NPC {
           text = "A tauren! Dadanga always perks up around your people, and I've never worked out whether it's the smell of the plains or the size." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Dadanga's in no hurry, and neither am I." },
+        { id = "h_again", text = "Anything else? Dadanga's in no hurry, and neither am I; an orc learns patience at the end of a lead rope." },
         { id = "h_again2", text = "Go on. She likes the sound of talking, as long as nobody shouts." },
       },
       choices = {
@@ -99,6 +99,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "An orc who traded the axe for a kodo's lead rope. I haven't regretted it once, not even in Un'Goro." } },
     advice = { { id = "tp_ad", text = "Look after your animals before yourself; they'll carry you when you can't carry on." } },
-    _none = { { id = "tp_none", text = "I couldn't say. Ask Williden, he's the one with the books." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Ask Williden, he's the one with the books; orcs of my clan learned from the land, not from paper." } },
   },
 }

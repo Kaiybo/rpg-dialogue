@@ -49,7 +49,7 @@ P:NPC {
           text = "A child of the Earth Mother who has seen the wider world, good. Come and tell me what the orcs and the Forsaken say when they think no tauren is listening." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask, and I'll answer as honestly as is wise." },
+        { id = "h_again", text = "What else? Ask, and I'll answer as honestly as is wise, which the Earth Mother would say is honestly enough." },
         { id = "h_again2", text = "Go on. Questions are the only coin I collect." },
       },
       choices = {
@@ -213,7 +213,7 @@ P:NPC {
     scarlet_crusade = { { id = "tp_sc", text = "Zealots, cruel ones, but they keep very good libraries, and I'll take my knowledge from wherever it's shelved." } },
     grimtotem = { { id = "tp_gt", text = "Magatha's people. They smile on Elder Rise and they carry spears in Stonetalon, and I'd like to know which face is the real one." } },
     uldaman = { { id = "tp_ul", text = "A dig in the Badlands with halls older than any dwarf. Bring me anything you find written there, and I'll find someone to read it." } },
-    _none = { { id = "tp_none", text = "I haven't anything on that yet, which annoys me more than you'd think. Ask me again after you've learned something about it." } },
+    _none = { { id = "tp_none", text = "I haven't anything on that yet, which annoys me more than you'd think. Ask me again after you've learned something about it, and bring the whole story, not just the wind of it." } },
   },
 }
 
@@ -231,7 +231,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the feathers on the mat, friend. They're sorted, though I know it doesn't look it." },
+    { id = "g_hi", text = "Mind the feathers on the mat, friend. They're sorted for the ancestors, though I know it doesn't look it." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Sit, and tell me if the harpies are still screaming over the cone." },
     { id = "g_active", when = { questActive = TODO_QUEST("Preparation for Ceremony") }, text = "Azure feathers and bronze ones, six of each. The Windfury keep the best of them, so you'll have to take them from the harpies themselves." },
     { id = "g_done", when = { questDone = TODO_QUEST("Preparation for Ceremony") }, text = "The headdress is finished, and my brother complained it was too fine, which is how I knew it was right." },
@@ -258,7 +258,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Was there more? I can talk and sew at the same time." },
-        { id = "h_again2", text = "Ask on, friend. The feathers aren't going anywhere." },
+        { id = "h_again2", text = "Ask on, friend. The feathers aren't going anywhere, and neither, Earth Mother willing, are the dead." },
       },
       choices = {
         { text = "Why does Ruul stand before the chieftain?", next = "ruul" },
@@ -294,7 +294,7 @@ P:NPC {
       },
     },
     ceremony = {
-      lines = { { id = "c_default", text = "Namings, honorings, the rites for the dead out at the burial grounds. Every one needs the right paint, the right feathers and the right words, and if any of them is wrong the old ones notice, even if the young ones don't." } },
+      lines = { { id = "c_default", text = "Namings, honorings, the rites for the dead out at the burial grounds. Every one needs the right paint, the right feathers and the right words, and if any of them is wrong the ancestors notice, even if the young ones don't." } },
       choices = {
         { text = "Do the dead really notice?", next = "ceremony_dead" },
         { text = "Something else.", next = "BACK" },
@@ -317,7 +317,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm Ruul's brother and the Bluff's ceremony-maker, and between the two of those I've very little time for anything else." } },
     advice = { { id = "tp_ad", text = "Dress properly when you go before your elders. They'll remember the stain on your hide long after they forget what you said." } },
-    _none = { { id = "tp_none", text = "That's nothing I'd sew a feather for, friend. Ask someone with fewer beads in their lap." } },
+    _none = { { id = "tp_none", text = "That's nothing I'd sew a feather for, friend. Ask someone with fewer beads in their lap, and may the eternal sun light your way." } },
   },
 }
 
@@ -335,7 +335,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Hm. Another young one who'll tell me to let go of the past." },
+    { id = "g_hi", text = "Hm. Another young one who'll tell me to let go of the past, as if the land forgets." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Well, you're still listening, which is more than most." },
     { id = "g_active", when = { questActive = TODO_QUEST("A Vengeful Fate") }, text = "Charlga's heart, {class}. Bring it here, and I'll die easier than I've lived." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Vengeful Fate") }, text = "The crone is dead, and I slept the whole night through for the first time in years. Sit down, if you like." },
@@ -359,7 +359,7 @@ P:NPC {
           text = "Her heart, black and shrivelled, just as I imagined it. I'm told this should make me feel lighter, and some mornings it does, so I'll thank you for it." },
       },
       again = {
-        { id = "h_again", text = "Well? I'm old, not deaf. Ask." },
+        { id = "h_again", text = "Well? I'm old, not deaf, and the Stonespire never were. Ask." },
         { id = "h_again2", text = "Something else on your mind, or are we finished?" },
       },
       choices = {
@@ -417,7 +417,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Stonespire, born in the south, too old to go back and too stubborn to stop wanting to." } },
     advice = { { id = "tp_ad", text = "Don't let anyone tell you how long to grieve. They'll always say it's been long enough." } },
     grimtotem = { { id = "tp_gt", text = "Angry people with a leader who knows how to use that. I've been angry for thirty years, so I know what it looks like." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and I'm too old to start caring now." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I'm too old to start caring now. My ancestors' land is all the caring I've got left." } },
   },
 }
 
@@ -435,7 +435,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in, come in, and step over the hides. They're drying, and they don't like being trod on." },
+    { id = "g_hi", text = "Come in, come in, and step over the hides. They're drying, and the kodo who gave them deserve better than a careless hoof." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Let me see your hands, and I'll tell you whether you've been working." },
     { id = "g_bag", when = { questDone = TODO_QUEST("Kodo Hide Bag") }, text = "Still carrying that kodo hide bag you made? Good. The first one's always ugly and always the one you keep." },
   },
@@ -458,7 +458,7 @@ P:NPC {
           text = "Every leatherworker on the Bluff starts the same way, with a kodo hide bag stitched badly and carried proudly. Bring me the leather and I'll show you how it's done." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've hides to turn, but I can talk while I do it." },
+        { id = "h_again", text = "Anything else? I've hides to turn, but I can talk while I do it, same as my mother did." },
       },
       choices = {
         { text = "What makes good leather?", next = "leather" },
@@ -470,7 +470,7 @@ P:NPC {
       },
     },
     leather = {
-      lines = { { id = "l_default", text = "A clean kill, a quick skinning and a patient tanning, in that order. Rush any of the three and you'll have something that cracks in the first cold rain on the Barrens." } },
+      lines = { { id = "l_default", text = "A clean kill, a quick skinning and a patient tanning, in that order, with thanks to the beast at each step. Rush any of the three and you'll have something that cracks in the first cold rain on the Barrens." } },
       choices = {
         { text = "And a clean kill?", next = "leather_kill" },
         { text = "Something else.", next = "BACK" },
@@ -509,6 +509,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Leather, my whole life. My hands smelled of tannin before I could walk properly." } },
     advice = { { id = "tp_ad", text = "Carry a spare needle. You'll never need it until you're far from anyone who has one." } },
-    _none = { { id = "tp_none", text = "That's not a hide I know how to work, friend. Ask someone with cleaner hands." } },
+    _none = { { id = "tp_none", text = "That's not a hide I know how to work, friend. Ask someone with cleaner hands, and the Earth Mother keep you." } },
   },
 }

@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Greetings, friend. Speak gently here; the Sentinels are listening, and so am I." },
+    { id = "g_default", text = "Greetings, friend, and may the Earthmother walk with you. Speak gently here; the Sentinels are listening, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back to the border. The Earthmother keeps you, it seems." },
     { id = "g_helped", when = { questDone = TODO_QUEST("Spiritual Unrest") }, text = "The shrine is quieter since you went there. I sleep better for it, and so do the Sentinels." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The ghosts walk further from the shrine after dark. Stay near the fire, friend." },
@@ -534,7 +534,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, at Talrendis Point. I will fly you where the Alliance permits, but my hippogryphs do not care for your kind, and neither, in truth, do I." },
         { id = "h_default", key = true,
-          text = "Jarrodenus, keeper of the hippogryphs at Talrendis Point. They will carry you to Auberdine or Astranaar, to Talonbranch Glade or Everlook, or south to Ratchet and Theramore, if your business takes you so far." },
+          text = "I am Jarrodenus, keeper of the hippogryphs at Talrendis Point. They will carry you to Auberdine or Astranaar, to Talonbranch Glade or Everlook, or south to Ratchet and Theramore, over lands my people walked long before the Sundering." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I fly them west and south after dark, never out over the bay. Something in the water watches the sky at night, and the birds feel it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -544,7 +544,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, at Talrendis Point. My hippogryphs know your scent, and they settle when you come near, which is more than they do for the Sentinels." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks to the winds. My hippogryphs will not fly over the bay after dark, and if you know why, I'd be glad to hear it." },
       },
-      again = { { id = "h_again", text = "Is there more, or shall I call a hippogryph for the flight back to Ashenvale?" } },
+      again = { { id = "h_again", text = "Is there more, or shall I call a hippogryph for the flight back to Ashenvale? Elune's light will see you home." } },
       choices = {
         { text = "Why not fly over the bay?", next = "bay" },
         { text = "How do the hippogryphs like Azshara?", next = "birds" },
@@ -586,6 +586,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the hippogryphs of Talrendis Point and see that they come home. There is little else to my story." } },
     advice = { { id = "tp_ad", text = "Fly in daylight when you can. Azshara's storms come up fast, and I've already fished two soaked Sentinels out of the bay this season." } },
     sentinels = { { id = "tp_sent", text = "My sisters keep the bridge, and I keep the birds that bring them help. It is a fair division of labour." } },
-    _none = { { id = "tp_none", text = "I keep birds, not secrets. Ask the Sentinels, or the tauren by the fire." } },
+    _none = { { id = "tp_none", text = "I keep birds, not secrets. Ask the Sentinels, or the tauren by the fire; he has listened to this land almost as long as we have." } },
   },
 }

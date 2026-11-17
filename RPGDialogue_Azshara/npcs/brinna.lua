@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Bows, arrows, strings. If you need something else, you've come to the wrong tree." },
+    { id = "g_default", text = "Bows, arrows, strings, as the Sentinels have carried since the War of the Ancients. If you need something else, you've come to the wrong tree." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Let me see how you're holding that bow; I'll know where you've been." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you've come back with all your fingers. That's more than some." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Sentinels say you've been useful on the border. Good. They don't say that lightly." },
@@ -31,13 +31,13 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Brinna Valanaar. I keep the Sentinels at Talrendis armed, which means a great many bows and a great many broken strings, because the satyrs and the naga keep them busy." },
+        { id = "h_default", key = true, text = "I am Brinna Valanaar. I keep the Sentinels at Talrendis armed, which means a great many bows and a great many broken strings, because the satyrs and the naga keep them busy on what was once the edge of Zin-Azshari." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "Ishnu-alah. You'll have heard what this land was, then, and you'll understand why I don't love it." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep it short; strings don't wax themselves." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, but briefly; the Highborne talked too much, and look what became of them." },
       },
       choices = {
         { text = "Where do you get your wood?", next = "wood" },
@@ -84,6 +84,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "A bowyer from Ashenvale, sent to the border because the Sentinels here break more bows than anyone." } },
     advice = { { id = "tp_ad", text = "Unstring your bow every night. A bow that's always bent forgets how to straighten." } },
     sentinels = { { id = "tp_sent", text = "My sisters on the wall. I make their bows, and they keep me alive; it's a fair trade." } },
-    _none = { { id = "tp_none", text = "Not my concern. Ask the Sentinels; they stand around long enough to hear everything." } },
+    _none = { { id = "tp_none", text = "Not my concern. Ask the Sentinels; they stand around long enough to hear everything, and they forget nothing for ten thousand years." } },
   },
 }

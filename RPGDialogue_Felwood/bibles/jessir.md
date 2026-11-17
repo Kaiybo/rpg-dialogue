@@ -13,7 +13,7 @@
 ## Identity
 Jessir Moonbow · Emerald Sanctuary, Felwood · neutral (Emerald Circle camp) · night elf, female · quest giver
 Personality: warm, anxious, loyal, protective
-Speech: gentle, apologetic, keeps asking about the road; talks about her friends in the present tense until she can't.
+Speech: gentle, apologetic, keeps asking about the road; talks about her friends in the present tense until she can't. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Knows and cares about: Arko'narin, Trey Lightforge, the Shadow Council in Jaedenar, her wolf Della.
 Relationships: waits among Greta Mosshoof's druids; Arko'narin's close friend.
 Default attitudes: warm to paladins (Trey); wary of warlocks; careful but fair with the Horde (the Council hurt orcs first).

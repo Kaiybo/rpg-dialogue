@@ -10,7 +10,7 @@
 ## Identity
 Lorekeeper Raintotem · Red Rocks, Mulgore · Horde · Tauren · lorekeeper
 Personality: gentle, devout, wistful, ashamed of his age
-Speech: soft, formal, full of names
+Speech: soft, formal, full of names; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: the honored dead, names, the ancestors
 Relationships: Eyahn Eagletalon
 Default attitudes: curious about Forsaken among the dead

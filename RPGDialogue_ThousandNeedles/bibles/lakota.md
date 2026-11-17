@@ -10,7 +10,7 @@
 ## Identity
 Lakota Windsong · Darkcloud Pinnacle · Horde · Tauren (female) · captive
 Personality: steady, stubborn, grieving, frightened
-Speech: quiet, urgent, plain
+Speech: quiet, urgent, plain; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: Arnak, her brother, Thalia
 Relationships: Thalia Amberhide (friend), Arnak Grimtotem (captor)
 Default attitudes: relief at non-Grimtotem tauren

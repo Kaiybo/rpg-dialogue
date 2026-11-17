@@ -205,8 +205,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Well, hello there! Come to learn something sharp, have you?" },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Have you been practicing? I can always tell when someone hasn't." },
+    { id = "g_default", text = "Well, hello there! Come to learn something sharp, have you? Sharp, balanced and properly weighted, I hope, because I can tell a dagger's balance point by eye to the width of a hair." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Have you been practicing? I can always tell when someone hasn't, because the wrist drops about two degrees." },
   },
 
   notice = {
@@ -296,19 +296,19 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'd be surprised how many priests want to learn daggers, and how many of them hold them like a candle." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a hammer, I expect, but I don't teach those, so I'll teach you to throw something instead." },
         { id = "h_default", key = true,
-          text = "Bixi Wobblebonk, weapon master! I teach daggers, crossbows and throwing weapons, which are all the best weapons for someone my size, and quite good for someone yours." },
+          text = "Bixi Wobblebonk, weapon master! I teach daggers, crossbows and throwing weapons, which are all the best weapons for someone my size, mathematically speaking, and quite good for someone yours." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You'd be surprised how many mages want to learn daggers, and how few of them can throw straight." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'll teach you daggers if you like, though I suspect your demons do most of your fighting for you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want to learn the crossbow, I expect, for there's nothing like a bolt to bring an ogre to you." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I teach crossbows, and I'll tell you now, they're better than rifles, whatever the dwarves say." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I teach crossbows, and I'll tell you now, they're better than rifles by every measure I've tested, whatever the dwarves say." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You probably fight with claws, which are basically daggers you never lose, and I'm a little bit jealous." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You'll want maces and staves, I expect, and I teach neither, but you're welcome to try a dagger and tell me what the wind thinks of it." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask me anything about pointy things." },
-        { id = "h_again2", text = "More questions? Lovely." },
+        { id = "h_again", text = "What else? Ask me anything about pointy things, and I'll give you the angles as well." },
+        { id = "h_again2", text = "More questions? Lovely, I've got three new crossbow trigger designs and nobody to tell about them." },
       },
       choices = {
         { text = "I'd like some weapon training.", next = "BUSINESS" },
@@ -374,8 +374,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I taught weapons to the guards in Gnomeregan, and now I teach them to anyone, which is more fun anyway." } },
-    advice = { { id = "tp_ad", text = "Practice every day, even if only for a few minutes. Your hand forgets faster than your head." } },
-    _none = { { id = "tp_none", text = "I don't know about that, but I know thirty ways to hold a dagger, if you'd like to hear those." } },
+    advice = { { id = "tp_ad", text = "Practice every day, even if only for a few minutes. Your hand forgets faster than your head, at roughly twice the rate, by my own notes." } },
+    _none = { { id = "tp_none", text = "I don't know about that, but I know thirty-one ways to hold a dagger, and I've charted every one, if you'd like to hear those." } },
   },
 }
 
@@ -766,7 +766,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Rods, bait, lures and bobbers! Everything a fisherman needs, and some things they don't, yet." },
+    { id = "g_default", text = "Rods, bait, lures and bobbers! Everything a fisherman needs, and some things they don't yet, because I invented them on Tuesday." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did the bobber float? I've been worried about that bobber." },
   },
 
@@ -881,7 +881,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Could you tell me whether fish like a ticking lure? My mechanical ones catch more gnomes than fish." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Ask away!" },
+        { id = "h_again", text = "Anything else? Ask away, and I'll keep winding this reel; I'm trying to get the drag down to a perfect three turns." },
         { id = "h_again2", text = "Ask me anything about lures, and I'll tell you more than you wanted." },
       },
       choices = {
@@ -930,6 +930,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fixed water pumps in Gnomeregan, and now I fix reels, and it's not so different, except reels don't flood." } },
     advice = { { id = "tp_ad", text = "Bring spare line. You'll always need more than you think." } },
-    _none = { { id = "tp_none", text = "Hmm, I don't know that one! Ask Grimnur; he knows everything that's not about gadgets." } },
+    _none = { { id = "tp_none", text = "Hmm, I don't know that one, and there's no gear in it for me to take apart! Ask Grimnur; he knows everything that's not about gadgets." } },
   },
 }

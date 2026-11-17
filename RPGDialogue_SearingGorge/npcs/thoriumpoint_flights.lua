@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a bird out of the Gorge? Wise, because there's more ash than air in this place, and the gryphons cough all night and spit black on my boots in the morning." },
-    { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend. Your orc is just over there with the wind riders, and she'll see you right." },
+    { id = "g_default", text = "Need a bird out of the Gorge, {g:lad|lass}? Wise, because there's more ash than air in this place, and the gryphons cough all night and spit black on my boots in the morning." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend, and nae other. Your orc is just over there with the wind riders, and she'll see ye right." },
     { id = "g_away", when = { away = 14, faction = "Alliance" }, text = "You've been gone {away}, and the gryphons have been coughing ash the whole time. They'll be glad of a flight out with you." },
   },
 
@@ -127,7 +127,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A Bronzebeard shaman, at a Dark Iron camp. I thought I'd seen every odd thing Thorium Point had to offer, and then you walked up the path." },
       },
       again = {
-        { id = "h_again", text = "What else? The birds are getting twitchy in this smoke." },
+        { id = "h_again", text = "What else, {g:lad|lass}? The birds are getting twitchy in this smoke, and so am I." },
         { id = "h_again2", text = "Go on, ask. I've nowhere to be but here." },
       },
       choices = {
@@ -169,9 +169,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I keep gryphons, and Ironforge sent me where they were needed. That's the long and the short of it." } },
+    background = { { id = "tp_ba", text = "I keep gryphons, and Ironforge sent me where they were needed, though I'd trade this ash for a mug of Thunderbrew in a heartbeat. That's the long and the short of it." } },
     advice = { { id = "tp_ad", text = "Tie a wet cloth over your face if you're walking the Gorge for long. Your lungs will thank you." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask one of the Brotherhood; they know this place better than I ever will." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask one of the Brotherhood, for they know this stone better than I ever will." } },
   },
 }
 
@@ -187,8 +187,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Wind riders are fed and ready. Where are you going, and how fast do you want to get there?" },
-    { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind riders for the Alliance. The dwarf with the gryphons is over there, if you want a bird." },
+    { id = "g_default", text = "The wind riders are fed and ready, {class}. Where are you going, and how fast do you want to get there?" },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind riders for the Alliance, not while I hold this perch for the Horde. The dwarf with the gryphons is over there, if you want a bird." },
     { id = "g_away", when = { away = 14, faction = "Horde" }, text = "Back after {away} away, then. The wind riders still know your smell, so climb on whenever you're ready." },
   },
 
@@ -292,14 +292,14 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid at Thorium Point. My wind riders will sniff you over, because you smell of grass and they haven't had that in a while." },
         { id = "h_default", key = true,
-          text = "Grisha, wind rider master for the Horde at Thorium Point. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
+          text = "I am Grisha, wind rider master for the Horde at Thorium Point, and the only orc fool enough to sleep among Dark Irons. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe on your back while you're here, because the dwarves have long memories and short tempers, and I'd rather not lose a customer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll understand my beasts, then, and why I won't let anyone near them who doesn't know how to treat an animal." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarves around here will stare at you twice, once for the Light and once for the rot, so let them stare and keep your hand off your hammer." },
       },
       again = {
         { id = "h_again", text = "What else? The riders smell the lava and they want to be gone." },
-        { id = "h_again2", text = "Speak. I'm listening." },
+        { id = "h_again2", text = "Speak, then. I'm listening, and an orc doesn't ask twice." },
       },
       choices = {
         { text = "How do the wind riders fare in the Gorge?", next = "druid_q", when = { class = "DRUID" } },
@@ -340,8 +340,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I fly wind riders for the Horde. What I did before that is my own business." } },
+    background = { { id = "tp_ba", text = "I fly wind riders for the Horde. What I did before that, behind the camp fences and after, is my own business." } },
     advice = { { id = "tp_ad", text = "Don't walk down into the Gorge without a reason. The Dark Irons down there aren't the friendly kind." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask the dwarves, and bring earplugs, because they never stop at one story." } },
+    _none = { { id = "tp_none", text = "I don't know it. Ask the dwarves, and bring earplugs, because they never stop at one story." } },
   },
 }

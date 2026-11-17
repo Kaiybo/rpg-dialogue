@@ -11,7 +11,7 @@
 ## Identity
 Nara Wildmane · Hall of Elders, Elder Rise · Horde · Tauren · druid
 Personality: fierce, restless, honest, young
-Speech: quick, vivid, talks about dreams
+Speech: quick, vivid, talks about dreams; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: Druids of the Fang, Naralex, Hamuul, the Emerald Dream
 Relationships: Arch Druid Hamuul Runetotem
 Default attitudes: kinship with druids

@@ -5,12 +5,12 @@ P:Pool {
   id = "guard_nighthaven", role = "guard", community = "nighthaven",
   barks = {
     { id = "b_peace", text = "Weapons stay sheathed in Nighthaven, all of them, and yours too." },
-    { id = "b_lake", text = "The lake's still tonight, and that's a good sign." },
+    { id = "b_lake", text = "The lake's still tonight, and that's a good sign, for Elune sees herself in it." },
   },
   greetings = {
     { id = "g_peace", text = "Moonglade belongs to the Circle, and Alliance or Horde makes no difference here. Keep the peace and you're welcome." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Druid, whatever banner you fly elsewhere, here you're of the Circle." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The moon's on the lake. Walk softly; the village sleeps light." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The moon's on the lake, so walk softly; the village sleeps light, and the Dream is very near." },
   },
   notice = {
     { id = "n_beast", cat = "form", when = { form = { "bear", "cat", "travel" } },

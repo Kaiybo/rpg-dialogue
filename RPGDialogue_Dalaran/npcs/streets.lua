@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Antiques, old and odd. Look all ye like." },
+    { id = "g_default", text = "Antiques, old an' odd, {g:lad|lass}. Look all ye like, but mind yer beard near the humming shelf." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "Well, a beard in Dalaran! Come in, come in, and mind the shelves." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' I've three new old things in since, if ye follow me. Have a look, an' I'll give ye an honest price." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear somebody in the city got taken in by a smooth tongue. I sell honest antiques at honest prices, friend, an' I'd like it tae stay that way in here." },
@@ -34,7 +34,7 @@ P:NPC {
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus, eh? Then don't go pokin' the humming ones. Last fellow who did lost an eyebrow, and I lost a customer." },
       },
-      again = { { id = "h_again", text = "Anything else catch yer eye?" } },
+      again = { { id = "h_again", text = "Anything else catch yer eye? Take yer time; good stone an' old silver don't rush, an' neither do I." } },
       choices = {
         { text = "Where do your antiques come from?", next = "where" },
         { text = "What's a dwarf doing among wizards?", next = "dwarf" },
@@ -71,7 +71,7 @@ P:NPC {
   topics = {
     trade = { { id = "tp_trade", text = "Old things, odd things and the occasional heirloom. The stories come free; the candlesticks don't." } },
     explorers_league = { { id = "tp_league", text = "Good folk, if they'd stop diggin' long enough to sell anything. I do the sellin' for them, in a manner of speaking." } },
-    _none = { { id = "tp_none", text = "Couldn't tell ye. If it isn't old, I don't know about it." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye. If it isn't old, or dug from under a mountain, I don't know about it." } },
   },
 }
 
@@ -87,7 +87,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello! Watch your feet; there's a cat under them, probably." },
+    { id = "g_default", text = "Hello! Watch your feet; there's a cat under them, probably, at roughly a seventy percent likelihood." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "Oh, a fellow gnome! Come in, and step over Beepo; he won't move." },
   },
 
@@ -100,11 +100,11 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Lizi Silverstone, Kirin Tor! And yes, those two are Beepo and Niko, and no, they aren't mine; they belong to the shop, or the shop belongs to them, depending on whom you ask." },
+        { id = "h_default", key = true, text = "Lizi Silverstone, Kirin Tor, late of Gnomeregan's arcane workshops! And yes, those two are Beepo and Niko, and no, they aren't mine; they belong to the shop, or the shop belongs to them, depending on whom you ask." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "Another magus! Don't mind the mess; half this street was rubble not long ago, and the other half still thinks it is." },
       },
-      again = { { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes." } },
+      again = { { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes, and I've only got two copies of each, which is one fewer than I'd like." } },
       choices = {
         { text = "A gnome in the Kirin Tor?", next = "gnome" },
         { text = "Why are there so many cats in Dalaran?", next = "cats" },
@@ -136,7 +136,7 @@ P:NPC {
 
   topics = {
     gnomeregan = { { id = "tp_gnomeregan", text = "Home, once. I won't talk about it here, if it's all the same." } },
-    _none = { { id = "tp_none", text = "No idea! Ask in the Citadel, they love a question." } },
+    _none = { { id = "tp_none", text = "No idea! Ask in the Citadel, they love a question, nearly as much as a gnome loves a spare gear." } },
   },
 }
 

@@ -121,7 +121,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Sentinel Thenysil. I keep watch over Astranaar for the Sisterhood, and when someone proves themselves to the kaldorei, it is my task to see that Darnassus hears of it." },
+          text = "I am Sentinel Thenysil. I keep watch over Astranaar for the Sisterhood, as my sisters have watched these woods since the War of the Ancients, and when someone proves themselves to the kaldorei, it is my task to see that Darnassus hears of it." },
         { id = "h_reception", tags = { "news" }, when = { questActive = TODO_QUEST("Reception from Tyrande") },
           text = "The High Priestess has heard your name, and she wishes to receive you in the Temple of the Moon. Go to Darnassus, and stand straight when you meet her, because she will be measuring you as I did." },
         { id = "h_stonetalon", when = { questDone = TODO_QUEST("Journey to Stonetalon Peak") },
@@ -138,10 +138,10 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your Silver Hand has its own discipline, and I would know if it matches ours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. The Sisterhood and the Circle answer to different voices in Darnassus, but here in Ashenvale we stand on the same ground." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Warlock. Keep your servant leashed in Astranaar, because my Sentinels have orders about demons, and those orders do not ask whom the demon belongs to." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh newcomers to decide where to post them. Your spirits might be useful on the roads." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh newcomers to decide where to post them, and I think your spirits might be useful on the roads." },
       },
       again = {
-        { id = "h_again", text = "What else? The watch changes soon." },
+        { id = "h_again", text = "What else? The watch changes soon, as it has every night for ten thousand years." },
         { id = "h_again2", text = "Ask. A Sentinel listens even while she watches the trees." },
       },
       choices = {
@@ -353,7 +353,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be a heavy load, but my birds have flown worse over the eastern trees." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You've no wings of your own, so you'll fly with mine like everyone else, and I promise the birds are gentler than they look." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My hippogryphs can smell a demon from the far end of the island, so keep yours dismissed until we're in the air, or they'll throw you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I fly low over the trees and watch the eastern sky. Do your wind spirits fly low too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I fly low over the trees and watch the eastern sky for Warsong smoke, so tell me, do your wind spirits fly low too?" },
       },
       again = {
         { id = "h_again", text = "Anything else, or are we flying? Ask quickly, because that one's been eyeing your hat." },
@@ -417,6 +417,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I raise hippogryphs and fly them where Astranaar needs them. That keeps me busy enough." } },
     advice = { { id = "tp_ad", text = "If you're flying east, keep your head down and let the bird do the thinking." } },
-    _none = { { id = "tp_none", text = "I keep birds, not answers. Kimlya at the inn hears more than I do." } },
+    _none = { { id = "tp_none", text = "I keep birds, not answers. Kimlya at the inn hears more than I do, and remembers it longer." } },
   },
 }

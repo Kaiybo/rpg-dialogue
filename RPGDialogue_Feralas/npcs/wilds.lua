@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now don't ye be tellin' me the fruit out here belongs to the forest, because I've asked the forest, and it didnae object." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin in the jungle, an' a Forsaken one at that! Put down that hammer a moment an' have a mug, though I've no idea whether ye can taste it." },
       },
-      again = { { id = "h_again", text = "What else, friend? The mash won't stir itself." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
+      again = { { id = "h_again", text = "What else, {g:lad|lass}? The mash won't stir itself, and by my beard, it's nearly ready." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
       choices = {
         { text = "Why brew all the way out here?", next = "b1_1" },
         { text = "What's your best brew?", next = "b2_1" },
@@ -280,7 +280,7 @@ P:NPC {
           text = "A hunter! Ever thought of taming something that used to be forty feet tall? After my zapper, boss, there's a few around here that are just the right size, and I'm not even chargin' a finder's fee." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now before you start with the righteous fury, pal, I want to point out that a shrunken giant is a giant that isn't stomping anybody, which is basically charity with a profit margin." },
       },
-      again = { { id = "h_again", text = "What else, boss? Clock's tickin', and every tick costs me a copper." }, { id = "h_again2", text = "More questions? Sure, pal, those are free, which is the only free thing on this beach." } },
+      again = { { id = "h_again", text = "What else, boss? Clock's tickin', and every tick costs me a copper, plus interest." }, { id = "h_again2", text = "More questions? Sure, pal, those are free, which is the only free thing on this beach." } },
       choices = {
         { text = "Must you shrink the giants, Zorbin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's this about giants?", next = "b1_1" },
@@ -357,7 +357,7 @@ P:NPC {
     third = "{name} met Kindal Moonweaver, a night elf protector of the wild creatures of Feralas.",
   },
   greetings = {
-    { id = "g_main", text = "Hush, friend. The forest listens, and so do the Grimtotem." },
+    { id = "g_main", text = "Hush, friend. The forest listens, as it has since the days of the Ancients, and so do the Grimtotem." },
     { id = "g_back", when = { metBefore = true }, text = "Elune guide you. You've returned, and I'm glad of it." },
   },
   start = "hello",
@@ -467,7 +467,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "The Grimtotem around the cages have grown fewer and more nervous, and I know why. Free the creatures while their keepers are still afraid of you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The Grimtotem have shamans too, and they use them to cage the creatures of this forest, so prove to me you're different." },
       },
-      again = { { id = "h_again", text = "Ask, and speak gently; the creatures of these woods startle at loud voices." }, { id = "h_again2", text = "Ask, but quietly." } },
+      again = { { id = "h_again", text = "Ask, and speak gently; the creatures of these woods startle at loud voices, as the kaldorei once startled at the first axes." }, { id = "h_again2", text = "Ask, but quietly." } },
       choices = {
         { text = "Why do the Grimtotem cage them?", next = "b1_1" },
         { text = "Who are you, Kindal?", next = "b2_1" },
@@ -527,7 +527,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Ishnu-alah, traveler. Feathermoon welcomes those who come in peace." },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Elune has kept you, I see." },
   },
   start = "hello",
   nodes = {
@@ -652,7 +652,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk like one of my scouts, and I would not mind having one more who can cross the ruins without waking what sleeps there." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman among the Sentinels. The highborne ruins here are full of spirits that never found rest, and I wonder whether they'd speak to you." },
       },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
+      again = { { id = "h_again", text = "What else? The ruins have waited ten thousand years to tell their story; they can wait while you ask." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
         { text = "Can the land around the ruins be healed?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What ruins do you mean?", next = "b1_1" },
@@ -763,7 +763,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Hadoken Swiftstrider. Camp Mojache is home to the tauren of Feralas, and the gordunni ogres to the west threaten us every season." },
+        { id = "h_default", key = true, text = "I am Hadoken Swiftstrider. Camp Mojache is home to the tauren of Feralas, and the gordunni ogres to the west threaten us every season, as hail threatens the young grass." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A child of Mulgore, here among us. Our camp is small, but the fire is warm, and you are welcome to it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid among the hunters of Mojache! The gordunni to the west have no love for the Earth Mother, and you'll see it in every stump they leave behind." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The gordunni have shamans of their own who call fire out of the earth, so I'll want to see whether yours burns hotter." },
@@ -777,7 +777,7 @@ P:NPC {
           text = "A warrior. Blades are proven against the gordunni, not in the telling, so I will judge you by what you bring back from their camps." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I trust a newcomer only as far as their blade has proven, and yours has proven nothing to me yet, Light or no Light." },
       },
-      again = { { id = "h_again", text = "What else do you seek?" }, { id = "h_again2", text = "Speak, friend." } },
+      again = { { id = "h_again", text = "What else do you seek? Ask, and the fire will listen with me." }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
         { text = "Should I fight the ogres as a hunter would?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me of the gordunni.", next = "b1_1" },
@@ -931,7 +931,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You wear the hide of the bear when you choose, so you'll hardly need mine, but I'd be glad to hear what you think of my work." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken in plate. You'll not want my leather, I suppose, but I'd like to know what keeps one of the dead walking, since it isn't anything I can stitch." },
       },
-      again = { { id = "h_again", text = "Anything else, friend?" }, { id = "h_again2", text = "Ask away." } },
+      again = { { id = "h_again", text = "Anything else, friend? The hides will keep, as the Earth Mother keeps us." }, { id = "h_again2", text = "Ask away." } },
       choices = {
         { text = "What makes a good hide?", next = "b1_1" },
         { text = "You know Hadoken?", next = "b2_1" },

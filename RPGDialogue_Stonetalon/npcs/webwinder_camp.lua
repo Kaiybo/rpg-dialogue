@@ -52,7 +52,7 @@ P:NPC {
           text = "You're a bit new to be out here, aren't you? The Crag's full of goblins with axes, so come back when you're a little more explosion-proof." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk and calibrate at the same time, mostly." },
+        { id = "h_again", text = "What else? I can talk and calibrate at the same time, mostly, with about a seven percent margin for error." },
         { id = "h_again2", text = "Go on, go on! Questions are good for the brain, and the brain is good for detonators." },
       },
       choices = {
@@ -176,7 +176,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Welcome, {class}. Watch the valley with me a moment, if you've time." },
+    { id = "g_hello", text = "Ishnu-alah, {class}. Watch the valley with me a moment, if you've time, beneath Elune's patient eye." },
     { id = "g_embers", when = { questActive = TODO_QUEST("Enraged Spirits") }, text = "The fire elementals of the Charred Vale, and their smoldering embers. Bring them to me, and the Vale may breathe again." },
     { id = "g_ancients", when = { questActive = TODO_QUEST("Wounded Ancients") }, text = "Shrapnel from a wounded treant, {class}. Gaxim thinks the goblins' weapons poisoned them, and I'd like to know if he's right." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. Did you pass through Ashenvale? Tell me the trees there are still green." },
@@ -208,7 +208,7 @@ P:NPC {
           text = "This should be more than enough for Gaxim to learn how the treants were corrupted. I'll take it to him now, and pray the answer is something we can mend." },
       },
       again = {
-        { id = "h_again", text = "What else, {class}? The valley's quiet for now." },
+        { id = "h_again", text = "What else, {class}? The valley's quiet for now, though the smoke still hangs where the old trees stood." },
         { id = "h_again2", text = "Go on. I'll keep one eye on the Crag while we talk." },
       },
       choices = {
@@ -297,6 +297,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay off the Crag's lower roads after dark. The goblins post guards there, and they shoot at anything that moves." } },
     venture_company = { { id = "tp_venture", text = "They take what they want and burn what they don't, and they call it business." } },
     sentinels = { { id = "tp_sentinels", text = "We're spread thin from here to Feralas, and still we hold. Don't ask me how." } },
-    _none = { { id = "tp_none", text = "I couldn't say. Gaxim might know; he knows a little about everything, and too much about explosives." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Gaxim might know; he knows a little about everything, and too much about explosives, which a Sentinel tries very hard not to hold against him." } },
   },
 }

@@ -18,6 +18,7 @@
 - What the missing orders said. Trebor's name (the Fallen Hero's name comes from later quests; Ruag says only "Thrall's Grasp"). Neeka as Helgrum's mate or mentor (Cataclysm gossip): in Classic she is Kargath's head scout and they are colleagues.
 
 ## Voices
+- Race voice (0.80.0): Stonard is an orc town; Ruag, Helgrum, Bengor, Karakul, Dar, Breyk, Greshka and Malosh talk of honor, deeds, the Horde and the old wars, bluntly.
 - Ruag: methodical dispatcher; maps and reports.
 - Fel'zerul: grim warlock who kept to the Warchief's line.
 - Helgrum: restless, fast, fond of Neeka (authored).

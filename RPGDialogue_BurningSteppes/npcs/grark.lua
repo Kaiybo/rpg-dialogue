@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Another of Lexlort's errand-runners, come all this way into a Blackrock fortress. Brave, or very stupid, and I've lost money betting on the first one before." },
-    { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft." },
+    { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft, and they were the last orcs with any blood left in them." },
     { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and they won't hold you up either, when my friends come." },
   },
 
@@ -38,7 +38,7 @@ P:NPC {
           text = "Alliance, here? The Blackrock will mount your head beside the others, and I'll watch from a comfortable distance." },
       },
       again = {
-        { id = "h_again", text = "Anything else, before the guards notice you?" },
+        { id = "h_again", text = "Anything else, slave of Thrall, before the guards notice you?" },
         { id = "h_again2", text = "Speak, then, since you've walked so far to hear me." },
       },
       choices = {
@@ -134,8 +134,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I served at Kargath until I found a better master. That's all you need to know." } },
+    background = { { id = "tp_ba", text = "I served at Kargath until I found a better master, one who still remembers the strength the old Horde had. That's all you need to know." } },
     advice = { { id = "tp_ad", text = "Always know who's winning, and stand beside them before they've won." } },
-    _none = { { id = "tp_none", text = "Why would I tell you anything for free?" } },
+    _none = { { id = "tp_none", text = "Why would I tell you anything for free? Honor never filled my purse." } },
   },
 }

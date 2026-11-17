@@ -489,7 +489,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
           text = "You came in quietly, and the guards never heard a thing. Good, because a Syndicate camp is full of men who sleep with one eye open and a hand on a knife." },
         { id = "h_default", key = true,
-          text = "I am Gol'dir, and the Syndicate has kept me in chains longer than I care to count. They move me between their camps so nobody can find me, and still you found me." },
+          text = "I am Gol'dir, and the Syndicate has kept me in chains longer than I care to count. When Thrall broke the camps I swore no human would cage me again, and yet they move me from camp to camp so nobody can find me. Still, you found me." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "An Alliance face, and you have not drawn steel. Strange times, when a human's enemy and an orc's enemy are the same men in black cloaks." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Gol'dir") },
@@ -555,7 +555,7 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Cowards in black who beat chained men. I have long memory for their faces." } },
-    _none = { { id = "tp_none", text = "Ask me again when I am not wearing iron." } },
+    _none = { { id = "tp_none", text = "Ask me again when I am not wearing iron, because an orc in chains thinks of nothing else." } },
   },
 }
 

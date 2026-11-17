@@ -14,7 +14,7 @@
 ## Identity
 Mor'zul Bloodbringer · west of the Altar of Storms, Burning Steppes · neutral · race unstated · warlock teacher, quest giver
 Personality: silky, menacing, vain, amused, appreciative of talent
-Speech: measured, ironic, faintly courtly
+Speech: measured, ironic, faintly courtly; an unrepentant orc of the old Shadow Council who scorns the shame Thrall's orcs feel
 Knows and cares about: the nether, Xoroth, blood, warlock craft, Gorzeeki
 Relationships: Gorzeeki Wildeyes (servant); Lord Banehollow (used, not loved)
 Default attitudes: warm to warlocks, mocking to paladins and priests

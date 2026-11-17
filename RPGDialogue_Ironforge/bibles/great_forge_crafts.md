@@ -60,6 +60,6 @@ Weary: broken armor.
 ## Their quests
 - none.
 ## Identity
-Anxious, secretive, then talkative. Authored, not canon: lost ten years of notes in Gnomeregan; keeps three copies.
+Anxious, secretive, then talkative. Speech: gnomish, no burr; wards, calibrations, ciphers and exact figures. Authored, not canon: lost ten years of notes in Gnomeregan; keeps three copies.
 ## What they notice
 Arcane: mages and warlocks.

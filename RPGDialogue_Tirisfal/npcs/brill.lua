@@ -14,7 +14,7 @@ P:NPC {
 
   greetings = {
     { id = "g_brill", text = "State your business. The Crusade keeps me busy, and I prefer to stay that way." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned, and with results, I hope." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned, and with results, I hope; the Dark Lady has little patience for the other kind." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Crusade did not take that time off. I trust you return with something worth reporting." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were barely fit to hold a blade when I first sent you after the Scarlets, and now you look like someone they should fear. Good; make them fear you." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I'm told you made someone in Brill back down without drawing steel. That is efficient, and I value efficiency." },
@@ -298,7 +298,7 @@ P:NPC {
         { text = "I'll see to it.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {
-        { id = "h_again", text = "Something else? Quickly, please; the ledgers won't balance themselves." },
+        { id = "h_again", text = "Something else? Quickly, please; the ledgers won't balance themselves, and the dead are terrible about paying their rates." },
       },
     },
     farmer = {
@@ -865,7 +865,7 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look like you've been through it. Sit down, love, and whatever you need, I'll bring it." },
+      text = "You look like you've been dug up twice. Sit down, love, and whatever you need, I'll bring it." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "A living guest! We keep food for your sort, and it's fresh, even. Mostly fresh, anyway." },
   },
@@ -991,7 +991,7 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "I know them better than I'd like. Let's leave it there, love." } },
-    _none = { { id = "tp_none", text = "I hear everything in this tavern, but not that." } },
+    _none = { { id = "tp_none", text = "I hear everything in this tavern, love, and the dead gossip worse than the living ever did, but not that." } },
   },
 }
 

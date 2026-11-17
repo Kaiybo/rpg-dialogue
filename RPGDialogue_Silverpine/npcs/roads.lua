@@ -462,7 +462,7 @@ P:NPC {
         { text = "Does anything about a paladin interest you, Karos?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just passing.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? The bats are getting restless." } },
+      again = { { id = "h_again", text = "Something else? The bats are getting restless, and they've more patience with the dead than I have with the living." } },
     },
     bats = {
       lines = {

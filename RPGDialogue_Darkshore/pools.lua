@@ -6,11 +6,11 @@ P:Pool {
   id = "guard_auberdine", role = "guard", community = "auberdine",
   barks = {
     { id = "b_ship", text = "The Moonspray's late again, whether from murlocs or weather, and either way someone's swimming." },
-    { id = "b_moonkin", text = "The moonkin are on the eastern ridge again, and they were gentle once." },
+    { id = "b_moonkin", text = "The moonkin are on the eastern ridge again, and they were gentle once, for as long as any of us can remember." },
   },
   greetings = {
     { id = "g_port", text = "Ishnu-alah, and welcome to Auberdine. The boats to Teldrassil and Menethil are at the piers, and there's trouble everywhere else." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay near the lamps after dark, because the Blackwood furbolgs come closer than they used to." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay near the lamps after dark, because the Blackwood furbolgs come closer than they used to. Elune's light is no shield against claws." },
     { id = "g_liked", when = { townStanding = { town = "auberdine", min = 30 } }, text = "The elder speaks well of you, and so do we." },
   },
   notice = {
@@ -27,6 +27,6 @@ P:Pool {
   choices = { { text = "Elune keep you.", next = "END", fx = { standing = { auberdine = 1 } } } },
   topics = {
     cenarion_circle = { { id = "t_circle", text = "The druids here keep close to the Circle, Terenthis and the elder both, so ask them." } },
-    _none = { { id = "t_none", text = "Ask the elder, for Thundris knows everything that happens in Auberdine." } },
+    _none = { { id = "t_none", text = "Ask the elder, for Thundris knows everything that happens in Auberdine, and has for centuries." } },
   },
 }

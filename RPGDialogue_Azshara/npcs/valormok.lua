@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon." },
+    { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon, for we have dead to avenge." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend. The camp's still standing, more or less." },
     { id = "g_avenged", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who brought me the elf's head! Sit by my fire whenever you like." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and Valormok's still standing, though the satyrs ran off with two tents and the cook's best pot. Come and sit by the fire." },
@@ -120,7 +120,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. Good, because the elves have scouts in the woods, and I need someone who can find them before they find us." },
         { id = "h_default", key = true,
-          text = "Ag'tor Bloodfist, and this is Valormok, or what's left of it. Belgrom Rockmaul sent us out here to guard an elf mage's expedition, and she repaid us by killing nearly every warrior in this camp." },
+          text = "I am Ag'tor Bloodfist, and this is Valormok, or what's left of it. Belgrom Rockmaul sent us out here to guard an elf mage's expedition, and she repaid us by killing nearly every warrior in this camp, so there is blood owed, and orcs do not forget a blood debt." },
         { id = "h_letter", when = { questActive = TODO_QUEST("Betrayed") },
           text = "So Belgrom finally sent someone who isn't one of his own grunts. The elf's workers are on the bluffs of the northern cliffs, and her camp is somewhere past them; we'll start there." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 7 } },
@@ -130,7 +130,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, at Valormok. We buried nearly every warrior in this camp, and I'd have given a great deal for someone with healing hands that night." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak; I've had nothing but the wind to talk to for weeks." },
+        { id = "h_again", text = "What else? Speak; I've had nothing but the wind and the graves of my warriors to talk to for weeks." },
         { id = "h_again2", text = "Go on. We've time, until the satyr come again." },
       },
       choices = {
@@ -231,7 +231,7 @@ P:NPC {
     rimtori = { { id = "tp_rimtori", text = "The elf who betrayed us. Ask me again when her head's on a spike, and I'll be more cheerful about it.", next = "betrayal" } },
     satyrs = { { id = "tp_satyr", text = "The Haldarr are south of us and never sleep. We kill them, they come back, and so it goes." } },
     sentinels = { { id = "tp_sent", text = "They watch us from their point, and we watch them. Nobody's spilt blood over it yet, and I'd like to keep it that way." } },
-    _none = { { id = "tp_none", text = "I don't know about that. Ask Jediga; she's the one who thinks about things." } },
+    _none = { { id = "tp_none", text = "I don't know about that. Ask Jediga; she's the one who thinks about things, and I'm the one who swings the axe." } },
   },
 }
 
@@ -362,7 +362,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock, here? You'll be wanting the darker tablets, I expect, the ones with the demon scribbles on them. They cost extra." },
         { id = "h_default", key = true,
-          text = "Jediga, and I'm not out here for glory or honour, before you ask. One orc's wounded pride put me in this forest, and I mean to make enough coin out of my exile to buy my way home." },
+          text = "Jediga, and I'm not out here for glory or honour, before you ask, which makes me a poor sort of orc by Orgrimmar's reckoning. One orc's wounded pride put me in this forest, and I mean to make enough coin out of my exile to buy my way home." },
         { id = "h_tablets", when = { questActive = TODO_QUEST("Stealing Knowledge") },
           text = "Four tablets in the Ruins of Eldarath, each named for a Highborne wizard, and each one worth a tidy sum to the right buyer. Get them all and you get a cut; that's how partners work." },
         { id = "h_xylem", when = { questActive = TODO_QUEST("Delivery to Archmage Xylem") },
@@ -596,12 +596,12 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Rogue. You're quiet, which I like, because the wind riders hate noise almost as much as I do." },
         { id = "h_default", key = true,
-          text = "Kroum, wind rider master. I can send you home to Orgrimmar or Thunder Bluff, to the Crossroads, to Splintertree in Ashenvale, to Bloodvenom Post in Felwood, or north to Everlook in the snow." },
+          text = "Kroum, wind rider master, and an orc who'd rather be on a battlefield than a perch. I can send you home to Orgrimmar or Thunder Bluff, to the Crossroads, to Splintertree in Ashenvale, to Bloodvenom Post in Felwood, or north to Everlook in the snow." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out here in the salt wind. My riders hate it and so do I, so if you've a prayer for it, say it quickly and climb on." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. My wind riders won't need to carry you far, I'd think, but they'll carry you all the same, and they don't mind the smell of the wild on you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. My beasts hate the salt wind, and now they've a dead one in shining armor to hate as well." },
       },
-      again = { { id = "h_again", text = "The wind riders are restless. Say what you need, or climb on." } },
+      again = { { id = "h_again", text = "The wind riders are restless, and so am I. Say what you need, or climb on." } },
       choices = {
         { text = "Does the salt wind off the coast trouble the spirits too?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do the wind riders like it here?", next = "beasts" },
@@ -634,6 +634,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fly wind riders for the Horde. Ag'tor gives the orders; I just make sure they get delivered." } },
     advice = { { id = "tp_ad", text = "Don't feed the wind riders the satyr's meat. Trust me on that." } },
-    _none = { { id = "tp_none", text = "Ask Ag'tor. I just fly." } },
+    _none = { { id = "tp_none", text = "Ask Ag'tor. I just fly, and I leave the thinking to the chieftains." } },
   },
 }

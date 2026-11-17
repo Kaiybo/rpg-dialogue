@@ -431,7 +431,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Quietly, please. My husband has sharp ears for anything that sounds like a battle he isn't in." },
+    { id = "g_default", text = "Quietly, please. My husband has sharp ears for anything that sounds like a battle he isn't in, as every orc of his blood does." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Did the bones lie to me, or did you come back safe?" },
   },
 
@@ -476,7 +476,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, on the very day the bones turned up a bear's tooth. I do not believe in chance, tauren, and I would not advise you to either." },
         { id = "h_default", key = true,
-          text = "I am Korin, wife of Drum Fel. He leads Hammerfall and I read the auguries for it, and lately the auguries say things I cannot tell him." },
+          text = "I am Korin, wife of Drum Fel. He leads Hammerfall and I read the auguries for it, as the old clan seers did before the demon blood, and lately the auguries say things I cannot tell him." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("The Real Threat") },
           text = "Or'Kalar waits in Stromgarde with a trap laid for my husband. Kill him before Drum learns he's there, and bring me his head so I can stop dreaming of it." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Real Threat"), days = 3 } },
@@ -605,7 +605,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a wind rider? They're saddled and restless, so don't keep them waiting, or one of them will start chewing your pack." },
+    { id = "g_default", text = "Need a wind rider, {class}? They're saddled and restless, so don't keep them waiting, or one of them will start chewing your pack." },
     { id = "g_back", when = { metBefore = true }, text = "You return to Hammerfall. My wind riders know your scent now, and they don't snap at it." },
   },
 
@@ -672,7 +672,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Wind riders hate the smell of demons, so send yours away before you mount, or you'll be flying sideways the whole way to Tarren Mill." },
         { id = "h_default", key = true,
-          text = "Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
+          text = "I am Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights over the Highlands are cold but quiet. The Witherbark can't aim what they can't see." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -749,8 +749,8 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Winds and routes are what I know, so ask me about those." } },
-    background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone. Here I am." } },
+    background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone, and an orc goes where the Horde needs her. Here I am." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the Alterac foothills. The gusts come without warning." } },
-    _none = { { id = "tp_none", text = "That's not my business, friend, since my business is wings." } },
+    _none = { { id = "tp_none", text = "That's not my business, friend, since my business is wings and the Horde's letters." } },
   },
 }

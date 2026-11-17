@@ -392,7 +392,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn. Will you have something to drink?" },
+    { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn, the only place in Valanaar where it's polite to keep the windows shut. Will you have something to drink?" },
     { id = "g_home", when = { homeInn = true }, text = "Back home to the Calmbreeze. Your bed's made, more or less." },
     { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before the Swimmers start in on their ghost stories." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came into the inn tonight in a fine mood and said it was your doing, and a good mood is good for business. He even tipped, which nobody on this isle does." },
@@ -460,8 +460,8 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I hear everything said at the Calmbreeze, and believe about a third of it." } },
-    _none = { { id = "tp_none", text = "Not that I've heard over the bar, and I hear a good deal over the bar." } },
+    knows = { { id = "tp_knows", text = "I hear everything said at the Calmbreeze, and believe about a third of it. The rest I let the wind carry off." } },
+    _none = { { id = "tp_none", text = "Not that I've heard over the bar, and on an isle this small I hear a good deal over the bar." } },
   },
 }
 
@@ -615,7 +615,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, which tells you more about people than you'd think." } },
+    knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, which tells you more about people than you'd think. A good table is an art like clothcraft, and on Zephras we take our arts seriously." } },
     advice = { { id = "tp_ad", text = "Eat something before you go out there. The last fellow who went to Shadowgale hungry fainted at his first vuldren and was carried home over a Peacekeeper's shoulder, complaining all the way." } },
     windstones = { { id = "tp_stones", text = "They keep my stove hot when the wood runs short. I treat them like gold, because they nearly are." } },
     _none = { { id = "tp_none", text = "If it isn't food, I'm the wrong person to ask, but come back hungry." } },

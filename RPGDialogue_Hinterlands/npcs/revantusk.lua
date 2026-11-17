@@ -1208,7 +1208,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. Don't touch the forge, please, because the last spellcaster who tried to heat my coals faster melted half a good blade." },
         { id = "h_default", key = true,
-          text = "Smith Slagtree, and I keep the forge for Revantusk. Nobody leaves this village with a split shield while I've got coals in the forge." },
+          text = "Smith Slagtree, and I keep the forge for Revantusk, as an orc of the Horde should for allies who kept faith. Nobody leaves this village with a split shield while I've got coals in the forge." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("Vilebranch Hooligans") },
           text = "Those Vilebranch thieves took my tools in the raid, the good set. Try the temples up in the northeast, or Skulk Rock, and bring them back, because they mean the world to me." },
         { id = "h_tools_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Vilebranch Hooligans"), days = 3 } },
@@ -1283,7 +1283,7 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "I can mend near anything, mon, if you don't mind the smell of the forge on it after. Revantusk warriors trust my work, and I think you'll be the next one." } },
+      lines = { { id = "xhwar_default", text = "I can mend near anything, warrior, if you don't mind the smell of the forge on it after. Revantusk warriors trust my work, and I think you'll be the next one." } },
       choices = {
         { text = "I'll trust your work, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll keep my own kit. I trust no smith.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1302,7 +1302,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Iron, steel, and what the Vilebranch broke this week. Ask." } },
     background = { { id = "tp_bg", text = "A smith since I was young enough to burn myself every day. A gnome's hammer taught me most of it.", next = "gnome" } },
     advice = { { id = "tp_ad", text = "Mend before you need to. A belt that snaps mid-swing leaves you fighting with your trousers round your knees." } },
-    _none = { { id = "tp_none", text = "Can't hammer that into shape for you, friend. Ask somebody else." } },
+    _none = { { id = "tp_none", text = "I can't hammer that into shape for you, friend, however strong my arm. Ask somebody else." } },
   },
 }
 
@@ -1512,7 +1512,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Quiet! You'll scare the fish. Fine, what do you want, a wind rider?" },
+    { id = "g_default", text = "Quiet! You'll scare the fish, and an orc's patience is a short rope. Fine, what do you want, a wind rider?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still no grouper. Where are you flying today?" },
   },
 
@@ -1543,7 +1543,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Today, mon, maybe yes, because that fish been laughin' at Gorkas for three seasons. The wind riders don't mind waitin', and a warrior who wait a little arrive less angry and fight better, so everybody win." } },
+      lines = { { id = "xwarcl_default", text = "Today, maybe, warrior, because that fish has been laughing at me for three seasons. The wind riders don't mind waiting, and a warrior who waits a little arrives less angry and fights better, so everybody wins." } },
       choices = {
         { text = "Duty comes first, Gorkas. The fish can wait.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Take your time. A man needs something of his own.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1553,8 +1553,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Baitin', trickin', beggin', Gorkas tried everything but a spear, mon, and a spear be cheatin'. A hunter understand that some prey you catch the right way or you don't catch at all." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the pier, mon, because the last beast that jumped in the water scared off every grouper from here to Hammerfall." },
+        { id = "xhuntcl_default", text = "I've tried baiting it, tricking it and begging it, everything but a spear, and a spear would be cheating. A hunter understands that some prey you take with honor or you don't take at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the pier, hunter, because the last beast that jumped in the water scared off every grouper from here to Hammerfall." },
       },
       choices = {
         { text = "Catch it fairly or not at all. You're right.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1589,15 +1589,15 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Keep the demon off the pier, please, because the wind riders can smell it, and so can the fish, I'll swear." },
         { id = "h_default", key = true,
-          text = "Gorkas, wind rider master. The beasts fly to Tarren Mill, Hammerfall and the Undercity, and in between flights I fish off this pier until I catch the biggest grouper on the coast." },
+          text = "I'm Gorkas, wind rider master for the Horde. The beasts fly to Tarren Mill, Hammerfall and the Undercity, and in between flights I fish off this pier until I catch the biggest grouper on the coast." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Wind riders sleep, the trolls sleep, and the grouper is somewhere out there laughing at me. Where do you need to go?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage, eh? Don't you dare freeze my pier, {class}, because that grouper be down there somewhere and I want him fair and square." },
+          text = "A mage, eh? Don't you dare freeze my pier, {class}, because that grouper is down there somewhere and I want him fair and square." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You sneak up on a troll fishin', you get a hook in the ear, {class}. Sit down, and keep your shadow off the water." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and you want to fly somewhere and hit somethin', I bet. Wait till Gorkas finish this cast, because the grouper be close today, Gorkas can feel it." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! Maybe you know somethin' about grouper, because Gorkas been huntin' one for three seasons and it still be laughin' at him." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you want to fly somewhere and hit something, I'd wager. Lok'tar, but wait till I finish this cast, because the grouper is close today, and I can feel it in the line." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Maybe you know something about grouper, because I've been hunting one for three seasons and it's still laughing at me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders won't mind you, though I'd thank you not to glow on my pier, because the grouper are skittish enough as it is." },
       },
@@ -1622,7 +1622,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every rider bring a bag and a mouth, and the mouth be worth more. I hear what Hammerfall worry about before Drum Fel do, and what the Undercity whisper before the Dark Lady hear it, and I keep it all behind my teeth, mostly." } },
+      lines = { { id = "xrogue_default", text = "Every rider brings a bag and a mouth, and the mouth is worth more. I hear what Hammerfall worries about before Drum Fel does, and what the Undercity whispers before the Dark Lady hears it, and I keep it all behind my tusks, mostly." } },
       choices = {
         { text = "Keep it behind your teeth. Loose talk gets riders killed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "News like that should be sold, Gorkas.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1659,6 +1659,6 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Routes, winds and fish. Ask about one of those." } },
     background = { { id = "tp_bg", text = "Orgrimmar sent me to keep the wind riders. Nobody said I couldn't fish." } },
     advice = { { id = "tp_ad", text = "Don't fly over Aerie Peak. The dwarves shoot first and ask about your business never." } },
-    _none = { { id = "tp_none", text = "No idea. Let me fish." } },
+    _none = { { id = "tp_none", text = "No idea. Let an old grunt fish in peace." } },
   },
 }

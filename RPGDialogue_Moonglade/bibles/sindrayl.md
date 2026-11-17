@@ -9,7 +9,7 @@
 ## Identity
 Sindrayl · Moonglade · Alliance · night elf, female · Hippogryph Master
 Personality: calm, careful
-Speech: short, quiet, birds before people.
+Speech: short, quiet, birds before people. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Silva Fil'naveth flies druids; Faustron across the glade.
 
 ## Agenda / Secrets

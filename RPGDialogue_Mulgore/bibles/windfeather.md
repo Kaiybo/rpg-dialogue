@@ -10,7 +10,7 @@
 ## Identity
 Brave Windfeather · road between Camp Narache and Grull's camp · Horde · Tauren (female) · brave
 Personality: earnest, brave, impatient
-Speech: direct, energetic, protective of the young
+Speech: direct, energetic, protective of the young; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: Sharptusk Thornmantle, the road, the cost of Mulgore
 Relationships: Grull Hawkwind, Chief Hawkwind
 Default attitudes: warmer to fighters

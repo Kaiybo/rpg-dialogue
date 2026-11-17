@@ -172,6 +172,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't let them take you alive. Whatever happens on the stairs, don't let them take you alive." } },
     silver_hand = { { id = "tp_sh", text = "Trey's order. He'd want me to say something kind about them, so I'll say they make friends worth dying for." } },
     burning_legion = { { id = "tp_bl", text = "They're here, walking around this barrow as if it were theirs. Whoever says the demons left Felwood has never been down these stairs." } },
-    _none = { { id = "tp_none", text = "I don't care about that right now. Get me out of here and I'll answer anything you like." } },
+    _none = { { id = "tp_none", text = "I don't care about that right now. Get me out of here, by Elune, and I'll answer anything you like." } },
   },
 }

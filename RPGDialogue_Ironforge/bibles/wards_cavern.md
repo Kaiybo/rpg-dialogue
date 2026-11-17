@@ -20,7 +20,7 @@ Pet: a beast companion.
 ## Their quests
 - none.
 ## Identity
-Cheerful, a little alarming. Authored: taught Gnomeregan's guards.
+Cheerful, a little alarming. Speech: gnomish; angles, balance points and charted grips. Authored: taught Gnomeregan's guards.
 ## What they notice
 Class: rogues.
 
@@ -50,6 +50,6 @@ Craft: fishers.
 ## Their quests
 - none.
 ## Identity
-Chatty tinkerer. Authored: fixed pumps in Gnomeregan; the bell bobber; dislikes fish.
+Chatty tinkerer. Speech: gnomish; reels, drag, gears and Tuesday inventions. Authored: fixed pumps in Gnomeregan; the bell bobber; dislikes fish.
 ## What they notice
 Craft: fishers.

@@ -145,7 +145,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Internment camps, then the Warchief's crossing, then every wall in Durotar that needed holding. Now this hill." } },
     sergra = { { id = "tp_sergra", text = "Commands the Crossroads, and does it well, and I'll deny I said that.", next = "sergra" } },
     burning_blade = { { id = "tp_bb", text = "A cult of demon-lovers who should have died with the old Horde. They squat on Dreadmist Peak to the north." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and up on this hill, I hear about everything eventually." } },
+    _none = { { id = "tp_none", text = "Never heard of it, grunt, and up on this hill, I hear about everything eventually." } },
   },
 }
 
@@ -266,7 +266,7 @@ P:NPC {
   topics = {
     burning_blade = { { id = "tp_bb", text = "Cultists who worship what the old Horde served. They have a foothold on Dreadmist Peak and, I'd wager, other places closer to the Warchief than he'd like." } },
     neeru = { { id = "tp_neeru", text = "Neeru Fireblade, in Orgrimmar's Cleft of Shadow. He knows a great deal, and he shares a little of it." } },
-    _none = { { id = "tp_none", text = "That's outside my study. I watch the Blade, and the Blade doesn't care about that." } },
+    _none = { { id = "tp_none", text = "That's outside my study. I watch the Blade, and the Blade cares for nothing but demon blood." } },
   },
 }
 
@@ -412,7 +412,7 @@ P:NPC {
         { id = "h_path_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Path of Defense"), days = 3 } }, text = "You did it, and you came back standing. That's the lesson, if you were wondering: the one who stands longest wins." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick." },
+        { id = "h_again", text = "What else? Make it quick, and stand like a warrior while you ask." },
         { id = "h_again2", text = "Go on. My knees aren't getting younger." },
       },
       choices = {
@@ -482,6 +482,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Second War, then the camps, then Thrall. Now I teach, which is easier on the knees." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask someone who isn't busy." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask some grunt who isn't busy." } },
   },
 }
