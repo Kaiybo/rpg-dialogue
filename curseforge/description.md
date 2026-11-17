@@ -37,6 +37,10 @@ Adjustable text size, spacing and fonts (including Atkinson Hyperlegible), text 
 
 **Back up your WTF folder now and then.** Everything NPCs remember about your characters lives in SavedVariables there. `/rpgd export` gives you a copyable backup of one character's story.
 
+## A note from the author
+
+As a disclaimer, I wrote this addon mainly for my own enjoyment, and it was built with heavy help from AI, so the language may feel stiff at times. I'm still improving the UI and adding more content, but the fundamentals are there. I hope you enjoy it.
+
 ## Feedback
 
 This is an early release. Found a line that feels off, or a bug? Use the **flag button** on the dialogue window (it saves the line and the moment), or send the error text from BugSack + !BugGrabber with your report.
