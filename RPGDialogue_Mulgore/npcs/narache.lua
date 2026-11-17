@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "My people have sung her to the Earth Mother already, but a prayer from a stranger would honour her too, because she always said the Horde would teach us new ways of honouring the dead. Say it standing straight, and she will hear it." } },
+      choices = {
+        { text = "I'll say it gladly, Chief, standing straight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your rites are enough. She has no need of mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -63,6 +72,7 @@ P:NPC {
         { id = "h_attack", when = { questActive = TODO_QUEST("Attack on Camp Narache") },
           text = "They came to our camp with fire and spears, and now we go to theirs. Make them remember the Hawkwind." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "The spirits have touched you, young one, and I can see it in the way you stand. My mother would have wanted you beside her at the rites." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Narache. My mother would have welcomed you, because the Greatmother believed every healer was a gift from the Earth Mother, whatever name they gave it." },
       },
       choices = {
         { text = "Tell me about the Greatmother.", next = "greatmother" },
@@ -73,6 +83,7 @@ P:NPC {
         { text = "Did the Greatmother walk with the spirits, Chief?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Bristleback won't see me coming, Chief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could the arcane have saved the Greatmother, Chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would you want a prayer said for the Greatmother, Chief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll do what's asked.", next = "END", fx = { affinity = 2, standing = { narache = 1 } } },
       },
       again = {
@@ -160,6 +171,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "If you can keep up! The Bristleback lurk in Brambleblade Ravine, and the plainstriders kick harder than you'd think, so a healer at my back would let me run straight at them. My father says a leader should know when to call for help, and I'm learning." } },
+      choices = {
+        { text = "I'll keep you standing, Grull. Run as far as you like.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Learn to hunt without a healer, or don't hunt.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Grull.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That you face the quilboar of Brambleblade Ravine and come back with your strength proven. My father led the hunts before me, and one day I'll lead this camp, so I watch every warrior who walks up that ravine to see what kind of brave they'll become." } },
@@ -183,12 +203,14 @@ P:NPC {
           text = "Your trainer wants you, so go; the Hawkwind will still be here." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, because the hunt goes better when the wind is on our side, and you can ask it nicely." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be facing the Rite of Strength, then, because every brave of Narache must prove themselves before they go down to Bloodhoof." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Narache's hunts come home with plenty of scratches, so stay close, because I'd rather lead a hunt with a healer than without one." },
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },
         { text = "Can my beast hunt beside your braves?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Should a shaman hunt, Grull, or only bless the hunters?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Rite of Strength ask of a warrior, Grull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Will you take a priest on your next hunt, Grull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {
