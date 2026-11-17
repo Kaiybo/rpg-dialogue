@@ -68,6 +68,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The glades round Sunnyglade are sick with the Hammer's work, and I'm told your kind feels that like a wound." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } },
           text = "The scouts on the ridge say the Twilight camps are thinning, and the bodies have your marks on them. Keep at it, and Krol'dok will have to come out to us." },
+        -- Opinion pass: word from elsewhere in Rog'mar.
+        { id = "h_o_soft", once = true, when = { gossip = { topic = "warchief", stance = { "soft", "weak" } } },
+          text = "I hear you think the Warchief has gone soft. You'll find agreement among the young grunts here, and none from me, so choose your fire carefully tonight." },
+        { id = "h_o_common", once = true, when = { opinion = { topic = "horde", stance = "common_cause" } }, priority = 5,
+          text = "My scouts say you told Brant's riders that the Horde and Farholde fight the same enemy. It is true, and it is not wise to say it in their keep, but it is true." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, and then sharpen something." },
@@ -192,6 +197,33 @@ P:NPC {
       lines = {
         { id = "ft_default", text = "Together? Their sentries would put an arrow in you before you got the word out. We fight the same enemy from opposite banks of the river, and for now that will have to do." },
       },
+      choices = {
+        { text = "Does the Warchief know what you face here?", next = "rm_chief" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Krom'rosh asks what the player makes of Thrall's peace.
+    rm_chief = {
+      big = true,
+      lines = { { id = "rc_default", text = "The Warchief has bigger wars than this one, and Rog'mar asks him for nothing. But the grunts who come down from Orgrimmar say he has gone soft on the humans, and I would know if it's true. You have stood closer to him than I have. Has he?" } },
+      choices = {
+        { text = "No. Thrall keeps the Horde alive, and that takes strength.", next = "rm_chief_trust", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
+        { text = "Yes. He'd make peace with Farholde if they asked nicely.", next = "rm_chief_soft", fx = { opinion = { warchief = "soft" }, align = { honor = -1 } } },
+        { text = "Soft or not, the Hammer is your enemy here.", next = "rm_chief_hammer", fx = { opinion = { twilights_hammer = "strike" }, trait = { practical = 1 } } },
+        { text = "Cairne trusts him, and so do I.", next = "rm_chief_trust", when = { race = "Tauren" }, fx = { opinion = { warchief = "trust", cairne = "admire" } } },
+        { text = "That's not for me to say.", next = "BACK" },
+      },
+    },
+    rm_chief_trust = {
+      lines = { { id = "rct_default", text = "Good. I followed him out of the camps, and I would not like to think I followed a weak orc. Lok'tar; tell the grumblers in Orgrimmar that Rog'mar stands behind him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rm_chief_soft = {
+      lines = { { id = "rcs_default", text = "Hm. Then he and Brant would make a strange pair at the same fire. I have heard the same from younger grunts, and I tell them what I'll tell you: the Warchief broke the camps, so the word soft does not fit him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rm_chief_hammer = {
+      lines = { { id = "rch_default", text = "That is a soldier's answer, and I respect it. Orgrimmar can argue about humans; here the cultists are burning the glades, and they are the only enemy I have time for." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 

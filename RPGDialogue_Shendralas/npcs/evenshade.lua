@@ -181,8 +181,8 @@ P:NPC {
           fx = { learn = { "burning_legion" } } },
       },
       choices = {
-        { text = "He kept your people alive. That counts for something.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A prince who chains demons is no prince.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He kept your people alive. That counts for something.", next = "BACK", fx = { opinion = { shd_prince = "survivor" }, align = { honor = -1 } } },
+        { text = "A prince who chains demons is no prince.", next = "BACK", fx = { opinion = { shd_prince = "tyrant", demons = "hate" }, affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -234,8 +234,42 @@ P:NPC {
       },
       choices = {
         { text = "And the quilboar to the south?", next = "quilboar" },
+        { text = "Does their bone-work trouble you?", next = "mg_ask" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    -- Opinion pass: Mordent asks the player whether any power is worth taking.
+    mg_ask = {
+      big = true,
+      lines = { { id = "ma_default", text = "It troubles me, but I am an old man who watched his people drown for loving magic too dearly, so perhaps I am not the one to judge. You walk among the living, and you have seen what power does to them. Is any power worth taking, if it lies there to be taken?" } },
+      choices = {
+        { text = "Raising the dead is an abomination, whatever the cause.", next = "mg_ask_wrong", fx = { opinion = { necromancy = "wrong" }, align = { light = 1 }, affinity = 1 } },
+        { text = "If it keeps a people alive, then yes.", next = "mg_ask_useful", fx = { opinion = { necromancy = "useful" }, align = { light = -1 } } },
+        { text = "Magic is a tool. Only the hand that holds it is wicked.", next = "mg_ask_tool", fx = { opinion = { arcane_magic = "useful" }, trait = { practical = 1 } } },
+        { text = "Dalaran teaches restraint. Your Prince never learned it.", next = "mg_ask_dal", when = { class = "MAGE" }, fx = { opinion = { kirin_tor = "respect", arcane_magic = "careful" } } },
+        { text = "I was raised against my will. You know my answer.", next = "mg_ask_dead", when = { race = "Scourge" }, fx = { opinion = { necromancy = "hate", undeath = "curse" } } },
+        { text = "I'd rather not judge it.", next = "BACK" },
+      },
+    },
+    mg_ask_wrong = {
+      lines = { { id = "maw_default", text = "You say it plainly, and I envy you that. My order said much the same about the Prince's prisoner, once, very quietly, in rooms where he could not hear us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_useful = {
+      lines = { { id = "mau_default", text = "That is the Prince's own argument, almost word for word, and he has kept the Shen'dralar alive with it for ten thousand years. I would ask you to look at what it has kept alive before you settle on it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_tool = {
+      lines = { { id = "mat_default", text = "A tidy answer, and a scholar's one, and I gave it myself for many centuries. The trouble is that the tool changes the hand that holds it, slowly, and the hand never notices." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_dal = {
+      lines = { { id = "mad_default", text = "Dalaran. Yes, I have heard of your city of magi, and I hope its restraint outlasts its first great temptation. Ours did not." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_dead = {
+      lines = { { id = "mae_default", text = "Forgive me. I asked a question of the one person in this valley who has already answered it with every breath they no longer take." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     quilboar = {
       lines = {
@@ -287,8 +321,8 @@ P:NPC {
           fx = { learn = { "queen_azshara" } } },
       },
       choices = {
-        { text = "Then they were right to cast you out.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Ten thousand years is long enough to forgive.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Then they were right to cast you out.", next = "BACK", fx = { opinion = { shd_highborne = "guilty" }, align = { order = 1 }, affinity = -1 } },
+        { text = "Ten thousand years is long enough to forgive.", next = "BACK", fx = { opinion = { shd_highborne = "forgiven" }, align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

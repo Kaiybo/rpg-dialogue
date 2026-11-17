@@ -85,6 +85,9 @@ P:NPC {
           text = "A shu'halo, this far from your plains. Your people and the centaur have spilled each other's blood since before either of us was born, so speak quickly and speak plainly." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "One of Cenarius's favored children. Our father's father was Cenarius, the Magram say, and we have never seen much of his favor, so do not expect much of mine." },
+        -- Opinion pass: word from the Magram Front.
+        { id = "h_o_doubt", once = true, when = { gossip = { topic = "shd_orgrul", stance = "distrust" } },
+          text = "Hagiak's warriors tell me you said I trust bones more than warriors. They told me quickly, outsider, because they wanted to see what I would do, and I have done nothing, which frightens them more." },
       },
       again = {
         { id = "h_again", text = "What else? The bones will not raise themselves while we talk." },
@@ -294,6 +297,33 @@ P:NPC {
         { id = "cr_default", text = "Humans in red, with hammers and prayers, who come down from the north to destroy every skeleton they can reach. They break my servants and leave, and the next season there are more bones to raise, so I have never quite understood what they believe they are winning.",
           fx = { learn = { "scarlet_crusade" } } },
       },
+      choices = {
+        { text = "You want to know what I think of them?", next = "cr_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Orgrul wants an outsider's judgement of the Crusade.
+    cr_ask = {
+      big = true,
+      lines = { { id = "ca_default", text = "I do. You have seen these red ones in your own lands, outsider, and I have only seen them die in mine. Are they warriors, or fools?" } },
+      choices = {
+        { text = "Fanatics. They'd burn a village to save it.", next = "cr_ask_fanatic", fx = { opinion = { scarlet_crusade = "fanatics" }, align = { light = 1 } } },
+        { text = "Fools. Let them break themselves on your bones.", next = "cr_ask_fools", fx = { opinion = { scarlet_crusade = "fools" }, align = { light = -1 }, affinity = 1 } },
+        { text = "They fight the dead. On that, I'm with them.", next = "cr_ask_with", fx = { opinion = { scarlet_crusade = "useful", necromancy = "wrong" }, affinity = -1 } },
+        { text = "They'd burn me on sight. I want them all dead.", next = "cr_ask_fools", when = { race = "Scourge" }, fx = { opinion = { scarlet_crusade = "hate" }, affinity = 1 } },
+        { text = "Judge them yourself, Orgrul.", next = "BACK" },
+      },
+    },
+    cr_ask_fanatic = {
+      lines = { { id = "caf_default", text = "Then they are strong in belief and weak in sense, which is the most useful kind of enemy. I will remember that, outsider." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cr_ask_fools = {
+      lines = { { id = "cao_default", text = "Good. Every hammer they swing is a bone I raise again next season, and their fallen make fine servants. You understand the valley better than I expected." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cr_ask_with = {
+      lines = { { id = "caw_default", text = "Then you are a fool too, but an honest one, and I prefer honest fools to the other kind. Mind which side of the valley you sleep on." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xforsaken = {
@@ -429,6 +459,9 @@ P:NPC {
           text = "A shu'halo at the Magram Front. The Bristleback are your old enemies as well as ours, so for once we want the same thing." },
         { id = "h_priest", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } },
           text = "A healer. My warriors bleed more than they eat these days, so if you know how to close a wound, you are welcome at my fire." },
+        -- Opinion pass: word from the Valley of Bones.
+        { id = "h_o_fools", once = true, when = { gossip = { topic = "scarlet_crusade", stance = { "fools", "hate" } } },
+          text = "Orgrul says you called the red-clad humans fools. For once the necromancer and I agree on something, so I'll tell my warriors to stop spitting when you pass." },
       },
       again = {
         { id = "h_again", text = "What else? Talk does not fill bellies." },
@@ -498,6 +531,32 @@ P:NPC {
       lines = {
         { id = "or_default", text = "He is clever, and he serves the clan, and I would never say a word against him in front of the khan. But he talks to bones more than he talks to warriors, and the warriors have noticed." },
       },
+      choices = {
+        { text = "And what do you think of it?", next = "or_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Hagiak asks the player to settle the argument.
+    or_ask = {
+      big = true,
+      lines = { { id = "oa_default", text = "I think a warrior should ask an outsider, since no Magram will answer me straight. You have seen Orgrul's bones march. Is a dead warrior worth a living one?" } },
+      choices = {
+        { text = "No. A clan should put its trust in the living.", next = "or_ask_living", fx = { opinion = { necromancy = "wrong", shd_orgrul = "distrust" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "The dead don't eat. In a hungry camp, that matters.", next = "or_ask_dead", fx = { opinion = { necromancy = "useful" }, align = { honor = -1 } } },
+        { text = "Orgrul is clever, and clever wins wars.", next = "or_ask_clever", fx = { opinion = { shd_orgrul = "respect" } } },
+        { text = "That's a matter for the clan, not me.", next = "BACK" },
+      },
+    },
+    or_ask_living = {
+      lines = { { id = "oal_default", text = "That is what my warriors say around the fires when they think I'm sleeping. I will not repeat it to Orgrul, and neither will you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    or_ask_dead = {
+      lines = { { id = "oad_default", text = "Hm. That is the one argument I cannot answer, not with starvation hanging over every tent on this front. Perhaps you are right, and I only dislike the smell." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    or_ask_clever = {
+      lines = { { id = "oac_default", text = "Clever, yes. But clever is a cold fire to sit by, outsider, and the warriors would rather follow someone who bleeds." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xtauren = {
@@ -633,6 +692,32 @@ P:NPC {
       lines = {
         { id = "el_default", text = "Uthek the Wise speaks for us at Gelkis Village, and Khan Shaka leads us. Uthek is careful, very careful, and sometimes I think careful is only a polite word for slow." },
       },
+      choices = {
+        { text = "Should you wait for Uthek's word, then?", next = "el_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Nerlokh asks whether a warrior should wait for leave.
+    el_ask = {
+      big = true,
+      lines = { { id = "ea_default", text = "That is what I am asking you. You are an outsider and owe the Gelkis nothing, so you can say it plainly: should a warrior wait for the elders' leave, or act when the moment comes?" } },
+      choices = {
+        { text = "Wait. A people that ignores its elders falls apart.", next = "el_ask_wait", fx = { opinion = { shd_gelkis_elders = "patience" }, align = { order = 1 } } },
+        { text = "Act. Careful leaders lose wars.", next = "el_ask_act", fx = { opinion = { shd_gelkis_elders = "slow" }, align = { order = -1 }, affinity = 1 } },
+        { text = "Listen to the earth before either of them.", next = "el_ask_earth", when = { class = { "SHAMAN", "DRUID" } }, fx = { opinion = { the_elements = "respect" }, affinity = 1 } },
+        { text = "That's for the Gelkis to decide.", next = "BACK" },
+      },
+    },
+    el_ask_wait = {
+      lines = { { id = "eaw_default", text = "Uthek would like you. I do not, at this moment, but I will think about what you said, which is more than I do for most of his speeches." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    el_ask_act = {
+      lines = { { id = "eaa_default", text = "Yes! The Magram do not wait for leave, and that is why they keep winning. I will remember that you said it, when Uthek asks me why I went." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    el_ask_earth = {
+      lines = { { id = "eae_default", text = "The earth is slow too, and patient, and it has never yet told me to wait. Perhaps I have not been listening closely enough." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     after = {

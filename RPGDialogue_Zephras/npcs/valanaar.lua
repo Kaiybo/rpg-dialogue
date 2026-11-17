@@ -164,8 +164,8 @@ P:NPC {
         { id = "bd_default", text = "I try not to, but it's hard when they rob people who have just as little. The Peacekeepers caught one who'd killed one of their own for windstones, a man whose family escaped Shen'dramar on one of the last skycutters before it broke apart, and they mean to execute him." },
       },
       choices = {
-        { text = "He lost everything. Show him mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He killed a Peacekeeper. The law must hold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He lost everything. Show him mercy.", next = "BACK", fx = { opinion = { zep_bandit = "mercy" }, affinity = 1, align = { light = 1 } } },
+        { text = "He killed a Peacekeeper. The law must hold.", next = "BACK", fx = { opinion = { zep_bandit = "hang" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -321,8 +321,8 @@ P:NPC {
         { id = "se_default", text = "The High Order and the Windshapers have their skycutters running again, but I'm grounded, and the elders swear nothing's changed. Something has, and if they won't tell us plain folk what it is, then what are they saving us from, eh?" },
       },
       choices = {
-        { text = "People deserve the truth, even frightening truth.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "The elders know best. Panic helps nobody.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "People deserve the truth, even frightening truth.", next = "BACK", fx = { opinion = { zep_council = "secretive" }, affinity = 2, align = { order = -1 } } },
+        { text = "The elders know best. Panic helps nobody.", next = "BACK", fx = { opinion = { zep_council = "trust" }, affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -412,15 +412,51 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Donaal Downbreeze, and the Calmbreeze is mine. We've fewer customers than we used to, so I'll thank you for coming in, and I'll thank you double if you don't mind the noise from the corner." },
+        -- Opinion pass: what Valanaar has heard the player say.
+        { id = "h_o_mercy", once = true, when = { gossip = { topic = "zep_bandit", stance = "mercy" } },
+          text = "Half of Valanaar has heard you'd spare the bandit the Peacekeepers are holding. The other half heard it from Swimmers, loudly, so I expect the High Elder has too." },
+        { id = "h_o_hang", once = true, when = { gossip = { topic = "zep_bandit", stance = "hang" } },
+          text = "Word is you'd have the High Elder sign the bandit's sentence. The Peacekeepers drink here, and they've been saying your name kindly, which isn't something I hear often." },
+        { id = "h_o_side", once = true, when = { gossip = { topic = "zep_orders", stance = { "take_side", "both_proud" } } },
+          text = "I hear you've told someone what you think of the orders' quarrel. Do me a kindness and don't repeat it in here, because I've one of each in the corner most nights." },
       },
       again = { { id = "h_again", text = "Anything else? I've glasses to wipe and a sailor to hush." } },
       choices = {
         { text = "What's the trouble with Swimmers?", next = "swimmers" },
+        { text = "How do your customers take to mainlanders?", next = "mainland" },
         { text = "What's good to eat here?", next = "food" },
         { text = "Anything worth seeing in the inn?", next = "crystal" },
         { text = "I'd like a room, please.", next = "BUSINESS" },
         { text = "Just passing through.", next = "END" },
       },
+    },
+    -- Opinion pass: Donaal wants to know if opening the skydocks was wise.
+    mainland = {
+      big = true,
+      lines = { { id = "ml_default", text = "Better than I expected, and worse than the High Elder hoped. Half of them stare and the other half ask whether you breathe the same air we do. You've seen both sides of the clouds, so tell me: were we wise to open the skydocks?" } },
+      choices = {
+        { text = "Yes. Your people can't live alone in the sky forever.", next = "mainland_yes", fx = { opinion = { zep_outsiders = "welcome" }, align = { order = -1 } } },
+        { text = "Be careful. The mainland has wars you don't want.", next = "mainland_no", fx = { opinion = { zep_outsiders = "wary" }, align = { order = 1 } } },
+        { text = "The Kirin Tor will treat your people well.", next = "mainland_kt", when = { faction = "Alliance" }, fx = { opinion = { kirin_tor = "trust" } } },
+        { text = "The tauren are the best friends you could ask for.", next = "mainland_tauren", when = { faction = "Horde" }, fx = { opinion = { tauren = "trust" } } },
+        { text = "Ask me again when I've had a drink.", next = "BACK" },
+      },
+    },
+    mainland_yes = {
+      lines = { { id = "mly_default", text = "That's what I tell myself when the beds are empty. A few more customers and a little less sky, and I'd call it a fair trade." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mainland_no = {
+      lines = { { id = "mln_default", text = "That's what Swimmers says, between drinks, and he's not wrong as often as he's loud. I'll keep the good room for our own folk, then, just in case." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mainland_kt = {
+      lines = { { id = "mlk_default", text = "So the High Order keeps telling everyone, usually at great length. I hope you're right, because the ones who've come back from Dalaran won't stop talking about the libraries." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mainland_tauren = {
+      lines = { { id = "mlt_default", text = "The Windshapers say the same, and the ones who've come back from Mulgore smell of grass and won't stop smiling. I'll take your word for it, and theirs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     swimmers = {
       lines = {
