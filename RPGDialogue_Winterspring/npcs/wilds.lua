@@ -1089,6 +1089,10 @@ P:NPC {
           text = "A priest! Say a little grace over the soup, would you, chum? Business has been slow, and I'll take any blessing I can get on the pot, especially the kind that brings in customers." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow needs soup more than most, and mine's practically a miracle itself." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll want something hearty too, I'd say, because turning into a bear in this weather must take a lot out of you." },
+        { id = "h_winterfall_resolved", when = { thread = { id = "winterfall_firewater", state = "resolved" } },
+          text = "The dwarf at the springs came through here sayin' the Winterfall are patients and not bandits, chum, and I said fine, cure 'em, and I'll sell 'em soup. A sober furbolg's a customer, see, and a drunk one's a liability." },
+        { id = "h_winterfall_soured", when = { thread = { id = "winterfall_firewater", state = "soured" } },
+          text = "Everlook's hired bruisers for the road, chum, and guess who's feedin' 'em at cost? It's safer for my carts, I'll grant you, but I've done the sums and a bruiser eats twice what he saves me." },
       },
       again = {
         { id = "h_again1", text = "What else, chum? The soup's getting cold, and cold soup don't sell." },

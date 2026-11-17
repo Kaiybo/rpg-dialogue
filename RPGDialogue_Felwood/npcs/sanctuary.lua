@@ -387,6 +387,8 @@ P:NPC {
           text = "The water carries the corruption downstream, into everything. A friend of mine, Islen Waterseer, may know how to cleanse it. Bring her what we gather." },
         { id = "h_cleansed", when = { questDone = TODO_QUEST("Cleansed Water Returns to Felwood") },
           text = "Clean water, back in Felwood, is a small thing, but it's how forests heal: one small thing, and then the next." },
+        { id = "h_felwood_resolved", tags = { "news" }, when = { thread = { id = "felwood_rot", state = "resolved" } },
+          text = "The stone's still on my table, if you're wondering, and I've only picked it up twice since you came back from Jaedenar. Eridan says that's progress, and for once I haven't argued with her." },
         { id = "h_flames", when = { questActive = TODO_QUEST("Dousing the Flames of Protection") },
           text = "The Council's fires protect them. Put them out, and their walls come down with them." },
         { id = "h_watch", when = { metBefore = true },

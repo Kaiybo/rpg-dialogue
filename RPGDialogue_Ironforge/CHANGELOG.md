@@ -5,6 +5,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.22.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 
+## 1.22.0 (2026-11-17)
+- Stories (0.80.0): Mekkatorque decides how the Gnomeregan Story ends; he and Gnoarn greet you by that ending.
+
 ## 1.21.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

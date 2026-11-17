@@ -134,6 +134,8 @@ P:NPC {
           text = "A hunter. Good, because I need eyes on the centaur camps more than I need another sword, and the Kolkar can smell a soldier a mile off." },
         { id = "h_default", key = true,
           text = "Captain Pentigast, of the Stormwind Army. We're spread thin out here, and the centaur outnumber us, but luckily they hate each other more." },
+        { id = "h_clans_resolved", tags = { "news" }, when = { thread = { id = "desolace_clans", state = "resolved" }, faction = "Alliance" },
+          text = "Hratha's dead, I hear, and the clan you rode with is crowing about it from one end of the valley to the other. The Gelkis and the Magram are still at each other, which suits my ridge, though I'll admit it doesn't make for a pleasant report to write." },
         { id = "h_alliance", tags = { "news" }, when = { questActive = TODO_QUEST("Strange Alliance") },
           text = "One of the clans will deal with us, for a price. Pick your partner and earn their trust. We can sort out what we owe them later." },
         { id = "h_politics", when = { questActive = TODO_QUEST("Brutal Politics") },

@@ -846,6 +846,8 @@ P:NPC {
   greetings = {
     { id = "g_home", text = "Where troggs and leper gnomes roam stands our home, Gnomeregan! We must make our stand, friend!" },
     { id = "g_back", when = { metBefore = true }, text = "Back for orders? Good, because the movement needs everyone!" },
+    { id = "g_gnomeregan_resolved", when = { thread = { id = "gnomeregan_lost", state = "resolved" } }, text = "The High Tinker stood up at the assembly and said the order was his too, and you could have heard a cog drop! The arguing's stopped, mostly, and the planning's started, which is much louder." },
+    { id = "g_gnomeregan_soured", when = { thread = { id = "gnomeregan_lost", state = "soured" } }, text = "The High Tinker named Thermaplugg at the assembly and nobody else, and we all cheered, and then he went home early. I cheered loudest, friend, and I keep thinking about him going home early." },
   },
 
   notice = {

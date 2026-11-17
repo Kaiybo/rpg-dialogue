@@ -19,6 +19,10 @@ threads_forsaken.lua
 threads_tauren.lua
 threads_frontiers.lua
 threads_alliance.lua
+threads_trolls_south.lua
+threads_kaldorei.lua
+threads_eastern.lua
+threads_kalimdor_south.lua
 origins\human.lua
 origins\dwarf.lua
 origins\gnome.lua

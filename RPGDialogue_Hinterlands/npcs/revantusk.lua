@@ -105,6 +105,8 @@ P:NPC {
           text = "I be Primal Torntusk, and I lead the Revantusk while my mate sits in a Vilebranch cage. They came at midnight, they took him up to Jintha'Alor, and every night since I been countin' how many of them owe me blood." },
         { id = "h_kidnap", tags = { "news" }, when = { questActive = TODO_QUEST("Kidnapped Elder Torntusk!") },
           text = "My spies say he still breathes, up on the top of Jintha'Alor, and the Vile Priestess Hexx be readyin' him for her altar. Go quick, before she finishes her preparations." },
+        { id = "h_hills_resolved", tags = { "news" }, when = { faction = "Horde", thread = { id = "hinterlands_trolls", state = "resolved" } },
+          text = "The Vilebranch keep their heads down on that hill since Hexx fell, mon, and my scouts can walk the river without lookin' over their shoulders. It won't last, but Revantusk will enjoy it while it does." },
         { id = "h_hexx", when = { questActive = TODO_QUEST("Wanted: Vile Priestess Hexx and Her Minions") },
           text = "You read the poster, then. Hexx and her Aman'zasi guards sit at the summit as if the hill belongs to them, so show them it don't." },
         { id = "h_job", when = { questActive = TODO_QUEST("Job Opening: Guard Captain of Revantusk Village") },

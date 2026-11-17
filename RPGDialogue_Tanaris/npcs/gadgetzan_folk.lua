@@ -1399,6 +1399,8 @@ P:NPC {
           text = "The egg, mon, the ancient egg! The tablets told us where to look, so be gentle when you find it, because old things break easily." },
         { id = "h_godhakkar", tags = { "news" }, when = { questActive = TODO_QUEST("The God Hakkar") },
           text = "Take the egg into the sunken temple of Atal'Hakkar, and let it drink what it was made to drink. Then bring it back to Yeh'kinya, mon, and we'll keep that power safe together." },
+        { id = "h_bloodgod_resolved", tags = { "news" }, when = { thread = { id = "blood_god", state = "resolved" } },
+          text = "The Soulflayer is fallen in Zul'Gurub, mon, and the Zandalar are singing about it all down the coast. Yeh'kinya will drink to that, though he notices nobody thought to ask what the Soulflayer knew before they cut him down." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, mon. The spirits around you are green and noisy, and Yeh'kinya can hear them even through the drink." },
         { id = "h_lockcl", when = { class = "WARLOCK" },

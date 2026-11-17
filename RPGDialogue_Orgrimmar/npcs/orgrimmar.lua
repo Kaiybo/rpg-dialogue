@@ -859,6 +859,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, mon! Your people and mine both know what it be to have the land under your feet taken away, so Vol'jin always be glad to see a horned one in this city." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the Darkspear be few, and every strong arm in Orgrimmar be one more spear between my people and the ones who want us gone." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" }, text = "So you be walkin' out of Zul'Gurub with the Blood God's priests dead behind you. The word from Yojamba be that Hakkar is cast down, and Vol'jin don't mind sayin' he sleep better for it." },
+        { id = "h_hexed_resolved", tags = { "news" }, when = { thread = { id = "darkspear_isles", state = "resolved" } },
+          text = "Sen'jin say the names of the hexed at the fire now, mon, every one Gadrin can remember and a few he had to ask about. Zalazane must hear it across the water, and Vol'jin hope it keep him awake." },
+        { id = "h_hexed_soured", when = { thread = { id = "darkspear_isles", state = "soured" } },
+          text = "You again, mon. Vol'jin did what you said and counted the hexed with the enemy, and it be the right thing for a chief, maybe, but it sit in my belly like a bad fish." },
       },
       choices = {
         { text = "I'd guess the loa still listen to a priest, Vol'jin.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -875,6 +879,8 @@ P:NPC {
         { text = "A Forsaken with the Light must trouble you, Vol'jin.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Hakkar is cast down, Vol'jin. Zul'Gurub is quiet.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "My companion is Darkspear. What should I know of your people?", next = "xpt_voljin", when = { party = { race = "Troll" } } },
+        { text = "I've heard your people on the shore. About the hexed...", next = "hexed_word",
+          when = { thread = { id = "darkspear_isles", beat = "b5_voljin", state = { "stirring", "unfolding" } } } },
         { text = "Farewell, Vol'jin.", next = "END" },
       },
       again = {
@@ -956,6 +962,34 @@ P:NPC {
         { id = "zc_quick", text = "You reach for a chief's heart quick, mon. Slow down, and maybe one day I show you." },
       },
       choices = { { text = "So be it.", next = "BACK" } },
+    },
+    hexed_word = {
+      big = true,
+      lines = { { id = "hw_default", text = "Then tell me straight, mon, because my own people won't. Do Vol'jin count the hexed as Darkspear still, and have Sen'jin free them and say their names, or do I tell my warriors they belong to Zalazane now and to strike without lookin' at their faces?" } },
+      again = { { id = "hw_again", text = "So, mon, what be the hexed to the Darkspear now?" } },
+      choices = {
+        { text = "They're still Darkspear. Free them, and say their names at Sen'jin.", next = "hexed_kin",
+          fx = { thread = { id = "darkspear_isles", state = "resolved" }, affinity = 3, align = { light = 1 } },
+          journal = { first = "Told Vol'jin the hexed are still Darkspear, and that Sen'jin should free them and say their names. He said Zalazane would hate every one of those names.",
+                      third = "{name} told Vol'jin that the hexed of the Echo Isles were still Darkspear." } },
+        { text = "They're Zalazane's now. Tell your warriors not to look at their faces.", next = "hexed_enemy",
+          fx = { thread = { id = "darkspear_isles", state = "soured" }, affinity = -2, align = { light = -1 }, trait = { skeptical = 1 } },
+          journal = { first = "Told Vol'jin to count the hexed with the enemy. He agreed like a chief, and looked away like a friend.",
+                      third = "{name} told Vol'jin to count the hexed of the Echo Isles among the enemy." } },
+        { text = "What does Master Gadrin say?", next = "hexed_gadrin" },
+      },
+    },
+    hexed_gadrin = {
+      lines = { { id = "hg_default", text = "Gadrin say they be his students' children, and that he will not be the one to give them up, which be a teacher's answer, mon. A chief need a different one, and that be why I ask you." } },
+      choices = { { text = "Then I'll give you an answer.", next = "hexed_word" } },
+    },
+    hexed_kin = {
+      lines = { { id = "hk_default", text = "That be what my heart say, and I was afraid it was only my heart. Sen'jin will say their names at the fire tonight, mon, and when Zalazane hear them across the water, he will know we did not forget a single one." } },
+      choices = { { text = "Then let him hear them, Vol'jin.", next = "END" } },
+    },
+    hexed_enemy = {
+      lines = { { id = "he_default", text = "Maybe that be the answer a chief need, and Vol'jin will give my warriors the order. But don't ask me to like it, mon, because some of those faces I knew when they was small." } },
+      choices = { { text = "...", next = "END" } },
     },
   },
 
