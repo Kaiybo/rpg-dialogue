@@ -25,6 +25,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Scholomance, Stratholme, the Spire, and the backs of people who didn't come home, though the Cartel prefers not to ask which. Warriors are my best buyers and my best sellers both, because you lot never stop trading up." } },
+      choices = {
+        { text = "I'd rather earn my plate than wear a dead man's.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A dead man's plate fits just as well. Show me the cheapest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Grizzlin.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because the Wintersaber Trainers up the valley take it very personally, that's why, and night elves with long memories are bad for business. I sell what comes through the door, but I don't mention it when the Sentinels are in town." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} off the counter, please, because the last beast that sat there knocked over a whole stack of thorium and the Cartel docked it from my wages." },
+      },
+      choices = {
+        { text = "I don't hunt frostsabers. Some things shouldn't be for sale.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A pelt's a pelt. I'll sell you every frostsaber I skin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every day it costs us, between the blizzards closing the pass and the furbolgs making trouble along the roads. The Cartel prices it all in, of course, so the snow pays its share of every bid. If your spirits could arrange a mild winter, I'd consider that a sound investment." } },
@@ -72,6 +93,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You'll want to see the plate and the blades, I expect, and I've a fine run of them this week, mostly from adventurers who stopped needing them." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Leather and hides, then, and frostsaber pelts, which go for a pretty price in the cities, provided nobody asks where the cat came from." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome to the auction house. Totems sell slowly up here, but if you've anything fire-charged, the cold makes it worth double." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Lovely. Now, before you get any ideas, every item in my vaults is logged, sealed and watched by Cartel bruisers who are much bigger than you." },
@@ -98,6 +123,8 @@ P:NPC {
         { text = "Do mages sell much through the auction house?", next = "xmage", when = { class = "MAGE" } },
         { text = "Doesn't it trouble you, selling to both Horde and Alliance?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you make of priests who sell their services, Grizzlin?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Where does all that armour come from, Grizzlin?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why wouldn't anyone ask where a frostsaber pelt came from?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -154,6 +181,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Cheap steel, friend, folded fast and quenched in a bucket, and the frost gets into it like a bad rumour. I've seen a dwarf's axe snap clean on a Winterfall furbolg's skull, and the furbolg was more surprised than he was." } },
+      choices = {
+        { text = "Good steel is worth paying for. I won't cut corners.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll buy cheap and loot a better one off a furbolg.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wixxrak.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It doesn't thicken in the cold, that's what, and I won't tell you what's in it, except that one part comes from the springs and one part I'd rather not say. A rifle that seizes up with a frostsaber charging you is just an expensive club." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind {pet} doesn't lick the oil off the barrel, because it'll be sick on the floor of my shop and I'll never hear the end of it from Qia." },
+      },
+      choices = {
+        { text = "A hunter keeps the weapon in order. I'll learn the oil myself.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't care what's in it, so long as the rifle fires.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Everybody who walks the road to the springs, and a few who should've stayed home! The Winterfall come down out of their camps drunk on that firewater and swinging like madmen, so I sell an axe a day and a rifle to anyone who'd rather not get close. I wouldn't expect a shaman to buy a rifle, but there's always a first time." } },
@@ -201,6 +249,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Now you're my sort of customer, and I'll tell you straight that half the swords in Kalimdor go brittle at forty below, but not mine." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You'll want a rifle that fires in the snow, and I've got just the thing, with a lock that won't freeze and an oil I mix myself." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I know your lot like a good mace or axe, and I've got ones that hold an edge even when your fingers won't." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You want something light, sharp and quiet, and I've got daggers that'll hold an edge at forty below, which is more than the dwarves can promise." },
@@ -225,6 +277,8 @@ P:NPC {
         { text = "Do mages really need a dagger?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you sell weapons to anyone who pays, Wixxrak?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do priests ever buy your guns, Wixxrak?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why would a sword go brittle in the cold, Wixxrak?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What's so special about your gun oil?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -285,6 +339,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The sweat does, and then the cold freezes it, and then it thaws by the fire at Vizzie's and does it all again. Every warrior who comes through Everlook smells of it, and I sell more heavy thread to your kind than to the tailors." } },
+      choices = {
+        { text = "I'll mend it properly myself. A warrior keeps the kit in order.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll wear it till it falls apart and find new off a corpse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Qia.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Frostsaber and chimaera, though the chimaera's tough enough to break a needle, and the bear pelts from the shardtooths. The tailors want felcloth more, but the leatherworkers will pay well for anything thick enough to keep the wind out." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And if {pet} drags in anything with fur on it, I won't ask whose it was, only how fresh." },
+      },
+      choices = {
+        { text = "I'll skin only what I kill cleanly, and waste none of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll strip every beast in the valley if the price is right.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Twice a winter at least, and every crafter in town learns to count their thread when it happens. The pass down to Felwood closes, the tunnels through Timbermaw Hold stay open only so long as the furbolgs like us, and then it's just whatever's on my shelves. Your spirits would make a fortune up here, if they could shovel." } },
@@ -323,6 +398,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You'll be after heavy thread to mend the padding under that armour, I expect, because the frost rots it faster than you'd think." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You'll be selling me hides, I hope, because rugged leather fetches a fair price here, and the skinners in town are always short." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want leather and heavy thread, I expect, because nothing you carry survives a Winterspring winter without mending." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You're wearing cloth in Winterspring, so I'll assume you either have a spell for the cold or you're mad, and I sell felcloth to both kinds." },
@@ -344,6 +423,8 @@ P:NPC {
         { text = "Where does felcloth even come from?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many warlocks buy from you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do priests often come to you for robe cloth, Qia?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does the cold really rot the padding under armour?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What hides sell best in Everlook, Qia?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -397,6 +478,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because warriors shout, friend, it's in the training, and every time one of you bellows a war cry by the gate, my bears wake up and my cats go under the hay. A beast that's frightened in the stable is a beast that bites its own hunter later." } },
+      choices = {
+        { text = "Fair enough. A warrior can keep the temper off the battlefield.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A beast that can't stand a shout won't last in Winterspring.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Azzleby.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The wild ones do better than you'd think, with fur thicker than a goblin's purse and the hot springs to drink from when everything else freezes. It's the ones that wander too near the Winterfall camps that worry me, because some of them come back wrong somehow. I don't know what's poisoning them, but I'd thank any shaman who found out." } },
@@ -435,6 +525,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You've no beast to stable, I expect, unless you count the bear-sized grudge you're carrying, so I'll just ask you to keep your voice down near the stalls." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The beasts in my stable perk up when your kind come by, so stand near the stalls as long as you like and warm them up a bit." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. I board beasts, friend, not demons, so don't ask me to stable your voidwalker, because the last one frightened my bears so badly they wouldn't eat." },
@@ -456,6 +548,7 @@ P:NPC {
         { text = "Is a demon really so different from a pet?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would a polymorphed sheep be welcome in your stables?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the beasts in your stable suffer the cold, Azzleby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why keep my voice down near the stalls?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -510,6 +603,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oh, more than anyone, because you're the ones standing in front when the Winterfall come swinging. I brew mine with a pinch of icecap, which keeps them clear in the cold, and I'd like to think one of my bottles has saved a warrior or two." } },
+      choices = {
+        { text = "I'd rather trust my shield and my training than a bottle.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Give me the strongest you've got. I'll drink anything in a fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Evie.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I'd buy anything clean, because the herbs up here are pure as the snow, mostly, and pure herbs make clear potions. Don't bring me anything from near the Winterfall camps, though, because whatever's in their firewater has got into the roots there too, I'm sure of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind {pet} doesn't eat the icecap, because it numbs the tongue something awful, and I once watched a wolf walk in circles for an hour." },
+      },
+      choices = {
+        { text = "I'll gather only where the land is clean. Your potions deserve that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll bring whatever I find. Your customers won't know the difference.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Oh, I'd love to know, and I've bottled that water three times to find out! It stays warm for an hour and then it's just water, which means either there's nothing in it or it only works where the earth wants it to. Donova Snowden would call it science, and you'd call it spirits, and I'd say you both owe me a vial." } },
@@ -557,6 +671,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You'll want healing potions, lots of them, because your kind drink them like Himmik's soup, and I've a fresh batch packed in straw." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You'll know where the icecap grows, I bet, and the mountain silversage, because you're always out tracking things across the hills." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've no totems to sell, but I've vials aplenty for your water spirits, packed in straw so they won't crack in this cold." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You'll want crystal vials for your poisons, I'll bet, and I've got the good ones that don't crack in the cold, packed snug in straw." },
@@ -581,6 +699,8 @@ P:NPC {
         { text = "Black lotus grows in Winterspring?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you think potions and prayer do the same work?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you really think icecap is half holy, Evie?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do warriors really drink that many potions, Evie?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Would you buy herbs a hunter finds in the wild?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },

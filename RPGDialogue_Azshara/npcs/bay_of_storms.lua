@@ -32,6 +32,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The servants of fire, stone and wind do not reason, mortal, so they must be broken, and a warrior breaks things willingly. Every elemental you extinguish weakens the lords who command them, and the Waterlords remember who served." } },
+      choices = {
+        { text = "I'll fight your war openly, Duke, and stand by what I've done.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight it for the reward, and keep my own counsel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Duke.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Waterlords do not hunt, mortal; we drown, and patience is our whole art. A hunter who can wait for the right moment understands the tide better than any warrior, and is a little more useful to me for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} does not like the smell of salt, I see. Keep it from the water's edge, because what lives in the bay does not distinguish between a beast and a meal." },
+      },
+      choices = {
+        { text = "Patience and an honest shot. That's the whole of the hunter's art.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Patience, yes, and a trap the prey never sees.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     mage_hy = {
       big = true,
       lines = {
@@ -90,6 +111,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You strike as a wave strikes, mortal, all at once and without subtlety, and I have broken many such waves on this rock." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. You stalk your prey from a distance, mortal, as the current stalks a ship, and I find that less tiresome than charging." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. You command creatures of fire and shadow, mortal, and the pure waters recoil from them, so keep your servant out of my sight while we speak." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -129,6 +154,8 @@ P:NPC {
         { text = "Your war is with fire. Why scorn shadow too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What use would a Waterlord have for a rogue?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How could a priest serve the Waterlords, Duke?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What use is a warrior to the Waterlords?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the Waterlords value a hunter's patience?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll take my leave, Duke.", next = "END" },
       },
     },
@@ -309,6 +336,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "He trusts someone who can see, and he swings where he's told, and he doesn't argue. My hounds smell the Legion's servants long before your eyes would find them, and what Galvan forges for you will put an edge on your steel that demons feel." } },
+      choices = {
+        { text = "Then I'll trust your eyes and strike where you tell me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll trust my own blade. I don't take orders from anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Loramus.", next = "BACK" },
+      },
+    },
     hunter_lo = {
       lines = {
         { id = "hlo_default", text = "Honest, yes, and it will die the first time it meets what my hounds were bred to hunt. A beast sees with its eyes; mine see with what was burned into them, and I trust them over any honest creature on this coast." },
@@ -367,6 +403,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You'd swing your blade at a demon if you saw one, I suppose, and that's the trouble, mortal, because you won't see one until it's already behind you." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, listening to rocks and rivers. You'd hear more if you listened to what lies under them, because Azshara is thick with the Legion's leavings and your spirits are too polite to mention it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Your kind opened the door to the Legion once, at the Well of Eternity, and you still dabble at the threshold as if nothing happened." },
@@ -406,6 +444,7 @@ P:NPC {
         { text = "Do you blame all mages for the Legion's coming?", next = "xmage", when = { class = "MAGE" } },
         { text = "What walks unseen along the shore?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a priest's shadow touch the demons you hunt, Loramus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "How does a warrior fight what he can't see?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -578,6 +617,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The one thinks so, if the warrior is foolish enough to stand before it and strong enough to keep standing. The one's sons were strong and stood before it, and still the deep took them, so the little warrior must be stronger, or cleverer." } },
+      choices = {
+        { text = "Then I'll face it head on, for your sons.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll be cleverer. Strength alone is what killed your sons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The makrura hunt the shallows and the murlocs hunt the reefs, and all of them bring the best of the catch to the one. A hunter who brings the one what the one asks will be remembered in the songs of the deep folk, which are very long." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And the small beast, {pet}, is it yours, or is it the one's now? Everything that comes into the temple's waters belongs to the one, little hunter, but Arkkoroc will make an exception." },
+      },
+      choices = {
+        { text = "I'll do what you ask and honour the deep folk's ways.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your songs mean nothing to me. I hunt for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     troll_ar = {
       lines = {
         { id = "tar_default", text = "The one has heard of the loa, the spirits your little islands feed. They are hungry gods; the one is a patient god, and the makrura have never once starved for want of the one's favour." },
@@ -625,6 +685,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A small one with a sword stands before Arkkoroc. The beast that killed the one's sons was greater than any sword, little warrior, and the one's sons were not small." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A small one with a bow and a beast. The deep folk hunt with nets and spears, little hunter, but Arkkoroc has watched your kind shoot the gulls from the sky." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, who speaks to water as though the water would answer. The sea answers Arkkoroc, little one, but you may listen if you are quiet." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A small one who bends the tides of magic. The deep folk sing of the Highborne, who did the same, and the sea took their city for it." },
@@ -650,6 +714,8 @@ P:NPC {
         { text = "What do the deep folk sing of the Highborne?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the burning ones trouble the sea?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the deep folk truly worship you, Arkkoroc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a warrior kill the beast that slew your sons?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the deep folk hunt as I do, Arkkoroc?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },
     },

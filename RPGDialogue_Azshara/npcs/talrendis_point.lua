@@ -33,6 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By keeping your blade for the Haldarr satyrs and the ghosts that will not rest, and by never drawing it near the camp. I have kept my promise to them for a long while, and I've learned that the elves remember every kept promise and every broken one." } },
+      choices = {
+        { text = "Then I'll keep my promises here, as you've kept yours.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Promises to the elves? I'll do as I please, so long as nobody sees.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Loh'atu.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I believe so, for the coursers and the hippogryphs will not go near the shrine, and the deer flee from it at dusk without anything chasing them. My people say a beast's eyes see what ours cannot, and I have never seen a reason to doubt it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been looking toward the shrine since you sat down. You see, friend, it knows something is there." },
+      },
+      choices = {
+        { text = "Then the spirits deserve to be set free. I'll help.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Ghosts don't trouble me. I'll hunt where the game is.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "They trust me a little more each season, I think, because I keep my promise and bring no trouble. A warlock will find it harder, for they have seen what demons did to this land, and I cannot say they are wrong to fear it." } },
@@ -62,6 +83,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. The Sentinels will watch you as they watch me, friend, because a blade in this camp is a promise of trouble unless you show them otherwise." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The beasts of Azshara are restless, friend, and I think they feel the ghosts at the Shadowsong Shrine as much as I do." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, here among the Sentinels? You are braver than I was, friend, or less careful, because the elves watch even a quiet tauren closely." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -95,6 +120,8 @@ P:NPC {
         { text = "Do the Sentinels trust you after all this time?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the Highborne ghosts remain?", next = "xmage", when = { class = "MAGE" } },
         { text = "How do the Sentinels treat a Horde guest, Loh'atu?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "How do I show the Sentinels I mean no trouble?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the beasts here feel the restless spirits?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll keep the peace here, Loh'atu.", next = "END", fx = { affinity = 1, standing = { talrendis_point = 1 } } },
       },
     },
@@ -335,6 +362,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They fight with fel fire and cruelty, and a warrior who charges them alone does not come back to my roost. The Sentinels go out in threes, and I'd ask you to do the same, because I'm tired of saddling birds for riders who never return." } },
+      choices = {
+        { text = "Then I'll go with others and come back. Discipline keeps warriors alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I fight alone. Fewer people to slow me down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jarrodenus.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because the wild hippogryphs of Azshara are hunted by the satyrs and the naga both, and my birds remember it. A beast that sits still beside its hunter tells them it's no threat, and yours is sitting very still." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't so much as twitched at my birds. Bring it round more often and they'll come to think of it as one of the flock." },
+      },
+      choices = {
+        { text = "A well-trained beast keeps the peace. That's a hunter's duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast does as it likes. It's not one of your birds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because things move on the water after dark that I would rather not see, and my birds feel them before I do. A rogue might call that superstition, but I have kept these hippogryphs alive by listening to them." } },
@@ -373,6 +421,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior of the Alliance. My hippogryphs have carried many of your kind to Talrendis, friend, and too few of them back again, because the Haldarr are fierce." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter of the Alliance. The birds like your beast, friend, which is rare, because a hippogryph hates most things with claws." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue. You will find no work for your skills at Talrendis Point, for the Sentinels watch every shadow, and so do my hippogryphs." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -395,6 +447,8 @@ P:NPC {
         { text = "Is there anything I can do to ease your mistrust?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the Sentinels fear most at Talrendis Point?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the quarrel with Valormok as bitter as they say?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are the Haldarr satyrs so dangerous, Jarrodenus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do your hippogryphs dislike other beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

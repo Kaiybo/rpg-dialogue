@@ -18,6 +18,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By fighting the things the Circle cannot heal, mostly, the corrupted beasts of Felwood and the cultists who trouble Cenarion Hold in Silithus. The druids would rather mend than kill, but some things are past mending, and the Circle remembers who stood beside it then." } },
+      choices = {
+        { text = "Then I'll fight where the Circle needs me, and earn it slowly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for the Circle when it pays. Friendship is a trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lorelae.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A little more, perhaps, because a good hunter knows the land as well as any druid, and cares for it as much. But a bad hunter takes too much and leaves the land poorer, and the Circle remembers that too." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is well cared for, I see. The Circle notices such things, and so do I." },
+      },
+      choices = {
+        { text = "I take only what I need. The land deserves that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The wild has plenty. A little extra won't hurt it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The Circle trusts deeds, not banners or faiths, and it remembers both kinds of deed. Heal the sick lands in Felwood, and the druids will speak your name kindly, whatever it is you pray to." } },
@@ -56,6 +77,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. The Circle's goods are for its friends, and the Circle has few warriors among them, but the Keeper says friendship is grown, so let us see what you grow." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The Circle has always had friends among your kind, for you take from the wild as the druids do, only what it gives." },
         { id = "h_default", text = "I am Lorelae, and I keep the Circle's supplies in Nighthaven. Most of what I hold is for friends of the Circle, and friendship, as Remulos says, is grown and not bought." },
         { id = "h_cond", when = { race = "NightElf" }, text = "One of our own, come home to the glade. Walk with Elune, sister or brother, and take your time here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Circle sells its wares to those it trusts, and trust in Moonglade is grown, not bought, but I'm glad to see what you'll grow." },
@@ -76,6 +101,8 @@ P:NPC {
         { text = "Does the Circle trust a rogue at all, Lorelae?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does the Circle prefer goods without the arcane in them?", next = "xmage", when = { class = "MAGE" } },
         { text = "Could a warlock ever earn the Circle's friendship, Lorelae?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How does a warrior grow the Circle's friendship?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Does the Circle trust hunters more than others?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Thank you, Lorelae.", next = "END" },
       },
     },

@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The lingering Highborne, who are dead already and only too stubborn to know it, and the naga, who would drown this whole coast if they could. The coursers and the wavethrashers are only what the land made them, and Ogtinc asks you to take from them only what the Circle needs." } },
+      choices = {
+        { text = "Then I'll strike only what must be struck.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "In a fight, I won't stop to ask which ones deserve it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ogtinc.", next = "BACK" },
+      },
+    },
     tauren_og = {
       lines = {
         { id = "tog_default", text = "Kin in spirit, perhaps, for we both honour the land and the old ways. The tauren druids I've met walk gently and speak little, which is the highest praise a furbolg can give, and the Circle is better for them." },
@@ -80,6 +89,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Ogtinc sees the weight of your blade, and he hopes you know that not every creature in these ruins must die." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "You walk with a demon's shadow, warlock, and the spirits of this cliff go quiet when you come near. Ogtinc does not turn away anyone who would help the land, but he asks you to remember what fel has done to it." },
@@ -122,6 +133,7 @@ P:NPC {
         { text = "Can someone who uses fel help heal the land?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why hunt the coursers at all?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the Ruins of Eldarath need from a healer, Ogtinc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Which creatures here deserve the blade, Ogtinc?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Walk the divine path, Ogtinc.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -325,6 +337,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because your kind walk up to the dragon and hit it, and the dragon breathes, and then I add a name to my list. The ones who come back are the ones who brought a dozen friends and a priest, and even they come back singed." } },
+      choices = {
+        { text = "Then I'll go with friends and a plan. Bravery isn't foolishness.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take my chances alone. Glory doesn't share well.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Peter.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A few, and they're the only customers whose names I've never had to put on the list. They watch the whelps and the drakes for days, learn which way they fly, and strike when the beast is tired, and that's the only sane way to go after anything with wings and teeth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the dragon, though, because a beast charges in without thinking, and I've seen a hunter come home with dragonscale and without his wolf." },
+      },
+      choices = {
+        { text = "I'll face the drake openly when I take its scales.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll wait until it's tired and wounded, and strike.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Steal, no; scales don't come off a living dragon unless it wants them to, and it never does. But you can get close enough to see where the weak plates are, and I'll teach you to work them once they're off a corpse, so condolences in advance." } },
@@ -372,6 +405,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You'll want dragonscale, I expect, and I'll teach you to work it, though I'd rather you didn't go and fetch it yourself." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Now there's someone who might bring me dragonscale without burning, since you can shoot the beast from further off than it can breathe, mostly." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. You'll want to sneak past a dragon, I expect, rather than fight one, and I'd call that the most sensible plan anyone's brought me this month." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -395,6 +432,8 @@ P:NPC {
         { text = "Do you ever pray for the names on your list?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is hunting dragons for their scales an honourable trade?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a dragonscale craftsman ever pray, Peter?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why shouldn't a warrior hunt dragons, Peter?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Have hunters brought you dragonscale before?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell, Peter.", next = "END" },
       },
     },
@@ -451,6 +490,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because Kim'jael is a goblin of business, not a goblin of punching, and also because they had swords and I had a stuffed chicken. You have a sword, so you see how this works out better for everybody, especially me." } },
+      choices = {
+        { text = "I'll get it back because it's right, not for your coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll get it back, but the price just went up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kim'jael.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The elves hired me to find a rune, then decided they didn't need to pay me, then decided to stab me, and I ran, which I'm very good at. They kept my compass, my scope, my wizzlegoober and my chicken, and I want them all back, especially the chicken." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours, can it sniff out a stuffed chicken? If it can, Kim'jael will be very grateful, and if it eats the chicken, Kim'jael will be very upset." },
+      },
+      choices = {
+        { text = "I'll bring your things back as they were, chicken included.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Finders keepers, Kim'jael. Make me a better offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     gnome_kj = {
       lines = {
         { id = "gkj_default", text = "Oh, laugh it up, gnome! You lot lost a whole city to troggs and radiation, so don't you go lecturing Kim'jael about bad business partners. Now are you going to help me get my gear back or just stand there being short?" },
@@ -507,6 +567,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Good, very good, valuable employee, because Kim'jael needs his equipment back and the elves who took it are big, and mean, and very rude." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You track things, yes? Then track Kim'jael's equipment, because those elves hid it all over their camp, and I swear they did it to spite me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Kim'jael indeed, a rogue! Now you're the sort who knows the value of an employee's equipment, and how easily it goes missing." },
@@ -537,6 +601,8 @@ P:NPC {
         { text = "What did the elf mages want with you?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why stay in Azshara after the elves turned on you?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you want vengeance on the elves, Kim'jael?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why didn't you fight the elves yourself, Kim'jael?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How did you lose all your equipment, Kim'jael?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Later, Kim'jael.", next = "END" },
       },
     },
@@ -632,6 +698,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Better than my crew, I'd wager, because you'd see the naga coming through the surf before my lookouts did. They come at dusk, mostly, sliding up out of the water, and if someone could thin them before they reach the barricade, I'd lose fewer sailors." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And bring {pet} up to the barricade with you. My sailors have been jumpy since the wreck, and a beast with sharp ears is worth two lookouts." },
+      },
+      choices = {
+        { text = "I'll stand at the barricade with your crew until the naga break.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pick them off from the cliffs. Your crew can hold the line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     warrior_bl = {
       lines = {
         { id = "wbl_default", text = "Gladly, and I'll put my bosun beside you, because he's the only one of my crew who can still swing an axe straight. The naga come up out of the surf at night, so stand with your back to the fire and your eyes on the waves." },
@@ -670,6 +748,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, ahoy! Can you shoot naga from the barricade? My sailors can barely shoot straight on a calm sea, never mind with the naga coming up the beach." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, ahoy! If you can conjure fresh water, my crew will love you for it, because we've been rationing what we saved from the Horizon Scout." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -693,6 +773,7 @@ P:NPC {
         { text = "Could I help your crew with my magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "What cargo did the naga take?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you blame yourself for the Horizon Scout, Captain?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a hunter help hold your barricade, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll stand with your crew if they come.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },
@@ -785,6 +866,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Naga, mostly, an' the ghosts o' the Highborne, who don't take kindly tae folk rubbin' their walls wi' charcoal. A warrior's handy, because when they come at ye there's no time for spells, only for standin' yer ground." } },
+      choices = {
+        { text = "I'll guard whoever takes the rubbings and keep to the job.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go in swinging and take the rubbings myself after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Xiggs.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than I'd like, because there's somethin' big sleepin' in the bay that I've seen twice now, an' I've no intention o' seein' it a third time. The hippogryphs at Talrendis won't fly over the water after dark either, an' I'm startin' tae think they're right." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ye can bring {pet} along some day, if it doesn't mind heights. My last passenger's cat clawed a hole in the seat, an' I'm still findin' fur in the engine." },
+      },
+      choices = {
+        { text = "I'll find the camps on foot and face them honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll mark them from the air and strike while they sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     gnome_xg = {
       lines = {
         { id = "gxg_default", text = "Ha! A gnome designed her, a dwarf built her an' I flew her, which is why she's still in one piece. Yer people draw the best plans in the world, but ye can't be trusted near a wrench when ye're excited." },
@@ -832,6 +934,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, eh? Well, the gyrocopter's a wee thing, but if ye leave the shield on the ground I can just about manage ye, an' the naga'll never see us comin'." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! Ye'll be wantin' tae see the coast from the air, I'll bet, because from up there ye can spot every naga camp along the shore." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, eh, lad or lass? Tymor of the Mystic Ward'll want tae hear about ye, since he's the one sendin' me after these rubbings in the first place." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -856,6 +962,8 @@ P:NPC {
         { text = "Are the ruins dangerous for the rubbings?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you fear the naga when you fly low?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why does the Explorers' League care about this cursed coast?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What dangers wait in the Ruins of Eldarath, Xiggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have you seen much from the air over Azshara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },

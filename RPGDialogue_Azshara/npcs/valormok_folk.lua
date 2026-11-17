@@ -25,6 +25,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a drunk warrior is a dead warrior when the naga come up the shore at night, and Ag'tor has buried enough of us already. He wants this camp sharp, and so do I, so drink your milk and keep your head." } },
+      choices = {
+        { text = "Then milk it is. A clear head keeps a warrior alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior fights better with a little fire in the belly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kurll.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not much, because half the beasts here eat things that glow, and I don't trust anything that's been near those old elf ruins. The coursers are clean enough, I think, but the furbolg on the cliff gets cross if you take too many." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} can have the scraps, if it doesn't mind fruit peel, because that's mostly what we've got." },
+      },
+      choices = {
+        { text = "I'll hunt what the land can spare and no more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll hunt what I like. The furbolg can complain.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Cursed enough that I won't feed anything from it to my orcs. The fruit in those woods looks fine and the water looks clean, but the elves who lived here broke something deep, and I'm not betting a warrior's belly on whether it's mended. Everything I sell comes in by wind rider, and I'd rather pay for it than bury another orc." } },
@@ -63,6 +84,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. You'll be asking for grog, then, and I'll tell you what I tell every warrior in this camp: milk, juice or water, take your pick." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Bring me fresh meat, if you find any that's safe, because I'm tired of feeding this camp on fruit and good intentions." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good, then you'll keep a clear head, which is more than I can say for the warriors who keep asking me for grog." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. You'll want something light to eat, I expect, so you can keep moving, and I've got fresh fruit, which is more than the naga ever offer." },
@@ -84,6 +109,8 @@ P:NPC {
         { text = "Why no grog in your camp?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is it hard to keep the camp supplied?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why no grog in Valormok, Kurll?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why won't you serve grog to warriors, Kurll?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What meat is safe to eat in Azshara, Kurll?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -139,6 +166,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A sharp one, swung fast, before they get a spell off. The elves who killed our warriors were mages, and a mage doesn't need long to finish you, so you strike first and you strike hard, and you don't stop to talk." } },
+      choices = {
+        { text = "I'll strike first, but I'll face them, not knife them in the back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll strike first, and from behind if that's what it takes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gruul.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Axes and knives, and I'll put an edge on anything that has one, though I leave the bowstrings to the hunters themselves. A hunter's knife does more work than anyone thinks, because the skinning is half the job." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from my whetstone. The last beast that came by here chewed the handle off a perfectly good axe." },
+      },
+      choices = {
+        { text = "I'll keep my blades sharp and my kills clean, Gruul.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A dull knife hurts more. Sometimes that's the point.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Nothing, shaman, not one good seam of ore in these cursed hills, so every bar I work comes in by wind rider. The old elves' stone lies everywhere, but it's soft and full of their magic, and I'll not forge with it. Give me honest iron from Durotar over anything an elf ever left lying about." } },
@@ -177,6 +225,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior of the Horde. Let me see that edge, because if you're going after elves, I want it sharp enough to shave with." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. You'll want your bow strung and your knives sharp, because the elves in these woods are faster than your beast and twice as mean." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Then you'll swing a mace or an axe with lightning behind it, and I'll make sure the edge is worth the lightning." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. You'll not be needing my weapons, I expect, unless you want a dagger for when your spells run dry. The elves who killed our warriors were mages too." },
@@ -198,6 +250,8 @@ P:NPC {
         { text = "Do you blame all mages for what Rimtori did?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warlocks buy many weapons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you have me curse the Thalassian elves, Gruul?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What makes a good edge against elves, Gruul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do you make weapons for hunters too, Gruul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

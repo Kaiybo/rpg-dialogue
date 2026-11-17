@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "There is a place for anyone who comes in peace, little one, and many warriors find a stillness here they never knew in battle. The Sentinels guard our borders and the Circle guards the land, but within these hills, your strength may rest." } },
+      choices = {
+        { text = "Then I'll rest my blade here and honour the glade's peace.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior's blade never rests. Peace is only a pause between fights.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Keeper.", next = "BACK" },
+      },
+    },
     orc_re = {
       big = true,
       lines = {
@@ -105,6 +114,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, in my father's glade. You carry your weapon lightly here, little one, and I thank you for it, for Moonglade has long been a place where blades rest." },
         { id = "h_default", key = true,
           text = "Remulos, son of Cenarius, keeper of this glade. Moonglade is the heart of the druids' craft. I guard it for all of them, whatever banners they fly beyond its hills." },
         { id = "h_tauren", when = { race = "Tauren" },
@@ -146,6 +157,7 @@ P:NPC {
         { text = "Is shadow welcome in Moonglade, Keeper?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there truly nothing to hide from here, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do your druids still blame the arcane for the Sundering, Keeper?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is there a place for warriors in Moonglade, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -370,6 +382,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Rarely, because there is nothing here to fight, and that unsettles some of them more than a battle would. They pace the paths and polish their armour, and then they leave, and I write down that they were here and nothing happened." } },
+      choices = {
+        { text = "Then I'll see to it nothing happens. That's the right way here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior without a fight is wasted. I'll find one beyond the hills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Rabine.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because nothing in the glade is prey while the Keeper watches it, and the deer here have never learned to fear an arrow. Hunting them would be like robbing a sleeping man, and the Keeper would know, and so, eventually, would I." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'll note {pet} in the ledger as well, if you don't mind. The Keeper likes to know who has been in his glade, beasts included." },
+      },
+      choices = {
+        { text = "Then I'll hunt nothing here. Anything else would be dishonourable.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Deer that don't fear arrows would be easy pickings.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     forsaken_rb = {
       lines = {
         { id = "frb_default", text = "Welcome is a large word, and I'm a careful man with large words. You're permitted, as all are permitted who keep the peace; whether the druids will meet your eye is their business, though I'd note that most of them have been dead in all but body for centuries, asleep in the Dream." },
@@ -417,6 +450,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, in Nighthaven. I'll write your name in the ledger, as I do everyone's, and I'll note that you carried a weapon and kept it sheathed, which I hope you will." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Your beast is welcome in Nighthaven, provided it hunts nothing within the hills, because the Keeper is particular about that." },
         { id = "h_default", text = "Rabine Saturna, majordomo to Keeper Remulos. He watches the glade; I watch everything else, so he needn't. It's a quieter job than it sounds, most days." },
         { id = "h_locket", tags = { "news" }, when = { questActive = TODO_QUEST("A Reliquary of Purity") },
           text = "Southwind's ruins are deep in Silithus, and I've known for a while that a Reliquary of Purity lay there. I kept it quiet so as not to stir our enemies, but Eldre'Thalas leaves me no more time for quiet." },
@@ -449,6 +486,8 @@ P:NPC {
         { text = "Do you keep a ledger on everyone, Rabine?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do the druids remember the Highborne so keenly, Rabine?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would a warlock owe the Circle, Rabine?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do warriors cause trouble in Nighthaven, Rabine?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why can't my beast hunt in Moonglade, Rabine?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -585,6 +624,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That strength which cannot wait is only noise, which young druids hate hearing almost as much as young warriors do. I've seen a few of your kind sit with the Bear for an afternoon and come back very quiet, and I've never known whether that was good." } },
+      choices = {
+        { text = "Patience is a warrior's strength too. The Bear is right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strength that waits loses the fight. The Bear isn't a warrior.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Dendrite.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The bear's, certainly, since it's mostly about patience and watching, and hunters watch for a living. The lake's trial would be harder, because hunters like to keep their feet dry, and the lake prefers students who don't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is very well behaved, which is more than I can say for the druid in bear form who knocked over my reading table this morning." },
+      },
+      choices = {
+        { text = "The trials belong to your students. I'll leave them be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd take your trials for the sport of it, Circle or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     tauren_dn = {
       lines = {
         { id = "tdn_default", text = "The same trials, the same spirits, the same cold water, and I mark them the same way. Some in Darnassus would rather I didn't, but Moonglade answers to Remulos and to the Circle as a whole, and the Great Bear has never once asked which city you came from." },
@@ -634,6 +694,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You aren't here for the trials, I assume, so I'll tell you the village is lovely this time of year, and that the Great Bear Spirit has opinions about strength you might enjoy." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You aren't here for the trials, I'd guess, though you'd do better at some of them than my students, since you already know how to listen to a beast." },
         { id = "h_default", key = true,
           text = "I'm Dendrite Starblaze, and I guide young druids through the Circle's first trials: the bear, the cleansing, the water. Each one teaches you something your trainer couldn't." },
         { id = "h_bear", tags = { "news" }, when = { questActive = TODO_QUEST("Great Bear Spirit") },
@@ -671,6 +735,8 @@ P:NPC {
         { text = "Why would the Great Bear Spirit mind a little stealth?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does the Circle really fear a mage's fire, Dendrite?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is a warlock's craft really so unlike a druid's, Dendrite?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What does the Great Bear Spirit say about strength?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Which trials would a hunter do well at, Dendrite?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Thank you, Dendrite.", next = "END" },
       },
     },
@@ -799,6 +865,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The same way a druid does, by knowing when to fight and when not to, and most warriors only practise the first half. Sit a while in the glade, and you'll find the second half is harder, and worth more." } },
+      choices = {
+        { text = "Then I'll practise the second half. Knowing when to stop matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My balance is in the fight. Stillness is for druids.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Loganaar.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than either will admit, because both of us listen to the wild and take only what it gives. The difference is that a druid becomes the beast and a hunter walks beside it, and I've never been sure which is harder." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks very settled here. Beasts always do in Moonglade, as if they know how close the grove sits to the Dream." },
+      },
+      choices = {
+        { text = "A hunter keeps the beast and the wild in balance. That's the way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I take what the wild gives, and sometimes more. That's the hunt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     darnassus_lg = {
       lines = {
         { id = "dlg_default", text = "The Archdruid does, I know, and he says it loudly enough to be heard from here. I came to Moonglade because I wanted to teach where the Circle is whole, Horde and Alliance both, and if that makes me a fool then I'm a contented one." },
@@ -846,6 +933,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, in Nighthaven. You carry your balance in your shoulders, I see, which is good for a shield and poor for sitting still." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, in Nighthaven. You carry your balance between you and your beast, I think, and that's a wise way to carry it." },
         { id = "h_default", text = "I'm Loganaar, and I train the druids who find their way to Nighthaven. Balance isn't somewhere you go; it's something you carry, and I help you pack." },
         { id = "h_dream", when = { minLevel = 20, class = "DRUID" },
           text = "One day the Dream will call you, and you'll sleep a long while among the purest of things. Learn all you can awake, first." },
@@ -868,6 +959,8 @@ P:NPC {
         { text = "Can someone like me find balance by sitting still, Loganaar?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How does a mage keep their power in balance, Loganaar?", next = "xmage", when = { class = "MAGE" } },
         { text = "Can a warlock ever truly be in balance, Loganaar?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How does a warrior keep balance, Loganaar?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do hunters and druids share any of the same wisdom?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -914,6 +1007,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It knows what all beasts know, little one, that the wild was here before the hunter and will be here after. A hunter who forgets that hunts poorly, and a hunter who remembers it hunts as the bear does, slowly and only for need." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} sits easy before me, as few mortals do. It does not hurry, little one, so learn from it." },
+      },
+      choices = {
+        { text = "Then I'll hunt only for need, as the bear does.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The wild doesn't care why I hunt. I'll hunt as I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warrior_gb = {
       lines = {
         { id = "wgb_default", text = "Strength. You use the word as if it were a weapon, little one, but the bear's strength is mostly standing still, and sleeping through winters, and not being moved. Can a warrior stand still?" },
@@ -962,6 +1067,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "One who walks with a beast comes before me. Your companion knows me, little one, though you do not, for all beasts remember the old spirits." },
         { id = "h_default", text = "Old as the hills you walked to reach me, I am, and I do not hurry. Sit, and when you are still, I will speak." },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Great Bear Spirit") },
           text = "You come to learn the bear, so learn this first: strength that cannot wait is not strength. It is only noise." },
@@ -988,6 +1095,7 @@ P:NPC {
         { text = "When should a quiet walker choose to stand, spirit?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What can a slow bear teach a mage, spirit?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why is the bear not afraid of demons, spirit?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does my beast truly know you, Great Bear?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "(Rise and leave the spirit in peace.)", next = "END" },
       },
     },
@@ -1093,6 +1201,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They mind noise, and warriors tend to bring a lot of it, all clanking and stamping on the perch. The old one once took a warrior's helmet for an egg and sat on it for a whole afternoon, and he was too polite to ask for it back." } },
+      choices = {
+        { text = "I'll keep quiet near the birds. They deserve that respect.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Steel clanks. Your birds will have to get used to it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Silva.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Very, though they won't admit it, because hippogryphs are proud and pretend not to notice anything. The old one has been watching since you came up the path, and if she lowers her head, it means she approves." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Look, she's lowered her head to {pet}! That hasn't happened since a druid brought a bear cub up here, and that was years ago." },
+      },
+      choices = {
+        { text = "My beast and I will mind our manners around her.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Proud birds could do with taking down a peg, Silva.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The old one hisses at anyone who smells of the grave, so she'd hiss at a Forsaken and at a few of my own kin besides. The young ones only care whether you've brought them anything to eat, which I think is a better way to judge people." } },
@@ -1131,6 +1260,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! I'm afraid my birds only fly for druids, and they'd find all that steel very heavy besides, but you're welcome to sit with them." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! My birds only fly for druids, I'm afraid, but they're curious about your companion, so you may stand close if it's polite." },
         { id = "h_default", text = "I'm Silva, and I keep the Circle's hippogryphs. They fly one road only, to Rut'theran by Teldrassil, and only for druids; they're very particular." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You'd rather have your own wings, I imagine. These ones bite less than you'd think, if only slightly less." },
@@ -1153,6 +1286,8 @@ P:NPC {
         { text = "Has anyone ever tried to steal a hippogryph, Silva?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do your hippogryphs mind the arcane so, Silva?", next = "xmage", when = { class = "MAGE" } },
         { text = "Can your birds really smell the fel on me, Silva?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do your hippogryphs mind warriors, Silva?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Are your hippogryphs curious about my beast?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1213,6 +1348,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They like anyone who stands still and doesn't fuss, and warriors are good at standing still when they want to be. On the Bluff, the braves would sit with the riders before a hunt, and I think the beasts miss that, out here among the quiet druids." } },
+      choices = {
+        { text = "Then I'll sit with them a while, as the braves did.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I've no time to sit with beasts. There's fighting elsewhere.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bunthen.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "As much as I do, I think, because Moonglade is beautiful, but it's still, and wind riders are made for the open sky over Mulgore. I take them for a long flight over the lake when the druids aren't looking, and they come back happier." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it misses home too, wherever home was. The Earth Mother watch over it, friend." },
+      },
+      choices = {
+        { text = "Every beast deserves the open sky it was born to.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Beasts go where they're needed. Missing home is for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The Earth Mother hears everyone who walks on her, friend, whether they call her by name or not. The trolls of our Horde have their loa and the Forsaken have their own dark faith, and I've never thought she minded, so long as the prayer was honest." } },
@@ -1251,6 +1407,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, all the way out in Moonglade! My riders fly for druids alone, friend, but you're welcome on the perch, and I'll confess they like a sturdy back to lean on." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, at the perch! The riders like your kind, friend, because you smell of open country and honest beasts, which is more than I can say for most." },
         { id = "h_default", text = "Bunthen Plainswind is my name, and I keep the Circle's wind riders, who fly for druids to Thunder Bluff. It's a short road through the sky, from one home to another." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "From the sky to the Bluff, your folk came, I hear, and the Earthen Ring vouched for you. The winds are kind to you. Let my riders be kind too." },
@@ -1273,6 +1433,8 @@ P:NPC {
         { text = "Do your wind riders take offence at quiet folk, Bunthen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is a mage's fire really welcome in Moonglade, Bunthen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would the Earth Mother turn from a warlock, Bunthen?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do your wind riders like warriors, Bunthen?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the wind riders miss the plains, Bunthen?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },

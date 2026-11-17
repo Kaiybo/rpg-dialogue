@@ -25,6 +25,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I teach druids, not warriors, but I've watched warriors learn this forest anyway, and they learn it faster than the young druids, because they don't expect it to be kind. A druid comes here hoping, a warrior comes here ready, and the forest punishes hope first." } },
+      choices = {
+        { text = "Hope isn't weakness. I fight because there's still something to save.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll expect nothing from this forest and spare nothing in it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Sometimes, if the sickness hasn't gone deep, and I've seen a wolf from the south recover after a week of drinking here. But the water has little to spare, and if every hunter brought every sick beast in Felwood to it, it would be gone by summer." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let {pet} drink first, before you, so it knows the taste of clean water. It may need to remember it out there." },
+      },
+      choices = {
+        { text = "Then I'll bring only the ones worth saving, and quietly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it heals beasts, it should be used, not hoarded.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     lesson = {
       lines = {
         { id = "le_default", text = "How a forest sounds when it's dying, which is not how it sounds when it sleeps. Moonglade will teach you the healthy song, and Felwood will teach you the other one, and you need both before you can call yourself a healer of anything." },
@@ -63,6 +84,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. Lean your shield where you like, but don't foul the moonwell; it's the only clean water for a day's walk." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, at the last clean moonwell. Let your beast drink, if it will." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -84,6 +109,8 @@ P:NPC {
         { text = "I mean the moonwell no harm. Why so wary?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the arcane help cleanse the moonwell's water?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is the moonwell's water holy, the way a blessing is?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a warrior learn in a forest like this, Golhine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Will the moonwell's water heal a sick beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

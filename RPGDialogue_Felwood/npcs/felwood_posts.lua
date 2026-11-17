@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone to walk the road to the Emerald Sanctuary and keep it open, mostly, because the Deadwood and the satyrs close it every time we turn our backs. I fly over it every day and count the fires, and there are more each season." } },
+      choices = {
+        { text = "Then I'll keep the road open, however long it takes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Roads are for patrols. I'd rather burn the satyrs out of their camps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Mishellena.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It has made them hungry in ways a beast should never be hungry, so that the bears and the wolves eat things that only make them sicker. My hippogryphs will not land anywhere but Talonbranch, and I don't blame them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let {pet} drink from the moonwell before you go, please. It's the only clean water for miles, and I'd hate for it to drink anything else." },
+      },
+      choices = {
+        { text = "I'll keep my beast clean of this forest, whatever it costs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If the forest makes beasts stronger, maybe it isn't all bad.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "When the Sentinels ask it, yes, though I keep the birds high and the passengers quiet. Satyr archers in Jadefire Glen have tried for my hippogryphs before, so I would rather carry one silent scout than a whole noisy patrol." } },
@@ -64,6 +85,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior of the Alliance. Our Sentinels have bled for every mile of road between here and Ashenvale, and I'm glad to see another blade come north." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter of the Alliance. My birds watch your beast closely, because nothing in this forest walks as calmly as that anymore." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk softly, which my birds appreciate, because a hippogryph startled in this forest does not always come down where you meant it to." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -87,6 +112,8 @@ P:NPC {
         { text = "Will your hippogryphs carry me, even so?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your birds feel the corruption when they fly over Felwood?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Talonbranch need a sword more than a prayer?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the Sentinels need from a warrior here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What has the corruption done to Felwood's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -143,6 +170,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Once, south of Jaedenar, when a bolt of fel came up out of the trees and singed a wing. The rider walked back to the post with three cultists on her heels, and the beast limped home on its own, and I've hated that place ever since." } },
+      choices = {
+        { text = "Then I'll walk into Jaedenar and face them openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll find their camp and burn it while they sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Brakkar.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than they trust me, some days, because a beast knows when another beast is well fed and well treated. They won't go near anything that's grazed in Felwood, though, and they'll scream at a corrupted bear from a mile up." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let {pet} stay by the perch while you're here, if you like. My riders will sniff it, and then they'll decide whether to like you." },
+      },
+      choices = {
+        { text = "I treat my beast as kin. It's the only right way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast is a tool. I feed it so it fights.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The wind over this forest is foul, shaman; it carries the stink of the river and something worse besides, and the beasts fight their harness when we climb through it. I fly them high and fast and never let them drink below. If the air spirits are sick here, I'd thank you to say a word to them on my riders' behalf." } },
@@ -181,6 +229,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Good, because if one of my wind riders comes down in this forest I'd rather a warrior found it than a satyr." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. My wind riders like your kind, because you smell of honest beasts instead of the rot in this forest." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. My beasts grow calmer when one of your kind is near, which is more than I can say for this forest." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "Warlock. We drank the demon's blood once and it nearly finished us, so don't expect me to smile when I see that green light in your hands." },
@@ -202,6 +254,8 @@ P:NPC {
         { text = "The power's the same. What matters is who holds the leash.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does anyone try to steal your wind riders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do your wind riders feel the forest's sickness, Brakkar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Have your wind riders come down in Felwood, Brakkar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do your wind riders trust a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -255,6 +309,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every stream in Felwood carries the corruption down from the hills, and a warrior who drinks from one fights the satyrs half-sick the next day. I sell water carried in from outside, and it is dear, but it is cheaper than a grave." } },
+      choices = {
+        { text = "Then I'll carry my own water and keep myself clean, Bale.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Warriors drink what they find. A little sickness won't stop me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bale.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Nothing I would eat, nor feed to anyone I cared for. The deer and the bears drink the same streams as everything else, and their flesh tastes of it, so the hunters at this post bring their meat up from Ashenvale or go hungry." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} must eat too, I know. Feed it from clean stores, not from the forest, and it will thank you by living." },
+      },
+      choices = {
+        { text = "I'll hunt here only to end their suffering, never for meat.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Meat is meat. I'll eat what I kill and take my chances.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I don't know, shaman, and I've asked myself that every morning I've stood at this counter. In Mulgore the soil was black and sweet, but here it's grey and it stings the hand, and even the water I sell has to be carried in from outside. The Emerald Circle says it can be mended, and I'd like to believe them, though I've seen what runs in that river." } },
@@ -293,6 +368,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior of the Horde. You've walked through the rot to reach us, I see it on your boots, and I hope you didn't drink from anything on the way." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. You'll be careful what you take from this forest, I hope, because the meat of a Felwood beast is as poisoned as its water." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, Earth Mother be thanked. Sit a while, if you can bear it; the ground here weeps, and I think you'll hear it more plainly than I do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "You are a warlock, I think; the land shivers a little where you stand, as it does in the hollows of Jaedenar. I do not judge you, but I would ask you to tread gently here." },
@@ -314,6 +393,8 @@ P:NPC {
         { text = "You'd sell goods to a warlock, knowing what fel did here?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why carry all the water in? Can't the springs be cleansed?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can Felwood's soil be healed at all, Bale?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is the water here truly that dangerous, Bale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can nothing in Felwood be hunted for food?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

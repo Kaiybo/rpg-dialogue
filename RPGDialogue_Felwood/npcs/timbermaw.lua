@@ -18,6 +18,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "With Deadwood feathers, and with patience, for the Timbermaw count deeds over many seasons, not over one fight. A warrior who kills one Deadwood is a stranger with a sharp axe, but one who keeps coming back is a friend." } },
+      choices = {
+        { text = "Then I'll keep coming back until the Timbermaw call me friend.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll kill enough Deadwood to buy your trust quickly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Grazle.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "We hunt to eat, as all furbolgs did before the corruption, and we give thanks to the spirits for each kill. The Deadwood hunt for the joy of killing now, and they give no thanks, and that is how Grazle knows they are lost." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells the Deadwood on the wind, and it does not like them. Beasts know corruption before we do." },
+      },
+      choices = {
+        { text = "A hunter gives thanks for each kill. That's how it should be.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Thanks don't fill a belly. I hunt what I need and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Our shamans hear the earth crying under the Deadwood camps, where the corruption soaked in deepest. The spirits there no longer answer the Deadwood, and Grazle thinks that is how the madness took them: they stopped listening, and something else began to talk. You understand this, shaman, better than the others who come to Grazle's door." } },
@@ -74,6 +95,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Grazle sees your weapon and your scars, outsider, and the Timbermaw respect both, though we watch where you point them." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Grazle sees your beast does not fear the Timbermaw, and Grazle thinks that says something good of you." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Timbermaw have shamans of their own, and Grazle knows the look, so you may stand a little closer than most outsiders." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Grazle smells demon on you, warlock, the same stink the Deadwood carry now. Speak quickly and plainly, and Grazle will decide whether you are a danger to the Timbermaw." },
@@ -102,6 +127,8 @@ P:NPC {
         { text = "Can the Deadwood be healed, Grazle, or only fought?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are honest outsiders so rare at Timbermaw Hold?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the Timbermaw ask of a stranger who prays?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "How can a warrior earn the Timbermaw's trust?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the Timbermaw hunt, Grazle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -170,6 +197,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Like a furbolg who has forgotten everything but anger, and that makes them fierce and foolish both. They will charge a warrior who stands firm and break themselves on the shield, and Nafien has seen it happen, though he takes no joy in watching." } },
+      choices = {
+        { text = "Then I'll stand firm and end it quickly for them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll stand and let them break. Pity won't save them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Nafien.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They carve them from blackened wood and paint them in the colours of the corruption, and still they pray to them. The spirits will not live in such things, so the Deadwood pray to nothing, or to something worse than nothing. Every totem you bring to Nafien is one less mouth for the corruption to speak through." } },
@@ -217,6 +253,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Nafien is glad, for the Deadwood fight with claws and fury now, and a shield is a good answer to both." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and Nafien is glad of it, because a shaman knows a totem when he sees one, and the Deadwood carve theirs wrong now." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, good, for the Deadwood keep watch on their camps and you could get close before they howl. Nafien does not enjoy this hunt, but he would rather it ended quickly." },
@@ -242,6 +280,7 @@ P:NPC {
         { text = "Is there any way to cure the Deadwood?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the Timbermaw honour the Deadwood dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there any rite left for the Deadwood dead, Nafien?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "How do the Deadwood fight, Nafien?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Good hunting, Nafien.", next = "END" },
       },
     },
@@ -310,6 +349,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because the Almighty's enemies are many and his arms are, admittedly, short. The Shadow Council at Jaedenar think Niby is a joke, and when Niby has his way, a large warrior will explain to them why they are wrong." } },
+      choices = {
+        { text = "I don't fight for demons, little or almighty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for anyone who pays, even a very small demon.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Niby.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Impsy is my servant, my apprentice and my footstool, and he would be insulted to be called a pet, if he were allowed to have opinions. Your beast follows you because it loves you, which is sweet, but Impsy follows Niby because the alternative is so much worse." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours keeps sniffing at Impsy, so call it off, before Impsy sets it alight and Niby has to listen to you whine." },
+      },
+      choices = {
+        { text = "A beast that follows for love is worth ten slaves, imp.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear works too. Maybe you're on to something, Niby.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Power? The elements in Felwood are leftovers, shaman, scraps the Legion didn't bother to finish! Fel runs through every root and rock in this forest, and the spirits you chatter to are hiding in the corners. Niby could show you real power, but you'd only use it to make it rain, and Niby finds that very sad." } },
@@ -348,6 +408,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Niby supposes every great master needs some brute to stand in front of him, and you're quite the size for it, so congratulations." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, with a pet! Niby has a pet too, you know, though his has the decency to be an imp and to run the errands." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Niby does not care for your sort, all totems and talking rocks, but even Niby admits you're more interesting than a peasant." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, how quaint. You fling your little fireballs and think you're terribly clever, but Niby the Almighty has forgotten more about fire than Dalaran ever learned." },
@@ -370,6 +434,8 @@ P:NPC {
         { text = "If you're so mighty, why are you camped in a ruin?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would the Almighty want stolen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would a demon want with a priest, Niby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why would a great master need a warrior, Niby?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is Impsy really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell, Almighty One.", next = "END" },
       },
     },
