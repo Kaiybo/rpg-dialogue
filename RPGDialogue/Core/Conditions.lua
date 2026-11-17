@@ -494,6 +494,19 @@ def("disposition", 20, "hinge", nil, function(ctx, v, env)
   return inRange(d, v), "disposition " .. d
 end)
 
+-- Prejudice (0.80.0, Systems/Disposition.lua): whether this person's `prejudice` touches you.
+-- true: it does and still weighs on them; "overcome": it does, but affinity has worn it away;
+-- false: it doesn't touch you, or no longer weighs on them.
+def("prejudiced", 25, "hinge", nil, function(ctx, v, env)
+  local full, left = 0, 0
+  if ns.Disposition then full, left = ns.Disposition.Prejudice(env.info and env.info.def, env.mem, ctx) end
+  local spoof = ctx.spoofed and ctx.spoofed.prejudiced
+  local state = full > 0 and (left > 0 and true or "overcome") or false
+  if spoof ~= nil then state = spoof end
+  if v == false then return state ~= true, "prejudice " .. tostring(state) end
+  return state == v, "prejudice " .. tostring(state) .. " (" .. left .. "/" .. full .. ")"
+end)
+
 -- Levels you've gained since you last spoke with this person (0.67.0): { min = , max = } or
 -- a number as a minimum. False if you never spoke, or spoke before 0.67.0 recorded levels.
 def("levelsSince", 30, "hinge", nil, function(ctx, v, env)
