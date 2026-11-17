@@ -21,3 +21,6 @@ npcs\bay_of_storms.lua
 npcs\azuregos.lua
 npcs\haggrum.lua
 npcs\brinna.lua
+npcs\horizon_scout.lua
+npcs\gadgetspring.lua
+npcs\azshara_wayfarers.lua

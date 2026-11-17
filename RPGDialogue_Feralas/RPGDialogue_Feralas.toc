@@ -17,3 +17,6 @@ npcs\unsung.lua
 npcs\uzeri.lua
 npcs\talo.lua
 npcs\moonspear.lua
+npcs\feathermoon_folk.lua
+npcs\mojache_folk.lua
+npcs\east_feralas.lua

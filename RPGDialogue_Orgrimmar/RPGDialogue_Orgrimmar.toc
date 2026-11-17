@@ -27,3 +27,6 @@ npcs\thatog.lua
 npcs\valley_of_wisdom_kids.lua
 npcs\windshapers.lua
 npcs\forever_folk.lua
+npcs\cleft_errands.lua
+npcs\warlock_errand.lua
+npcs\drag_and_honor.lua

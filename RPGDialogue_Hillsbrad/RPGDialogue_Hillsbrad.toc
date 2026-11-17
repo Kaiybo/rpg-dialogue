@@ -22,3 +22,4 @@ npcs\melisara.lua
 npcs\voidglare.lua
 npcs\bartolo.lua
 npcs\grudges.lua
+npcs\hillsbrad_folk.lua

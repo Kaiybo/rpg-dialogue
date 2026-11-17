@@ -16,7 +16,9 @@ npcs\booty_bay.lua
 npcs\booty_bay_more.lua
 npcs\gromgol.lua
 npcs\gromgol_more.lua
+npcs\gromgol_camp.lua
 npcs\rebel_camp.lua
+npcs\rebel_camp_more.lua
 npcs\nesingwary.lua
 npcs\booty_bay_docks.lua
 npcs\unsung.lua
@@ -32,3 +34,4 @@ npcs\booty_bay_salty.lua
 npcs\booty_bay_wharf.lua
 npcs\booty_bay_visitors.lua
 npcs\booty_bay_flora.lua
+npcs\yojamba.lua

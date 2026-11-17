@@ -21,3 +21,4 @@ npcs\faldirs_cove.lua
 npcs\mackreel.lua
 npcs\zaruk.lua
 npcs\muggol.lua
+npcs\arathi_folk.lua

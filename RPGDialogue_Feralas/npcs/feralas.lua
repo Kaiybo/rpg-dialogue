@@ -633,7 +633,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Innkeeper Shyria. The Sentinels sleep in shifts, and every shift passes through my door. You're welcome among them." },
         { id = "h_jonespyre", when = { questActive = TODO_QUEST("Jonespyre's Request") },
-          text = "Quantas Jonespyre has a request, so go and hear him out; he'll explain." },
+          text = "Quintis Jonespyre has a request, so go and hear him out; he'll explain." },
         { id = "h_shift", when = { metBefore = true }, text = "The night shift came in soaked and laughing, because some ogre fell in the sea chasing them. Elune forgive me, I laughed too." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Sentinels change watch at this hour. Listen: no words, only the bows being passed, because they've done it so long they don't need words." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Welcome, druid. The Sentinels rest easier with one of the Cenarion Circle under this roof, though I suspect you'd rather sleep under the trees." },

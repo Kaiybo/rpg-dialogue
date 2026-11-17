@@ -24,7 +24,9 @@ npcs\darkshire_folk.lua
 npcs\darkshire_more.lua
 npcs\darkshire_trades.lua
 npcs\darkshire_shops.lua
+npcs\darkshire_corners.lua
 npcs\role_dreuger.lua
 npcs\watcher_backus.lua
 npcs\watcher_ladimore.lua
+npcs\darkshire_edges.lua
 npcs\lars.lua

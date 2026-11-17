@@ -28,3 +28,7 @@ npcs\south_fray_island.lua
 npcs\south_ratchet_folk.lua
 npcs\south_roads.lua
 npcs\barrens_forever.lua
+npcs\north_crossroads_more.lua
+npcs\south_coast_seers.lua
+npcs\south_ratchet_more.lua
+npcs\south_taurajo_roads.lua

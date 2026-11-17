@@ -17,6 +17,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.19.0 (2026-11-17)
 - New people to talk to: Brock Stoneseeker, Ghak and Kali Healtouch, Yanni Stoutheart, Drac Roughcut, Vrok Blunderblast, Rann Flamespinner, Warg and Khara Deepwater, Mountaineer Pebblebitty. New files: restart the game fully (a /reload won't load them).
 
+## 1.19.0 (2026-11-17)
+- New people to talk to: Huldar, Miran, Lina Hearthstove, Yanni Stoutheart, Vrok Blunderblast.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.18.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

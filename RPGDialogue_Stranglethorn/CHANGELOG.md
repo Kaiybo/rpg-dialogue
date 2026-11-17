@@ -11,6 +11,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.34.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
 
+## 1.34.0 (2026-11-17)
+- New people to talk to: Durik, Squibby Overspeck, Vharr, Mudduk, Nerrist, Corporal Sethman, Private Merle, Corporal Bluth, Molthor, Exzhal, Vinchaxa, Jin'rokh the Breaker.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.33.0 (2026-11-17)
 - Every Booty Bay NPC now talks: 26 new people (trainers, armorers, the Salty Sailor's Raiders, the wharf vendors, the stable master, Scooty, the auctioneers, the Zandalarian Emissary, Dudd, Rix, Bloads, Ruzzgot, Grizzlowe, Flora Silverwind). New files: restart the game fully (a /reload won't load them).
 - New story "The eye on the docks": tell Seahorn who the Bloodsail spy is, or keep the Baron's secret; Ian Strom reacts.

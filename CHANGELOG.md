@@ -156,6 +156,14 @@ About 116 more people to talk to in fifteen zones that were thin on named charac
 - **Felwood, Un'Goro and Moonglade (16):** Gorn One Eye, Kernda and Meilosh at Timbermaw Hold, the imp Impsy; A-Me 01 and Marshal's Refuge's goblins; Tajarri, Fariel Starsong and Nighthaven's shops.
 - Each answers to your class, race and faction, with their quests before, during and after.
 
+## 0.80.0 (2026-11-17)
+About 260 people who had nothing to say now do: quest givers, innkeepers, flight and stable masters, trainers and shopkeepers that earlier passes missed, in 41 zone packs. **New files: restart the game fully (a /reload won't load them).**
+
+- **Eastern Kingdoms:** Stonard's traders and trainers, Thorium Point's Taskmaster Scrange, Lucien Tosselwrench in the Badlands, Morgan's Vigil; Brill, Deathknell and the Sepulcher; Mickey Levine at the Bulwark and the Argent quartermasters; Huldar and Miran in Loch Modan, "Slim" in Menethil, the Arathi Basin envoys at Refuge Pointe and Hammerfall, Aerie Peak, Revantusk, Southshore and Tarren Mill; Kharanos's rival brewers, Talvash del Kissel, Shoni the Shilent; Grom'gol, the Rebel Camp and the Zandalar on Yojamba Isle; Darkshire, Lakeshire and Westfall's Odd Child.
+- **Kalimdor:** Auberdine, Ashenvale's Alliance and Horde outposts, the Aldrassil class trainers and Darnassus; Sen'jin, Razor Hill and Bloodhoof; Gadgetzan and Narain Soothfancy; Malaka'jin and Sun Rock, Shadowprey and Nijel's Point, Feathermoon and Camp Mojache, Freewind, Theramore and Brackenwall; Felwood's Emerald Circle and Timbermaw Hold, Nighthaven's market, A-Me 01, Cenarion Hold and the Silithus war camps, Everlook's weapon masters and shops, and Azshara's stranded sailors.
+- **Horde capitals and the Barrens:** the Cleft of Shadow's errands, Orokk Omosh, the Apothecarium's chemists, Sharlindra, Orm and Karn Stonehoof, the Bluff Runner, the Barrens' shaman seers, Ratchet's brewmaster and crane operator, and the Dogran chain at Camp Taurajo.
+- Quest givers react before, during and after their quests; most people have a reply or two only certain races, classes or factions get.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

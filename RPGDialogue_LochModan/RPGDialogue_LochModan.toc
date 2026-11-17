@@ -24,3 +24,4 @@ npcs\valley_patrols.lua
 npcs\thelsamar_trades.lua
 npcs\stoutlager_stalls.lua
 npcs\loch_edges.lua
+npcs\loch_folk.lua

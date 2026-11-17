@@ -18,6 +18,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.24.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Borook Gallfist, the Darkspear Islands battlemaster.
 
+## 1.24.0 (2026-11-17)
+- New people to talk to: Xanis Flameweaver, Bluff Runner Windstrider, Ghede, Orm Stonehoof, Karn Stonehoof, Ahanu, Bulrug.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.23.0 (2026-11-17)
 - 24 new people: Sage Truthseeker, Eyahn Eagletalon, Auld Stonespire, Veren Tallstrider, Rahauro, Bashana Runetotem, Mosarn, and the trainers of all three rises. New files: restart the game fully (a /reload won't load them).
 

@@ -11,6 +11,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.25.0 (2026-11-17)
 - Prejudices (0.80.0): Shandris Feathermoon (warlocks and mages). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.25.0 (2026-11-17)
+- New people to talk to: Falfindel Waywarder, Jer'kai Moonweaver, Quintis Jonespyre, Ginro Hearthkindle, Krueg Skullsplitter, Sage Korolusk, Shyn.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.24.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

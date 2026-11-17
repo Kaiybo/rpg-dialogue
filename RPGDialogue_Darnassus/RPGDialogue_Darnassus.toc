@@ -16,6 +16,7 @@ npcs\temple.lua
 npcs\enclave.lua
 npcs\terraces.lua
 npcs\rutheran_and_trainers.lua
+npcs\darnassus_folk.lua
 npcs\unsung.lua
 npcs\rellian.lua
 npcs\greywhisker.lua

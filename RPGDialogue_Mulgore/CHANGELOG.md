@@ -14,6 +14,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.21.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Camp Narache's Forever trainers: Karne Grayhoof, Garan Sunstrider, Nawka Wildsong, Vartha Rockmane.
 
+## 1.21.0 (2026-11-17)
+- New people to talk to: Skorn Whitecloud, Varg Windwhisper, Var'jun, Kar Stormsinger, Seikwa, Twizwick Sprocketgrind.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.20.0 (2026-11-17)
 - New story "The Venture Company's reach": Baine asks your counsel on the Venture Company, and remembers it.
 

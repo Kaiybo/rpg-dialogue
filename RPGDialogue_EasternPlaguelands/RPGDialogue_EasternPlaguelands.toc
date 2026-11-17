@@ -14,6 +14,7 @@ pack.lua
 pools.lua
 npcs\lightshope.lua
 npcs\lightshope_folk.lua
+npcs\plague_traders.lua
 npcs\eastweald.lua
 npcs\roads.lua
 npcs\zverenhoff.lua

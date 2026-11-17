@@ -21,6 +21,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.22.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Afadra Dunwall and Thom Filch in Old Ironforge; Grund Drokda, Gozwin Halfsprocket and Earthseer Farsen in Dun Morogh.
 
+## 1.22.0 (2026-11-17)
+- New people to talk to: Foreman Stonebrow, Felix Whindlebolt, Marleth Barleybrew, Jarven Thunderbrew, Rejold Barleybrew, Ozzie Togglevolt, Shelby Stoneflint, Talvash del Kissel, Tymor.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.21.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

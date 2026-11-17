@@ -8,6 +8,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.28.0 (2026-11-17)
 - Prejudices (0.80.0): Pozzik (gnomes). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.28.0 (2026-11-17)
+- New people to talk to: Zamek, Jandia, Turhaw.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.27.0 (2026-11-17)
 - Longhorn reacts to the new story "The Grimtotem in the hills".
 

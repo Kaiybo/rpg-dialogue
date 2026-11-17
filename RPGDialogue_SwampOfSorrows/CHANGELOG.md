@@ -17,6 +17,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.23.0 (2026-11-17)
 - New people to talk to: Watcher Biggs, Magtoor, Masat T'andr, Infiltrator Marksen, and Stonard's Rogvar, Thultash, Hartash, Hekkru, Haromm, Ogromm, Grokor, Kartosh. New files: restart the game fully (a /reload won't load them).
 
+## 1.23.0 (2026-11-17)
+- New people to talk to: Hekkru, Thultash, Rartar, Banalash, Thralosh, Grimnal, Hartash, Gharash, Ogromm, Grokor, Kartosh, Rogvar.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.22.1 (2026-11-17)
 - Writing pass on the characters added in 0.74.0: stock phrases ("fair enough", "truly", "worth more than") rewritten.
 

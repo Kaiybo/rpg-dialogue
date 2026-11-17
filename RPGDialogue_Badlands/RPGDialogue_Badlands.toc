@@ -14,7 +14,9 @@ pack.lua
 pools.lua
 npcs\kargath.lua
 npcs\kargath_more.lua
+npcs\kargath_traders.lua
 npcs\dustbowl.lua
+npcs\tosselwrench.lua
 npcs\badlands_camps.lua
 npcs\unsung.lua
 npcs\theldurin.lua

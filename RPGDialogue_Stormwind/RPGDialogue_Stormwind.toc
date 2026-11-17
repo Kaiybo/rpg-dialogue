@@ -47,3 +47,4 @@ npcs\mazen.lua
 npcs\malin.lua
 npcs\osric_strang.lua
 npcs\stormwind_forever.lua
+npcs\city_quests.lua

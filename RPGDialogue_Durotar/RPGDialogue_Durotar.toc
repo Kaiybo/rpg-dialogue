@@ -13,8 +13,11 @@
 pack.lua
 pools.lua
 npcs\valley.lua
+npcs\trials_folk.lua
 npcs\razorhill.lua
+npcs\razorhill_folk.lua
 npcs\senjin.lua
+npcs\senjin_folk.lua
 npcs\roadside.lua
 npcs\unsung.lua
 npcs\hanazua.lua

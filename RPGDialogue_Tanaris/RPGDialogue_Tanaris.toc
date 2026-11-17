@@ -15,7 +15,9 @@ pools.lua
 npcs\gadgetzan.lua
 npcs\gadgetzan_folk.lua
 npcs\gadgetzan_trades.lua
+npcs\gadgetzan_more.lua
 npcs\dunes.lua
+npcs\narain.lua
 npcs\marvon.lua
 npcs\security_bilgewhizzle.lua
 npcs\haughty_modiste.lua

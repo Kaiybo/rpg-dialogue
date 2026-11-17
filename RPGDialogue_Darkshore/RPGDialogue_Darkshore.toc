@@ -14,7 +14,9 @@ pack.lua
 pools.lua
 npcs\auberdine.lua
 npcs\auberdine_more.lua
+npcs\auberdine_folk.lua
 npcs\between.lua
+npcs\darkshore_roads.lua
 npcs\unsung.lua
 npcs\alanndarian.lua
 npcs\barithras.lua

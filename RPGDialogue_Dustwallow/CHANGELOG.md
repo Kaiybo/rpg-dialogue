@@ -11,6 +11,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.26.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Doraan.
 
+## 1.26.0 (2026-11-17)
+- New people to talk to: \, Shardi, Commander Samaul, Caz Twosprocket, Torq Ironblast.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.25.1 (2026-11-17)
 - Fix: one of Do'gol's replies about the burned inn was a question carrying alignment; it's a statement now.
 

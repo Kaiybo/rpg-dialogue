@@ -14,7 +14,9 @@ pack.lua
 pools.lua
 npcs\narache.lua
 npcs\bloodhoof.lua
+npcs\bloodhoof_more.lua
 npcs\gevrek.lua
+npcs\twizwick.lua
 npcs\roadside.lua
 npcs\unsung.lua
 npcs\graytongue.lua

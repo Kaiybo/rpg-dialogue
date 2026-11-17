@@ -13,7 +13,9 @@
 pack.lua
 npcs\astranaar.lua
 npcs\astranaar_more.lua
+npcs\ashenvale_folk.lua
 npcs\splintertree.lua
+npcs\horde_outposts.lua
 npcs\roads.lua
 npcs\unsung.lua
 npcs\orendil.lua

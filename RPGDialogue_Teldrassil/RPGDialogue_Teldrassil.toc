@@ -13,7 +13,9 @@
 pack.lua
 pools.lua
 npcs\shadowglen.lua
+npcs\aldrassil_trainers.lua
 npcs\dolanaar.lua
+npcs\teldrassil_folk.lua
 npcs\teldrassil_wilds.lua
 npcs\unsung.lua
 npcs\zenn.lua

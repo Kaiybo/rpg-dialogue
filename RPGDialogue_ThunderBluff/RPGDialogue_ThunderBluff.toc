@@ -24,3 +24,5 @@ npcs\lower_rise.lua
 npcs\spirit_rise.lua
 npcs\kaga_mistrunner.lua
 npcs\borook.lua
+npcs\bluff_craftsfolk.lua
+npcs\bluff_callers.lua
