@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "No' once in thirty years, because a smith who asks has tae carry the answer around wi' him. I make honest steel, an' what ye do wi' it is between you an' whatever ye pray tae." } },
+      choices = {
+        { text = "A smith should know whose hand holds his steel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Steel's steel, and the smith's work ends at the quench.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some o' the Quarter's lot have offered tae heat my iron wi' a spell, an' I've told every one o' them no. Arcane fire burns too even, an' steel needs a fire that argues wi' it a bit." } },
+      choices = {
+        { text = "Then the old way's best, and I'll keep my spells away.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good spell could teach the old forge a few tricks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Therum Deepforge, armourer tae the House o' Wrynn, though these days that means fittin' guards more than kings. If ye want tae learn the hammer, I'll teach ye, an' if ye don't, mind the sparks." },
@@ -37,6 +55,10 @@ P:NPC {
           text = "Yer city was rebuilt by masons an' armed by dwarves, an' I'm proud o' both halves. Whatever else the court forgets, it remembers who made its armour." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A proper Ironforge face! Sit, if ye like, an' tell me how the Great Forge is burnin'; I've no' been home in a while." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye'll be wantin' a blade that's balanced for the throw an' quiet in the sheath, I expect. I've made a few o' those for folk who never gave their names." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage near my forge! Mind the robes, for they go up quicker than ye'd think, an' I've no' got the patience for a fire I didnae light." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -47,6 +69,8 @@ P:NPC {
         { text = "Who taught you?", next = "teachers" },
         { text = "What's it like, armouring a king?", next = "king" },
         { text = "Shall I bless your forge, master smith?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Do you ever ask what your blades are used for?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could a mage's fire help a forge, Therum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll mind the sparks.", next = "END" },
       },
     },
@@ -114,6 +138,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Less than the Trade District, because a thief who robs a dwarf has every dwarf in the street after him by supper. We look after our own down here, an' the city guards are glad tae leave us to it." } },
+      choices = {
+        { text = "Better to leave thieves to the guards than take justice yourselves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. Street justice is quicker than anything the Watch does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A few o' the dwarves an' gnomes from that cellar buy coal an' flux, for reasons they never give, an' they pay in good silver. I take their coin, though I wash my hands after, an' I'm no' ashamed o' that." } },
+      choices = {
+        { text = "You're right to keep them at arm's length, Kaita.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fel or no, their coin's good, so take it gladly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kaita Deepforge, blacksmithin' supplies. Don't let the humans in the Bazaar fool ye, {g:lad|lass}; wi' that tram the gnomes built, it's easier than ye'd think tae bring goods down from Ironforge, an' I pass the savin' on." },
@@ -121,6 +163,10 @@ P:NPC {
           text = "A Stormwind local in the Dwarven District! Most o' yer folk only come down here when somethin's broken. What's broken?" },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest buyin' smithin' stone? No? Then ye're here for the warmth o' the forges, an' I cannae blame ye; the Cathedral's a draughty place." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye can look at my coin box all ye like, {g:lad|lass}, but I sleep on top o' it, an' I'm a light sleeper." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Ye smell o' the Lamb's cellar, {g:lad|lass}. I'll sell tae ye same as anyone, but I'd rather ye didnae call anythin' up in my shop." },
       },
       again = {
         { id = "h_again", text = "What else, {g:lad|lass}?" },
@@ -129,6 +175,8 @@ P:NPC {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "What's wrong with the Bazaar?", next = "bazaar" },
         { text = "Tell me about the tram.", next = "tram" },
+        { text = "Do thieves trouble the Dwarven District much?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the Lamb's warlocks buy from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -193,6 +241,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, I couldn't possibly tell you, because then I'd have to tell everyone, and the bank would be very cross with me. Let's just say a well-made lock should never hum when you breathe on it, and most of ours do." } },
+      choices = {
+        { text = "Tell the bank, then, before someone else finds out.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some secrets are worth more if you keep them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I think so, mostly, though the mages in the Quarter get terribly offended when I say it. Gnomeregan had arcanists who worked from formulae, and they never set the curtains on fire, or at least not without meaning to." } },
+      choices = {
+        { text = "Magic needs discipline and formulae, or it goes wrong.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic is instinct, and formulae only slow you down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lilliam Sparkspindle, engineering trainer, and nearly finished with a very interesting calculation about gear ratios. Do you build things, or are you only here to watch things explode?" },
@@ -200,6 +266,10 @@ P:NPC {
           text = "Expert engineering splits two ways: gnomish, which is about wonderful gadgets that make life better, and goblin, which is about making things go bang for money. If you want the first, take a manual to Tinkmaster Overspark in Ironforge." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! You know, I've always wanted to measure the Light. Not to be rude about it; I'd only like to know how much there is, and whether it comes in units." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! You'll want to know about locks, then, and I'll tell you that most locks in this city were made by gnomes, so most of them have a cheerful little flaw." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Do you calculate your spells, or do you just feel your way? I've always suspected it's mostly mathematics wearing a robe." },
       },
       again = {
         { id = "h_again", text = "Yes? I've got a remainder to carry, but go on." },
@@ -209,6 +279,8 @@ P:NPC {
         { text = "Gnomish or goblin engineering?", next = "choice" },
         { text = "What are you calculating?", next = "sum" },
         { text = "Did you get out of Gnomeregan with any notes?", next = "gnome", when = { race = "Gnome" } },
+        { text = "What sort of flaw do gnomish locks have?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is magic just mathematics in a robe, Lilliam?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -287,6 +359,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, an' he got as far as the canal before I caught him, an' I'm no' a fast dwarf. Ore's heavy, which is the one thing every thief forgets until he's carryin' it." } },
+      choices = {
+        { text = "A thief who's caught should pay it back, and that's fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Ore's heavy, so a cleverer thief would've taken coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "He wanted more than the stone could give him, so he went lookin' in a cellar instead, an' now he doesnae speak tae any o' us. He's alive, as far as I know, but I'd no' call it livin'." } },
+      choices = {
+        { text = "Power that costs you your friends isn't worth having.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Maybe he found what the stone could never give him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gelman Stonehand. I came from Ironforge tae help with the rebuildin' here, an' if I can teach enough o' ye my skills, maybe I can leave it tae ye an' take myself back home." },
@@ -294,6 +384,10 @@ P:NPC {
           text = "Yer folk built this city out o' stone they couldnae find, so they sent for dwarves who could. Most o' us stayed longer than we meant tae, me included." },
         { id = "h_camp_done", when = { questDone = TODO_QUEST("Camping 101: Mining") },
           text = "Ye can feed yerself an' keep warm on the road, an' ye can dig. That's more than most o' the soft-handed lot who come through here." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye've soft boots an' softer hands, an' ye're lookin' at my ore bags like ye're weighin' them, so dinnae." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Ye've a look about ye like the dwarves who go down tae the Lamb an' come back strange, an' I knew a miner who went that way." },
       },
       again = {
         { id = "h_again", text = "Aye? Make it quick." },
@@ -302,6 +396,8 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Mining" } },
         { text = "Why do you want to go home?", next = "home" },
         { text = "What's the trick to mining?", next = "trick" },
+        { text = "Does anyone ever steal ore from you, Gelman?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What happened to the miner you knew?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Sorry to interrupt.", next = "END" },
       },
     },

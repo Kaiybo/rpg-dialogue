@@ -37,6 +37,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not fear, child, but we remember that the more magic men wielded, the more the darkness noticed them, which is why there was ever a Guardian at all. Power that serves only the curious tends to forget the people standing near it." } },
+      choices = {
+        { text = "My power will serve the people standing near it, Your Grace.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Curiosity built Dalaran, Your Grace, and I won't apologise for mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me. He built it to hold people. I try to keep the doors open." },
@@ -58,6 +67,8 @@ P:NPC {
           text = "Ah, there you are, child. I was hoping you'd come by, because the Cathedral feels a little emptier on the days you don't." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You're welcome under this roof, as everyone is, though I'll confess you've given some of my brothers cause to worry. Sit, and let's see if we can change that." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage under the Cathedral's roof. The Kirin Tor and the Church have not always agreed, child, though I've always thought the arcane and the Light could share a city." },
       },
       again = {
         { id = "h_again", text = "What else is on your heart, child?" },
@@ -79,6 +90,7 @@ P:NPC {
         { text = "My people pray to Elune, Your Grace.", next = "elune", when = { race = "NightElf" } },
         { text = "I've done things in the dark for the crown, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I hear the spirits of the earth, Your Grace. Is that wrong?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Does the Church fear the arcane, Your Grace?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
     },
@@ -349,6 +361,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Near enough, though no' on any list ye'll find, which is how Shaw likes it. We were tae follow the coin from the Defias tae whoever's payin' them in the city, an' we got close enough tae be stabbed for it." } },
+      choices = {
+        { text = "Whoever's paying them should face the King's justice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find the payer and settle it quietly, without any courts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." } },
+      choices = {
+        { text = "You're right. Some help costs more than it gives.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gazin Tenorm. Henze Faulk an' me were gatherin' proof on the Defias for the king's advisors, but they found us first. I got away, an' Henze didnae." },
@@ -360,6 +390,10 @@ P:NPC {
           text = "A dwarf in the Cathedral! We're rarer here than ale, so I'm glad tae see a friendly beard." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Another o' the healers? Yer brothers here have patched me twice today, an' I'm mended, so save yer prayers for Henze." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye move like Henze did, quiet an' careful. Did Shaw send ye, or are ye one o' the Defias come tae finish the job?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Keep yer distance from the altar, would ye? I've no quarrel wi' ye, but the priests here go pale when yer kind walks in." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -370,6 +404,8 @@ P:NPC {
         { text = "Tell me about Henze.", next = "henze" },
         { text = "What became of the Defias papers?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
         { text = "Let me see to those wounds.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Were you and Henze working for SI:7?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would a warlock's help be welcome for Henze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll bring him back.", next = "END", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
         { text = "Henze is beyond saving, friend, so let him rest.", next = "END", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
         { text = "I'll leave you be.", next = "END" },
@@ -454,6 +490,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Some do, love, when the bread runs short, and the Defias are always waiting at the canal's edge with a warm coat and a knife. I lose one or two a year to them, and I lie awake over every one." } },
+      choices = {
+        { text = "The men who recruit children should answer to the Watch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A hungry child takes the coat that's offered. I don't blame them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Would you, love? Something small and pretty, a bit of frost on the window or a little light, because they've seen enough fire for one lifetime, and the ones from Lordaeron don't laugh at flames." } },
+      choices = {
+        { text = "Only gentle things, then. I'll keep it soft for them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fire's part of the world, so they may as well get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Stephanie Turner. My husband and I run the orphanage. I make their clothes and keep them fed; John's off begging for the rest. Neither of us sleeps much." },
@@ -464,6 +518,10 @@ P:NPC {
           text = "Some of my little ones came south from Lordaeron, same as you. They don't talk about it. Maybe you'd sit with them sometime." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Oh, the little ones love a robe. Come by the orphanage, love, just past the Cathedral, and tell them a story with a happy ending. They're short of those." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You keep your hands where I can't see them, love, which is a habit I'd break in any of my boys. Show me your hands, there's a dear." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Oh, the children would go wild for a few sparks, if you've a minute, so long as nothing sets the curtains alight." },
       },
       again = {
         { id = "h_again", text = "What else, love? Quick, I've a hem to finish." },
@@ -476,6 +534,8 @@ P:NPC {
         { text = "I came south from Lordaeron as a child.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "I sew, as it happens.", next = "sew", when = { profession = "Tailoring" } },
         { text = "Would the children like to meet {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Do your orphans ever turn to thieving?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Shall I show the children a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll keep you in mind.", next = "END" },
       },
     },
@@ -579,12 +639,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Very sneaky, which is good, because my mum says sneaky people and cats get along. If you took her home, she could teach you to catch mice, and you could teach her to open doors." } },
+      choices = {
+        { text = "She'd be safest with someone honest, Timmy, not someone sneaky.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sneak and a kitten sounds like the perfect team.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only a little bit, just so he'd say yes about the kitten, and then you could unmagic him after. Mum says that's not fair, but Mum didn't say it was impossible." } },
+      choices = {
+        { text = "That wouldn't be fair, Timmy, so ask him honestly instead.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A little spell never hurt anyone, Timmy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Timmy, and this is my kitten. She needs a good home, and my dad says ours isn't one, for cats; he likes it fine for me." },
         { id = "h_rich", when = { money = { min = 10000 } },
           text = "You look like you've got a nice house, with a fire, and cats love fires. I'm just saying." },
         { id = "h_bit", when = { metBefore = true }, text = "One of the kittens bit me today, but I still love him, and you should love him too." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You're really quiet, like my kitten when she's stalking the mice behind the bakery, so I think you're a cat person." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Are you a wizard? Can you make my dad say yes with a spell? Only a little spell, a nice one." },
       },
       again = {
         { id = "h_again", text = "Do you want to hold her now? She's ready." },
@@ -596,6 +678,8 @@ P:NPC {
         { text = "Where do you walk her?", next = "walk" },
         { text = "Shall I bless her?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "My {pet} would like to meet your kitten.", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Do you think I'm sneaky, Timmy?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you want me to magic your dad, Timmy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Sorry, Timmy.", next = "END" },
       },
     },
@@ -667,6 +751,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The Light answers whoever turns to it, though mages are so used to commanding that they rarely think to ask. That's the lesson your kind find hardest, and it isn't in any of your books either." } },
+      choices = {
+        { text = "I can learn to ask, High Priestess, rather than command.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd rather command a power than wait for one to answer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -679,6 +772,8 @@ P:NPC {
           text = "You're young, for the Cathedral, but that's no fault. It only means the hard lessons are still ahead, and most of them are not in books." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Ah, good, it's you. I've told the novices about you, a little, as an example of what to aim for, so don't let it go to your head." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage in the Cathedral. You'll want to know whether the Light and the arcane can share a room, and they can, if both keep their voices down." },
       },
       again = { { id = "h_again", text = "What else? Quietly; there's a service soon." }, { id = "h_again2", text = "Ask. I'll answer what I can, and tell you when I can't." } },
       choices = {
@@ -689,6 +784,7 @@ P:NPC {
         { text = "The Abbey raised me. I'm one of theirs.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "Can the Light mend what a demon has touched?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Do the Cathedral's healers ever tend druids?", next = "druid", when = { class = "DRUID" } },
+        { text = "Does the Light ever answer a mage, High Priestess?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, High Priestess.", next = "END" },
       },
     },
@@ -811,16 +907,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not watching so much as waiting, I think, the way it waits for everyone who comes near it. You'd be surprised how many of Shaw's people kneel here at dawn, when they think nobody's looking." } },
+      choices = {
+        { text = "Then I'll kneel openly, because I've nothing to hide from the Light.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll keep my own counsel, Brother, and the Light can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It hears everyone, and I've never once seen it turn its face away, though I've seen plenty of people turn theirs. What you bind doesn't decide that, friend, but what you do with it does." } },
+      choices = {
+        { text = "Then I'll bind them only to keep worse things away.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll do what I must with them, and the Light can watch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
         { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "First light through the east window. I've watched it every morning for years. It's never once been the same." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came in without a sound, but the altar noticed anyway, because it always does and it isn't a thing you can sneak past." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You carry something cold with you, friend, and you needn't tell me what it is, because the Light is patient even with that." },
       },
       again = { { id = "h_again", text = "Something else?" } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why teach by the altar?", next = "altar" },
         { text = "How do you pray, Brother?", next = "pray" },
+        { text = "Is the altar watching me, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the Light still hear me, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -869,15 +989,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only the novices who run in the nave, and I mostly fail. Walking quietly is a kind of prayer too, I think, because you pay attention to every step, and attention is where the Light starts." } },
+      choices = {
+        { text = "Quiet steps should serve the Light, then, not hide from it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I walk quietly so that no one knows I was there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Alike in the effort, perhaps, but a mage pulls and a priest opens, and I suspect the pulling is more tiring. Jennea would tell you I don't know what I'm talking about, and she'd be partly right." } },
+      choices = {
+        { text = "I'd sooner open than pull, Brother, if the Light allows it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Pulling gets results, Brother, and waiting rarely does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brother Benjamin. I teach on my feet, up and down this hall. Brother Joshua says I'll wear a groove in the floor. He's probably right." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk more quietly than I do, and I've been pacing this hall for years. Walk with me, then, and see if you can keep in step without a sound." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Tell me while we walk, does it feel like anything when you cast, or is it only arithmetic, as Jennea says?" },
       },
       again = { { id = "h_again", text = "Keep walking. What else?" } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why pace?", next = "pace" },
         { text = "What's the hardest thing to teach?", next = "hardest" },
+        { text = "Do you ever teach anyone to move quietly, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think magic and prayer are much alike?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -929,6 +1073,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Scouting the plague villages, mostly, and finding which of the living have been turned by the Cult of the Damned before they turn anyone else. It's quiet work, and it ends with a fire more often than I'd tell the Archbishop." } },
+      choices = {
+        { text = "Every accusation needs proof before anyone burns, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they might be cultists, burning them is the safe choice.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Kel'Thuzad was one of theirs, and he walked out of the Violet Citadel with his books and turned Lordaeron into a graveyard. The Kirin Tor have spent years saying it wasn't their fault, and the dead have spent the same years walking." } },
+      choices = {
+        { text = "Dalaran should be held to account for what it bred.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "One traitor's crimes belong to him alone, not to Dalaran.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -939,6 +1101,10 @@ P:NPC {
           text = "Anton writes that you went into the Valley of Bones. Good. Come back to me when you're ready for Lordaeron itself." },
         { id = "h_monastery", tags = { "news" }, when = { questDone = TODO_QUEST("In the Name of the Light") },
           text = "You went to the Monastery and came back with the Crusade's blood on you. I know who sent you. Raleigh always did love a confession." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You move like one of Shaw's knives, and the Crusade has use for knives in Lordaeron, so long as they're pointed at the dead." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. Dalaran's mages have done precious little about the plague except study it, and I hope you mean to do more than that." },
       },
       again = { { id = "h_again", text = "What else? The dead don't wait for questions." } },
       choices = {
@@ -947,6 +1113,8 @@ P:NPC {
         { text = "Why recruit in the Cathedral?", next = "why" },
         { text = "Tyrosus of the Argent Dawn told me why he left.", next = "tyrosus", when = { heardLine = "tyrosus.l_default" } },
         { text = "Raleigh told me what the Monastery does.", next = "raleigh", when = { thread = { id = "scarlet_path", beat = "b3_raleigh" } } },
+        { text = "What use does the Crusade have for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do you hold against Dalaran, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
         { text = "I'll fight the dead my own way, without your tabard.", next = "END", fx = { align = { order = -1 } } },

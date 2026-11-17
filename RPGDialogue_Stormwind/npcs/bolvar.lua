@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I trust Mathias Shaw, which isn't the same thing, and I've signed orders I'd sooner not have read twice. A kingdom with its king missing can't afford clean hands everywhere, though I pray it keeps them where it can." } },
+      choices = {
+        { text = "The crown's work should still be honest work, Highlord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Clean hands don't keep a kingdom, Highlord, and Shaw knows it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because driving them out would only drive them deeper, where I can't see them, and SI:7 would rather they stayed in a cellar it already watches. Don't mistake that for approval, because the Second War taught every man in this hall what fel magic costs." } },
+      choices = {
+        { text = "I'll keep my binding to the battlefield, Highlord, and nowhere else.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fel magic won the orcs a war, Highlord, and Stormwind could use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bolvar Fordragon. I keep the kingdom for King Anduin until his father comes home, or until he's grown. Whichever the Light allows first." },
@@ -52,6 +70,10 @@ P:NPC {
           text = "State your business. I've heard enough about you from the Watch to want this conversation short." },
         { id = "h_guard", when = { origin = "human_city_guard" },
           text = "I know that walk; the Watch teaches it to every recruit who's ever carried a lantern down the Trade District. You traded the halberd for the road, I hear, and the road could use you more than the Watch can." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Shaw tells me you're one of his, or near enough. I don't ask him how his people do their work, and I'd rather not have to ask you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "The Church tells me what's kept under the Slaughtered Lamb, and the Church is not pleased, nor am I. You stand in my hall openly, though, so I'll hear you." },
       },
       again = {
         { id = "h_again", text = "What else? Briefly; the council sits at noon." },
@@ -71,6 +93,8 @@ P:NPC {
         { text = "The High Order sent me to learn what Stormwind is.", next = "highorder", when = { race = "Skyborne" } },
         { text = "Dalaran's mages could help this kingdom more than they do.", next = "dalaran", when = { class = "MAGE" } },
         { text = "I speak to the spirits of the earth, Highlord.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Do you trust SI:7's methods, Highlord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why does the crown tolerate the Lamb's warlocks, Highlord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },

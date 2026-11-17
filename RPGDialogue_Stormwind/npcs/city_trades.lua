@@ -17,10 +17,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Several, and you know it already, I think, because your kind always asks that before anything else. I teach which leaves kill so that people know what to avoid, and what they do with that knowledge rests on their own hearts." } },
+      choices = {
+        { text = "Then I'll use what I learn to heal, not to harm.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge of poison is a weapon like any other.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That it hungers, and that those who feed it are one day fed upon, which is why the kaldorei turned from it after the Sundering. I do not ask you to give it up, but I ask you to remember the price." } },
+      choices = {
+        { text = "I'll remember the price, Tannysa, and wield it carefully.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The price was your people's, Tannysa. I'll take my chances.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Tannysa. I teach herbalism to any who will listen, though in this city most would rather buy their herbs than gather them." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A sister of the forest, so far from home! You will find the herbs here tamer than ours, but they still answer to a gentle hand." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk softly, as the Sentinels do, though I suspect you learned it in a different forest. Mind the seedlings, because they cannot hear you coming." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "One who studies the arcane. My people learned long ago what comes of loving that power too much, and I hope yours have learned it too." },
       },
       again = {
         { id = "h_again", text = "Ask away while I sort these cuttings; the earthroot won't mind waiting." },
@@ -30,6 +52,8 @@ P:NPC {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "Why teach here, and not in Darnassus?", next = "a" },
         { text = "What grows best in Elwynn?", next = "b" },
+        { text = "Do the herbs of Elwynn hide any poisons, Tannysa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What did your people learn about the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Tannysa.", next = "END" },
       },
     },
@@ -74,10 +98,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A dagger in the back of the thigh, on a fellow who swore he'd only slipped on the canal stairs. I bandaged him and didn't ask, because a healer who asks loses half her patients to the alleys." } },
+      choices = {
+        { text = "Heal first, but tell the Watch afterwards, because that's right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You did right not to ask. A healer keeps no ledger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "More than you'd think, because the priests ask too many questions and the Lamb's own people ask none at all. I'd rather be the one in between, where a burn is only a burn." } },
+      choices = {
+        { text = "A burn from the fel is never only a burn, Shaina.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A burn's a burn, and I'm glad you see it so.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Shaina Fuller. I teach first aid to anyone with two hands and a little patience, because the priests can't be everywhere at once." },
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior! You'll bleed more than most, so you'd best learn to tie a bandage one-handed. I'll show you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You'll need this lesson more than most, I'd guess, because knife wounds bleed worse than you'd think and they're always in awkward places." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Warlocks always come to me with burns they won't explain, and I always bandage them without asking, so let me see your hands." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've linen to roll." },
@@ -87,6 +133,8 @@ P:NPC {
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Who do you bandage most?", next = "a" },
         { text = "What's the first thing to learn?", next = "b" },
+        { text = "What's the worst wound you've seen, Shaina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do many warlocks come to you for bandages?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Shaina.", next = "END" },
       },
     },
@@ -131,10 +179,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "To pull a single guard away from his friends, of course, which I learned from a lady in black who bought six. She never told me her name, though she paid in good coin and smiled the whole time." } },
+      choices = {
+        { text = "Better to face the guard than lure him off.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Luring one away is just good sense, Frederick.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Splendidly, for about three shots, until he set his own quiver smouldering and had to jump in the canal. He bought another quiver after, which I count as a happy ending for both of us." } },
+      choices = {
+        { text = "He should have stuck to spells, because each craft has its place.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "He had the right idea. Mixing crafts is how things improve.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Frederick Stover, at your service. I sell bows to hunters, arrows to everyone, and advice for free, though most of it's about yew." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter! Now here's someone who'll appreciate a well-seasoned stave. Come, feel the draw on this one." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You'll be wanting a short bow for the road, I expect, or a good crossbow, because your trade's always had more use for range than people think." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! You won't want a bow, I suppose, though I sold arrows to a mage once, and he set every one alight before he loosed it." },
       },
       again = {
         { id = "h_again", text = "Ask what you like; I've a moment between passengers, and the ledgers can wait." },
@@ -144,6 +214,8 @@ P:NPC {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Where does your yew come from?", next = "a" },
         { text = "Do you sell much to the army?", next = "b" },
+        { text = "Why would a rogue need a bow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did the mage's flaming arrows work?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Frederick.", next = "END" },
       },
     },
@@ -188,10 +260,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Half my roses go to sweethearts nobody's supposed to know about, and the other half go to wives who've just found out. I sell to both, dear, and I never mix up the orders." } },
+      choices = {
+        { text = "Secrets like that always come out, so it's better to be honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What the wives don't know can't hurt them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only near a few, dear, and mostly folk who've come up from the Lamb, though I'm sure it's coincidence. I keep a pot of marigolds by the door for them, because marigolds are tougher than lilies and don't mind much." } },
+      choices = {
+        { text = "I'm sorry for your lilies, so I'll keep my distance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Flowers die anyway, Felicia, and I only hurry them along.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Felicia Gump, florist. I sell flowers for weddings and herbs for the kitchen, and lately, I'm sorry to say, a great many lilies for funerals." },
         { id = "h_cond", when = { profession = "Cooking" }, text = "A cook! Then you'll want my herbs. Even Chef Grual in Darkshire sends for them, and that man's terribly hard to please." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Come for flowers, dear? Your sort usually wants something for a sweetheart they're not supposed to have, so I'll not ask the name." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Oh, the lilies are wilting now you've come close, dear, just look at them. I'm sure it's only the heat." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -201,6 +295,8 @@ P:NPC {
         { text = "Show me your flowers.", next = "BUSINESS" },
         { text = "Why so many funerals?", next = "a" },
         { text = "What's your best seller?", next = "b" },
+        { text = "Do people buy flowers for secret sweethearts?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your flowers often wilt near people, Felicia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Felicia.", next = "END" },
       },
     },

@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He froze half a cask solid and the cask split, so we lost the wine and the barrel together. He offered to pay, which was decent of him, though he paid in copper and apologies, and I can only bank one of those." } },
+      choices = {
+        { text = "Then he owes you, and you should hold him to it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let it go. Apprentices are poor, and it was only wine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -40,6 +49,8 @@ P:NPC {
           text = "You came back! Renato will be insufferable about it, so I won't tell him, and you won't either." },
         { id = "h_merlot", when = { questActive = TODO_QUEST("Dry Times") },
           text = "A cask of merlot for Lakeshire? Roberto has one ready; Barkeep Daniels writes to us whenever the roads are open, and lately they rarely are." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Please don't conjure anything near my barrels, because Roberto still talks about the apprentice who tried to make the merlot colder." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've columns to add." },
@@ -52,6 +63,7 @@ P:NPC {
         { text = "How does a winery do on the canals?", next = "canals" },
         { text = "A good red is a small blessing.", next = "priest", when = { class = "PRIEST" } },
         { text = "Someone's skimming your tally, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
+        { text = "What happened with the apprentice and the merlot?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -155,6 +167,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More every year, dearie, since the masons went off to Westfall and their boys stayed behind with nothing to do. They don't bother me, because a woman with buckets has nothing they want, but they bother everybody else." } },
+      choices = {
+        { text = "Those boys should be caught and made to answer for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I can't blame them much, since the city gave them nothing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Frighten me? I came south with the plague at my back, dearie, so a few candles in a cellar don't keep me up at night. It's the folk who go down those stairs and come up looking hungry that I mind." } },
+      choices = {
+        { text = "I keep what I bind on a short leash, Emma.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hungry is how you get anywhere in this world, Emma.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -169,6 +199,10 @@ P:NPC {
           text = "You've a look about you like you've seen a ghost, and you'd not be the first who came to me looking like that. Out with it." },
         { id = "h_rain", when = { timeOfDay = "dusk" },
           text = "Last trip of the day, and my arms know it. Back home we had a pump in the yard, and I never once thought I'd miss a pump." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've light fingers, I can see it in how you hold them, so keep them off my buckets. There's nothing in them worth stealing but water, and water's heavy." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "There's something cold coming off you, like the cellar of the Lamb down the way. I don't ask what goes on down there, and you'll not tell me, so we're even." },
       },
       again = {
         { id = "h_again", text = "Well? I've not got all day, and neither has this bucket." },
@@ -182,6 +216,8 @@ P:NPC {
           when = { any = { { questActive = TODO_QUEST("Good Natured Emma") }, { questDone = TODO_QUEST("Good Natured Emma") } } } },
         { text = "I come from the north too.", next = "north", when = { origin = "human_lordaeron_refugee" } },
         { text = "The Silver Hand fought for the north, Emma.", next = "silverhand", when = { class = "PALADIN" } },
+        { text = "Do many thieves work these streets, Emma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Lamb's cellar frighten you, Emma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -313,6 +349,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I sew for anyone who pays, dear, and some of them ask for deep pockets and quiet seams without telling me why. I don't ask either, because a tailor who asks questions soon sews for nobody." } },
+      choices = {
+        { text = "You should ask, because you don't know what those pockets carry.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. A tailor's business is the seams, not the customer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Dozens a month, dear, and Thurman tells me Larson's shop sees even more, being right under the tower. I've started lining the cuffs with a second layer, because fire is fire whoever lit it." } },
+      choices = {
+        { text = "The apprentices should own up to their own scorch marks.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A clever apprentice blames the next one over. That's just sense.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -323,6 +377,10 @@ P:NPC {
           text = "Larson Clothiers, in the Mage Quarter, the shop further in by the tower. Give Thurman his kit and tell him his mother says he can't fool her." },
         { id = "h_thurman_done", tags = { "news" }, when = { questDone = TODO_QUEST("Package for Thurman") },
           text = "Thurman got his kit, and I hear he grumbled. He thought if he forgot it he'd get a day off; he's clever enough to scheme and not clever enough to get away with it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Dark cloth, soft soles and no buckles to catch the light, dear, so whoever outfitted you knew exactly what they were doing." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Mage robes again! Every apprentice in the Quarter scorches the cuffs, and every one of them swears it was somebody else's spell." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? Corbett, don't you dare sit down." },
@@ -334,6 +392,8 @@ P:NPC {
         { text = "Your son works elsewhere?", next = "thurman" },
         { text = "Who's Corbett?", next = "corbett" },
         { text = "Could you look at my robes?", next = "priest", when = { class = { "PRIEST", "MAGE", "WARLOCK" } } },
+        { text = "Do you sew for people who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you mend many scorched robes from the Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -417,10 +477,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, because you sit still, you keep quiet and you let the other fellow make the mistake. The difference is that a fish never holds it against you afterwards." } },
+      choices = {
+        { text = "I'd rather face my mark than wait for him to slip.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them make the mistake. Patience wins every time.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "You could, I suppose, and they'd taste of nothing at all, like most things made by magic. A fish you've waited for tastes of the waiting, which is why I teach this and not spellcraft." } },
+      choices = {
+        { text = "Some things should be earned the slow way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Why wait, when a spell gets dinner on the table faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Arnold Leland. I teach fishing, and Catherine there sells the poles and bait, and between us we've fished every bit of water within a day's walk of this city." },
         { id = "h_back", when = { metBefore = true }, text = "Back again! Caught anything worth bragging about, or only the ones that got away?" },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've a patient look, like you're used to waiting in one spot for a long while, and that's half of fishing already." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at my pier! Don't go freezing the canal to get at the fish, now, because one of your lot tried it last winter and fell straight through." },
       },
       again = {
         { id = "h_again", text = "What else? There's no rush; the fish certainly aren't in one." },
@@ -430,6 +512,8 @@ P:NPC {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's the secret to it?", next = "secret" },
         { text = "Are there really fish in the canals?", next = "canals" },
+        { text = "Is fishing much like waiting in the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why not just conjure your fish, Arnold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -491,10 +575,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Begging, polishing, a bit o' carrying, an' now an' then a purse falls into me hand, which ain't the same as takin' it. I'd never cross SI:7's lot, though, because they know every beggar in this city by name." } },
+      choices = {
+        { text = "A purse that falls into your hand still belongs to someone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they can't hold their purses, that's their lookout.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Blackmail? Me? Never, guv, I'm only a poor bloke who forgets things easier when his belly's full. Plenty o' folk go down those stairs, an' I've never told on one of 'em, so ye've nothing to fear from Morris." } },
+      choices = {
+        { text = "Keep your silence for its own sake, Morris, not for coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Here's a copper, and your memory had better stay short.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Morris Lawry, at yer service, guv. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
         { id = "h_back", when = { metBefore = true }, text = "You again! Ye've a kind face, I said so the first time, didn't I? Or I meant to." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Now don't look at me like that, guv, because I can see ye've the same trade as me, only ye're better paid for it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Ye've a whiff of the Lamb's cellar on ye, guv, sulphur an' candle wax. I won't tell nobody, if ye've a copper to help me forget." },
       },
       again = {
         { id = "h_again", text = "Anything else, guv? I've nowhere to be, as ye can see." },
@@ -504,6 +610,8 @@ P:NPC {
         { text = "How did you end up begging?", next = "farm" },
         { text = "Here's a coin.", next = "coin" },
         { text = "Weren't you blind a moment ago?", next = "blind" },
+        { text = "Is begging really your only trade, Morris?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Are you trying to blackmail me, Morris?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Get a job, Morris.", next = "END", fx = { affinity = -1 } },
       },
     },
@@ -573,10 +681,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because he always says there's no fish, and if I sneak up on him with a big one he'll fall right in the canal! Then he'll have to say there's fish, because he'll be sitting with them." } },
+      choices = {
+        { text = "Win fair, Billy, and show him the fish while he's looking.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sneak up and dunk him, and he'll never doubt you again.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That'd be the best thing ever, except Adam would say it wasn't real, because it didn't come out of the canal. I think I have to catch one myself, even if it takes all summer." } },
+      choices = {
+        { text = "Catch it yourself, Billy. It'll mean more that way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A fish is a fish, so tell him you caught it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Billy, and me and Adam fish here every day, and once, at camp, I pulled out a fish bigger than me, honest, but I threw it back because it was looking at me funny." },
         { id = "h_boot", when = { metBefore = true }, text = "Look, look, I caught something! Oh, it's just another stinky old boot, that's three this week." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Whoa, you snuck up on me! Can you teach me to do that, so Adam never sees me coming?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Are you a wizard? Can you make a fish appear, a really big one, so I can show Adam?" },
       },
       again = {
         { id = "h_again", text = "Do you wanna hear another one? I know loads!" },
@@ -587,6 +717,8 @@ P:NPC {
         { text = "Are there monsters in the sea?", next = "monsters" },
         { text = "Who's Adam?", next = "adam" },
         { text = "Want to see a real hunter's beast, Billy?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Why do you want to sneak up on Adam?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What if I conjured you a fish, Billy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck fishing, Billy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -655,6 +787,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Enough that I've stopped calling it an accident, though not so much that anyone above me will listen. The Defias have friends on these docks and I've a fair idea which crates they favour, but a clerk's guess isn't evidence." } },
+      choices = {
+        { text = "Then give SI:7 your guesses and let them find the evidence.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mind your ledger, clerk, and let the crates fall where they fall.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Crates of reagents, ink, crystal and things I'm not allowed to write down, which is always a clerk's favourite sort of cargo. Half of it comes stamped with the Kirin Tor's seal, and the other half comes stamped with nothing at all." } },
+      choices = {
+        { text = "Every crate should be written down, sealed or not.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What the Quarter keeps off the ledger is its own business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -663,6 +813,10 @@ P:NPC {
           text = "The Gatehouse shipment goes up the stairs in Trias' Cheese, to the stockroom entrance. Elaine knows the deliveries, so hand it to her and don't open it on the way." },
         { id = "h_favor_done", tags = { "news" }, when = { questDone = TODO_QUEST("Philmor's Favor") },
           text = "Elaine sent word the shipment arrived intact, which is more than I can say for the last three. You've a future on the docks, if you ever tire of the other thing." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've the look of somebody who knows how cargo goes missing, which is the one thing my ledger can't tell me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, good. If you're waiting on a crate for the Mage Quarter, it's late, and so is everything else on this harbor." },
       },
       again = {
         { id = "h_again", text = "Anything else? The tide doesn't wait for conversation." },
@@ -673,6 +827,8 @@ P:NPC {
         { text = "What's the Gatehouse?", next = "gatehouse" },
         { text = "Where do the ships go?", next = "ships" },
         { text = "Why are you short of dockhands?", next = "dockhands" },
+        { text = "How much of your cargo goes missing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the docks carry much for the Mage Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

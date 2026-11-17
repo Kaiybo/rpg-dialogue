@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Silver Hand looks at what a person does, not the shadows they do it in, though I've seen more of the second than I'd like. Uther worked with men of your trade during the war, and he never once pretended to enjoy it." } },
+      choices = {
+        { text = "Then I'll give you no reason to doubt me, my lord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The war was won with knives as much as hammers, my lord.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." } },
+      choices = {
+        { text = "Perhaps one day, my lord, though I won't pretend it's easy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I've no intention of turning back, my lord.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Grayson Shadowbreaker, of the Silver Hand. I train the paladins who pass through this Cathedral, and I am not easily satisfied." },
@@ -48,6 +66,10 @@ P:NPC {
           text = "The Cathedral's healers patch up my paladins more often than either of us admits. Consider yourself thanked on their behalf." },
         { id = "h_brandur", when = { race = "Dwarf", class = "PALADIN" },
           text = "Brandur Ironhammer's student. He sends me his best when Ironforge's halls have nothing left to teach them. Let's find out if he was right." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in the Cathedral's training hall. I'll assume you came in by the door, and I'll ask you to leave by it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You carry the stink of the fel into this hall, and I will not pretend I didn't notice. Say what you came to say." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly, and I'll answer the same way." },
@@ -66,6 +88,8 @@ P:NPC {
         { text = "Why does a dwarf need a human's Silver Hand?", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "What does a paladin have that a warrior doesn't?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "What do you make of the other trainers here?", next = "others" },
+        { text = "Do the Silver Hand look down on rogues, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there no place in the Light for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "May the Light protect you too.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -272,6 +296,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I've never known it refuse anyone who asked honestly, though I've known plenty who were afraid to ask. Faith isn't for the spotless, friend, or I'd never have been given the name." } },
+      choices = {
+        { text = "Then I'll ask, Arthur, and I'll mean it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll carry what I've done myself, Arthur.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Every night, in the same breath as the paladins, because I don't know which of us needs it more. The Light is wider than Lord Shadowbreaker's patience, and I've always found that a comfort." } },
+      choices = {
+        { text = "Pray for me, then. I'd be glad of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save your prayers, Arthur, because I've chosen my path.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Arthur. They call me the Faithful, though I've never been sure I earned it, and I keep trying to." },
@@ -280,6 +322,10 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The Cathedral at night is all candle and echo. I like it best now. The prayers sound less like requests." },
         { id = "h_nobility", tags = { "news" }, when = { class = "PALADIN", minLevel = 40 },
           text = "Your faith has grown with you, and Duthorian Rall has more to teach. I think you're ready, so go to him humbly, because pride has undone more paladins than any blade." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You keep to the edge of the candlelight, friend. Come in a little closer, because nobody here will ask what you've done." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "The Light keep you, friend, and I do mean you, even with what walks beside you." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry at all." },
@@ -294,6 +340,8 @@ P:NPC {
         { text = "Can the Light forgive anything, Arthur?", next = "forgive", when = { class = "PALADIN" } },
         { text = "I took the oath in Ironforge, Arthur.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "What do you think of Lord Shadowbreaker?", next = "grayson" },
+        { text = "Would the Light forgive the things I've done, Arthur?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you pray for warlocks, Arthur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -402,6 +450,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Aye, an' better ones than ye'll find anywhere in the Trade District, though I'd rather make a paladin's hammer than a knife for a back. A hammer's honest about what it's for." } },
+      choices = {
+        { text = "Fair enough. I'd rather face a foe than stab him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A knife in the back ends a fight quicker, Elmore.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once, wi' a mage o' the Quarter standin' over the anvil chantin' at it, an' the blade came out hummin' like a hive. I sold it tae a lord who never drew it, which is the sad end o' most fine work." } },
+      choices = {
+        { text = "Then it should have gone to someone who'd earned it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin, Elmore, and the lord paid the best price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Elmore. I make weapons, and I make barding for paladins' chargers, and nobody in Azeroth makes it better. Ask Lord Shadowbreaker whose work his mount wears." },
@@ -416,6 +482,10 @@ P:NPC {
           text = "Lightforge iron, in my shop? It's been years since I had my hands on any, so tell me the whole tale, an' then I'll make ye something worth it." },
         { id = "h_notes", tags = { "news" }, when = { questActive = TODO_QUEST("Grimand Elmore") },
           text = "Notes, from Furen? He thinks he can teach me? I taught that boy which end o' the hammer tae hold! Give them here." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in my shop. Ye can admire the barding all ye like, but it weighs more than ye do, so dinnae get ideas." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage? Ye'll be wantin' a staff, an' I'll tell ye now I dinnae make sticks, so come back when ye want a proper weapon." },
       },
       again = {
         { id = "h_again", text = "What else? The forge doesnae wait." },
@@ -429,6 +499,8 @@ P:NPC {
         { text = "Why work here and not in Ironforge?", next = "home", when = { race = "Dwarf" } },
         { text = "What can lightforge iron do?", next = "lightforge", when = { questActive = TODO_QUEST("Blessed Arm") } },
         { text = "Your forge fire has a spirit in it, Elmore. It likes you.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Do you ever forge daggers, Elmore?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have you ever forged anything enchanted, Elmore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -525,6 +597,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only once, a man who took a book on Alterac's noble houses and nothing else, which I found far more alarming than if he'd taken the silver. Know your enemy, as I always say, and he clearly did." } },
+      choices = {
+        { text = "Then SI:7 should hear about it, Milton.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let him read. A book should never be locked away.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Milton Sheaf, keeper of the Royal Library. I collect books from all over the kingdom. Mostly I collect people to collect books for me." },
@@ -538,6 +619,8 @@ P:NPC {
           text = "Loremaster Dibbs knows the way to Alterac's ruins. Whatever survived up there is ours to save, before the ogres light their fires with it." },
         { id = "h_tomes", tags = { "news" }, when = { questRecent = { TODO_QUEST("Return to Milton"), days = 3 } },
           text = "The Tomes of Alterac, on my shelves! I've had to sit down twice. The library thanks you, and the books, I think, thank you most." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Shh, and no, nothing in here is worth stealing, unless you can read, in which case everything is." },
       },
       again = {
         { id = "h_again", text = "Something else? In a whisper, please." },
@@ -550,6 +633,7 @@ P:NPC {
         { text = "Who's the lord in the reading corner?", next = "lord" },
         { text = "Have you anything for a priest?", next = "priest", when = { class = "PRIEST" } },
         { text = "Does the library keep anything from Dalaran?", next = "dalaran", when = { class = "MAGE" } },
+        { text = "Have thieves ever robbed the Royal Library?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -645,6 +729,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "More than you'd think, because scholars forget to eat until they're starving, and cheese keeps on a desk. Some of them talk quite freely while they wait for it, too, which is entirely beside the point." } },
+      choices = {
+        { text = "Their talk is their own business, Elling, so leave it be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every word a customer drops is worth picking up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Elling Trias. My wife Elaine makes the cheese, my boy Ben sells it, and I stand here looking honest. It's a family business." },
@@ -658,6 +751,8 @@ P:NPC {
           text = "Shaw sent you, to me, again? The man has the nerve of a cat burglar and the manners of one. Start at the beginning and leave nothing out." },
         { id = "h_attack", tags = { "news" }, when = { questActive = TODO_QUEST("The Attack!") },
           text = "Tyrion's in the castle garden with his contraption. Do what he says, when he says it. Then come back here and buy something." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. Please don't chill the cheese, because it's aged at exactly the temperature my wife wants, and she knows." },
       },
       again = {
         { id = "h_again", text = "Anything else? Cheese-related, ideally." },
@@ -669,6 +764,7 @@ P:NPC {
         { text = "You're not just a cheesemaker, are you?", next = "cover" },
         { text = "Jorgen sent a note.", next = "jorgen", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
         { text = "I keep to the shadows myself.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Does the Mage Quarter buy much cheese?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just passing.", next = "END" },
       },
     },
