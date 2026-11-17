@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a bird out of this blighted country? I don't blame you, and the gryphons don't either." },
+    { id = "g_default", text = "Need a bird out of this blighted country? I don't blame ye, and by the forge, the gryphons don't either." },
     { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "Took the oath back home in Ironforge, did you? Good on you, lad or lass, and the Dawn could use a dozen more like you, so mind you come back out of this country in one piece." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My birds won't take you, friend, but Georgia's bats will. She's just over there, and she doesn't bite, though her bats might." },
   },
@@ -98,7 +98,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
         { id = "h_default", key = true,
-          text = "Khaelyn Steelwing, gryphon master for the Alliance at Light's Hope. The air over these plaguelands is foul and the birds hate every mile of it, but they'll get you to Chillwind or anywhere else you need to be." },
+          text = "Khaelyn Steelwing, gryphon master for the Alliance at Light's Hope. The air over these plaguelands is fouler than a Dark Iron's breath and the birds hate every mile of it, but they'll get ye to Chillwind or anywhere else ye need to be." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage who still wants a gryphon, {class}! Good, because a portal can't get you anywhere near Light's Hope, and my birds can." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -114,7 +114,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The birds will take you, {class}, but keep whatever's in your pocket off their backs, or you'll be walking to Chillwind." },
       },
       again = {
-        { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood." },
+        { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood, and I cannae say I blame them." },
         { id = "h_again2", text = "Ask, then, but don't keep a gryphon waiting in this air." },
       },
       choices = {
@@ -152,7 +152,7 @@ P:NPC {
       },
     },
     air = {
-      lines = { { id = "a_default", text = "They fly high and fast and don't land anywhere but here or Chillwind. I wash their feathers after every trip, and I watch their eyes for any cloudiness, because a sick gryphon is a gryphon I'd have to put down." } },
+      lines = { { id = "a_default", text = "They fly high and fast and don't land anywhere but here or Chillwind. I wash their feathers after every trip and watch their eyes for any cloudiness, because a sick gryphon's one I'd have to put down, and I'd sooner lose a finger." } },
       choices = {
         { text = "Has it happened before?", next = "air_sick" },
         { text = "Something else.", next = "BACK" },
@@ -167,7 +167,7 @@ P:NPC {
       },
     },
     georgia = {
-      lines = { { id = "ge_default", text = "Aye, and I'll tell you what I told myself the first day: inside these walls, the only enemy is the Scourge. She keeps her bats well and she keeps to her side of the yard, and that's more than I can say for some Alliance folk I've known." },
+      lines = { { id = "ge_default", text = "Aye, and I'll tell ye what I told myself the first day: inside these walls, the only enemy is the Scourge. She keeps her bats well and keeps to her side o' the yard, which is more than I can say for some Alliance folk I've known, and a few Ironforge cousins besides." },
         { id = "g_scourge", when = { race = "Scourge" }, text = "You'd know her kind better than I do, but she's been a fair neighbour. Inside these walls, the only enemy is the Scourge, and she hates them as much as I do, maybe more." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -176,7 +176,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I went where the Alliance needed a gryphon master and nobody else wanted to go, and that's the end of the tale." } },
     advice = { { id = "tp_ad", text = "Don't drink from any stream in this country, however clear it looks. A corporal of ours did at Corin's Crossing, and he spent three days retching green before we buried him." } },
-    _none = { { id = "tp_none", text = "Can't help you there. Ask somebody who spends less time with birds." } },
+    _none = { { id = "tp_none", text = "Can't help ye there, {g:lad|lass}. Ask somebody who spends less time with birds and more time over an ale." } },
   },
 }
 

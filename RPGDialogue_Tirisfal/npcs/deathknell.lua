@@ -14,7 +14,7 @@ P:NPC {
 
   greetings = {
     { id = "g_grave", text = "Ah, you're up. Sit a moment if you need to; the first few minutes are the strangest." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and still yourself. That's a fine sign." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and still yourself. That's a fine sign; not everyone I dig up stays that way." },
     { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You remember it, don't you, the time under the Lich King's hand? I can see it in how you look at your own fingers. Sit with it as long as you need, because the graves here don't hurry anyone." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and still yourself, by the look of you. That's a fine sign, and the graves are none the worse for missing you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8, race = "Scourge" }, text = "I remember you sitting on the edge of your own grave, wondering what had happened, and now look at you. You've grown into this second life better than most." },

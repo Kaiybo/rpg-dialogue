@@ -705,7 +705,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Oh, how lovely. You must tell me whether my holy vapours bother the plants, because I'd hate to make things worse out here." },
         { id = "h_default", key = true,
-          text = "Betina Bigglezink, of the Argent Dawn. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned." },
+          text = "Betina Bigglezink, of the Argent Dawn, and of Gnomeregan before it got rather radioactive. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned." },
         { id = "h_gambit", tags = { "news" }, when = { questActive = TODO_QUEST("Dawn's Gambit") },
           text = "You've got the Gambit, how wonderful! Set it in the viewing room in Scholomance, step back, and then please step back a bit further than that." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -742,7 +742,7 @@ P:NPC {
         { text = "My companion is a gnome. Do many gnomes fight out here?", next = "xpt_gnome", when = { party = { race = "Gnome" } } },
         { text = "Good luck with it.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },
+      again = { { id = "h_again", text = "Something else? I can talk and solder at the same time, mostly, with a failure rate well under nine percent!" } },
     },
     xmage = {
       big = true,
@@ -796,6 +796,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Hmm, no, but if you find out, write it down for me!" } },
+    _none = { { id = "tp_none", text = "Hmm, no, but if you find out, write it down for me, with measurements if you can!" } },
   },
 }

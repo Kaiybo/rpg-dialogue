@@ -9,7 +9,7 @@
 ## Identity
 Hannah Akeley · Reagent vendor · Magic Quarter · Undercity · Forsaken · tier service
 Personality: brisk, cheerful, practical
-Speech: 'love', 'dear', shopkeeper patter
+Speech: 'love', 'dear', shopkeeper patter soured by the Forsaken: grave dust, the dead running out of patience
 Knows and cares about: which classes buy what
 Relationships: casters of the quarter
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'

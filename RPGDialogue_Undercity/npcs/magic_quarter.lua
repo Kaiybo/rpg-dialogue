@@ -387,7 +387,7 @@ P:NPC {
         { id = "h_troll", when = { race = "Troll", class = "MAGE" }, text = "A troll mage! I've read that your people's magic comes from the old spirits, and I'd love to hear how it sits with the arcane, if you've a moment." },
       },
       again = {
-        { id = "h_again", text = "Yes? Oh, yes, you were asking something. Go on." },
+        { id = "h_again", text = "Yes? Oh, yes, you were asking something; my memory came back from the grave with a few pages missing. Go on." },
         { id = "h_again2", text = "Another question? Splendid, I'd nearly run out of things to think about." },
       },
       choices = {
@@ -504,8 +504,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Powders, candles, chalk, the usual things for the unusual folk. What'll it be?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you would be; everyone runs out of something." },
+    { id = "g_default", text = "Powders, candles, chalk and grave dust, the usual things for the unusual folk. What'll it be?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you would be; everyone runs out of something, and down here the dead run out of patience first." },
   },
 
   notice = {
@@ -517,7 +517,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Hannah Akeley, reagents and supplies. Mages, priests, warlocks, anyone who needs a pinch of something before the magic works, they all end up at my table eventually." },
+        { id = "h_default", key = true, text = "Hannah Akeley, reagents and supplies. Mages, priests, warlocks, anyone who needs a pinch of something before the magic works, living or otherwise, they all end up at my table eventually." },
         { id = "h_warrior", when = { class = { "WARRIOR", "ROGUE" } }, text = "You don't look like a spellcaster, love. If you're lost, the War Quarter is that way, but you're welcome to browse." },
       },
       again = {
@@ -545,6 +545,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not a thing I sell, dear, and not a thing I know." } },
+    _none = { { id = "tp_none", text = "Not a thing I sell, dear, and not a thing I know, and in this city that's a very short list." } },
   },
 }

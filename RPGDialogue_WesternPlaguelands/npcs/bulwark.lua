@@ -1026,7 +1026,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_dawn", text = "For the Dawn, friend, so say it with me, and it gets easier each time." },
+    { id = "g_dawn", text = "For the Dawn, friend! Say it with me, and say it like a war cry, because out here it is one." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you've brought me stones or a story. I'll gladly take either one." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "A knight of the old Silver Hand, risen, and the Light still comes when you call it? The Dawn has room for you, friend, and nobody under this banner will tell you otherwise." },
   },
@@ -1123,7 +1123,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, at the Bulwark. I fought the Light's knights in the Second War, and now one of the dead carries it beside me against the Scourge, and the world has turned stranger than any shaman foretold." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? Ask it plain, and I'll answer plain." },
+        { id = "h_again", text = "What else, {class}? Ask it plain, and I'll answer plain, the way orcs always have." },
         { id = "h_again2", text = "Something more? Ask it, I'm here at the wall until the sun goes down." },
       },
       choices = {
@@ -1247,6 +1247,6 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm an orc who fought the Horde's wars, sat in the camps, and came out wanting a better fight. I found one here.", next = "why" } },
     advice = { { id = "tp_ad", text = "Keep moving out there. The dead are slow, but they never stop, and they never tire of following." } },
     argent_dawn = { { id = "tp_dawn", text = "There are no kings and no warchiefs in the Dawn, only the dead and the people who won't let them win." } },
-    _none = { { id = "tp_none", text = "I don't know, friend, so ask Derrington, who knows everything and tells you half." } },
+    _none = { { id = "tp_none", text = "I don't know, friend, so ask Derrington, who knows everything and tells you half. An orc would tell you all of it or nothing." } },
   },
 }

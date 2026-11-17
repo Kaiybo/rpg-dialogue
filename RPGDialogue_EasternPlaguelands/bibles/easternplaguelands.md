@@ -42,3 +42,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ### Voices (authored, not canon)
 - Khaelyn: blunt, watches her birds' eyes for sickness; a practical peace with Georgia. Georgia: dry, patient Forsaken; bats don't take the plague. Jessica: warm, plain, feeds everyone the same. Jase: brisk supply man; Scarlets have seized wagons.
 - Never: the later battles at the chapel, the souls beneath it, Death Knights. The chapel is simply holy ground the Scourge avoids.
+
+## Race voice (0.80.0)
+- Khaelyn: dwarf; light burr ("aye", "ye", "cannae", {g:lad|lass}), forge oaths. Georgia: Forsaken; dry and cold.

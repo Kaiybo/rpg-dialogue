@@ -202,7 +202,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Quietly, please; the beasts startle easily down here." },
+    { id = "g_hi", text = "Quietly, please; the beasts startle easily down here, and they've never cared for the smell of the dead." },
     { id = "g_back", when = { metBefore = true }, text = "Come for your beast? It's been fed, and it has nearly forgiven me for smelling the way I do." },
   },
 
@@ -262,7 +262,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The beasts don't like the cold you carry, so stand back a little from the cages." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of ours. The beasts went very still when you came in, and I can't tell yet whether it's the Light that calms them or frightens them." },
       },
-      again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would." } },
+      again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would; the beasts already think I'm something to run from." } },
       choices = {
         { text = "Do the beasts here fear the Forsaken, Anya?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the beasts' spirits to trust you, Anya?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -368,7 +368,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Stand up straight. You'd be amazed how many of the dead forget." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more drills? Good, because nobody ever practised too much." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more drills? Good; nobody ever practised too much, and the dead can't claim they were tired." },
   },
 
   notice = {
@@ -873,7 +873,7 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Thieves in the Alterac foothills. They take the ore you've just dug, so dig quickly." } },
-    _none = { { id = "tp_none", text = "I don't know. I'm only good with rocks; ask someone who reads books." } },
+    _none = { { id = "tp_none", text = "I don't know. I'm only good with rocks; ask someone who still has the eyes for books." } },
   },
 }
 
@@ -1128,7 +1128,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I've known priests who made fine liars, because people tell them everything, and I wonder which kind you are." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The last of your order I saw in Lordaeron were burning our dead in the streets, so forgive me if I watch your hands rather than your face." },
       },
-      again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere." } },
+      again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere, and the people expecting me are not the forgiving sort." } },
       choices = {
         { text = "Do you trust priests, Carolyn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your rogues ever work with the Horde's shamans, Carolyn?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1548,7 +1548,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know, love. I only know how to keep people in one piece." } },
+    _none = { { id = "tp_none", text = "I don't know, love. I only know how to keep people in one piece, and with the dead that's work enough." } },
   },
 }
 
@@ -1637,7 +1637,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fishing in the canals! Don't eat what you catch unless you're dead, and even then I'd think twice." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, fishing in a canal of green poison? I've seen everything now, though I'll admit I'm curious whether the Light would clean the water or only make the fish glow." },
       },
-      again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing." } },
+      again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing, and less still once you're dead." } },
       choices = {
         { text = "Do you pray over the float, Armand?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the water spirits about the canals, Armand?", next = "xhsham", when = { class = "SHAMAN" } },

@@ -205,7 +205,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Ophelia Montague, of the bank. I keep the vaults with William, and before you ask, yes, we share a name, and no, I'm not going to tell you what else we share." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a ledger that's begging to be balanced." },
+        { id = "h_again", text = "Anything else? I've a ledger that's begging to be balanced, and the dead keep dreadful accounts." },
       },
       choices = {
         { text = "Are you and William related?", next = "william" },
@@ -477,6 +477,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I wouldn't know. I only know fabric, and fabric never lies." } },
+    _none = { { id = "tp_none", text = "I wouldn't know. I only know fabric, and fabric never lies, which is more than I ever said for the court." } },
   },
 }

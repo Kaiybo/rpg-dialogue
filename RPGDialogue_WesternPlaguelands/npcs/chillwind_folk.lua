@@ -107,7 +107,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Argent Quartermaster Lightspark, keeper of the Dawn's stores at Chillwind. Everything on my shelves goes to those who've fought the Scourge alongside us, and the more the Dawn trusts you, the more I'm allowed to sell." },
+          text = "Argent Quartermaster Lightspark, keeper of the Dawn's stores at Chillwind, with every crate counted to the last bolt. Everything on my shelves goes to those who've fought the Scourge alongside us, and the more the Dawn trusts you, the more I'm allowed to sell." },
         { id = "h_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } },
           text = "I'm afraid my shelves are closed to strangers, friend, though that's no insult. The Dawn sells only to people it knows, and it gets to know people by what they do against the Scourge." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -127,7 +127,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Dawn will trade with you, {class}, if you've earned it, though I'll tell you plainly that a few of the knights at Light's Hope would rather it didn't." },
       },
       again = {
-        { id = "h_again", text = "What else can the Dawn's quartermaster do for you today?" },
+        { id = "h_again", text = "What else can the Dawn's quartermaster do for you today? I've the whole inventory memorised, all four hundred and twelve lines of it." },
         { id = "h_again2", text = "Anything more? I've a crate of holy water to count before the light goes." },
       },
       choices = {
@@ -193,10 +193,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I count crates for the Dawn. Before that I counted other things, and I find this a much better use of my arithmetic." } },
+    background = { { id = "tp_ba", text = "I count crates for the Dawn. Before that I counted gears and pressure readings in Gnomeregan, until there was nothing left down there worth counting, and I find this a much better use of my arithmetic." } },
     advice = { { id = "tp_ad", text = "Always carry more bandages than you think, because the plague doesn't care how brave you are." } },
     argent_dawn = { { id = "tp_dawn", text = "The Dawn is everyone who's decided the Scourge matters more than old grudges, and I write all their names down." } },
-    _none = { { id = "tp_none", text = "That's not in any of my ledgers, I'm afraid, so I can't help you." } },
+    _none = { { id = "tp_none", text = "That's not in any of my ledgers, I'm afraid, and I've cross-referenced all six of them, so I can't help you." } },
   },
 }
 

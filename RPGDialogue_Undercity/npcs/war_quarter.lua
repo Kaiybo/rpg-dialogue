@@ -149,7 +149,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Come in, come in. I'd offer you a seat, but the last one fell apart, rather like the congregation." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, you're back. Good; I'd hoped I hadn't scared you off." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you're back. Good; I'd hoped I hadn't scared you off, though the dead do that without trying." },
   },
 
   notice = {
@@ -314,7 +314,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Never heard of it. Ask someone who reads." } },
+    _none = { { id = "tp_none", text = "Never heard of it. Ask someone who reads, and who still has both eyes for it." } },
   },
 }
 
@@ -393,7 +393,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ha! Another one! Come here and let's see if you can take a punch." },
+    { id = "g_default", text = "Ha! Another one! Come here and let's see if you can take a punch, since I stopped feeling mine the day I died." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I was telling the lads about you just yesterday, though I may have exaggerated." },
   },
 
@@ -410,7 +410,7 @@ P:NPC {
         { id = "h_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "A spellcaster, in the War Quarter? You're braver than you look, or lost, and either way, welcome!" },
       },
       again = {
-        { id = "h_again", text = "More questions? Ask away, I love a chat between bruises." },
+        { id = "h_again", text = "More questions? Ask away; I love a chat between bruises, even if mine don't fade any more." },
       },
       choices = {
         { text = "What was the worst thing that ever hit you?", next = "worst" },
@@ -434,6 +434,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, and we'll drink to it." } },
+    _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, and we'll raise a mug to it, though I won't taste a drop." } },
   },
 }

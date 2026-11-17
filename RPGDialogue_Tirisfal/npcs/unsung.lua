@@ -166,7 +166,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I don't know that. Ask Executor Arren, or the shadow priest in the chapel." } },
+    _none = { { id = "tp_none", text = "I don't know that, and the grave didn't make me any wiser. Ask Executor Arren, or the shadow priest in the chapel." } },
   },
 }
 
@@ -416,7 +416,7 @@ P:NPC {
         { text = "Do you think the dead should still say grace, Joshua?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else, friend? The shelves are still here." } },
+      again = { { id = "h_again", text = "Anything else, friend? The shelves are still here, which is more than you can say for most of Deathknell." } },
     },
     eat = {
       lines = { { id = "e_default", text = "The apothecaries say food and drink help the flesh hold together and the wounds close faster. I can't taste a thing anymore, mind, but I eat my bread every day, because I like having all my fingers." } },
@@ -647,7 +647,7 @@ P:NPC {
     third = "{name} met Carolai Anise, the alchemy trainer of Brill.",
   },
   greetings = {
-    { id = "g_shop", text = "Mind the vials; some of them bite. What can I do for you?" },
+    { id = "g_shop", text = "Mind the vials; some of them bite, and the rest only eat through skin, which you'll hardly miss. What can I do for you?" },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "Another alchemist, good. Come and tell me what you've been brewing." },
   },
   notice = {
@@ -708,7 +708,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Carolai Anise, and I teach alchemy here in Brill. Healing draughts, mostly, and other useful brews, since the dead need medicine as much as the living do." },
+        { id = "h_default", key = true, text = "I'm Carolai Anise, and I teach alchemy here in Brill. Healing draughts, mostly, since a body that won't mend on its own needs everything the Society can bottle." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll heal with spirit waters, I expect, and I'd like to know whether they work as well on the dead as my draughts do." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you know peacebloom from silverleaf, at least, which puts you ahead of most of my students." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll come back cut up more than the rest, so do yourself a favour and carry healing draughts as well as bandages." },
@@ -732,7 +732,7 @@ P:NPC {
         { text = "Do you trust potions over the Light, Carolai?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else? Quickly, please, before something boils over." } },
+      again = { { id = "h_again", text = "Anything else? Quickly, please, before something boils over; I lost an eyebrow to that kettle, and dead brows don't grow back." } },
     },
     apothecary = {
       lines = { { id = "a_default", text = "The Royal Apothecary Society works on grand projects in the Undercity and won't say what, which is their business. I make potions that close wounds and keep people standing, and I don't need a secret laboratory for that." } },
@@ -809,7 +809,7 @@ P:NPC {
     third = "{name} met Nurse Neela, who teaches first aid in Brill.",
   },
   greetings = {
-    { id = "g_hi", text = "Come in, dear, and let me see you. Don't worry about bleeding on the floor; nobody here minds." },
+    { id = "g_hi", text = "Come in, dear, and let me see you. Don't worry about bleeding on the floor; most of my patients stopped bleeding years ago, so it makes a change." },
     { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You were a chapel priest, I think, because you've that patient look. You'll have sat with the dying in Lordaeron, dear, so you already know the half of my work that isn't bandages." },
   },
   notice = {
@@ -870,7 +870,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Nurse Neela, and I teach first aid to anyone who wants to learn it. The priest is always busy somewhere else when you're bleeding, so carry a bandage." },
+        { id = "h_default", key = true, text = "I'm Nurse Neela, and I teach first aid to anyone who wants to learn it. The priest is always busy somewhere else when you're coming apart at the seams, so carry a bandage and a needle." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dear? I'm told you can mend a wound with a word, which would put me out of work, so do be quiet about it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, dear? Sit down and let me see those paws, or hands, whichever you're using today." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, dear? Then you'll need bandages more than anyone, so come and learn before you bleed out somewhere I can't reach you." },
@@ -894,7 +894,7 @@ P:NPC {
         { text = "Do you think the Light can mend the dead, Nurse?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye, Nurse.", next = "END" },
       },
-      again = { { id = "h_again", text = "Is there anything else, dear, before I go back to rolling bandages?" } },
+      again = { { id = "h_again", text = "Is there anything else, dear, before I go back to rolling bandages? The dead go through them faster than you'd think, since nothing of ours closes on its own." } },
     },
     past = {
       lines = { { id = "p_default", text = "I was, in a little house near Lordaeron, and I nursed people through the plague until it took me too. When I woke up, the first thing I did was look for someone to help, so I suppose some habits outlast the grave." } },
@@ -971,7 +971,7 @@ P:NPC {
     third = "{name} met Zachariah Post, who sells undead horses in Brill.",
   },
   greetings = {
-    { id = "g_shop", text = "Looking for a mount that never tires? You've come to the right stable." },
+    { id = "g_shop", text = "Looking for a mount that never tires, never eats and never grieves when you fall? You've come to the right stable." },
     { id = "g_young", when = { maxLevel = 39 }, text = "Come back when you're more experienced, friend, but you're welcome to look at the horses until then." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You look at my horses like a knight of the Silver Hand, measuring the legs before the face. You'll have ridden a white charger once, and mine are bonier, but they don't scare and they never tire." },
   },
@@ -1058,7 +1058,7 @@ P:NPC {
         { text = "Would a paladin ride one of your horses into battle, Zachariah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else? The horses aren't going anywhere, and neither am I." } },
+      again = { { id = "h_again", text = "Anything else? The horses aren't going anywhere, and neither am I; the dead keep very few appointments." } },
     },
     where = {
       lines = { { id = "w_default", text = "The same place we come from, mostly: the plague left plenty of dead horses in Lordaeron, and the Dark Lady's servants know how to raise them. They were warhorses and farm horses once, and now they're ours." } },

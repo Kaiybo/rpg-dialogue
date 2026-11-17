@@ -99,7 +99,7 @@ P:NPC {
         { text = "Why would you want the Light on your mushrooms, Gwyn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else, dear? I've got all night, and so do the mushrooms." } },
+      again = { { id = "h_again", text = "Anything else, dear? I've got all night, and so do the mushrooms; neither of us minds the dark." } },
     },
     where = {
       lines = { { id = "w_default", text = "Some grow right here in the crypts, under the stairs where it's wettest, and the best ones grow on the old logs near Lordamere Lake. I don't go out myself anymore, because the worgen near Pyrewood don't care that I'm already dead." } },
@@ -161,7 +161,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Couldn't tell you, dear. Ask the High Executor; he knows everything that moves in this forest." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, dear. Ask the High Executor; he knows everything that moves in this forest, and most of what's stopped moving." } },
   },
 }
 
@@ -263,7 +263,7 @@ P:NPC {
         { text = "Should a Forsaken paladin wear the Silver Hand's colours, Andrea?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else? Make it quick, I have hems to finish." } },
+      again = { { id = "h_again", text = "Anything else? Make it quick; I have hems to finish, and the Deathguard keep coming back with bits of themselves caught in them." } },
     },
     past = {
       lines = { { id = "p_default", text = "A seamstress in Lordaeron, and a good one, though nobody from those days is left to say so. I made dresses for weddings once, and now I make robes for corpses who don't care how they look." } },

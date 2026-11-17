@@ -179,7 +179,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "No idea. Go and scavenge something useful instead." } },
+    _none = { { id = "tp_none", text = "No idea. Go and scavenge something useful instead; the dead can't afford idle hands." } },
   },
 }
 
@@ -539,7 +539,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_holland", text = "Oh, good, a pair of hands! The Society always needs more hands, especially ones that don't shake." },
+    { id = "g_holland", text = "Oh, good, a pair of hands! The Society always needs more hands, especially ones that don't shake or drop off in the doom weed." },
   },
 
   notice = {
@@ -602,7 +602,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Junior Apothecary Holland, of the Royal Apothecary Society, though I won't be junior for long. Johaan's teaching me, and I'm learning fast, and the fields around Brill are full of useful things." },
+          text = "Junior Apothecary Holland, of the Royal Apothecary Society, though I won't be junior for long. Johaan's teaching me, and the fields around Brill are full of useful things, most of them deadly to the living, which is rather the point." },
         { id = "h_weed", tags = { "news" }, when = { questActive = TODO_QUEST("Doom Weed") },
           text = "Doom weed grows in the fields around the town, and in the graveyard, too, where it's thickest. Gather me a good bundle, and mind the roots; they're the part I want." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the elements have any use for doom weed, do you think? I've so much of it, and only one Johaan to give it to." },
@@ -629,7 +629,7 @@ P:NPC {
         { text = "What would you want to test on a paladin, Holland?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day, Holland.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? I've a pot about to boil, but talk fast." } },
+      again = { { id = "h_again", text = "Something else? I've a pot about to boil, and the fumes would kill you if you were still breathing, so talk fast." } },
     },
     weed = {
       lines = {
