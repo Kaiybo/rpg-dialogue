@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.79.0 (2026-11-17)
+A tidier settings page. No new files: a /reload is enough.
+
+- **Nothing overlaps any more.** Long options that wrap onto two lines no longer creep into the row above, and the font samples sit on their own line instead of running into the next button.
+- **Buttons fit their text.** The choice buttons are wider, and a name too long for one (like a font or the other-addons mode) is cut with "..." and shown in full when you hover it.
+- **Click the words, not just the box.** Clicking an option's text ticks its box, for options and content packs alike.
+- **Content packs in two columns**, without "RPG Dialogue:" on every line, so the page is about a third shorter.
+- A dark background behind the page so it stays readable over the game world, a short line under the title, more room between sections, and slider values in gold.
+- "Font for names" now offers "Match the window" instead of the long Friz Quadrata/Morpheus name.
+
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
 
