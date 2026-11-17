@@ -172,6 +172,17 @@ local function people(add, c, search)
         local imp = voiceText(p.def.impression, ctx)
         if imp then add(NOTE .. imp .. "|r") end
       end
+      -- Rivals (0.57.0): only the ones you've met, with where you stand with each.
+      local rivals = {}
+      for _, r in ipairs(ns.Disposition and ns.Disposition.Rivals(p.def) or {}) do
+        local rm = c.npc[r]
+        if rm and (rm.times or 0) > 0 then
+          local rn = ns.Disposition.RivalName(r)
+          local a = rm.affinity or 0
+          rivals[#rivals + 1] = a > 0 and L.J_RIVAL_SIDED:format(rn) or a < 0 and L.J_RIVAL_CROSSED:format(rn) or rn
+        end
+      end
+      if #rivals > 0 then add(DIM .. L.J_RIVALS:format(table.concat(rivals, ", ")) .. "|r") end
       local told = topicNames(p.m.topics)
       if #told > 0 then add(L.J_ASKED_ABOUT:format(table.concat(told, ", "))) end
       local line = p.m.lastLine and ns.Data.Line(p.m.lastLine)
