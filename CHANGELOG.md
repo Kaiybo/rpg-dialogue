@@ -20,6 +20,11 @@ Much more to ask about. Every named NPC in every pack has new "Ask about..." ans
 - **Topics that almost nobody answered now have plenty of answers**: the Deadmines, the Stockade, the Valley of Heroes, Heroes' Vigil, the Brotherhood of Northshire, the hives of Silithus, C'Thun, the Firegut, Dreadmaul and others.
 - **Everyone else:** each role (guards, innkeepers, citizens, soldiers, priests, scholars, nobles, vendors, trainers and more) answers the big topics with Alliance, Horde and Forsaken versions; every town's citizens have 2 to 6 local takes; capital guards and class trainers have their own; goblin staff in Booty Bay, Gadgetzan, Ratchet and Everlook stay neutral and talk business.
 
+## 0.80.0 (2026-11-17)
+Betty Quin has something to say. New file: restart the game fully (a /reload won't load it).
+
+- **Betty Quin** (Stormwind 1.27.0), who teaches enchanting upstairs at Cordell's in the Mage Quarter, now has a full conversation: what enchanting is and why you have to break things to make things, how a cooper's daughter from Goldshire ended up working for Lucan and Jessara Cordell, the jar from Dalaran that nobody should open, life in a Mage Quarter that the whole city now leans on, and her lesson for campers (Camping 101: Enchanting). She notices fellow enchanters, mages, paladins, young humans and anyone who grew up on the Mage Quarter's streets.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
