@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Park, and precious little else, because the nobles wanted halls and the masons gave them halls. I grew up on a Westfall farm, and some nights I think I built a city that has forgotten where its bread comes from." } },
+      choices = {
+        { text = "Stone and law keep people safe. The fields can look after themselves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then tear up a street or two and let the land back in.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Edwin did, and every mason who walked out with him, which is why the Defias come and go under this city as they please. I gave SI:7 copies of the old plans, though I suspect Shaw had them before I did." } },
@@ -116,6 +125,7 @@ P:NPC {
           text = "A mage, good. Your Quarter's drains are giving me headaches, because something in them keeps eating the mortar." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I draw walls, but someone has to stand on them, and the drawings never mention how cold it gets up there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Tell me honestly whether the statues look right from the road." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my streets. I laid most of these stones myself, so forgive me if I wonder what someone who shapes living things makes of them." },
       },
       again = {
         { id = "h_again", text = "What else? I've drains to redraw." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "Does the city have room left for a hunter's beasts, Architect?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever pray in the Cathedral you helped build?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would justice look like for the Stonemasons, Architect?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Did you leave room for anything green when you drew the city, Architect?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

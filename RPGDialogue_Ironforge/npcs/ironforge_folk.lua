@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I think anythin' that tells folk tae be kind tae each other gets along fine, whatever name it answers to. The priests'll argue the details, but I've never seen a sermon stop a trogg." } },
+      choices = {
+        { text = "Every faith that guards the weak walks the same road.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Elune is not the Light, and the difference matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That a shield's for others first an' yerself second, an' that holdin' a line is a kind o' prayer. My young ones learn the same from warriors, mind, for there's no paladin alive who couldnae use a lesson in standin' firm." } },
@@ -93,6 +102,7 @@ P:NPC {
           text = "I'll speak wi' ye, warlock, because the Light turns nobody away, but I'll no' pretend I'm comfortable doin' it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The Light loves a strong arm as much as a strong heart, an' ye'd be welcome among my young ones." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The Light shines on the high snows as well as on the Hall, an' I'd no' be surprised if it walks wi' ye out there." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The Light's no' fussy about beards, an' I'm told nature's no' fussy about fur or skin, so we've that in common." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The Light's patient, but my students aren't." },
@@ -109,6 +119,7 @@ P:NPC {
         { text = "What can a warrior learn from your paladins, Brandur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light have a place in the hunt, Brandur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins and priests ever argue about faith, Brandur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you think the Light and Elune get along, Brandur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -213,6 +224,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not that I know of, for your people look after their own, and I admire them for it. The children I care for are mostly the war's leftovers, and some of them would love to meet someone who can turn into a cat." } },
+      choices = {
+        { text = "Then I'll visit them. Every child deserves a little wonder.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "My people come first. Stormwind should tend its own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Half of them, at least, and they practise with broom handles in the yard until Stephanie takes the brooms away. A good many of their fathers were soldiers who never came home, so I suppose it's natural, though it breaks my heart a little." } },
@@ -279,6 +299,7 @@ P:NPC {
           text = "I won't ask what you carry with you, but I'll ask you to keep it away from the collection box, if you would." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The children at the orphanage would be thrilled to hear it, for half of them want to grow up to be one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The children would love to hear about the beasts you've seen, if you're ever passing through Stormwind." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from Teldrassil! You've come a long way, and I hope you'll forgive me for asking whether you'd spare a thought for Stormwind's orphans." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've time, plenty of it, and a cart that won't fill." },
@@ -297,6 +318,7 @@ P:NPC {
         { text = "Do the orphans really want to become warriors, John?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would the orphans really want to hear hunting stories?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would the orphans really want a paladin to visit them?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are there kaldorei children among Stormwind's orphans?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck, John.", next = "END" },
       },
     },
@@ -416,6 +438,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It's the only kind I'm any good at, so I hope so. Every blade I make goes to someone defending something, and I like to think the Light sees the care in that." } },
+      choices = {
+        { text = "Honest work done well is worship enough.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A blade is still a blade, whatever prayer goes into it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -469,6 +500,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock at the Church's anvil! I'll ask you to keep your distance from the blessed metal, for it's been blessed once and I'd not like to bless it again." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I'll forge you arrowheads if you need them, and bless the steel while I'm at it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Nature's work and the Light's work aren't so far apart, I think, though you'll find my hammer louder than your groves." },
       },
       again = {
         { id = "h_again", text = "What else? The fire's in no hurry." },
@@ -486,6 +518,7 @@ P:NPC {
         { text = "Can a warlock's presence harm blessed metal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you forge for hunters as well as the faithful?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you pray at your anvil, Jordan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can work at the anvil be a kind of prayer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Stay warm, Jordan.", next = "END" },
       },
     },

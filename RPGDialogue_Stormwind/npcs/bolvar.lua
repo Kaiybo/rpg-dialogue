@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It does, so long as I hold this seat, though the House of Nobles asks what the Alliance owes a people it barely knows. Darnassus answered when we called, and I mean to answer when they do." } },
+      choices = {
+        { text = "Then I'll hold you to it, Highlord, and so will my people.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My people stood alone for ages. We need nobody's oath.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I trust Mathias Shaw, which isn't the same thing, and I've signed orders I'd sooner not have read twice. A kingdom with its king missing can't afford clean hands everywhere, though I pray it keeps them where it can." } },
@@ -107,6 +116,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The Church tells me what's kept under the Slaughtered Lamb, and the Church is not pleased, nor am I. You stand in my hall openly, though, so I'll hear you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The kingdom's roads run longer than its soldiers can walk, and I'm grateful for anyone who knows the wilds past Elwynn." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei in the Regent's hall. Your people's envoys have been unfailingly courteous, and I'd like Stormwind to deserve that courtesy." },
       },
       again = {
         { id = "h_again", text = "What else? Briefly; the council sits at noon." },
@@ -131,6 +141,7 @@ P:NPC {
         { text = "Why does the crown tolerate the Lamb's warlocks, Highlord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you ever find time to pray, Highlord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you miss the field, Highlord?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does Stormwind truly mean to stand by the night elves, Highlord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },

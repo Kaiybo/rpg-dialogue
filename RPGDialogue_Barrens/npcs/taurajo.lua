@@ -258,6 +258,15 @@ P:NPC {
         { text = "Why would you help us at all?", next = "why" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "*snort* Because the land is ours, and Agamaggan's blood gave us the thorns before any tauren walked here. Mangletooth sits in a cage, but the Razormane remember it, and the Bristlebacks forget, which is why they are weak." } },
+      choices = {
+        { text = "The Horde holds this land now, and that's the end of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your people were here first. Their claim deserves a hearing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -270,12 +279,14 @@ P:NPC {
           text = "*snort* Nak, Kuz and Lok were Mangletooth's own, and they left him to the cow-folk's axes. Now they learn what Mangletooth thinks of that." },
         { id = "h_thorns", when = { metBefore = true }, text = "*snort* Mangletooth dreams of the thorns. Great thorns, taller than the cow-folk's poles. One day Mangletooth goes home to them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "*snort* A spirit-talker. The Razormane have geomancers who talk to the thorns and the earth, and they are stronger than you, so do not wave your little totems at Mangletooth." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "*snort* A shape-changer. The Razormane geomancers say your kind are only beasts pretending to be tall folk, so Mangletooth asks which one is pretending." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "*snort* A big one with an axe, good. Mangletooth knows which Bristlebacks need killing, and you look like you enjoy killing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "*snort* A hunter, with a beast. Mangletooth likes beasts better than tall folk, because beasts don't lock cages." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "*snort* A healer comes to Mangletooth's cage. The tauren chains rub, and the Razormane witch doctors are far away, so maybe you will do what the tauren will not." },
       },
       choices = {
         { text = "Do the Razormane geomancers serve Agamaggan or the earth?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why do the quilboar fight the tauren for this land, Mangletooth?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why help us at all?", next = "why" },
         { text = "Who is Agamaggan?", next = "agamaggan" },
         { text = "That lock wouldn't take me long to pick.", next = "rogue", when = { class = "ROGUE" } },
@@ -389,6 +400,15 @@ P:NPC {
         { text = "What have you learned on your travels?", next = "learned" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Carefully, because the claws aren't forged and a bear's hide isn't armor I can weigh. So far I've written that a druid is their own weapon and the land is their smith, and I'd welcome a better line, if you've one to give me." } },
+      choices = {
+        { text = "Write that we fight openly, as the land's own guardians.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Write that we fight however we must, and that we win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -397,11 +417,13 @@ P:NPC {
           text = "I'd like to see what the enemy fights with. Bring me their weapons. I promise to study them before I melt them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Let me see that weapon you carry, because I've met hunters with a dozen different bows and guns, and every one tells a story." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've a chapter on the Horde's holy implements still to write for the Warchief, and I'd be grateful to know whether yours have ever been used in anger." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I've a chapter for the Warchief on how each people fights, and your kind fight in whatever shape suits the moment, which makes for very difficult notes." },
       },
       choices = {
         { text = "What have you learned so far?", next = "learned" },
         { text = "What does my weapon tell you about me?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "A shaman's totems are made here too. Do you study them?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "How would you write about a druid's way of fighting, Tatternack?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Daggers. What do they tell you about me?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I carry a staff and a wand. Write that down.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does my weapon tell you, Tatternack?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -520,6 +542,15 @@ P:NPC {
         { text = "What's Taurajo like for travelers?", next = "camp" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not like this, because the drought has driven them in close to the camp after the kodo and the scraps. The herders want them all killed, but I keep thinking they're only hungry, the same as everyone else in the southern Barrens." } },
+      choices = {
+        { text = "The herds come first. Thin the packs before they strike.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The hyenas belong here too. Find a way to live alongside them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -527,12 +558,14 @@ P:NPC {
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when the moon's up. I've never once found it funny." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so sit by the fire. The kodo herders say it burns brighter when a shaman sits near it, and I've stopped arguing with the kodo herders." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at Taurajo's fire, and welcome. Sit and eat, and if the hyenas start laughing out past the walls, you'll forgive me if I don't laugh along." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and covered in dust from the road south. Taurajo welcomes you, and so does my fire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Jorn Skyseer will want to meet you, if you haven't already met him, because he teaches every hunter who passes through." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at Taurajo! Sit by the fire, because the herders come in limping every night and I can only do so much with stew." },
       },
       choices = {
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Have the hyenas always plagued Camp Taurajo, Byula?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What's Taurajo like?", next = "camp" },
         { text = "Do travelers ever slip out of Taurajo without paying?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who threatens Camp Taurajo, Byula?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },

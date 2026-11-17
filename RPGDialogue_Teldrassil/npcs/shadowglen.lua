@@ -435,10 +435,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Gladly, for yours is the road Malfurion walked before you, and he sleeps in the Dream now while the rest of us keep his ways. Walk it gently, and may the wild know you as its own." } },
+      choices = {
+        { text = "I'll walk gently, and keep the ways Malfurion taught.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find my own way, even if it isn't Malfurion's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way up at Aldrassil's crown! From here the moon seems close enough to touch, and I've always thought priests ought to see it so." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in Shadowglen of all places! Mind your step on the ramp, {class}, because Aldrassil's bark has seen fewer iron boots than you have." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A young druid, setting out from Shadowglen. Aldrassil has watched many of the Circle's children go down that path, and every one of them carried a little of its strength away with them." },
         { id = "h_default", key = true,
           text = "Tenaron Stormgrip. I watch over Shadowglen from Aldrassil's crown. Every young elf who leaves the glade passes me on the way." },
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Tenaron's Summons") },
@@ -470,6 +480,7 @@ P:NPC {
         { text = "I'd heard the kaldorei fought demons once.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the moon look different from Aldrassil's crown?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a paladin owe the young elves of Shadowglen?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Will you bless a druid's road, Tenaron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go when I'm ready.", next = "END" },
       },
     },
@@ -653,6 +664,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Perhaps one of the elders could, but you are as young as he is, and webwood venom is stubborn stuff. Help me with the antidote instead, and save your healing for whatever bites you next." } },
+      choices = {
+        { text = "The antidote, then, and I'll gather what it needs properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll try my own healing on him anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I'm glad, for my friend Iverron lies poisoned near the Webwood and I can't stop thinking of him, so perhaps you'll go and see him for me." },
@@ -668,6 +688,7 @@ P:NPC {
           text = "Bitten by Githyiss? I've warned him about those spiders more times than I can count! All right, then, we can make an antidote." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, good, because my friend Iverron went too near the spider cave, and I'm not much use with a blade." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know spider tracks when you see them, and there are far too many near the cave today." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Iverron has gone near the spider cave again, and I keep thinking a druid's healing might do more for that venom than anything I can brew." },
       },
       again = {
         { id = "h_again", text = "What else? Sorry, I keep looking toward the cave." },
@@ -683,6 +704,7 @@ P:NPC {
         { text = "I'll help him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Should I go into the Webwood after him, Dirania?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are the Webwood spiders coming out of their cave?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Couldn't a druid simply cure Iverron's poison, Dirania?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
     iverron = {
@@ -799,6 +821,15 @@ P:NPC {
         { text = "Then I'll watch from a distance with you.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They came up with the tree like everything else on it, so I suppose they are, but there are more of them every season and they're larger than they ought to be. The tree feeds them well, and I would very much like to know why." } },
+      choices = {
+        { text = "Then thin them only as much as the balance needs.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "There are too many, so clear out the whole cave.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You've a gentle look about you, which is more than I can say for most of the people who come asking about the cave." },
@@ -814,6 +845,7 @@ P:NPC {
         { id = "h_shipped", when = { questDone = TODO_QUEST("Webwood Egg") },
           text = "The egg has gone to Darnassus with the venom, and I'll follow when I'm done here, or when it hatches, whichever comes first." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to study the Webwood spiders up close, I suppose, which is the opposite of my method." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll want to tell me the Webwood spiders are part of the balance too, and I won't argue, though I'd like the balance to keep its fangs to itself." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm only sitting, after all." },
@@ -830,6 +862,7 @@ P:NPC {
         { text = "What's the best way to fight the Webwood spiders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have the spiders taken anyone from the glade, Gilshalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would the spiders hear a paladin coming, Gilshalan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are the Webwood spiders really part of the balance, Gilshalan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },

@@ -179,6 +179,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because nobody knows where to look by the third week of winter, and that's when they all come to me. Forage all you like in summer, but I'll keep a sack of flour on the shelf for when you change your mind." } },
+      choices = {
+        { text = "Fair enough. A careful traveller plans for winter.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'd sooner trust the forest than a sack of flour.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Torches, linen and rope, and always after a fight, never before one. If they'd buy them first, half the kobolds in Fargodeep would be dead and half the warriors I sell to would still have both eyebrows." } },
@@ -250,6 +259,7 @@ P:NPC {
           text = "A mage. You'll be wanting water and bread, because your lot always forget to eat, and I sell plenty of both." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want rope, I'd guess, and you won't tell me what for; nobody does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Rope for snares, flint for the fire, and a sack for whatever you bring back, I'd guess." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you look like someone who lives off berries and moonlight. Everyone forgets something, though, so take a look round before you go." },
       },
       again = {
         { id = "h_again", text = "Anything else? Can I interest you in bags? You'll need more than you think." },
@@ -265,6 +275,7 @@ P:NPC {
         { text = "Do hunters buy much from a general store?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who buys the most bandages from you, Hamfist?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a paladin carry that others forget, Hamfist?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why buy food when the forest feeds anyone who knows where to look?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },
@@ -314,6 +325,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every beast and every farm, because I buy from the folk east of the river and a couple of hunters I trust. I don't take wolf, whatever anybody tells you, because a wolf that's been eating carrion makes a man sick for a week." } },
+      choices = {
+        { text = "Good. A butcher who knows his beasts wastes less of them.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Meat's meat. Folk shouldn't ask where it comes from.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The best, because they eat like a garrison and don't ask where it came from. Feed a fighter well before a march and he'll hold a line all day, and that's not cooking, that's sense." } },
@@ -387,6 +407,7 @@ P:NPC {
           text = "There's a smell on you, and it isn't from my shop. Keep it away from the meat, would you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I'll bet you can't tell a boar shoulder from a boar's backside. Most of you can't." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now you're someone I can talk to; bring me a decent boar and I'll make you sausages fit for a marshal." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you're looking at my hooks like they've done something to you. It's mutton and boar, nothing you'd have known by name." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before the cleaver gets cold." },
@@ -402,6 +423,7 @@ P:NPC {
         { text = "Would you buy the boar I bring you, Toddrick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your scraps ever go to the poor, Toddrick?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have the gnolls troubled your suppliers, Toddrick?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you know where all your meat comes from, Toddrick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -479,6 +501,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every week, and I send them out to pick it themselves, because I can't keep a crate of fresh herbs alive in a wagon. If you ever wanted to supply that side of things, I'd split it fair, though I suppose your kind don't care much for wagons." } },
+      choices = {
+        { text = "A proper trade with fair shares suits me well.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'd rather pick what I need and owe nobody.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a fighter who can mend his own mail saves a fortune, and one who can't spends it at Argus's forge. The clever ones learn blacksmithing; the rest keep Argus very comfortable." } },
@@ -549,6 +580,7 @@ P:NPC {
           text = "A warlock, and I'll sell you what's on the shelves, but I don't keep anything for your sort behind the counter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll buy once and never come back, I expect, unless you've taken up a craft." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now you'll come back, because hunters skin, and skinners need salt and thread." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at my wagon! Crafters come in every shape, but you're the first who looks like you could grow what I sell instead of buying it." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wagon's not going anywhere, not yet anyway." },
@@ -564,6 +596,7 @@ P:NPC {
         { text = "Do many hunters take up leatherwork?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does a merchant like you ever pray, Bouden?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has anyone cheated you on the road, Bouden?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do crafters ever ask for things only the forest provides?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -617,6 +650,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because a bear's hide bleeds and my oak and iron don't, and when a recruit runs out of strength, my shield is still there. I'll grant you a bear looks a good deal more frightening on the Goldshire road, though." } },
+      choices = {
+        { text = "Then I'll stand beside your shields and not mock them.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Hide and claw are enough. Shields are for the timid.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Close to the body and a little high, so the edge takes the blow and not your arm. The recruits hold it out like a dinner tray, and the first gnoll to hit it tells them why that's wrong." } },
@@ -686,6 +728,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in an armorer's shop. You'll want nothing I make, though I'll sell you a buckler if you insist." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Mail, then, and something that lets you draw a bow without your shoulders creaking." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a shield on you, which I suppose means you've some trick that serves instead. I'd like to hear it, so long as it doesn't put me out of business." },
       },
       again = {
         { id = "h_again", text = "Anything else? The forge doesn't stoke itself, you know." },
@@ -701,6 +744,7 @@ P:NPC {
         { text = "What armor would you put on a hunter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever make armor for the Abbey's healers, Krighton?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What makes a shield worthy of a paladin, Krighton?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "A bear's hide stops more than wood. Why carry a shield at all?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -754,6 +798,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothing at all, and I'd starve if everyone fought like you, so I'll thank you not to spread it about. I once sold a set of iron claws to a Westfall man who wanted to look fierce, and he cut himself putting them on." } },
+      choices = {
+        { text = "Every fighter should master a proper weapon first.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "There's no right weapon. Fight with whatever works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Whichever you can still swing when you're tired, because that's when the fight's decided. Lyria's students learn that the hard way, and then they come back to me with a sore wrist and the right question." } },
@@ -825,6 +878,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. You'll be after a dagger for your rituals, I suppose, and I'll sell you one, though I'd rather not know which ritual." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my rack. You'll be wanting a polearm, or an axe for close work, I'd guess." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and those hands have never held anything heavier than a staff, if you'll forgive my saying so. I'm Corina Steele, and before you laugh, I've heard it." },
       },
       again = {
         { id = "h_again", text = "Another question? Ask away; the grinding stone doesn't mind." },
@@ -840,6 +894,7 @@ P:NPC {
         { text = "What weapon should a hunter carry for close fighting?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does it trouble you, making weapons that kill, Corina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What hammer would you give a paladin, Corina?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you forge for someone who fights with claws?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -889,6 +944,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Most of it, because Eagan and Helene skin whatever the hunters bring in and I sell it on as jerkins. Wolf, boar and the odd bear, though I'd sooner not say that last one too loudly in front of you." } },
+      choices = {
+        { text = "Hunted cleanly and used fully, that's honest work.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Say it however you like. A hide's a hide.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Corina would say I'm being unkind, and she's right, mostly. Plate's for people who've decided not to run, and there's a difference, though I'd still rather be in leather when the gnolls come." } },
@@ -960,6 +1024,7 @@ P:NPC {
           text = "A mage, and you'll be wanting cloth, which is the only thing I sell that your sort ever buys." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my shop. Corina's next door; you'll want her, not me, unless it's a padded jack you're after." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Pockets, then, and plenty of them; I knew it before you said a word." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you're wearing leather already, so I'll not pretend you need mine. Sit down a moment, though, because nobody else will." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm not going anywhere, and neither is she." },
@@ -975,6 +1040,7 @@ P:NPC {
         { text = "Why do hunters want so many pockets?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do priests wear out fastest, Kurran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why sell leather to folk who run from fights, Kurran?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does any of your leather come from Elwynn's own beasts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -1028,6 +1094,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They mind it less than the cold, though the young ones kick at the walls by the end of it, and I can't say I blame them. I turn them out on the first dry morning of spring, and you've never seen anything so glad in your life." } },
+      choices = {
+        { text = "Stalls are a mercy in winter, and you keep them well.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Beasts belong outside. Walls do them more harm than cold.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "None of them, if I'm honest, because these are road horses and they've never heard steel ring. The old grey might, since his rider was a soldier, but I'd not ask him to go again." } },
@@ -1099,6 +1174,7 @@ P:NPC {
           text = "Keep that creature well outside the stable, please, because my horses have better manners than most people, and less patience for demons." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a horse that doesn't mind the smell of blood, and I can tell you which ones do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring your beast inside; I've a stall that's dry and a bucket that's clean." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and I'll wager the beasts in my stalls like you better than they like me. That grey mare has her ears up already." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quietly, though; somebody's asleep in the end stall." },
@@ -1114,6 +1190,7 @@ P:NPC {
         { text = "Do the hunters' beasts get on with your horses?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think beasts have souls, Erma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Whose warhorse was it, Erma?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your horses mind being stabled all winter?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just visiting.", next = "END" },
       },
     },
@@ -1166,6 +1243,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because one day your word won't come, when you're tired or knocked down or too far gone to speak it, and a bandage doesn't care how you feel. Learn both, and you'll be the one still standing at the end of the fight." } },
+      choices = {
+        { text = "You're right. I'll learn the bandage as well as the word.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Nature mends better than linen. I'll trust my gift.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because you stand in front, and the gnolls hit what's in front. Carry linen and learn to wrap a wound one-handed, and you'll spend less time in my chair and more on your feet." } },
@@ -1227,6 +1313,7 @@ P:NPC {
           text = "A warlock. Your wounds are the strangest I see, because half of them you've done to yourselves." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I'll have you in my chair before the week's out, I expect. Your lot always come back." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your wounds are usually teeth marks, and teeth marks go bad quickly, so clean them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard your kind can close a wound with a word, so I suppose you'll want to skip my lesson, and I'll tell you now I'd rather you didn't." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your hands clean while you ask, if you don't mind." },
@@ -1242,6 +1329,7 @@ P:NPC {
         { text = "Why do warriors keep ending up in your chair?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How should I care for a bite from a wolf?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should a paladin learn to bandage, Michelle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why bother with bandages if I can heal with a word?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -1302,6 +1390,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every day, and I pay it, because I'd rather owe a debt I chose than beg for gifts the way you do. Your forest gives freely until the day it doesn't, and then you'll find you never read the terms." } },
+      choices = {
+        { text = "A gift isn't a debt. The forest asks only respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair point. Power you take is at least power you own.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That it's direct, and I don't sneer at direct. You pay for your strength in sweat and blood; we pay in other coin. Both debts come due, though yours, I'll admit, is easier to read." } },
@@ -1362,6 +1459,7 @@ P:NPC {
           text = "A mage, down here. Zaldimar must have sent you to spy, or else you've lost your way to the privy." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my stairs. You've the look of someone who settles things with a sword, which is crude, but honest." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've a beast on a leash too, I see, though yours was born and ours were summoned." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid has come down among the barrels, I see. You'll find very little that grows in this cellar, and nothing I'd care to show you in daylight." },
       },
       again = {
         { id = "h_again", text = "Another question? Then lean closer and whisper it." },
@@ -1380,6 +1478,7 @@ P:NPC {
         { text = "What does a warlock think of a warrior's way?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is a hunter's beast so different from a warlock's demon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why should I let your cellar stand, Crowe?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you ever wonder what your power costs the land?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1469,6 +1568,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because it bites and doesn't pretend otherwise, which is more than I can say for most of the folk upstairs. Your bears and cats would bite too, if you hadn't charmed them out of it." } },
+      choices = {
+        { text = "My beasts aren't charmed. They choose to stand with me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bound or charmed, a beast obeys, and that's what matters.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "My voidwalker has, for practice, and it was a very long afternoon for everyone. A warrior can't be frightened and can't be bored, and those are the two things my pets do best." } },
@@ -1538,6 +1646,7 @@ P:NPC {
           text = "A mage in my training room. Try not to set anything alight, because my pets have long memories." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the training room. My imp is already planning to set your boots alight; I'd stand away from it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your pet and mine are already staring at each other; let's see which blinks first." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and my imp's hissing at you, which I take as a compliment to us both." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, he's getting restless." },
@@ -1555,6 +1664,7 @@ P:NPC {
         { text = "Would you teach my beast new tricks, Darkheart?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Don't you fear what your demons will do to you one day?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How can you keep demons beneath the inn the whole town drinks in?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why keep a creature that bites you?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1623,6 +1733,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Still plenty, because I teach every youngster to throw back the little ones, though Matt throws back the big ones by accident. The Goldshire pond's another matter, so try Crystal Lake if you want supper." } },
+      choices = {
+        { text = "Throw back the young and the lake feeds you forever.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "If the fish bite, keep them. Lean seasons come regardless.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, which most of your lot have never been made to learn. You charge, the fish swims off, and you go home with nothing, so sit, wait, and let the thing come to you." } },
@@ -1693,6 +1812,7 @@ P:NPC {
           text = "A mage. You could probably freeze the whole pond and pick the fish out like plums, but where's the sport in that?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at the pond! Put the sword down a while, because the fish don't fight back, and that's the joy of them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at the pond! You'll know about waiting, then, and you'll know about lying about the size of things." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you walked up so quietly the fish didn't even notice. That's a gift I'd pay to learn." },
       },
       again = {
         { id = "h_again", text = "Anything else? Ask it softly, mind." },
@@ -1709,6 +1829,7 @@ P:NPC {
         { text = "Is fishing really so like hunting, Lee?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is fishing a kind of prayer to you, Lee?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is Crystal Lake safe these days, Lee?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is the lake fished out, or does it still give plenty?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good fishing.", next = "END" },
       },
     },
@@ -1765,6 +1886,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Gladly, because it's the same hide whether a hunter took it or the winter did, and I'd rather it kept someone warm than rotted in the bracken. Eagan says I'm sentimental about it, but he's the one who buries the ones too far gone." } },
+      choices = {
+        { text = "Better used than wasted. That's a fair thanks to give.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Old or young, a hide's worth coin. Take whatever comes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "If he's killing wolves anyway, then aye, because a pelt left on the road is coin left in the dirt. Most warriors hack at it with a sword and bring me a rag, so learn the knife and you'll do better." } },
@@ -1836,6 +1966,7 @@ P:NPC {
           text = "A warlock. I hope you're not after pelts for anything strange, because I've had requests I'd rather forget." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll have a few pelts in your pack from the road, I'd wager, and none of them skinned properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now we'll understand each other; you take them clean and I'll show you how to take the coat clean too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and a druid, by the way you're eyeing my drying racks. I'll tell you what I tell everyone, which is that nothing here was killed for sport." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the drying rack while you think." },
@@ -1852,6 +1983,7 @@ P:NPC {
         { text = "What makes a pelt worth the skinning, Helene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does skinning ever trouble you, Helene?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the wolves trouble Goldshire as much as Northshire, Helene?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you skin a beast that died of old age?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -1908,6 +2040,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every hide I've got, because the loggers strip the bark before the logs go to Stormwind and sell it to me by the sack. It's the one good thing to come out of that mill, though I'd not say so to Raelen." } },
+      choices = {
+        { text = "Good. A trade that uses every part keeps things in balance.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Trade or not, the mill takes too much. Somebody should stop it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "All the use in the world, underneath: belts, straps, bracers, boots. A warrior's mail is only as good as the leather holding it on, and I've seen a breastplate fall off in a fight because of one bad strap." } },
@@ -1978,6 +2119,7 @@ P:NPC {
           text = "A mage. You won't want my leather, I suppose, but a good pair of boots is never wasted, even on a scholar." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your bracers are cracking at the buckle; I can see it from here, and so will a gnoll." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be bringing me hides, I hope, and better ones than the adventurers drag in." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and those are boots I'd like to take apart and learn from, if you'd ever let me. Who stitched them, and with what?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Hand me that awl while you think." },
@@ -1994,6 +2136,7 @@ P:NPC {
         { text = "Will you teach a hunter to work the hides he brings?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you ever stitched a wound instead of a boot, Adele?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you make anything for the soldiers at the garrisons, Adele?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you tan with bark from the Eastvale oaks?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },

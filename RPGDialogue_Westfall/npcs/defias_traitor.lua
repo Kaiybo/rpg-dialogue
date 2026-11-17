@@ -71,6 +71,15 @@ P:NPC {
         { text = "Something else, before we go.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "If you can do that, then you'll spot the lookouts VanCleef keeps in the Moonbrook houses before they spot me. Only don't leave me alone on the road while you're prowling, because I'm the one they want." } },
+      choices = {
+        { text = "I'll stay at your side, as I promised Stoutmantle.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they catch you, that's the price of your choices.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -83,6 +92,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours had better have a nose for an ambush, because the Brotherhood will have one waiting." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Save your prayers for the road, because if the Brotherhood catch us, we'll both be needing them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in all that shining plate. They'll see you coming a mile off, but maybe that'll make them think twice." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid, out here? The Brotherhood won't know what to make of you, and that suits me fine." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I don't like standing still." },
@@ -99,6 +109,7 @@ P:NPC {
         { text = "Where would the Brotherhood set an ambush on our road?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you want to make your peace before we walk, friend?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should I trust a man who betrayed his own crew?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I could prowl ahead as a cat and find their lookouts.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let's go.", next = "END" },
       },
     },

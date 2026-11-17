@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A good fire, a dry bedroll and a stone wall at my back, and I never sleep where the snow's drifting. You'd laugh at how much fuss it takes, but I'd rather fuss than freeze." } },
+      choices = {
+        { text = "Fuss is wise. The cold forgives nobody who's careless.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'd rather trust instinct than a list of rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Once or twice, when they came down from the hills looking for an easy camp, and I learned they'd sooner fight in the snow than on open ground. Keep your back to the fire and your face to the dark, and you'll see them before they see you." } },
@@ -88,6 +97,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and just in time, because my flint's gone damp and the fire's sulking. I don't suppose you'd mind?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit by the fire and warm your sword arm, then, for the Frostmane don't wait for anyone to thaw." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've slept out under the stars more nights than I can count, but I'd guess you've slept out as a bear, which is cheating." },
       },
       again = {
         { id = "h_again", text = "More questions? Good, because questions keep you warm." },
@@ -105,6 +115,7 @@ P:NPC {
         { text = "Have you fought the Frostmane trolls yourself, Eric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sort of prayers do you want said at your fire, Eric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you want help keeping this road safe, Eric?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you keep warm out here without a bear's coat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Stay warm.", next = "END" },
       },
     },
@@ -208,6 +219,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They trouble everythin' that can be eaten, an' they're no' fussy about what that is. The boars an' wolves have learned tae keep clear o' the trogg caves, which is more sense than half my recruits have." } },
+      choices = {
+        { text = "Then the troggs must be driven back, for the beasts' sake too.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Troggs are hungry beasts as well. Hunger isn't wickedness.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In the hills behind Anvilmar, fer they've dug in there an' come out at night tae chew on the supply crates. Green recruits charge them all at once an' come back wi' bruises, so go in steady an' keep yer friends close." } },
@@ -273,6 +293,7 @@ P:NPC {
           text = "There's a letter in my bag that's been coughin' smoke since ye walked up, an' I'll thank ye tae step back from the post." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Another warrior from Coldridge? Good, fer I've letters an' troggs both, an' I need someone fer the troggs." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll have come from the trainer at Anvilmar, then, an' ye'll want somethin' tae shoot." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Anvilmar, now that's a new one. The recruits'll stare at ye, so don't take it personal." },
       },
       again = {
         { id = "h_again", text = "What else? There's mail waitin'." },
@@ -290,6 +311,7 @@ P:NPC {
         { text = "Where are the troggs troubling the post, Sten?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting near Anvilmar, Sten?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's the post's worst trouble, Sten?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the troggs here trouble the wild beasts as well?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll get to it.", next = "END" },
       },
     },
@@ -381,6 +403,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They've witch doctors an' seers who mutter at bones an' snow, an' I'll no' pretend I know what answers them. Whatever it is, it's no friend o' Ironforge, so I'd thank ye no' tae make friends with it." } },
+      choices = {
+        { text = "Then the Frostmane must be watched and stopped.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Perhaps the Frostmane were here first. They might listen to a druid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Gatherin', I'd say, for the young ones have been raidin' further down the valley every week, an' a troll doesnae get bold wi'out someone tellin' him tae. A warrior at the edge o' my camp would let me watch them instead o' watchin' my back." } },
@@ -445,6 +476,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage would be handy against the Frostmane, for their shamans throw ice like snowballs an' I'm tired o' ducking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; my beard's been itchin' all mornin', an' that usually means somethin' wi' tusks is about tae come over the hill." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My beard's been itchin' all mornin', an' I'd say yer arrival explains it as well as anythin' does." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Quickly, before the cold gets into my ink." },
@@ -461,6 +493,7 @@ P:NPC {
         { text = "What are the Frostmane trolls up to, Envoy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the trolls worship, out there in the caves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How shall I deal with the Frostmane, Envoy?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Frostmane have shamans who speak to the beasts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
     },
@@ -562,6 +595,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It's a natural cave, cut by ice long before trolls or dwarves came near it, an' the Frostmane only widened it. I'll grant ye the place was bonny once, but they've filled it wi' bones." } },
+      choices = {
+        { text = "Then it should be taken back and cleansed.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Leave them their hold, and keep your watch from a distance.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strong enough, for it's a cave wi' one way in, an' the trolls know every turn o' it. A warrior could hold the mouth against a dozen o' them, an' I'd sooner it were that way round, wi' them inside an' us at the mouth." } },
@@ -640,6 +682,7 @@ P:NPC {
           text = "I've seen the troll witch doctors deal wi' spirits, an' I'll tell ye now ye've a touch o' the same smell about ye. That's no compliment, mind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My brother'll be glad tae hear it, though he'll no' say so; he likes his troubles where he can see them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The Frostmane hunt these hills too, an' I'd like tae know which o' ye is better at it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei at that. My brother'll say his beard warned him ye were comin', so ye may as well let him." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? I've a report to avoid writin'." },
@@ -658,6 +701,7 @@ P:NPC {
         { text = "Do the Frostmane trolls hunt the same beasts we do?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone gone into Frostmane Hold and not come back?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should we strike the hold, Senir, or watch it?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is the Frostmane Hold a natural cave, or did they dig it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go to the hold.", next = "END", fx = { affinity = 1, standing = { kharanos = 1 } } },
       },
     },
@@ -753,6 +797,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd mind if my patrons went hungry, but I'll grant ye a boar's a fine beast walkin' about as well. I only buy from hunters who take what they need an' no more, an' that's the best I can do." } },
+      choices = {
+        { text = "A clean hunt for honest need is the forest's own way.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Ale and ribs aren't need. That's appetite talking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -818,6 +871,7 @@ P:NPC {
           text = "If ye're here tae lift a cask, ye're too late; the brewers count them twice a day, an' they're meaner than I am." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in the distillery! I'll pour ye an ale, but if yer wee demon touches the vats, I'll pour the ale over it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' be one o' those that frowns at a dwarf for sellin' boar ribs, I hope, for they're the best in Dun Morogh." },
       },
       again = {
         { id = "h_again", text = "What else? Kegs don't tap themselves, though one did once, an' we don't talk about it." },
@@ -835,6 +889,7 @@ P:NPC {
         { text = "Would you buy boar ribs from a hunter, Ragnar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Thunderbrews really want their ale blessed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should be done about the Dark Irons who stole your recipe?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you mind if a druid prefers the boars alive?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "A pint, then.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -950,6 +1005,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A few have tried, an' a few have needed carryin' up the stairs after, so I pour yer people half a mug now. It's no' an insult, mind, it's the voice o' bitter experience." } },
+      choices = {
+        { text = "Half is wise. A druid should keep a clear head.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour it full. Rules are for sober folk.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one that comes out o' Coldridge, near enough, an' they all want the same three things: a bed, a pint an' tae tell me about the troggs they killed. I give 'em the first two an' listen tae the third, which is the hardest work in the inn." } },
@@ -1022,6 +1086,7 @@ P:NPC {
           text = "A warlock, eh? There's a room for ye, but I'll put ye at the end o' the hall, away from the families an' the brewers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit ye down; a warrior's earned a pint by breakfast in Dun Morogh, whatever else they've done." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ragnar'll want tae see ye, for he's mad for boar ribs an' short o' anyone tae bring them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Thunderbrew! Sit by the fire, friend, for ye kaldorei look as if ye've never seen snow, an' snow's all we've got." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a tap runnin'." },
@@ -1038,6 +1103,7 @@ P:NPC {
         { text = "Do hunters ever stay at the inn, Belm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your guests come back from the valley hurt, Belm?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Kharanos ever need defending, Belm?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do night elves ever drink Thunderbrew, Belm?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just a room, thanks.", next = "END" },
       },
     },

@@ -87,6 +87,15 @@ P:NPC {
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I gather serpentbloom from the Wailing Caverns, where druids were lost to a dream gone foul, and your elders can't decide whether I study the plant or the sickness. I study both, of course, which is exactly what they fear." } },
+      choices = {
+        { text = "Then say plainly what you study, because secrets breed distrust.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep your notes close. They needn't know everything.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -97,6 +106,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Splendid; the Wailing Caverns are full of things that bite, and I find warriors far more useful down there than poetry." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know a sick beast from a healthy one, which makes you more useful to the Society than most of the tauren I've asked." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, down here among the Pools of Vision. The tauren will assume you've come to bless the water, and I'd rather you didn't, because blessed water spoils my samples." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and so another of Hamuul's watchers. His students on Elder Rise are always terribly polite to me, which in my experience is how the living say they don't trust you." },
       },
       choices = {
         { text = "Do the tauren trust a priest's healing, Zamah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -110,6 +120,7 @@ P:NPC {
         { text = "What bites in the Wailing Caverns, Zamah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes the beasts in the Wailing Caverns sick, Zamah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The tauren look at my imp as if it were plague.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why do the druids distrust you, Zamah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -226,6 +237,15 @@ P:NPC {
         { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Hamuul tells no one anything, but his students like to ask, quietly, how many kodo we took this season and whether we spared the calves. I grumble about it and then I count, because they're usually right about what the herds can bear." } },
+      choices = {
+        { text = "Someone should keep count, or the herds won't last.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A hunter's own judgment should be enough, without anyone counting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Holt Thunderhorn, and I teach the hunters of Thunder Bluff. The Thunderhorns have hunted Mulgore since long before the bluffs had bridges." },
@@ -234,6 +254,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Hunter Rise. Stay a while, because the Thunderhorns have taught more than hunters to read the plains." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine comes home. Tell me what you've tracked since we last spoke, and let me see how your companion carries itself." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up on Hunter Rise? You're far from the healers' fires, friend, but sit if you like, for my students come back bloodied often enough." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. In my grandfather's day nobody walked among us to tell the hunters how many plainstriders were too many, and some of my students still miss those days." },
       },
       choices = {
         { text = "Do your hunters ever need a priest's mending, Holt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -244,6 +265,7 @@ P:NPC {
         { text = "Can magic make an arrow fly truer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would a Thunderhorn teach a warrior, Holt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes a Thunderhorn hunter, Holt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the druids tell your hunters how to hunt, Holt?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
@@ -344,6 +366,15 @@ P:NPC {
         { text = "Who do the warriors fight?", next = "fight" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "None that I've heard of, because the Grimtotem hold to the old shamans and sneer at what Hamuul learned from the night elves. They'd say a tauren who borrows a stranger's teachings has forgotten the herd, and I'd say a tauren who turns his spear on his own kin has forgotten more." } },
+      choices = {
+        { text = "Our own old ways should come first, before borrowed ones.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Learning from the night elves made us stronger, not weaker.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Ker Ragetotem, and I train the warriors who guard Thunder Bluff. A tauren's strength is great, so we must learn to use it carefully." },
@@ -352,6 +383,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior comes back to Ragetotem's ring. Good, because strength without care only breaks things, and I've more care to teach." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the warriors' ring. Come in, then, because the braves of the bluffs could use a lesson in patience from you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, for my students learn to take a blow before they learn to give one, and someone must patch them up afterward." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll stand as a bear before the herd one day, so you're closer to my warriors than you know, and I'll expect the same restraint of you that I expect of them." },
       },
       choices = {
         { text = "Should a priest stand in the line beside your warriors, Ker?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -362,6 +394,7 @@ P:NPC {
         { text = "How should a warrior use great strength, Ker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the Grimtotem have druids of their own, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings." } },

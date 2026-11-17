@@ -64,6 +64,15 @@ P:NPC {
         { text = "Something else, Salma.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A few onions and a row of okra behind the house, and they come up small and bitter in this dust. Saldean says the earth's given up, but I tell him it's only tired, the same as the rest of us." } },
+      choices = {
+        { text = "Keep sowing your rows. Steady work brings the soil back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the wild herbs take that plot. They know this dust better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Salma. My husband farms and I cook, and anyone who comes to that door hungry leaves full. That's the rule of this house." },
@@ -85,6 +94,7 @@ P:NPC {
           text = "Oh, it's you! I've been keeping a bowl warm in case you came by, and don't you dare say you've already eaten." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my door! You'll eat, then, because that's the rule, and you'll eat twice because you look like you need it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! Sit down, and take off those gauntlets, because nobody eats my stew in steel." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at my door, and thin as a willow switch! Sit down, druid, because I don't care what shape you came in, you'll leave fed." },
       },
       again = {
         { id = "h_again", text = "What else, then? Sit yourself down and ask while I stir." },
@@ -102,6 +112,7 @@ P:NPC {
         { text = "Does your kindness feed strays like me too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the militia warriors eat at your table, Salma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever turn anyone away from your table, Salma?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you grow anything yourself, Salma, or is it all gathered?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'd best be off.", next = "END" },
       },
     },

@@ -88,6 +88,15 @@ P:NPC {
         { text = "Do the Sentinels shoot too?", next = "sentinels" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some of the older druids sigh at me, because every arrow I sell finds something in the forest sooner or later. I tell them a hunter who shoots straight kills cleanly, and I'd rather that than a beast left wounded." } },
+      choices = {
+        { text = "The elders are right, and fewer arrows would serve the forest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A clean kill is a fair one, and I agree with you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You won't need a bow, I suppose, but come and look anyway, because half the Sentinels I sell to say a prayer before they loose their first arrow of the day." },
@@ -95,6 +104,7 @@ P:NPC {
         { id = "h_default", text = "I'm Jeena Featherbow, and I sell bows and arrows here in Dolanaar. Every young hunter on Teldrassil buys their first quiver from me, and most of them come back to tell me what they shot with it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior buying from me? Most of your lot think a bow is a stick for poking people from a distance." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a bow I didn't sell you, by the look of it. Let me see how you hold it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need my bows, I know, but half the young druids who pass through still buy a quiver for a friend, so I'm always glad to see you." },
       },
       again = {
         { id = "h_again", text = "What else? I've arrows to fletch, but I can talk while I do it." },
@@ -111,6 +121,7 @@ P:NPC {
         { text = "What's wrong with how I hold my bow, Jeena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Sentinels really pray before they shoot?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should a paladin fight up close, Jeena?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Circle mind that you sell bows to hunters, Jeena?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell, Jeena.", next = "END" },
       },
     },
@@ -223,6 +234,15 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That being knocked down isn't failing, and that a druid who panics and changes shape at the wrong moment loses more than one who stands and takes the hit. Stay in the shape you chose until the fight is done." } },
+      choices = {
+        { text = "I'll stand and take the hit, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A druid's strength is changing shape whenever it's needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! My students could use you, because half of them learn to swing before they learn to duck, and I can't heal the bruises." },
@@ -232,6 +252,7 @@ P:NPC {
           text = "Elanaria in Darnassus is expecting you. Go up to the Warrior's Terrace, and when she asks what I taught you, tell her I said to keep your feet planted." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from Shadowglen! Get up off the ground as often as you fall, and I'll make something of you yet." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll still want to know how to fight when something reaches you, so don't think my lessons aren't for you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't train with me, but I've watched young druids take a beating from the Gnarlpine and get back up in bear shape, and that's half of what I teach." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, I don't bite." },
@@ -247,6 +268,7 @@ P:NPC {
         { text = "Farewell, Kyra.", next = "END" },
         { text = "What will you teach me before Darnassus, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should a hunter learn a warrior's footwork too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would you teach a druid about getting back up, Kyra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
     after = {
@@ -376,6 +398,15 @@ P:NPC {
         { text = "Which herbs should I start with?", next = "herbs" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It grows paler there each season, and the potions I make from it don't heal quite as well as they should. I don't know whether the land is sick or the furbolgs are, but I think they're sick from the same thing." } },
+      choices = {
+        { text = "Leave the pale peacebloom be until the land heals.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pick it anyway, because weak potions still help someone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I think we're in the same trade, you and I, though you heal with prayer and I heal with peacebloom and patience." },
@@ -383,6 +414,7 @@ P:NPC {
         { id = "h_default", text = "I'm Cyndra Kindwhisper, and I teach alchemy here in Dolanaar. I show students how to turn what grows on Teldrassil into potions that heal, and I ask them to be gentle with both the plants and the people who drink the result." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please be gentle with my shelves, because potions don't like being jostled, and neither do I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You walk where the herbs grow, so tell me, have you seen any peacebloom near the lake?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm glad, because you'll hear what the herbs are saying better than I can, and I've been worried about the peacebloom near the Gnarlpine camps." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know?" },
@@ -398,6 +430,7 @@ P:NPC {
         { text = "Do you need herbs gathered from the wilds, Cyndra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do potions and prayers heal in the same way, Cyndra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would your potions serve a paladin in a long fight?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's wrong with the peacebloom by the Gnarlpine camps, Cyndra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Cyndra.", next = "END" },
       },
     },
@@ -687,6 +720,15 @@ P:NPC {
         { text = "Why live outside the village?", next = "house" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Harder than for a hunter, because the armor has to forgive every change of shape, so I stitch small and leave a little give at every seam. Radnaal swears the hides come only from beasts that were hunted honestly, and I make sure the Circle knows it." } },
+      choices = {
+        { text = "Honest hides and honest stitching are all I could ask.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leather is leather, and I don't need to know its story.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Come in, and mind the hides by the door, because Radnaal leaves them everywhere and I've given up asking him not to." },
@@ -696,6 +738,7 @@ P:NPC {
           text = "Lyreena sent you to learn what a leatherworker brings to a camp. It's the tent, of course, and I'll show you how to stitch one that won't let in the rain." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your leather's been stitched in a hurry, and I'd love to take it apart and do it properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting leather that moves quietly through the brush, and that I can do." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in our house! Come in, and mind the hides by the door, because Radnaal says the Circle always looks at them as though they were old friends." },
       },
       again = {
         { id = "h_again", text = "What else, dear? Sit down by the fire, if you like." },
@@ -712,6 +755,7 @@ P:NPC {
         { text = "How do you make leather that won't rustle in the brush?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the hides ever trouble you, Nadyia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you really make a jerkin to go under plate?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is it hard to make leather for a druid, Nadyia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Nadyia.", next = "END" },
       },
     },
@@ -842,6 +886,15 @@ P:NPC {
         { text = "What's the best hide here?", next = "best" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The same way the wild does, by wasting nothing and thanking what fed you. A wolf doesn't apologize to the deer, but it doesn't leave half of it to rot either, and I hold myself to that much." } },
+      choices = {
+        { text = "I can accept the work, done the way you do it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll never be at peace with it, however it's done.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not like watching me work, I expect, but I give thanks for every beast, so we may not be so different." },
@@ -851,6 +904,7 @@ P:NPC {
           text = "Lyreena's lesson, is it? A skinner brings hides to the camp to sit on, so nobody has to sit in the mud." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind leave a lot of carcasses behind, and most of them go to waste." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know already that a clean kill makes a clean hide." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll understand if you'd rather not watch me work, though I'd sooner you did, because I skin nothing that wasn't hunted with respect." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -866,6 +920,7 @@ P:NPC {
         { text = "My imp could help. It's handy with a flame.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do you give thanks for every beast you skin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you teach skinning to a paladin, Radnaal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How can a druid make peace with skinning, Radnaal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -987,6 +1042,15 @@ P:NPC {
         { text = "Where's the best fishing?", next = "fishing" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not that I've noticed, though the fishermen do, because a seal that swims too near the nets scares the catch off for an hour. The druids of Auberdine have learned to swim wide of the boats, and I'd thank you to do the same." } },
+      choices = {
+        { text = "I'll swim wide of the nets, as the others do.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The sea belongs to everyone, and the fish to no one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! My friends in Auberdine could use a few of you, because things across the water have been sad and strange lately, and I'm always telling them so." },
@@ -998,6 +1062,7 @@ P:NPC {
           text = "You got my bounty all the way to Laird, and he sent back word that it arrived fresh. I owe you for that, and I won't forget it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the docks! Mind your armor near the edge, because nobody wants to fish you out." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll appreciate a good catch more than most, since you know what it took to land it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've seen your sort slip into the water as a seal and come up halfway to Auberdine, and you don't know how much I envy you on a cold morning." },
       },
       again = {
         { id = "h_again", text = "Anything else? The boats won't be in for a while yet." },
@@ -1014,6 +1079,7 @@ P:NPC {
         { text = "Do the village cats come begging at your dock?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's troubling your friends in Auberdine, Nessa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does anyone on the docks need help, Nessa?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the fish mind a druid swimming among them, Nessa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Nessa.", next = "END" },
       },
     },
@@ -1155,6 +1221,15 @@ P:NPC {
         { text = "Why do you still fish, after all these years?", next = "why" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Very much, though you wait on the forest and I wait on the fish, and the fish are less likely to bite back. Sit by me a while and you'll find the tide teaches the same thing the trees do, only slower." } },
+      choices = {
+        { text = "Patience is the only way the wild ever answers.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sometimes waiting is just a fine name for doing nothing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit down if you like, because fishing's the nearest thing to prayer I know, and nobody has to say a word." },
@@ -1162,6 +1237,7 @@ P:NPC {
         { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a great deal of time to practice." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit down, put the sword aside and hold this pole, and see whether you can stand to wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know about waiting already, I expect, so we'll get along." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Patience is the heart of fishing, and I'm told the Circle can sleep for years, so you may be the only students who find my lessons too short." },
       },
       again = {
         { id = "h_again", text = "Another question? The fish are patient, and so am I." },
@@ -1177,6 +1253,7 @@ P:NPC {
         { text = "Is fishing much like the hunt, Androl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is fishing really so much like prayer, Androl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What could fishing teach a paladin, Androl?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is fishing much like a druid's patience, Androl?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Androl.", next = "END" },
       },
     },

@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I think they both ask a person to tend something greater than themselves, and both punish neglect slowly. Brother Sammuel says I'm too generous to the trees, and I say he's never tended anything that grew." } },
+      choices = {
+        { text = "Then we serve together, Brother, each in our proper place.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Perhaps, but I'll follow the land and not any church.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -99,6 +108,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, here at my door. I'll not turn you away, but I'll ask you to keep that creature beyond the fence, because the Light and it don't agree." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the paladin's yard. You're welcome here, and so is your companion, if it keeps off the practice dummies." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you stand straight enough, so I'd guess someone taught you well before you crossed the sea." },
       },
       again = {
         { id = "h_again", text = "Something else? I've time. The forge doesn't, but I do." },
@@ -119,6 +129,7 @@ P:NPC {
         { text = "What could a mage learn from a paladin, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think a warlock can ever be redeemed, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour hunters, Brother Wilhelm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Light and nature serve the same end, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
     },

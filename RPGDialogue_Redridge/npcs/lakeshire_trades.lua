@@ -72,6 +72,15 @@ P:NPC {
         { text = "Something else, Ariena.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Smoke from the Blackrock camps and black scars where the forest burned, and the scars spread a little more each month. The birds won't fly low over Stonewatch any more, and I don't make them." } },
+      choices = {
+        { text = "Train them past it. The wounded can't wait on fear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. A rider who forces her bird loses its trust.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ariena Stormfeather. I fly the mail and the wounded out of Lakeshire, and my birds carry anyone else who can pay the fare." },
@@ -80,6 +89,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know a frightened animal when you see one, and you'll understand why my gryphons won't fly low over Stonewatch." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I fly the wounded out, so I'd be grateful if you'd see to them before they go up." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, plate and all, though they'll complain the whole way." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My birds have gone still for you, which they only do for folk who smell of the forest, so I'd say they like you." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting restless." },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "Why won't your gryphons fly low over Stonewatch, Ariena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How many wounded have your gryphons carried out, Ariena?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you fly a paladin over Stonewatch to scout it?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do your gryphons see of the hills from up there?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thanks, Ariena.", next = "END" },
       },
     },
@@ -178,6 +189,15 @@ P:NPC {
         { text = "Something else, Kimberly.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "From the lake geese, mostly, and from the condors the hunters bring down, though condor quill splits if you look at it hard. I'd use owl feathers if I could get them, but folk round here think it's bad luck." } },
+      choices = {
+        { text = "Owls are dear to Elune. I'd ask you to leave them be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Luck won't stop gnolls. Use whatever feather flies true.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kimberly Hiett, fletcher. The watch shoots arrows into the gnolls faster than I can feather them, so if you've come to buy, you've come at a busy time." },
@@ -186,6 +206,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a customer, and I'll tell you before you ask: yes, I've got arrows, and no, I don't have enough." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want arrows, but if you'd bless the batch going up to the watch, I'll not say no." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll not want arrows either, but you'll want the watch to have them, so bless my fingers while you're here." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll forgive the feathers on the floor, since every goose in Redridge has given something to the war." },
       },
       again = {
         { id = "h_again", text = "What else? I've feathers to trim." },
@@ -199,6 +220,7 @@ P:NPC {
         { text = "How many arrows does the watch go through, Kimberly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the watch ever ask you for anything besides arrows?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the watch spend its arrows too freely on the gnolls?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where do you get your feathers, with the roads cut?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -282,6 +304,15 @@ P:NPC {
         { text = "Something else, Henry.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every shot sends the birds up and the deer running, so a hunter with a rifle gets one clean chance before the whole valley knows he's there. That's why the good ones learn to shoot once and shoot true, and I teach that with every gun I sell." } },
+      choices = {
+        { text = "One clean shot is the hunter's duty. I respect that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fire as often as you like. The beasts will learn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Henry Chapal, gunsmith. I keep the watch in shot and the hunters in rifles, and I've never once blown up the shop, which in my trade counts as a fine record." },
@@ -290,6 +321,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I'll wager you've a good rifle on your back, or you've come to buy one, and either way I'm glad to see you." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in a gunsmith's? Well, there's powder enough here to send anyone to their maker, so maybe that's fitting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll favour a hammer, I expect, but I've a pistol that would make an orc think twice." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you to step back from the powder kegs, not because I don't trust you, but because I don't trust anything near powder." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the powder kegs." },
@@ -303,6 +335,7 @@ P:NPC {
         { text = "Rifle or bow for the hills of Redridge, Henry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have your guns ever hurt someone you didn't mean them to?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you sell guns to anyone who could pay, Henry?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your guns frighten the game from the hills, Chapal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Henry.", next = "END" },
       },
     },

@@ -74,6 +74,15 @@ P:NPC {
         { text = "What happened to the caravan?", next = "caravan" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They dig into the hills looking for something old, and they leave the spoil heaped where the grass used to grow. The Earth Mother does not ask much of anyone, but she does ask that we not tear her open for treasure, and the dwarves have never learned that." } },
+      choices = {
+        { text = "Then we drive them out openly, with the braves beside us.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spoil their dig quietly, and let the hills swallow their work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -86,6 +95,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The braves of Bloodhoof could use your arm on the road, because the dwarves at Bael'dun do not leave their camp unguarded." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your eyes are what I need on this road, because the tracks around the ravaged caravan don't match any beast I know." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The braves who survived the ravaged caravan could have used you, and so could the ones who didn't." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid on the road. That is good, because the dwarves at Bael'dun have cut the earth open with their picks, and someone who hears the land should see what they have done." },
       },
       choices = {
         { text = "What are the dwarves digging for?", next = "dwarves" },
@@ -98,6 +108,7 @@ P:NPC {
         { text = "What tracks did you find near the caravan, Morin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your road is safer with a demon on it, Morin.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Did the dead of the caravan receive their rites, Morin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What have the dwarves at Bael'dun done to the land, Morin?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
       again = {
@@ -332,6 +343,15 @@ P:NPC {
         { text = "What's the hunting like in Mulgore?", next = "plains" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Often, and mostly about the Palemane gnolls, because the druids say even a gnoll has its place on the plains while my students would sooner see the Palemane gone. I take only what I need from the beasts, but I'm not sure a gnoll who spears my cat counts as one." } },
+      choices = {
+        { text = "The Palemane threaten Bloodhoof, so they must be driven from Mulgore.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The plains have room for the gnolls, if they keep to the west.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Yaw Sharpmane, and I teach the hunters of Bloodhoof. The plains feed us, so we take only what we need and thank the beast that gives it." },
@@ -340,6 +360,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You could learn something from the hunters of Bloodhoof, if you're willing to slow down long enough to listen." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, one of mine. Show me how your bow arm has grown, and let me see whether your companion still trusts you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You walk without a beast, but I can see you care for the living, and that is the first thing I teach my students." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. My hawk went still the moment you came near, the way she does for the Runetotems, so I think the wild already knows you." },
       },
       choices = {
         { text = "What makes a good hunter?", next = "good" },
@@ -350,6 +371,7 @@ P:NPC {
         { text = "What would you teach a warrior, Yaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do I keep my companion's trust, Yaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do hunters here ask a priest to tend their beasts, Yaw?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do hunters and druids ever argue over the beasts, Yaw?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Good hunting, Yaw.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask on. A hunter learns by asking as much as by tracking." } },

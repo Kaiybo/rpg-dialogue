@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Silver Hand counts its allies by their deeds, and the kaldorei have done well enough by us so far. I don't pretend to understand your goddess, but I understand a healer who stands in the line, and that's enough for me." } },
+      choices = {
+        { text = "I'll stand in your line, my lord, whenever you need me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I fight for the forests, my lord, not for anyone's line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "The Silver Hand looks at what a person does, not the shadows they do it in, though I've seen more of the second than I'd like. Uther worked with men of your trade during the war, and he never once pretended to enjoy it." } },
@@ -83,6 +92,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You carry the stink of the fel into this hall, and I will not pretend I didn't notice. Say what you came to say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral's training hall. I'll judge you as I judge anyone, by how you keep your gear, though I'm told yours changes when you do." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly, and I'll answer the same way." },
@@ -104,6 +114,7 @@ P:NPC {
         { text = "Do the Silver Hand look down on rogues, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Silver Hand need hunters, Lord Shadowbreaker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there no place in the Light for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Silver Hand count druids among its allies, my lord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "May the Light protect you too.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -310,6 +321,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I think it hears every honest prayer, though I'm only Arthur and not the Archbishop, so take that as you like. If your goddess hears them too, then nobody's being left out, and I find that a comfort." } },
+      choices = {
+        { text = "Every honest prayer is heard. That's comfort enough for me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers are for Elune alone, Arthur. Your Light needn't listen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I've never known it refuse anyone who asked honestly, though I've known plenty who were afraid to ask. Faith isn't for the spotless, friend, or I'd never have been given the name." } },
@@ -373,6 +393,7 @@ P:NPC {
           text = "The Light keep you, friend, and I do mean you, even with what walks beside you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I see the scars on your shield, and I'll pray for whoever gave them to you, and for you too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I admire your patience, friend; I've never managed to sit still long enough for anything to walk up to me." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Come in, druid, and kneel a moment if you like, though I suspect you'd rather sit on grass than stone. The Light won't mind which you choose." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry at all." },
@@ -392,6 +413,7 @@ P:NPC {
         { text = "Does the Light teach anything about the hunt, Arthur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you pray for warlocks, Arthur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do paladins pray differently from priests, Arthur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you think the Light hears a prayer said to the moon, Arthur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -500,6 +522,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd forge one if ye brought me the wood, an' it'd be the finest staff ever shod in iron. Yer people would likely call it a crime against the tree, but I'd call it an improvement." } },
+      choices = {
+        { text = "Shoe it in iron, Elmore. Good work honours the wood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave the wood as it grew. Iron would only spoil it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Aye, an' better ones than ye'll find anywhere in the Trade District, though I'd rather make a paladin's hammer than a knife for a back. A hammer's honest about what it's for." } },
@@ -579,6 +610,7 @@ P:NPC {
           text = "A mage? Ye'll be wantin' a staff, an' I'll tell ye now I dinnae make sticks, so come back when ye want a proper weapon." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let me see that blade. Hm, someone's sharpened it with a cobblestone, and I'll thank you not to tell me it was you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a blacksmith's shop. You'll be wanting arrowheads, I suppose, or an axe for the camp, because no smith alive makes a good bow." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my shop, an' ye've no use for half o' what I make, since ye grow yer own claws. Dinnae let that stop ye admirin' it, mind." },
       },
       again = {
         { id = "h_again", text = "What else? The forge doesnae wait." },
@@ -598,6 +630,7 @@ P:NPC {
         { text = "Can a good smith make a hunter's weapon, Elmore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever bless your weapons before you sell them, Elmore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What makes your barding better than any other, Elmore?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would a dwarven smith ever forge a druid's staff, Elmore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -694,6 +727,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "One or two, and the rest I keep for their bindings. If you ever wrote down what you know of Darnassus, I'd shelve it beside the kings' chronicles and whisper to it every evening." } },
+      choices = {
+        { text = "I'll write it down, Milton, so it's kept properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things my people never write down, Milton, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Only once, a man who took a book on Alterac's noble houses and nothing else, which I found far more alarming than if he'd taken the silver. Know your enemy, as I always say, and he clearly did." } },
@@ -751,6 +793,7 @@ P:NPC {
           text = "Shh, and no, nothing in here is worth stealing, unless you can read, in which case everything is." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my library. Please don't lean on the shelves, and please don't use that sword to point at anything." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You travel widely, I suppose, which means you may be useful to me. I collect people who collect books, you understand." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Shh, a druid, and welcome. The library holds a few accounts of your people, though most of them were written by humans who'd never met one." },
       },
       again = {
         { id = "h_again", text = "Something else? In a whisper, please." },
@@ -767,6 +810,7 @@ P:NPC {
         { text = "Does the library hold any books on warfare, Milton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need books brought from the wilds, Milton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the library hold the Silver Hand's history, Milton?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are any of those books about my people worth reading, Milton?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -862,6 +906,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothing! There's nothing in it but milk and salt and my wife's patience, and you can sniff it all you like, bear or no bear. I'll say that twice if it helps." } },
+      choices = {
+        { text = "If I smell anything strange, the guards will hear of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Whatever you sell is your business, Elling.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "More than you'd think, because scholars forget to eat until they're starving, and cheese keeps on a desk. Some of them talk quite freely while they wait for it, too, which is entirely beside the point." } },
@@ -929,6 +982,7 @@ P:NPC {
           text = "A mage. Please don't chill the cheese, because it's aged at exactly the temperature my wife wants, and she knows." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want something that keeps on the march, and nothing keeps like a good hard cheese, I promise you that." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you live on what you catch, but even the best hunter wants something besides venison now and then, don't they?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Now, I sell cheese, only cheese, and nothing that ever lived in a forest, so you've no cause to look at me like that." },
       },
       again = {
         { id = "h_again", text = "Anything else? Cheese-related, ideally." },
@@ -945,6 +999,7 @@ P:NPC {
         { text = "Do you ever trade cheese for game, Elling?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is cheesemaking all you do, Elling?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why would a cheesemaker need to say he's honest?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What exactly are you afraid I'll sniff out, Elling?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just passing.", next = "END" },
       },
     },

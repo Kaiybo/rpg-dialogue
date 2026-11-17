@@ -76,6 +76,15 @@ P:NPC {
         { text = "Something else, Smitts.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Who went in and who came back, and what they said they saw, even when it makes no sense. Someday somebody in Stormwind will want to know how this wood went wrong, and I mean to have the answer in my book." } },
+      choices = {
+        { text = "Keep writing. Someone must remember what happened here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things are better forgotten, Smitts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sit, and I'll tell you about the murders, because I've told everyone else and none of them carried a hammer." },
@@ -99,6 +108,7 @@ P:NPC {
         { id = "h_case", when = { metBefore = true }, text = "I spent the night with my old notes again. There's never anything new in them, but I read them anyway, same as every night." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll pour you something, but you'll drink it with your back to the wall like everyone else in here, because that's how Darkshire drinks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and your beast is welcome by the fire, so long as it doesn't drink from the bucket under the bar, because that's for washing." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll write you down, if you don't mind, because I note everyone who walks in out of that forest, and a night elf is a first." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? I've a long memory and a short queue." },
@@ -122,6 +132,7 @@ P:NPC {
         { text = "Do hunters tell tall tales in your tavern, Smitts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you still want justice for those murdered nobles, Smitts?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you write down about the forest, Smitts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just warming up.", next = "END" },
       },
     },

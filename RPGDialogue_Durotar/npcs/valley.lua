@@ -85,6 +85,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Everyone finds a place in the Den, because that's what it's for, and nobody asks where you came from once you've cleared a few boars. Show Gornek what you can do and he'll stop calling you new, and that's as warm a welcome as he gives." } },
+      choices = {
+        { text = "I'll earn my place the same way as every other recruit.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I didn't come for Gornek's approval. I'll find my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, walking into the valley like everyone else. I'll send you to Gornek the same as the rest, but I'm glad you came." },
@@ -94,6 +103,7 @@ P:NPC {
           text = "Gornek's in the Den, the cave just ahead. Tell him Kaltunk sent you, and stand up straight when you do." },
         { id = "h_dust", when = { metBefore = true }, text = "I came off a ship with nothing but my axe and Durotar's dust in my teeth, and that was enough. It's enough for you too." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, walking into the valley. When I came off the ship there wasn't an orc among us who'd talk to the spirits, and now the Warchief sends your kind to me by the dozen." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, walking into the valley. Durotar won't feel green or gentle to a druid, but the Den takes everyone, and Gornek will find work for you all the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, fresh to the Valley. Don't try your tricks on Gornek, because he catches every one, and he'll make you carry water for it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, fresh to the Valley. You'll want Un'Thuwa in Sen'jin village eventually, but every recruit starts with Gornek." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, fresh in the valley! Every one of you thinks you'll lead a warband by the end of the week, and every one of you starts with boars." },
@@ -102,6 +112,7 @@ P:NPC {
       choices = {
         { text = "Are there many priests among the recruits, Kaltunk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What was it like when the orcs had no shamans?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Will a druid find a place in the Den, Kaltunk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How did you come to Durotar?", next = "came" },
         { text = "What happens in the valley?", next = "valley" },
         { text = "Do the Darkspear get the same welcome as orcs?", next = "troll", when = { race = "Troll" } },
@@ -207,6 +218,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The same as it expects of anyone, which is that you work, you fight and you don't complain about the food. Druid or grunt, a recruit who does all three becomes Horde, and one who doesn't goes back the way they came." } },
+      choices = {
+        { text = "Then I'll work and fight like any other recruit.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll serve the Horde, but in my own way, not the Den's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Den makes Horde out of whatever walks in, and I'll be glad when what walks in can mend the rest of them." },
@@ -219,11 +239,13 @@ P:NPC {
         { id = "h_parchment", when = { any = { { questActive = TODO_QUEST("Glyphic Parchment") }, { questActive = TODO_QUEST("Tainted Tablet") } } },
           text = "Your trainer left word for you. Read it, then go and find them. The Horde has a place for what you can do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of my Den. The first lesson still holds for you, because the spirits won't pick you up when you fall, so learn to get up yourself." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, in my Den. The first lesson holds even for someone who can grow claws, because a bear that can't get back up is only a rug." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
         { text = "What does the Den expect from a priest, Gornek?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does the Den expect of a druid, Gornek?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What do I need to prove?", next = "prove" },
         { text = "Teach me to fight, then. That's what I came for.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm no cultist, Gornek. My power answers to me.", next = "warlock", when = { class = "WARLOCK" } },
@@ -380,6 +402,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The scrub around the cave mouths has gone grey and brittle, and the beasts that drink from the pools there come out wrong. The Blade want the old fire back, and this is what it does to a land, so they're showing us exactly what they'd make of Durotar." } },
+      choices = {
+        { text = "They'll get a clean fight and a quick end, nothing crueller.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Burn them out of those caves however it has to be done.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade want the old fire back, the one that nearly burned us down, and I'd like to see what your prayers make of that." },
@@ -395,8 +426,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here watching the caves with me? Your magic is a cleaner thing than the Blade's, and I'll be glad of it beside me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Burning Blade in the caves to the north won't fall to watching, so you're exactly what I needed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, with sharp eyes, I hope. I've watched those caves for days, and I could use someone who notices what I've missed." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The Burning Blade's fel magic is souring the ground around those caves to the north, and you'll feel it there, if your kind feel what they say they do." },
       },
       choices = {
+        { text = "How bad is the fel sickness around the caves, Zureetha?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Can prayer stand against the Burning Blade's fire, Zureetha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "You draw on the same power the Blade do, don't you?", next = "warlock", when = { class = "WARLOCK" } },
@@ -527,6 +560,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Hardly, because they spend more time asleep against the trees than chopping them, and the valley's barely noticed. But there's not much timber in Durotar, and if my peons ever wake up properly, somebody ought to plant some back." } },
+      choices = {
+        { text = "Lumber builds the Horde's walls. Keep them chopping.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the trees be. Your peons might have the right idea.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You wouldn't happen to know a prayer for waking up lazy peons, would you, because I've tried everything else." },
@@ -538,6 +580,7 @@ P:NPC {
           text = "I left my pick in the coven while I was surveying, and it's enchanted, so don't let those cultists keep it." },
         { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, in the cart, while it was moving. I don't know how they managed it, and I'm almost impressed." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Can you make the trees grow faster? Then my peons would have less to chop and less excuse to nap, though I doubt it would stop them trying." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Could you wake up my peons with a spell? A small fire, perhaps, or a cold breeze? I'm only half joking." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I'd rather they were awake than trembling." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? If your beast could wake a sleeping peon, I'd hire it on the spot." },
@@ -545,6 +588,7 @@ P:NPC {
       choices = {
         { text = "Should I pray over your sleeping peons, Foreman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shouldn't the spirits be called for better things than peons?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do your peons cut more lumber than this valley can spare?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why not let them rest?", next = "rest" },
         { text = "I know a few things about blackjacks, Foreman.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Want me to shout them awake instead?", next = "warrior", when = { class = "WARRIOR" } },
@@ -650,6 +694,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Boar, when the recruits bring it back whole, and cactus apples when the season's kind, though it usually isn't. Durotar gives you what it gives you, and a cook who wanted better should have stayed somewhere greener." } },
+      choices = {
+        { text = "Make do with what Durotar gives. That's the Horde's way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ask for better. The recruits deserve more than scorpid tail.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my fire! Bless the pot if you like; it could use the help, and so could the scorpid tails." },
@@ -659,6 +712,7 @@ P:NPC {
           text = "Cactus apples, from the plants around the valley. It's an easy job. I make it easy on purpose; you'll get harder ones soon enough." },
         { id = "h_recipe", when = { metBefore = true }, text = "Scorpid tail, fried, with a pinch of cactus. Don't make that face; you'll be asking for it by next week." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you know fire better than I do, so don't tell me how to cook with it, and I won't tell you how to call it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my fire! You'll know which roots out in the scrub are good to eat, I hope, because I'm running out of ways to cook scorpid tail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You can conjure your own bread, I hear, so you won't be wanting my cooking. Your loss, because my scorpid tail is famous." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, keep that imp away from my pot. The last one spat in my stew, and the grunts haven't forgiven me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll eat twice what a hunter does and complain half as much, which makes you my favourite kind of customer." },
@@ -666,6 +720,7 @@ P:NPC {
       choices = {
         { text = "Do the recruits eat better after a priest blesses the food?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you ever thank the fire spirits for your cookfire?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you ever cook anything that didn't have a stinger, Galgar?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Where did you learn to cook?", next = "cook" },
         { text = "What's the surprise?", next = "surprise" },
         { text = "Have you got anything my pet would eat?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
@@ -780,6 +835,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because the boars in this valley don't wait for you to finish changing shape, and a staff across the snout buys you the moment you need. Lose it in the scrub like the recruits do and you'll be buying another, at the same price." } },
+      choices = {
+        { text = "Fair price for fair work. I'll pay it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take one off a dead quilboar instead, and pay nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I'll sell you a mace, and I'll charge you for it, because the Light or the loa don't pay my rent." },
@@ -789,6 +853,7 @@ P:NPC {
           text = "Gornek sent you about the training weapons? Good. Bring me six and I'll mend them for the next lot of recruits." },
         { id = "h_edge", when = { metBefore = true }, text = "You're back, and the blade's still in one piece? Good. That means you're using the edge and not the flat." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you'll want a mace, not one of those training axes the recruits keep losing. I'll sell you one, but you'll pay full price like everyone else." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll want a staff, then, and you'll pay full price for it, claws or no claws." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in my shop. I'll not sell you an axe, because you'll drop it, so how about a staff?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, your imp's eyeing my blades. Tell it I'll sell to you, not to it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your arrows in the quiver and your beast out of my stock, and we'll get along fine." },
@@ -796,6 +861,7 @@ P:NPC {
       choices = {
         { text = "Do you ever give the healers a better price, Kzan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans bring you many weapons to mend?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why should a druid buy a staff, Kzan?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What should a warrior carry out of this valley?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do mages really drop their weapons so often?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },

@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I have, but the gryphon masters fly where the King tells them, an' a soldier's wife isnae the King. I'd go myself if I knew how tae ride one wi'out fallin' off." } },
+      choices = {
+        { text = "Ask the gryphon masters properly. They may grant it.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Don't wait for permission, Sara. Find a rider who'll go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, an' a good one, though he'd say so himself before anyone else could. His last letter said the Dark Irons press them hard by the Span an' they need every shield they can get, so if ye go north, they'd be glad o' yours." } },
@@ -90,6 +99,7 @@ P:NPC {
           text = "A mage! They say yer kind can send messages a long way, quicker than any gryphon, an' I've a letter for Dun Modr that's waited a month." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Have ye been tae Dun Modr? Ye'd have seen my Sully if ye had, for he's the one who never stops talkin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll travel the roads, then, an' ye might pass Dun Modr; if ye do, would ye look for my Sully?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard yer kind can talk tae the beasts, an' I've wondered whether a bird might find Dun Modr quicker than the post." },
       },
       again = {
         { id = "h_again", text = "Is there somethin' else? I've nowhere I need tae be today." },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "Can't the post carry your letter to Dun Modr?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is your Sully a warrior too, Sara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news would you want me to bring from Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have you thought of sending word to Dun Modr by gryphon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Take care, Sara.", next = "END" },
       },
     },
@@ -265,6 +276,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd train the bear, aye, an' I'd shout at it the same as I shout at the rest. A bear that knows how tae hold a line is worth three dwarves who don't." } },
+      choices = {
+        { text = "Discipline sharpens even a beast's instincts. Train me.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A bear needs no drillmaster. Instinct is enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -317,6 +337,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in the Military Ward! I'd ask ye tae keep yer creatures out o' my yard, for my recruits have enough tae worry about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye'll be soft from lettin' yer beast do the fightin', but I'll no' hold it against ye." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye wouldnae last a day under my regimen either, though I'll admit the bear might." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, now; my students are standin' about." },
@@ -334,6 +355,7 @@ P:NPC {
         { text = "Would your recruits really fear a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a hunter learn anything from your warriors, Kelstrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your recruits ever need a priest after training, Kelstrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you train a druid who fights as a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -458,6 +480,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The switching, mostly, because every shift costs you a moment, and a moment is when the blow lands. Choose a shape for the fight and commit to it, and you'll be much harder to kill." } },
+      choices = {
+        { text = "Sound advice. Commit to a shape and hold the line.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Changing is my strength. A fixed fighter is predictable.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -518,6 +549,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'll warn you that the Military Ward's equipment isn't rated for demonic interference, so please keep your companion off my machines." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken. Fascinating." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You present a fascinating combat problem, since your stance changes with your shape, and I have several theories about it." },
       },
       again = {
         { id = "h_again", text = "Further inquiries? Please proceed." },
@@ -534,6 +566,7 @@ P:NPC {
         { text = "How would you calibrate a hunter, Bilban?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you measure the Light in your calculations, Bilban?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could you train a paladin to fight better, Bilban?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you correct in a druid's way of fighting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Bilban.", next = "END" },
       },
     },

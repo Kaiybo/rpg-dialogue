@@ -94,6 +94,15 @@ P:NPC {
         { text = "How does a goblin town stay neutral?", next = "neutral" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Sure, every time the fish get scarce, because empty nets cost me money. I'm a businessman, not a monster, so I keep the worst of the dumping out past the point where nobody swims, and I call that a compromise." } },
+      choices = {
+        { text = "Trade can be clean. You owe this coast better than that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A port is a port. The sea can take a little filth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -101,12 +110,14 @@ P:NPC {
         { id = "h_pirates", when = { questActive = TODO_QUEST("Southsea Freebooters") },
           text = "Those Southsea freebooters are camped right down the coast, bleeding my shipping dry. Thin 'em out for me, and Ratchet breathes easier." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The big guy, Thrall, is one of you, and I'll tell you what I told him, which is that lightning's great but a good crane is better for building a city." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Look, I know the look you're about to give me about the docks and the smoke, so I'll tell you up front that Ratchet's cleaner than any port the pirates run." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, huh? Great, I've always got work for somebody who hits hard and doesn't ask me why." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Keep that beast of yours off my docks, pal, because the last one ate half a crate of fish and I'm still getting complaints." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Great, because Ratchet's always got somebody bleeding on the docks, and the pirates sure aren't paying for bandages." },
       },
       choices = {
         { text = "Did Thrall use the spirits to build Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does Ratchet ever think about what it does to the coast?", next = "xdruid", when = { class = "DRUID" } },
         { text = "You built Orgrimmar?", next = "orgrimmar" },
         { text = "What's the trouble with the pirates?", next = "pirates" },
         { text = "Who else should I know in Ratchet?", next = "town" },
@@ -229,6 +240,15 @@ P:NPC {
         { text = "What exactly is a Samophlange, anyway?", next = "samo" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Oh, I couldn't, I really couldn't, because there's a year of my work in it and most of my eyebrows. But if something has nested in it I'll move the nest very gently, or I'll find someone who knows how, which might be you." } },
+      choices = {
+        { text = "Your work matters. Bring it home, nest or no nest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the Barrens claimed it, let the Barrens keep it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -236,12 +256,14 @@ P:NPC {
         { id = "h_samo", when = { questActive = TODO_QUEST("Samophlange") },
           text = "The Samophlange is still out there, and every day it sits in the dust I lose another year off my life. Please hurry, and please don't drop it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you don't happen to know a spirit who finds lost things, do you, because the Samophlange is still out there and I've asked everyone else already." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Oh, you wouldn't know whether the Samophlange counts as part of nature now, would you, because it's been lying out in the grass so long that something's probably nesting in it." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Oh, splendid, you look sturdy enough to stand next to my experiments, which is more than my last three assistants could say." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, how marvellous! Tell me, does your beast ever chase things that go bang? Because I've had some trouble with that." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, a real one, which is good, because I've been saying a little prayer for my Samophlange every night and I'm not sure I've been doing it right." },
       },
       choices = {
         { text = "Do your machines ever anger the elements, Sputtervalve?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you leave the Samophlange where it lies, if something nested there?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What is a Samophlange?", next = "samo" },
         { text = "How did you lose it?", next = "lost" },
         { text = "Is Ratchet good for a tinker?", next = "ratchet" },
@@ -363,6 +385,15 @@ P:NPC {
         { text = "What do you use the raptor horns for?", next = "horns" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Trade secret, my friend, though I'll admit a raptor horn or two goes into the better ones. Everything I use comes out of the Barrens, so you could say it's natural, and I'd like you to say so to all your friends." } },
+      choices = {
+        { text = "A seller should tell buyers what they're drinking.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Secrets are fair in trade. Buyers should ask better questions.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -370,12 +401,14 @@ P:NPC {
         { id = "h_horns", when = { questActive = TODO_QUEST("Raptor Horns") },
           text = "Raptor horns, friend, the bigger the better! The thunderheads and stormsnouts out west have the good ones." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now there's a customer who appreciates a tonic with a little lightning in it, and I happen to have exactly that, if you take my meaning." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! A customer like you knows herbs, so you'll appreciate that every one of my tonics is made from the finest things the Barrens has to offer, more or less." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You'll be wanting a little something to steady the nerves before a fight, and I've got just the thing." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now you're exactly the sort of customer I like, because you go places I wouldn't, and you bring back interesting bits." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Now there's a customer who appreciates a good restorative, and I've got tonics that'll put a bit of zip back in your prayers." },
       },
       choices = {
         { text = "Do your tonics anger the spirits of the beasts you use?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What's actually in your tonics, Mebok?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What do you use raptor horns for?", next = "horns" },
         { text = "Do your tonics actually work?", next = "work" },
         { text = "What's Ratchet like for business?", next = "biz" },
@@ -498,6 +531,15 @@ P:NPC {
         { text = "Where do your boats sail?", next = "boats" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Southsea pirates, most likely, though the ledger can't prove it and the Cartel wants proof before it spends a single copper. I've been keeping my own count of their sails off the coast, and it goes up every time a shipment goes missing." } },
+      choices = {
+        { text = "Get the proof first. The Cartel is right to want it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the ledger. Board their ships and take the crates back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -505,12 +547,14 @@ P:NPC {
         { id = "h_ship", when = { questActive = TODO_QUEST("The Missing Shipment") },
           text = "That shipment should have come in days ago, and the only thing the sea brought back was rumors. Find out what happened to it, would you?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. If you can talk to the sea, ask it where my shipments went, because it's taken nine crates since the spring and it hasn't filed a single report." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. If you've a way of talking to the gulls, I'd like to know whether they've seen my missing crates, because the gulls see everything that floats past this dock." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You've got the look of somebody who could stand on my docks and make crates stop wandering off." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll be shipping hides out of Ratchet, I expect, and every one of them will go through my ledger." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Unless you can pray my missing crates back onto the dock, I'm afraid I've no time for blessings, though I'll note your visit in the ledger." },
       },
       choices = {
         { text = "Do your sailors ask the sea spirits for safe passage?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Who do you think is taking your crates, Dizzywig?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Where do the shipments go missing?", next = "missing" },
         { text = "Where do your boats sail?", next = "boats" },
         { text = "How long have you kept the docks?", next = "dock" },

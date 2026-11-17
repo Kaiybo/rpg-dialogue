@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-17)
+- Druids are noticed: 10 people greet a druid as one, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.53.0.
+
 ## 1.12.0 (2026-11-17)
 - Priests and paladins are noticed: 18 people greet an Alliance priest or a paladin as one, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.51.0.
 

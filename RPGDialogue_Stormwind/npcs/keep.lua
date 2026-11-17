@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That you're too old, too strange and too far away to be worth an envoy's salary, mostly. I tell them that a people who kept their forests for ten thousand years are worth listening to, and they nod and do nothing." } },
+      choices = {
+        { text = "Keep telling them, Your Grace. Patience wins courts in the end.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Courts never listen. My people should act without them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "The Church trusts the Sanctum, mostly, because Master Dumas keeps his students honest and his doors open. It's the cellar under the Lamb that troubles us, though Lord Wishock's shouting about it does more harm than good." } },
@@ -97,6 +106,7 @@ P:NPC {
           text = "I can tell what you are, and I'll not pretend otherwise in my own chamber. You're welcome to speak, though, because the Light has never closed its ears to anyone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at court. I'm sure you've opinions on how the kingdom's soldiers are spent, and I'm sure no one here has asked for them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, before the throne. I'll ask you to keep your animal close; some of the nobles here startle easily, and complain longer." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at court, and you'll forgive me if I lower my voice, because half this hall reports to the other half. The Church is glad of the kaldorei, whatever the nobles mutter." },
       },
       again = {
         { id = "h_again", text = "Something else? Speak softly." },
@@ -114,6 +124,7 @@ P:NPC {
         { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a paladin keep quiet at court, Your Grace?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the nobles mutter about the kaldorei, Your Grace?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to your petitions.", next = "END" },
       },
     },
@@ -257,6 +268,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I bought it from a sailor in Menethil who swore it washed up on the Darkshore, and I paid him handsomely for the story as much as the bowl. If it belongs to someone I suppose I'd return it, though I'd be very sad." } },
+      choices = {
+        { text = "If it's sacred, Count, it should go home to Darnassus.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It's yours fairly, Count. Keep it and enjoy it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Twice, and both times the Watch caught the thieves before they reached the stairs, which cost me a fortune in grateful dinners. Still, I sometimes think the best pieces in any collection were stolen by somebody, once upon a time." } },
@@ -335,6 +355,7 @@ P:NPC {
           text = "A mage! The Sanctum sends someone round now and then to tell me whether my pieces are enchanted, and they always say no, which is terribly disappointing." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my side! Splendid; I never feel so safe in this chamber as when there's someone armed nearby who isn't a guard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, my word! You must come across all kinds of curiosities in the wild, and I'm always, always interested in curiosities." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, how splendid. I've a carved kaldorei bowl in my collection that nobody can date, and I'd simply love your opinion on it." },
       },
       again = {
         { id = "h_again", text = "What else, what else? I do so love a little company." },
@@ -352,6 +373,7 @@ P:NPC {
         { text = "What curiosities would a collector like you want, Count?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shouldn't a holy relic be in the Cathedral, Count?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you truly buy a paladin's badge, Count?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How did a kaldorei bowl end up in your collection, Count?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Count.", next = "END" },
       },
     },
@@ -457,6 +479,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Cured? I'd sooner cure a wolf of its teeth! No, they want dragging before the House in irons, and if your people have some way of sniffing out fel, I'd gladly hear of it." } },
+      choices = {
+        { text = "Drag them before the House, then. The law should judge them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The House can't judge what it doesn't understand, my lord.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Dozens, and every one of them pretends to be my friend at supper. I suspect half of them drink at the Lamb themselves, which is precisely why nobody wants an inquiry." } },
@@ -519,6 +550,7 @@ P:NPC {
           text = "You have a furtive look about you, and I'll thank you not to stand behind my chair. The House is full of enough knives as it is." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Excellent. When I've found the nest of warlocks I mean to clear out, I'll want stout fellows like you to break down the door." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know how to track things to their dens, which is precisely what I need; the dark practitioners in this city are no better than vermin." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now there's a decent sort of magic, all trees and fresh air and not a whiff of brimstone. I wish the Lamb's lot would take up gardening." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I've a speech to polish." },
@@ -536,6 +568,7 @@ P:NPC {
         { text = "Could a hunter track down warlocks, my lord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have the House do with my kind, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have the Silver Hand do, my lord?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could the Lamb's warlocks ever be cured of it, my lord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with your speech.", next = "END" },
       },
     },

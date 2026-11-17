@@ -170,6 +170,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Well, I'd not like to think so, though one of your lot did give me a long, cold look when I took a pick to the old ruins. I fill my holes back in, mostly, and I'd say the furbolgs have done this coast more harm than one dwarf with a shovel." } },
+      choices = {
+        { text = "These ruins belong to the kaldorei. Ask leave before you dig.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dig on. The past belongs to whoever finds it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than a pint o' Thunderbrew, {g:lad|lass}, for they come up from the shore every time I find somethin' worth keepin'. Stand at the trench while I dig, an' I'll put your name in my report tae the League, spelled right an' all." } },
@@ -238,6 +247,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll have a good eye, then, an' I've lost a fossil the size o' my head somewhere about here." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Grand, grand, because I've a nasty feeling I've been bitten by something, and I can't remember what." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now that's a proper sight for an old prospector, and you'll forgive me if I ask you to watch my back while I dig." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ah, one of the elf druids! You lot can talk to trees, can't you, so ask one of them whether it's seen my fossil, would you?" },
       },
       again = {
         { id = "h_again1", text = "Now, where was I? Ah, yes, you were asking something." },
@@ -254,6 +264,7 @@ P:NPC {
         { text = "What beasts once walked this shore, Prospector?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you want me to look at that bite, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shouldn't you leave these elven ruins alone, Prospector?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your digs disturb the land here, Prospector?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with the digging.", next = "END" },
       },
     },
@@ -473,6 +484,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I have asked myself that every night since they took me, and I do not know, because something is driving them that is not their own anger. They were our friends once, and I would rather see them cured than cut down, though I will fight them if I must to reach the road." } },
+      choices = {
+        { text = "They're sick, not wicked. I'll spare them where I can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sick or not, they'll kill us. I'll cut us a path.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too many to count when they're all howling, but they come in twos and threes along the path, if we're quick. Stay in front of me and don't stop to finish the stragglers, because the road is what matters." } },
@@ -520,6 +540,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know the paths through the Blackwood better than I do now, since mine ended in a cage." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Then you can look at this leg once we're out of here, because I've been walking on it longer than I should." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll be glad of that hammer between me and the furbolgs, though I hope you can keep pace with a limping elf." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Then you know the Blackwood were not always like this, and you will understand why it hurts to hide from them." },
       },
       again = {
         { id = "h_again1", text = "Speak quickly, they patrol often." },
@@ -535,6 +556,7 @@ P:NPC {
         { text = "I'll come back for you.", next = "END" },
         { text = "How many furbolgs stand between us and the road?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the Blackwood furbolgs keep their watch?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can the Blackwood furbolgs be healed, Volcor, or are they lost?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
     escape = {

@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Sun Rock stands against them every day, though I have only so many braves and the goblins have more saws than I have spears. I was gentle once, and I would have waited for the Earth Mother to drive them out, but these days I would rather drive them out myself." } },
+      choices = {
+        { text = "Drive them out, but spare the workers who surrender.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No quarter. Every goblin holding a saw is an enemy.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -130,6 +139,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "So you're a warlock, and Cairne has told me what demon blood did to the orcs before Thrall freed them. I'll not see that sickness carried onto Sun Rock in anyone's bag." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Sun Rock's beasts have grown restless since the vale burned, and a hunter who knows how to turn them back is worth more to me than a spear." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Good, because I have wounded braves who need healing and a forest down the slope that needs it even more." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plainly; I've no patience left for riddles." },
@@ -150,6 +160,7 @@ P:NPC {
         { text = "Do you blame all fire for the Charred Vale?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What beasts threaten Sun Rock, Maggran?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will you take a warlock's help against the harpies?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will Sun Rock stand against the Venture Company, Maggran?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -738,6 +749,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothing dat would be bothering a druid, mon, mostly. A few forest spirits who got too curious, and Jin'Zil be letting dem go once dey tell him what he want to know." } },
+      choices = {
+        { text = "Let them go now. Spirits shouldn't be kept in cages.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your business is yours. Learn what you can from them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Da Venture goblins and dem night elves both be pokin' round Jin'Zil's cave, mon, and Jin'Zil be too busy stirrin' to chase dem off. You stand at da door with dat axe, and Jin'Zil cook you somethin' special, maybe." } },
@@ -807,6 +827,7 @@ P:NPC {
           text = "Ah, Jin'Zil can smell da arcane on you like burnt hair, mon. Don't go pointin' dat fire at da cauldron, because dis stew been bubblin' three days." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon! Jin'Zil like a big strong one, because big strong ones carry da heavy cages back from da forest." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! Jin'Zil got empty cages need fillin', and da forest out dere be full of fine ingredients." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, eh? You be talking to beasts and I be talking to spirits, so maybe we gonna get along, as long as you don't be asking what's in da cages." },
       },
       again = {
         { id = "h_again", text = "What else you want, mon? Jin'Zil got all day and a pot on da boil." },
@@ -823,6 +844,7 @@ P:NPC {
         { text = "Is your magic so different from mine, Jin'Zil?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do you need a warrior for, Jin'Zil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What beasts does Jin'Zil want for his cauldron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What is in the cages, Jin'Zil?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -930,6 +952,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only what travellers carry up the mountain, and none of it is good, because the Venture Company burns faster than the tauren can plant. I sometimes wonder whether Orgrimmar even knows, or whether anyone there cares." } },
+      choices = {
+        { text = "The Warchief will act once Sun Rock asks him plainly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Orgrimmar is far away. We'll defend the vale ourselves.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than I'd like, because it means there's more fighting than I'd like. The Grimtotem and the harpies keep them busy, and they come in here bleeding and leave a little better, which is all I can do for them." } },
@@ -962,6 +993,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came in so quietly I nearly poured you a drink before I saw you. Weapons down, boots off, and keep your hands where my other guests can see them, if you please." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a tired one, I'd wager. Put that axe down, take your boots off, and tell me who you've been fighting." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast can sleep by the fire, and you can tell me what's out in the hills, because I hear plenty but I never see it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and I can see the forest on you, leaves and all. Boots off, sit down, and tell me what's been happening down in the Charred Vale." },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's warm and the stew's hot, so take your time." },
@@ -976,6 +1008,7 @@ P:NPC {
         { text = "Who's been talking in your inn lately?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do many warriors rest at Sun Rock, Jayka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do travellers say about the hills, Jayka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you hear much news from the Charred Vale, Jayka?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Just resting.", next = "END" },
       },
@@ -1331,6 +1364,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They are, though they speak of it quietly, because the Venture Company's smoke rises up the valley and they can taste it in the morning mist. Some of them want to go down and fight, but the elders say the peak must be kept first." } },
+      choices = {
+        { text = "The elders are right. The grove must be guarded first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The forest below matters too. Someone must go down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Safe enough by day, but after dark the harpies come down off the cliffs, and the paths are steep enough to kill you on their own. A warrior walking down with the travellers would make them braver, and I'd sleep easier." } },
@@ -1391,6 +1433,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you climbed the whole peak in that armour? Sit down by the hearth, then, before you fall down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The climb must have been easy for you, then, with a beast to scout the path ahead of you." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up here on the peak! The climb must have been hard in that armour, so sit and rest before you go anywhere." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, come up to the Talon Den! The grove will be glad of you, and so will I, because the druids here are the only guests who ever stay for a second cup." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak." },
@@ -1406,6 +1449,7 @@ P:NPC {
         { text = "Is the peak safe for travellers, Faralia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts live up on the peak, Faralia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is the path down the peak dangerous after dark?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are the Talon Den druids troubled by the goblins below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

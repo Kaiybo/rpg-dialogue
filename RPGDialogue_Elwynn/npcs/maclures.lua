@@ -24,6 +24,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because they called my father a thief and he went to his grave with it, and a river doesn't change what was said. You can preach about sharing all you like, but the vines are mine and so is the grudge." } },
+      choices = {
+        { text = "The river takes no sides, and neither should the families it feeds.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep your grudge, then. Some wrongs shouldn't be forgiven.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "No, and I didn't say that, so don't go telling the Stonefields I did. But a strong arm walking the fence line now and then would remind certain people that the Maclures aren't to be trifled with." } },
@@ -88,6 +97,7 @@ P:NPC {
           text = "You've a stink about you like a burned field, and I don't want it near my vines, so state your business and go." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on Maclure land. Good, because there are folk on the Stonefield side who'd do with a fright." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you've come for the boars, they're in the low rows, rooting up my vines like they own them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on Maclure land, and I'll ask you plain whether the Stonefields sent you. If they didn't, you're welcome to look at the vines." },
       },
       again = {
         { id = "h_again", text = "What else? I've vines to see to before dark." },
@@ -104,6 +114,7 @@ P:NPC {
         { text = "Do the boars give you much trouble in the vines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you ever make peace with the Stonefields, Pa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have the Defias been through your vineyard, Pa Maclure?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your vines and their fields drink the same river. Why quarrel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Mr. Maclure.", next = "END" },
       },
     },
@@ -212,6 +223,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Pa would say blood and stubbornness, but I'd say pruning, because a vine left to itself grows wood instead of fruit. It seems cruel while you're cutting it back, but the harvest says otherwise." } },
+      choices = {
+        { text = "A careful hand makes a better vine. Prune it well.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A vine left wild has its own worth. Harvests aren't everything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than you'd think, and they drink it faster than anyone. A warrior coming back from Fargodeep wants a bottle to forget the kobolds, and I'm happy to sell it, though I'd not say so in front of Pa." } },
@@ -284,6 +304,7 @@ P:NPC {
           text = "A mage. You'll be after a bottle for the long nights with your books, I'd guess, and I've just the vintage." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want something strong, I expect. I've a red that'll stand up to anything you've fought." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after something for a long night in a cold camp, I've just the bottle." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! Here, have a taste, because I've never poured for one of your people and I'd love to know what you make of it." },
       },
       again = {
         { id = "h_again", text = "Anything else? Pa's watching, so I'd best look busy." },
@@ -300,6 +321,7 @@ P:NPC {
         { text = "Does Pa really hate the boars as much as the Stonefields?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does your family ever pray together, Joshua?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your family safe out here, Joshua?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What makes a vine give good grapes, besides the weather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },
     },

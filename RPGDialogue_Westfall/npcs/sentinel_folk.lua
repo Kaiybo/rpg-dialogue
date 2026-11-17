@@ -82,6 +82,15 @@ P:NPC {
         { text = "Something else, Heather.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "From the farms nobody ploughs any more, because a dead field just blows away a little each day. I sweep it out every morning and it's back by noon, so some days I think I'm sweeping half of Westfall through my door." } },
+      choices = {
+        { text = "Plant grass on the empty fields and hold the dust down.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let it blow. The land will find its own way back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Heather, and I keep the inn on the hill. Most of my guests are militia between watches, and most of them sleep in their boots." },
@@ -98,6 +107,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be sleeping in your boots, then, like the rest; I've given up asking anyone to take them off." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep by the fire, if it doesn't mind the militia snoring; most of them sound worse than a bear." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The militia will stand up straighter just seeing you, and then they'll ask you to bless their soup." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from the great forest, and you've come all this way to our dust. I'll find you a room with a window, because I'd guess you hate a closed roof." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the dust on the bench; I've only just swept it." },
@@ -116,6 +126,7 @@ P:NPC {
         { text = "Why does the militia sleep in their boots, Heather?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the militia mind beasts in the inn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the militia keep good order at your inn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where does all this dust come from, Heather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -246,6 +257,15 @@ P:NPC {
         { text = "Something else, Lewis.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "If you can bring me herbs that do the work, I'll take them gladly, because Elwynn charges dear for everything that comes down that road. I'll have to log them as something, though, so tell me what they're called before I invent a name." } },
+      choices = {
+        { text = "Log them honestly, Lewis, whatever Stormwind makes of it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Write them down as bandages. Nobody in Stormwind will check.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lewis, quartermaster. I keep Sentinel Hill fed, armed and patched, which is a lot to ask of one ledger and a wagon that keeps getting robbed." },
@@ -257,6 +277,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are the first thing we run out of, after bread and patience, so I hope you brought your own." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Our bandages are mostly old shirts, so whatever you can do without them, please do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's in better shape than anything in my ledger, so keep it that way, since I've nothing to mend it with." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? I've no column in my ledger for night elves, so I'll write you down as a scout and hope nobody asks." },
       },
       again = {
         { id = "h_again", text = "What's next? I've a ledger waiting on me." },
@@ -274,6 +295,7 @@ P:NPC {
         { text = "What does Sentinel Hill need from its hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does your ledger have room for bandages and blessed water?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who gets the armor first when Osric's crate comes in?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could wild herbs stand in for the bandages you can't get?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -759,6 +781,15 @@ P:NPC {
         { text = "Something else, William.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "From the windbreaks the old farmers planted, mostly, and only the trees that are already dying, because I'll not fell a sound one when there are so few left. It makes for knotty staves, which is why I charge for the patience." } },
+      choices = {
+        { text = "Only the dying trees. That's a fair bargain with the land.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Cut the sound ones. The militia needs bows now, not later.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "MacGregor's the name. I make bows for the militia and sell what's left to whoever walks up; Westfall wood's poor, so I make it up with patience." },
@@ -770,6 +801,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my bench. You'll want a bow for pulling, I suppose, and I'll sell you one, though it's not my best." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at a bowyer's bench. You'll not want a bow, I'd guess, but you're welcome to watch." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Hammers and maces for your lot, I know, so I've nothing for you but a fine bowstring to admire." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll have opinions about my staves, I expect, since I'm told your people grow the finest bow wood in the world." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
@@ -786,6 +818,7 @@ P:NPC {
         { text = "Why won't you sell a warrior your best bow?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever made a bow for a priest, William?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever give a bow to a farmer who can't pay?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where do you cut your wood, now Westfall's groves are gone?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

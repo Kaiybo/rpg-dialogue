@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I feel it in the roots and in the rivers, though I cannot yet name its source, and that troubles me more than the sickness itself. Some of the Circle would wait and dream on it, but Auberdine cannot wait, so I send whoever will go." } },
+      choices = {
+        { text = "The Circle should act together, not each druid on their own.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I won't wait for the Circle. I'll act wherever I see harm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Then you and I are both in the business of listening, though I hope for kinder reasons. If you hear anything of what is sickening the land, from the furbolgs or from the sailors at the dock, bring it to me first." },
@@ -120,6 +129,7 @@ P:NPC {
           text = "Terenthis sent you with word of the furbolg camps? Your scouting comes at a fortunate time, for we have been fighting the forest's corruption as well as its creatures." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, and welcome. Gwennyth of the Temple of the Moon would be glad of another healer's eye on what the sea keeps leaving on our shore." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, and kaldorei besides. Then you will feel the sickness in this land as I do, and you will understand why my lamps burn so late." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Auberdine's lamps burn later than any in Darnassus, because the boats come in at all hours. I sleep little these days in any case." },
       },
@@ -140,6 +150,7 @@ P:NPC {
         { text = "The beasts here are sick. I've seen it in their eyes.", next = "hunter_th", when = { class = "HUNTER" } },
         { text = "An elder must hear a great many things. So do I.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Bashal'Aran's demons could be bound instead of fought.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You feel the sickness too, Elder? What do you make of it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll help Auberdine.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -651,6 +662,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Well enough, though we see the trouble differently, because a druid wants to heal the sick bear and a Sentinel wants it away from the road before it kills someone. Most days I let the druids try first, and I keep my bow strung while they do." } },
+      choices = {
+        { text = "Heal it first. A sick beast is not an enemy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it threatens the road, put it down quickly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Then thin them, and quickly, for they have been creeping further up the beach every night. Murkdeep leads them now, and if you can get near enough to see him, you will have done more than my Sentinels." },
@@ -715,6 +735,7 @@ P:NPC {
           text = "Bone, inside the crystal, and half a jaw that may have belonged to someone who walked on two legs? That answers one question and raises a dozen more, so I'll take it to the council." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because the Sentinels I send up the coast come back with wounds that do not close cleanly, and I have too few hands to mend them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind at Maestra's Post fight hard, I am told, so I will not waste your strength on small things." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and kaldorei by the look of you. The groves along this shore are sickening faster than the Circle can tend them, so I am glad to see another of you on the beach." },
       },
       again = {
         { id = "h_again", text = "What else? I'm due on the beach soon." },
@@ -731,6 +752,7 @@ P:NPC {
         { text = "I'll lend my fire to the Sentinels.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your Sentinels need a healer's hands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin do the most good on this shore?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Sentinels and the druids work well together here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },

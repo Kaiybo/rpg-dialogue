@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Once, by Stone Cairn Lake, and I woke with a wolf sniffing my boots, so I've kept a fire ever since. I expect your people never needed one, but a man needs his comforts, and the wolf did leave in the end." } },
+      choices = {
+        { text = "A good camp has rules: a fire, a watch and a cleared ring.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules are for towns. Out here I sleep wherever I stop.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not a bit of it. They come up the road dented and bleeding and say they'll rest after the next wolf, and then there's always a next wolf. Sit by a fire properly once and you'll fight twice as well tomorrow." } },
@@ -78,6 +87,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Could you light my fire for me some evening? I've been at it with flint for an hour some nights, and it's undignified." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down; whoever you fought today, they'll still be there tomorrow, and the fire's warm now." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, sleeping rough like me by the look of you! Pull up a log, because a fire's always better with somebody who's walked further than I have." },
       },
       again = {
         { id = "h_again", text = "What else? There's tea, if you're staying a while." },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "Why not just carry a spark-stone like everyone else?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think warriors rest enough, Sam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is it safe, camping out here alone, Sam?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you ever sleep under the trees without a fire?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Enjoy the fire.", next = "END" },
       },
     },

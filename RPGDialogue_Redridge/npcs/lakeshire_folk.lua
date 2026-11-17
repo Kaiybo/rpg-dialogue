@@ -66,6 +66,15 @@ P:NPC {
         { text = "Something else, Bailiff.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It says a great deal, citizen, about licences and seasons and the Magistrate's share, though none of it has been enforced since the gnolls arrived. If you mean to take game in Redridge, I'd ask you to keep a tally, so the Magistrate can pretend the law still holds." } },
+      choices = {
+        { text = "I'll keep the tally. Law matters most when it's hard.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hunting laws mean nothing while gnolls roam the hills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -81,6 +90,7 @@ P:NPC {
           text = "You stand like a city guardsman, citizen, which is more than I can say for the deputies. The court could use someone who knows how a warrant is served." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, citizen. You'll be glad to know that hunting in Redridge is entirely lawful, provided the quarry isn't the Magistrate's cattle." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, citizen. The court has no objection to prayer, provided it is conducted in an orderly fashion and does not block the steps." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Citizen, and a druid of the kaldorei, I see. The Magistrate will want your name for the register, since it has never yet listed a night elf." },
       },
       again = {
         { id = "h_again", text = "The court will hear further business." },
@@ -98,6 +108,7 @@ P:NPC {
         { text = "Does the court pay a bounty on gnolls, Bailiff?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I suppose the Magistrate has a ruling on warlocks too.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the condemned get a priest before the sentence is carried out?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Lakeshire law say anything about hunting in the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Bailiff.", next = "END" },
       },
     },
@@ -253,6 +264,15 @@ P:NPC {
         { text = "Something else, Feldon.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Blackrock arm them and drive them ahead like hounds, so they come at us with orc steel and orc courage. Left alone, I think they'd squabble over carrion in the hills and never bother the bridge at all." } },
+      choices = {
+        { text = "Spare the gnolls who flee. They're only driven beasts.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Show them no mercy. They chose to raid.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Deputy Feldon. I watch the south end of the bridge and count gnolls. The count keeps going up, which is not how counting's meant to go." },
@@ -265,6 +285,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because every gnoll you drop is one I can take off the count, and I've been waiting a long time for the count to go down." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've any blessing that makes the count go down, I'd take it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because the count is getting to the point where I'd like someone who can stand in front of it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't suppose you can tell how many gnolls are in those trees just by sniffing, because I've lost count again." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, please; I've lost count once today already." },
@@ -282,6 +303,7 @@ P:NPC {
         { text = "How many gnolls are out there now, Deputy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you count the fallen as carefully as the gnolls, Deputy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has Stormwind answered any of your reports, Deputy?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why have the gnolls grown so bold, Deputy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Stay safe, Deputy.", next = "END" },
       },
     },
@@ -439,6 +461,15 @@ P:NPC {
         { text = "Something else, Parker.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The quiet stretches, because a gnoll pack never makes a sound until it's on you. I've walked this road eleven years and I still can't tell a bird going silent from a bird that was never there." } },
+      choices = {
+        { text = "Keep to the road and keep your patrol to schedule.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave the road sometimes. The trees hide you as well as them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -455,6 +486,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Eye on the job, always, and yours is the hills, so tell me if you see anything moving that shouldn't be." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on the road. Eye on the hills, always, though I'll spare one for a blessing if you're offering." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Eye on the road, always, but I'll admit it's good to see someone walk it who isn't afraid." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, walking my road. I'll need to know where you're bound, same as anyone, even if you mean to get there on four legs." },
       },
       again = {
         { id = "h_again", text = "Something else? Talk while I watch; I can do both, mostly." },
@@ -473,6 +505,7 @@ P:NPC {
         { text = "Your road would be safer with a demon walking it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you worry about not coming back from the road, Parker?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should someone walk the road with you, Parker?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What worries you most about the hills, Parker?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Carry on.", next = "END" },
       },
     },
@@ -618,6 +651,15 @@ P:NPC {
         { text = "Something else, Darcy.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Mostly that you're tall and quiet and never seem to sleep, love, which is what they say about the Watch too. Some of the older folk mutter that elves are trouble, but they say that about anyone from past the mountains, so don't take it to heart." } },
+      choices = {
+        { text = "Then I'll earn their trust honestly, one meal at a time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them mutter. I don't need their good opinion.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Darcy. I wait tables at the inn and I hear all the gossip, and I pass on only the nice parts, mostly." },
@@ -635,6 +677,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, love, and a beast besides! I'll find it a bowl of scraps if you'll promise it won't chase the inn's cat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit by the window, because the soldiers behave themselves better with someone holy in the room." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love! Parker will want to meet you, because he says the Silver Hand are the bravest lot in the kingdom." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, love, and a night elf besides! The whole inn will be talking about you by supper, and I'll only pass on the nice parts." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tables can wait a minute." },
@@ -652,6 +695,7 @@ P:NPC {
         { text = "Do the hunters around here tell good stories, Darcy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the soldiers ever ask you to pray for them, Darcy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Lakeshire needs protecting most, Darcy?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does Lakeshire say about my people, Darcy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -975,6 +1019,15 @@ P:NPC {
         { text = "Something else, Chef.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Blackrock camps eat everything that walks, and what they don't eat the gnolls do, so the deer have gone up past Stonewatch where nobody follows. Sherman brings me what he can, but a butcher can't cut what nobody can catch." } },
+      choices = {
+        { text = "Hunt only what the hills can spare, or nothing will be left.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your soldiers come first. Take whatever the hills have.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Breanna. I feed every soldier Stormwind's stationed in Lakeshire, and they're hungry, and there aren't nearly enough of them, and both of those are problems." },
@@ -986,6 +1039,7 @@ P:NPC {
           text = "Elves eat goulash? Course you do; everyone eats goulash in Lakeshire, because it's that or the lake." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! At last, someone who can bring me something besides complaints, because I've a hundred soldiers to feed and nothing in the pot." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit down and eat, because I'll not have it said that the Silver Hand left my kitchen hungry." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! If you know where the boar have gone in these hills, tell me, because my soldiers have eaten nothing but lake trout for a week." },
       },
       again = {
         { id = "h_again", text = "What else, dear? You can talk while I get on with the chopping." },
@@ -1002,6 +1056,7 @@ P:NPC {
         { text = "What meat do you need for the soldiers' stew, Chef?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your kitchen could use a fire that never goes out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers you feed get enough to fight on, Chef?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why are the hills so empty of game this season?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },
       },
     },

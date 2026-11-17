@@ -213,6 +213,15 @@ P:NPC {
         { text = "Something else, Motley.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Dwarves an' stone an' years, an' the Dark Irons gone from the bridgeheads first, for they'll knock down anythin' we raise. It joined Khaz Modan tae Arathi for longer than any of us has lived, an' now ye cannae cross it without a fight." } },
+      choices = {
+        { text = "Then drive out the Dark Irons and build it again.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some bridges are meant to fall. Find another road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If ye're here tae talk me out o' vengeance, save yer breath, for I've heard it all from my mother." },
@@ -223,6 +232,7 @@ P:NPC {
           text = "Go and see the Span for yerself, and find out what the Dark Irons left behind. They're bold enough to leave clues." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Good, for I've a list o' Dark Irons who owe me for the Span, an' I need someone tae collect." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? The Dark Irons at the Span leave tracks like anyone else, an' I'd like tae know where they lead." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've no time for trees an' moss, for I've a grudge tae tend, but ye're welcome tae stand an' listen while I tend it." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? I've a vengeance to plan." },
@@ -237,6 +247,7 @@ P:NPC {
         { text = "Where do you think the Dark Irons' tracks lead?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is vengeance all you want from the Dark Irons, Motley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Dark Irons answer to a court, or your axe?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would it take to rebuild the Thandol Span?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck, Motley.", next = "END" },
       },
     },
@@ -342,6 +353,15 @@ P:NPC {
         { text = "Something else, Ormer.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because we've built camps on their nestin' ground, if ye want the honest answer, though I'll no' say it in front o' Whelgar. Knowin' why doesnae bring back the lads they took." } },
+      choices = {
+        { text = "Hold the ground and drive them off. The dig matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Move the camp off their nests and let them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! We've lost diggers tae the raptors an' buried them where they fell, an' none o' them had proper words." },
@@ -351,6 +371,7 @@ P:NPC {
         { id = "h_revenge", when = { questActive = TODO_QUEST("Ormer's Revenge") },
           text = "The raptors round the dig need thinnin', and I want the big ones gone most of all. Do it for me, and do it for the lads they took." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand; the raptors come at the dig in packs, an' I could use someone who'll stand firm while they circle." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye'll be tellin' me the raptors are only doin' what raptors do, an' I'll be tellin' ye they killed my friends, so let's save each other the breath." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep yer eyes on the grass while ye ask." },
@@ -366,6 +387,7 @@ P:NPC {
         { text = "How do the raptors attack the dig, Ormer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Were the lost diggers given a proper burial, Ormer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where should I stand when the raptors come, Ormer?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do the raptors hunt the dig so fiercely, Ormer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good hunting, Ormer.", next = "END" },
       },
     },
@@ -483,6 +505,15 @@ P:NPC {
         { text = "Something else, Prospector.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A skull bigger than a cart, wi' a ridge o' horn like no beast I know, an' scorch marks on it older than the stone round it. The diggers say it's a dragon, an' I say it's no' my place tae guess until I've cleaned it." } },
+      choices = {
+        { text = "Study it properly. The past should be understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rebury it. Some bones are better left in the mud.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Some of what we dig up here is old and some is very old, and a few pieces I'd rather a priest looked at before I touched them." },
@@ -491,6 +522,7 @@ P:NPC {
           text = "Prospector Whelgar of the Explorers' League, and this is my excavation, raptors and all. The ground here hides more than mud, though it hides it under plenty of mud." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The dig could use one, for my diggers keep looking over their shoulders instead of at the ground." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the raptors know this ground better than any of my maps, and you'll know the raptors." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Yer folk are old, I'm told, older than ours by a long road, an' I'd like tae know if ye recognise anythin' we've dug up." },
       },
       again = {
         { id = "h_again", text = "What else? I've a trench to check." },
@@ -505,6 +537,7 @@ P:NPC {
         { text = "Do the raptors keep you from digging, Prospector?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What have you found that needs a priest's eye, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your dig worth the lives it's cost, Prospector?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's the strangest thing you've pulled out of the mud?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

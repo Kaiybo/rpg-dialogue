@@ -836,6 +836,15 @@ P:NPC {
         { text = "Do the Forsaken ever stay at your inn?", next = "forsaken" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Oh, whether the Earth Mother speaks louder through the spirits or through the wild, and whose turn it is to pay. One of Hamuul's own students came down to settle it once and ended up shouting louder than any of them, so now I keep the stew coming until they're too full to talk." } },
+      choices = {
+        { text = "Someone should settle it properly, once and for all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them argue. Every voice deserves a seat by the fire.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Pala, and I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
@@ -848,6 +857,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you'll want the big bowl, I can tell. Sit down before you knock over a table, because tauren tables are sturdy, but not that sturdy." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast can sleep by the fire, and you can sleep upstairs, and the stew is the same for both of you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Come in, come in, and sit by the fire, for you healers never stop to eat, and you look as if you've been praying on an empty stomach." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Sit with the others by the fire, love, because they'll want you on their side the next time the shamans start the old argument." },
       },
       choices = {
         { text = "Do travellers often need healing at your inn, Pala?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -859,6 +869,7 @@ P:NPC {
         { text = "Your stew's gone cold, Pala. Shall I warm it with a spell?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warriors behave in your inn, Pala?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters bring you game for the stew, Pala?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do the druids and shamans argue about, Pala?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

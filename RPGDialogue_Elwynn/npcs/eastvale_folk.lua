@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Linen comes up from the farms, but the forest gives me dye, walnut for brown and elderberry for the purple the tower folk pay double for. The loggers think I'm mad, picking berries between the stumps." } },
+      choices = {
+        { text = "Take only the berries, Sara, and let the bushes grow back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Charge the tower triple. They'll pay whatever you ask.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Padding, mostly, for under the mail, though they never think of it until they've rubbed their shoulders raw. A good quilted gambeson stops more Defias knives than anyone gives it credit for." } },
@@ -87,6 +96,7 @@ P:NPC {
           text = "A mage, and in a robe that's seen some road. If you've singed the hem, I can match the cloth, though I can't promise the color will forgive you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and your tabard's frayed at the hem from all that swinging. I could fix it, if you held still long enough." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting pockets, and plenty of them, because your sort always do." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Kaldorei, by the ears, and that leather's never seen a tanner's vat unless I'm much mistaken. Nobody in Eastvale stitches like that, so I'd love to know who did." },
       },
       again = {
         { id = "h_again", text = "Go on, I'm listening, and so is the needle." },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Do warriors ever buy anything from a tailor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does a tailor make for hunters, Sara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Defias ever come into Eastvale, Sara?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you ever take cloth or colour from the forest itself?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll keep an eye out for red.", next = "END" },
       },
     },

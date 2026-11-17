@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Gramma does, and I don't argue with Gramma, but I'll say the soil on our side of the river has gone tired these last few years. If a druid can tell me whether it's a curse or just poor dirt, I'd be glad to know." } },
+      choices = {
+        { text = "It's tired soil, not a curse. The Maclures aren't to blame.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Could be a curse. I'd not put it past a Maclure.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Need, no, but I'd not say no to someone strong enough to make that Maclure boy think twice about my fence. And the kobolds that took my necklace could do with a lesson too, if you're passing." } },
@@ -105,6 +114,7 @@ P:NPC {
           text = "A mage! Could you warm my oven a little faster, dear? The wood's damp, and the bread won't rise without heat." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Wipe your boots, then; I've just swept, and I don't sweep twice for anyone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after good boar, the ones out past the Maclure vines are fattest, and I'd thank you to bring me some." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen yard! Look at the turnips if you like, but mind the vineyard side, because the Maclures watch this fence like hawks." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I knead; I can do both." },
@@ -123,6 +133,7 @@ P:NPC {
         { text = "Why do you want boar meat, Auntie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you forgive the Maclures, Auntie, if they asked?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you want done about the Maclure boy, Auntie?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really think the Maclures cursed your turnips?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
     },
@@ -479,6 +490,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Everything, because I'm always out where nobody's looking, and there's a fox that takes the Stonefield eggs every Tuesday. Everybody thinks it's me, but I'm not telling them it's the fox, because then they'd shoot it." } },
+      choices = {
+        { text = "Tell the truth, Billy, and let the grown-ups sort out the fox.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep the fox's secret. The grown-ups don't need to know.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "He's a kobold, down in Fargodeep, and he likes shiny things, and he's got Auntie Bernice's necklace. I saw it, only I didn't, because I wasn't there, so don't tell my ma." } },
@@ -543,6 +563,7 @@ P:NPC {
           text = "A real mage! Can you do the thing where you turn somebody into a sheep? I know a Stonefield who'd look good as a sheep." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You could beat up Goldtooth! Only don't tell anyone I said, because I wasn't there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Have you got a boar? I'm not hungry, I'm just asking, because I'm hungry." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a night elf! I didn't take anything, before you ask, and I've never even seen one of your lot before." },
       },
       again = {
         { id = "h_again", text = "What? I'm listening, I'm always listening, that's how I know things." },
@@ -559,6 +580,7 @@ P:NPC {
         { text = "Are you really that hungry, Billy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you say your prayers at night, Billy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why didn't you tell anyone what you saw, Billy?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you know about the animals round the farm, Billy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "See you, Billy.", next = "END" },
       },
     },

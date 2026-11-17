@@ -86,6 +86,15 @@ P:NPC {
         { text = "Something else, Shellei.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Dry straw, and more of it than the harbour can spare, because their feathers rot if they sit wet too long. I've tried rubbing their wings with seal oil, but they hate the smell, and so does everyone else on the roost." } },
+      choices = {
+        { text = "Keep the roost where the garrison needs it, and make do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Move the roost to higher ground, where the air is drier.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The gryphons fly a good many wounded east to Ironforge, and I'm always glad of someone to calm them before they go." },
@@ -94,6 +103,7 @@ P:NPC {
           text = "Shellei Brondir, gryphon master of Menethil Harbor. My birds fly east over the mountains to Thelsamar and Ironforge, which is the only way out of the Wetlands that won't leave mud in your boots." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? You'll be heavy, then, so I'll give you one of the stronger birds." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, then you'll know better than to let your beast near my birds." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to startle my roost, since my gryphons are cross enough about the rain without a bear wandering past." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are waiting, and they don't wait patiently in the rain." },
@@ -110,6 +120,7 @@ P:NPC {
         { text = "Do your gryphons mind a hunter's beast, Shellei?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your birds carry the wounded east to Ironforge, Shellei?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the flight east safe, with the Dragonmaw in the hills?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is there anything that eases your gryphons in this damp?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you, Shellei.", next = "END" },
       },
     },
@@ -232,6 +243,15 @@ P:NPC {
         { text = "Something else, Murndan.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "No' near the harbour, thank the stone, but the lads from Algaz say the reds pass overhead at dusk on their way back tae Grim Batol. Bullets bounce off them like hail off a roof, so I've stopped tellin' the lads tae aim up." } },
+      choices = {
+        { text = "The reds are slaves to the orcs. Strike the masters instead.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Dragon or orc, it makes no odds. Kill whatever flies at you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If ye've a blessin' for rust, I'll take it, for nothin' else I've tried has worked." },
@@ -242,6 +262,7 @@ P:NPC {
           text = "Murndan Derth, gunsmith, an' it's a relief tae see a proper dwarf in this soggy place. The humans here think a gun's a kind o' crossbow, an' I've given up explainin'." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want an axe, no' a gun, but ye might want a gun for the times the axe cannae reach." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a customer, for there's no dwarf hunter born who doesnae want a better rifle." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll be wantin' no guns, I'd wager, an' that's fine by me, for there's few left in this harbour the damp hasnae ruined." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -258,6 +279,7 @@ P:NPC {
         { text = "What rifle would you sell a hunter in this swamp?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the garrison have much need of a priest, Murndan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the garrison well armed against the Dragonmaw, Murndan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Dragonmaw's red dragons ever fly near the harbour?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thanks, Murndan.", next = "END" },
       },
     },
@@ -378,6 +400,15 @@ P:NPC {
         { text = "Something else, Neal.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some of it, when the dwarves clear rock near the Span or Whelgar's crew blow a new trench, and the frogs downstream don't thank them for it. I sell it all the same, because a harbour that can't build can't hold." } },
+      choices = {
+        { text = "Then sell it with care. The marsh feeds this harbour too.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell whatever pays. The marsh will get by.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I stock candles and bandages too, you know, though the gnomes never buy those." },
@@ -388,6 +419,7 @@ P:NPC {
           text = "Neal Allen, engineering supplies and general goods, and I'm glad to see a gnome, for you're my best customers. I've got coarse powder and bronze tubes, if you're building something interesting." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? You'll want rope and rations before blasting powder, I'd guess, though you'd be surprised what warriors buy." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I keep shot and arrows in the back, and the dwarves buy the shot faster than I can stock it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Mind the blasting powder, because it's sealed tight, but I'd not trust any jar near someone who can turn into a bear." },
       },
       again = {
         { id = "h_again", text = "Anything else you need?" },
@@ -404,6 +436,7 @@ P:NPC {
         { text = "Do you keep enough shot for the hunters here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the garrison come to you for bandages, Neal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your goods ever reach Dun Modr's defenders, Neal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does all that blasting powder end up in the marsh, Neal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thanks, Neal.", next = "END" },
       },
     },
@@ -503,6 +536,15 @@ P:NPC {
         { text = "Something else, Samor.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some come from the marsh and some from further off, and I find it best not to say which. I'll tell you this much: the Wetlands are generous with things that kill, and stingy with almost everything else." } },
+      choices = {
+        { text = "Poison is a coward's tool. You profit from cruelty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Nature poisons freely. Why shouldn't we?", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, up here? I'd have thought my wares were the opposite of your business, though I'll not turn your coin away." },
@@ -513,6 +555,7 @@ P:NPC {
           text = "Samor Festivus, and you're the sort of customer I like, the kind who knows what they want and keeps it quiet. I've reagents for every poison you've been taught, and a few you haven't." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll have no need of my goods, I imagine, though I've been surprised before." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I've nothing for your beast, I'm afraid, though you might find something for your arrows elsewhere." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, browsing the poisons. Your kind know more about what grows deadly in the wild than my suppliers ever will, I suspect." },
       },
       again = {
         { id = "h_again", text = "Anything else? Softly, please." },
@@ -527,6 +570,7 @@ P:NPC {
         { text = "Do hunters ever come up here looking for something?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does your trade ever harm the innocent, Samor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Give me one reason not to report your trade, Samor.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you gather your poisons from the marsh itself, Samor?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

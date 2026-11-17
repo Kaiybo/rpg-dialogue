@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "We agree that the orcs must leave, and we disagree on nearly everything else, because the Circle would still sit and talk with the Horde's tauren while the Sisterhood would rather not. I send both views to Darnassus, and I let wiser heads decide." } },
+      choices = {
+        { text = "The Sisterhood holds this forest. The Circle should follow its lead.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The forest isn't the Sisterhood's to command. We answer to Cenarius.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "By holding when the Warsong come, and by not boasting of it afterward. I have sent many names to Darnassus, and every one belonged to someone who did their duty quietly." } },
@@ -103,6 +112,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Sentinels value hunters above most, because the forest speaks to you as it speaks to us." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whether you call on the Light or the Mother Moon, the High Priestess values those who mend the wounded." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your Silver Hand has its own discipline, and I would know if it matches ours." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. The Sisterhood and the Circle answer to different voices in Darnassus, but here in Ashenvale we stand on the same ground." },
       },
       again = {
         { id = "h_again", text = "What else? The watch changes soon." },
@@ -120,6 +130,7 @@ P:NPC {
         { text = "Do the Sentinels ride with hunters in Ashenvale?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How does Tyrande regard priests who aren't of the Sisterhood?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Sentinels and the Silver Hand serve the same cause?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Sentinels and the Circle agree about the Warsong?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Elune keep the watch.", next = "END", fx = { standing = { astranaar = 1 } } },
       },
     },
@@ -225,6 +236,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not once you've settled into cat or bear, but they grow restless when a druid changes too close to the roost, because they smell the shift before they see it. I ask the Circle's folk to change beyond the bridge, and most of them are kind enough to listen." } },
+      choices = {
+        { text = "Your roost, your rules. I'll change beyond the bridge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My shape is my own. The birds will get used to it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the Warsong keep archers at their lumber camps to the east, and a bird up high is a target while a bird down low is a blur. I've lost one already this season, and I don't mean to lose another." } },
@@ -283,6 +303,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Hold on with your knees and don't lean, because I fly low over the trees and the branches won't wait." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My birds come back with arrow wounds more often than I'd like, so I keep a healer's name handy." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be a heavy load, but my birds have flown worse over the eastern trees." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You've no wings of your own, so you'll fly with mine like everyone else, and I promise the birds are gentler than they look." },
       },
       again = {
         { id = "h_again", text = "Anything else, or are we flying?" },
@@ -299,6 +320,7 @@ P:NPC {
         { text = "Why do you fly so low over the forest, Daelyshia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the Warsong shoot at your hippogryphs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Alliance strike Splintertree before they strike us?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the hippogryphs fear druids who change shape near them?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

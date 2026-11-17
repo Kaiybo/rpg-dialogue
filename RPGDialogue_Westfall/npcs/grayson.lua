@@ -77,6 +77,15 @@ P:NPC {
         { text = "Let's speak of something else, Captain.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because the rocks below this light are still there, and ships still come round the point at night with no one to warn them. When some living captain knows these waters as well as I do, perhaps I'll let the flame go out." } },
+      choices = {
+        { text = "The dead must move on, Captain. That's the natural order.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stay as long as you like. No law binds a willing spirit.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Grayson, of a ship that isn't, from a crew that aren't. I mean no harm to the living; I mean only to keep this flame lit." },
@@ -96,6 +105,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a living one. I mean you no harm; I only mean to keep the flame lit, and you could help." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me, I think, though you might not; animals are better at seeing the dead than the living are." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'd half expected your Light to burn me where I stand, but it only feels warm, which is a strange thing for a dead man to feel." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A child of the kaldorei, if this old ghost's eyes still serve. I never sailed far enough to see your people's shores, and now I never shall." },
       },
       again = {
         { id = "h_again", text = "Ask on. The dead have nothing but time, and I've more than most." },
@@ -114,6 +124,7 @@ P:NPC {
         { text = "What does a ghost need with a warrior, Captain?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can my beast truly see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Light trouble you, Captain, being what you are?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "My people teach that every spirit should pass on. Why do you stay?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Rest easy, captain.", next = "END" },
       },
     },

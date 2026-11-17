@@ -26,6 +26,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not for the pieces that come to me, because they'd be firewood otherwise and a bow lasts a man his whole life. The mill's another matter, but the mill isn't mine, and Raelen doesn't take advice from bowyers." } },
+      choices = {
+        { text = "Your bows honour the wood. The mill should learn from you.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Wood is wood. A tree cut for bows or beams is the same.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "To bring one bear to you instead of three, which is the whole trick in these woods. Shoot the nearest from far off, let it come, and the others stay asleep. The loggers who learned that are still logging." } },
@@ -84,6 +93,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in a bowyer's shop. You'll be after a staff, I expect, and I'll tell you now I only make them when the wood tells me to." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at a bowyer's bench! You'll want a bow for pulling something toward you, I expect, and that's a fair use of one." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you're looking at my staves the way I look at them, so I reckon you hear the grain as well as I do." },
       },
       again = {
         { id = "h_again", text = "What else? I'm only rubbing oil into this stave, so I can listen while I work." },
@@ -101,6 +111,7 @@ P:NPC {
         { text = "Why would a warrior bother with a bow?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have the loggers needed a healer much this season, Rallic?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever wish you'd taken up the sword, Rallic?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you ever feel guilty about the trees the mill cuts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Rallic.", next = "END" },
       },
     },
@@ -181,6 +192,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Honey, mostly, out of the hollow oaks they fell, and they squabble over who gets to break the comb. I pay them fair for it and sell it fair, though the bees, I'll grant you, never see a copper." } },
+      choices = {
+        { text = "Then leave the bees a tree or two. They've earned it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The bees will rebuild. Honey sells, and that's what matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Food and linen, every time. They buy a sharpening stone and think that's them ready, and then they're out by the bears with an empty pack and a sharp sword they can't eat." } },
@@ -251,6 +271,7 @@ P:NPC {
           text = "A warlock in Eastvale. I'll tell you now that I don't carry anything your trade needs." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a whetstone and some linen, and I've both, counted twice." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are on the right, shot on the left, and before you ask, I've counted those too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Kaldorei, and a long way from the sea you crossed. I've never sold to one of your people before, so tell me what a druid runs short of and I'll see if the cart brings it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a cart to unload before dark." },
@@ -267,6 +288,7 @@ P:NPC {
         { text = "Do you sell anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever give to the needy, Drake, or only sell?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the road from Stormwind safe for your carts, Drake?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the loggers ever bring you anything besides wood?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell, Drake.", next = "END" },
       },
     },
@@ -332,6 +354,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "More than I like to count, because Stormwind's always building something and Raelen's always promising it beams by Tuesday. Last spring I counted the rings on one old oak and stopped at two hundred, and I didn't feel much like joking for the rest of the day." } },
+      choices = {
+        { text = "Plant an acorn for every oak, the way your mother did.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "The city needs beams. Old oaks can't stand forever anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "With an axe, once, and I don't recommend it, because an axe for trees isn't an axe for bears. I ran, and the bear ate my lunch, and Raelen docked me the morning anyway." } },
@@ -402,6 +433,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There's a chill come in with you that I don't like, and it's not the weather. Keep your distance from the mill, if you would." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Are you here for the bears? Say you're here for the bears, because I've a stack of bundles out in the woods with my name on them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in a logging camp, and I can see by your face what you think of all these stumps. I'll not argue, but I'll tell you I leave the young ones standing." },
       },
       again = {
         { id = "h_again", text = "What else? I'm meant to be stacking, so ask quickly." },
@@ -418,6 +450,7 @@ P:NPC {
         { text = "How bad are the bears around the mill?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does anyone pray for the woods you cut, Terry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the bears up north a real danger, Terry?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How many trees does the mill take in a season?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

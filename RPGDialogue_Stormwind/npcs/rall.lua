@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I think every gift asks a debt, and yours more than most, because you're given the strength of the wild and must answer to the wild for how you use it. I'd not want to be tested by a forest, I'll tell you that." } },
+      choices = {
+        { text = "Every gift is a debt, and I mean to repay mine.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My gifts are mine. I owe nobody for them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "The Light has a use for anyone willing to stand where they're needed, and some of the bravest people I've known worked in the dark. It asks you the same thing it asks a paladin, which is who your work protects." } },
@@ -97,6 +106,7 @@ P:NPC {
           text = "The Cathedral's doors are open to you as they are to everyone, though you'll understand if I stand beside them while you're here." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll fight as hard as any paladin, I don't doubt, though without the Light behind you, you'll need to be twice as careful." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The paladins I test spend their days in halls and chapels, and I sometimes wish they'd spend a week in the woods with someone like you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral district. I test paladins, not druids, but I'd guess your goddess asks something of you the way the Light asks something of us." },
       },
       again = {
         { id = "h_again", text = "What else? Ask it straight." },
@@ -114,6 +124,7 @@ P:NPC {
         { text = "What separates a warrior from a paladin, Duthorian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would a paladin learn from a hunter, Duthorian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Light ask a debt of druids too, Duthorian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go, Rall.", next = "END" },
       },
     },

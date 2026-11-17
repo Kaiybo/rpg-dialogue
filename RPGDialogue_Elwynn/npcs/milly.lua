@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They trampled the north rows and cut whole branches for kindling, the brutes, because they couldn't be bothered to find dead wood. Vines that old take years to come back, and I'll be counting every one of them." } },
+      choices = {
+        { text = "Then they'll answer for every vine, by the Marshal's law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll drive them out myself, and the Marshal can wait.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too many to count from the fence, and they've set a camp right on my grapes. They're not soldiers, but they've knives and they don't fight fair, so watch the ones you can't see." } },
@@ -90,6 +99,7 @@ P:NPC {
           text = "There's something about you that makes the vines droop, and I don't like it, but I'll take any help I can get with the Defias." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Then you can carry crates, and you can carry them past the Defias, which is twice what I hoped for." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be quiet, then, and you'll get into the vineyard without them hearing, which is more than the recruits manage." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out here among the vines? If you can talk to grapes, tell them I'm coming back for them once the Defias are gone." },
       },
       again = {
         { id = "h_again", text = "What else? You can talk while I sort these." },
@@ -107,6 +117,7 @@ P:NPC {
         { text = "Would you truly accept a warlock's help, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many Defias are in the vineyard, Milly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can I come at the Defias quietly through the vineyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have the Defias hurt the vines, or only stolen the grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

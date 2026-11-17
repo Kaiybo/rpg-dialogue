@@ -874,6 +874,15 @@ P:NPC {
         { text = "Why do they keep knocking you down?", next = "why" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Maybe it would, but out there nobody knocks you down, and I'm not sure I'd know who I was anymore. In here at least I know I'll get back up, and that's the one thing I'm still good at." } },
+      choices = {
+        { text = "Getting back up every time is a kind of honour, Gamon.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pride's no use to you. Walk away and start over somewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
@@ -881,11 +890,13 @@ P:NPC {
           text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and I'd rather not add a bear to the list." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "Oh, a hunter. Mind your beast doesn't lick my face, because the last one did, and I couldn't get up to stop it." },
       },
       choices = {
         { text = "Why don't you let someone heal you, Gamon?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Did the spirits ever speak to you, Gamon?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would the wild do you more good than this inn, Gamon?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why does everyone attack you?", next = "why" },
         { text = "I could teach whoever keeps knocking you down a lesson.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you ever hunt again, Gamon, if you got off that floor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },

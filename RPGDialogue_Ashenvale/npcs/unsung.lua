@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It reaches everything, because every cart the orcs turn back is flour and thread that never arrives. The druids tell me the forest will outlast the Warsong, and I believe them, but the forest doesn't bake bread." } },
+      choices = {
+        { text = "Then the Sentinels must hold the roads, whatever it costs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then trade with whoever can get through, goblins included.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Half of them this season, and the other half arrive late and short. The Sentinels can't guard every cart, so when a warrior's going the same way I ask, and most of them are good enough to say yes." } },
@@ -94,6 +103,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want food for the road, and something for your companion, and I've both." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because half the carts that make it here come in with someone hurt aboard, and I'm no healer." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The carts could use one riding alongside them, because the Warsong have turned back more than I'd like." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'd guess you came through the woods instead of along the road, and I wish my supply carts could do the same." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away." },
@@ -109,6 +119,7 @@ P:NPC {
         { text = "Is game scarce now the Warsong are cutting the forest?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the supply carts come in with wounded often?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should I ride escort for your supply carts?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has the war with the Warsong reached your shelves, Haljan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Haljan.", next = "END" },
       },
     },
@@ -174,6 +185,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I do, and I've said so to their faces, because the Circle talks of balance while the orcs chop down trees older than Astranaar. A bear can break an orc's back as well as any blade I sell, so I don't see why your kind should hold back." } },
+      choices = {
+        { text = "We fight when we must, but we won't become butchers.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right. Every axe-swinger in this forest should fear us.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Something long, because an orc axe is short and brutal, and a warrior with reach can keep it off you. Strike at the hands that hold the axe, and they'll stop cutting trees soon enough." } },
@@ -242,6 +262,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting a blade for when the orcs get close, because they always get close." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, because the orcs won't wait for you to finish your prayers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you've seen orcs at war, and you'll understand why I don't sell anything blunt or badly made." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Warsong are felling the old trees by the dozen, and I'll wager you feel every one of them come down." },
       },
       again = {
         { id = "h_again", text = "What else? I've blades to sharpen." },
@@ -257,6 +278,7 @@ P:NPC {
         { text = "Do the Warsong hunt the forest's beasts as well?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think prayer does any good against the Warsong?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there any end to the war with the Warsong?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think druids are too gentle with the Warsong?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -319,6 +341,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Quieter, and so green it almost hurt your eyes in the morning, because nobody had yet cut the old groves where the Warsong camps stand now. The druids say it will all grow back in time, but their time is longer than I'd like to wait." } },
+      choices = {
+        { text = "It will grow back. We must be patient and tend it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Patience is how we lost it. We should take it back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not as it does now, because the forest was quiet and the Sentinels kept it so with very little steel. I remember when Astranaar's Sentinels wore silk under their armor for the beauty of it, and nobody needed to tell me what a Warsong axe looked like." } },
@@ -387,6 +418,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen how the forest looked before the Warsong cut into it, I hope." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I sell robes the priestesses like, and I'm sure I have something that would suit you, whatever you pray to." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'm afraid my cloth won't stop an axe, but I could line your gambeson if it's rubbing under the plate." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The priestesses wear my robes, but your people always ask for colours that won't show the moss, and I've never decided whether that's practical or sad." },
       },
       again = {
         { id = "h_again", text = "Something else?" },
@@ -402,6 +434,7 @@ P:NPC {
         { text = "Does my craft frighten you, Aeolynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do priests come to you often, Aeolynn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can Astranaar keep anything beautiful while it's at war?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What was Ashenvale like before the orcs came, Aeolynn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Aeolynn.", next = "END" },
       },
     },
@@ -464,6 +497,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The young ones come in starving after a week in the woods, and the old ones swear they don't need my bread and then eat three loaves. The forest feeds them less than it used to, with the Foulweald gone sour and the orcs scaring off the game." } },
+      choices = {
+        { text = "I'll pay for my bread and leave the forest's food alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The forest's food is free. Why pay for bread?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Never well enough, because they're always in a hurry and they think hunger keeps them sharp. I tell them an empty stomach makes them slow, and the ones who listen come back to tell me I was right." } },
@@ -532,6 +574,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, dear, and your companion's thinner than you are. That simply won't do." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit and eat, you're thin as a willow, and I'll not have you fainting over some poor scout's bandages." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! That armour must take some feeding, so let me find you something hearty before you go out to the roads." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and thin as a sapling, like all of you who live on berries and moonlight. Sit down and let me find you something with a little more to it." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? There's more in the oven." },
@@ -547,6 +590,7 @@ P:NPC {
         { text = "What should I feed my companion on the road, Maliynn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you look after the wounded as well, Maliynn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Sentinels ever go hungry on patrol?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the druids eat in town, or live off the forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Maliynn.", next = "END" },
       },
     },

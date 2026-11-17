@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Used carefully, I believe it can, but the word carefully has done a great deal of work in history and failed most of it. I put a little of myself into every enchantment, and I watch for the day it asks for more." } },
+      choices = {
+        { text = "Bind it with strict rules and watch it closely, and keep working.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No rule tamed it for my people. Put it down before it's too late.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because Dalaran shut its gates and the Alliance still needed its blades enchanted, and somebody had to keep the old methods alive. I wasn't the best student in my year, but I was the one who stayed in Stormwind." } },
@@ -94,6 +103,7 @@ P:NPC {
           text = "A warlock. I'll enchant your gear like anyone's, but I'll ask you to keep your demon outside the shop, because the essences react badly to fel." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want your blade enchanted, I suppose, as every warrior does, and you'll want it done by tomorrow, as every warrior does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Enchanting a bow is delicate work, because the string flexes and the magic doesn't like being stretched." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people turned away from the arcane long ago, so I'll be curious to hear what you make of my work, and I'll ask you to be honest." },
       },
       again = {
         { id = "h_again", text = "Is there more you'd learn? I have a little time before the next rod needs charging." },
@@ -109,6 +119,7 @@ P:NPC {
         { text = "Do fel energies really spoil your enchantments?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are blessings and enchantments truly alike, Lucan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins often seek enchantments from you, Lucan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can the arcane ever be used without wounding the land, Lucan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Lucan.", next = "END" },
       },
     },
@@ -165,6 +176,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Lucan's asked twice about moonwell water, and I've told him twice that nobody sells it, and he's sulked about it both times. If you'd tell him to his face that it's not for sale, I'd be grateful." } },
+      choices = {
+        { text = "Moonwell water is sacred. I'll tell him myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything has a price, Jessara, even moonwell water.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Every day, and always the same three, so I could recite their names in my sleep. He's proud of where he learned, and I don't begrudge him that, but someone has to look forward while he looks back." } },
@@ -233,6 +253,7 @@ P:NPC {
           text = "A rogue in an enchanting shop is usually after something shiny, so I'll keep the cases locked. Ask, though, and I'll show you anything." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll sell you rods and dust, but not opinions, because Lucan has enough of those for the whole family." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting something to make the arrows fly truer, I suppose, and I'll tell you honestly that most of what's sold for that is nonsense." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll not be wanting dust or essences, so I'll ask you to step aside for the paying customers, kindly." },
       },
       again = {
         { id = "h_again", text = "Rods, vials or Lucan's time: which do you need next?" },
@@ -248,6 +269,7 @@ P:NPC {
         { text = "Is there any real magic for arrows, Jessara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Cathedral buy from your shop, Jessara?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever tire of guarding Lucan's time, Jessara?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would an enchanter ever want something a druid could gather, Jessara?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you, Jessara.", next = "END" },
       },
     },
@@ -297,6 +319,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Of course not, it's a fair trade, a worm for a fish, and the fish agreed to it when it bit. Arnold says that's a merchant's view of the world, and he isn't wrong, but he buys his worms from me all the same." } },
+      choices = {
+        { text = "Fishing needs limits and seasons, or the canal empties.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let everyone fish as they please. The canal will manage.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "More than you'd think, because the best catch always goes to whoever sits stillest and strikes last. Arnold says the canal fish are cleverer than the Westfall ones, because they've watched a whole city's worth of tricks go by." } },
@@ -366,6 +397,7 @@ P:NPC {
           text = "A mage. Don't freeze my canal, please; the last mage who tried it thought he'd catch fish easier through a hole in the ice." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, with a fishing question? Don't look so sheepish; half the Barracks fishes on its day off, and they're better at it than they let on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you'll want bait for the pike in Stonewatch, or you'll want to tell me you can catch them with your hands." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the bait counter. Arnold says your people never use bait, only patience, and I'd thank you not to say so loudly near my stock." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -381,6 +413,7 @@ P:NPC {
         { text = "What bait should a hunter use in Elwynn, Catherine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do people ever come to the canals to pray, Catherine?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you ever pulled anyone out of the canals, Catherine?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is bait really cheating the fish, Catherine?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Catherine.", next = "END" },
       },
     },
@@ -430,6 +463,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It's lovely, and loose, and it would never survive a week on the canals, because everything here snags on something. Your tailors sew for forests, dear, and mine sew for bridges and barrels." } },
+      choices = {
+        { text = "Then sew me something sturdy. A druid must suit the place.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep my loose hems. Snags are better than stiff cloth.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "I can make one that scorches less, and I can make one that looks better scorched, but nobody's managed a robe that won't burn at all. The Sanctum's tailors claim otherwise, and I've seen their hems." } },
@@ -499,6 +541,7 @@ P:NPC {
           text = "A warlock. I measure all sorts here, and I'll measure you too, though I'd thank you to keep anything with horns outside the curtain." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a good padded shirt under that mail, or you'll be raw by Goldshire, and I'll fit it properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want something dull and quiet that won't snag on every briar in Elwynn, I'd wager." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I can tell your cloth was sewn in Darnassus, because no human tailor would leave the hems that loose." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? I'll keep measuring you while you think of it." },
@@ -514,6 +557,7 @@ P:NPC {
         { text = "Do you mind dressing someone like me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do the Cathedral's novices dress so badly, Lisbeth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What makes a good paladin's tabard, Lisbeth?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you make of kaldorei stitching, Lisbeth?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Lisbeth.", next = "END" },
       },
     },

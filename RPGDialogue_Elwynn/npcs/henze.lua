@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Aye, I reckon a wolf's nose would've had me in an hour, an' I'd have been a deal less dead for it. Gazin did his best, but Gazin couldn't smell a fire in a hayloft." } },
+      choices = {
+        { text = "A friend who comes for you matters more than any nose.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Gazin should've left you. Two dead men help nobody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I went in alone and quiet, which is fine for a rogue an' daft for a dwarf. If I'd had a warrior at my back, makin' noise at the front door, I'd have walked out the back with Gazin an' all." } },
@@ -95,6 +104,7 @@ P:NPC {
           text = "Is that a demon ye've got wi' ye? I've been dead once already, so I'd be obliged if ye'd keep it from takin' an interest." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'd have been handy in that Defias camp, so ye would; I could've done with someone bigger than me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Is that a dwarven rifle, or a bow? Either way, I like a body who hits things from a distance." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I was dead a good while, so I've missed who's been comin' an' goin', but you're a fine surprise to wake up to." },
       },
       again = {
         { id = "h_again", text = "What else? I'm no' goin' anywhere, mind, since my legs are still on strike." },
@@ -113,6 +123,7 @@ P:NPC {
         { text = "What went wrong when you went in after Gazin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter have tracked you to the Defias camp?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you go back into Defias country, Henze?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a druid have found you sooner, out there in the dark?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Rest easy, Henze.", next = "END" },
       },
     },

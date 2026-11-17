@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Trouble me? Iron's what the mountain gave us, an' we give it back as shields that keep folk alive. Mind, my old masters in Ironforge always said ye thank the stone before ye strike it, an' I've never stopped." } },
+      choices = {
+        { text = "Thanking the stone is right. Every craft owes the land something.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The stone doesn't care, Therum. Dig what you need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "No' once in thirty years, because a smith who asks has tae carry the answer around wi' him. I make honest steel, an' what ye do wi' it is between you an' whatever ye pray tae." } },
@@ -92,6 +101,7 @@ P:NPC {
           text = "A mage near my forge! Mind the robes, for they go up quicker than ye'd think, an' I've no' got the patience for a fire I didnae light." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let's have a look at that breastplate, then, for I can tell from here it's been dented an' hammered back by someone who's never held a hammer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a smithy! Ye'll be wantin' a hatchet or a skinnin' knife, I'd guess, for there's no bow in this forge." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? Yer hands are rough in all the wrong places for a smith, but they've done real work, I'll grant ye that." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -107,6 +117,7 @@ P:NPC {
         { text = "What does a warrior's armour need most, Therum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do dwarven hunters prefer rifles or bows, Therum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you armoured many of the Silver Hand, Therum?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does it trouble you, digging so much iron out of the hills, Therum?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll mind the sparks.", next = "END" },
       },
     },
@@ -174,6 +185,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only passengers an' the odd rat, though a gnome once sent me a crate o' mushrooms an' they'd sprouted by the time they arrived. Ye'd have liked that, I suppose, but I still had tae pay the gnome's bill." } },
+      choices = {
+        { text = "Pay the bill, Kaita. A deal's a deal, even for mushrooms.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd have kept the mushrooms and sent no coin back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Less than the Trade District, because a thief who robs a dwarf has every dwarf in the street after him by supper. We look after our own down here, an' the city guards are glad tae leave us to it." } },
@@ -246,6 +266,7 @@ P:NPC {
           text = "Ye smell o' the Lamb's cellar, {g:lad|lass}. I'll sell tae ye same as anyone, but I'd rather ye didnae call anythin' up in my shop." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' wi' the look o' someone who breaks blades faster than they can buy 'em. Ye'll want whetstones, {g:lad|lass}, an' plenty." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, {g:lad|lass}! Ye'll not need much from a smith's supply stall, but I've a fine bit o' flux for mendin' a rifle barrel, if ye carry one." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Dwarven District! Ye'll find nothin' green down here but the copper, an' I'll thank ye not tae lecture me about the mines." },
       },
       again = {
         { id = "h_again", text = "What else, {g:lad|lass}?" },
@@ -260,6 +281,7 @@ P:NPC {
         { text = "Do the Lamb's warlocks buy from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the dwarves of the forge pray much, Kaita?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do you dislike the Trade District's merchants, Kaita?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Deeprun Tram ever carry anything living, Kaita?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -324,6 +346,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Everything can be measured, given enough instruments and a patient subject, though I suspect you're not a patient subject. If I could chart a druid's change I'd have the finest paper in Gnomeregan, if Gnomeregan were still there to read it." } },
+      choices = {
+        { text = "Measure all you like. Knowledge should be written down.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some mysteries are meant to stay wild, Lilliam.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, I couldn't possibly tell you, because then I'd have to tell everyone, and the bank would be very cross with me. Let's just say a well-made lock should never hum when you breathe on it, and most of ours do." } },
@@ -396,6 +427,7 @@ P:NPC {
           text = "A mage! Do you calculate your spells, or do you just feel your way? I've always suspected it's mostly mathematics wearing a robe." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Do you know what a warrior is, from an engineer's point of view? A lever with opinions, and a very effective one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, the dwarves will tell you that the rifle is the finest invention ever made, and the dwarves are mostly right, though their scopes are a little crude." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, I've always wanted to measure one, so tell me how much you weigh as a bear and whether it all comes back when you change again." },
       },
       again = {
         { id = "h_again", text = "Yes? I've got a remainder to carry, but go on." },
@@ -411,6 +443,7 @@ P:NPC {
         { text = "Could you build a better scope, Lilliam?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you ever needed a healer after a test, Lilliam?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can engineering ever measure the Light, Lilliam?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think shapeshifting could ever be measured, Lilliam?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -489,6 +522,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I leave timber props an' good drainage, which is more than most miners leave. If ye're askin' whether I sing tae the rock, the answer's no, but I dinnae dig where the water runs clean." } },
+      choices = {
+        { text = "Digging by rules and with care is honest work, Gelman.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No rule makes a mine right. Leave the hills whole.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Once, an' he got as far as the canal before I caught him, an' I'm no' a fast dwarf. Ore's heavy, which is the one thing every thief forgets until he's carryin' it." } },
@@ -561,6 +603,7 @@ P:NPC {
           text = "Ye've a look about ye like the dwarves who go down tae the Lamb an' come back strange, an' I knew a miner who went that way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, aye, an' wi' arms that'd swing a pick as well as a sword. Ye'd make a fine miner, if ye ever tire o' fightin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, an' a long way from the high passes, by the look o' ye. The tunnels under Stormwind are no place for a beast, I'll tell ye that much." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ye've interrupted me, druid, an' ye'd better have a reason. If it's tae tell me the hills are sad about my minin', I've heard it." },
       },
       again = {
         { id = "h_again", text = "Aye? Make it quick." },
@@ -575,6 +618,7 @@ P:NPC {
         { text = "What happened to the miner you knew?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do miners ever ask for prayers, Gelman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why does Stormwind still need Ironforge's help to rebuild?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you leave anything behind in the mines for the hills, Gelman?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Sorry to interrupt.", next = "END" },
       },
     },

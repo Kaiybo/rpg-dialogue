@@ -80,6 +80,15 @@ P:NPC {
         { text = "Something else, brewer.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The secret's the hills, for the dust doesn't climb, and I sing to my barley a verse at a time. The golems below have the valley stripped bare, but up here the soil has a Thunderbrew's care." } },
+      choices = {
+        { text = "Plant in neat rows and rest the soil. Order feeds a field.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let it grow wild, Grimbooze. The hills know best.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Grimbooze Thunderbrew, brewer and bard, who keeps his still here where the hills are hard. The farmers have gone, but the barley still grows, and where there's good barley, the Thunderbrew goes." },
@@ -90,6 +99,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior come up from the road, with a blade at the hip and a terrible load! Sit down by the still and I'll pour ye a cup, for there's no better cure for a fight than a sup." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter with bow and a beast at the heel! Ye'll want a fine lager to go with yer meal, for a boar on the spit and a keg on the side is the best thing in Westfall, I'll say it with pride!" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my still, and a welcome one too, for a blessing on barley does wonders for brew!" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from the forests, all silver and green, the tallest young drinker this still's ever seen! Ye'll know a good crop when ye stand in a field, so come taste the lager and judge the hill's yield." },
       },
       again = {
         { id = "h_again", text = "What else would ye ask of a dwarf at his still? Ask quickly, before all the barley goes ill." },
@@ -107,6 +117,7 @@ P:NPC {
         { text = "What goes best with a Westfall boar, Grimbooze?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you let me bless your still, Grimbooze?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you sell your lager to the Defias, if they paid?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your barley thrives where Westfall's wheat died. What's the secret?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to your still.", next = "END" },
       },
     },
@@ -241,6 +252,15 @@ P:NPC {
         { text = "Something else, Kriggon.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They take more fish than they need and leave the rest to rot on the sand, and the gulls won't even touch it now. My father said the sea always settles its own accounts, but I've been waiting a long while for that." } },
+      choices = {
+        { text = "Somebody has to keep that shore in order. Drive them back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The murlocs were here first. Share the shore with them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kriggon Talsone, and I fish this shore, same as my father did before the farms went bad. The sea doesn't care who owns Westfall, which is more than I can say for anything else around here." },
@@ -250,6 +270,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after murlocs, they're thick on the Longshore; if you're after fish, you'll have to be patient, same as me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on the Longshore. The sea washes up all sorts, and some of it needs burying proper." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The murlocs won't bow to your Light, I'd guess, but they'll run from it, and that's near enough." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your folk came over the sea to get here, I hear, so you'll know it better than most farmers do." },
       },
       again = {
         { id = "h_again", text = "Something else? The line's slack, so I've time." },
@@ -266,6 +287,7 @@ P:NPC {
         { text = "Do you ever hunt the murlocs yourself, Kriggon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever say words for those lost on this shore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does anyone protect the fishermen on the Longshore?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The murlocs crowd your shore. Do they foul the water?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },

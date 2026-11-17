@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Gladly, if the Keep ever lets the army march anywhere, because a healer who can take a wolf's shape and run would be worth a squad. I've read the reports from Ashenvale, and I'd trust your people on a flank." } },
+      choices = {
+        { text = "Send for us, General, and we'll come.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My people fight for Ashenvale first, General, not for Stormwind's wars.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I trust Shaw to do his work and my soldiers to do theirs, but I'd rather the two didn't meet in a dark street. An army needs to know who's standing beside it, and SI:7 never tells anyone." } },
@@ -77,6 +86,7 @@ P:NPC {
           text = "SI:7's people come through my gate at odd hours and never sign the book, and I've given up asking them to. Are you one of theirs, or only shy?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the Valley gate. The army could use more of you, if the Quarter could spare any, because fire wins sieges." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
       },
       again = {
         { id = "h_again", text = "Something else, citizen? Ask away; it's a quiet watch." },
@@ -98,6 +108,7 @@ P:NPC {
         { text = "Do you trust SI:7, General?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why doesn't the army have more mages, General?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Where would a paladin serve Stormwind best, General?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would the army ever march beside druids, General?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, General.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -291,6 +302,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Renzik pays for results, and a cat nobody notices gets results nobody can trace. But you'd be working for Renzik, not for some tree, so if the tree calls, you tell it to wait." } },
+      choices = {
+        { text = "The forest comes first, Renzik. Your coin won't change that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pay me well enough and the trees can wait.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Once or twice, sure, when the boss needed somethin' read that was written in sparkles. Renzik likes his secrets dark, though, 'cause a secret that glows ain't a secret for long." } },
@@ -351,6 +371,7 @@ P:NPC {
           text = "A mage, in SI:7? Renzik don't like mages, 'cause they make everything glow, and glowing's bad for business." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, huh? You're about as quiet as a dropped anvil, but at least you don't pretend otherwise." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Yeah, I know your type: you sit in a bush for six hours waiting for one shot. Respect, honestly." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in SI:7! Renzik's heard your people turn into cats and sneak about, so Renzik wants to know who's paying you." },
       },
       again = {
         { id = "h_again", text = "What else? Renzik's got a schedule." },
@@ -366,6 +387,7 @@ P:NPC {
         { text = "Would SI:7 ever give work to a warrior, Renzik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever use hunters for SI:7 jobs, Renzik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does SI:7 have any use for a paladin, Renzik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would SI:7 pay a druid who prowls as a cat, Renzik?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -440,6 +462,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It does, and it's forbidden the same as any fireball, because I don't care whether the magic comes from a book or a goddess. You walked in on two legs and you'll leave on them." } },
+      choices = {
+        { text = "The king's hall has its laws, Major, and I'll keep them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My shape is my own, Major, not a spell for you to forbid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Every day, and more so since the king vanished on the road to Theramore, because a boy on a throne is an easy target. Lady Prestor tells me the court is quite safe, and I keep my men exactly where they are regardless." } },
@@ -507,6 +538,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "No spells in the throne room. The last mage who thought to show off for the young king spent a night in the guardroom." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Your animal stays by the door, and you'll keep your bow unstrung while you're in the throne room." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the throne room. You'll keep whatever shape you walked in with, because a bear before the king is not something my guards are paid to handle." },
       },
       again = {
         { id = "h_again", text = "Anything else? Briefly." },
@@ -524,6 +556,7 @@ P:NPC {
         { text = "Does the Keep guard ever need a hunter's eye, Major?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Keep's guard ever ask for prayers, Major?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you guard the young king yourself, Major?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does changing shape count as spellwork in the throne room, Major?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -612,6 +645,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Something with berries in it, and I'd charge the same as for anything else. My foot says walk faster and my wife says sell more, so if you like it, tell your friends in the Park." } },
+      choices = {
+        { text = "I'll tell them. A city should feed everyone who walks it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My friends gather their own food, Thomas. They don't need your rolls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "A few a day, mostly to canal children, and I've stopped chasing them because my feet won't take it. I count it as charity, and I tell myself the Light keeps a tally." } },
@@ -682,6 +724,7 @@ P:NPC {
           text = "A mage! Don't you go conjuring bread in front of me, because I've been baking since before dawn and it's bad for a baker's spirits." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be wanting a loaf that doesn't crumble in a pack, and I've got just the one, baked hard enough to use as a shield." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be living on what you catch, I suppose, but take a loaf anyway; venison's lonely without bread." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be wanting something wholesome, I expect, because your people look at my sweet rolls as if they'd done something wrong." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? Walk with me; I can't stop." },
@@ -698,6 +741,7 @@ P:NPC {
         { text = "Do hunters ever trade with you, Thomas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever bake for the Cathedral, Thomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do many soldiers buy bread from you, Thomas?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you bake for someone who lives on berries, Thomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not hungry.", next = "END" },
       },
     },

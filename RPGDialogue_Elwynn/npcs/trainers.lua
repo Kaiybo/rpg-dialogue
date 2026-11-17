@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I've wondered, because the Brothers who tend the vineyard pray better than the ones who never leave the library. Whether that's the Light in the soil or just fresh air I couldn't tell you, but I send the recruits outside before I send them to prayers." } },
+      choices = {
+        { text = "Faith needs discipline and books, not only fresh air.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land teaches what no library can. Send them out more.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every day, and they never say thank you until they're older and wiser. The Light heals what you break, but it cannot heal pride, so learn to retreat when you should, and come to me less." } },
@@ -114,6 +123,7 @@ P:NPC {
           text = "You've come up from La Salle's graveyard, and I can feel it on you like a chill. I'll mend you if you need mending, but I'll pray while I do it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the Library Wing. Mind the shelves; McBride's recruits have knocked over a whole row of hymnals this week." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, among the books. Your companion is welcome here, so long as it doesn't chew the bindings." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in the Library Wing? I've a shelf on herb lore you'd laugh at, so please don't look at it." },
       },
       again = { { id = "h_again", text = "Something else? Sit while you ask; the stool's for visitors." } },
       choices = {
@@ -128,6 +138,7 @@ P:NPC {
         { text = "Do warriors ever come to you for healing, Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there anything in the library about the creatures of Elwynn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins and priests serve the Light differently, Priestess?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Light ever answer through the land, not just through prayer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -202,6 +213,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd have said so a year ago, but I watched one of your kind call down moonlight on a kobold, and the timing was better than anything my students manage. Whatever your fundamentals are, somebody drilled them into you." } },
+      choices = {
+        { text = "Years of practice did. Discipline is discipline, whatever its source.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Nobody drilled me. The moon gives, and I listen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That a fireball is faster than a charge, and it doesn't need to reach you to hurt you. A warrior who respects a mage's range survives longer than one who rushes it, and that's the lesson in full." } },
@@ -259,6 +279,7 @@ P:NPC {
           text = "A warlock in my library. You'll be La Salle's, then, and you'll be wanting a book I won't lend you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my classroom. You'll be looking for the barracks, I imagine, which are next door and noisier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to keep that animal clear of the reagents, because a curious nose and a sulphur pouch make a very short lesson." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be wanting to tell me nature's magic needs no fundamentals. Please don't, because my students are listening." },
       },
       again = {
         { id = "h_again", text = "Another question? Go on, but mind the inkwell." },
@@ -278,6 +299,7 @@ P:NPC {
         { text = "Why won't you lend your books to a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would a mage teach a warrior, Khelden?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have any of your students ever fought a hunter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is druidic magic any less disciplined than yours?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -416,6 +438,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some could, if they'd stop thinking about it, because a cat doesn't plan its steps; it simply never puts a foot wrong. Most of mine still walk like they're carrying a tray of plates." } },
+      choices = {
+        { text = "Stealth is for hunting, not for robbing honest folk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A quiet step serves any purpose. I won't judge your students.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That the fight you see coming is the one you'll win, and the one you don't see is the one that kills you. Watch the shadows as well as the front, and you'll live longer than most of Llane's lot." } },
@@ -494,6 +525,7 @@ P:NPC {
           text = "La Salle's student. You walk quietly for someone with an imp at your heel, and I'll give you that much." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, behind the stables. You're louder than my students, so keep your voice down; they're meant to be learning." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, sneaking round the stables. Not badly, either, but I heard the beast before I heard you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and I heard you coming, or rather I didn't, which is a compliment I don't give often." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your voice down; the horses gossip." },
@@ -515,6 +547,7 @@ P:NPC {
         { text = "How did you hear my beast before me?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Brothers know what you teach back here, Jorik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your trade truly so far from mine, Jorik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could your students learn to move as quietly as a cat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -637,6 +670,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The dead have finished being troubled, and the living leave me alone here, which is the arrangement I prefer. Your kind would say the dead go back to the soil, and I'd say that's a waste of perfectly good silence." } },
+      choices = {
+        { text = "The dead belong to the earth. Leave them in peace.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Silence is useful. In your place I'd use it too.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "None at all; they're the best company in Northshire. It's the living who come here with swords drawn and the Brothers' prayers in their ears, looking for something to strike, who trouble me." } },
@@ -698,6 +740,7 @@ P:NPC {
           text = "A mage, out here among the dead. Khelden must be teaching his pupils to wander, or else you've come to see what all the praying is about." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my graveyard. You've a lot of steel on you for somewhere so peaceful." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a companion. Your beast doesn't care for my graveyard, I see; animals have sense." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid has come out among the graves, I see. The dead here don't mind you, and I'm still deciding whether I do." },
       },
       again = {
         { id = "h_again", text = "Well? The dead are patient, but I am less so." },
@@ -716,6 +759,7 @@ P:NPC {
         { text = "What does Khelden think of your teaching here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the dead here give you any trouble, La Salle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why does my beast shy from your graveyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Doesn't it trouble you, teaching where the dead rest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -853,6 +897,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The first week they'd drop their shields and run, and I'd let them, because a man who's run once learns why he shouldn't. By the end of the month they'd hold, and that's the whole of what I teach." } },
+      choices = {
+        { text = "Holding the line is everything. Train them hard.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Running from a bear is wisdom, not cowardice. Don't punish it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -932,6 +985,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, out of the cellar and into the light. Keep that creature away from my recruits, because they're nervous enough already." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my yard. You're not here to train, I can tell, so I'll hope you're here to watch." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're no farm hand, so I'll wager you've seen a fight or two before you came to me." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your shield up while you ask." },
@@ -954,6 +1008,7 @@ P:NPC {
         { text = "What would a warrior trainer teach a hunter, Du Lac?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your recruits ever need more than bandages, Lyria?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's the difference between a warrior and a paladin, Lyria?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would your recruits stand firm if a bear charged them?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1096,6 +1151,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because the recruits keep coming and somebody has to teach them, and the somebody always turns out to be me. I tell myself the Light is the same everywhere, but I'd still like to see it fall through those great branches." } },
+      choices = {
+        { text = "Your duty is here, Josetta. The trees will keep.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then go. Somebody else can teach the recruits for a season.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "All the time in the world, and more than they have for it, usually. I've healed a dozen of you this month, and each one swore it was the last time, and each one came back next week." } },
@@ -1178,6 +1242,7 @@ P:NPC {
           text = "You're from the cellar. I can hear them chanting down there some nights, right through the floorboards, and it makes the candles gutter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior up here, among the candles. You've come a long way from the common room, and you'll want something more than ale, I hope." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, up all those stairs. I hope your companion didn't take them too fast; Farley's carpet is older than he is." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, all the way from across the sea! I've always meant to see Teldrassil and always stayed right here, so you'll have to tell me what it's like." },
       },
       again = { { id = "h_again", text = "What else? Mind the floorboard; it squeaks to Farley." } },
       choices = {
@@ -1192,6 +1257,7 @@ P:NPC {
         { text = "Does the Light have time for warriors, Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light heal beasts as well as people, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you envy the paladins who go out into the world, Josetta?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why have you never gone, if you want to see it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -1264,6 +1330,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Whether you keep your own mind in the bear's shape, and whether you remember the taste of things afterward, which nobody in the Sanctum dares to ask. I suspect the answer would ruin three of my favourite theories." } },
+      choices = {
+        { text = "Write your paper. Shared knowledge helps folk understand us.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Some secrets belong to the grove, not to the Sanctum.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very practical people, and that's meant kindly. A warrior solves a problem with what's in front of him, while a mage solves it with what's in a book, and both are useful, though I prefer mine." } },
@@ -1331,6 +1406,7 @@ P:NPC {
           text = "One of Marcot's, up from the cellar. You've climbed further than most of your kind bother to, and I'd ask what for." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my room above the stable. I'd ask you to sit, but the chair is for show and the bed is for me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion is staring at my candle, and I'd rather it didn't knock it over; I've only the one." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Do sit down, because I've a dozen questions about how the change works, and I've never had anyone to ask who wouldn't bite." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, before the singing starts downstairs." },
@@ -1351,6 +1427,7 @@ P:NPC {
         { text = "What do you make of warriors, Wefhellt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever studied a hunter's bond with its beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would a mage want with a paladin, Zaldimar?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you want to know about shapeshifting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1466,6 +1543,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A bestiary from the Sanctum, which is mostly wrong, so I read it for the mistakes. It says your kind sleep in the branches and eat bark, and I've half a mind to correct it in the margin." } },
+      choices = {
+        { text = "Correct it. Lies about my people shouldn't stand.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Leave it wrong. Folk who misjudge us are easier to fool.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because noise is information, and you've told me your weight, your armor and your mood before you opened the door. The Defias will know all of that too, so think about what you're telling them." } },
@@ -1542,6 +1628,7 @@ P:NPC {
           text = "One of Marcot's, up from the cellar. You'll have heard my students practising on the stairs, I suspect, and I'd thank you not to tell Farley." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my rooms. You walked up those stairs like a cart on cobbles, and that's not a compliment." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You move well enough, but your beast doesn't, and I heard it on the second step." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're standing in my light. Sylvius, and no, I don't want to hear about the moon." },
       },
       again = {
         { id = "h_again", text = "Still here? Then make it worth the page I've lost." },
@@ -1563,6 +1650,7 @@ P:NPC {
         { text = "Can a hunter's beast be taught to move quietly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there anything you'd like to talk about, Sylvius?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your students ever join the Defias, Sylvius?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you read anything about the wild, or only city matters?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Wrong room. Sorry.", next = "END" },
       },
     },
@@ -1671,6 +1759,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A page or two on the satyrs, which I'll not show you, because I suspect you'd burn it and I suspect you'd be right to. Some knowledge bites, as I told you, and that page has teeth." } },
+      choices = {
+        { text = "Burn it, Marcot. Some knowledge only feeds corruption.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep it. Knowing the enemy is worth the risk.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Keeping things in, mostly, and sometimes keeping things out. A warrior who stepped across it once had a very bad evening, so I'll ask you to admire it from the edge." } },
@@ -1730,6 +1827,7 @@ P:NPC {
           text = "A mage, down here in the dark. Zaldimar must be desperate for news, or else you're curious, and curiosity is how most of us began." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the cellar. Mind your head on the beams, and mind your sword near the circle on the floor." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast has its hackles up; it knows exactly what we keep down here, and it's not impressed." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in Farley's cellar. If you're looking for roots, I'm afraid ours are mostly the figurative kind." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep it low, because the floor's thin and Farley's ears aren't." },
@@ -1747,6 +1845,7 @@ P:NPC {
         { text = "Is curiosity truly how most warlocks began?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the circle for, Marcot?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does my beast sense what you keep in the cellar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you keep any knowledge here about the old forests?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Both, and the farmers sell to us dearer every year, because the Defias take a share of every harvest before it reaches the road. I pray for better weather and fewer bandits, though I'd settle for the roof being fixed." } },
+      choices = {
+        { text = "Then the Abbey should pay fairly and keep the farms going.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bargain harder. Farmers will always sell to a buyer with coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Bread and water, more than they think, and a bit of thread for the jerkin they'll tear on the first kobold. Most of them buy a whetstone instead and go hungry, and then they come back to me looking pale." } },
@@ -88,6 +97,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've come down from the graveyard, I can tell, and La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane works recruits hard, and hungry recruits drop their shields." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at Northshire, and plainly a long way from home! The Abbey's bread is humble, but it's honest, and I'd say the same of the thread." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wagon's open till the bread runs out." },
@@ -104,6 +114,7 @@ P:NPC {
         { text = "What does a recruit need most from your wagon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Abbey feed the poor from your wagon, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a paladin need from your wagon, Brother?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Abbey grow its own grain, or buy it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

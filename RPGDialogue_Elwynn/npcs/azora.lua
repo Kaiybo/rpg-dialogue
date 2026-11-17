@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Silverleaf and peacebloom, mostly, which the gnomes gather by the lake and bring up in sacks. Master Theocritus says plants are only magic that hasn't learned to sit still, and I've never had the courage to tell him how that sounds." } },
+      choices = {
+        { text = "Gathered with care and sorted well, they serve everyone who climbs here.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Plants needn't sit still for anyone. They grow as they will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Scrolls, mostly: a little strength or stamina, written into the page and spent in one breath. They're for the moment a gnoll has you pinned, not for showing off at the inn." } },
@@ -83,6 +92,7 @@ P:NPC {
           text = "You've the smell of a cellar about you, and I don't mean the inn's ale. Theocritus won't want you near his books, so let's keep our business to the counter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all the way up our stairs in all that steel! Sit a moment, because Theocritus keeps the windows shut and the climb is warmer than it looks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the tower! Mind the gnomes on the stairs, please, because they startle, and your beast startles them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and I'd rather he didn't count them twice." },
       },
       again = {
         { id = "h_again", text = "What else can I help you with? I've a delivery list to finish." },
@@ -99,6 +109,7 @@ P:NPC {
         { text = "What do hunters buy from a tower like this?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does anyone in this tower ever pray, Dawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a mage's tower want with a paladin, Dawn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does anything on your shelves come from the forest below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Dawn.", next = "END" },
       },
     },
@@ -169,6 +180,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because a blade holds an enchantment for years, and I've always wondered how long a living oak might hold one. Theocritus says the tree would have something to say about it, and I suppose you'd know better than either of us whether it would mind." } },
+      choices = {
+        { text = "It would mind. Living things aren't yours to inscribe, Kitta.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the tree takes no harm, I see no reason not to try.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Truly, with the right dust and a steady hand! Though I'll tell you what I tell every warrior: an enchantment can't swing the blade for you, and the gnolls won't wait while you admire the glow." } },
@@ -238,6 +258,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'd ask that you keep your imp away from my dust, because a spark in the wrong pouch costs me a week of work." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've always wanted to try enchanting a bow, and nobody ever brings me one, so you're very welcome." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! Do you know nobody in this tower has ever let me enchant anything that grows? I've asked, and I've been told no very firmly." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about this all afternoon, and I usually do." },
@@ -255,6 +276,7 @@ P:NPC {
         { text = "What would an enchanter do to a hunter's bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could an enchanter's rune ever hold a blessing, Kitta?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you enchant a paladin's hammer, Kitta?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why would you want to enchant a living thing?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll come back another time.", next = "END" },
       },
     },

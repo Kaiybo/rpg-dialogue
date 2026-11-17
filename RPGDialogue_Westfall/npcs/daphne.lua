@@ -65,6 +65,15 @@ P:NPC {
         { text = "Tell me about Jordan.", next = "jordan" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Stubbornness and seawater, I'd guess, since the wind off the bay keeps the dust from settling on my trees. Jordan planted them the year we married, so I water them by hand even when the well runs low." } },
+      choices = {
+        { text = "Stand your ground, Daphne. That orchard is worth defending.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "No tree is worth your life. Leave if the Defias come.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Daphne Stilwell. This is my farm, and that's the sea, and somewhere down that hill the Defias are deciding whether today's the day. It never is, while I'm watching." },
@@ -76,6 +85,7 @@ P:NPC {
         { id = "h_apples", when = { metBefore = true }, text = "First apples are coming on, love. Small and sour, but they're mine, and nobody's burned them. That's a good year, out here." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time; the tide's turning, and the Brotherhood like to come up with it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Then you've seen what's left on the beach after the murlocs have been at it, and you know why I keep the gate shut." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my hill! The soil up here is tired, but the apple trees still try, bless them, and I suspect you'll notice." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've a whole basket of apples to sort." },
@@ -93,6 +103,7 @@ P:NPC {
         { text = "A ward on your door would keep the Defias out.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How do the Defias come at your farm, Daphne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the murlocs come up as far as your farm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Your orchard lives where the rest of Westfall died. How?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Enjoy your apples.", next = "END" },
       },
     },

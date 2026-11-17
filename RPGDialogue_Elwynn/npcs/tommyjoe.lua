@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Better than my family does, because the water doesn't run home and tell Ma everything it sees. I've told it a good few things this spring, and it hasn't once called me a fool." } },
+      choices = {
+        { text = "Tell your family, Tommy Joe. Hiding only feeds the feud.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Love needs nobody's blessing. Keep meeting her by the river.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because of Maybell, of course, and because half the valley thinks a Stonefield and a Maclure is a crime. I'd fight for her if I had to, but I'm better at mending fences than breaking heads." } },
@@ -87,6 +96,7 @@ P:NPC {
           text = "There's something odd about you, odd like Gramma's stories, and I'm not sure I like it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Are you here to beat me up for the Maclures, or for my family? Either way, I'd rather you didn't." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You must know how to wait without being seen, and I've been trying to learn that for months." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out by the river! I'm only looking at the water, if anybody asks, which they shouldn't." },
       },
       again = {
         { id = "h_again", text = "What else? The river's not going anywhere, and neither am I, it seems." },
@@ -105,6 +115,7 @@ P:NPC {
         { text = "Why would anyone want to beat you up, Tommy Joe?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you need to wait without being seen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Will you stand up to your family for Maybell, Tommy Joe?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the river keep secrets well, Tommy Joe?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck, Tommy Joe.", next = "END", fx = { affinity = 1 } },
       },
     },
