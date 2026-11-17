@@ -19,3 +19,5 @@ npcs\maurin.lua
 npcs\felgur.lua
 npcs\uthek.lua
 npcs\warug.lua
+npcs\shadowprey.lua
+npcs\nijels_ghostwalker.lua
