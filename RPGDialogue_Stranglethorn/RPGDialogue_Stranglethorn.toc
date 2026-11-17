@@ -30,3 +30,4 @@ npcs\booty_bay_tavern.lua
 npcs\booty_bay_trades.lua
 npcs\booty_bay_salty.lua
 npcs\booty_bay_wharf.lua
+npcs\booty_bay_visitors.lua

@@ -688,3 +688,311 @@ P:NPC {
     _none = { { id = "tp_none", text = "Never heard of it, shipmate, and I've heard most things said in a port tavern." } },
   },
 }
+
+------------------------------------------------------------------------
+-- Caravaneer Ruzzgot: Steamwheedle caravan boss, the jungle road's oldest survivor
+------------------------------------------------------------------------
+P:NPC {
+  key = "ruzzgot", id = 3945, name = "Caravaneer Ruzzgot",
+  bible = "bibles/booty_bay_visitors.md", role = "questgiver", tier = "quest",
+  communities = { "booty_bay" }, temper = { "gruff", "brisk" }, values = { "trade", "practical" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "Caravaneer Ruzzgot is a scarred, dusty goblin who runs Steamwheedle caravans along the jungle road and prices every danger on it to the copper. He talked about raptors and trolls the way a shopkeeper talks about the weather.",
+    third = "{name} met Caravaneer Ruzzgot, a goblin caravan boss in Booty Bay who has driven the Steamwheedle's wagons through Stranglethorn for longer than most of its bandits have been alive.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Make it quick, partner, because I've got wagons to load and every hour they sit here is an hour of feed I'm payin' for." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, partner, and still breathin'! That puts you ahead of half the drivers I've hired this year." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, partner, and I'd already written you into the ledger under losses, so you've done my accounts a favour by walkin' in." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? The Cartel's wagons carry for anybody who pays, partner, and the raptors don't check colours either." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter with a beast at heel, partner! I could use you ridin' point, because a raptor smells another animal long before it smells a wagon." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear, and no blue paint of the Bloodscalp on you, I'm glad to see. Out on the road, partner, my drivers shoot first and check the tusks after." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Ruzzgot, caravaneer for the Steamwheedle Cartel, and if it rolls between Booty Bay and the Cartel's other ports, it rolled behind my mules, partner. Raptors, trolls, rebels and bandits, I've had 'em all at my wagons, and I've billed for every one of 'em." },
+        { id = "h_passage", when = { questDone = TODO_QUEST("Passage to Booty Bay") },
+          text = "So you made the passage down to Booty Bay in one piece, partner, which tells me you can follow directions and keep your head. That's two more qualities than most of my drivers have." },
+        { id = "h_road", tags = { "news" }, when = { questActive = TODO_QUEST("The Caravan Road") },
+          text = "You're on the caravan road for me, partner, so keep your eyes on the treeline and your hand on your purse. The Cartel pays on delivery, and the jungle collects on anything that's late." },
+        { id = "h_road_done", when = { questDone = TODO_QUEST("The Caravan Road") },
+          text = "There's the one who ran the caravan road and came back, partner! I've put your name in my good ledger, which is a short book with a lot of empty pages." },
+      },
+      again = {
+        { id = "h_again", text = "What else, partner? Talk while I count crates." },
+        { id = "h_again2", text = "Go on, partner, but keep it short, because mules eat whether I'm listenin' or not." },
+        { id = "h_again3", text = "Still here? Then pick up a crate while you ask, partner, and we'll call it even." },
+      },
+      choices = {
+        { text = "What's the caravan road like?", next = "road" },
+        { text = "Which trolls trouble your wagons?", next = "trolls" },
+        { text = "What about Kurzen's men and the bandits?", next = "kurzen" },
+        { text = "How did you get into caravans?", next = "past" },
+        { text = "What do your wagons carry?", next = "cargo" },
+        { text = "Do you hire guards, Ruzzgot?", next = "x_guard", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "Safe roads, Ruzzgot.", next = "END" },
+      },
+    },
+
+    road = {
+      lines = {
+        { id = "rd_default", text = "Long, wet and hungry, partner, from the Bay up through the jungle to Grom'gol and the Rebel Camp, then on to wherever the Cartel's got somethin' to sell. Every mile of it's got a price, and the price goes up every time somebody new moves into the trees." },
+      },
+      choices = {
+        { text = "What's the worst stretch?", next = "road_worst" },
+        { text = "Do raptors really attack wagons?", next = "raptors" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_worst = {
+      lines = { { id = "rw_default", text = "The bend below Mizjah Ruins, partner, where the road runs close to the old stones and the trees come right down to the ruts. I've lost three wagons there, and I charge triple on any cargo that has to pass it after dark." } },
+      choices = { { text = "Something else, Ruzzgot.", next = "BACK" } },
+    },
+    raptors = {
+      lines = { { id = "rp_default", text = "Do they ever, partner! A raptor pack will chase a mule for a mile, and the mule knows it, so it bolts, and then I've got a crate of Gadgetzan whiskey rollin' off into the brush. That's why my wagons carry fireworks from Crazk Sparks, because nothin' scatters a pack like a rocket up the backside." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    trolls = {
+      lines = {
+        { id = "tr_default", text = "The Bloodscalp in the north and the Skullsplitter in the middle of the jungle, partner, and both of 'em think the road runs through their land, which it does, technically. The Bloodscalp take scalps and the Skullsplitter take skulls, and the names tell you everything you need to know about their negotiating style." },
+      },
+      choices = {
+        { text = "Have you ever tried paying them off?", next = "trolls_pay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trolls_pay = {
+      big = true,
+      lines = { { id = "tp_default", text = "Once, partner, a crate of rum to a Skullsplitter chief for a month of clear road, and he drank it and raided us the next morning anyway. Now I pay adventurers to thin 'em out instead, which costs more but at least it stays paid." } },
+      choices = {
+        { text = "A bargain broken is no bargain. You were right to stop.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It's their land. Pay them better and keep paying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What did the chief do with the empty crate?", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    kurzen = {
+      lines = {
+        { id = "kz_default", text = "Kurzen's rebels sit up in the north of the jungle with their stolen rifles, partner, and they'll take a wagon of food without blinkin' because they've gone hungry out there. The bandits are worse, because a bandit doesn't even want the food, he wants the mules and the driver's boots." },
+      },
+      choices = {
+        { text = "Who are Kurzen's men, exactly?", next = "kurzen_who" },
+        { text = "And the Venture Company?", next = "venture" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kurzen_who = {
+      lines = { { id = "kw_default", text = "Soldiers from up north who came to fight the trolls and decided they liked runnin' the jungle themselves, partner. The men at the Rebel Camp say Kurzen went bad, and I say anybody who steals my flour is bad by definition." } },
+      choices = { { text = "Something else, Ruzzgot.", next = "BACK", fx = { learn = { "kurzen" } } } },
+    },
+    venture = {
+      lines = { { id = "vn_default", text = "Don't get me started, partner, because those Venture Company lumber crews tear up the road with their shredders and then send me an invoice for the ruts. Goblins, sure, but goblins who'd sell their own mothers for timber, and charge her for the saw." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } } },
+    },
+
+    past = {
+      lines = {
+        { id = "ps_default", text = "Started as a mule boy for the Cartel at nine, partner, shovelin' what mules leave behind, and worked my way up to the front of the wagon. Twenty-two years on this road now, and I've got the scars, the debts and a very loyal mule to show for it." },
+      },
+      choices = {
+        { text = "Tell me about the mule.", next = "past_mule" },
+        { text = "Where did the scars come from?", next = "past_scars" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past_mule = {
+      lines = { { id = "pmu_default", text = "Her name's Collateral, partner, because I borrowed against her once and nearly lost her to the bank. She's kicked two raptors to death and bit a Kurzen sergeant, and if you go near her feed bag, she'll make it three." } },
+      choices = { { text = "Something else, Ruzzgot.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    past_scars = {
+      lines = { { id = "psc_default", text = "This one's a Bloodscalp axe, this one's a raptor, and this one's a crate of Crazk's fireworks that went off early, partner. Guess which one hurt worst, and then don't ever tell Crazk." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    cargo = {
+      lines = { { id = "cg_default", text = "Whatever pays, partner: rum and cloth up the road, hides and ore and jungle herbs back down, and the odd crate I don't open, because the Cartel pays extra for a goblin who doesn't open crates. The Baron gets his cut at the gate either way, so I keep my ledger very tidy." } },
+      choices = { { text = "Something else, Ruzzgot.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+    },
+
+    x_guard = {
+      lines = { { id = "xg_default", text = "Always, partner, and I pay by the mile with a bonus for every wagon that reaches the end with its wheels on. You look like you'd earn the bonus, but the last guard who looked that good got carried off by a tiger, so don't get cocky." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know every rut in the jungle road, partner, and who's waitin' in the trees beside it." } },
+    background = { { id = "tp_bg", text = "Mule boy at nine, caravan boss at thirty, and still on the Steamwheedle's road twenty-two years on.", next = "past" } },
+    advice = { { id = "tp_ad", text = "Stay on the road, partner, and if you hear a raptor call, don't call back." } },
+    kurzen = { { id = "tp_kurzen", text = "Rebels with rifles and empty stomachs, partner, and they eat my flour." } },
+    _none = { { id = "tp_none", text = "Never carried it, partner, so I couldn't tell you what it's worth." } },
+  },
+}
+
+------------------------------------------------------------------------
+-- Grizzlowe: shipmaster for the Maiden's Fancy, connoisseur of clam chowder
+------------------------------------------------------------------------
+P:NPC {
+  key = "grizzlowe", id = 9559, name = "Grizzlowe", title = "Shipmaster",
+  bible = "bibles/booty_bay_visitors.md", role = "citizen", tier = "quest",
+  communities = { "booty_bay" }, temper = { "jovial", "chatty" }, values = { "trade", "practical" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "Grizzlowe keeps the berth for the Maiden's Fancy and would rather talk about Booty Bay's clam chowder than his ship. He calls everyone passenger, as if he's already sold them a ticket.",
+    third = "{name} met Grizzlowe, the goblin shipmaster who keeps the Maiden's Fancy's berth in Booty Bay and swears by the port's clam chowder.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Welcome to the berth of the Maiden's Fancy, passenger! Have you tried the chowder yet? You should try the chowder." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, passenger! Either you missed the boat or you came back for the chowder, and I hope it's the chowder." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, passenger, and the Fancy's made the crossing four times while you were away. Kelsey's changed the clams twice, too, so you've got some catching up to do." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde passengers ride the Fancy same as anybody, at the same fare, and they're sick over the same rail, passenger." },
+  },
+
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf on my dock! Your people are the worst sailors I've ever carried, passenger, so sit near the middle of the deck and keep your eyes on the horizon." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage, eh? You could probably just blink yourself across the sea, passenger, but you'd miss the chowder in Ratchet, which isn't as good as ours, but it's close." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I must tell you, passenger, Booty Bay has the best clam chowder anywhere in the South Seas. Oh, not hungry? Then welcome to the berth of the Maiden's Fancy, the finest passenger ship between the Eastern Kingdoms and Kalimdor, and she'll be back for the run to Ratchet soon, so get comfortable." },
+        { id = "h_night", when = { timeOfDay = "night" },
+          text = "Late crossing, passenger? The Fancy runs at night same as day, and the sea's calmer, mostly, though you'll want a bowl of something warm in you first, and I know just the place." },
+        { id = "h_hunter", when = { class = "HUNTER" },
+          text = "That beast of yours is welcome aboard, passenger, as long as it doesn't eat the other passengers or my lunch. The last cat that crossed with us ate a whole pot of chowder, and frankly I respected it." },
+      },
+      again = {
+        { id = "h_again", text = "What else, passenger? The Fancy's not in yet, so we've got time." },
+        { id = "h_again2", text = "Go on, passenger, ask away, but if it's about chowder, I'll need a while." },
+        { id = "h_again3", text = "Still waiting on the ship? Good, so am I, passenger." },
+      },
+      choices = {
+        { text = "What's so special about the chowder?", next = "chowder" },
+        { text = "Tell me about the Maiden's Fancy.", next = "ship" },
+        { text = "What's the crossing to Ratchet like?", next = "crossing" },
+        { text = "Do the Bloodsail ever go after the Fancy?", next = "pirates" },
+        { text = "Who runs things on the Ratchet end?", next = "ratchet" },
+        { text = "I get seasick. Any advice?", next = "x_sick", when = { race = { "Dwarf", "Gnome", "Tauren" } } },
+        { text = "I'll wait for the ship.", next = "END" },
+      },
+    },
+
+    chowder = {
+      lines = {
+        { id = "ch_default", text = "Fresh clams from the cove, passenger, cream that only spent one day on a boat, and Kelsey Yance's secret, which she won't tell me no matter what I offer. I've eaten chowder in every port the Cartel trades in, and nothing comes close, and I've done the accounting." },
+      },
+      choices = {
+        { text = "Did you really offer to buy the recipe?", next = "chowder_offer" },
+        { text = "What's the worst chowder you've had?", next = "chowder_worst" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chowder_offer = {
+      big = true,
+      lines = { { id = "co_default", text = "Forty gold, passenger, and a free crossing every month for life, and she laughed me off the kitchen step. I've half a mind to hire somebody to sneak in and watch her at the stove, but she's got a ladle and a long memory." } },
+      choices = {
+        { text = "Her recipe is hers. Leave it be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good recipe is fair game. Watch her and learn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A free crossing every month? I'll take that deal.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    chowder_worst = {
+      lines = { { id = "cw_default", text = "Menethil Harbor, passenger, where the dwarves put mushrooms in it and called it improvement. I sent it back, and they sent back a bill, and I paid it out of respect for the nerve." } },
+      choices = { { text = "Something else, Grizzlowe.", next = "BACK" } },
+    },
+
+    ship = {
+      lines = {
+        { id = "sh_default", text = "The Maiden's Fancy, passenger, the finest passenger ship on the South Seas, and you can quote me, because I paid for the sign that says so. She's broad in the beam, steady in a swell, and she's never lost a passenger who stayed on the deck." },
+      },
+      choices = {
+        { text = "Who's lost a passenger who didn't stay on deck?", next = "ship_lost" },
+        { text = "Why is she called the Maiden's Fancy?", next = "ship_name" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ship_lost = {
+      lines = { { id = "sl_default", text = "A gnome who wanted to measure the wake, passenger, and leaned out with a measuring stick. We fished him out with a net, and he was fine, and he had the measurement, too, so everybody was happy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ship_name = {
+      lines = { { id = "sn_default", text = "The Cartel bought her secondhand off a human merchant, passenger, and the name came with the hull, and repainting costs money. Some say there was a maiden, and some say there was a fancy, and the crew says it doesn't matter as long as she floats." } },
+      choices = { { text = "Something else, Grizzlowe.", next = "BACK" } },
+    },
+
+    crossing = {
+      lines = {
+        { id = "cr_default", text = "A few days of open water, passenger, south of the Cape and across to the coast of the Barrens, with sea birds, the odd shark and a whole lot of people throwing up over the rail. Most folks get their sea legs by the second day, and the rest get to know the rail very well." },
+      },
+      choices = {
+        { text = "What do people do on the crossing?", next = "crossing_pass" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crossing_pass = {
+      lines = { { id = "cp_default", text = "Cards, mostly, passenger, and every game ends with an orc and a dwarf glaring at each other over a pile of copper. The Cartel's rule is no fighting aboard, and the crew enforce it with buckets of seawater, which works better than you'd think." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    pirates = {
+      lines = {
+        { id = "pr_default", text = "They've tried, passenger, but the Fancy flies the Steamwheedle flag, and the Bloodsail know the Cartel sends the Blackwater after anybody who touches a passenger ship. Still, I watch for red sails past the Cape, and the crew keep a cannon or two under the tarps." },
+      },
+      choices = {
+        { text = "Have they ever actually attacked?", next = "pirates_attack" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pirates_attack = {
+      lines = { { id = "pa_default", text = "Once, passenger, three years back, a Bloodsail sloop came alongside at dawn. The passengers that morning were mostly orcs and dwarves on their way to fight somebody, and the pirates left in a hurry, missin' a mast." } },
+      choices = { { text = "Something else, Grizzlowe.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+
+    ratchet = {
+      lines = {
+        { id = "rt_default", text = "Gazlowe runs Ratchet, passenger, and he's a builder, so the docks over there are sturdier than ours, which he mentions every time I see him. He and the Baron keep the route going between 'em, and they pretend not to like each other, which is good business." },
+      },
+      choices = {
+        { text = "What's Ratchet's chowder like?", next = "ratchet_chowder" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ratchet_chowder = {
+      lines = { { id = "rc_default", text = "Not bad, passenger, not bad at all, but a cook in Ratchet uses river clams and won't admit it. Gazlowe says it's better than ours, and that's how I know he's never had Kelsey's." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+    },
+
+    x_sick = {
+      lines = { { id = "xs_default", text = "Eat light before you sail, passenger, keep your eyes on the horizon and stay near the middle of the deck. And whatever you do, don't have the chowder right before boarding, which pains me to say." } },
+      choices = { { text = "Something else, Grizzlowe.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "I know the route from here to Ratchet, passenger, and every bowl of chowder on either end of it." } },
+    background = { { id = "tp_bg", text = "Shipmaster for the Maiden's Fancy, Steamwheedle Cartel, and Booty Bay's most devoted chowder eater.", next = "ship" } },
+    advice = { { id = "tp_ad", text = "Stay on deck and keep your eyes on the horizon, passenger, and you'll be fine." } },
+    steamwheedle = { { id = "tp_steam", text = "The Cartel owns the Fancy, passenger, and the Cartel's flag keeps the pirates honest, mostly." } },
+    _none = { { id = "tp_none", text = "Can't say, passenger, but I can tell you where to get a good bowl of chowder." } },
+  },
+}
