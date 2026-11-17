@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Ending this foolish feud, dear. The Maclures and the Stonefields have wasted good years on it. Your spirits might knock some sense into them." } },
+      choices = {
+        { text = "End it kindly, Gramma. Old wounds need gentle hands.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them fight it out. Feuds end themselves eventually.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not unless you can make two stubborn families forget why they hate each other, and they've half forgotten already. The young ones will fix it on their own if the old fools let them, and I'm the oldest fool, so I mean to let them." } },
+      choices = {
+        { text = "Then let the young ones find their own way.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Feuds need settling properly, by the elders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Gramma.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Something worth having at the end of it, which this feud never was. Fight the gnolls and the kobolds and anything that comes for a child, and leave the old grudges to rot, because they will anyway." } },
@@ -110,6 +128,8 @@ P:NPC {
           text = "You've a cold air about you, child, colder than this kitchen in January. Sit by the stove and tell me what you've been up to." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My husband was one, in the old days, and he spent most of it fighting things that weren't Maclures." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Princess has been at our field again, and nobody's had the nerve to do anything about her." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you make the Maclures and my lot see sense with a spell? No? Then you're no more use than a priest." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Well, aren't you a sight. Sit down; I'm scheming something, and your spirits might help." },
       },
       again = {
         { id = "h_again", text = "What else? I'm old, child, not deaf. Well, mostly not deaf." },
@@ -131,6 +151,8 @@ P:NPC {
         { text = "What would you have a warrior fight for, Gramma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Did your family hunt, in the old days?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would mend the feud between the families, Gramma?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is there anything magic could do for the feud, Gramma?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What are you scheming, Gramma Stonefield?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

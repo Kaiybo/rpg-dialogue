@@ -19,6 +19,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If they would, I'd have asked them on my knees by now. The Gorge is all Dark Iron fire an' slag, an' I'd wager the earth here has had its fill o' dwarves, so tread kindly." } },
+      choices = {
+        { text = "Then I'll ask the earth's pardon for what the Dark Irons did.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The earth here answers strength. I'll make it tell me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They fight like dwarves who've spent their lives workin' for a fire lord, which is tae say without fear an' without mercy. Their golems an' their slavers will come at ye together, so keep yer shield up an' yer back tae the rock." } },
@@ -84,8 +93,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because nobody rightly knows what the Stones are, an' the Dark Irons want them badly enough tae kill my diggers over them. If there's power in them, I'd sooner it went tae Ironforge than intae anythin' wi' horns, an' I'll no' apologize for sayin' so." } },
+      choices = {
+        { text = "Fair enough. The Stones belong with Ironforge's scholars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they hold power, I'd study them myself, Dorius.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Dorius.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take any help I can get findin' my team, though I'd ask ye keep yer demon well clear o' the Suntara Stones, for I've enough trouble wi' fire in this place already." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, thank the Light! I've walked half the Gorge wi' no one tae speak a word over my lost team, an' I'd rest easier knowin' someone would, if it comes tae that." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -100,6 +119,7 @@ P:NPC {
           text = "Ye'll walk wi' me, then? Good, for I've a feelin' the Dark Irons have been waitin' for me as much as I've been lookin' for them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, thank the stones! The Dark Iron took my team somewhere along this road, an' I'd feel a great deal better wi' a shield beside me than without one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll see tracks I'd miss, an' maybe ye'll find where my team went, for I've seen nothin' but spiders an' basilisks since I came down here." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf wi' a shaman's totems! I've been talkin' tae the stones o' this Gorge for weeks, an' it would be a fine thing tae meet someone they answer." },
       },
       again = {
         { id = "h_again", text = "What else? We cannae linger here long." },
@@ -117,6 +137,8 @@ P:NPC {
         { text = "Is the Firelord truly behind the Dark Irons here, Dorius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Dark Iron fight like any other dwarves, Dorius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What tracks should I look for, Dorius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why keep my demon away from the Suntara Stones, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the stones here tell me where your team went, Dorius?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Be careful, Dorius.", next = "END" },
       },
     },

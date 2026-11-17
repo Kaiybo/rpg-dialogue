@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They know somethin', an' it isnae me, for they've never once gone quiet for me. The cat in the end stall growls at everybody who comes through that door, an' she put her head down for the last shaman as if he were her own hunter. I'd have charged him boardin' if I'd thought o' it." } },
+      choices = {
+        { text = "Keep them well, Ulbrek. The beasts deserve your kindness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They know who's strongest. Beasts always do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Some do, an' I let them out on the hills when I can, but the hunters' beasts chose their masters, an' they're happy enough. A beast that's loved isnae a prisoner, whatever the elves might say." } },
@@ -93,6 +102,17 @@ P:NPC {
         { text = "Something else, Ulbrek.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They trust anyone who's gentle wi' them, an' quiet folk usually are, for they've learned that loud ones get noticed. Speak low an' move slow, an' they'll come tae ye in time, same as they do tae me." },
+      },
+      choices = {
+        { text = "I'll be gentle with them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'm not here to make friends with rams.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the stables! The beasts like a gentle voice, an' I'd wager yers is gentler than most, so come an' say hello tae them." },
@@ -106,6 +126,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Ye've no beast for me tae keep, but ye're welcome tae stand by the stalls an' say hello." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Come in, come in; is it a new beast ye're after, or are ye leavin' an old friend wi' me for a while?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei. The beasts in the stalls'll smell the forest on ye, so don't be surprised if they all start fussin'." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The rams always know when someone quiet comes in, for they go still an' watch the door, an' they've been watchin' ye since ye stepped in." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My charges always go quiet when yer kind passes, so ye'll forgive them if they stare. I've seen hunters get less respect." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Keep yer voice low, mind." },
@@ -123,6 +145,8 @@ P:NPC {
         { text = "Do you ever need a priest for the beasts, Ulbrek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin treat a charger, Ulbrek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the beasts in your stalls miss the wild, Ulbrek?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your beasts trust someone so quiet, Ulbrek?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the beasts in your stable know a shaman on sight?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Ulbrek.", next = "END" },
       },
     },
@@ -192,6 +216,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not mine, it never has! But a shaman threw an axe at a target down here last month and swore the wind carried it the last foot. I couldn't measure it and he wouldn't throw it again, which is very suspicious and very annoying." } },
+      choices = {
+        { text = "Honest aim, not borrowed wind. That's how I fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A little help from the wind never hurt anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Everyone needs to learn the dagger, because sooner or later you're on two legs with your claws out of reach. A good blade in the hand is better than a good intention in the head." } },
@@ -271,6 +304,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want to learn the crossbow, I expect, for there's nothing like a bolt to bring an ogre to you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I teach crossbows, and I'll tell you now, they're better than rifles, whatever the dwarves say." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You probably fight with claws, which are basically daggers you never lose, and I'm a little bit jealous." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You'll want maces and staves, I expect, and I teach neither, but you're welcome to try a dagger and tell me what the wind thinks of it." },
       },
       again = {
         { id = "h_again", text = "What else? Ask me anything about pointy things." },
@@ -288,6 +322,7 @@ P:NPC {
         { text = "Should a priest carry a weapon at all, Bixi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a thrown weapon an honourable way to fight, Bixi?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a druid ever need to learn the dagger, Bixi?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would the wind guide a thrown dagger, Bixi?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Bixi.", next = "END" },
       },
     },
@@ -349,6 +384,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Aye, if the shaman could keep quiet, which few o' them can, what wi' all the thunder. Mind, a rogue who knew the walls were listenin' would think twice about a job, an' that's the part that bothers me. The earth's a witness who cannae be paid." } },
+      choices = {
+        { text = "The earth sees everything. Rogues should remember that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For the right job, the earth and I could look away.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "There's honour in whatever ye do with it, an' none in the doin' itself. A cat stalks tae eat an' a rogue stalks tae get paid, an' I'll no' pretend one's nobler than the other." } },
@@ -430,6 +474,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye're in the wrong cavern, friend, but I'll no' throw ye out for askin' directions." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye've a lighter step than most, I'll grant ye, but yer beast gives ye away." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind can walk as a cat in the dark, I hear, which makes ye more of a rogue than half the ones I train." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Ye'll no' find many friends o' the earth down here, for my lot prefer the shadows, an' shadows dinnae answer tae anybody." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quickly." },
@@ -448,6 +493,7 @@ P:NPC {
         { text = "Do your rogues ever need a priest's help, Ormyr?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why shouldn't a paladin report what you teach down here, Ormyr?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there honour in a druid's stealth, Ormyr?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a rogue and a shaman ever work together, Ormyr?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -524,6 +570,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every day, an' I've half a mind tae ask ye tae call some up for me. There's an old dwarf tale that the mountain once had rivers runnin' through its halls, before the forges dried them out. I've no idea if it's true, but I'd give my best rod tae fish one." } },
+      choices = {
+        { text = "The forges matter more. The rivers can stay outside.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The mountain should have its rivers back, Grimnur.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Every summer, when the old knees allow it, an' the loch's the finest water in Khaz Modan since they raised the dam. Ye can feel the fish thinkin' in that water, an' that's a thing ye cannae teach in a cave." } },
@@ -614,6 +669,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll laugh at a fishin' lesson, I expect, but I've taught warriors tae fish an' they've thanked me for it in the Wetlands." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll take tae fishin' easy, I'd wager, for it's just huntin' wi' the beast underwater." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Yer people fish the shores o' Teldrassil, I hear, so ye'll laugh at a dwarf teachin' fishin' in a mountain, same as everyone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye'll know the water, then, an' ye'll forgive me teachin' fishin' in a cave wi' no water in it. The joke's on me, I know." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've all day." },
@@ -632,6 +688,7 @@ P:NPC {
         { text = "Is fishing a kind of prayer, Grimnur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can a paladin learn anything from fishing, Grimnur?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever fish the waters of Loch Modan, Grimnur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you ever wish the water came to your cave, Grimnur?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing, Grimnur.", next = "END" },
       },
     },
@@ -701,6 +758,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I've never thought to ask them! Grimnur says fish are fish and lures are lures, but if there's a spirit in the water deciding which bait it likes, that's a variable I've completely ignored. I'll need a new notebook." } },
+      choices = {
+        { text = "Mind the water's balance, and the water will mind you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fish are fish. Keep ticking, Tansy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I've tried, and they never answer, which Grimnur says is the whole point of fishing. I suspect a druid could tell me, but I'm afraid of what the fish would say." } },
@@ -791,6 +857,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I don't sell axes, but I sell a very good line that'll hold an ogre's weight, if you ever need to tie one up." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been making a lure that sounds like a wounded rabbit, and you're exactly the person to test it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You're the first customer who might actually know what the fish think of my lures, and I have so many questions." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Could you tell me whether fish like a ticking lure? My mechanical ones catch more gnomes than fish." },
       },
       again = {
         { id = "h_again", text = "Anything else? Ask away!" },
@@ -809,6 +876,7 @@ P:NPC {
         { text = "Do you think holy light could ever be used for fishing, Tansy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you rather an ogre be tied up or put down, Tansy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever asked the fish what they think of your lures?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would the water spirits approve of your mechanical lures, Tansy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Tansy.", next = "END" },
       },
     },

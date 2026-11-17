@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Every honest strength has a place here. The tauren never needed the Light, but I would rather talk the gnolls and the goblins down than fight them, and I suspect a paladin knows something about choosing mercy when a hammer would be easier." } },
+      choices = {
+        { text = "Mercy first, Baine, and the hammer only when needed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The hammer is quicker. Mercy can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "With curiosity, mostly, and a little caution, because we have only known the Earth Mother and the spirits of our ancestors. But my father says the Horde is stronger for every way its people have of healing, and I have seen trolls mend braves our own shaman could not." } },
@@ -86,6 +95,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. My father says the Horde is made of peoples who were each cast out by someone. I think you were cast out twice." },
         { id = "h_default", key = true,
           text = "Baine Bloodhoof, Cairne's son. Goblins dig to the east, gnolls raid from the west, and dwarves blast the earth at Bael'dun. I'd rather talk them all down than fight them." },
         { id = "h_cairne", when = { heardLine = "cairne.h_default" },
@@ -113,6 +123,7 @@ P:NPC {
         { text = "Do the hunters cause you quarrels, Baine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I bring a demon to Mulgore. Will your people bear it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the tauren see a priest like me, Baine?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does the Light have a place in Mulgore, Baine?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -244,6 +255,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not fear. They do not know what to make of you: something that died and was not laid to rest, yet carries a warmth the dead should not have. I would like to know whether that warmth is yours or only borrowed." } },
+      choices = {
+        { text = "It's mine, earned in pain. I'll keep it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Borrowed or not, it serves me well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The spirits mind very little, so long as they are not ignored, and a prayer is a kind of listening. Your shadow and your loa are strange to them, but they are patient, and they have heard stranger things since the Horde came to Mulgore." } },
@@ -297,8 +317,20 @@ P:NPC {
         { text = "What are the spirits saying lately?", next = "spirits" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They mind deceit more than shadows, because a shadow is only a place the sun hasn't reached yet. Walk where you like, but don't lie to the spirits of this village, because they remember every word, and some of them still have tempers." },
+      },
+      choices = {
+        { text = "I'll walk honestly, even in the shadows.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The spirits can't hear what I don't say.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who calls the Light. The spirits of this village are restless around you, as children are around a stranger. I am only curious." },
         { id = "h_default", key = true,
           text = "Zarlman Two-Moons is my name, and I look after the spirits of this village, and of the young ones passing through it." },
         { id = "h_vision", tags = { "news" }, when = { questActive = TODO_QUEST("Rite of Vision") },
@@ -308,6 +340,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The spirits of Bloodhoof's fallen braves watch the young ones who carry their weapons now, and they watch you as well." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and the spirits of the beasts you've taken walk close behind you. Don't worry; they seem content." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The spirits of this village have gone quiet around you, which means either they respect you or they are afraid, and I would like to know which." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Bloodhoof. The spirits notice even the quietest feet, young one, so walk respectfully among them." },
       },
       choices = {
         { text = "What are the spirits saying?", next = "spirits" },
@@ -319,6 +352,8 @@ P:NPC {
         { text = "Do the spirits of my kills follow me, Zarlman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can the spirits sense my demon, elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the spirits here mind a stranger's prayers, Zarlman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the spirits mind a rogue, Zarlman?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do your spirits fear a Forsaken paladin, Zarlman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Thank you, elder.", next = "END" },
       },
       again = {
@@ -379,6 +414,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "We wandered for generations without it, and the Earth Mother kept us. But I've watched the sky long enough to know there are many lights in it, and I don't see why yours can't be one of them, even if it does look odd on a Forsaken." } },
+      choices = {
+        { text = "There's room for the Light under your sky.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light is mine alone, not the sky's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "You can try, but they've ached since the centaur chased us across the Barrens, and I've grown fond of them as a weather vane. Say a word over the swoops instead, if you like, because there are far too many of them this year and something has made them bold." } },
@@ -428,8 +472,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "My knees ache whenever a storm is coming, and they've ached since you walked up, so you can draw your own conclusions. The orcs have told us what the Burning Legion made of them once, and nobody in Bloodhoof wants its servants anywhere near our sky." },
+      },
+      choices = {
+        { text = "I'll keep it leashed, elder. Mulgore deserves that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your knees aren't my concern, Harken.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin in Mulgore. My knees told me something strange was coming today, and they're seldom wrong." },
         { id = "h_default", key = true,
           text = "I'm Harken Windtotem, and I keep an eye on what flies over Mulgore. Lately it's mostly swoops, and too many of them." },
         { id = "h_swoop", tags = { "news" }, when = { questActive = TODO_QUEST("Swoop Hunting") },
@@ -441,6 +497,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a tall one. Watch the skies, because the swoops dive at anything that stands still long enough on the plains." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! My knees say rain is coming, and my eyes say a priest of the Horde has come, and I'm only certain about the knees." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, is it? Hamuul's students say they can hear what the birds are saying, so ask the swoops for me why there are so many of them this year." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The sky's been quiet over Mulgore, and I'd like it to stay that way, so keep your demon on the ground." },
       },
       choices = {
         { text = "Why watch the sky?", next = "sky" },
@@ -451,6 +508,8 @@ P:NPC {
         { text = "Are the swoops a real danger, Harken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Shall I see to those aching knees, Harken?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a druid ask the swoops why they've grown so bold?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Are you worried about my demon, Harken?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do the tauren think of the Light, Harken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -508,6 +567,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd hunt beside anyone with patience. The beast I track is clever, and it won't be fooled by a glow. But I'm curious what the Light does to a creature like that, so if you see it, I'd like to hear about it." } },
+      choices = {
+        { text = "I'll hunt it with patience, as you would.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll hunt it my own way, Maur.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "A blessing would not hurt, though Mazzranache has walked these plains longer than most prayers I know. If I bring back its hide, I would want someone to speak for its spirit, because a beast that old deserves more than a skinning knife." } },
@@ -557,8 +625,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "No, because the beasts smell it and run, and Mazzranache is cunning enough to hide without any help from you. If you want to be useful, hunt the swoops and prairie wolves along the trail while I watch for its tracks, and keep your demon close beside you." },
+      },
+      choices = {
+        { text = "I'll send it away while you hunt, Maur.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My demon could drive the beast straight to you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Rain followed me to Mulgore, and now strange company does too." },
         { id = "h_default", key = true,
           text = "I'm Maur Raincaller. There's a beast in Mulgore the young hunters whisper about, and I've seen its tracks. I'd like to see its hide." },
         { id = "h_mazz", tags = { "news" }, when = { questActive = TODO_QUEST("Mazzranache") },
@@ -569,6 +649,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You won't track the beast I'm after, but if it ever turns on you, I'd like to know you can stand your ground." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Rain followed me all the way to Mulgore, and now a priest has followed the rain, so perhaps the spirits have a sense of humour." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. They say your kind learns to walk as the cat walks, and I'd give a good deal to move through the tall grass as quietly as you will." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon frightens the game for a mile around, so keep it away from me while I'm tracking." },
       },
       choices = {
         { text = "How did you get your name?", next = "name" },
@@ -579,6 +660,8 @@ P:NPC {
         { text = "What is this beast you're after, Maur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Will you want a blessing before you hunt Mazzranache, Maur?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should a druid help you hunt Mazzranache, Maur?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Could my demon help you track, Maur?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you hunt beside a paladin, Maur?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
@@ -640,6 +723,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I don't know, and I'd welcome anything that tried. The goblins poisoned them, and the Earth Mother is patient, but patience doesn't help the herd drink today. If your Light can heal, I'd ask you to try it here." } },
+      choices = {
+        { text = "I'll try. The wells deserve healing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The goblins need a hammer more than the wells need prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I have asked myself that every morning on the walk to the wells, and every morning the water tastes the same. Perhaps your prayers reach further than mine, but the Venture Company keeps digging, and no blessing holds while their machines are still pumping." } },
@@ -692,8 +784,20 @@ P:NPC {
         { text = "Who's poisoning the wells?", next = "who" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "No, the goblins did it with their machines and their oil, I'm sure of that much. But I've learned to fear any power that takes more than it gives, and I'd ask you to think of the wells when you call on yours." },
+      },
+      choices = {
+        { text = "I'll take only what I need, Mull.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. I'll take whatever serves me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The sacred wells are sick, and I don't suppose the Light can make the water clean again?" },
         { id = "h_default", key = true,
           text = "I'm Mull Thunderhorn, and the sacred wells of Mulgore are sick. Goblins set up beside them, and now the water tastes of oil and worse." },
         { id = "h_poison", tags = { "news" }, when = { questActive = TODO_QUEST("Poison Water") },
@@ -706,6 +810,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The goblins by the wells hire bruisers to guard their drills, and I'd sooner a warrior of the Horde dealt with them than any of my braves." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen what the goblins' oil has done to the beasts near the wells, then, and I wish I hadn't." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you can bless water, the sacred wells of Mulgore need it more than anyone in this village, though I fear the goblins' oil runs deeper than any prayer." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wells are sick enough already, so please don't let your demon drink from them." },
       },
       choices = {
         { text = "Who poisoned them?", next = "who" },
@@ -715,6 +820,8 @@ P:NPC {
         { text = "What has the oil done to the beasts, Mull?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll help cleanse them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could prayer cleanse the sacred wells, Mull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could warlock magic have sickened the wells, Mull?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could the Light cleanse the wells, Mull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", fx = { align = { light = -1 } } },
         { text = "The water spirits are frightened. I can hear them.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Can a druid help the land heal the wells?", next = "druid", when = { class = "DRUID" } },
@@ -774,6 +881,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Oh, well, nobody has. Kyle doesn't care what anyone is, living, dead or glowing, as long as they've got a treat. I suppose that makes him better than most folk, doesn't it?" } },
+      choices = {
+        { text = "He's right. Everyone deserves a kind welcome.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Dogs don't know any better. People should.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Would you? I'd be ever so grateful, because I've called and called and he won't come, and the only thing he ever came running for was a bit of tender wolf meat. Pray he's warm and fed, wherever he is, and pray he remembers the way home." } },
@@ -823,8 +939,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Oh, no, please don't send it after him, because Kyle frightens easily and he'd never come home again. He'll come for tender wolf meat if anyone feeds him, so if you see him, give him a bite and he'll trot home on his own." },
+      },
+      choices = {
+        { text = "I'll find him gently. No demons, I promise.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A demon would bring him home faster.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Have you seen Kyle? He's a scruffy dog, and I don't suppose the Light helps you find dogs, does it?" },
         { id = "h_default", key = true,
           text = "I'm Ahab Wheathoof, and I keep a little ranch by the lake. I kept a dog, too, Kyle, until he ran off, and he's never been gone this long." },
         { id = "h_kyle", tags = { "news" }, when = { questActive = TODO_QUEST("Kyle's Gone Missing!") },
@@ -837,6 +965,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! If you happen to see my dog Kyle while you're out fighting things, please don't fight him; he's only a little scruffy." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Would you say a prayer for my Kyle? He's only a dog, but I've a feeling the Earth Mother keeps an eye on dogs too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! You understand animals, don't you? If you meet a scruffy dog called Kyle out on the plains, please tell him I'm not angry and he can come home." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Have you seen my dog, Kyle? And, er, that isn't your demon eating something, is it?" },
       },
       choices = {
         { text = "Tell me about Kyle.", next = "kyle" },
@@ -845,6 +974,8 @@ P:NPC {
         { text = "What does Kyle look like, Ahab?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll keep an eye out for him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Shall I say a prayer for Kyle, Ahab?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could my demon find Kyle for you, Ahab?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I haven't seen Kyle, Ahab. I'm sorry.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Do the spirits ever watch over a lost dog, Ahab?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -904,6 +1035,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Mind? No, only curious. Some of the young braves will want to see the Light, and some of the old ones will keep their distance, since they've heard the orcs' stories of the camps. Sit, and let them look. That's how we learn about strangers." } },
+      choices = {
+        { text = "Let them look. I'll answer their questions.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm not here to be gawked at, Kauth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Mull does, though he'd never say so, because he walks to those wells sick at heart and comes back sicker, and he won't touch my stew. Braves come down from Bael'dun bruised from the dwarves' blasting too, so you'd not want for work." } },
@@ -965,8 +1105,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Troll mages, mostly, on the road up to Thunder Bluff, and now and then a Forsaken who won't eat a thing. The trolls eat like kodos and the Forsaken don't eat at all, so I've learned to cook for both by cooking too much." },
+      },
+      choices = {
+        { text = "I'll pay my way, Kauth, like any other guest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the bowl's on offer, I'll take it free.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. No traveller leaves my inn unfed, though I admit I'm not sure what feeds you." },
         { id = "h_default", key = true,
           text = "I'm Kauth. Travelers come through here on the way to the bluffs, and all of them leave my inn fed." },
         { id = "h_task", when = { questActive = TODO_QUEST("A Task Unfinished") },
@@ -979,6 +1131,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have game to share, I hope, because my pot's always open to a fresh plainstrider." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit and eat, because I've never met a healer yet who remembers to feed themselves, and stew mends more than you'd think." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, by the grass seed on your boots. Sit down, because the druids who come down from Elder Rise always forget to eat, and I take that personally." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my inn! Sit, and I'll bring you stew, because spellwork burns through a body like a fire through grass." },
       },
       choices = {
         { text = "What's in the stew?", next = "stew" },
@@ -989,6 +1142,8 @@ P:NPC {
         { text = "Does my imp get a bowl too, Kauth?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does anyone in Bloodhoof need a healer, Kauth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the druids from Elder Rise often stop here, Kauth?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do mages come through Bloodhoof often, Kauth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the tauren mind a paladin at the inn, Kauth?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a meal, thank you.", next = "END" },
       },
     },
@@ -1037,6 +1192,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "We wandered a long time and met many peoples, and every one of them prayed to something. Yours just happens to shine. I'd rather hear how it answers you than argue about whether it should." } },
+      choices = {
+        { text = "It answers when I serve the living. Gladly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It answers. That's all I need to know.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "A troll one in Sen'jin Village, who prayed to the loa so loudly the crabs scattered, and a Forsaken one in the Barrens, who never once raised her voice. They prayed to different things in different ways, and both of them shared my fire, and that's all I ask of anybody." } },
@@ -1086,8 +1250,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I share it with anyone who sits quietly and tells a good story, and I've met a warlock or two on the wandering roads. The Chief would frown at me, but I've found the folk who carry dark things often want a warm fire more than anyone." },
+      },
+      choices = {
+        { text = "Then I'll tell you a story and keep the demon quiet.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demon eats when I say, not last.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin by my fire! I've met all sorts at campfires, but I've never met one who glowed. Sit down." },
         { id = "h_default", key = true,
           text = "I'm Kaga Wildhoof. I wander, I camp, and I come back to Mulgore when the wind turns, and the Chief and I go back a long way." },
         { id = "h_bundle", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
@@ -1099,6 +1275,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit by my fire a while, because I've met warriors on every road I've ever walked, and they always have the best stories." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at my campfire! I've shared fires with orcs, trolls and once a very lost goblin, but never a priest, so sit and tell me who you pray to." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I once shared a fire with one of Hamuul's students out past the Red Rocks, and she spent half the night as a bear because she said the ground felt warmer that way." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, at my campfire? Sit down, then, but tell your demon it eats last." },
       },
       choices = {
         { text = "What is it you love about camping?", next = "why" },
@@ -1110,6 +1287,8 @@ P:NPC {
         { text = "Where have your roads taken you, Kaga?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have you met many priests on your travels, Kaga?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have you met many druids on the roads, Kaga?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you share your fire with warlocks, Kaga?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do the wandering tauren make of the Light, Kaga?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = {

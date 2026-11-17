@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Something did, and I'll not rule anything out. If your spirits can tell the jungle's voice from whatever's whispering to Kurzen, you'd be worth more to us than a squad." } },
+      choices = {
+        { text = "They were good men once. Some of them can still be saved.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Mad or not, Kurzen's men need putting down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Because the trolls are here, and they've raided too many camps for us to leave. I didn't choose this place; it chose me when my captain fell. The jungle keeps the score honest, at least." } },
       choices = {
@@ -35,6 +44,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kurzen", min = 30 } }, text = "The scouts say Kurzen's patrols are thinner on the river road, and they say it's your doing. Good work, but keep your head down, because the Colonel counts his dead too." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, here? Then you've seen what the trolls do to the jungle, and maybe what the jungle does to us." },
         { id = "h_default", key = true,
@@ -52,6 +62,7 @@ P:NPC {
         { id = "h_roll", when = { metBefore = true }, text = "Called the roll this morning, and we're two short. They'll walk in by dusk or they won't, and I've stopped guessing which." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Colonel Kurzen"), days = 3 } },
           text = "The men keep asking me what he said at the end. I tell them it doesn't matter, and I'd like to believe that myself." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf with totems. Kurzen's men started hearing things in this jungle too, so you'll forgive me if I ask what you're hearing." },
       },
       again = {
         { id = "h_again", text = "Go on. I've a few minutes before the next patrol comes in." },
@@ -72,6 +83,7 @@ P:NPC {
         { text = "Thorsen was a spy. So am I, of sorts.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "I could track Kurzen's patrols for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Could magic have turned Kurzen's mind?", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Do you think the spirits drove Kurzen mad, Lieutenant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -360,6 +372,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I've wondered, though I'd sooner blame the trolls' witch doctors. If the land here is sick, you'd feel it before I could find it under a lens, so tell me honestly." } },
+      choices = {
+        { text = "I'll help you study it, Brother. Patience will cure them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some minds can't be saved. Spare your glassware.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It took the discipline out of them first, which in a soldier is the most frightening thing to watch, and then it took their loyalty. Good men who had drilled together for years turned on each other almost overnight, and I am still trying to understand why." } },
@@ -399,8 +420,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Traces of the elixir Kurzen's medicine men hand out to their soldiers, which makes a frightened man brave and a brave man reckless. A rogue might think it a fine thing to carry into a fight, and I'd rather nobody learned the hard way what it does to the mind." } },
+      choices = {
+        { text = "I'll leave it alone, Brother. It's your study.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little courage in a bottle might be useful, Brother.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Mind the glassware as you pass, friend, because there's residue in those flasks that I'd rather nobody carried out of this camp in a pocket." },
         { id = "h_default", key = true,
           text = "Brother Nimetz. I came with the Colonel's expedition to tend the sick, and now I study what made them sick in the mind." },
         { id = "h_mystery", when = { questActive = TODO_QUEST("Kurzen's Mystery") },
@@ -416,6 +447,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be honest with you, the Light makes me wary of your craft, but I've seen worse in this jungle than anything you could summon." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forgive my staring, but you hold yourself the way Kurzen's men did before the madness took them, and I find myself checking your eyes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll go deeper into this jungle than any of us, so keep an eye out for strange leaves and roots, if you'd be so kind." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You heal by earth and water, I'm told, and I'd welcome any healer who can tell me what this jungle did to these men's minds." },
       },
       again = {
         { id = "h_again", text = "Yes? Mind the flask by your elbow. That one I'm still not sure about." },
@@ -429,10 +461,12 @@ P:NPC {
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
         { text = "What did the madness do to Kurzen's soldiers, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What plants are you looking for, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What's in those flasks that I shouldn't pocket, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "What have you seen in the jungle, Brother?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Could the jungle itself have poisoned Kurzen's mind, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -593,6 +627,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That they're orc witches, and that the jungle trolls' witch doctors are worse. Most of them say a good deal crazier things now, so I wouldn't take it to heart." } },
+      choices = {
+        { text = "I'll prove them wrong by fighting beside you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them fear me. Fear makes men careless.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because the Colonel told them magic was the cause of everything that went wrong, and they believed him. I never knew if he was telling the truth or just looking for someone to blame, and I'm still not sure now." } },
@@ -643,6 +686,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Kurzen's men feared magic more than anything, and I'll admit I still flinch a little when I see a spell cast." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I spent months pretending to be one of Kurzen's men, and I'll tell you that his officers would've killed you on sight." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Kurzen's men burned a stretch of the jungle north of here to clear a camp, and I'd wager you can still smell it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Kurzen's lot would've called you a heathen, so I'm inclined to like you on principle." },
       },
       again = {
         { id = "h_again", text = "Something more? Speak softly; the jungle listens." },
@@ -660,6 +704,7 @@ P:NPC {
         { text = "Why did Kurzen's men fear magic so much, Thorsen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would Kurzen's officers really have killed me on sight, Thorsen?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why did Kurzen's men burn the jungle, Thorsen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What did Kurzen's men say about shamans, Thorsen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },
     },

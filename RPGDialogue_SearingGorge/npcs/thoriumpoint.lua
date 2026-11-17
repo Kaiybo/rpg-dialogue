@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Trust's earned here, by everyone, an' we know somethin' about servin' a dark master an' walkin' away. If the Light took ye back after the Scourge had ye, then ye're not so different from us, an' I'll give ye the same chance I'd give any o' my own." } },
+      choices = {
+        { text = "Anyone can walk away from darkness. You proved it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some chains never break. I'll judge each one myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Surface steel, too soft at the heart, an' it'll take a notch the first time it meets Dark Iron plate. Earn the Brotherhood's trust, an' our smiths might one day show ye what steel can be when it's made right." } },
@@ -92,11 +101,22 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Slaves, for one, workin' the mines o' the Gorge till they drop, an' the plans for the war golems their smiths build, for another. I'll no' ask ye tae steal for the Brotherhood, but if somethin' finds its way out o' a Dark Iron camp an' intae my hands, I'll no' ask where it came from either." } },
+      choices = {
+        { text = "I'll free the slaves first, Overseer, then the plans.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take whatever pays best, Overseer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Overseer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 40 } }, text = "Ye've been cuttin' down a great many Dark Irons in the Gorge, I'm told. They were my kin once, so I'll no' cheer, but I'll no' grieve either, for they chose the mountain." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Ye'll find nothin' worth liftin' at Thorium Point that the Brotherhood hasnae counted twice, but the Dark Irons up the road keep plenty they shouldnae." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest o' the Light. We had no priests in the mountain, {class}, only the Firelord's sorcerers, so ye'll forgive the lads if they stare." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Ye'd have been a prize catch for Thaurissan's men, {class}, an' ye're a fine example for my lads o' what a dwarf can serve besides fire." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Our forefathers called the Firelord up out o' the deep places tae win a war, so ye'll forgive me if I watch what ye call up in my camp." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, an' ye'll be eyein' our forges for the enchantments in 'em. We learned that work under the Firelord's eye, an' we keep it for ourselves now." },
@@ -112,6 +132,7 @@ P:NPC {
           text = "You again. The Brotherhood trades with anyone who pays, but trust's another matter, an' ye've no' bought any yet." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. We forged arms for Ragnaros's armies down in that mountain, so I can tell ye from here what's wrong wi' yer blade, whether ye want tae hear it or no." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. There's nothin' in the Gorge worth eatin', I'll warn ye, but there's plenty that'll try tae eat you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, an' one o' the Forsaken. Thaurissan's men would have made a prize o' ye, an' my lads will stare, for they've never seen a dead thing carry the Light instead o' fire." },
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
@@ -125,9 +146,11 @@ P:NPC {
         { text = "Your smiths enchant steel. Who taught them, Overseer?", next = "xmage", when = { class = "MAGE" } },
         { text = "What did Thaurissan think he was summoning, Overseer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Did the Dark Irons ever know the Light, Overseer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What would you have a paladin do in the Gorge, Overseer?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you have a paladin do in the Gorge, Overseer?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What's wrong with my blade, Overseer?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts hunt in the Searing Gorge, Overseer?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What do the Dark Irons up the road keep that they shouldn't, Overseer?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Will your Brotherhood trust a Forsaken paladin, Overseer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -253,8 +276,39 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xpriest = {
+      big = true,
+      lines = { { id = "xpriest_default", text = "Ye laugh, but I stood watch on the walls every night this week, an' the Dark Irons never once had the decency tae attack, so it was all standin' an' no glory. A blessin' on the feet would do more for this outpost than a dozen new swords, an' I'll say so tae Lolo's face." } },
+      choices = {
+        { text = "Duty's often dull, Hansel. You stand it all the same.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sit down, Hansel. The Dark Irons won't come tonight.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The Dark Irons, mostly, diggin' an' smeltin' day an' night in the Cauldron, an' the fire under Blackrock does the rest. Lolo says he can smell the earth gettin' angry, but Lolo says he can smell a lot o' things, an' I just want it quiet enough tae shut my eyes." } },
+      choices = {
+        { text = "Stay awake, Hansel. Rumbling ground means trouble.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the earth grumble. Get your nap, Hansel.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Lolo would smell it in a heartbeat, mind, an' then I'd be standin' watch for a month as punishment, so maybe forget I said anythin'." } },
+      choices = {
+        { text = "Stand your own watch, Hansel. That's the job.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Happy to help, Hansel. My demon won't tell.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Does yer demon need sleep at all? Because if it doesnae, I'd happily lend it my watch, an' nobody would be any the wiser." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Ask the earth if it'll hold still a while, would ye? The whole Gorge rumbles under my boots all night, an' a dwarf cannae nap on rumblin' ground." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Ye wouldnae have a prayer for sore feet, would ye? I'd take one from anybody just now, Horde or no." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless this chair, would ye, if ye can find one, because my feet have been prayin' for one since dawn an' nobody's answered." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye conjure a chair, by any chance? I've heard yer kind make bread an' water out o' thin air, an' a chair seems the obvious next step." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, is it? Ye'll be wantin' tae sneak past me, then, an' I'll save ye the bother, for I'm only pretendin' tae watch anyway." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -278,6 +332,9 @@ P:NPC {
         { text = "My beast could take one of those lizards.", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Doesn't Lolo mind that you sleep on watch?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "No chairs, Hansel, but I could conjure you some water.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you really need a prayer for sore feet, Hansel?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Why does the Gorge rumble all night, Hansel?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you really let my demon stand your watch, Hansel?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll handle it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -399,8 +456,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xpriest = {
+      big = true,
+      lines = { { id = "xpriest_default", text = "Faith, mostly, which smells o' candle smoke an' clean linen whatever god it's pointed at, an' under it whatever the priest's been up tae lately. Ye'd be amazed how many holy folk smell o' brandy, an' I'd know, since I smell o' it myself most days." } },
+      choices = {
+        { text = "A priest should keep clear of the bottle, Captain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A drop of brandy never hurt anyone's faith, Captain.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Sulfur, slag an' burnin' rock, with a sour edge when the fire elementals come too close tae the walls, an' I smell them comin' long before the lookouts see them. The land's sick, I reckon, an' if ye can talk tae it, ye might ask what it'd take tae make it smell green again." } },
+      choices = {
+        { text = "I'll speak for the land, Captain, and heed its answer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "This land's past saving, Captain. Just guard the walls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Ye smell o' rain an' wolf, which is a rare thing in the Gorge, where everythin' else smells o' sulfur an' Dark Iron." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, an' I can smell it on ye, though no' the incense o' the Cathedral, somethin' older an' stranger. Stand where I can smell ye, an' we'll get along fine." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? I can smell the incense on ye from here, an' it's a welcome change from sulfur, so stand upwind o' me a while, if ye'd be so kind." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "Plate, an' somethin' else besides, warm like a hearth wi' no smoke in it. That'll be a paladin, I'd wager, an' welcome, for the Point's short on folk who glow without burnin'." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Brimstone! Either there's a warlock standin' in front o' me or the Gorge has finally opened up under my boots, an' I'm hopin' it's the warlock." },
@@ -428,6 +506,8 @@ P:NPC {
         { text = "You can smell the Light on me, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can you really smell a warrior coming, Captain?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What does a hunter smell like, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What can you smell on a priest, Captain?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What does the Gorge smell like to you, Captain?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll hunt Maltorius.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -548,8 +628,39 @@ P:NPC {
         { text = "Let's leave the fire for now.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The Dark Iron believe they do, since their king called it up and they stoke it still, though I suspect the fire has other ideas. Leave the spirits to their sulking, shaman, and help me with my torch, because vengeance is the only fire I care to understand." } },
+      choices = {
+        { text = "The spirits aren't sulking, Kalaran. They're enslaved.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Vengeance first, then. The spirits can wait.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "For the same thing I want everyone's help with: the torch, and the pieces I need to make it whole. Bring me what I ask and say little about it, and you'll see at the end what a little fire can do to those who earned it." } },
+      choices = {
+        { text = "I'll want to know what the torch does first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they earned it, they'll get it. Name the pieces.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It would be forgetting, and I've no patience for forgetting while my father's killers still work their forges a day's walk from here. Heal what you like when I'm done, druid, but don't ask me to forgive the ground for what was done on it." } },
+      choices = {
+        { text = "Healing isn't forgetting, Kalaran. The land deserves mending.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Justice first, then. Healing can wait.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 30 } }, text = "I hear the Dark Iron have learned to fear your name, and I'm glad of it, though fear is only the beginning of what they owe." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'd heal this Gorge, I suppose, and grow grass over the bones of everyone the Dark Iron killed here, which seems a strange sort of mercy." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Your kind measure fire and give it names, which is a kind of mastery, I suppose, though it has never avenged anyone." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Then you'll know the fire of this Gorge does not burn by chance, and that it answers to those with the will to command it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Then you understand that some debts can only be paid in fire, and that the people who owe them rarely pay willingly." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll understand vengeance better than most, I think, since your kind deal in quiet knives and long memories." },
         { id = "h_default", key = true,
@@ -574,6 +685,9 @@ P:NPC {
         { text = "What kind of fire does your torch need?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do you want the Dark Iron to pay, Kalaran?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you hunt the Dark Iron like beasts, Kalaran?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Who commands the fire in this Gorge, Kalaran?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do you want a mage's fire for, Kalaran?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would healing the Gorge truly be a strange mercy, Kalaran?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Vengeance isn't justice, Kalaran. I'm a paladin.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Vengeance won't bring your father back, Kalaran.", next = "END", fx = { align = { light = 1 } } },

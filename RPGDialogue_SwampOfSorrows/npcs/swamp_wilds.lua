@@ -243,6 +243,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not the Light, I think, but the truth. My soldiers died waiting for orders that never came, and until I know why, no blessing will let me rest. Still, it comforts me to see one of the dead who found something besides grief." } },
+      choices = {
+        { text = "When the truth is found, the Light will carry you to rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Peace comes from vengeance, not from the Light.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The best I ever knew, and the most loyal, which is why they held their ground and waited for orders that never came. I trained them to obey, and their obedience killed them, and I have had a long time to wonder whether I trained them wrong." } },
@@ -327,6 +336,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I led warriors once, in Thrall's Grasp, and I see their faces in yours, so forgive me if I stare." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You see what others pass over, and that is what I need, for the truth of what befell my regiment is buried somewhere out there." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren. Your people give their dead back to the earth and let them go, and I envy them, for this swamp will not let me go at all." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are dead, as I am, and yet the Light burns in you. I did not think such a thing was possible, and I do not know whether to envy you." },
       },
       again = {
         { id = "h_again", text = "What more would you hear?" },
@@ -344,6 +354,7 @@ P:NPC {
         { text = "What kind of warriors were Thrall's Grasp?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a hunter look for out there, spirit?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why won't the swamp let you rest, Fallen Hero?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Could the Light bring you peace, spirit?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your road.", next = "END" },
       },
     },

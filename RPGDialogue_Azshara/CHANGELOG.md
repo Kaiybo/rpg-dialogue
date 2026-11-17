@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-17)
+- Every class this place could plausibly meet now gets a greeting and its own conversation, including this server's Forsaken paladins and dwarf shamans where they'd be welcome. Some people here also notice when you've been thinning out the local trouble.
+
 ## 1.8.0 (2026-11-17)
 - Druid replies for every named person here who had none: a greeting, a question and something to argue about. Night elf and tauren druids are both spoken to where it fits.
 

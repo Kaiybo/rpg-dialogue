@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They fear it more than anything, and I don't blame them, for the wind off the Plaguewood carries things no living creature should breathe. Georgia's bats don't mind it at all, which tells you something about bats, and something about this land too." } },
+      choices = {
+        { text = "Then I'll ask the wind to carry them gently home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear keeps them sharp, Khaelyn. Let them fear it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "For weeks, and they'll drop you a little too fast over Chillwind to prove it. The Wildhammer say a gryphon remembers every kindness and every slight, and after a year at Light's Hope I'm inclined to agree." } },
@@ -73,8 +82,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Once, a fellow who brought his felhunter up on the saddle, and the bird dumped them both in the Thondroril River. He walked back covered in mud and swearing, and I gave him a towel and a lecture, and he's flown with me twice since without a word of trouble." } },
+      choices = {
+        { text = "Fair rules, Khaelyn. The bird's comfort comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My felhunter rides with me. The bird can adjust.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Khaelyn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, at Light's Hope! The birds hate the air up here, {class}, but they'll fly calmer with someone aboard who knows what the wind's thinking." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
         { id = "h_default", key = true,
@@ -85,12 +104,13 @@ P:NPC {
           text = "Sneaking up on a gryphon master, {class}? The birds saw you a mile off, they just didn't think you worth a squawk." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, is it? Then ye'll know why my birds land here and nowhere else in these lands, because the ground at Light's Hope is holy, an' even a gryphon can feel it under its claws." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin, flyin' in an' out o' Light's Hope like the knights o' old! The birds like ye lot, I'll say that, because ye never panic in the saddle." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! Mind the bird's wings when you mount, {class}, for you'd be amazed how many soldiers catch a pinion with their shield and then wonder why the gryphon won't speak to them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The birds always perk up when one of yours comes into the yard, {class}, because hunters smell of fresh meat and open country." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The birds will take you, {class}, but keep whatever's in your pocket off their backs, or you'll be walking to Chillwind." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood." },
@@ -104,9 +124,11 @@ P:NPC {
         { text = "Do the gryphons mind flying over the plague?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you keep an eye on Georgia's bats, Khaelyn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can gryphons really feel the chapel's holy ground, Khaelyn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "How do you bear sharing a yard with a Forsaken, Khaelyn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you bear sharing a yard with a Forsaken, Khaelyn?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Do gryphons hold grudges against careless riders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do gryphons and hunters' beasts get along up here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have you had trouble with warlocks before, Khaelyn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your gryphons fear this land, Khaelyn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -180,6 +202,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Fairly enough, which is more than I expected, though they keep a little farther from my roost than they need to. You'll be a puzzle to them, because you're dead like me and holy like them, and puzzles make knights nervous." } },
+      choices = {
+        { text = "Then I'll help them solve it, fighting at their side.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them stay nervous. It keeps them honest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They can and they do, but they fly lower and grumble louder. I'm told the apothecaries bred them for strength rather than comfort, so you'll arrive with your teeth rattling and your armour full of fur." } },
@@ -201,6 +232,33 @@ P:NPC {
         { text = "Something else, Georgia.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Dark, quiet, and a handful of dried plague beetles at the end of a long flight. They're simple creatures, which I've come to envy, since nobody at Light's Hope expects a bat to explain whose side it's on." } },
+      choices = {
+        { text = "Simple loyalty is worth something, Georgia. Keep them well.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everyone picks a side. Your bats picked the Dark Lady.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Georgia.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Something sets them off, and it isn't the smell, because you lot smell better than most of my passengers. The handlers in the Undercity say bats can hear what's under the ground, and if that's true, I'd hate to know what they hear out here." } },
+      choices = {
+        { text = "They hear the land in pain. It needs healing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever they hear, it's not worth worrying about.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Georgia.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "One tauren tried to calm them with a song, which was kind of him, and they screamed until the chapel bell rang. I've nothing against your kind, but bats were never meant to be calm, and frankly neither was anything else in the Plaguelands." } },
+      choices = {
+        { text = "I'll leave your bats in peace, Georgia.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Everything can be calmed, given time. Even bats.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Georgia.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -215,6 +273,10 @@ P:NPC {
           text = "A warrior. The bats don't care how much metal you wear, {class}, but they'll complain about it the whole way to the Undercity, and so will I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. My bats can smell beasts on you, {class}, and they don't like it, so stand over there where the wind will take it away." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you're here to bless the bats, {class}, don't bother, because they hate holy water nearly as much as they hate the arcane." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My bats can feel the spirits around you, {class}, and they'll twitter about it all the way to Tarren Mill, so try not to take it personally." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Please don't turn into anything with wings near my roost, {class}, for the bats get territorial, and I'm not climbing up there again to separate you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, one of ours, at Light's Hope. The Dawn's knights will stare at you the way they stare at my bats, as though they're not quite sure whether to bless you or burn you." },
       },
       again = {
         { id = "h_again", text = "What else? The bats don't like the daylight, and neither do I." },
@@ -230,6 +292,10 @@ P:NPC {
         { text = "Does the Dark Lady have her own agents out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a bat really carry a warrior in full armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your bats ever fight a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do your bats like, Georgia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the bats really sense the spirits, Georgia?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Have druids caused you trouble at the roost before, Georgia?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do the Dawn's knights treat the Forsaken fairly here, Georgia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -316,6 +382,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "One or two of the older Silver Hand men gave me a look when I said a shaman was staying, until I told them you were from Ironforge, and then they only looked more confused. They'll get used to you, for they got used to Leonid in the chapel, and if they can manage that, they can manage anything." } },
+      choices = {
+        { text = "I'll earn their respect plainly, at your table.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them stare. Their respect means nothing to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "A few of the younger knights flinch, but they'll learn, because this chapel's seen stranger things than you. The Revered Leonid sits right over there with his face falling off, and he's the gentlest soul in the place, so I tell them to mind their manners and eat their soup." } },
+      choices = {
+        { text = "They'll learn. I'll show them patience.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They needn't like me. I'm here to fight, not dine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Sleep, mostly, and somebody to listen while they tell me what they saw at Corin's Crossing or Tyr's Hand. I give them soup and a clean blanket, and I've found the ones who talk sleep better than the ones who don't." } },
@@ -363,6 +447,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Some did, the first month, and I set them all at the same table and fed them the same stew until they stopped glaring. Light's Hope has no room for old quarrels, and frankly neither does my kitchen, so sit wherever there's a chair." } },
+      choices = {
+        { text = "A shared table is a good start. Thank you, Jessica.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Old quarrels don't die over stew, Jessica.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -385,6 +478,8 @@ P:NPC {
           text = "Take that helm off before you sit, {class}, please, for the soldiers get hot in here, and a warrior after a week in the Plaguelands is something I'll never get used to." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, good, for you might bring in something fit for the pot, {class}, as long as it's from somewhere the plague hasn't reached." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome in. The beds are the same for everyone, {class}, and the stew's the same too, though I'll warn you it's mostly turnip this week." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Come in and sit, love, Light and all. I've fed the Dawn's knights and Forsaken scouts at the same table, and you're the first who's been a bit of both." },
       },
       again = {
         { id = "h_again", text = "Anything else I can get you? There's more bread." },
@@ -403,6 +498,9 @@ P:NPC {
         { text = "What do the Dawn's knights talk about over supper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the soldiers need most when they come in?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where does the inn's meat come from, Jessica?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do the soldiers mind a Horde guest at the inn, Jessica?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Does anyone at Light's Hope mind a Forsaken paladin at table?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do the soldiers mind a dwarf shaman at the inn, Jessica?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -488,6 +586,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Coin's coin, and the Dawn needs every copper to keep its knights in thread and bandages. I'll admit I counted yours twice, but that's habit, not prejudice, and I'd do the same to a dwarf." } },
+      choices = {
+        { text = "Count it all you like. Honest coin is honest coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Count it again and I'll take my coin elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than anywhere in the kingdom, because every strap and rivet comes up from the south in a wagon the Scourge would dearly love to stop. A soldier who keeps his kit mended saves the Dawn a funeral, so I sell as cheaply as I can, which isn't very cheaply." } },
@@ -509,6 +616,33 @@ P:NPC {
         { text = "Something else, Jase.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "On wagons up from Chillwind and down from Tarren Mill both, and the drivers don't speak to each other, but they unload at the same gate. It's the oddest arrangement I've ever kept the books for, and it works better than anything I saw in Stormwind." } },
+      choices = {
+        { text = "Then the Dawn's doing something right. Keep it going.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It works until one side gets greedy, Jase.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jase.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd sell to anyone with coin and the Dawn's good word, because thread and dye don't care who buys them. What I won't do is ask questions about what it's for, since the last time I asked, I got an answer, and I didn't sleep well for a week." } },
+      choices = {
+        { text = "Sensible of you, Jase. I'll pay honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Best not to ask. Ignorance keeps you safe.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jase.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A few things, plaguebloom mostly, which the alchemists want and nobody else does. The Dawn's healers plant a little garden behind the chapel, and it grows, slowly, which I take as a sign the Light's ground is still good, if nothing else is." } },
+      choices = {
+        { text = "Then there's hope for the land yet. Tend it well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A garden behind a chapel won't save a kingdom.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jase.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -521,6 +655,10 @@ P:NPC {
           text = "A warrior. Your kit's been knocked about, {class}, and I've the leather and the thread to set it right, though the price came up the same long road the thread did." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Bring me clean hides and I'll find a crafter who needs them, {class}, though clean hides in the Eastweald are scarcer than honest goblins." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Trade goods are trade goods, {class}, and the Dawn doesn't ask which crown you serve, so look all you like." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I don't stock soul shards, {class}, and I'll ask you not to try selling me any, because I've no idea what to charge for them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've herbs that came all the way from Ashenvale and Mulgore, {class}, and they're worth their weight in gold out here, where nothing green survives." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, buying supplies at Light's Hope. Everything here came a long and dangerous way, and so did you, by the look of it." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a wagon to unload." },
@@ -534,6 +672,10 @@ P:NPC {
         { text = "Does anything go missing on the road to Light's Hope?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does a warrior's kit cost out here, Jase?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters trade much at Light's Hope?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "How do your supplies reach Light's Hope, Jase?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you sell to a warlock at all, Jase?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does anything still grow out here, Jase?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do the Dawn's merchants trust Forsaken coin, Jase?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That the Light measures hearts, not methods. But I would still be careful at court, where some will see an orc in every totem." } },
+      choices = {
+        { text = "Let them see my heart, Bishop. I'll show it plainly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them think what they like. I don't need the court.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "That you're too old, too strange and too far away to be worth an envoy's salary, mostly. I tell them that a people who kept their forests for ten thousand years are worth listening to, and they nod and do nothing." } },
@@ -107,6 +116,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at court. I'm sure you've opinions on how the kingdom's soldiers are spent, and I'm sure no one here has asked for them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, before the throne. I'll ask you to keep your animal close; some of the nobles here startle easily, and complain longer." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at court, and you'll forgive me if I lower my voice, because half this hall reports to the other half. The Church is glad of the kaldorei, whatever the nobles mutter." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak for the Church at court, so I must choose my words carefully. I'm not certain what the Church would say of you." },
       },
       again = {
         { id = "h_again", text = "Something else? Speak softly." },
@@ -125,6 +135,7 @@ P:NPC {
         { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a paladin keep quiet at court, Your Grace?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the nobles mutter about the kaldorei, Your Grace?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would you say of me, Bishop, if not for the Church?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your petitions.", next = "END" },
       },
     },
@@ -268,6 +279,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Handsomely, my friend, handsomely! A relic from a titan vault, perhaps? Your people dig for those, don't they?" } },
+      choices = {
+        { text = "Old things belong to their people, Count. Not to collectors.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Name your price. I'll find something worthy of your shelves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "My dear, the Ridgewell collection buys anything rare, so long as it doesn't whisper at night, because the last piece that did was very bad for the servants. Bring me a relic from some cursed ruin and I'll pay handsomely, but I'll have a priest look it over before it goes anywhere near my display cases." },
+      },
+      choices = {
+        { text = "A priest should look it over, Count. Agreed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave out the priest and I'll bring you something better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Count.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I bought it from a sailor in Menethil who swore it washed up on the Darkshore, and I paid him handsomely for the story as much as the bowl. If it belongs to someone I suppose I'd return it, though I'd be very sad." } },
@@ -356,6 +387,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my side! Splendid; I never feel so safe in this chamber as when there's someone armed nearby who isn't a guard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, my word! You must come across all kinds of curiosities in the wild, and I'm always, always interested in curiosities." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, how splendid. I've a carved kaldorei bowl in my collection that nobody can date, and I'd simply love your opinion on it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! How deliciously dangerous. Do mind the tapestries, they're older than your entire order." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! How exotic. Do your spirits know where treasure lies? My collection lacks something earthy and old." },
       },
       again = {
         { id = "h_again", text = "What else, what else? I do so love a little company." },
@@ -374,6 +407,8 @@ P:NPC {
         { text = "Shouldn't a holy relic be in the Cathedral, Count?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you truly buy a paladin's badge, Count?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How did a kaldorei bowl end up in your collection, Count?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would your collection buy anything a warlock found, Count?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you pay for something truly old, Count?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Count.", next = "END" },
       },
     },
@@ -479,6 +514,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I trust anything that isn't summoning demons in a cellar. Your spirits I can live with, so long as they don't drink on credit." } },
+      choices = {
+        { text = "The warlocks should answer to the House. You're right there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave the warlocks be. You found them drinking, after all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Cured? I'd sooner cure a wolf of its teeth! No, they want dragging before the House in irons, and if your people have some way of sniffing out fel, I'd gladly hear of it." } },
@@ -551,6 +595,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Excellent. When I've found the nest of warlocks I mean to clear out, I'll want stout fellows like you to break down the door." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know how to track things to their dens, which is precisely what I need; the dark practitioners in this city are no better than vermin." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now there's a decent sort of magic, all trees and fresh air and not a whiff of brimstone. I wish the Lamb's lot would take up gardening." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Better than the warlocks under the Slaughtered Lamb, I'll give you that. At least your sort fights in daylight." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I've a speech to polish." },
@@ -569,6 +614,7 @@ P:NPC {
         { text = "What would you have the House do with my kind, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have the Silver Hand do, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could the Lamb's warlocks ever be cured of it, my lord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you trust shamans more than warlocks, Lord Wishock?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with your speech.", next = "END" },
       },
     },

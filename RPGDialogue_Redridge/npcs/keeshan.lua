@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They didn't need to. Their chanting was enough. You're a dwarf, and you're no orc, but the sound of spirits still turns my stomach." } },
+      choices = {
+        { text = "I'm sorry, Keeshan. I'll prove I'm nothing like them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then face the fear, Keeshan. It won't shrink on its own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -79,6 +88,7 @@ P:NPC {
           text = "How old are you? Never mind; I was younger when I first went to war, and that's not the comfort it sounds like." },
         { id = "h_sleep", when = { metBefore = true }, text = "I slept through the night, the first time since the camp, and woke up reaching for a sword that wasn't there. That's progress, I suppose." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. In the Blackrock pens I heard their wolves at night, and I'd like to think someone like you might teach those beasts some manners." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I spent a long while in Blackrock hands, and I heard their shamans chanting every night. Forgive me if I don't smile." },
       },
       again = {
         { id = "h_again", text = "What else? Keep it short, if you would; my head's still ringing." },
@@ -97,6 +107,7 @@ P:NPC {
         { text = "I'd have burned your cell door off, Corporal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did you learn of the Blackrock's wolves, Corporal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Their shadowcasters and I use the same arts, Corporal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did the Blackrock shamans hurt you, Keeshan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Let's get moving.", next = "END" },
       },
     },

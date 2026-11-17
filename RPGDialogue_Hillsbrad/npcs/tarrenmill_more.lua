@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The humans who kept the camps called on the Light while my people sat in chains, and I learned to hate the sound of it. But you fight for the Horde with it, and a weapon is not guilty of the hand that held it before, so I will judge you by your deeds." } },
+      choices = {
+        { text = "Then judge me by them. I'll fight for the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Light's past is not my burden to carry, Krusk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every day I think it, and every day I'm told the Dark Lady's people need me here instead. The Syndicate killed my brothers in the very keep where the Warchief was once held prisoner, and I won't rest well until that courtyard is ours." } },
@@ -116,6 +125,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde's warlocks sold us to the demons once, and no orc who remembers the camps has forgotten it, so I'll be watching you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! At last, someone in this town who fights with a blade and still breathes air. Sit, and tell me you've come to help me pay back the Syndicate." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde. The Syndicate hid in the Durnholde ruins like rats, and I'd have given much for someone who could track rats." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are one of the dead, and you carry the Light like the human knights who guarded the camps. I do not know what to make of that, but I have seen stranger things since I came to these hills." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I sharpen." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "Do you think warlocks still endanger the Horde, Krusk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you mean to go back to Durnholde, Krusk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I track the Syndicate at Durnholde for you, Krusk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does the Light of the camps still trouble you, Krusk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll find your brothers.", next = "END", fx = { affinity = 2, standing = { tarren_mill = 1 } } },
       },
     },
@@ -220,6 +231,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "You could try, but the Dark Lady's people don't fuss over a little necromancy pointed at Southshore. Helcular was murdered by a mob with torches and pitchforks, and the Light did nothing to stop them, so I don't think it gets a say in what happens to his bones." } },
+      choices = {
+        { text = "The dead should rest. I won't help you raise him.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If he serves against Southshore, raise him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Freed? They were bred for him, made for his work, and they'd return to me if they had any loyalty. I think they're waiting for him to rise, and I mean to be there when he does." } },
@@ -282,6 +302,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The peasants of Southshore struck down my master with pitchforks and torches, and I'd dearly love to see how they fare against real steel." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My master kept hounds once, great black beasts the peasants burned along with him, and I've never forgiven them for that either." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You talk to the beasts, don't you? Helcular's hounds still wander the hills, and they won't come to me, though I've tried and tried." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Helcular hated your kind, and I suspect you'd hate what I'm doing here, so let's agree not to stand too close to each other." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I have rites to study." },
@@ -298,6 +319,7 @@ P:NPC {
         { text = "Would you set a warrior on Southshore's farmers, Thaivand?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What happened to Helcular's hounds, Thaivand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should Helcular's hounds be freed or put down?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Should I stop you from raising Helcular, novice?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck, novice.", next = "END" },
       },
     },
@@ -373,6 +395,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Respect you? They'd shoot you twice to be sure, because a dwarf knows a paladin as one of their own and a Forsaken as a monster, and you're both. Better to come at them in plate with a hammer and let them sort out their feelings afterwards." } },
+      choices = {
+        { text = "I'd sooner face them openly, hammer raised.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take your gear back quietly, by night.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I was busy, and they were quiet, and that's all I'll say on it. Dun Garok's dwarves know these hills better than we do, I'll admit it, but they don't know them as well as a tauren nose would." } },
@@ -445,6 +476,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'd ask your demon to guard my tent, but I suppose it would steal more than the dwarves ever did." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and fully armed, which is more than I can say for myself. Don't look at my belt, please, because there's no sword on it, and I know." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, and twice my size. I don't suppose you could track a pack of dwarven scouts by smell? Mine has been gone for years." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I'd ask you to bless my borrowed club, only I think it would be wasted on it, and the dwarves of Dun Garok would just steal that too." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm still on watch, technically." },
@@ -461,6 +493,7 @@ P:NPC {
         { text = "Would you really trust a demon to guard your tent, Humbert?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a Deathguard lose his sword, Humbert?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How did dwarven scouts slip past a Deathguard?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Would the dwarves of Dun Garok respect a Forsaken paladin, Humbert?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -536,6 +569,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Probably not, but the Light doesn't stand guard at this post all day, and I do. You can leave the skulls on the field if you like, though they'll only be bleached by the sun and gnawed by the dogs, and I'd give them a good home." } },
+      choices = {
+        { text = "Leave the dead be. They fought for their homes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A skull's a skull. I'll bring you what I find.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Peace? They're humans, druid, and they'd have done the same to me. Still, I'll admit a few of the skulls have made me wonder whose they were, and I've buried two of them again without telling anyone." } },
@@ -611,6 +653,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you make one of my skulls glow? I've always wanted a lantern with a face, and the apothecaries won't help me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Do you take trophies? I've a dozen skulls by the gate, and I'd love to hear how a proper hunter keeps them clean." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! Do your people collect skulls? Bones, perhaps, or antlers, or anything else that holds a man's interest on a quiet post?" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Now I've always wondered whether a human skull taken by a holy hammer looks any different from the rest, so bring me one and we'll compare it to the collection." },
       },
       again = {
         { id = "h_again", text = "Anything else? I have nowhere to be." },
@@ -628,6 +671,7 @@ P:NPC {
         { text = "Why won't the apothecaries help with your skulls, Samsa?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you think hunters really keep trophies, Samsa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should the dead of these fields be left in peace?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Would the Light want me collecting skulls for you, Samsa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll bring you skulls.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -699,6 +743,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I think the orcs there trust a healer, and they won't care what you are as long as you keep them standing. The dead in Tarren Mill can stitch themselves and the living in Hammerfall can't, so go where it counts." } },
+      choices = {
+        { text = "Then I'll go to Hammerfall. The Horde needs it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll decide where I'm needed, Tallow, not you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Every pair of hands helps at Hammerfall, and your hands do more than most. I've seen a tauren druid turn into a bear and break an Alliance line with one charge, and I've never seen anything finer." } },
@@ -774,6 +827,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your demon could hold a line at Hammerfall for a while, I suppose, which is more than most of the soft-skinned ones I'm sent could manage." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hammerfall needs scouts as much as shields, I'm told, so you might be some use to the orcs, if you don't die on the way." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! Your people could heal half the wounded at Hammerfall in an afternoon. Why aren't you there?" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll want to heal everyone you pass, I expect, and I'd rather you saved it for Hammerfall, where the orcs need it more than the dead here do." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it." },
@@ -789,6 +843,7 @@ P:NPC {
         { text = "Do you think demons belong on the Horde's battlefields, Tallow?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would a hunter do at Hammerfall, Tallow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should druids fight in the Horde's wars, Tallow?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you think I'd be more use at Hammerfall, Tallow?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -850,6 +905,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They fear the bats already, and a dead knight carrying the Light would frighten them twice over, because it's the last thing they'd expect. I find that very funny, {class}, though I suppose you might not." } },
+      choices = {
+        { text = "I don't want them afraid. I want them to understand.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them fear it. Fear keeps them off our fields.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The bats mind everything, and they complain constantly in a pitch only they can hear. They're well fed and they fly far, and I think they'd rather do this than hunt moths in a cave, but I'm only guessing." } },
@@ -933,6 +997,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the shield on the ground before you climb on, because the bats don't like being thumped with it every time you turn around." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats will be curious about your beast, so keep it calm, because a curious bat is a nibbling bat." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. The bats like you already, I can tell, and that's rare, because they don't like anyone." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The bats don't mind you, though the living will, when you come down out of the sky glowing over their fields." },
       },
       again = {
         { id = "h_again", text = "Anything else? They're restless." },
@@ -948,6 +1013,7 @@ P:NPC {
         { text = "Do the bats really mind warriors that much, Zarise?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Could a hunter ever tame one of your bats, Zarise?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the bats mind their work, Zarise?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do the living fear a paladin of the Forsaken, Zarise?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -998,6 +1064,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Rope, bandages and patience, same as everyone, though some say paladins need a little more of the last. I'd keep a few bandages anyway, because I hear the Light doesn't always come as quickly to a dead hand as to a living one." } },
+      choices = {
+        { text = "It comes when I'm worthy of it. I'll stay worthy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't wait on the Light. Bandages will do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Not as often as I'd like, for the living spend more coin than the dead. Your folk are the friendliest of them, and you pay fair and don't stare, which I appreciate more than you know." } },
@@ -1066,6 +1141,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've a shelf for the living allies, if you're one of them, and a few things for spellcasters, though I'll warn you that candles go faster here than anywhere else." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I've whetstones, bandages and rations for the living, and I keep them on the shelf furthest from the embalming salts, so you'll not get them muddled." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. I've nothing to sell you that you couldn't grow yourself, I suppose, but I'm sure I'll find something." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. You'll not need the living allies' shelf, I expect, though I've never been sure whether the Light gives your kind an appetite." },
       },
       again = {
         { id = "h_again", text = "Anything else on your list?" },
@@ -1081,6 +1157,7 @@ P:NPC {
         { text = "Why do candles go so fast in Tarren Mill, Kayren?", next = "xmage", when = { class = "MAGE" } },
         { text = "What do warriors buy from you most, Kayren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the living Horde come often to Tarren Mill?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Does a paladin need anything the other dead don't, Kayren?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

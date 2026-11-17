@@ -62,8 +62,54 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Something terrible, I think, because the knights stopped coming and the bells in Andorhal rang and rang one night and then never again. You've such a kind face for someone in all that steel, so maybe you can tell me, gently, if John's not coming home." } },
+      choices = {
+        { text = "I'll bring John back to you, Janice. Rest easy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Hand is gone, Janice. You should know the truth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Janice.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "He kept it in the barn, by the horse, with the package, or was it the other way round? Everything's muddled, and things keep moving when I'm not looking, and I'd be grateful if you'd look for me, since you seem the sort who finds things." } },
+      choices = {
+        { text = "I'll find your package, Janice, and the knife too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A dead farm's things belong to whoever finds them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Janice.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It's cold, always cold, and the ground hums at night like a kettle about to boil. The fields used to smell of wheat, and now they smell of something else, and I can't think what, only that it makes the horse kick the stall all night." } },
+      choices = {
+        { text = "The land can heal. I'll speak for it, Janice.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land's poisoned through, Janice. It won't come back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Janice.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "She went to Stormwind instead, to work for some family there, and she writes when she can, or she did, I think. I keep meaning to write back, and the letter's half done on the table, and every time I sit down to finish it, it's somehow gone back to the beginning." } },
+      choices = {
+        { text = "I'll carry word to Emma for you, Janice.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some letters are best left unfinished, Janice.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Janice.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know, and I don't want to, but they come up out of the wheat at dusk and walk the fences, and one of them wears John's coat. Please keep your little shadow close, because I couldn't bear it if anything else came into this house." } },
+      choices = {
+        { text = "It stays close, Janice. Nothing will harm you here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demon has seen worse than your ghouls, Janice.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Janice.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a dwarf, and with lightning crackling at your fingers! John always said the dwarves were miners and smiths, but you seem something else entirely, and you've a kind face, so I won't be frightened." },
         { id = "h_default", key = true,
           text = "The package has to go before the plague comes, it must, and it's by the horse in the barn, I'm sure it is. Oh, am I too late?" },
         { id = "h_charm", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Good Luck Charm") }, { questActive = TODO_QUEST("Two Halves Become One") } } },
@@ -81,12 +127,22 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "Are you a hunter? John used to go after the foxes that came for our hens, though lately the foxes have been ever so strange, and the hens won't lay at all." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid? Oh, the farm's gone so quiet, there aren't any animals left, not even the barn cats. Can you hear them? I can't hear them anymore." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a knight of the Silver Hand! Have you come from Uther? John said the Hand would ride through before the sickness spread, and I've been watching the road for days." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! You came in so softly, like the tinker who sold John his pocket knife, and he was a rascal, John said, but a friendly one. Are you a friendly one?" },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "Oh, goodness, you're not from Lordaeron, are you? John said there were orcs in camps in the south, and I used to worry, but you seem quite gentle, and you've a kind way about you." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Are you from Dalaran? Emma always wanted to go to Dalaran, to see the towers, but Father said a farm girl had no business with spells." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Oh, there's something behind you, the little shadow with the eyes. It isn't one of the things from the fields, is it? John says to bar the door against those." },
       },
       again = {
         { id = "h_again", text = "You're still here, aren't you, and I'm glad of it, the house is so quiet when nobody talks." },
         { id = "h_again2", text = "What was I saying? You'll have to remind me, I lose things so easily now." },
       },
       choices = {
+        { text = "Janice, do you know what happened to the Silver Hand?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What became of John's pocket knife, Janice?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you feel the land around the farm, Janice?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Did Emma ever reach Dalaran, Janice?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What are the things in the fields, Janice?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll find your package.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Who is John?", next = "john", when = { questBefore = TODO_QUEST("Two Halves Become One") } },
         { text = "What's in the package?", next = "package" },
@@ -242,8 +298,45 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Like the wind in the grass, and twice as swift. Now they cough and limp between Northridge and Dalson's Tears and snap at their own shadows, and the ones that can still hunt do it badly, which is a cruel thing to see in a hunter." } },
+      choices = {
+        { text = "I'll give them a clean end. They deserve that much.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A crippled wolf is an easy kill. That's all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mulgris.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "That the land is sick in its bones and can't remember how to be whole. I hear the earth groaning under the Writhing Haunt, and I've no strength left to answer it, so I'd ask you to listen for me, and tell it that someone still cares." } },
+      choices = {
+        { text = "I'll listen for you, Mulgris, and answer it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The land here is lost. Save your strength.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mulgris.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Perhaps, if I'd asked one of your Kirin Tor before it took hold, but the Circle teaches us to heal with the land, not around it. I'm too proud and too old to regret that much, though I'll admit I wonder about it at night when the coughing keeps me awake." } },
+      choices = {
+        { text = "The Circle's way is honest. I respect it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pride killed you, Mulgris, not the plague.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Mulgris.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They fear anything that isn't of this world, and what walks at your heel isn't. I don't judge you for it, for I'm dying of something far worse, but I'd ask you to end the sick wolves cleanly and not leave them to your demon's appetites." } },
+      choices = {
+        { text = "Clean ends only, Mulgris. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demon has to eat. The wolves are dying anyway.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mulgris.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who hears the land, here at my bed. I did not know Ironforge had shamans, {class}, but the earth sent you all the same, and I'll not question its choice of messenger this close to the end." },
         { id = "h_default", key = true,
           text = "I am Mulgris Deepriver, of the Cenarion Circle. I came to heal these lands and the plague took me instead, and I'll pass soon, while the beasts out there suffer on without understanding why." },
         { id = "h_wolves", tags = { "news" }, when = { questActive = TODO_QUEST("The Wildlife Suffers Too") },
@@ -262,12 +355,21 @@ P:NPC {
           text = "A warrior. I've watched soldiers cut their way through these beasts with no thought for what they were, {class}, and I don't blame them, but I grieve all the same." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. You know the beasts as I do, {class}, so you'll see what I see out there, and I'm sorry for it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came without a sound, {class}, the way the wolves used to, before the sickness made them stumble. Sit, if you like; there's nothing here worth stealing but my last breaths." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, here at my bed. The spirits sent you, I think, or the Earth Mother did, {class}, for I asked her for a familiar voice before the end." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You've come a long way from your libraries, {class}, and you'll find no answers in these fields, only beasts that need ending." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The beasts outside feel what you carry, {class}, and they're frightened enough already, so please walk softly past them." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Diseased", min = 20 } }, text = "I felt them go, one by one, the sick wolves out in the fields, and each one was quieter than the last. You've been merciful, and I'm grateful, even if it's a hard mercy." },
       },
       again = {
         { id = "h_again", text = "There is more you would ask? Ask it gently, and I'll answer while I can." },
         { id = "h_again2", text = "Sit a while longer, if you like. I don't mind the company." },
       },
       choices = {
+        { text = "Were the wolves so quiet, Mulgris, before the plague?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do the spirits tell you here, Mulgris?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could the arcane have cured you, Mulgris?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the beasts really fear warlocks, Mulgris?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll ease their suffering.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Sick wolves are no concern of mine.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Can nothing be done for you?", next = "cure", when = { ["not"] = { questActive = TODO_QUEST("Glyphed Oaken Branch") } } },
@@ -404,6 +506,42 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every week, on the road between Darrowshire and Andorhal, with Pamela on his shoulders and a sweet in his pocket for her. He was a soldier, but he moved like a cat when he had a mind to, and she'd shriek with laughter every time he caught her." } },
+      choices = {
+        { text = "Then I'll find Pamela, for his sake and yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Darrowshire's dead, Marlene. Let them rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Marlene.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Only that it's cold, and quiet, and the birds won't fly over it. I've not found the courage to walk east since, but some nights I hear Pamela singing, very far away, and I'd give anything to know whether she's really out there." } },
+      choices = {
+        { text = "I'll ask the spirits, and I'll find her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some answers are worse than silence, Marlene.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Marlene.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only that the dead came down the road from Corin's Crossing, and Joseph took his soldiers to the square to hold them, and I took Pamela and hid her in the house. After that I ran, and I've been on this hill ever since, waiting for word." } },
+      choices = {
+        { text = "Joseph held the square bravely. I'll find what remains.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The truth would only hurt you, Marlene.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Marlene.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The quiet, mostly, and the things that move through it at night along the old road. But most of all I'm frightened that Pamela is out there alone and frightened too, and nobody's coming for her, because I couldn't." } },
+      choices = {
+        { text = "Somebody is coming for her now, Marlene. I am.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear won't help Pamela. Let her go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Marlene.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -419,12 +557,20 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A soldier. The defenders of Darrowshire wore armour like yours, {class}, and I watched them march down the lane to the square and never saw one of them come back up it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid? Pamela loved the animals, you know. She'd have followed you all the way to your forest if you'd let her." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh, you startled me, {class}. I thought for a moment you were Joseph, because he used to come up the path so quietly when he wanted to surprise Pamela." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're not from these parts, {class}, but you've a kind look about you, and you carry the smell of open country. It's been so long since anything here smelled of open country." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll know more about what's happened to this country than I do, {class}, so tell me, kindly, is there anyone left in Darrowshire?" },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "There's a little creature behind you, {class}, and it's looking at me as though I'm supper. Keep it close, please, because I'm frightened enough of the shadows here." },
       },
       again = {
         { id = "h_again", text = "Is there something more you'd like to know? I don't have many visitors to talk to." },
         { id = "h_again2", text = "Stay a little longer, if you can, it's so quiet on the hill." },
       },
       choices = {
+        { text = "Did Joseph often visit Sorrow Hill, Marlene?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can you feel what's become of Darrowshire, Marlene?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you know what happened to Darrowshire, Marlene?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What frightens you most on Sorrow Hill, Marlene?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll look for Pamela.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "What happened at Darrowshire?", next = "darrowshire" },
         { text = "Tell me about Pamela.", next = "pamela" },
@@ -521,6 +667,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Plenty, while they were chasing me, and none of it kind, because Hearthglen thinks anything that isn't the Light is the Scourge in disguise. If they ever caught a dwarf calling down lightning, they'd burn you twice, once for heresy and once for being from Ironforge." } },
+      choices = {
+        { text = "They're zealots, but they fight the Scourge. Leave them be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Zealots like that need tearing down, Scourge or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strong enough that I'm sitting here bleeding instead of reporting from inside. They keep watchmen on the walls day and night and a hall full of knights besides, and every one of them believes the Light personally signed his orders." } },
@@ -544,6 +699,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! If you've anything that stops bleeding, {class}, I'll take it gladly, and if it involves chanting, I promise not to laugh." },
         { id = "h_default", key = true,
           text = "Kirsta Deepshadow, scout. I was sent to test Hearthglen's defenses and they tested me right back, and somebody in Stormwind thinks that little town matters, though it's not my job to ask why." },
         { id = "h_business", tags = { "news" }, when = { questActive = TODO_QUEST("Unfinished Business") },
@@ -577,6 +733,7 @@ P:NPC {
         { text = "How bad were Hearthglen's defenses, really?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How strong is Hearthglen's garrison?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The Crusade hunts spies with dogs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did the Crusade say anything about shamans, Kirsta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -755,8 +912,18 @@ P:NPC {
         { text = "Something else, Mistress Sarkhoff.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Lovely, truly, with the lake all round and the gardens running down to the water, and Lucien keeping the silver so bright you could see your face in it. Then the master's guests began arriving after dark, and the gardens went grey, and the lake stopped freezing in winter, which I thought was the strangest thing of all." } },
+      choices = {
+        { text = "Then we'll free the house and lay you both to rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Barovs earned their ruin. Their servants too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Eva.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with spirits, here at Caer Darrow. The master had dwarven guests now and then, {class}, and not one of them believed in spirits, though I daresay this house would have taught them otherwise by now." },
         { id = "h_default", key = true,
           text = "I am Eva Sarkhoff, and this is my husband, Lucien. We served House Barov for many years, I as head maid and Lucien as Master Barov's butler, and we kept the house until the house became something else." },
         { id = "h_butcher", tags = { "news" }, when = { questActive = TODO_QUEST("Doctor Theolen Krastinov, the Butcher") },
@@ -778,6 +945,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The master's hunting horns still hang in the long gallery, {class}, and on certain nights they sound by themselves, though no one living has blown them in years." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at Caer Darrow? The gardens were lovely once, and Lucien and I tended them ourselves, but they've gone wild and wrong since the Scholomance took the house." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde, here at Caer Darrow. The house never had your kind under its roof in my day, {class}, though I daresay it's had far worse since." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you wish to know? I shall answer as well as I'm able." },
@@ -794,6 +962,7 @@ P:NPC {
         { text = "Is there a quiet way into the Scholomance?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What became of House Barov's guards, Eva?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did House Barov hunt much, Mistress Sarkhoff?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What was Caer Darrow like before the Barovs fell, Eva?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Should Caer Darrow's gardens be burned clean or regrown?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },

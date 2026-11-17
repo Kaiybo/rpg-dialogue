@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Thin their numbers, and find out what Xavaric, their leader, is planning, if you can get close enough. Every satyr that falls is a little less poison in the soil, and I'd rather you did it quickly and quietly than with a war band that would trample all my seedlings." } },
+      choices = {
+        { text = "I'll strike quickly and spare your seedlings.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll do it my way, seedlings or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I plant a seed every morning, and some mornings one of them sprouts, and that's all the proof I need. The Jadefire satyrs and the corruption in the streams fight me every step, but your Light shows that a dark place can hold something bright, and I think the forest is the same." } },
+      choices = {
+        { text = "I believe you. The Light and the land can both heal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some things are too far gone. Burn the rot away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Jadefire satyrs, mostly, and the fel that leaks from their camps into the soil. A warrior can't heal the ground, but every satyr you put down in Jadefire Glen is one less hand pouring poison into it." } },
@@ -86,6 +104,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jadefire", min = 30 } },
+          text = "The Jadefire satyrs are fewer, and I swear one of my seedlings sprouted the morning after you came back from their camps. I'll not call it a coincidence." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You move so quietly the satyrs won't hear you coming, which is good, because the Jadefire satyrs wear the corruption like a crown, and I'd love to see someone knock it off." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I won't ask you to plant anything, but I'll show you the seedlings if you've a moment, because there's green under all this sickness, and I want someone else to see it too." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! I won't ask you to plant seeds, though I'll warn you that half the work of mending a forest is clearing away what tries to kill the seedlings." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -125,6 +149,8 @@ P:NPC {
         { text = "Have you seen any of Felwood's beasts recover, Eridan?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you truly believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you have me do to the Jadefire satyrs, Eridan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -214,6 +240,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It tempts everyone, and it would tempt you twice, because you know what it is to be made into something you never chose. Keep hold of the Light the way I keep hold of my stone from Mulgore, and the forest won't have you." } },
+      choices = {
+        { text = "The Light will keep me clean. I won't let go.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. I'll take what serves me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Safer, but not safe, because I hear the Shadow Council at Jaedenar tempts warriors with strength instead of knowledge, and some take it. They come back with green eyes and a bigger swing, and they stop being themselves soon after." } },
@@ -291,6 +326,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jaedenar", min = 40 } },
+          text = "Jaedenar is quieter than it was, and I know who's been walking into it. Mind what you saw down there, because the Shadow Council's tricks don't always show until later." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Good, steel is honest, and it can't be tempted by the fel the way a spell can, so you may be the safest visitor I've had all month." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -312,10 +349,11 @@ P:NPC {
           text = "The Council's fires protect them. Put them out, and their walls come down with them." },
         { id = "h_watch", when = { metBefore = true },
           text = "I keep a stone from Mulgore in my pocket, and when the forest gets too loud, I hold it. It's quiet, the way stones should be." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin of the Alliance, with the Light shining off your armour. The Light is a power too, so I'll say to you what I say to everyone: don't let what's here tempt you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I'll be plain with you: I watch what every spellcaster reaches for in these woods, because the Shadow Council reached too, and Felwood is what they caught." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and here at the Sanctuary. Good; we need every pair of hands, and every one that can call the roots back to life is worth ten that only hold a sword." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of the Forsaken. The Light is a power, and death is another, so I'll say to you what I say to everyone: don't let what's here tempt you." },
       },
       again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone while you do." } },
       choices = {
@@ -331,7 +369,8 @@ P:NPC {
         { text = "What has the fel done to Felwood's beasts, Greta?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can Felwood truly be healed, Greta?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Do you truly think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you truly think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Would Felwood's corruption tempt a Forsaken paladin, Greta?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -402,6 +441,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not on its own, I think, but a mage knows magic better than most, and the corruption here is a kind of magic gone very wrong. If you can help me understand why the salves work on some plants and not on others, you'd be worth ten druids who only know how to hope." } },
+      choices = {
+        { text = "I'll study the corruption to help you mend it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd rather study it for its own sake.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The same way anyone can: one salve at a time, one plant at a time, one corrupted beast at a time. The Cenarion beacons show where the cleansing's needed, and I'll take any hand that will carry one, Horde or Alliance, because the forest doesn't care whose hand it is." } },
+      choices = {
+        { text = "Then I'll carry a beacon, whatever banner I fly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll mend what I can, but my own people come first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than you'd think, because the corrupted plants fight back, and the things guarding the Irontree Caverns fight harder. You'll clear the way, I'll lay the salve, and between us we'll make one corner of Felwood a little greener." } },
@@ -470,6 +527,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! I hope you came to mend, friend, because Felwood's had enough magic thrown at it, and I'd much rather see you use yours to make something grow." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Good, because mending is what we do here, and your Light mends too, so you'll understand. Will you lend Felwood a hand while you're passing through?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior! I know, I know, you came to fight, and I'm going to ask you to mend instead, but bear with me, because this forest needs both." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -510,6 +571,8 @@ P:NPC {
         { text = "What does the Emerald Circle need most from me?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
+        { text = "How can a paladin help mend Felwood, Maybess?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can a mage's magic truly heal a forest, Maybess?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -616,6 +679,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and you'd say the spirits are sick, and I think we're describing the same wound." } },
+      choices = {
+        { text = "Then we'll mend it together, Arathandris.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some wounds can't be mended. Cut it out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'll accept anyone who carries a beacon and doesn't let it go dark. The curse here is old and stubborn, and you are stubborn too, I think, since even death couldn't keep you from the Light." } },
+      choices = {
+        { text = "I'll carry your beacon wherever you need it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll cleanse what I choose, in my own time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because it's proof, and proof is precious in Felwood. The curse is stubborn, and so am I, and I'll not stop until every flower in this forest is clean, but a mage might see the corruption in a way that a druid can't, and I'd welcome that, if you're patient enough to look." } },
+      choices = {
+        { text = "I'll look, and help you find the source.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patience won't cure this. Bold magic might.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -702,9 +792,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. I spent a morning watching one clean flower by the road, and I'd wager you've spent mornings watching stranger things, so perhaps we're more alike than we look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance! Then you have patience, which is the one thing the curse can't take from us, and the thing it tests hardest." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock of the Alliance, and in my camp. Stormwind permits your kind, I know, but I will be honest with you: I would rather you left your demon outside the sanctuary." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -719,14 +811,16 @@ P:NPC {
           text = "One of the plants by the road flowered yesterday, clean, a small white flower, and I've been watching it all morning." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance, at last! The salve does its work on the plants, but the people who lay it need tending too, and they rarely ask." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin! I asked the Alliance for help cleansing Felwood and expected archers, so forgive me if I stare a little at all that plate." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Maybess works with your people, to the north, but the curse doesn't care whose prayers it hears, so I'll hear you out." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, come to Felwood. The curse here is older than you are, sister or brother, but it is not older than the forest, and the forest remembers being green." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! I asked for help cleansing Felwood and expected archers, and I certainly didn't expect one of the Forsaken with the Light in hand." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I ask the Alliance for help and I won't pretend I expected that help to carry totems, but speak." },
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {
-        { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Why is it harder than war?", next = "harder" },
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
         { text = "Do you work with Maybess?", next = "maybess" },
@@ -739,7 +833,10 @@ P:NPC {
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
         { text = "How are your people holding up against the curse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Can a paladin be of use in cleansing work?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can a paladin be of use in cleansing work?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Why watch a single flower for a whole morning, Arathandris?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Will you accept a Forsaken paladin's help, Arathandris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Does the curse here go deeper than the trees?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },
       },
     },

@@ -207,6 +207,42 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The Kolkar, mostly, and the odd pack of hyenas that think the kodos are dinner. Cork wants me to pay guards by the centaur killed, but I'd rather pay by the wagon that arrives whole, because that's the number that matters." } },
+      choices = {
+        { text = "Pay by the wagon. Protecting people is the point.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Pay by the kill. Fewer centaur means safer roads.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Water at every stop, whether they want it or not, and I count every barrel twice. Cork thinks I fuss, but we've lost three kodos to this road in five years and I can tell you the date and the cause of every one." } },
+      choices = {
+        { text = "Good. Beasts that work for you deserve that much care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Three kodos in five years? That's a fair cost of business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than Cork admits, because he's taken two arrows on this route and called both of them scratches. I keep bandages on the ledger as an expense, and every time I use one, I write the reason beside it, so I can prove to him later that I was right." } },
+      choices = {
+        { text = "I'll patch up anyone on the caravan, guard or kodo.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If Cork wants to bleed, that's his choice to make.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It would! I'd have to write it in, and then who paid for it, and then what it's worth, and conjured water is worth nothing once it's gone. Still, if a kodo's dying of thirst halfway to Feralas, I'll take the ruined page." } },
+      choices = {
+        { text = "Then the kodos come first, and your ledger second.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Conjured water is worth something. Charge for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -220,6 +256,10 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Don't conjure anything into my wagons, please, because I count the crates, and an extra one is just as much trouble as a missing one." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? Then you'll appreciate that every lock on this caravan was bought from a goblin who swore it couldn't be picked, and I'd rather not find out he lied." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Please keep that little fellow of yours away from the kodos, because they spook at the smell of him and I'm the one who has to calm them down." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in full plate, in Desolace! You'll cook in that, you know, but I'll gladly put you on the books as caravan guard if you can keep up with a kodo." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, would you mind having a word with the kodos? They've been sulking since Feralas, and a sulking kodo walks half as fast and eats twice as much." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because if anything goes wrong between here and Feralas, you're the closest thing to a healer this caravan has ever had." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Don't conjure anything into my wagons, please, because I count every crate and a crate of water that wasn't there yesterday ruins a whole page of the ledger." },
       },
       again = { { id = "h_again", text = "Anything else? I've a ledger waiting." }, { id = "h_again2", text = "Go on, I'm listening, and counting." } },
       choices = {
@@ -234,6 +274,10 @@ P:NPC {
         { text = "Have your kodos always feared demons, Rigger?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the centaur hit the back of the caravan, Rigger?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the caravan ever lose kodos to wild beasts, Rigger?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Who do you need protecting from on this road, Rigger?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you keep the kodos healthy out here, Rigger?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does the caravan often need a healer, Rigger?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would conjured water really ruin your ledger, Rigger?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -356,6 +400,24 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Mostly! Some go to tauren who want a quiet old beast for the farm, and some go to goblins who want something that can pull a cart without stopping to argue. I don't ask what happens after the sale, because asking is how you lose customers." } },
+      choices = {
+        { text = "You should ask. Those kodos deserve a decent end.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A sale's a sale. It's no worse than leaving them to die.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a full-grown kodo eats its own weight in grass every week, and there's no grass between here and anywhere. If you mages ever invent a spell to make a kodo small and quiet, you come and find me first, because we'd both be rich." } },
+      choices = {
+        { text = "Some magic shouldn't be sold, Smeed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find me the gold and I'll find the spell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -372,6 +434,8 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage! Can you shrink a kodo, by any chance? Because the shipping costs on these things are murder." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Ah, a professional! You've got the look of someone who knows how to slip a rope round something big without it noticing, and that's a skill I pay for." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, don't take this wrong, but could one of your demons herd kodos? I'd pay double for a felhound that works for free." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Uh oh, a paladin. Now before you say anything, every kodo I take out of here is old, sick, or just plain lost, and I'm basically running a retirement home." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you shrink a kodo, by any chance? Because the shipping costs on these things would make a trade prince weep." },
       },
       again = { { id = "h_again", text = "Another question? Fine, but every one of 'em costs me a kodo bone I could be hauling." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
       choices = {
@@ -388,6 +452,8 @@ P:NPC {
         { text = "Is it right to sell the kodos that come here to die?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How dangerous is leading a kodo out of the Graveyard?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is taming kodos for coin the same as what a hunter does?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is this truly a retirement home for kodos, Smeed?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why not just ship them whole, Smeed?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -454,6 +520,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If they can, ask them now. The Burning Blade have been poisoning this place for years, and I've felt it in my teeth since the day they dragged me in." } },
+      choices = {
+        { text = "Stay close. I won't leave you behind.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep up. I won't wait if the cult comes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Quickly, and by the side passages, because the cultists gather in the great hall when the watch changes. If they come at us, keep them off me long enough to run, and I'll make sure Vahlarriel knows who carried me out." } },
@@ -475,6 +550,42 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Their guards change at dusk, and the warlocks spend their nights in the lower halls with the demons they keep. I counted the footsteps every night because there was nothing else to do, and I'll tell Vahlarriel all of it once we're clear of this place." } },
+      choices = {
+        { text = "We go quietly. No one needs to know we were here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We'll leave a few cultists dead on the way, as a message.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "More than I could count from my cell, and they practice on anything that moves, which includes their own people when they get careless. They summon things in the deep chambers too, and the walls go hot when they do." } },
+      choices = {
+        { text = "I'll fight their fire carefully, and only as much as I must.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll burn the whole cult out of this fortress.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know enough to say, and I hope I never will. All I know is that they kneel to their demons and pray to them, and I've never once heard any of them give an order to one." } },
+      choices = {
+        { text = "I command my demon. I'll never kneel to one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps they know something I don't. Power is power.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The ground outside the fortress is black and cracked, and the water in the cisterns tastes of metal. I don't think anything will grow here for a long time, though I'd like to hope I'm wrong." } },
+      choices = {
+        { text = "It will heal, given time and care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some places should be left to rot. This is one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -483,6 +594,11 @@ P:NPC {
           text = "A hunter, then, and you tracked me all the way into this place. If you could follow a trail in, you can follow it back out, and I've never been so glad to think it." },
         { id = "h_default", key = true, text = "Dalinda Malem, and I've been the Burning Blade's guest far longer than I wanted. Vahlarriel Demonslayer at Nijel's Point sent people to find me, and I can only hope you're one of them." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "If you're taking me out, stay close and watch the corners, because the cultists won't simply let me walk out the front gate." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You got in here without the cultists raising the alarm, so I'm hoping you know how to get us both out the same way." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, thank the Light. The cultists' sorcerers throw fel fire about as if it were nothing, and I'd feel far better with someone who can answer it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You smell of the same smoke as the cultists, and I won't pretend that doesn't frighten me. But you came for me, so I'll follow you out and ask no questions until we're home." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've not seen anything green in weeks, and you look like you might remember what it was like." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Whatever the Burning Blade did with fel in here, I hope your spirits can still hear you, because I'd rather not walk out of this fortress alone." },
       },
       again = { { id = "h_again", text = "What else? Speak quickly, please." }, { id = "h_again2", text = "Ask, but softly." } },
       choices = {
@@ -493,6 +609,11 @@ P:NPC {
         { text = "Should we burn this fortress down?", next = "s_1" },
         { text = "How should we fight our way out of here, Dalinda?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Did they treat you badly in here, Dalinda?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What did you learn while they held you, Dalinda?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How many sorcerers do they have here, Dalinda?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the Burning Blade warlocks differ from me, Dalinda?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What has the cult done to the land around here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can the spirits help us out of here, Dalinda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -541,6 +662,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We trust deeds. The Burning Blade bargain with demons in that fortress, and if your spirits help bring Dalinda home, that's all the trust I need." } },
+      choices = {
+        { text = "Then I'll earn your trust with deeds.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I don't need your trust. Just your coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They fight with a fury that isn't wholly their own, because the demons they serve lend them strength and take something in payment. A disciplined warrior will outlast them, since that borrowed fury burns hot and gives out before the fight is done." } },
@@ -620,6 +750,8 @@ P:NPC {
           text = "Ishnu-alah, druid. The Burning Blade has fouled the earth around Thunder Axe Fortress, and you will feel it in your bones before you see it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You walk quietly, and I've learned to value that, because the Burning Blade post sentries at Thunder Axe who are better at listening than at fighting." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Burning Blade's sorcerers at Thunder Axe throw fel fire, and I'd welcome someone who knows how to throw something back." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "I've been counting the Burning Blade's patrols, and they're thinner than they were before you came. Whatever you've been doing out at Thunder Axe, don't stop." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Our druids say the elements were wounded when the Well of Eternity fell, and I wonder whether you can hear the scars." },
       },
       again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
       choices = {
@@ -635,6 +767,7 @@ P:NPC {
         { text = "Where do the Burning Blade gather in Desolace?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do the Burning Blade's fighters compare, Vahlarriel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How long have you hunted the Burning Blade, Vahlarriel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the kaldorei trust a dwarf who speaks to elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -683,6 +816,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I trust anyone who has walked the wilds long enough to know the elements are not servants. Banners mean little to Misha and me, but the ones who wave them hardest usually listen least." } },
+      choices = {
+        { text = "The elements serve no banner, and neither do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'm loyal to the Alliance first, Rexxar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "By what it does when no one's watching. I've seen the Light carried by men who burned villages, and I've seen the dead fight harder for their friends than the living. Show me which you are, and Misha will decide whether she likes you." } },
+      choices = {
+        { text = "Judge me by my deeds. I keep my word, watched or not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Deeds are deeds. Whether anyone's watching changes nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That nobody's behind you, mostly, and that no banner will hold your ground when a thunder lizard decides it's hungry. The cities teach soldiers to fight in ranks, but only the wild teaches them when not to fight at all." } },
@@ -739,16 +890,18 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Rexxar, Champion of the Horde, though I spend little time near its cities. The wilds suit Misha and me better than walls and politics do." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. Misha likes you, which is more than she says for most who walk these roads." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's shamans walk with the elements the way I walk with Misha, as partners, so I'll hear you out." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. Thrall's shamans walk with the elements the way I walk with Misha, as partners, so I'll hear you out." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I have seen what the Light and the loa can mend, and I have seen what neither can, so do your work where it is needed and don't waste words on me." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Misha does not care for the smell of the arcane, but she has learned to tolerate it, and so have I." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'd do well in the wilds, for you already know how to move without being heard, and that's a lesson most of the Horde never learns." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You carry the stink of demons. My father's people drank from that cup once, and I've seen what it did to them, so speak carefully." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one carrying the Light. Misha doesn't like your smell, and I'm not sure I do either, but I've learned not to judge a creature by its scent alone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I have seen orcs and tauren walk with the elements, never one of the mountain folk, so I'll hear you out." },
       },
       again = { { id = "h_again", text = "Speak your mind." }, { id = "h_again2", text = "Misha's listening too." } },
       choices = {
         { text = "Why do you walk the wilds alone, Rexxar?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Do you trust the shamans of the Horde, Rexxar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you trust the shamans of the Horde, Rexxar?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What do you hunt in Desolace, Rexxar?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why travel alone?", next = "b1_1" },
         { text = "Tell me about Misha.", next = "b2_1" },
@@ -757,6 +910,8 @@ P:NPC {
         { text = "Do you hold the orcs' past against warlocks, Rexxar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does a warrior learn out in the wilds, Rexxar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How did you and Misha come to hunt together, Rexxar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do you judge a creature by, Rexxar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you trust a shaman of the Alliance, Rexxar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

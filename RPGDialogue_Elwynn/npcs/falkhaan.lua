@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They come every day, from every corner of the Alliance. A dwarf shaman is a new one, I'll grant you, but the inn's welcome is the same for all." } },
+      choices = {
+        { text = "A fair welcome for everyone is good order, Falkhaan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Welcome is cheap. Let them earn their beds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A little, if I'm honest, because I send tired farmhands and young soldiers through that same door. Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
+      choices = {
+        { text = "Nobody upstairs will come to harm from me, Falkhaan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What happens in the cellar isn't their business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Falkhaan.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Crystal Lake at dusk, when the fishermen have gone home and the deer come down to drink, and I've stood there longer than I'd admit. Keep clear of the murlocs on the far shore, though, because they don't care much for quiet." } },
@@ -113,6 +131,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road. You've had a hard day of it, I'd wager; the Lion's Pride has a bed with your name on it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast in tow and mud to the knees. Farley lets animals sleep by the fire, so long as they don't eat the cat." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the Goldshire road! The Lion's Pride has a soft bed and a hot meal, though I expect your kind would sooner sleep in a tree." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, everybody needs somewhere to sleep, and I'll point you to the Lion's Pride like anyone else, though I suspect you know the cellar already." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and tired, I'd say! Rest at the Lion's Pride, friend. Farley never waters his drinks, and the beds are clean." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The road's quiet just now, and I've time." },
@@ -134,6 +154,8 @@ P:NPC {
         { text = "Do you see many hunters on this road?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever stop the tired from going on, Falkhaan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there anywhere quiet in Elwynn, away from the road?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does it bother you, sending warlocks down to the inn's cellar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do many travellers come through Goldshire, Falkhaan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },

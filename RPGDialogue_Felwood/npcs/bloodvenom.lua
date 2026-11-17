@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Everything! The Light ought to burn you and it doesn't, and Felwood ought to kill everything and it doesn't, so you and the forest have a great deal in common. I'd love a sample, just a small one, of whatever you are." } },
+      choices = {
+        { text = "No samples. The Light is not a curiosity.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Take your sample. The Light can bear a little study.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "As big as a frostsaber, if the moonwell water does what I think it does, and twice as fierce! *cackles* Warriors always want something to fight beside them, and I want to see what Felwood can make out of one little cat." } },
@@ -113,6 +122,7 @@ P:NPC {
           text = "Look at it, look at the size of it! *cackles* If the corrupted water can do that to one little cat, think what a few dozen like it could do to the Alliance." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Oh, lovely, you can tell me whether a blessing works better before or after a sip of the river. *cackles* Nobody here will volunteer to find out." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Oh, you must love Felwood, everything here grows in such interesting ways, and none of them are the way the Earth Mother intended!" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, that's wonderful, that's wrong in a whole new way, and you know how I love things that are wrong in new ways. *cackles*" },
       },
       again = {
         { id = "h_again", text = "*giggles* More questions? I love questions; they're like experiments that talk back." },
@@ -133,6 +143,7 @@ P:NPC {
         { text = "Is anything in Felwood beyond mending, Winna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How big is your kitten going to get, Winna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "You treat Felwood's corruption like a curiosity, Winna.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "What's so wonderful about a Forsaken paladin, Winna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -250,6 +261,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Maybe nothing, but folk say every Forsaken paladin keeps an old Silver Hand oath somewhere behind the new one. I'll not ask which you keep, but I'll be watching, the same way I watch the alchemist." } },
+      choices = {
+        { text = "My oath is to the Horde now. Watch all you like.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My oaths are my own business, Trull.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "No, and it never will, because Orgrimmar sends scouts and wants reports while the forest sends satyrs and wants blood. I'd trade every report I've written for a dozen grunts with sense enough to keep out of the river." } },
@@ -340,6 +360,7 @@ P:NPC {
         { id = "h_guardians_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Wild Guardians"), days = 3 } },
           text = "Hard work is something I respect, and you've done a great deal of it in the snow. With those owlbeasts out of the way, we can push further into Winterspring." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out at the edge of the rot. Keep your prayers short and your eyes open, because the cultists at Jaedenar pray too, and you can see what it's bought them." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'm paid to find out what Felwood hides, and now I'll have to find out what you hide too." },
       },
       again = {
         { id = "h_again", text = "Anything else? Make it worth writing down." },
@@ -358,6 +379,7 @@ P:NPC {
         { text = "What have your eyes seen at Jaedenar, Trull?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Bloodvenom Post have enough warriors, Trull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How wrong are the beasts of Felwood, Trull?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do you think I'm hiding, Trull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be your eyes too.", next = "END", fx = { affinity = 1, standing = { bloodvenom_post = 1 } } },
       },
     },

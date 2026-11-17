@@ -32,6 +32,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Maybe, but don't tell Pa! I've never been very good at rules, and your spirits wouldn't tell, would they?" } },
+      choices = {
+        { text = "Tell your father the truth, Maybell. It's the honest way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep it secret. Love is worth a little lying.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Pa says warlocks deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." } },
+      choices = {
+        { text = "You should choose your friends yourself, Maybell.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your Pa only wants you safe. Listen to him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Maybell.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "No, nobody, not really. It's only that the murlocs sometimes come up the bank at dusk, and I'm meant to be counting grapes, and nobody would think to look for me if they got me." } },
@@ -103,6 +121,8 @@ P:NPC {
           text = "You're a mage! Do you know any spells that could carry a letter across the river without anyone seeing?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Could you stand at the river crossing for a bit? Only if anyone comes, you could look terribly fierce." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must be good at going places without being seen, and I'd love to know how you do it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock? Oh, you won't tell Pa I spoke to you, will you? He thinks I'm wicked enough already." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You talk to spirits? Could you, perhaps, tell me whether a certain boy is thinking of me?" },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, though; Billy's somewhere about, and Billy hears everything." },
@@ -123,6 +143,8 @@ P:NPC {
         { text = "Is somebody bothering you down by the river?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you want to know how to go unseen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you want me to lie for you, Maybell?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why would talking to me make you wicked, Maybell?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there a boy across the river, Maybell?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Your secret's safe with me.", next = "END", fx = { affinity = 1, opinion = { maybell_tommy = "romantic" } } },
       },
     },

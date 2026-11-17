@@ -29,6 +29,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Stand firm, strike true, and never forget why you fight. Your spirits must teach the same." } },
+      choices = {
+        { text = "Never forget why you fight. Well said, Wu Shen.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Why I fight doesn't matter. Winning does.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not. I've seen warlocks fall because they forgot they had legs, and I'd teach you to use yours, if you can bear to hear the same lesson twenty times." },
+      },
+      choices = {
+        { text = "Then teach me, Master Shen, twenty times if needed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My demon does the standing, Master Shen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Master Shen.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Lightly, and ready to become something else, but never so ready that you forget the shape you are in. Many of your people fight as if they are already the bear, and the bear does not come in time." } },
@@ -106,6 +126,8 @@ P:NPC {
           text = "A mage. You stand like a candle in a draught, and I could knock you over with one finger, though I suspect you'd set my sleeve alight on the way down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the warriors' hall. Your feet are good, which surprises me; hunters usually stand like they're waiting for something." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your feet do not know how many of them you will have in a moment, and I can see it in how you stand." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your feet are wrong, but they're usually wrong on your sort, because you stand as though something else will do the fighting." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every lesson is the same lesson. Your spirits may teach otherwise, but your feet will learn the same." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your weight on the balls of your feet while you ask." },
@@ -126,6 +148,8 @@ P:NPC {
         { text = "Should a priest learn to stand like a warrior, Wu Shen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should a paladin trust the Light or their training?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How should a druid stand when the ground keeps changing, Wu Shen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Should a warlock learn to stand properly, Master Shen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What is the one lesson you teach, Wu Shen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your drills.", next = "END" },
       },
     },
@@ -287,6 +311,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than anything. A shaman recruit would be a first. Come back and I'll see what you're made of." } },
+      choices = {
+        { text = "I'll train honestly and fight fairly, Ilsa.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight however wins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I think it's furious, and you've been keeping it on a leash because somebody told you balance was everything. Let it out once in a while, recruit, and see how much better you feel afterwards." } },
@@ -362,6 +395,7 @@ P:NPC {
           text = "A warlock, and you've the same look as half my students, all that anger with nowhere to put it. Yours just happens to have horns." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a warriors' hall. You've anger in you too, I'd wager, though you keep it on a leash with your beast." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You've got a bear inside you somewhere, recruit, and I'd love to know if it's as angry as I hope it is." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, recruit! Ever swung a sword that big? Your spirits won't help you lift it." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? Quick, my arm's getting cold." },
@@ -381,6 +415,7 @@ P:NPC {
         { text = "Do you think priests carry anger, Ilsa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is righteous anger different from ordinary anger, Ilsa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think the bear in me is angry, Ilsa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you enjoy teaching warriors, Ilsa?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -497,6 +532,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The line is thin in Westfall, thinner in Redridge, and thinnest of all in Duskwood. A shaman's spirits would be welcome." } },
+      choices = {
+        { text = "Hold the line, Ander. The kingdom needs it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The provinces can hold themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I trust anyone who stays where they're put and doesn't run when it goes badly, and some warlocks do, and some don't. The provinces need every hand they can get, so I'll take yours, but if your demon breaks the line, I'll hold you to account for it." },
+      },
+      choices = {
+        { text = "Hold me to account, then. I'll keep it in line.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My demon holds lines better than your recruits.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Ander.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Wherever the line was about to break, I expect, because a bear that can heal itself holds a gap better than three recruits. But you'd have to stay there, and not wander off after something in the trees." } },
@@ -559,6 +614,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. I've stood in front of a good many of your kind, and I've only been set on fire twice, which I count as a fine record." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've been told your people can be a shield one moment and a healer the next, and I'd like to see how that fits in a line." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You stand behind the line, I suppose, and send your friend in front of it, which is not how I'd do it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The line needs every hand. Your spirits might help hold it, if they're steady." },
       },
       again = {
         { id = "h_again", text = "What else? I've time; the recruits are running laps." },
@@ -577,6 +634,8 @@ P:NPC {
         { text = "How should a priest serve the line, Ander?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it wrong to step back from the line, Ander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where would a druid stand in your shield line, Ander?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you trust warlocks behind your line, Ander?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are the provinces in trouble, Ander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

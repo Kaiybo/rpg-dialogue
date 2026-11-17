@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not once, no. They took the cloth from honest folk first, and I'm only putting it back to use. Your spirits might call that balance." } },
+      choices = {
+        { text = "Using what thieves stole is fair enough. It's honest work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better to burn it. Don't touch what bandits wore.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I make robes for anyone who pays, but yours I'd make with a double hem, because brimstone eats cloth faster than moths do. The loggers think anyone in a robe is either a priest or trouble, so you'll want to look the respectable sort, at least." } },
+      choices = {
+        { text = "Make it plain, then. I'll not frighten the loggers.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Make it dark. Let them think I'm trouble.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Sara.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Linen comes up from the farms, but the forest gives me dye, walnut for brown and elderberry for the purple the tower folk pay double for. The loggers think I'm mad, picking berries between the stumps." } },
@@ -97,6 +115,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and your tabard's frayed at the hem from all that swinging. I could fix it, if you held still long enough." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting pockets, and plenty of them, because your sort always do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Kaldorei, by the ears, and that leather's never seen a tanner's vat unless I'm much mistaken. Nobody in Eastvale stitches like that, so I'd love to know who did." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Those robes of yours have seen better days, and so have the hems, which I'd guess have been near something hot." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I make clothes out of bandit bandanas, so I'm in no position to judge anyone's strange habits. What do you need?" },
       },
       again = {
         { id = "h_again", text = "Go on, I'm listening, and so is the needle." },
@@ -114,6 +134,8 @@ P:NPC {
         { text = "What does a tailor make for hunters, Sara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Defias ever come into Eastvale, Sara?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever take cloth or colour from the forest itself?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you make robes for a warlock, Sara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you ever feel bad about using the Defias's cloth, Sara?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out for red.", next = "END" },
       },
     },
@@ -226,6 +248,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "There's no trouble, only distance. I carry water down the rows every day, and I notice what's dry and what isn't. Your spirits might like to know that." } },
+      choices = {
+        { text = "Steady work keeps a farm alive, Gerard. I respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dig a new well closer, Gerard. Stop walking so far.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. If you could call up something that fetches water, I'd not ask what it was, only whether it spills." } },
+      choices = {
+        { text = "I'd sooner carry the water myself, Gerard.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gerard.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Often enough to trample them, and they don't care what they ruin on the way. A fighter walking the rows at dusk would do more good than any scarecrow, though I'd not ask it of you." } },
@@ -289,6 +329,8 @@ P:NPC {
           text = "A mage! You don't know a spell that makes rain fall on purpose, do you? The well's a long walk and the sun doesn't care." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, out among the vines. Mind your elbows; those rows took me years, and a sword takes them in a second." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the rows. If you've come for crows, you've come to the right place, and I'll thank you for every one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You wouldn't have a cool drink in that bag, would you, or is it all bones and candles?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. If you can talk the well into being closer to the rows, I'd be grateful. It's a long walk." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slow, it saves water." },
@@ -307,6 +349,8 @@ P:NPC {
         { text = "Do the Defias come into these vines often?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the crows really take all your grapes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who protects the vineyard workers, Gerard?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the sun out here really bother you that much, Gerard?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there trouble with the water here, Gerard?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Keep at it, Gerard.", next = "END" },
       },
     },

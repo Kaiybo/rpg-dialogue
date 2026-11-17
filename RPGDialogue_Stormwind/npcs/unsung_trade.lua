@@ -26,6 +26,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Never once, I promise you. I tell everyone that twice, because some people seem to doubt it. Your spirits won't find any gaps." } },
+      choices = {
+        { text = "A well-kept vault is worth trusting, Olivia.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Everything has gaps. Someone will find them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I don't look, and I'd never tell, but I've noticed the warlock boxes tend to be the warmest in the vault, which is odd for a stone room underground. Nothing has ever been stolen from this bank, as I say, though I sometimes wonder whether that's the locks or the fact that nobody wants to open those boxes." },
+      },
+      choices = {
+        { text = "The locks, Olivia. I'll keep my box quiet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mine stays warm. That's all you need to know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Olivia.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "A cat got in once, and the guards chased it for an hour before it turned out to be only a cat. I've had the bars narrowed since, so you'll forgive me if I watch every animal in the hall." } },
@@ -105,6 +125,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gold is safe with us, I promise, whatever happens to you out in Westfall." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Pelts and trophies in the vault? We can store them, though I'll ask you to make sure they're properly salted first." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll say it before you ask: nobody has ever stolen from this bank, not even a cat that walked through the bars." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll open your box like anyone else's, but I'll ask you to keep nothing in it that breathes." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Nothing has ever been stolen from these vaults. Nothing. Your spirits would find nothing to complain about." },
       },
       again = {
         { id = "h_again", text = "Is there something more the Bank of Stormwind can do for you?" },
@@ -121,6 +143,8 @@ P:NPC {
         { text = "What does the Cathedral keep in your vaults, Olivia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has anyone ever tried to rob the bank, Olivia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has anyone tried to slip into the vaults in another shape, Olivia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do warlocks keep in your vaults, Olivia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has anything ever gone missing from the bank, Olivia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Olivia.", next = "END" },
       },
     },
@@ -177,6 +201,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everyone's fears, in gold and silver. A shaman's deposit would be interesting. I'd wager your spirits don't use coin." } },
+      choices = {
+        { text = "A careful bank keeps a careful kingdom, Newton.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fear is a poor reason to hoard coin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Notes, chiefly, and a surprising number of them in cipher, as though the bank's clerks had nothing better to do than steal spells. The older mages put away things from Dalaran, before the city was walled off, and they visit them the way other folk visit a grave." },
+      },
+      choices = {
+        { text = "Then I'll treat those boxes with respect, Newton.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dalaran's gone. Those things should be studied, not mourned.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Newton.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Seeds, mostly, wrapped in cloth and labelled in your script, and the odd letter home that was never sent. I find it touching, though I'd never say so to the depositor." } },
@@ -256,6 +300,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. People keep strange things in their boxes, and warriors keep the strangest: old letters, lockets and the occasional broken sword." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll keep trophies in your box, I suppose, as hunters do, and you'll tell me a story about each one if I let you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I can tell a great deal about someone from their box, and I confess I'm curious what your people put away, since you seem to own so little." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've a fair idea what's in your box already, and I'd wager it's mostly reagents and a scroll you've forgotten about." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The bank sees more of the kingdom than the king does, and I've never seen a shaman deposit before." },
       },
       again = {
         { id = "h_again", text = "Something else? I have time, and the ledger certainly isn't going anywhere." },
@@ -272,6 +318,8 @@ P:NPC {
         { text = "What do priests keep in their boxes, Newton?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do a paladin's things tell you about the kingdom?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do druids usually put in their bank boxes, Newton?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do mages put away, Newton?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does the bank see of the kingdom, Newton?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Newton.", next = "END" },
       },
     },
@@ -331,6 +379,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They tell me about Ironforge, Darnassus and Westfall, and all sorts besides. A shaman's stories must be wonderful. Do tell." } },
+      choices = {
+        { text = "Kindness at the door is a fine welcome, John.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Stories don't pay. Let's talk coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Every morning, on their way from the Quarter to the auction house, with their pockets full of whatever they enchanted the night before. They're polite, mostly, but they've a way of looking at the counter as though they could turn it to sand if they cared to, and I'm always glad when they don't." },
+      },
+      choices = {
+        { text = "I'll leave your counter as it is, John.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sand would be an improvement, John.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, John.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Your boots have Darkshore sand in the seams and Wetlands mud on top, and I've heard that road described a hundred times. Mind, I've never been further than Goldshire, so you'll have to tell me if I'm right." } },
@@ -410,6 +478,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Welcome to the first window, friend; your coin's safe here, and so are you, at least until you go back out that door." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I see a lot of hunters through this window, and you all have the same look, as if you'd rather be anywhere but indoors." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the first window! You've come a long way, I can tell by your boots, and I'd guess Auberdine and then Menethil, which is a very wet journey." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Welcome, welcome. Where have you been, and did you see anything worth telling about?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Welcome to the bank! A shaman! Where have you been? I want to hear about it more than what you're depositing." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The others can wait." },
@@ -426,6 +496,8 @@ P:NPC {
         { text = "Do priests really tell you their stories, John?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can you really tell where someone's been, John?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can you really tell I came by way of Auberdine, John?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do many mages come through your door, John?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do travellers tell you about the world, John?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -482,6 +554,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It needs rules, mostly. Everyone bids honestly, and the deposit keeps them so. Your spirits must have rules too." } },
+      choices = {
+        { text = "Rules keep the market fair. I respect that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Theatre sells better than rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Never knowingly, and I check every consignment against the guard's list of reported thefts, which is longer than you'd think. The auction house is a temple to fair dealing, and I'll not have it turned into a fence's market, however good the goods." },
+      },
+      choices = {
+        { text = "Fair dealing it is, Chilton. My goods are clean.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your list is long, Chilton, but never complete.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Chilton.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Everything here was taken from somewhere, friend, from a mine or a field or a wolf that didn't want to give up its pelt. I can't ask where every hide came from, but I do ask the seller to sign for it, and that's the rule." } },
@@ -561,6 +653,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Arms and armour sell well these days, with all the fighting in Westfall and Redridge, so set your price with confidence." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Leather, pelts and meat sell steadily, and the occasional rare feather can start a proper bidding war." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'd be amazed what a bundle of Darnassian herbs fetches at my podium, and I'd be delighted to show you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Ah, one of the quiet bidders. You'll be pleased to know the deposit is the same for everyone, and so are the rules." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A fair sale needs rules, a deposit, and a little theatre. Your spirits would enjoy the theatre." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The hall never closes, but my voice does." },
@@ -577,6 +671,8 @@ P:NPC {
         { text = "Should holy relics be sold at auction, Chilton?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do people try to sell stolen goods here, Chilton?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does anyone sell things here that were taken from the wild, Chilton?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does stolen property ever turn up at your podium, Chilton?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What makes a fair auction, Chilton?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Chilton.", next = "END" },
       },
     },
@@ -632,6 +728,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than you'd think. I write it all down so nobody can say otherwise. Your spirits could help, if they're honest." } },
+      choices = {
+        { text = "Honest records keep honest people. Keep writing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fraud's a minor danger. Worry about the Defias.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Twice, and both times they paid the full price and signed in a hand I couldn't read. I wrote it down as a purchase, though I suspect the higher record would call it something else." } },
@@ -711,6 +816,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to list your spare blades, I suppose, and I'll write every one down correctly, which is my entire job." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Pelts, leather and meat, I suppose, and I'll write each one down so that nobody can claim it was a different hide." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll write you down as I write everyone down, though I don't suppose you'll be bidding on anything with a pelt attached." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every bid is written down. Fraud is the greatest danger this city faces, and your spirits won't change that." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I'd like to finish this page before the ink dries." },
@@ -727,6 +833,7 @@ P:NPC {
         { text = "Do you believe a higher record is kept, Fitch?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you trust anyone at the auction house, Fitch?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has a druid ever bought a pelt just to bury it, Fitch?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is fraud really so common, Fitch?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Fitch.", next = "END" },
       },
     },
@@ -776,6 +883,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "List early, price fair, and don't argue with the market. Your spirits might argue, but the market wins." } },
+      choices = {
+        { text = "Fair prices win in the long run. Good advice.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The market can be bent. I'll find a way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "More than you'd guess, love, because your lot buy cloth by the stack and sell the bags you make, and you never haggle. Chilton gets nervous when one of you comes to his podium, but I've always found warlocks pay their deposits on time and never argue the fee." },
+      },
+      choices = {
+        { text = "Then I'll keep paying on time, Jaxon.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Perhaps I'll argue the fee this time.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jaxon.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "That you're here to judge them for selling wolf pelts, mostly, and half of them hide their stock under the counter. The other half double their prices, because they think you'll pay anything to set a beast free." } },
@@ -855,6 +982,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gear's worth more than you think, I'd wager, and I'll tell you honestly what it'll fetch." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have a pack full of hides, I expect, and I'll tell you honestly what each is worth, which is more than Chilton will, bless him." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my podium! I don't see many of your people bid, dear, so I'll give you the same sensible advice I give everyone, and you'll ignore it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want to sell your bags, I suppose, because your sort always end up with more bags than sense." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You should've listed your goods sooner. Prices are falling, and your spirits can't help that." },
       },
       again = {
         { id = "h_again", text = "What else, love?" },
@@ -871,6 +1000,8 @@ P:NPC {
         { text = "Do priests often sell their things here, Jaxon?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the Silver Hand's crest really raise the price, Jaxon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the regulars think when a druid walks in, Jaxon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do warlocks do much business here, Jaxon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What advice would you give a new seller, Jaxon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Jaxon.", next = "END" },
       },
     },
@@ -923,6 +1054,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It promises loyalty, to each other and to the crown. A shaman's guild would be unusual, but promises are promises." } },
+      choices = {
+        { text = "Promises made before the crown should be kept, Aldwin.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Charters are paperwork. Loyalty is earned.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A fair few, and they're always very particular about the crest, wanting runes and stars and complicated geometry, which I'm happy to draw. The trouble comes when they want the charter enchanted, because the registry is a matter of ink and law, and I'll not have a spell deciding who's a member." },
+      },
+      choices = {
+        { text = "Ink and law, then. I'll sign it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "An enchanted charter would keep out traitors, Aldwin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Aldwin.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I did, with the moon behind the tree and the owl on a branch, and I'm still rather proud of it. They thanked me with a little bow and then asked if the shield had to be square, which I'm afraid it did." } },
@@ -1002,6 +1153,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Thinking of forming a guild, perhaps? Warriors' guilds always want a crest with a sword on it, and I'm always trying to talk them into something more original." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Hunters' guilds always want a wolf or a hawk on their crest, and I'll admit they're the ones I most enjoy designing." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've only ever designed one crest for a guild of your people, and they wanted an owl, a moon and a tree all on one shield." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Your kind found some of the finest guilds in the city, though their charters tend to run to thirty pages." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A guild charter is a promise made in front of the crown. Would your spirits sign one?" },
       },
       again = {
         { id = "h_again", text = "What else may the registry help you with, friend?" },
@@ -1018,6 +1171,8 @@ P:NPC {
         { text = "Do many priests found guilds, Aldwin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does the Silver Hand's oath say, Aldwin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did you fit an owl, a moon and a tree on one shield, Aldwin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do mages found many guilds, Aldwin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does a guild charter promise, Aldwin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Aldwin.", next = "END" },
       },
     },
@@ -1076,6 +1231,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It tells me everything. A steady stance is steady faith. Your spirits would agree, I think." } },
+      choices = {
+        { text = "Steady feet, steady faith. I'll keep that close.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Faith's for priests. I'll fight my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Because claws are a shape, and a shape can be taken from you, but a trained hand stays trained. I have seen a druid lose a fight because she could not change, and I would not see it twice." } },
@@ -1155,6 +1319,7 @@ P:NPC {
           text = "A warlock. Your demons fight for you, I know, but I will teach you the staff all the same, so that you are never only the master of something else." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You will want to learn the polearm, I think, or the staff, for when the beast gets past your arrows." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You will want the staff, I think, or the mace, because your people fight with what the forest gives. I will teach you either, if you are patient." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me how you stand. Your spirits may guide you, but your feet carry the weapon." },
       },
       again = {
         { id = "h_again", text = "Ask. A student who asks learns twice as fast." },
@@ -1172,6 +1337,7 @@ P:NPC {
         { text = "Should a priest learn to fight, Woo Ping?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does my stance tell you, Woo Ping?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why teach a druid weapons when we fight with claws, Woo Ping?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does a fighter's stance tell you, Woo Ping?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, master.", next = "END" },
       },
     },
@@ -1227,6 +1393,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I keep every copper of them, because Gunther can't count past ten. Your spirits must be better with numbers than he is." } },
+      choices = {
+        { text = "Good books keep a good business, Marda.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Numbers don't matter. Weapons sell themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because Gunther once threw a hammer at an imp that was sniffing round his forge, and missed, and hit a customer, and I spent a week writing apologies. He's a good smith and a poor judge of what to throw things at, so it's easier if your friend waits by the door." },
+      },
+      choices = {
+        { text = "It'll wait by the door, Marda.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let Gunther throw. My imp dodges better than customers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Marda.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Three this season, which is three more than last, so the night elves are either arming or finally finding the city. I'll sell to whoever pays, though I'll admit your people haggle more politely than anyone." } },
@@ -1306,6 +1492,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Gunther will tell you about balance for an hour, so let me tell you the price before he starts." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! We've axes and short swords for the close work, and Woo Ping teaches the polearm if you've a mind to learn." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Weller's. You'll want a staff or a mace, and you'll pay at my counter, because Gunther will give you a speech about balance and forget the price." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Dagger or staff, and I'll write it in the ledger, and you can keep your companion out of Gunther's way." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Gunther's busy judging grips. Need anything, or just here to talk to the spirits?" },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've a customer waiting at the other counter." },
@@ -1322,6 +1510,8 @@ P:NPC {
         { text = "Do many priests buy weapons, Marda?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you sell much to the Silver Hand, Marda?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you sell many staves to druids, Marda?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why keep my companion away from Gunther, Marda?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you keep the arsenal's books, Marda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it, Marda.", next = "END" },
       },
     },
@@ -1380,6 +1570,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "All of them, but especially the volatile ones. Your spirits might enjoy them too, though I'd keep them away from the fire." } },
+      choices = {
+        { text = "Knowledge shared is knowledge doubled, Keldric.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep your powders. I don't need them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I sell vials, and what goes into them is the buyer's business, though I'll tell you which ones are crystal and which are mere glass. A good poison needs a good vial, and a bad vial leaks into your coat lining, and I've seen what that does to a man." },
+      },
+      choices = {
+        { text = "Crystal, then, and for honest purposes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the crystal, and the purpose is mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Keldric.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They carve them from something that isn't quite wood and isn't quite glass, and I've studied one for a year without learning how. I'd give a great deal to know, though I suspect the answer is that a tree agreed to it." } },
@@ -1458,6 +1668,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among the vials. You'll want potions, I expect, and Morgan has those, but I'll tell you why the glass matters." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll not need my vials, I suppose, unless you brew your own salves, which some hunters do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll want vials for your herbs, and I'll tell you why mine won't spoil them, whether you ask or not." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Ah, someone with careful hands. You'll want the stoppered vials, then, the ones that don't leak in a pocket." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your spirits use powders? Let me explain the virtues of each vial on my shelves." },
       },
       again = {
         { id = "h_again", text = "Anything else? I do enjoy a question I can answer." },
@@ -1474,6 +1686,8 @@ P:NPC {
         { text = "Are your vials really better than the Cathedral's, Keldric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you supplied the Silver Hand before, Keldric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the night elves make their own vials, Keldric?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you sell anything for poisons, Keldric?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What's your favourite powder, Keldric?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Keldric.", next = "END" },
       },
     },
@@ -1532,6 +1746,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Reagents for their spells, mostly. I've learned what every sort needs by watching what they buy." } },
+      choices = {
+        { text = "You know your customers well, Kyra. That's good business.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll find what I need myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, and it keeps my door busy." } },
@@ -1591,6 +1814,7 @@ P:NPC {
           text = "A rogue, so you'll want flash powder, and I'd like you to buy it from me rather than Jasper Fel. His is good, but mine's honest." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? You've wandered to the reagent counter, I'm afraid, and none of this is any use to you, unless you've a mage at home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've nothing for you here, I'm afraid, unless you've a spellcaster in your party who needs looking after." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your kind runs out of totems, I'd guess. Or do spirits keep you stocked?" },
       },
       again = {
         { id = "h_again", text = "Who's next, then? Oh, still you; what else have you run short of?" },
@@ -1606,6 +1830,7 @@ P:NPC {
         { text = "Do warriors ever buy reagents, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you get many hunters at your counter, Kyra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why hope paladins never use their symbols, Kyra?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do shamans usually buy, Kyra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Kyra.", next = "END" },
       },
     },

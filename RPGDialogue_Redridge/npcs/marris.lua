@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If I had the men, yes. Give me numbers, shaman. Your spirits won't win this, but they might help." } },
+      choices = {
+        { text = "Then count me among your numbers, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Numbers don't win. Courage does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Then do it, and bring me numbers, not stories, because numbers are what I'm short of. How many orcs, how many shadowcasters and where Gath'Ilzogg sleeps, and I'll do the rest with the soldiers I've got." } },
       choices = {
@@ -101,6 +110,7 @@ P:NPC {
         { id = "h_count", when = { metBefore = true }, text = "Twelve guards on the morning roll, and twelve on the evening. On days like that I thank the Light out loud." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've wounded in the barracks and dead in the hills, and not enough of anyone for either." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because I'd take one paladin over ten levies, and so far I've only been sent the levies." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I want numbers, not stories. How many orcs can your lightning drop?" },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick; the road's quiet, and I don't trust it." },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "The Blackrock shadowcasters won't be the only ones with demons.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Who buries your guards who fall in the hills, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Lakeshire strike Stonewatch, Marshal, or hold the walls?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can Lakeshire hold against the Blackrock, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep my eyes east.", next = "END" },
       },
     },

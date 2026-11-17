@@ -54,6 +54,15 @@ P:NPC {
         { text = "Something else, Myranda.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They're honest things, your spirits, and they don't care for anything that wears a face it wasn't born with. But a seeming hurts nobody who isn't fooled by it, and the folk I fool these days wear red tabards and burn villages, so I sleep well enough, dearie, whatever the wind says." } },
+      choices = {
+        { text = "A lie that stops a zealot is no great sin.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Deceit is deceit, Myranda, whoever it fools.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Myranda.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -71,6 +80,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, dearie. Mind your beasts don't sniff at my cauldron, for the last one that did walks on its hind legs now and won't stop talking." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, dearie, and what a seeming you wear! I could teach you a few of mine, though I suspect you've a few of your own." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dearie, and you'll be wanting to scold me, I expect, for twisting what's real into what isn't. The spirits always did think me a bit of a liar." },
       },
       choices = {
         { text = "I serve the Light. Your craft makes my skin crawl.", next = "paladin", when = { class = "PALADIN" } },
@@ -83,6 +93,7 @@ P:NPC {
         { text = "Could your seeming really pass me off as a Crusader?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can your seemings fool a beast's nose, Myranda?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do your seemings deceive the beasts as well as people?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do the spirits really dislike your seemings, Myranda?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I've no use for witchcraft.", next = "END" },
       },
       again = {
@@ -225,6 +236,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because remembering properly matters, and the ground was here for all of it, before Andorhal and before the plague, and it'll be here after. I like to think the spirits keep a sort of history of their own, and that every brave thing done at Darrowshire is still written in it somewhere." } },
+      choices = {
+        { text = "Then we honour the dead by remembering them truly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The past is gone, Chromie. Only today matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Chromie.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Oh, I read a great deal, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." } },
+      choices = {
+        { text = "I'll keep my bargains in check, Chromie. I promise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My story's mine to write. I'll take the risk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Chromie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -246,6 +275,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You follow things that have already passed by, {class}, which is a little like what I do, only with footprints." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Oh, a druid! You know what it is to watch something grow over a very long time, so I think you'll understand why I care about Darrowshire." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, I'd love to know what the spirits remember about this place, {class}, because people forget so quickly, but I've always suspected the ground doesn't." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Andorhal. Do be careful, {class}, for the Cult here dabbles in the same dark places you do, and it hasn't done them a bit of good in the long run." },
       },
       choices = {
         { text = "Fellow gnome, you're hiding something.", next = "gnome", when = { race = "Gnome" } },
@@ -259,6 +290,8 @@ P:NPC {
         { text = "How long did Darrowshire's defenders hold?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What is it you track, Chromie?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should the dead of Darrowshire be left to rest?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why do you care what the ground remembers, Chromie?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How do you know what's good for anyone in the long run?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye, Chromie.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? You were about to ask something, I'm almost certain of it." } },

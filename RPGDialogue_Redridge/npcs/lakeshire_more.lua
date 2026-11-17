@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The best test there is! A shaman might cheat with spirits, though. Will you drink honest?" } },
+      choices = {
+        { text = "I'll drink honest and run honest, Yorus.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll cheat if I must. Spirits are mine to use.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A handful, and every one o' them a legend in this inn, at least until they sobered up. The trick is runnin' through gnoll country with Barleybrew in yer belly, and the gnolls can smell it, so they come runnin' too." } },
@@ -84,6 +93,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye've the look o' someone who'd rather shoot a gnoll than drink a pint, which is a sad thing, and I'll try to fix it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the bar! Ye'll be wantin' to bless the Scalder, I'd wager, an' I'll warn ye now it's beyond savin'." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! I'd not ask ye to drink, but I'd wager ye'd run the gauntlet faster than any warrior." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Drink my family's brew and run through gnoll country. Courage is best measured staggering, I say." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I pour, it saves time." },
@@ -100,6 +110,7 @@ P:NPC {
         { text = "Can a hunter run your Gauntlet, Yorus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your challengers ever come back hurt, Yorus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could a paladin pass your challenge without the drink, Yorus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is your brew really a test of courage, Yorus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Pour me one, Yorus.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -220,6 +231,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Locks are honest. People lie. Your spirits might be honest too, but I'd not bet on it." } },
+      choices = {
+        { text = "Some people are honest, Lucius. Give them a chance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right. Locks don't betray anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Now and then, when the job needs someone to stand at the front and make a lot of noise. A good warrior draws every eye in the room, and a good rogue uses that moment, so we get along fine, mostly." } },
@@ -296,6 +316,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, on my docks. Come to save my soul? You'll need a bigger boat." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Shiny, loud and honest, which are the three things I can't teach anybody." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've watched your cats prowl about, and I'll grant they move quieter than most of my students." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Get off the docks unless you've a lock to show me. I prefer locks to people." },
       },
       again = {
         { id = "h_again", text = "What else? Quietly, if you please; sound carries over water." },
@@ -315,6 +336,7 @@ P:NPC {
         { text = "Do you ever worry what becomes of the folk you train?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Marshal Marris know what you teach down here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "My people walk unseen in the forest. Could I teach your students?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you really prefer locks to people, Lucius?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
@@ -424,6 +446,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Yes, and I want to be a hero and find it. Would you help? I'll practise being brave." } },
+      choices = {
+        { text = "I'll help you find it, Shawn. You'll be a hero.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Find it yourself. That's how heroes are made.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A little, but Effsee's more frightened, so I've got to be brave for her. Can your demon swim? Because Hilary's necklace is somewhere at the bottom of the lake, and the murlocs are too scary for us to go in after it." } },
+      choices = {
+        { text = "I'll find the necklace for you myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Demons don't fetch necklaces, kid.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Shawn.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Yes, and I'm going to be the bravest warrior in the whole Alliance, and fight the Blackrock, and save Lakeshire! Hilary says I'm too small, but I practise every day with a stick, and I'm getting better." } },
@@ -481,6 +521,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Wow, a real warrior! Hilary, look, it's a real warrior, with armour! Have you killed an orc? Have you killed lots of orcs?" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? My mom says priests can talk to the Light, so could you ask it where Hilary's necklace went?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Are you really a druid? Hilary says druids can turn into seals and swim all day, and if that's true, you could find her necklace in no time!" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Whoa, a warlock! Is that a real demon? Hilary, look, a real demon, and Effsee's hissing at it!" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Excuse me, are you a shaman? Could your water spirits find Hilary's necklace? It's in the lake." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk all day, we're not catching anything anyway." },
@@ -498,6 +540,8 @@ P:NPC {
         { text = "Do you want to be a warrior someday, Shawn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you say your prayers at night, Shawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever worry about the murlocs in the lake, Shawn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Aren't you frightened of my demon, Shawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did Hilary lose her necklace in the lake, Shawn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -594,6 +638,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Once it was peaceful, a good friend. Now it's full of murlocs and worse. Your water spirits might know how to cleanse it." } },
+      choices = {
+        { text = "Then let's restore it, Matthew. The lake deserves peace.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The lake's ruined. Fish somewhere else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It does mine, and I've had a few troubles, though nothing like yours, I'd wager. Sit on the dock for an hour with a line in the water and see whether whatever whispers to you doesn't go quiet for a while." } },
+      choices = {
+        { text = "I might try that, Matthew. Thank you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What whispers to me is worth hearing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Matthew.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some do, and they're the worst at it, because they can't abide waiting for anything. Lake Everstill teaches patience whether you like it or not, and a mage with patience would be a frightening thing, I'd think." } },
+      choices = {
+        { text = "Then I'll learn patience at your lake.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patience is for those without spells.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Matthew.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, friend, for both are about waiting quietly for the right moment and then moving quick. The difference is that a fish doesn't hold a grudge, and from what I hear, the people you rob do." } },
+      choices = {
+        { text = "I'd rather fish than rob, honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Grudges are a risk of the trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Matthew.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than you'd think, because both are about waiting for the right moment and then not hesitating. The murlocs taught me that, since they hit the line fast and you've got to be faster, or they'll take your rod as well." } },
@@ -652,6 +732,10 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit and hold a rod a while, because fishing's the nearest thing to prayer I know." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my dock. Patience is a virtue, they say, so sit down and see if you've got it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll understand what I mean, then, when I say Lake Everstill has been out of sorts for years." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Well, a rogue's patience is a fisherman's patience, so you might be better at this than most." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've heard your kind can conjure water, though I don't suppose you can conjure fish in it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'd be surprised how many folk come to fishing to quiet something in their heads, and I'd guess yours is noisier than most." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by the lake. The Everstill's fallen in with bad company, and it's murlocs, mostly." },
       },
       again = {
         { id = "h_again", text = "What else? The line's out, so I've time." },
@@ -667,6 +751,10 @@ P:NPC {
         { text = "You speak of the lake like an old friend. Do you pray for it?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the murlocs be driven out of the lake entirely?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's ailing the lake, Hooper? I'd like to understand it.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is fishing really like a rogue's work, Matthew?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do mages ever take up fishing, Matthew?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does fishing really quiet a troubled head, Matthew?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Was the lake always so troubled, Matthew?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing, Matthew.", next = "END" },
       },
     },
@@ -741,6 +829,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Daniels serves ale; I serve food. People forget, and I remind them with good humour, mostly." } },
+      choices = {
+        { text = "Good humour's a virtue, Wental. Keep it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Just serve the ale. People want it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not much, for a man still wants his bread fresh from the oven, whatever he can conjure. Mind, a mage once filled my water barrels during a dry spell and wouldn't take a copper for it, and I've thought kindly of your kind ever since." } },
+      choices = {
+        { text = "I'd fill your barrels gladly, Wental.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My water isn't for giving away.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wental.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every warrior thinks so, and every one of them asks me, and I tell them all the same thing: bread and milk will carry you further than ale. The ones who listen tend to come back, and the ones who don't tend to ask Daniels." } },
@@ -817,6 +923,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bread, cheese, milk and no ale, which I'd guess suits you better than most." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be one of the few who orders milk without pulling a face, I'd wager." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Milk, bread and cheese is all I serve, and I'd guess a night elf won't miss the ale as much as the soldiers do." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've no strong drink, but I've bread and cool water, and I'd guess you can make your own of both." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Bread, cheese, meat, or milk? Not ale, before you ask. Fifty times a day I'm asked." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? And no, still no ale." },
@@ -834,6 +942,8 @@ P:NPC {
         { text = "Do the poor in Lakeshire eat at the inn, Wental?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the soldiers need most, Wental, besides ale?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does your milk come from, with the farms under threat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does conjured food hurt your trade, Wental?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why don't you serve ale, Wental?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just the bread, thanks.", next = "END" },
       },
     },
@@ -907,6 +1017,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They are, and the orcs and gnolls trample them more each day. Your spirits might help them heal." } },
+      choices = {
+        { text = "Then let's help them heal, Alma. Gently.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Gardens grow back. Don't fret about it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because I teach herbalism to heal folk, not to drug them, and I've seen what a careless hand does with the wrong root. Learn the healing herbs first, and if you still want the other kind after that, at least you'll know what you're doing." } },
+      choices = {
+        { text = "Healing herbs first, then. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll learn what I need, healing or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Alma.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Peacebloom for the bruises and silverleaf for the cuts, and a good poultice will have you back on your feet before the healer's finished his prayer. You'd be surprised how many warriors don't know a single plant that could save their life." } },
@@ -971,6 +1099,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll be out in the hills more than most, so you can tell me what's growing and what's been trampled flat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Healers and herbalists ought to be friends, so mind you don't pull my peacebloom up by the roots." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your sort tread heavy, so mind my beds as you go." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll want to know which herbs put a body to sleep, I expect, and I'll tell you which ones to leave well alone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't pull that plant by the roots. Do your earth spirits know how to treat a garden?" },
       },
       again = {
         { id = "h_again", text = "Something else? I'll keep sorting while you ask." },
@@ -987,6 +1117,8 @@ P:NPC {
         { text = "Some plants grow better where there's been death.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Have the hills always been this trampled, Alma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you gather herbs for the wounded out in gnoll country?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why would you warn a rogue off certain herbs, Alma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think the hills are a trampled garden, Alma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Alma.", next = "END" },
       },
     },
@@ -1068,6 +1200,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I carry every block. Oslow complains, and I complain about Oslow. Your spirits might lighten the load." } },
+      choices = {
+        { text = "Honest work's its own reward, Trent.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the spirits carry it. You've earned a rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Hard but fair, and forever saying we're slow, though he'd say that to a gryphon. The Blackrock knocked the bridge down once and they'll try again, so if you're staying in Lakeshire, keep an eye on the hills while we work." } },
+      choices = {
+        { text = "I'll watch the hills while you build.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm not here to mind a bridge, Trent.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Trent.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Knocked it down the first time, and the second time they sent the gnolls to steal the mortar. The foreman says we're slow, but a man can't lay stone with one eye on the far shore." } },
@@ -1144,6 +1294,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Bless the bridge if you like, but say one for my back while you're at it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be some help with the orcs, I'd wager, and maybe even with the stones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Don't let Oslow see you standing about, or he'll have you hauling stone in bear shape before supper." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Can your demon carry stone? Because the foreman would put it to work, and he'd still say it was slow." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackrock", min = 20 } }, text = "No Blackrock scouts have come down to the bridge in days, and Oslow's had to find something else to complain about. I hear we've you to thank, so thank you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Oslow's a slave driver, but I love him for it. Can your earth spirits lift a stone or two?" },
       },
       again = {
         { id = "h_again", text = "Something else? Quick, the foreman's looking." },
@@ -1161,6 +1314,8 @@ P:NPC {
         { text = "Does the crew ever talk about the men it's lost?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Stormwind send soldiers to guard your crew, Trent?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does the stone for the bridge come from, Trent?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What's Foreman Oslow like to work for, Trent?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you really carry the bridge stone by stone, Trent?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Whatever's to hand, dear: goretusk, onions, and maybe a murloc eye if I'm short. Your spirits needn't fret. It's filling." } },
+      choices = {
+        { text = "A full pot for anyone hungry is a blessing, Salma.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Murloc eyes? You should feed your own first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Maybe it does, and I'd be lying if I said I've never wondered about some of the thin young men who come to my door at dusk. But a hungry boy is a hungry boy, and I'd rather fill him with stew than have him filling his pockets from my larder." },
+        { id = "xrogue_more1", text = "If you're asking whether I'd feed you, the answer's the same, and I'll not ask where you've been." },
+      },
+      choices = {
+        { text = "Then your rule is a good one, and I'll respect it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fill them up, then. It makes them easier to rob.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Salma.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one that comes by, and some twice a day, and they never say no to seconds. A fighter on an empty belly is no use to anyone, so I feed them, and they keep the thieves off my doorstep." } },
@@ -75,6 +96,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Goretusk", min = 20 } }, text = "I've heard you've been thinning out the goretusks, and Saldean says the fields are quieter for it. Bring me a liver or two while you're at it, because nothing goes to waste in this kitchen." },
         { id = "h_default", key = true, text = "I'm Salma. My husband farms and I cook, and anyone who comes to that door hungry leaves full. That's the rule of this house." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Westfall Stew") },
           text = "In the lean years, Westfall cooks made do with murloc eyes and buzzard meat, and these are lean years, so don't make that face." },
@@ -95,6 +117,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my door! You'll eat, then, because that's the rule, and you'll eat twice because you look like you need it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! Sit down, and take off those gauntlets, because nobody eats my stew in steel." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at my door, and thin as a willow switch! Sit down, druid, because I don't care what shape you came in, you'll leave fed." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up to my door so quiet I nearly hit you with the ladle. Sit down, you'll eat like everyone else." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! There's stew on the stove for anyone hungry, shaman or no. Sit down and eat." },
       },
       again = {
         { id = "h_again", text = "What else, then? Sit yourself down and ask while I stir." },
@@ -113,6 +137,8 @@ P:NPC {
         { text = "Do the militia warriors eat at your table, Salma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever turn anyone away from your table, Salma?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you grow anything yourself, Salma, or is it all gathered?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Doesn't feeding everyone mean feeding Defias too, Salma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What's in today's stew, Salma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'd best be off.", next = "END" },
       },
     },

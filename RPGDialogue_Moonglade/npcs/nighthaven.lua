@@ -35,6 +35,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because your people have long listened to the stone, and the stone is slow to speak. If the spirits have found a new voice among the dwarves, perhaps the world is mending in ways even I did not foresee." } },
+      choices = {
+        { text = "The old ways of Ironforge will learn from this.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ironforge's old ways are too slow. The spirits are freer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because my father fell in Ashenvale to warriors of the Horde, in the days when the demons' blood still ran in their veins. I do not hold their children to account for it, and the spirits plainly do not either, so I choose to see what you are rather than what came before you." } },
+      choices = {
+        { text = "Thank you, Keeper. I'll honour that trust in your glade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Horde owes no one an apology for its past.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Moonglade has room for anyone who comes to it in peace, and your Light, I think, is mostly peace dressed in armour. The druids sleep here and walk in the Emerald Dream, and all I ask is that you keep your voice low by the lake, and your hammer lower still." } },
+      choices = {
+        { text = "I'll walk gently here, Keeper. This is your father's place.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light needs no one's leave, not even here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "There is a place for anyone who comes in peace, little one, and many warriors find a stillness here they never knew in battle. The Sentinels guard our borders and the Circle guards the land, but within these hills, your strength may rest." } },
@@ -114,6 +141,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
+          text = "A shaman of the Horde, in my father's glade. The spirits walk with you, little one, and they are welcome here, as you are, though I will not pretend it is a simple thing for me to say." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, in my father's glade. The Light you carry is not the light of Elune or of the moon, little one, but it is a kind and steady thing, and the glade does not object to it." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, in my father's glade. You carry your weapon lightly here, little one, and I thank you for it, for Moonglade has long been a place where blades rest." },
         { id = "h_default", key = true,
@@ -136,6 +167,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A shadow-walker, in my father's glade. There is nothing to steal in Moonglade, little one, and nobody to hide from, so you may walk in the open here." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Moonglade. The kaldorei learned the price of the arcane when the Well of Eternity tore the world apart, little one, so forgive my druids if they watch your hands." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, in my father's glade. You may rest here in peace, as any guest may, but the fel you carry is the very thing my druids give their lives to cleanse." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in my father's glade. The spirits walk with you, little one, and I am curious what led a child of the mountain to them." },
       },
       again = {
         { id = "h_again", text = "The glade is patient, and so am I. What else would you ask?" },
@@ -158,6 +190,9 @@ P:NPC {
         { text = "Is there truly nothing to hide from here, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do your druids still blame the arcane for the Sundering, Keeper?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there a place for warriors in Moonglade, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Does the Light have a place in Moonglade, Keeper?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why is it not simple to welcome a shaman, Keeper?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Why should a dwarf's spirits interest you, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -382,6 +417,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than most of the Circle would admit. The spirits of this glade are old and patient, and if they've drawn a dwarf all the way from Ironforge, I'd look for their reason by the lake." } },
+      choices = {
+        { text = "The spirits guide me. I go where they send.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I choose my own road. The spirits only advise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More than most of the Circle would admit. The tauren druids among us hear the Earth Mother as you do, and the spirits of this glade are old and patient, so if they've drawn you here, there's something they wish you to see, and I'd look for it by the lake." } },
+      choices = {
+        { text = "I'll listen to them, and do what they ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I go where I choose. The spirits can follow if they like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I couldn't say yet, but nobody finds the road through Timbermaw Hold by accident. Perhaps you've come to learn that strength can be gentle, which the Keeper teaches, or perhaps you've come to find something you didn't know was missing, and either way I'll be watching to see which." } },
+      choices = {
+        { text = "I came because I was meant to. I'll trust that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I came because I chose to. Nothing sent me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Rarely, because there is nothing here to fight, and that unsettles some of them more than a battle would. They pace the paths and polish their armour, and then they leave, and I write down that they were here and nothing happened." } },
@@ -459,6 +521,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
+          text = "A shaman of the Horde. I don't believe in chance, so I'll assume the spirits sent you here for a reason, and I'd very much like to learn what it is." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, in Nighthaven. I don't believe in chance, so I'll assume the Light had some reason for sending you here, though I can't for the life of me imagine what it is." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, in Nighthaven. I'll write your name in the ledger, as I do everyone's, and I'll note that you carried a weapon and kept it sheathed, which I hope you will." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -479,6 +545,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Keeper is patient with your kind, and so am I, but the druids remember the Highborne better than most, so I'd keep any spellwork modest while you're here." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll write your name down, as I do everyone's, and I'll be watching to see what you owe the Circle by the time you leave." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, home to Moonglade. Welcome back; Keeper Remulos may not say it himself, but he likes to see the Circle's children return, and I like to see them fed." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I don't believe in chance, so I'll assume the spirits sent you here for a reason, and I'd very much like to learn what it is." },
       },
       again = {
         { id = "h_again", text = "Go on, then. I've a ledger to finish, but it can wait for a good question." },
@@ -499,6 +566,9 @@ P:NPC {
         { text = "Do warriors cause trouble in Nighthaven, Rabine?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why can't my beast hunt in Moonglade, Rabine?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What keeps Nighthaven running so smoothly, Rabine?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why do you think I was sent here, Rabine?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the spirits and the Circle work together, Rabine?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Do the spirits and the Circle work together, Rabine?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -635,6 +705,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Closer than either side likes to admit, I think, though I'd not say it too loudly at a Circle gathering. You ask the spirits for their help, and we ask to borrow their shapes, and both of us end up with very muddy boots, which is how you can always tell a real practitioner." } },
+      choices = {
+        { text = "We're kin in spirit. The Circle should see that.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Druids and shamans walk different paths. Better to keep them apart.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The druids' trials, to learn their forms, and they go off to the Great Bear Spirit or the sea or wherever they're sent, and come back changed, in more ways than one. You'd find them very dull, I imagine, since the Light doesn't ask you to swim with the turtles, but I do enjoy watching your sort try to keep up." } },
+      choices = {
+        { text = "Every path has its trials. I respect theirs.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll stick to my hammer. Turtles hold no wisdom for me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That strength which cannot wait is only noise, which young druids hate hearing almost as much as young warriors do. I've seen a few of your kind sit with the Bear for an afternoon and come back very quiet, and I've never known whether that was good." } },
@@ -705,6 +793,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! You aren't here for the trials either, I suspect, but you'll understand them better than most, since your spirits and our forms are not such distant cousins." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You aren't here for the trials, I expect, so I'll tell you what I tell everyone: the village is lovely this time of year, and nobody will ask you to turn into a bear." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! You aren't here for the trials, I assume, so I'll tell you the village is lovely this time of year, and that the Great Bear Spirit has opinions about strength you might enjoy." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -748,6 +840,8 @@ P:NPC {
         { text = "Is a warlock's craft really so unlike a druid's, Dendrite?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Great Bear Spirit say about strength?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which trials would a hunter do well at, Dendrite?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What are the trials you mentioned, Dendrite?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How alike are shamans and druids, Dendrite?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Thank you, Dendrite.", next = "END" },
       },
     },
@@ -876,6 +970,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It means knowing when to be the storm and when to be the still water, and accepting that you won't always choose right. You shamans speak to the elements, and we become a part of them, but both of us have to listen far more than we speak, and that's the hardest lesson there is." } },
+      choices = {
+        { text = "Listening first is the shaman's way too. I agree.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements answer strength, not patience.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because balance is something you carry, and a man who's sure of everything carries it all on one side. I don't ask you to doubt your Light, only to wonder now and then whether the moon and the spirits might see something it doesn't, and that wondering is what keeps a person upright." } },
+      choices = {
+        { text = "There's wisdom in that. I'll keep some room for doubt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My faith is my balance. I need nothing more.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The same way a druid does, by knowing when to fight and when not to, and most warriors only practise the first half. Sit a while in the glade, and you'll find the second half is harder, and worth more." } },
@@ -944,6 +1056,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. You know balance better than most, I think, because the elements are never still, and a shaman who tries to make them so soon learns how foolish that is." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, in Nighthaven. You carry a great deal of armour and a great deal of certainty, and I'd wager the certainty is the heavier of the two, so sit a while, if you'd like to set it down." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, in Nighthaven. You carry your balance in your shoulders, I see, which is good for a shield and poor for sitting still." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -972,6 +1088,8 @@ P:NPC {
         { text = "Can a warlock ever truly be in balance, Loganaar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a warrior keep balance, Loganaar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters and druids share any of the same wisdom?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why would I want to set down my certainty, Loganaar?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does balance mean to a druid, Loganaar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1018,6 +1136,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "That you hear the earth and the wind and do not always answer them. That is good, little one, because the one who answers every whisper is pulled in every direction, and the bear has seen many shamans grow thin from trying to please all of them at once." } },
+      choices = {
+        { text = "I'll choose which voices to answer, as you say.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The spirits deserve an answer, every one of them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Strength that waits. A bear does not charge at every noise in the woods; it waits, and it watches, and it rises only when it must. Your armour is strong, little one, but if you charge at every shadow, you will grow tired before the true enemy comes." } },
+      choices = {
+        { text = "I'll learn to wait, Great Bear. That is wisdom.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting lets evil grow. I'll strike when I see it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -1078,6 +1214,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "One who speaks with the spirits sits before the bear. The spirits know me, little one, and they whisper that you listen well, which is rarer than you think." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "One in bright armour sits before the bear. You have strength, little one, and you wear it outside, where all can see, and the bear wonders whether you also wear it inside." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "One who walks with a beast comes before me. Your companion knows me, little one, though you do not, for all beasts remember the old spirits." },
         { id = "h_default", text = "Old as the hills you walked to reach me, I am, and I do not hurry. Sit, and when you are still, I will speak." },
@@ -1107,6 +1247,8 @@ P:NPC {
         { text = "What can a slow bear teach a mage, spirit?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why is the bear not afraid of demons, spirit?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does my beast truly know you, Great Bear?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What does the Great Bear mean by strength inside?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the spirits say of me, Great Bear?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "(Rise and leave the spirit in peace.)", next = "END" },
       },
     },
@@ -1212,6 +1354,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I think they do, though they've never told me so in words. They grow restless before storms and calm when the lake is still, and you've the same feeling about you as a clear morning, so they're curious, and they're not often curious about anyone." } },
+      choices = {
+        { text = "Then I'll speak gently with them, and leave them be.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're just birds. Don't read too much into it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the Circle bred them to carry its own, and they've grown proud about it, as birds do. I'm sorry for it, truly, since you've come so far, but I couldn't make them carry you if I tried, and the old one would sulk at me for a week." } },
+      choices = {
+        { text = "I understand. I'll respect their pride, and yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pride in a bird? Then they're spoiled, Silva.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They mind noise, and warriors tend to bring a lot of it, all clanking and stamping on the perch. The old one once took a warrior's helmet for an egg and sat on it for a whole afternoon, and he was too polite to ask for it back." } },
@@ -1271,6 +1431,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman! My birds only fly for druids, I'm afraid, but they can feel the spirits on you, I think, because the old one hasn't stopped staring since you came near." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! My birds only fly for druids, I'm afraid, but you're welcome to sit with them, and the old one at the end might even let you scratch its neck, if you ask it nicely." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! I'm afraid my birds only fly for druids, and they'd find all that steel very heavy besides, but you're welcome to sit with them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -1299,6 +1463,8 @@ P:NPC {
         { text = "Can your birds really smell the fel on me, Silva?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do your hippogryphs mind warriors, Silva?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Are your hippogryphs curious about my beast?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why do your hippogryphs only fly for druids, Silva?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your hippogryphs sense the spirits, Silva?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1359,6 +1525,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Quieter than any I've known, and older, like grandfathers by a fire. I wonder whether the stone spirits of your mountains are as patient, or whether they grumble like your people." } },
+      choices = {
+        { text = "Patient, Bunthen, like the mountains themselves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They grumble, and they're right to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Quieter than the ones at home, friend, and older, I think, like grandfathers sitting by a fire. The wind spirits up on the Bluff are loud and restless, but here they hardly stir, and I wonder whether that's peace or only sleep." } },
+      choices = {
+        { text = "Peace, I think. Let them rest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sleep. Spirits that never stir have forgotten themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every day, friend, the wind over the mesas and the drums at night. But the Circle needs someone to keep the riders here, and a tauren who can sit still and listen to the lake is worth more to them than one who can't, so I stay, and I'm glad of company, whatever banner it flies." } },
+      choices = {
+        { text = "Your patience does you credit, Bunthen. I'm glad to share the perch.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd never leave my home for someone else's cause.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They like anyone who stands still and doesn't fuss, and warriors are good at standing still when they want to be. On the Bluff, the braves would sit with the riders before a hunt, and I think the beasts miss that, out here among the quiet druids." } },
@@ -1418,6 +1611,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
+          text = "A shaman, so far from the Bluff! My riders fly for druids alone, friend, but the spirits on you smell of home, and I'm very glad to see you." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, so far from your own lands! My riders fly for druids alone, friend, but you're welcome to share the perch and a little conversation, since I miss the sound of voices up here." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, all the way out in Moonglade! My riders fly for druids alone, friend, but you're welcome on the perch, and I'll confess they like a sturdy back to lean on." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -1431,6 +1628,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, at the perch. My riders don't trust anyone who moves that quietly, friend, so walk loud near them, for your own sake." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, so far from the cities! The riders don't care for magic on the wind, but I've always thought a mage's fire would be welcome on a cold night by the lake." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Earth Mother keep you, friend, though I wonder whether your demons let her near you at all." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! The spirits on you smell of mountain stone instead of the plains, and I find I'm curious about it." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? The riders can wait a little." },
@@ -1446,6 +1644,9 @@ P:NPC {
         { text = "Would the Earth Mother turn from a warlock, Bunthen?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do your wind riders like warriors, Bunthen?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the wind riders miss the plains, Bunthen?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you miss Thunder Bluff, Bunthen?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the spirits of Moonglade feel like, Bunthen?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "What do the spirits of Moonglade feel like, Bunthen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (2026-11-17)
+- Every class this place could plausibly meet now gets a greeting and its own conversation, including this server's Forsaken paladins and dwarf shamans where they'd be welcome. Some people here also notice when you've been thinning out the local trouble.
+
 ## 1.13.0 (2026-11-17)
 - Tyrande and Fandral are rivals: siding with one cools the other, and each greets you accordingly. No new files. Needs RPG Dialogue 0.55.0.
 

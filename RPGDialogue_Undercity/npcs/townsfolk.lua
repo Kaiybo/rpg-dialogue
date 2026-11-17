@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Unsettle is a strong word for a banker, who has seen far stranger things deposited. I only note that the Light once condemned everything in this vault as plague-touched, and now it walks in to make a deposit, which is a remarkable turn of the ledger." } },
+      choices = {
+        { text = "The Light keeps better accounts than the living ever did.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light owes me nothing, and I owe it less.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "It ought to be, by every rule I know, but the Church never formally dissolved and I refuse to close an account on a rumour. I keep it balanced, to the copper, in case someone with the proper seal ever comes asking." } },
@@ -57,6 +66,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They do, and I've learned to label them all very carefully, because a clerk who can't account for a box that hums is not much of a clerk. Keep your shards in your bags and your gold with me, and we'll both sleep well, or whatever it is we do now." },
+      },
+      choices = {
+        { text = "I'll keep my vault in order, Montague.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What I keep there is none of your business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "William Montague, of the bank of the Undercity. Whatever you leave with me stays in the vaults beneath the old city until you ask for it, and it can be reached from any bank of the Horde." },
@@ -66,6 +86,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be wanting a safe place for your spare arms, I expect, since carrying three swords into the Crusade's camps seems excessive." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I'd ask that your beast wait outside the counting room, {class}; it isn't personal, but the ledgers are very old and very dry." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The old Church of the Light kept an account here before the city fell, and I confess I've never known quite whom to close it in favour of." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll keep your valuables safe, though I'd ask you not to store anything that moves." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, keeping a vault in the Undercity. I'd ask you not to bless the ledgers, {class}, because some of them are older than the plague and quite fragile, but I confess I'm curious what the Light makes of our accounts." },
       },
       again = {
         { id = "h_again", text = "Anything further? I have accounts to balance." },
@@ -83,6 +105,8 @@ P:NPC {
         { text = "Do mages bank their reagents with you?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is my gear safer in your vaults than on my back, Mister Montague?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters bank much with you, Mister Montague?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do warlocks keep strange things in your vaults?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does a paladin unsettle you, Mister Montague?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day, Mister Montague.", next = "END" },
       },
     },
@@ -189,6 +213,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not fear, exactly. They look at you the way they look at the daylight through the grate, as though it's something good they've learned not to stare at, and I think they're wiser about it than most of the Forsaken." } },
+      choices = {
+        { text = "Then let them learn it's gentle, as I'm learning.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're right to keep their distance. The Light isn't gentle with us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They feared me for a long time, because they could smell what I was, and nothing I did would change it. Patience did it in the end, and a great deal of quiet, which I suspect is more of a prayer than anything Duesten ever taught." } },
@@ -207,6 +240,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They fear anything that doesn't smell alive, and you smell of frost and old books, which isn't much better. Sit quietly by the cages for a while and they'll learn you, because they're braver than people give them credit for." },
+      },
+      choices = {
+        { text = "I'll sit quietly and let them learn me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're beasts. They'll do as they're told.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Anya Maulray. I keep the stables for the Undercity's hunters, which is harder than it sounds when every animal I care for can smell that I'm dead." },
@@ -215,6 +259,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how lovely. The beasts are watching you, see, the way they watch each other, and not the way they watch me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The beasts down here don't mind your sort, oddly enough, because you smell of steel and sweat and not of anything worse." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, down here with my animals. Speak softly, if you would, because the beasts don't care what you pray to and they startle at loud voices." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The beasts don't like the cold you carry, so stand back a little from the cages." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of ours. The beasts went very still when you came in, and I can't tell yet whether it's the Light that calms them or frightens them." },
       },
       again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would." } },
       choices = {
@@ -228,6 +274,8 @@ P:NPC {
         { text = "Your beasts never hear me coming, Anya.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your beasts tolerate my demon, Anya?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would your beasts take to a warrior, Anya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the beasts fear mages, Anya?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do your beasts fear the Light I carry, Anya?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -330,6 +378,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'll drill you harder, because the Alliance will see your Light and call you a traitor to it, and the Scarlets will call you an abomination. Both will come at you first, so you'll need to swing faster than the rest of my students." } },
+      choices = {
+        { text = "I'll keep to your drills, Archibald, every one of them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Drills are for recruits. I'll learn on the battlefield.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Every one of you, if you ask me, because the Scourge doesn't wait for you to finish your prayer. A staff or a mace, properly held, and you'll live long enough to say amen, or whatever the Forsaken say now." } },
@@ -360,6 +417,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Because your demon will die, and you'll be left with your own hands, which don't work properly, being dead. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
+      },
+      choices = {
+        { text = "Yes, sir. I'll drill every day.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I've no time for drills, Archibald.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Archibald, weapon master of the War Quarter. I teach anyone who can pay how to use a weapon they've never held before, and I teach the dead how to hold one with fingers that don't always do what they're told." },
@@ -369,6 +437,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, at last! Most of my recruits want daggers or crossbows these days, so it does me good to see someone who'll take a proper blade seriously." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! I teach the crossbow, which the Deathguard swear by, and you'll find nothing in the Undercity that kills at range more reliably." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the weapon racks? Your lot usually leave the blades to us, though I've seen a priest swing a mace in my time, and swing it well." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll hold a blade like a spoon, I expect, so let's fix that." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, with a hammer in a dead man's grip. Your joints will fight you on the swing like everyone's, but I'm told the Light steadies the arm, and I'd like to see that for myself." },
       },
       again = { { id = "h_again", text = "What else? Be quick; I've recruits at the target butts." } },
       choices = {
@@ -383,6 +453,8 @@ P:NPC {
         { text = "Is a staff worth learning properly, Archibald?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which weapon suits a warrior best, weapon master?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is a crossbow worth learning over a bow, weapon master?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why should a warlock learn a blade, Archibald?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you drill a paladin like any other soldier, Archibald?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -483,6 +555,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd forge it for anyone who pays and wears it properly. But you'll want it heavy, I think, because I've heard the Light burns your kind from the inside, and good iron is the one thing that won't burn along with you." } },
+      choices = {
+        { text = "Make it heavy. I mean to stand in front of others.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Make it light. I'd rather be quick than noble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "If someone asked me to, I suppose I would, though I don't know what I'd fill it with now. The work was the same as any other, and that's the part I miss, not the prayers, though I'll admit the smell of the incense still comes back to me at the forge some nights." } },
@@ -513,6 +594,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Anyone can, if they learn that you can't hurry iron, and mages are the worst at hurrying everything. Fire from a spell is too hot and too quick, so use the coal like the rest of us and let the metal take its time." },
+      },
+      choices = {
+        { text = "I'll do it your way, Van Brunt.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My fire's hotter. I'll find a way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "James Van Brunt. I teach smithing in the War Quarter, and I make armour for the Deathguard. The work is the same as it ever was; only the smith is different." },
@@ -522,6 +614,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Your armour's taken a beating, {class}, and I can hear the rivets rattling from here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be wanting mail one day, {class}, and something quiet enough to stalk in, and I can't promise you both." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I made censers for the Church once, before the plague, and I've not made one since. I'd half forgotten how they were shaped." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want to heat the forge with a spell, I suppose, and you'll ruin the iron." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I forged plate for knights of Lordaeron once, when there was a Lordaeron, and I never thought I'd see that kind of steel worn by one of the dead." },
       },
       again = { { id = "h_again", text = "What else? The iron's cooling." } },
       choices = {
@@ -536,6 +630,8 @@ P:NPC {
         { text = "Do warlocks ask you for anything strange, Van Brunt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What armour should a warrior trust, Van Brunt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can you make mail light enough for a hunter, Van Brunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a mage learn smithing, Van Brunt?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would you forge plate for a Forsaken paladin, Van Brunt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -634,6 +730,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "None that I've found, but I'd not say no to you lighting the way. The deep tunnels under the old city haven't been walked since the plague came through, and I'd much rather a holy glow found whatever's down there than my lantern did." } },
+      choices = {
+        { text = "Whatever's down there, the Light should find it first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let whatever's down there stay buried. Some things should.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The old kings buried their dead under Lordaeron, and when we dig we find them, nicely laid out and not at all mindless, thank goodness. I put the stones back where I found them and say sorry, which is as near to a prayer as a miner gets." } },
@@ -664,6 +769,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I asked a warlock that once, and he looked at me as if I'd buried him a second time. A pity, because there's a world of ore under the old city, and nobody's dug it since King Terenas was alive." },
+      },
+      choices = {
+        { text = "I'll dig with my own hands, Killian.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If my demon digs, I keep the ore.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brom Killian, and I teach mining. It's a fitting trade for the Forsaken, I always say, since we've already done the hard part of being put in the ground." },
@@ -672,6 +788,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've got the shoulders for a pick, {class}, and I've always said a good miner and a good soldier are the same animal underneath." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be up in the hills more than most, so keep an eye out for copper in the rocks, because nobody else bothers to look." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll want to say a word over the tunnels, I expect, since half of them were crypts before they were mines." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, in my mines! Your demon could dig, could it? No? Pity." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin down here in the dark! Bring a bit of that Light into the tunnels with you and you'll save me a fortune in candles, though I suppose it stings a little to do it." },
       },
       again = { { id = "h_again", text = "Something else? Ask it, then; the rocks will still be there when we're done." } },
       choices = {
@@ -685,6 +803,8 @@ P:NPC {
         { text = "Can magic find ore faster than a pick, Killian?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is mining much use to a warrior, Killian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where do the hills hide their ore, Killian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Could a demon dig your tunnels, Killian?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does a paladin's Light have any use in the mines, Brom?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -786,6 +906,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Contradictory, which is my favourite kind of thing. Holy power and grave dust bound in the same vessel ought to cancel each other out, and if they don't in you, then I'd love to know why, purely for the sake of the craft." } },
+      choices = {
+        { text = "Faith binds what shouldn't bind. That's the Light's work.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My will binds it, not the Light. Credit where it's due.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not that I can measure, and I have measured, with every rod I own. The soldiers swear by it all the same, and I've learned that a soldier who believes his sword is blessed fights as though it were, which is an enchantment of a sort." } },
@@ -825,6 +954,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in the Magic Quarter? Mind your elbows, {class}, because a dropped essence is a week of work gone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll come across plenty of things worth disenchanting on your travels, so do bring them to someone who knows what to do with them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in the Magic Quarter. I enchant things, and you bless them, and I've always wondered which of us does more good to a sword." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, in the Magic Quarter. I've never once disenchanted anything the Light had touched and the dead had carried, and I suspect the essence would be very peculiar indeed." },
       },
       again = { { id = "h_again", text = "Something else? Ask, but quietly; the rods hum when people shout." } },
       choices = {
@@ -839,6 +969,7 @@ P:NPC {
         { text = "Could enchanting make my blades quieter, Lavinia?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could enchanting make my weapon strike harder, Lavinia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can enchanting do anything for a hunter, Lavinia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What would a paladin's essence look like to an enchanter?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -947,6 +1078,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I think the Light is a habit, and habits come with old friends attached. If a knight of the Crusade called you by your old name at the Scarlet Monastery, I'd want to know what you'd do, and so would the Dark Lady." } },
+      choices = {
+        { text = "I'd answer to the Dark Lady first, whatever name they called.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd answer to my own conscience. Nobody else holds it now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I trust anyone who serves the Dark Lady and keeps their mouth shut, and a priest hears more secrets than any rogue. If you ever hear something in confession that she ought to know, you'll find me here, and I won't ask how you came by it." } },
@@ -986,6 +1126,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You're loud, {class}, and you'll never be anything else, but loud has its uses when someone needs the guards looking the wrong way." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to wait and how to watch, which is more than half my students can manage." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I've known priests who made fine liars, because people tell them everything, and I wonder which kind you are." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The last of your order I saw in Lordaeron were burning our dead in the streets, so forgive me if I watch your hands rather than your face." },
       },
       again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere." } },
       choices = {
@@ -1000,6 +1141,7 @@ P:NPC {
         { text = "Have your rogues any use for a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your rogues ever need a warrior, Carolyn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Could a hunter learn anything from your rogues, Carolyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you think I'm loyal to the Silver Hand still, Carolyn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1092,6 +1234,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd say yes and take your coin, but I suspect the Light would sulk. Still, the Scourge doesn't fight fair, and a holy hammer that leaves a little something behind in the wound would be a lovely thing to see." } },
+      choices = {
+        { text = "The Light needs no poison. I fight cleanly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Against the Scourge, any edge is a fair one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "More often than you'd think, because a shadow priest's spells and a good poison share a certain philosophy about the body. I'd never sell to one who meant to use it on the Dark Lady's people, of course, and I've a very good memory for faces." } },
@@ -1131,6 +1282,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll not want poisons yourself, I expect, but you'll want to know what's on the blades pointed at you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Now there's a customer who understands venom, since half the beasts you hunt carry something interesting in their glands." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! How lovely. You heal, and I sell things that make healing necessary, so I'd say we're natural friends." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Oh, you'll not want my stock, I expect, since poison on a holy hammer would be terribly bad manners, but do look around, because I've never had a customer quite like you." },
       },
       again = { { id = "h_again", text = "Something else? Take your time; poisons are patient things." } },
       choices = {
@@ -1145,6 +1297,7 @@ P:NPC {
         { text = "Do your poisons work on demons, Graves?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What poisons should a warrior watch for, Graves?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you make of the venom my quarry carries, Graves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Would a paladin have any use for your poisons, Ezekiel?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1247,6 +1400,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Foolish, no, but careless, perhaps, if you spend yourself on everyone else and forget you can't feel how badly you're hurt. The dead are terrible patients, {class}, and paladins, living or dead, are worse." } },
+      choices = {
+        { text = "Others come first. I'll bear the burn for them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll mend myself first. A fallen healer helps nobody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Hardly ever, because they think dying once makes them clever about it. A priest's word carries further than a bandage, so if you tell them to come see me, I'd be grateful, and I'll do the stitching." } },
@@ -1277,6 +1439,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because you're the first one the enemy goes for, since you're soft and you're throwing fire at them, and you'll run out of mana long before they run out of arrows. Learn linen bandages first, then wool, and do it properly, because sloppy work kills." },
+      },
+      choices = {
+        { text = "I'll learn it properly, Mary.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll learn just enough to get by.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mary Edras. I teach first aid, which most of the dead think they don't need, until they find an arrow in their shoulder that's been there since last week. Cloth, clean hands and patience will save your life, or what passes for it." },
@@ -1286,6 +1459,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit down and let me look at you, because you lot carry more wounds than you know about and boast about the ones you do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts get hurt as often as you do, I imagine, and I hope you're better at noticing their wounds than your own." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because you'll know that a Forsaken who can't feel the wound will bleed out on his feet, and I'd like your help reminding them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Learn to bandage, because your spells won't help you once you've run dry." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll be one of the few Forsaken who can mend a wound without my linen, though I'd wager the Light hurts going in, so don't be too proud to take a bandage now and again." },
       },
       again = { { id = "h_again", text = "What else? And sit still while you ask." } },
       choices = {
@@ -1300,6 +1475,8 @@ P:NPC {
         { text = "Life Tap leaves me hollow, Edras. Can you help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do warriors get wrong about their wounds, Mary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I tend my beast's wounds before my own, Mary?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why should a mage learn first aid, Mary?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Is it foolish to heal with the Light when it burns me?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1398,6 +1575,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I doubt it, because the apothecaries put that green in on purpose and they'd take it badly if anyone cleaned it out. Besides, a canal is patient, like me, and I'd rather wait for it to clear itself than watch a paladin burn out trying." } },
+      choices = {
+        { text = "If it can be cleansed, it should be, whatever the apothecaries say.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The canals serve the Dark Lady. I'll leave them alone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "It's the nearest thing I've got, sitting still and hoping for something from below that you can't see. My old priest used to say patience is the first gift, and I've had a great deal of time to practise it since he died." } },
@@ -1428,6 +1614,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Anyone can, if they've the patience, and the dead have plenty of that. The canals here are green with the apothecaries' leavings, so practise here and fish somewhere cleaner, and send the demon away first, because the fish can tell." },
+      },
+      choices = {
+        { text = "I'll send it away and sit patiently.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demon stays. The fish can be frightened.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Armand Cromwell, and I teach fishing, which the dead are naturally good at. We don't get cold, we don't get bored, and we don't need to go home for supper, so we can sit by the water forever." },
@@ -1437,6 +1634,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, at the canal's edge! Patience isn't your trade, I'd wager, but fishing might teach you a little of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll know all about waiting for your quarry, so you're halfway to being a fisherman already." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You won't find much to bless in these canals, I'm afraid, though I've been trying to bless them myself for years with a hook and a lot of patience." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fishing in the canals! Don't eat what you catch unless you're dead, and even then I'd think twice." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, fishing in a canal of green poison? I've seen everything now, though I'll admit I'm curious whether the Light would clean the water or only make the fish glow." },
       },
       again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing." } },
       choices = {
@@ -1450,6 +1649,8 @@ P:NPC {
         { text = "Could I freeze the canal and fish through the ice?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can fishing teach a warrior, Armand?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is fishing much different from hunting, Armand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a warlock learn to fish, Cromwell?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could the Light ever cleanse these canals, Armand?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

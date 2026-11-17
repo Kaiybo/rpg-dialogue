@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because I've seen too many expeditions go down there an' no' come back, an' the things they brought back weren't worth the graves. The crater's full o' strange things, an' strange things make folk sick, so I'll sell clean food an' buy nothin', an' ye can call me a coward if ye like." } },
+      choices = {
+        { text = "That's wisdom, not cowardice, Nergal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're missing out on good coin, old man.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because everything down there's either trying to eat ye or glowing with something, and I've seen what crater meat did to a guard's belly. A warrior needs bread and salt pork and a steady stomach when the devilsaurs come, not a gutful of who knows what." } },
@@ -111,6 +120,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, is it? I'll sell ye bread and boiled water same as anyone, but I'll not buy anythin' ye've dragged up out o' the crater, an' I'll ask ye tae keep yer wee beastie off the counter." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not find me buying anything ye've charmed out o' that crater, so don't ask. Bread from Gadgetzan and water I've boiled twice, that's all I trust." },
         { id = "h_default", key = true,
           text = "Nergal, and I keep the stores for the Refuge. Bread, meat, water and ammunition, all carried up here by people braver than me, so the expedition doesn't have to eat what lives in the crater." },
@@ -146,6 +157,7 @@ P:NPC {
         { text = "Should the Refuge be fortified, or abandoned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why won't you eat anything that grows in the crater, Nergal?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Won't you even buy devilsaur meat from a hunter, Nergal?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why won't you buy anything from the crater, Nergal?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -199,6 +211,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
+      choices = {
+        { text = "Fair terms. My imp will sit still.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pay in advance? Do you trust anyone, Gryfe?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The pterrordax try it every week, and every week my flyers leave them flapping behind, because I only buy the fast ones. Still, I'd sleep easier knowing a warrior was riding along who could swing at anything that got close." } },
@@ -275,6 +296,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, eh? I'll fly you anywhere, Horde or Alliance, demon or no demon, but if your imp sets my beast's tail on fire, the price goes up." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! My beasts don't love flying near the volcano, so if you've any pull with the winds round Fire Plume Ridge, put in a good word for them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Most of my passengers start praying the moment we pass Fire Plume Ridge, so you'll fit right in, and at least you'll know the words." },
         { id = "h_default", key = true,
@@ -307,6 +330,7 @@ P:NPC {
         { text = "Do your passengers really pray on the flight, Gryfe?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have your flyers ever been attacked over the crater, Gryfe?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the crater beasts ever threaten your flyers, Gryfe?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Has an imp ever set one of your beasts on fire, Gryfe?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },

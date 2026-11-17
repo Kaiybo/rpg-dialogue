@@ -24,6 +24,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think a dwarf should stick to stone and leave spirits to orcs. But you're polite, so I'll overlook it." } },
+      choices = {
+        { text = "I'll respect your land and your vines, Pa.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your opinions aren't the only ones worth having.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I'm worried about everything that comes near the vineyard, since the Defias came and Goldtooth's lot went through the kobold mines. A mage could do good out here, I'll grant you, but I've seen one fire take a whole row, and I'm not seeing it again." } },
+      choices = {
+        { text = "I'll be careful, Pa. Your vines are safe from me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little fire might clear out the Defias quicker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Pa.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Because they called my father a thief and he went to his grave with it, and a river doesn't change what was said. You can preach about sharing all you like, but the vines are mine and so is the grudge." } },
@@ -98,6 +116,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on Maclure land. Good, because there are folk on the Stonefield side who'd do with a fright." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you've come for the boars, they're in the low rows, rooting up my vines like they own them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on Maclure land, and I'll ask you plain whether the Stonefields sent you. If they didn't, you're welcome to look at the vines." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Keep your sparks away from my vines, or I'll have Joshua run you off the farm with a pitchfork." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, on my land. Well, I've an opinion on that, and every opinion worth having is mine. Mind the vines." },
       },
       again = {
         { id = "h_again", text = "What else? I've vines to see to before dark." },
@@ -115,6 +135,8 @@ P:NPC {
         { text = "Would you ever make peace with the Stonefields, Pa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have the Defias been through your vineyard, Pa Maclure?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Your vines and their fields drink the same river. Why quarrel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Are you worried a mage would harm the vineyard, Pa?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do you think of shamans, Pa Maclure?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Mr. Maclure.", next = "END" },
       },
     },
@@ -223,6 +245,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "He always does. He has opinions about everything, especially the Stonefields. I'd rather pour wine and keep the peace." } },
+      choices = {
+        { text = "Peace is worth pouring for, Joshua.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your father's right to grumble. The Stonefields cause trouble.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and warlocks are well down the list. I judge a customer by their coin and their manners, and you've both, so far." } },
+      choices = {
+        { text = "Then I'll keep my manners, Joshua.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Manners are cheap. Coin's what you really want.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Joshua.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Pa would say blood and stubbornness, but I'd say pruning, because a vine left to itself grows wood instead of fruit. It seems cruel while you're cutting it back, but the harvest says otherwise." } },
@@ -305,6 +345,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want something strong, I expect. I've a red that'll stand up to anything you've fought." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after something for a long night in a cold camp, I've just the bottle." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! Here, have a taste, because I've never poured for one of your people and I'd love to know what you make of it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Pa won't like it, but Pa doesn't like anybody, so you're in good company. What can I sell you?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have a taste of the wine. Pa's grumbling, but don't mind him. Your spirits might like it." },
       },
       again = {
         { id = "h_again", text = "Anything else? Pa's watching, so I'd best look busy." },
@@ -322,6 +364,8 @@ P:NPC {
         { text = "Does your family ever pray together, Joshua?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your family safe out here, Joshua?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes a vine give good grapes, besides the weather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does your family distrust warlocks, Joshua?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does your father always grumble so much, Joshua?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },
     },

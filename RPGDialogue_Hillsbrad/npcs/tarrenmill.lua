@@ -83,6 +83,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Soldiers who don't fall, first, and soldiers who fall and rise again, second. The Deathguard who die in Hillsbrad's fields are carried back to the Mill, and I would rather a priest mend them in the evening than Lydon stitch them in the morning, for he enjoys it far too much." } },
+      choices = {
+        { text = "I'll mend your soldiers, High Executor. That's the work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll heal who I choose. Your line is your affair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -112,6 +121,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who understands what they cost." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Good, because Southshore's farms are not taken by stealth alone, and when the humans finally form a line, I want someone who can break it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Southshore's patrols keep to the shore road, and I need someone who can follow them unseen and who doesn't mind what happens at the end of the trail." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Light abandoned Lordaeron's dead, so I care very little which god or shadow you pray to, so long as my soldiers stand back up after you're done with them." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 40 } }, text = "The farms below the Mill are emptier than they were, and Southshore's grain carts have started coming back half full. Your work, I'm told. Keep at it, for arithmetic favours the patient." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -137,6 +148,7 @@ P:NPC {
         { text = "Do you trust Lord Varimathras, High Executor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Where would you have me break the human line, High Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should I track for you, High Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do you need from a priest at Tarren Mill, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll take my leave.", next = "END" },
       },
     },
@@ -328,6 +340,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Anything is worth feeling, when you've felt nothing for long enough. I stand over these cauldrons hoping for a flicker of anything, and you get a fire every time you pray, so I think you should be grateful, even if it hurts." } },
+      choices = {
+        { text = "I am grateful. The burning means I'm still someone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Grateful? It's a curse, Lydon. Don't envy it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -411,6 +432,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't touch the bottles, rogue, unless you'd like to find out what's in them the hard way, and some of them are designed to be found out the hard way." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want to know whether I've a use for your shards, and the answer is no, since I've enough trouble keeping Umpi out of my reagents." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your beast away from the table, because most of what's on it would kill it, and the rest would make it wish it had died." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, standing in my workshop. You must feel something when the Light comes, and I envy that, because the only things I still feel are my work and Umpi." },
       },
       again = {
         { id = "h_again", text = "What else? Not that it matters." },
@@ -433,6 +455,7 @@ P:NPC {
         { text = "Do you make poisons for rogues too, Lydon?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is Umpi safe around my demon, Lydon?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you test your brews on beasts, Lydon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is the Light worth feeling, Lydon, if all it does is burn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -570,6 +593,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Most of what's left of us is habit, so I don't see why the Light should be any different. I polish the bar and you pray, and both of us do it because it was done before, and maybe because doing it keeps us from becoming the mindless things outside." } },
+      choices = {
+        { text = "It's more than habit. The Light answers back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Habit, yes. It keeps me myself, and that's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The trees still grow, if that's what you mean, though they've grown strange since the plague, and the birds don't nest in them. I've no strong feelings on it myself, but the bats seem to like it." } },
@@ -641,6 +673,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want something warm, I suppose, though warmth is wasted on most of my guests, and I've stopped heating the kettle out of habit." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the axe by the door, if you would, because the last one who brought his into the common room took a chunk out of my good table during a nightmare." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in Tarren Mill. Most of the living find it hard to stay here long, so I'll not take offense if you don't take a room." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, at my bar. I polished it today, and you're welcome to lean on it, though if you start glowing I'll ask you to lean somewhere less shiny." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all night, and every night after it." },
@@ -659,6 +692,7 @@ P:NPC {
         { text = "Don't the Forsaken miss warmth, Shay?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do warriors have nightmares at your inn, Shay?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Does the land around Tarren Mill still live?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Is the Light just another habit for the dead, Shay?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just passing through.", next = "END" },
       },
     },

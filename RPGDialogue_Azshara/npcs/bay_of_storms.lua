@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "What I would have of anyone: that you go where I send you and break what I tell you to break. The servants of Ragnaros burn in the Molten Core beneath Blackrock, and your Light will not quench them, but your hammer may, if your faith is as stubborn as the sea." } },
+      choices = {
+        { text = "I'll break them, Duke, but I serve the Light, not you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Command me, then. Fire's servants must be put down.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The servants of fire, stone and wind do not reason, mortal, so they must be broken, and a warrior breaks things willingly. Every elemental you extinguish weakens the lords who command them, and the Waterlords remember who served." } },
@@ -111,6 +120,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. You bring the Light to my island, mortal, and the tide does not care for it, but it cares even less for fire, and I have heard your kind can be relentless." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. You strike as a wave strikes, mortal, all at once and without subtlety, and I have broken many such waves on this rock." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -156,6 +167,7 @@ P:NPC {
         { text = "How could a priest serve the Waterlords, Duke?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What use is a warrior to the Waterlords?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the Waterlords value a hunter's patience?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What would the Waterlords have of a paladin, Duke?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll take my leave, Duke.", next = "END" },
       },
     },
@@ -336,6 +348,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some do, the small ones, the ones that remember being burned. The greater ones only grow curious, and curiosity is worse, because it makes them patient. Your Light is a fine weapon, paladin, but it is not a shield against what you cannot see, and I see a great deal." } },
+      choices = {
+        { text = "Then lend me your eyes, and I'll lend you my hammer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I've faced demons before without a hunter's tricks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "He trusts someone who can see, and he swings where he's told, and he doesn't argue. My hounds smell the Legion's servants long before your eyes would find them, and what Galvan forges for you will put an edge on your steel that demons feel." } },
@@ -412,6 +433,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. You glow like a lamp to my eyes, and the things at the tide line can see it too, so stand behind me if you'd rather they didn't come for you first." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. You'd swing your blade at a demon if you saw one, I suppose, and that's the trouble, mortal, because you won't see one until it's already behind you." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, listening to rocks and rivers. You'd hear more if you listened to what lies under them, because Azshara is thick with the Legion's leavings and your spirits are too polite to mention it." },
@@ -456,6 +479,7 @@ P:NPC {
         { text = "Can a priest's shadow touch the demons you hunt, Loramus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does a warrior fight what he can't see?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What do you see in Azshara's woods that I can't?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do demons fear a paladin's Light, Loramus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -628,6 +652,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the hydra that slew the one's sons was quiet too, until it was not. A small thing that strikes from the dark could strike the hydra where it sleeps, and the one would not care how it died, only that it did." } },
+      choices = {
+        { text = "I'll strike it in its sleep, and gladly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face it awake. Your sons deserve an honest vengeance.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The makrura pray, and the one answers, and that is what a god is, small thing. The one does not ask whether your god is real; the one asks only whether it would have saved the one's sons from the hydra, and it did not, and so the one has no use for it." } },
+      choices = {
+        { text = "A god isn't measured by favours. Faith asks nothing back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll do what no god did, and avenge your sons.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The one thinks so, if the warrior is foolish enough to stand before it and strong enough to keep standing. The one's sons were strong and stood before it, and still the deep took them, so the little warrior must be stronger, or cleverer." } },
@@ -705,6 +747,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A small quiet thing slips into the temple of the one. The one sees you anyway, small thing, but the one admires the effort." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A small thing in shining shell comes to the temple of the one. Your god is bright, small one, but is it near, and does it answer, as the one answers the deep folk?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A small one with a sword stands before Arkkoroc. The beast that killed the one's sons was greater than any sword, little warrior, and the one's sons were not small." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -738,6 +784,8 @@ P:NPC {
         { text = "Could a warrior kill the beast that slew your sons?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the deep folk hunt as I do, Arkkoroc?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Would the deep folk welcome a druid in the water?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you truly think yourself a god, Arkkoroc?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why does Arkkoroc admire a sneaking small thing?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },
     },

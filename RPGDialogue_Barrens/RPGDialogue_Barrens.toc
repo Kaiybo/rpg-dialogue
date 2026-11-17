@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: The Barrens |cff8a8a8a1.13.0|r
+## Title: RPG Dialogue: The Barrens |cff8a8a8a1.14.0|r
 ## Notes: The Crossroads: Thork and Sergra holding the road, a grieving orc watching the horizon, and the oases going bad.
 ## Author: RPG Dialogue
-## Version: 1.13.0
+## Version: 1.14.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.barrens

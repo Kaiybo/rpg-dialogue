@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "No. They'd see one of the dead wearing their Light and decide you stole it, and the peace is thin enough without that. Keep to the Horde's side of the marsh until I find who burned that inn." } },
+      choices = {
+        { text = "I'll keep to our side. The Warchief's peace matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them think what they like. I won't hide.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "If Thrall ordered it I'd march, and I'd do it well, but he hasn't, and I won't let some inn-burner give the order in his place. A warrior who swings at whoever he's told to hate is just a weapon in someone else's hand." } },
@@ -74,6 +83,24 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Not if I can help it. But the Grimtotem want a war, and some of the grunts here want one too, because they never stopped fighting in their heads, so I need someone in Brackenwall who can calm them as well as heal them." } },
+      choices = {
+        { text = "I'll calm them. The Warchief's peace is worth keeping.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them have their anger. The humans earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Fear is the wrong word. Their Lady could have burned Brackenwall to the mud any night she liked, and she hasn't, which tells me more about her than any treaty. Still, I'd like to know what Archmage Tervosh keeps in that tower of his." } },
+      choices = {
+        { text = "I'll respect their peace. They've kept their word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find out what's in that tower, quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -102,6 +129,10 @@ P:NPC {
           text = "A tauren druid in Brackenwall, good. You'll know better than I do what the Earth Mother makes of tauren who'd start a war in her name." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the truth about that inn won't be found by shouting at the gates of Theramore, and you know how to listen where others stomp." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Thrall forgives the old ways in those who serve him well, and I'll do the same, but keep your demons away from the human road while the inn still smokes." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Good, because if this turns ugly with Theramore there'll be wounded on both sides of the marsh, and I'd rather you were here than there." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore's full of your kind, wearing blue and doing the Lady's bidding, and I'd like someone on our side who knows what they're capable of." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "Word is the Grimtotem in the marsh are a good deal fewer than they were, and they're not happy about it. Neither am I, though only because I'd have liked to watch." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The humans of Theramore have paladins too, and they'd look at you and see something worse than an orc." },
       },
       again = {
         { id = "h_again", text = "What else? Make it useful." },
@@ -119,11 +150,14 @@ P:NPC {
         { text = "Thrall's peace with the humans sits badly with me.", next = "x_orc", when = { race = "Orc" } },
         { text = "The spirits of this marsh are angry, Krog.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "The Forsaken would gladly see Theramore burn.", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "Do you expect the fighting to start again, Krog?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What do you fear from Theramore's mages, Krog?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Where would you have me look for the truth, Krog?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why keep my demons off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you march on Theramore if the Warchief ordered it, Krog?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What tracks did you find near the Shady Rest, Krog?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Would Theramore's humans trust a Forsaken paladin, Krog?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Blame it on the humans and save us the trouble.", next = "END", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
@@ -291,6 +325,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because their paladins are sworn to put the dead back in the ground, and you walk about with their Light in your hands. I'm glad you're ours, but I'd keep you well away from the marsh road, because a paper peace burns quickly." } },
+      choices = {
+        { text = "I'll keep off their road and keep the peace.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If their paladins want a fight, they'll get one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every soldier drills, so it means nothing, unless it means something, and that's the whole of my trade. Proudmoore's guard is disciplined and well fed and very close to my doorstep, and a peace on paper doesn't make a sword any shorter." } },
@@ -367,6 +410,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore is full of your kind, Kirin Tor refugees with long memories, so I'd like to hear how you think one of them thinks." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp could slip under Theramore's walls easier than any of my spies, and I've thought about it more than once, I'll admit." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in the marsh. Your people know this swamp better than mine, I'll grant you, and the Stonemaul trust you more than they trust me." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Theramore would count you a threat twice over, and for once I think they'd be right." },
       },
       again = {
         { id = "h_again", text = "Anything else? Lower your voice when you ask it." },
@@ -386,6 +430,7 @@ P:NPC {
         { text = "Do Theramore's mages worry you, Nazeer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you really send an imp to spy on Theramore, Nazeer?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Should Brackenwall worry about Theramore's soldiers drilling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why would Theramore count me a threat, Nazeer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll keep my ears open.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },

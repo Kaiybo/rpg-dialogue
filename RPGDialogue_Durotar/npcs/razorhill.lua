@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'll take anyone's report if it's accurate. The Silver Hand guarded the camps my people were penned in, and I swore I'd never take an order from that glow again. I won't have to, since you take orders from me. Keep it that way." } },
+      choices = {
+        { text = "I take your orders, commander. For the Horde.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I follow the Light first, commander, then your orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "At the barracks door when the patrols come back, and nowhere else, because a priest who wanders off to pray is a priest I can't use. The Kul Tirans hit hard and fast, so be there when my grunts come in, and you'll have my respect." } },
@@ -76,6 +85,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Razor Hill. Nazgrel taught me to judge a soldier by his reports, not his glow, so report, and we'll see what you are." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my grunts come back from Tiragarde with Kul Tiran arrows in them, and I've no use for a grunt who can't stand." },
         { id = "h_default", key = true,
           text = "Gar'Thok, commander of Razor Hill. I served under Nazgrel before this. Now I hold Durotar's crossroads, and I hold them well." },
@@ -91,6 +101,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, posted to Razor Hill. Nazgrel never had much use for spellcasters, but I've seen what fire does to a Kul Tiran shield wall." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kul Tiras", min = 30 } }, text = "The Kul Tiras marines at Tiragarde Keep are short of men, my scouts tell me, and I know who to thank for it. Keep pressing them, and they'll be sailing home before winter." },
       },
       choices = {
         { text = "Where does Razor Hill need a priest most, Commander?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -103,6 +114,7 @@ P:NPC {
         { text = "Do the Darkspear stand your watch too?", next = "troll", when = { race = "Troll" } },
         { text = "Where could a mage be useful to Razor Hill?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you still give orders to a warlock, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you take a Forsaken paladin's report, commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Lok'tar, commander.", next = "END", fx = { affinity = 1, standing = { razor_hill = 1 } } },
       },
       again = {
@@ -186,6 +198,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I suspect everyone; it keeps me alive. The Burning Blade wear Horde colours and serve demons, and the Silver Hand once wore holy colours and kept orcs in cages. Colours tell me nothing. Deeds do, so go and do some." } },
+      choices = {
+        { text = "Then judge me by my deeds. I'll give you plenty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Suspect me all you like. I'll not beg for trust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Patiently, the same way I do. They hide among us and smile, so you'll mend some of them without knowing it, but sooner or later one will ask you for a prayer you won't give, and then you'll know who to send to me." } },
@@ -246,6 +267,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man with the Light in his hands. I hunt cultists who smile and hide what they serve, so forgive me for wanting a long look at you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade fear the light more than they fear axes, and the shadow they don't fear at all, so I'm curious which you carry." },
         { id = "h_default", key = true,
           text = "I'm Orgnil Soulscar. The Burning Blade crawl through Durotar like lice in a pelt, and I find them, and I end them." },
@@ -258,6 +280,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Hmph, a mage. At least your fire comes from the arcane and not the Legion, which already makes you cleaner than the cultists I hunt." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Burning Blade run when they see an axe coming, which is the one thing about them I like." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Burning Blade keep imps and worse at their heels, and someone who can track a beast can track those too." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Every one of them you put down is one less traitor whispering to the Legion." },
       },
       choices = {
         { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -269,6 +292,7 @@ P:NPC {
         { text = "Would a mage be any use against the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Where do the Burning Blade hide, Orgnil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a hunter track a demon, Orgnil?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you suspect me, Orgnil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll hunt them with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
       again = {
@@ -333,6 +357,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The old ones mind. They saw that light on the Silver Hand's knights at the camps and they don't forget. The young ones only stare. Pay for your bed, keep the glow down after dark, and nobody will start anything in my inn." } },
+      choices = {
+        { text = "I'll keep it down. They've reason to remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll not hide what I am for anyone's comfort.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "More than you'd think, mostly scorpid stings and quilboar cuts they're too proud to mention. I keep a corner by the fire for the worst of them, so if you see someone shaking in it, they're yours and not mine." } },
@@ -402,8 +435,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Trolls from Sen'jin, mostly, on their way to Orgrimmar, and the odd Forsaken with a book under one arm. They're quiet guests, which I like, but one of them froze the ale barrel to keep it cool, and I still haven't decided whether to thank him." },
+      },
+      choices = {
+        { text = "Your inn, your rules. My spells stay outside.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If your ale wants freezing, I'll freeze it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. I've a bed, ale and a roof against the sun, and I don't suppose you need any of them, but the rate's the same." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my inn. The beds are clean, and the ale isn't holy, but it'll do." },
         { id = "h_default", key = true,
           text = "I'm Grosk, the innkeeper. I've a bed, ale and a roof against the sun, and everything outside is rocks and scorpids." },
@@ -417,6 +462,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, warlock, but the imp sleeps outside. The last one set fire to the straw just to see what would happen." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a thirsty one by the look of you. Sit, and I'll pour something before you tell me how many quilboar you killed today." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want a bed that isn't on fire, I suppose, so keep your spells outside." },
       },
       choices = {
         { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -426,6 +472,8 @@ P:NPC {
         { text = "Who troubles Razor Hill most, Grosk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do hunters bring you to cook, Grosk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do many warlocks stop at the inn?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do many mages stay at your inn, Grosk?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the grunts here mind a Forsaken paladin, Grosk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },
@@ -459,6 +507,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "That the Light used to come to Durotar's people only on the armour of their jailers, and now it walks the roads with a dead man who fights for the Horde. I'd write that the world turns strange, and that I don't mind it as much as I thought." } },
+      choices = {
+        { text = "Write that I walk with the Horde. That's true.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Write what you like. I'll not be your story.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The fire, mostly, and the sky when it's clear, though I'd not call it praying where a shaman could hear. My journal's full of places I was glad to wake up in, and I suppose writing them down is the nearest I get to giving thanks." } },
@@ -507,8 +564,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. The Warchief has made it plain that a warlock serves the Horde or answers to it, and I write that in my journal beside every warlock I meet, just so I remember." },
+      },
+      choices = {
+        { text = "Write that I serve the Horde, Brakk.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Write what you like. My power is my own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin walking Durotar. My journal will want to hear about you, because I've never written anything like you before." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on the road. Sit by the fire, then, and tell me what you pray to out here, because I've always wondered what holy folk say when there's nobody listening." },
         { id = "h_default", key = true,
           text = "I'm Brakk. I walk Durotar and camp wherever I stop, and my journal says more about it than I do." },
@@ -520,6 +589,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Ha, a rogue! I wrote about one in my journal once, though I never saw her face, only my purse leaving my belt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the road! You'll be warm at night, at least, and I'd trade half my journal for a fire that lit itself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've the look of somebody who'd make a good page in my journal, all scars and stories." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock at my fire. Sit, but tell your demon to keep to the dark side of it." },
       },
       choices = {
         { text = "What do you pray to on the road, Brakk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -530,6 +600,8 @@ P:NPC {
         { text = "Did you ever get your purse back?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you ever wish you could conjure your own fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you write about me, Brakk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Have you met many warlocks on the road, Brakk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What would your journal say about me, Brakk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Lok'tar, Brakk.", next = "END" },
       },
       again = {

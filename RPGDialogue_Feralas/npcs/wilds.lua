@@ -15,6 +15,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I hope so, friend, because a world where the dead cannae taste ale is a sad world indeed. The Light's still in ye, which surprises me, an' if the Light's still in ye then maybe the taste is too, an' I'd be glad tae find out." } },
+      choices = {
+        { text = "Duty first, Gregan. Ale can wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour me one. Duty can wait an hour.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strong enough to make a warrior forget the ogre that hit him, aye, and nearly strong enough to forget the ogre altogether. The fruit out here ferments wild, and I've had a barrel blow its own lid off, which is the mark of a proper brew." } },
@@ -72,6 +81,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Mostly, aye, though the trees here fruit so heavy it'd be a sin tae leave it rotting on the ground. The trouble's the yetis and the ogres, who take what they want an' trample the rest, so I like tae think I'm doin' the forest a favour." } },
+      choices = {
+        { text = "Take what's fallen, and leave the trees to bear again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If the ogres take it anyway, you may as well take it first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gregan Brewspewer, brewer by trade and by calling! I came all the way to Feralas because the fruit and grain out here grow wilder than anything back in Dun Morogh, and wild makes for a grand ale." },
@@ -85,12 +103,14 @@ P:NPC {
           text = "A mage! Could ye chill a barrel for me? The heat in these woods spoils a good brew before it's half done, and I'd give my right arm for a cold cellar." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light, out in the jungle! Now there's a blessing I'll take, friend, because a brewer needs watching over his kegs as much as any soldier needs it over his shield." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin in the jungle! Put that hammer down a moment and have a mug, because even the Silver Hand stopped for an ale now and then, or so my grandda claimed." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Ye'll want a strong ale after a day of knocking ogres about, and I've one brewing that'd make a Gordunni weep." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Ye'll know where the wild fruit grows, then, because the beasts always find it first and leave me the pits." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now don't ye be tellin' me the fruit out here belongs to the forest, because I've asked the forest, and it didnae object." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin in the jungle, an' a Forsaken one at that! Put down that hammer a moment an' have a mug, though I've no idea whether ye can taste it." },
       },
       again = { { id = "h_again", text = "What else, friend? The mash won't stir itself." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
       choices = {
@@ -104,9 +124,11 @@ P:NPC {
         { text = "Do you need something fetched quietly, Gregan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I could chill your barrels, Gregan.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Light have any place in brewing, Gregan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is it wise to brew alone with ogres in these hills?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is it wise to brew alone with ogres in these hills?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Do you really brew ale strong enough for warriors, Gregan?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which beasts steal your brewing fruit, Gregan?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you take only what the forest can spare, Gregan?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Can a Forsaken paladin still enjoy a brew, Gregan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -229,6 +251,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They walk off, mostly, a little confused and a lot smaller. I won't lie to you, I'd like to sell the gizmo to anybody who has a giant problem, but in the meantime the coast is safer, and that's got to count for something with your sort." } },
+      choices = {
+        { text = "Shrinking is kinder than killing. I'll help you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A smaller giant is still a giant. Better to end them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Zorbin Fandazzle, goblin of commerce and science, mostly commerce. The giants on these islands and shores have been tearing up the coast, and I've got a gizmo that'll do something about it." },
@@ -247,6 +278,7 @@ P:NPC {
           text = "A warrior! You look like the sort who'd walk right up to a giant and hit it in the ankle, and that's exactly the sort I'm looking for." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Ever thought of taming something that used to be forty feet tall? After my zapper, there's a few around here that are just the right size." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now before you start with the righteous fury, I want to point out that a shrunken giant is a giant that isn't stomping anybody." },
       },
       again = { { id = "h_again", text = "What else? Clock's ticking." }, { id = "h_again2", text = "More questions? Sure, those are free." } },
       choices = {
@@ -263,6 +295,7 @@ P:NPC {
         { text = "Is zapping the giants really necessary, Zorbin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why not just fight the giants instead of shrinking them, Zorbin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can a shrunken giant really be tamed, Zorbin?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What becomes of the giants once you've shrunk them, Zorbin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -329,6 +362,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They chain them, starve them and sell them, and they call on the earth while they do it. If your spirits are honest, they'll weep with me." } },
+      choices = {
+        { text = "I'll free them, Kindal. The spirits demand it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll free them, and the Grimtotem will pay in blood.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Heavily enough that I have lost sisters to it, for the Grimtotem fight hard for what they think is theirs. Hold their warriors at the gate, and I will see every cage in the compound opened before they know we've come." } },
@@ -377,6 +419,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Freedom first, and then for the Grimtotem to learn that they cannot take what is wild and keep it in a box. I do not need them dead, though many of my sisters would disagree, because a dead Grimtotem learns nothing." } },
+      choices = {
+        { text = "Free the beasts and spare the Grimtotem who yield.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Grimtotem chose cruelty. They've earned the blade.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I do not know for certain, though I have seen them carry the cages east, toward their own lands beyond Thousand Needles. Whatever they plan, it is not kindness, and the creatures know it, because they cry out whenever a Grimtotem comes near." } },
+      choices = {
+        { text = "I'll keep my spells for the guards alone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll use whatever magic frees them fastest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kindal Moonweaver. The Grimtotem have been trapping the wild creatures of Feralas and caging them, and I mean to see every one of them freed." },
@@ -391,6 +451,10 @@ P:NPC {
           text = "A warrior. The Grimtotem guard their cages with brutes of their own, and I need someone who can stand against them while the creatures go free." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Then you know what it is to stand beside a beast as an equal, and you will understand why the Grimtotem's cages anger me so." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand. The beasts in the Grimtotem cages cannot ask for justice, so I hope you will ask for it on their behalf." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The beasts the Grimtotem keep are frightened of strange magic, so if you come to the cages with me, keep your spells for the guards." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "The Grimtotem around the cages have grown fewer and more nervous, and I know why. Free the creatures while their keepers are still afraid of you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The Grimtotem have shamans too, and they use them to cage the creatures of this forest, so prove to me you're different." },
       },
       again = { { id = "h_again", text = "Ask, and speak gently; the creatures of these woods startle at loud voices." }, { id = "h_again2", text = "Ask, but quietly." } },
       choices = {
@@ -404,6 +468,9 @@ P:NPC {
         { text = "How do the Grimtotem treat the beasts they cage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How heavily do the Grimtotem guard their cages, Kindal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the Grimtotem do with the beasts they cage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What justice do the caged beasts need, Kindal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do the Grimtotem cage these creatures, Kindal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What have the Grimtotem done to these creatures, Kindal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -452,6 +519,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They speak to no one, and that is the trouble. They were proud in life and prouder now, but if the land itself remembers what they did, it may answer you." } },
+      choices = {
+        { text = "Let the dead rest. I won't disturb them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they know something, I'll make them talk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Old magic, and the echoes of those who used it too freely, and things that should have died with Eldre'Thalas. A warrior who goes in must remember that not every enemy there bleeds, and that some of them were once our own people." } },
@@ -517,6 +593,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Old Highborne spirits, the satyrs that were once their kin, and ogres who have made a home among the broken towers. My scouts go in quietly and come out with what they can, and the ones who are loud do not always come out at all." } },
+      choices = {
+        { text = "I'll go quietly and bring back what you need.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go in my own way, and keep what I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Angelas Moonbreeze of Feathermoon Stronghold. While Shandris guards the island, I watch the mainland, especially the ruins where our ancestors' mistakes still linger." },
@@ -534,6 +619,8 @@ P:NPC {
           text = "A warrior. The highborne ruins hold more than ogres now, and I would sooner send a shield into them than another of my scouts." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. The beasts avoid the highborne ruins, and I have learned to trust their judgment over any scholar's." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk like one of my scouts, and I would not mind having one more who can cross the ruins without waking what sleeps there." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman among the Sentinels. The highborne ruins here are full of spirits that never found rest, and I wonder whether they'd speak to you." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -549,6 +636,8 @@ P:NPC {
         { text = "Did the Highborne deserve what became of them?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lies in the highborne ruins besides ogres, Angelas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do the beasts avoid the highborne ruins, Angelas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What sleeps in the ruins, Angelas?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the highborne ghosts speak to a dwarf, Angelas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -597,6 +686,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Go west against the gordunni and come back. The Light is a fine thing to carry, but I have seen fine things break, and I would rather see you stand against an ogre than hear you talk about your blessings." } },
+      choices = {
+        { text = "I'll prove it in battle, not in words.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My blessings speak for me. I owe you no proof.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "With great clubs and greater numbers, and with shamans who throw fire from behind the line. A warrior who breaks their front rank and keeps going until he reaches the shamans is worth more to Mojache than a hundred who stop at the first ogre." } },
@@ -646,6 +744,7 @@ P:NPC {
           text = "Warlock. You are of the Horde, and so I will fight beside you against the ogres, but I will not call what you do honorable." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Blades are proven against the gordunni, not in the telling, so I will judge you by what you bring back from their camps." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I trust a newcomer only as far as their blade has proven, and yours has proven nothing to me yet, Light or no Light." },
       },
       again = { { id = "h_again", text = "What else do you seek?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -660,6 +759,7 @@ P:NPC {
         { text = "Should I strike the Gordunni from hiding?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My power wins battles, Hadoken.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the gordunni fight, Hadoken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How can I prove myself to you, Hadoken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -726,6 +826,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Something I can't see, which bothers me, since I like to judge a thing by its hide. The Light holds you together the way good stitching holds armor, I think, and I'd not want to be the one who tests the seams." } },
+      choices = {
+        { text = "The Light holds me together. I trust it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My own will holds me. The Light only helps.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Beneath the mail, always, and well oiled, for the forests here are wet and the ogres strike hard. A warrior in a good leather jerkin feels the club less, and I would rather fit you properly than see you carried back by Hadoken's braves." } },
@@ -765,6 +874,15 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "No, because every hide I work was taken honestly, by Hadoken or by hunters I trust. A druid wears the shape of a beast for a while, and I wear its skin for a while, and I think the Earth Mother sees little difference so long as we both honor it." } },
+      choices = {
+        { text = "You honor the beasts well. I respect that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Wearing a shape and wearing a skin are not the same.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jangdor Swiftstrider, and I work the hides of Feralas into armor worthy of hunters. Hadoken Swiftstrider hunts the ogres, and I make sure the hunters who follow him come home whole." },
@@ -779,6 +897,8 @@ P:NPC {
           text = "A warrior. You wear mail, I see, but you would fight better in Feralas with good leather beneath it, for the rain rusts everything that is not tended." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Your leathers are worn, and I can tell by the wear that you draw a bow more often than you swing a blade." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You wear the hide of the bear when you choose, so you'll hardly need mine, but I'd be glad to hear what you think of my work." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken in plate. You'll not want my leather, I suppose, but I'd like to know what keeps one of the dead walking, since it isn't anything I can stitch." },
       },
       again = { { id = "h_again", text = "Anything else, friend?" }, { id = "h_again2", text = "Ask away." } },
       choices = {
@@ -791,6 +911,8 @@ P:NPC {
         { text = "Mages don't wear leather, Jangdor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Should a warrior wear leather at all, Jangdor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What can you make for a hunter, Jangdor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you feel any guilt working the hides of Feralas, Jangdor?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "What keeps me walking, do you think, Jangdor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

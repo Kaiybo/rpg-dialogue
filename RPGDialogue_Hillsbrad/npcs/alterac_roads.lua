@@ -111,7 +111,8 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with the elements, at Ravenholdt. Ironforge does not often produce anything my house cannot predict, {class}, so you have my attention, which is rarer than my courtesy." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of Thrall's Horde, at Ravenholdt. The Warchief's people rebuilt an old faith out of ashes in a few short years, and I respect anyone who builds something that lasts." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Ravenholdt. My guests usually arrive in shadow, but few of them arrive on four paws, and I confess I find it refreshing." },
@@ -219,6 +220,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some of my colleagues certainly do, and they say so at length over dinner, because they cannot imagine power that is asked for rather than taken. I'm less sure, for I've seen a bound elemental slip its wards, and I've wondered since whether it was simply refusing to be spoken to rudely." } },
+      choices = {
+        { text = "Power should be studied and governed, as Dalaran does.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements aren't yours to bind. Ask, or leave them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The great ward over the city drinks deep, I'll admit, and the trees nearest the dome have grown pale. We rebuild as gently as we can, though gentleness is not a thing the Syndicate respects." } },
@@ -287,6 +297,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, at the walls of Dalaran. The Kirin Tor have spent centuries bending the elements to formula, {class}, and I find myself curious what they'd say if the elements could argue back." },
         { id = "h_default", key = true,
           text = "Archmage Ansirem Runeweaver of the Kirin Tor, at your service, within reason. Dalaran is closed while we rebuild, and I keep an eye on those who would rather it stayed broken." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing outside Dalaran's dome. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
@@ -310,6 +321,7 @@ P:NPC {
         { text = "Did Dalaran have no soldiers when Archimonde came, Archmage?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hunts the hills around Dalaran these days, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does Dalaran's magic harm the land around it, Archmage?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the Kirin Tor think shamans lesser casters, Archmage?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Archmage.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? I have a little patience left, and the dome has none." } },
@@ -365,6 +377,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "If it does, it does not listen very closely, because they pray for luck at dice and then beat me when they lose. You fight for the Horde with it, I am told, so perhaps the Light is wiser than its servants." } },
+      choices = {
+        { text = "The Light is wiser, and it will see you free.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light hears everyone. That's why I don't trust it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Worse than one, for a beast they would at least feed properly. They keep me because I know where things are buried in these hills, and when I'm free I mean to make every one of them regret it." } },
@@ -424,7 +445,8 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls the spirits? I did not know Ironforge had any shamans, {class}, but I have asked the earth to send help for many nights, and it seems the earth does not care what race it sends." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde, here in these camps. I have asked the spirits of the earth to break these chains for many nights now, and perhaps they sent you instead." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, come to a chained orc. Whether you serve the loa or the Light the dead still whisper to, I don't care, so long as you can mend these wrists once the iron comes off." },
@@ -443,6 +465,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! I'd know the stance anywhere, feet set and shoulders square, and I've not seen it in a free orc since the Syndicate took me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde, here in these camps. The humans keep their dogs on short chains, as they keep me, so perhaps your beast and I would understand each other." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren? I've heard your people can walk as beasts, and I confess I've dreamed of slipping these chains as something with claws." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one who carries the Light. The Syndicate's guards pray to it too, when they think I am asleep, and I wonder if it hears them as well as it hears you." },
       },
       choices = {
         { text = "Did the spirits keep you company in your chains, Gol'dir?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -455,6 +478,7 @@ P:NPC {
         { text = "How did the Syndicate take a warrior like you, Gol'dir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Syndicate keep dogs to guard you, Gol'dir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Have the Syndicate treated you like an animal, Gol'dir?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you think the Light hears your captors, Gol'dir?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I can't free you today. I'm sorry.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? The guards come back at dusk, so be quick." } },
@@ -524,6 +548,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd brew them for anyone who pays, and I'd think nothing of it, but you might. The Light was never fond of poison, I'm told, though I've noticed the Light was never asked to hold Tarren Mill against Southshore either." } },
+      choices = {
+        { text = "No poison on my blade. The Light is enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever holds Tarren Mill. I'll take the poison.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Waste them? I use every leaf, and I grind the stems for the next batch. The Society does the grand work in the Undercity with their great vats, but out here a man learns to make a single kingsblood go a very long way." } },
@@ -607,6 +640,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want healing draughts, I expect, since your kind treat the front line as a place to stand rather than a place to leave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring me the glands from the Hillsbrad bears and the venom from the Alterac spiders, and I'll pay you better than any tanner in Tarren Mill." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, and a herbalist too, I'd wager. Tell me, do your people ever cut a root without first asking its pardon, or is that only a story?" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. You'll mend wounds with a prayer and I'll mend them with a draught, and I suspect mine is cheaper, though yours is quicker." },
       },
       choices = {
         { text = "Do your draughts and a shaman's herbs have anything in common?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -618,6 +652,7 @@ P:NPC {
         { text = "What would you brew for someone who fights on the front line?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you make from the beasts I bring you, Hinott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You brew with the land's herbs. Do you waste them?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Would you brew poisons for a paladin's blade, Serge?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The flask on the left is about to do something interesting." } },

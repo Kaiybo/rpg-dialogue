@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The Brotherhood has a use for anyone who stands on the wall. The cultists call on things in the river fog, and if your spirits can tell me what they are, I'll name you in my reports with the best of them." } },
+      choices = {
+        { text = "I'll stand on the wall, Commander. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt the fog on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,9 +66,11 @@ P:NPC {
           text = "Gray came up to the keep, his first time in a year, and we didn't argue about Fern; we drank to her. I'm told that was your doing, so thank you, and don't make me say it twice." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I walk the walls at night, a habit since the siege. The river's loud after dark, and I'd rather hear it than the quiet." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, from Dalaran or one of Stormwind's towers. Ashe will want you before I do, but I'll want you more, because fire on a wall is worth ten men behind it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a smell about you I learned in the siege, {class}. Keep whatever you've bound on a short leash inside my walls, or my riders will see to it for you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, this far into the human lands. The Riverglades were green before the Hammer came, and I'd like to see them green again before I'm buried in them." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe will want you for an hour of shop talk, and I'll want you after that for something more useful, like fire on the ridge." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you are, warlock; the smell gives it away. The Hammer deals in the same dark, so you'll forgive me if I make you prove you're not halfway to joining them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, this far from your own forests. The glades round Sunnyglade are sick with the Hammer's filth, and I'm told your kind takes that personally." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } }, text = "The patrols say the Twilight camps on the ridge are thinner this month, and the bodies they find have your work on them. Keep at it, and my riders might see the Sunnyglade road again before I'm grey." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Stormwind left us nothing, and now Ironforge sends me a shaman, so I'll not argue with what comes." },
       },
       again = {
         { id = "h_again", text = "What else? The day's short and the Riverglades are long." },
@@ -81,37 +92,11 @@ P:NPC {
         { text = "A warrior's sword, Commander, if the Brotherhood will have it.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Your memorial names a Ravenholdt agent. Fern.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I scout. Where do you need eyes?", next = "xhunter", when = { class = "HUNTER" } },
-        { text = "What would you have a mage do here, Commander?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "My magic could be turned on the Hammer, Commander.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "The land here is sick, Commander. Can it heal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What use is a mage to the Brotherhood?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Will the Brotherhood take a warlock's help, Commander?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What has the Hammer done to these glades?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does the Brotherhood have a use for a shaman, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
-      },
-    },
-    xmage = {
-      big = true,
-      lines = { { id = "xmage_default", text = "Burn what the Hammer leaves standing in Sunnyglade, and teach my riders to tell a cultist's ward from a farmer's charm. Alden Amberhall did both before the west took him, and nobody's done either since." } },
-      choices = {
-        { text = "I'll fight beside your riders. Farholde deserves its own mages.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I go where the study is, Commander, not where the war is.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xlock = {
-      big = true,
-      lines = { { id = "xlock_default", text = "Could it? The Hammer's priests started out saying the same, I'd wager, that they'd use the dark and not be used by it. Prove it at Krol'dok, and I'll judge you by what you bring back, not by what follows you around." } },
-      choices = {
-        { text = "Fire answers fire. I'll use whatever wins this war.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "You're right to be wary. Power like mine should be watched.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xdruid = {
-      big = true,
-      lines = { { id = "xdruid_default", text = "Ask Sunnyglade. The cultists foul the wells and burn the orchards for sport, and nothing grows where they've camped. There was an orchard by Windstead once, and I'd give a great deal to see it bear again." } },
-      choices = {
-        { text = "Then drive them out, and the land will mend in time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The land outlasts your war. Fight it less and tend it more.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -409,6 +394,39 @@ P:NPC {
         { text = "I'll walk the hills.", next = "BACK", fx = { affinity = 1, standing = { farholde = 1 } } },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmg_default", text = "More use than you'd think. Alden Amberhall rode in Howard's charge with fire in both hands, and the Horde prisoners were still talking about it a year later. Put that fire on Krol'dok's ridge, and I'll stop grumbling about Dalaran for a week." },
+      },
+      choices = {
+        { text = "I'll burn whatever you point me at, Commander.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll choose my own targets, thank you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "Take it? I'd take a gnoll with a crossbow if it shot at the Hammer. But Sister Rowland has enough on her hands, so whatever you summon stays outside my walls, and if I hear it's been whispering to my riders, you'll go out after it." },
+      },
+      choices = {
+        { text = "Fair terms. It stays outside the walls.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where I go, Commander.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = {
+        { id = "xdr_default", text = "Nothing grows right around Sunnyglade any more, and Gretchen's birds won't fly near the old tower. Heal it if you can, druid, though I'd rather you helped me cut out the rot first." },
+      },
+      choices = {
+        { text = "I'll mend what they've spoiled. The land comes first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn the rot out. The land will forgive us.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -458,6 +476,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That the orcs gave it up for warlocks and Thrall brought it back, and nothing at all about dwarves. If you'll tell me what the earth sounds like here, I promise not to write it all down." } },
+      choices = {
+        { text = "Write it all down, Ashe. Truth should be shared.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep it to yourself. Some things are better secret.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -470,12 +497,13 @@ P:NPC {
           text = "Demar smiled at breakfast, actually smiled, and I very nearly sent for Sister Rowland." },
         { id = "h_notes", when = { metBefore = true, timeOfDay = "night" },
           text = "I was reading my father's notes. His handwriting was dreadful. I'm the only one alive who can read it, which I suppose makes them mine now." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Demar will be glad, he always is, and he'll put you on the wall before you've had a meal, so do eat first; I'm quite serious." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in Farholde! You'll want to see the memorials; Demar won't talk about the ones who carried the Light, but they're there, and they're worth reading." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, good; Cady's been the only one reading the Riverglades' tracks for months, and she has a cradle to watch as well." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk the way Fern used to, which is to say I didn't hear you until you were at my elbow. Please don't do that near the curios; I nearly dropped one." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sister Rowland could use you in the chapel more than I could, though I'd be glad of your eye on these curios; something in them doesn't like being looked at." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Cenarion Circle! I've read about Moonglade, but I've never met anyone who's been, so forgive me if I ask too many questions; I usually do." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Demar will be delighted, and you'll find me far less useful than he is, unless you'd like to know who carved the thing that's trying to kill you, which, honestly, you should." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I have a hundred questions about how the Light actually works, and you probably can't answer any of them, can you? Nobody ever can; they just say 'faith' and look at me kindly." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with a companion! Please don't let it near the stone table; Riftan's trinkets upset animals, which is a sentence I only learned to say this year." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came in very quietly, which is either good manners or professional habit, and I'm going to assume manners." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sister Rowland will be so relieved, and so will I, because there's a thing on my stone table I'd like someone holy to look at, from a sensible distance." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've read about the Cenarion Circle, though only what the kaldorei let humans write down, which I suspect was the boring half." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a dwarf shaman! I've read about the orcs' shamans and the tauren's, but never a dwarf's, and I'm sorry, I'm already writing notes." },
       },
       again = {
         { id = "h_again", text = "What else? Stop me if I wander." },
@@ -492,70 +520,14 @@ P:NPC {
         { text = "How close is the Hammer's magic to mine?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Riftan says you're a pain.", next = "riftan", when = { heardLine = "riftan.a_pain" } },
         { text = "Gnomeregan had libraries too, once.", next = "xgnome", when = { race = "Gnome" } },
-        { text = "Do you ever wish you'd learned the sword instead?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "How does the Light fare against the Hammer's magic?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What tracks should a hunter watch for here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you want me to steal something from the Hammer?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Let me look at the curios. Faith can sense a curse.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Ask, then. What do you want to know?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can your magic help a soldier, or only a scholar?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Does the Light do anything to the Hammer's curios?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do animals really shy away from the trinkets?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Would anyone notice if one of those curios went missing?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What's on the stone table that needs a priest?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you like to know about the Circle?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What have your books said about shamans, Ashe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Ashe.", next = "END" },
-      },
-    },
-    xwarcl = {
-      big = true,
-      lines = { { id = "xwarcl_default", text = "Every day of the siege, honestly, and then I'd set a cultist's banner alight from the parapet and remember why I didn't. My father said steel and spellcraft are two ends of the same argument, and I think he meant we need both and neither should be smug about it. I'm babbling." } },
-      choices = {
-        { text = "Your father was right. Neither one wins alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A sword answers to nobody, and I prefer it that way.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Better than mine, if I'm honest, which annoys me more than it should. Their curses come apart when a paladin's near, the way frost lets go of a window, and I've been trying to write down why for a month without any success at all." } },
-      choices = {
-        { text = "The Light isn't a puzzle to solve. Trust it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Write it down. Faith works better when it's understood.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhuntcl = {
-      big = true,
-      lines = {
-        { id = "xhuntcl_default", text = "Boots that come out of the northwest caves at night and don't go back in, mostly, and the wolves have stopped going near Sunnyglade, which tells you more than any scout's report. Animals know a curse before I do, and I find that both useful and a little humbling." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that your {pet}? Keep it away from the satchel on my desk, please; the last thing I want is a cursed trinket in a beast's jaws." },
-      },
-      choices = {
-        { text = "I'll hunt them in the open and let them see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Better to lay snares at the caves and wait.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xrogue = {
-      big = true,
-      lines = { { id = "xrogue_default", text = "Their notes, if they keep any, and I suspect they do, because zealots love to write things down. A page in the Hammer's own hand would tell me more than a cart of their trinkets, though Demar would say a dead cultist tells him enough." } },
-      choices = {
-        { text = "I'll take their pages. A quiet theft saves lives.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'd rather face them openly than rifle through their tents.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Then look, but don't touch, and tell me if you feel what I feel, a sort of cold that sits behind the eyes. My father would have known the word for it, and I've three books open and still no word." } },
-      choices = {
-        { text = "Burn them. Some things shouldn't be studied.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Study them. We need to know our enemy's tools.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xdruid = {
-      big = true,
-      lines = { { id = "xdruid_default", text = "Whether the land itself can be cursed, or only the things on it. Nothing grows at Sunnyglade now, and I can't tell if the Hammer poisoned the soil or if the soil simply remembers what was done on it." } },
-      choices = {
-        { text = "The land can heal, once the cultists are driven off it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some ground stays poisoned. Salt it and move on.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -733,6 +705,72 @@ P:NPC {
         { text = "Nothing. It's gone.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = {
+        { id = "xwc_default", text = "Both, if the soldier listens. The Hammer's casters carry little bone fetishes on cords, and if you cut the cord before the chant finishes, the spell falls apart, or I think it does; I've only seen it twice. Riftan says hitting them works too, and he's not wrong, just unscientific." },
+      },
+      choices = {
+        { text = "I'll test your theory and report back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hitting them works. I'll keep it simple.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "It does something. Riftan's lads stopped talking in their sleep after Sister Rowland prayed over them, and the figures went quiet for a night, and then they started humming again, louder, as if they'd been insulted. I wrote that down and underlined it twice." },
+      },
+      choices = {
+        { text = "Then the Light should destroy them, not study them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep studying them. Knowing the enemy is a weapon too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhc_default", text = "They do, and not only animals that are with a hunter. The dogs at the keep won't walk past my door, and Cady's Aedamas growls at the stairs, so animals notice things before we do, which is useful and a little insulting to scholarship." },
+      },
+      choices = {
+        { text = "Trust the animals. Get rid of those things.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Animals fear fire too, and we still use fire.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "I would, within the hour, because I count them every morning and again before bed, and that's not a joke, though I can see you hoped it was. Whoever took one would have it whispering to them by the second night, which I think is punishment enough, but I'd still come looking." },
+      },
+      choices = {
+        { text = "I wouldn't touch them. Some things aren't worth stealing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Anything's worth stealing, to the right buyer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = {
+        { id = "xap_default", text = "A figure the size of my hand, carved from a bone I can't name, and it's warm, always, even when the hearth's been out all night. If you've a prayer for things that shouldn't be warm, I'd be grateful, and if you haven't, please don't invent one on my table." },
+      },
+      choices = {
+        { text = "I'll pray over it. Whatever's in it should be driven out.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things shouldn't be prayed over. Bury it deep.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = {
+        { id = "xdr_default", text = "Whether the land remembers things, mostly. The glades around Sunnyglade feel wrong to me in a way I can't measure, and I hate things I can't measure, so I'd love to know whether your people think soil can hold a grudge." },
+      },
+      choices = {
+        { text = "Measure all you like, Ashe. Knowledge helps the land too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things shouldn't be measured, only felt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -777,6 +815,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "No, you seem like someone who asks before taking, and the cultists never ask. Still, I've been at this too long to trust anything that glows, so prove me wrong on the ridge." } },
+      choices = {
+        { text = "I'll prove it on the ridge, Sergeant.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I don't need to prove anything to you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -787,12 +834,14 @@ P:NPC {
           text = "Take those to the keep, now, and find Ashe. She'll talk your ear off, but she'll know what they are." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Lingering Essence") },
           text = "Did Ashe say anything about me? She did; I can tell by your face." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good, because I need eyes on the ridge more than I need another sword, and my lads can't see past the Shroud at dusk." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'll be the quiet sort, then. Fine, because the Shroud's no place for loud boots, and I've buried enough lads who learned that the hard way." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out at the front. Sister Rowland sends her blessings up with the supply cart, but it's not the same as having someone here when the lads go down." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Another mage. Ashe sends you up here, does she? Tell her I'm fine, and tell her I said it before you asked, so she knows it's true." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I can smell the Shroud on you, and you've not even been out there yet. Whatever you carry, keep it away from my lads; they've seen enough of that sort of magic." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out here. The trees by the Shroud have gone black at the roots, and I'd be glad of someone who can tell me whether that's sickness or something worse." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, good. I could use someone who reads tracks better than my lads, because the cultists come down off that ridge and leave hardly a mark." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came up on me quiet, and that's a skill out here, so don't do it again. The next man might not be as slow to draw as I am." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Say one for the lads on the line if you've a prayer to spare, and one for me if you've two." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe will want to talk at you for a week, so get your use out of the front first, while you've still got a voice." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know that smell. Keep your pet out of the lads' sight, warlock, because they've seen enough things with horns come crawling off that ridge." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, out here? The woods by the Shroud have gone quiet, and I'd like to know why from someone who would know." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 30 } }, text = "Word on the line is you've been thinning out the Twilight on the ridge. The chanting's quieter at night and the lads have noticed, though they'd never say thank you, so I will." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've fought cultists who talk to things in the fog, and I'll need a minute to decide whether you're any different." },
       },
       again = {
         { id = "h_again", text = "What else? Eyes on the ridge while you ask." },
@@ -804,70 +853,14 @@ P:NPC {
         { text = "What's Ashe like?", next = "ashe" },
         { text = "Need another sword on the line?", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Ashe worries about you.", next = "worried", when = { heardLine = "ashe.rh_default" } },
-        { text = "What's moving on the ridge, Sergeant?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I could slip into their camp tonight.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Who tends your wounded out here, Sergeant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "She worries about you, Sergeant. So should you.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "My magic isn't the Hammer's, Sergeant.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Show me those roots, Sergeant.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What's coming down off that ridge?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Need someone to get behind their lines?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How are your men holding up, Sergeant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where would fire do the most good?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the cultists summon things too?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why have the woods gone quiet?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do I seem like the cultists to you, Sergeant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Sergeant.", next = "END", fx = { affinity = 1 } },
-      },
-    },
-    xhuntcl = {
-      big = true,
-      lines = {
-        { id = "xhuntcl_default", text = "Cultists in pairs, every night, carrying something wrapped in cloth from the caves toward Sunnyglade. I've never got close enough to see what it is, and I've stopped sending lads to try." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} close tonight. The Hammer's lot set snares along the ridge, and I've lost a good dog to one already." },
-      },
-      choices = {
-        { text = "Then I'll go myself and see what they carry.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Shoot the porters from cover, whatever they're carrying.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xrogue = {
-      big = true,
-      lines = { { id = "xrogue_default", text = "You could, and the last one who said that came back with a satchel of trinkets and a cough he never shook. Go if you're going, but don't pick up anything that hums, and if you do, take it straight to Ashe and not to me." } },
-      choices = {
-        { text = "I'll cut their sentries' throats and be back by dawn.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll scout and nothing more. No killing in the dark.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Me, mostly, and I'm no hand at it. The cuts heal well enough, but the ones who handle the Hammer's trinkets go grey and quiet, and I don't know a prayer for that." } },
-      choices = {
-        { text = "Send them back to the chapel and let the Light work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Some can't be saved. Spend your care on those who can.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xmage = {
-      big = true,
-      lines = { { id = "xmage_default", text = "She worries about everybody, that one, and she's usually right, which is the worst of it. I've been at this wall long enough that the quiet nights frighten me more than the loud ones, and I suppose that's what she's on about." } },
-      choices = {
-        { text = "Take a rest, Sergeant. The wall will hold for a week.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Stay at your post. Your lads need you there.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xlock = {
-      big = true,
-      lines = { { id = "xlock_default", text = "Maybe it isn't. From where I stand, with the dead to count, it all looks much the same, and I'll judge you by which side of the ridge you're on when the cultists come." } },
-      choices = {
-        { text = "Judge me by the cultists I burn, then.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Fair enough. Power like mine should be watched.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xdruid = {
-      big = true,
-      lines = { { id = "xdruid_default", text = "They're down the slope past the second watchfire, and they ooze when you cut them, which no tree I know of ought to do. My lads won't camp near them anymore, and I can't say I blame them." } },
-      choices = {
-        { text = "Burn the grove before the rot spreads.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Leave it to me. I'll try to heal it first.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
     long = {
@@ -910,6 +903,72 @@ P:NPC {
       lines = { { id = "w_default", text = "She worries. Tell her I'm fine, and tell her I said it twice; she'll believe it more." } },
       choices = { { text = "I'll tell her.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhc_default", text = "Scouts in pairs, mostly, and now and then one of the Hammer's ogres, heavy enough to leave a trench in the mud. Follow the tracks back up if you've the nerve, but come and tell me before you go after anything big." },
+      },
+      choices = {
+        { text = "I'll track them to their camp and report back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll track them and finish them myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "Always. They've a camp behind the Shroud where they keep prisoners and pray over them, and I've never got a man close enough to count heads. Go in quiet, count, and come back, and don't play the hero in there." },
+      },
+      choices = {
+        { text = "Count heads and come back. Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If I can cut a prisoner loose, I will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = {
+        { id = "xap_default", text = "Tired, and the two who carried the trinkets still talk in their sleep, though quieter now. Sister Rowland can't leave her chapel to come out here, and the lads say a prayer in the mud counts for more than one under a roof." },
+      },
+      choices = {
+        { text = "I'll stand on the line and pray with them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They need sleep and relief, not prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmg_default", text = "On the ridge, at dusk, when they come down to chant. Fire breaks the chanting, and anything that breaks the chanting is a friend of mine, but don't set the woods going, because the loggers have to live out here too." },
+      },
+      choices = {
+        { text = "Careful fire, then. The loggers come first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If the woods burn, the cultists burn with them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "They call things, and the things come. I can't tell you what, only that my arrows don't care for them, and if you know how a calling works, you'll know how to break one. I don't care how you learned." },
+      },
+      choices = {
+        { text = "I'll break their callings, and nothing more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever they call, I'll take for myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = {
+        { id = "xdr_default", text = "Birds stopped first, then the deer, and now even the frogs keep quiet along the stream by the Shroud. Ashe says it's the trinkets listening, and I say whatever's listening doesn't want company." },
+      },
+      choices = {
+        { text = "I'll cleanse that stream, whatever it costs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the woods stay quiet. Kill the cultists first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -950,16 +1009,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I don't know, and that's the worst of it. I pray over them and they don't get better, so if the earth or the water knows something, I'll listen." } },
+      choices = {
+        { text = "The Light and the spirits can work together here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayer isn't working. Try harsher remedies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Sister Rowland, and these are the Brotherhood's sick. They're ill, and I don't yet know with what, so I keep them clean and fed and prayed over, and the rest is the Light's business." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's the hard part. Fevers climb after dark, and so do the prayers." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit a moment before you go back out, and let me see that arm; you're holding it as if it pains you, and pride never mended anything." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're going into the hills, bring me back anything that grows by clean water, because my fever draught is running thin." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came in without a sound, and half my patients didn't stir. I'll take that as a kindness, though I suspect it's only habit." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Another of Ashe's kind? She sends me salves out of her books, and half of them work, which is better than most physic I've been sent." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Mind where you stand, please; the men can feel what you carry, even when they can't name it, and they've little enough strength to spare." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "You'll be one of the fighters, then. Leave your sword by the door, please; the men see a blade and try to sit up, and they shouldn't." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "You've a beast with you. Keep it near the door; some of the men find it a comfort and some don't, and I can't tell which until it's too late." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move very softly, and I'm grateful for it in here, whatever the reason you learned to." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe keeps asking me whether the illness has an arcane smell to it, and I keep telling her I wouldn't know one if it sat on the bed." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you carry, and I won't pretend I'm easy with it. Keep it outside the chapel, and you're as welcome as anyone who'll fetch water." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Wash your hands at the basin, and then, if your spirits can tell what ails these soldiers, I'll thank them as gladly as the Light." },
       },
       again = {
         { id = "h_again", text = "Something else? Softly, please." },
@@ -971,62 +1040,15 @@ P:NPC {
         { text = "Can I help?", next = "help" },
         { text = "Let me pray with you.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I know some field medicine.", next = "aid", when = { profession = "First Aid" } },
+        { text = "Is there anything a soldier can do in here?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could an animal help them, Sister?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you need anything brought in quietly?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Could magic tell what the illness is?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you refuse my help, Sister?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The Light keep you, Sister.", next = "END", fx = { align = { light = 1 } } },
         { text = "I'm a druid. I know herbs that ease fever.", next = "xdruid", when = { class = "DRUID" } },
-        { text = "How many of the Brotherhood have you lost, Sister?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What's in your fever draught, Sister?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Has anything gone missing from your chapel, Sister?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Could magic find the cause of this sickness?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I could leave, if my presence troubles them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can the spirits tell what ails your sick, Sister?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Prayer won't break a fever, Sister, but medicine might.", next = "END", fx = { align = { light = -1 } } },
-      },
-    },
-    xwarcl = {
-      big = true,
-      lines = { { id = "xwarcl_default", text = "More to the sickness this season than to the cultists' blades, and that's the hardest part of it. A sword cut I can stitch, but this fever takes the strongest first, and I have no name for it yet." } },
-      choices = {
-        { text = "Then I'll stand watch so your sick can rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Send the sick away. The wall needs men who can stand.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhuntcl = {
-      big = true,
-      lines = {
-        { id = "xhuntcl_default", text = "Willow bark, honey, and whatever clean herbs the hunters bring me, which is fewer every month. It eases the fever but doesn't break it, and I'll not pretend otherwise to the men who drink it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} may come in, but keep it away from the beds, please. The sick don't need anything more to fret about." },
-      },
-      choices = {
-        { text = "Tell them the truth. They deserve to know.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let them hope a while. Hope does its own work.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xrogue = {
-      big = true,
-      lines = { { id = "xrogue_default", text = "Bandages, now and then, and once a bottle of wine meant for the rites. I didn't ask, because the man who took it was dying, and I hope it was a comfort to him." } },
-      choices = {
-        { text = "Theft is theft. You should have stopped him.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You did right. Let the dying have their comforts.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xmage = {
-      big = true,
-      lines = { { id = "xmage_default", text = "Ashe has tried, and the Light has tried through me, and neither of us has found it yet. I won't guess at the cause, because a wrong guess would have us treating the wrong thing while men die." } },
-      choices = {
-        { text = "Then test every guess. Waiting kills men too.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "You're right to be careful. A wrong cure is worse.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xlock = {
-      big = true,
-      lines = { { id = "xlock_default", text = "That's kind of you to offer, and kindness is rarer out here than you'd think. Stay a moment, but by the door, and tell me honestly whether you sense anything of your own craft in this fever." } },
-      choices = {
-        { text = "I'll tell you plainly, Sister, whatever I sense.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Better you don't know what my craft senses.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
     illness = {
@@ -1070,6 +1092,61 @@ P:NPC {
       choices = {
         { text = "I'll mind the ward. Show me the worst.", next = "illness", fx = { affinity = 2 } },
         { text = "They'll get used to me.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xwarcl = {
+      big = true,
+      lines = {
+        { id = "xwc_default", text = "More than you'd think. They were soldiers before they were patients, and they listen to soldiers, so sit with the big one by the window and tell him to eat his broth. He'll eat it for you when he won't for me." },
+      },
+      choices = {
+        { text = "I'll order him to eat. He'll obey.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ask him kindly, as a friend would.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhc_default", text = "Sometimes. A soldier who's stopped talking to people will still talk to a dog, and I've seen Cady's Aedamas do more for a low spirit than my tea. Bring yours at noon, when they're awake, and keep it off the beds." },
+      },
+      choices = {
+        { text = "Gladly. They'll be good for each other.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My companion's a fighter, Sister, not a nursemaid.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "Willow bark and clean linen, if you can find them, and I won't ask too closely where you found them. Farholde's stores are thin, and the Light has never told me a borrowed bandage heals any worse." },
+      },
+      choices = {
+        { text = "I'll pay for every bandage I bring.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring them. Don't ask from where.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmg_default", text = "Ashe has tried, and she says it doesn't feel like anything she knows, which frightened her more than an answer would have. You're welcome to look, quietly, but please don't light anything in here." },
+      },
+      choices = {
+        { text = "Then trust the Light and your care, Sister.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayer hasn't worked. Let me try something stronger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "No, I won't refuse help, though I'll watch you give it. Water carried by a warlock is still water, so just don't touch anyone who's sleeping, and don't take it amiss when the men won't meet your eyes." },
+      },
+      choices = {
+        { text = "Fair. I'll carry water and keep my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My power could do far more than carry water.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -1119,17 +1196,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Luna knows when a storm's coming, and she's been looking at you like you're one. Keep your voice down, and she might forgive you." } },
+      choices = {
+        { text = "I'll keep the storm quiet for the little one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Storms come when they come. Luna will cope.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cady Lloydriel. I ride with the Brotherhood and keep an eye on the walls, and on this one." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet, please; it took an hour to get the little one down. Luna helped, and Luna takes all the credit." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Lower your voice near the cradle, please; you can be as loud as you like out on the wall." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Aedamas likes you, which counts for more with me than the plate does." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Luna heard you before I did, and I heard you before Aedamas did, so you're good, but not as good as you think." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sister Rowland could use you more than I could, and she'd never ask, so I'm asking for her." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ashe will be glad of you, and I'll be glad she has someone else to talk at." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Aedamas growled at you, and he doesn't growl at much. Whatever's following you about, keep it out of the barracks." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid. Aedamas will want to sniff you, and Luna will pretend you're not there, so don't take either of them personally." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Walk softly past the cradle, if you know how; most of your kind don't." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Brotherhood will be glad of you, and the little one likes shiny things, so mind your gauntlets." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're quiet, I'll give you that. Aedamas heard you anyway, which you'll want to know." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Rowland could use you more than I could, though you're welcome to watch the walls with me a while." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. If you've come for Ashe, she's in the keep, talking to someone, probably herself." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Luna's hissing, and she doesn't hiss at people. I'll take her word for what you are, warlock." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Aedamas can't decide whether you're a person or a smell, so give him a moment." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Shh. The cat's watching you, and the cat doesn't like strangers, so stand still." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -1143,77 +1230,15 @@ P:NPC {
         { text = "Fine dog. Did you train him yourself?", next = "hunter", when = { class = "HUNTER" } },
         { text = "You were staring.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "You're quel'dorei. We don't often share a wall.", next = "xnightelf", when = { race = "NightElf" } },
-        { text = "How long have you ridden with the Brotherhood?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Would you have the Light bless the child?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Who watches the cradle while you're out on patrol?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Is the sickness spreading to the families?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Did you ever study magic yourself?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "My servant won't trouble the child. I promise.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Your animals seem well cared for out here.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Need another pair of hands on the walls?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the Brotherhood's knights trust an elf?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How did your dog hear me?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "May I bless the little one?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you have any magic of your own, ranger?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does your cat hiss at every warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would Aedamas like me better in another shape?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does your cat know something about me, Cady?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
-      },
-    },
-    xwarcl = {
-      big = true,
-      lines = { { id = "xwarcl_default", text = "Long enough that the men stopped asking why an elf rides with them, which took a while. I stayed because they needed a bow and nobody else was offering one, and I've not found a reason to leave since." } },
-      choices = {
-        { text = "Then they're lucky. Loyalty like yours is rare.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Loyalty's fine, but I'd have gone home long ago.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "No, thank you, and don't take that wrongly; the child sleeps well enough without prayers said over the cradle. If you want to be useful, ride out and make the road safer, and that will do more good than any blessing." } },
-      choices = {
-        { text = "A blessing never hurts. I'll pray for you both anyway.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Deeds before prayers, then.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xrogue = {
-      big = true,
-      lines = { { id = "xrogue_default", text = "Someone I trust, and that's all you'll get on the subject. Ask me about the road instead; the Horde's been moving scouts past Rog'mar, and I've counted more than usual this month." } },
-      choices = {
-        { text = "Fair. Some things are no one else's business.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Secrets get people killed out here. Tell someone.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Not yet, and I watch the child for it every night, which is all I can do. Rowland says there's no pattern to it, and I've stopped looking for one, because I'd only start seeing it everywhere." } },
-      choices = {
-        { text = "Trust the Light to keep the child safe.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Trust your own eyes. They've kept the child safe so far.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xmage = {
-      big = true,
-      lines = { { id = "xmage_default", text = "A little, as most of my people do, and I gave it up for the bow because the bow never argues back. Ashe argues back, which is why I like her, though I'd never tell her so." } },
-      choices = {
-        { text = "The arcane should be mastered, not set aside.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You chose well. Simple tools serve best.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xlock = {
-      big = true,
-      lines = { { id = "xlock_default", text = "You'll forgive me if a warlock's promise doesn't put me at ease. Stand where I can see you, and we'll get along well enough." } },
-      choices = {
-        { text = "Fair. You've a child to guard; I'd do the same.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your fear of my craft is what keeps you weak.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xdruid = {
-      big = true,
-      lines = { { id = "xdruid_default", text = "Better than the men, some days, because the animals don't complain about the rations. Aedamas came to me as a pup from a farm near Windstead, and he still won't go near the old road." } },
-      choices = {
-        { text = "Animals know who to trust. Listen to them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Beasts are beasts. Trust your own judgment, ranger.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
     child = {
@@ -1271,6 +1296,83 @@ P:NPC {
         { text = "Your ancestors' magic nearly ended the world.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = {
+        { id = "xwc_default", text = "Eyes, no; you've the wrong kind for fog. But when the bell rings at night, someone has to be on the gate before the riders are out of bed, and that could be you." },
+      },
+      choices = {
+        { text = "I'll take the gate when the bell rings.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I go where the fighting is, not where I'm told.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "They trust the bow. The elf part they've stopped noticing, which is the most anyone can ask of a knight, and more than I got anywhere else." },
+      },
+      choices = {
+        { text = "That's how it should be. Judge by deeds alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trust is earned slowly. They were right to watch you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "He hears everyone, and he smells the rest. The night the cultists tried the north wall, he was barking before the sentries saw a thing, so he's the best guard in the keep and he works for scraps." },
+      },
+      choices = {
+        { text = "Good. A guard should hear everything.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll get past him one day. You'll see.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = {
+        { id = "xap_default", text = "No, thank you. The little one's had blessings enough from people who meant well, and I'd rather the walls got them, so bless the gate on your way out and I'll count it." },
+      },
+      choices = {
+        { text = "I'll bless the gate, then, and every rider through it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fair. Blessings don't hold a wall anyway.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmg_default", text = "A little, the way every elf has a little, and mine goes into the arrows. Ashe would love to measure it, which is why I've never told her." },
+      },
+      choices = {
+        { text = "You should tell her. She might learn something useful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep it to yourself. It's yours.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "Only the ones who need hissing at. I've known a few of your kind, and they all said what you're about to say, so save it and keep your demon well away from the cradle." },
+      },
+      choices = {
+        { text = "Fair. It stays far from the child.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demon goes where I tell it, ranger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = {
+        { id = "xdr_default", text = "He'd chase a cat, and Luna would never forgive either of you. Come as you are, or as a bear if you must, but not near the cradle, and not a cat; one in the house is plenty." },
+      },
+      choices = {
+        { text = "As I am, then. Your house, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll wear whatever shape I please, ranger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1309,15 +1411,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think they've more sense than most riders, and that's spirit enough. Treat them well and the spirits can say what they like." } },
+      choices = {
+        { text = "Every beast has a spirit. I'll treat them so.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A horse is a horse. It works or it doesn't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Wheatley, stable master. Every horse in the Brotherhood comes through these stalls, and every one of them is better company than its rider." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you ride heavy, I'd guess, so tell me your horse's name before you tell me your own." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, then. Keep your beast clear of the stalls, if you would; my mares don't care for strange teeth." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I know that walk. If you're here for a horse, you'll pay for it, and if you're here for a horse without paying, you'll find my mares bite." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sister Rowland blesses the horses before a long ride, and the riders swear it helps, though I suspect it's the oats." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, is it? Don't conjure anything near the stalls; the last time Ashe tried, the horses spent the night kicking their doors." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Whatever you ride, my mares won't stand in a stall beside it, so we'll find you a post outside the walls." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll ride hard and stable late, I'd wager, so let me say it now: the horse eats before you do." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! If you've a charger, I want to see it, because the Brotherhood's had a few and I've loved every one of them." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with a beast. Keep it off the straw and away from the grey in the end stall; he doesn't like anything with claws." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet feet. The horses like that, actually; it's the loud ones that spook them." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've a prayer that works on colic, I'll take it, because the ones for people don't seem to." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Nothing flashy in here, please; the last time someone lit a spell near the stalls, it took me a day to catch them all." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The horses don't like you, warlock, and I've learned to trust them. Stand by the door, if you would." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You'll be telling me the horses have spirits, and I'll be telling you they eat before you do, so we'll get along." },
       },
       again = { { id = "h_again", text = "Anything else? Hold this bucket while you ask." } },
       choices = {
@@ -1325,70 +1438,16 @@ P:NPC {
         { text = "Who kept the stables before you?", next = "brienne" },
         { text = "Best horse you've ever had?", next = "best" },
         { text = "Do you stable druids?", next = "druid", when = { class = "DRUID" } },
-        { text = "What makes a good warhorse, Wheatley?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do the horses smell the cultists before your sentries?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I'd never steal a Brotherhood horse.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would you like me to bless the horses too?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Horses don't care for magic, then?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "My steed's no danger to your mares.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What makes a good warhorse?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could my charger stable here?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the horses mind my companion?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Has anyone ever tried to steal a horse here?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Shall I bless the horses before a ride?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could magic make a horse faster?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why do the horses fear me?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Where do the Brotherhood's new horses come from?", next = "remounts" },
+        { text = "Do you think the horses have spirits, Wheatley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
-      },
-    },
-    xwarcl = {
-      big = true,
-      lines = { { id = "xwarcl_default", text = "Nerve before speed, and a rider who doesn't saw at its mouth. The Brotherhood's horses charged a siege line once and came back for more, and that's not breeding alone, it's trust." } },
-      choices = {
-        { text = "A horse is a tool. Train it hard and it obeys.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Treat it like a comrade, and it'll ride into fire.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhuntcl = {
-      big = true,
-      lines = {
-        { id = "xhuntcl_default", text = "Every time. They'll stamp and roll their eyes an hour before the sentries call, and I've learned to wake the Commander when they do. Brienne taught me that, before she was under a stone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been eyeing my mares since you came in, {class}. Tie it by the trough, and we'll all stay friends." },
-      },
-      choices = {
-        { text = "Trust the beasts. They've never lied to you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Horses spook at shadows. Trust trained sentries.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xrogue = {
-      big = true,
-      lines = { { id = "xrogue_default", text = "Good, because every one of them has a name, and every rider in this keep would know it under a stranger. Some fool tried it the spring before last, and the mare brought him back to the gate by herself." } },
-      choices = {
-        { text = "Clever horse. I'd still have tried it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Stealing a soldier's horse is low. Serves him right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "If you like, and they won't mind it, though Copper will try to eat your sleeve. I'll take any blessing going for these animals, because they've carried this keep through twenty years and asked for nothing but hay." } },
-      choices = {
-        { text = "The Light watches over every creature. I'll bless them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Better to feed them well. Prayers won't fill a manger.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xmage = {
-      big = true,
-      lines = { { id = "xmage_default", text = "They don't care for anything that smells of a lightning storm, and that's most of what you lot do. I'll keep your horse for you gladly, but you'll have to come in quiet, without your sparks." } },
-      choices = {
-        { text = "Fair. I'll leave the magic at the gate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "They'll have to get used to it. Magic's here to stay.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xlock = {
-      big = true,
-      lines = { { id = "xlock_default", text = "Maybe not, but they don't know that, and they'd rather kick down a wall than find out. I've seen what the Hammer's beasts do to a stable, and I'll not take chances with these ones." } },
-      choices = {
-        { text = "A wise caution. Your horses come first.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fear makes beasts weak. Toughen them up.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
     brienne = {
@@ -1409,6 +1468,98 @@ P:NPC {
     druid = {
       lines = { { id = "d_default", text = "A cat, no, and a bear, absolutely not, but a stag? Now that's something we can talk about." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    xwarcl = {
+      big = true,
+      lines = {
+        { id = "xwc_default", text = "Nerve, not size. A big horse that bolts at a chant is worse than a pony that won't, and the Hammer chants a lot, so I teach them to stand by banging pots in the yard at night. The riders hate it, but the horses come home." },
+      },
+      choices = {
+        { text = "Train them hard. A soldier's life depends on it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them run when they must. Horses know best.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "I'd be honoured. Sir Howard's charger had the stall by the door, and nobody's put a horse in it since, but I think he'd say a paladin's mount ought to have it." },
+      },
+      choices = {
+        { text = "Keep it empty. That stall is his memorial too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll take it. The living need it more.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhc_default", text = "They mind it, but they'll get over it if it's patient and you're quiet. Two foals went missing from the far paddock this year, so anything with teeth gets looked at sideways; give them a day and an apple from your hand." },
+      },
+      choices = {
+        { text = "I'll keep my beast well away from the paddocks.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They'll learn. My companion stays with me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "Once, a pirate up from the coast on a foggy night. The grey in the end stall kicked him through the fence before I'd got my boots on, and I gave the grey an extra carrot every day for a week." },
+      },
+      choices = {
+        { text = "I hope the poor fool lived.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Good horse. Thieves get what they deserve.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = {
+        { id = "xap_default", text = "Bless them? Nobody's ever asked. Rowland's too busy and the riders think it's soft, but I'd hold the bridles if you'd do it, and I won't tell anyone if you won't." },
+      },
+      choices = {
+        { text = "Every creature deserves a blessing. Hold the bridles.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to bless the riders. Horses don't need it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmg_default", text = "Faster? Ashe tried once, on a pony, and the pony went sideways through the hay barn. Feed and patience are the only spells I trust, and you can tell Dalaran I said so." },
+      },
+      choices = {
+        { text = "Fair. Some things shouldn't be meddled with.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "With the right spell, I could do it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "Because they've more sense than people. They smell what you've been near, and it isn't anything that grew in a field, so I don't hold it against you, but I'll ask you not to touch them." },
+      },
+      choices = {
+        { text = "Fair. I'll keep my hands off them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They'll learn to bear me, like everything does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remounts = {
+      lines = { { id = "rm_default", text = "We breed our own, from the lines the Brotherhood brought east in the Second War. Ships don't carry horses out here, and the goblins quote me prices that would make a dwarf faint." } },
+      choices = {
+        { text = "Why not pay the goblins' price?", next = "remounts_goblins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remounts_goblins = {
+      lines = { { id = "rmb_default", text = "Because a horse raised in these glades knows the fog and the river, and one off a boat from Tanaris knows sand. Melbin calls me sentimental, and he's right, but my horses come home." } },
+      choices = {
+        { text = "Raise your own. Patience beats gold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Riders need horses now. Pay the goblin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -1443,17 +1594,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It's the fog off the river that troubles them, not the wind. If you can ask the fog to lift now and then, I'll fly you for free." } },
+      choices = {
+        { text = "I'll ask the river spirits to lift the fog.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The fog's a cult trick. Break the cult, and it lifts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gretchen Mayberry, Gryphon Master. If you're headed anywhere the Brotherhood holds, I'll have you there before the fog lifts." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! My gryphons like a heavy rider, believe it or not; it keeps them steady in the wind off the mountains." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've flown dispatches for a few of your order, and they always fed the birds before they fed themselves, so you're welcome at my roost." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Keep your beast off my perches; the birds will tolerate a great deal, but not a cat sharpening its claws on their roost." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You don't need a gryphon, I'd wager; you look like you'd rather climb over the wall than fly over it." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'll fly you to the wounded wherever they are; my birds have carried more of Sister Rowland's patients than I can count." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You can teleport, I'm told, so I'll not take it personally if you never use my birds." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My birds don't care for your sort, and they'll screech the whole flight, but they'll carry you, because I tell them to." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My birds like your kind, which isn't fair, because they barely tolerate me after ten years." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! The birds like a heavy rider, believe it or not; it keeps them steady in the wind off the river." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Don't polish that armour too bright before a flight, because the glare off the river spooks the birds." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Your beast walks, I'm afraid; gryphons won't share a saddle with anything that might be lunch." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Sneaking about the roost? Don't; a startled gryphon bites first and never apologizes." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Say something calming over the young male in the corner, would you? He's been sulking since the fog came in." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll be wanting to teleport everywhere, I suppose, so you've come to sneer at my birds." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The birds don't care for you, I'm sorry to say, but they'll fly you all the same; they're professionals." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! If you can talk to animals, ask the old female on the end why she won't eat fish, because I've tried everything else." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The birds like you already; they always settle when the wind's friendly, and it seems the wind's friendly to you." },
       },
       again = { { id = "h_again", text = "Anything else? My gryphons like to be off before the river mist closes in again." } },
       choices = {
@@ -1461,90 +1622,17 @@ P:NPC {
         { text = "Gryphons, this far from Ironforge?", next = "gryphons" },
         { text = "How's the flying out here?", next = "flying" },
         { text = "Walk on Air beats a gryphon.", next = "glide", when = { race = "Skyborne" } },
-        { text = "Do your gryphons fight, or only fly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you fly even when the weather turns?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "How do you train a gryphon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Has anyone ever tried to steal a gryphon?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do you fly the sick out of the Riverglades?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Your birds must see more of the land than I do.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why do your gryphons fear my kind?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Gryphons are proud. They choose whom they trust.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Are gryphons any use in a fight?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do your gryphons fly to the front?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where did you learn to handle gryphons?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can a gryphon fly quietly?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What's wrong with the sulking one?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why fly when a portal is faster?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why don't the birds like warlocks?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why won't she eat fish?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Which route gives you the most trouble?", next = "route" },
+        { text = "Does the river wind trouble your gryphons, Gretchen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
-      },
-    },
-    xwarcl = {
-      big = true,
-      lines = { { id = "xwarcl_default", text = "They'll fight if they're cornered, and they're vicious when they do, but I don't send them into battle and never will. They carry the wounded and the post, and that's worth more to Farholde than a few clawed cultists." } },
-      choices = {
-        { text = "Train them for war. Farholde needs every weapon.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Keep them for the wounded. That's the nobler work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "When the post demands it, and it usually does, though the winds over the Steppes are cruel and the smoke makes my birds cough. A soldier's letter from home has kept more men on that wall than any sermon, so I fly." } },
-      choices = {
-        { text = "Fly anyway. Soldiers are waiting on those letters.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Ground them. A dead bird delivers nothing.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhuntcl = {
-      big = true,
-      lines = {
-        { id = "xhuntcl_default", text = "With patience, raw meat and a thick pair of gloves, in about that order. The hatchlings take a year before they'll carry anyone, and I won't rush one, no matter how short the keep is." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my birds, {class}, and my birds are staring back. Let's not find out who blinks first." },
-      },
-      choices = {
-        { text = "Rushing them would cost lives. Take your year.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The keep needs birds now. Push them harder.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xrogue = {
-      big = true,
-      lines = { { id = "xrogue_default", text = "Once, and the bird threw him into the river halfway to the Steppes. He swam back, sheepish, and paid his fare like everyone else, and I've told the story to every rider since." } },
-      choices = {
-        { text = "He learned his lesson. Leave it there.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "He should have hanged. Thieves don't change.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "When Rowland asks, and she asks less than she used to, because the sick don't travel well and she won't send the worst of them. I bring her bandages back, and letters for the men, and that's the best I can do." } },
-      choices = {
-        { text = "Fly them out. Better care waits beyond these hills.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Keep them here. Spreading the fever helps no one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xmage = {
-      big = true,
-      lines = { { id = "xmage_default", text = "They do, and I've learned to read them; a bird that won't fly over the northwest caves is telling me something. Ashe asked me once to tie a little glass bead to their harness so she could see what they see, and I told her no." } },
-      choices = {
-        { text = "Let her try it. The knowledge could save lives.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "You were right. Your birds aren't her experiment.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xlock = {
-      big = true,
-      lines = { { id = "xlock_default", text = "Something about the smell, I think, like burnt hair and sulfur, and gryphons hate fire more than anything. I don't hold it against you, but I'd ask you not to summon anything near the roost." } },
-      choices = {
-        { text = "Fair. I'll keep my demons away from your birds.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "They'll get used to it. I'm not hiding what I am.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xdruid = {
-      big = true,
-      lines = { { id = "xdruid_default", text = "That they are, and these ones remember every rough hand they've known. If you could ask them what's frightening them over the northwest ridge, I'd be grateful, because they won't tell me." } },
-      choices = {
-        { text = "I'll listen to them. Beasts know more than we think.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Better to send scouts. Birds can't give a report.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
     gryphons = {
@@ -1561,6 +1649,109 @@ P:NPC {
     glide = {
       lines = { { id = "gl_default", text = "Downhill, maybe. Glide me up a cliff and I'll retire on the spot." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xwarcl = {
+      big = true,
+      lines = {
+        { id = "xwc_default", text = "Some are, though not mine. Wildhammer birds are bred for war, and these were bred to carry post and passengers, so they'll drop you at the front and turn for home before the arrows start, which I call sense." },
+      },
+      choices = {
+        { text = "Sensible. Carry the riders and leave the fighting to us.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A bird that flees a fight is wasted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "As near as I'll let them, which is the keep's wall above the Shroud road and no further. The Hammer's archers shoot at anything with feathers, and I won't lose a bird to save a few minutes." },
+      },
+      choices = {
+        { text = "A few minutes could save a rider's life, Gretchen.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Right call. The birds are hard to replace.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhc_default", text = "Menethil, under a dwarf handler who never once let me wear gloves. Treat a gryphon like a falcon and it'll take your hand; treat it like a dwarf, with respect and a little ale, and you'll get on fine." },
+      },
+      choices = {
+        { text = "Respect first. A beast knows when you mean it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A firm hand works better than respect.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "Quieter than you'd think, with the wind behind them. I've had riders ask to be set down in the dark near the Shroud, and I don't ask why, and they don't tell me, and the bird keeps its beak shut too." },
+      },
+      choices = {
+        { text = "Good. Some work shouldn't have witnesses.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather land in daylight and be seen.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = {
+        { id = "xap_default", text = "Fog makes him miserable, miserable makes him sulk, and sulking makes him bite. He's young and he's never seen weather like this coast, so if you've a calm word for him, I'll take it." },
+      },
+      choices = {
+        { text = "Patience and a kind word. He'll settle.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Work him harder. He'll forget to sulk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmg_default", text = "Because a portal can't show you the Riverglades from above, and my birds can, fog and all. Besides, nobody ever tipped a portal." },
+      },
+      choices = {
+        { text = "Time matters more than views. Portals win.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You've convinced me. I'll take the view.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "They can smell it, whatever it is you keep company with. I can't, but I trust their noses more than mine, so ride light and keep your hands still, and they'll get you there." },
+      },
+      choices = {
+        { text = "Fair. I'll keep my demon well away from them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They'll get used to it. Everything does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = {
+        { id = "xdr_default", text = "If I knew, I wouldn't have asked! She was raised on mutton in Dun Morogh and won't touch river trout, and there's no mutton out here, so we've reached a sort of standoff." },
+      },
+      choices = {
+        { text = "Find her some mutton. She's earned a little comfort.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hunger will settle it. Don't spoil her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    route = {
+      lines = { { id = "rt_default", text = "The run to Powderfuse, over the river mouths. The wind comes off the sea sideways, and the goblins set off fireworks whenever a ship comes in, and I've had birds land a mile off course because of it." } },
+      choices = {
+        { text = "Have you complained to the goblins?", next = "route_goblins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    route_goblins = {
+      lines = { { id = "rtb_default", text = "Twice, to Melbin, who said the sky over his port is his too and offered to sell me a share of it. I told him where he could put his share, politely." } },
+      choices = {
+        { text = "Stand up to him. Your birds come first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pay him something. It's easier than a feud.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -1597,6 +1788,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd forge one for anyone on the wall. Iron's short and coal's shorter, so tell your spirits the forge needs feeding." } },
+      choices = {
+        { text = "Arm the wall first, Alphonse, not me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pay is pay. Sell to whoever has the coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Alphonse Dumas. I keep the Brotherhood shod and armed, though iron's short and coal's shorter. Patience I have plenty of." },
@@ -1606,13 +1806,14 @@ P:NPC {
           text = "I need thick leather and iron bars. I've got the fire, so you bring the rest." },
         { id = "h_key_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Key Ingredients"), days = 3 } },
           text = "That key's ugly, but it'll open their door all the same. Ugly works." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Bring your hammer to the bench before you leave; a hammer that's struck the Hammer's cultists will need its head seen to." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your arrowheads are dull; I can tell from here, and I'll fix them if you've the coin." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Don't touch the bench, and we'll get along." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sister Rowland wants new needles for her stitching, and I've not had a minute; if you're headed to the chapel, take them with you." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ashe sends me puzzles from her books, and I send back iron, and we both pretend the other's work is the easy part." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your hands smell of brimstone and so does my forge, so I suppose we've that much in common." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf. You'll not want iron, I suppose, but I've leather and buckles if you need them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Plate. Good plate, too, though somebody's been mending it with the wrong rivets." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I can do arrowheads if you bring the iron, and I'll do them right." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Your knives want an edge, I'd guess. Leave them on the bench; I don't ask whose they've been in." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. There's not much for you at a forge, but you're welcome to the warmth." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe is always asking me for odd things, rings that don't melt and the like, so I suppose you'll want something odd too." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Warlock. Don't hold that thing near my fire; the embers don't like it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at a forge. That's new, and I'll not ask what you need iron for." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your totems are good stone, and I'd forge you a mace to match if I had the coal." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Go on; the hammer's not listening." } },
       choices = {
@@ -1623,80 +1824,15 @@ P:NPC {
         { text = "How long have you worked this forge?", next = "forge" },
         { text = "Any advice for another smith?", next = "teach", when = { profession = "Blacksmithing" } },
         { text = "My armour took a beating at Krol'dok.", next = "xwarrior", when = { class = "WARRIOR" } },
-        { text = "What do you look for in a well-kept weapon?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Can you make heads that'll bite through Twilight leather?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Will you fit a blade for poison?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "How long have you worked this forge?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Could you forge something that holds an enchantment?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Could your steel hold a demon's bindings?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Where does your ore come from now?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will you look at my plate?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you need for arrowheads?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can you make a blade that doesn't catch the light?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you ever pray at the forge?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What odd things has Ashe asked for?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why don't your embers like it?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Where does your charcoal come from?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Would you forge a mace for a shaman, Alphonse?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
-      },
-    },
-    xapala = {
-      big = true,
-      lines = { { id = "xapala_default", text = "Care, and a hand that knows its limits. Most fighters bring me steel they've let rust, and a paladin's usually the exception, which I put down to all that kneeling and polishing." } },
-      choices = {
-        { text = "Faith asks for care in all things, even steel.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A weapon's a weapon. It only needs to kill.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xhuntcl = {
-      big = true,
-      lines = {
-        { id = "xhuntcl_default", text = "I can, if you bring me the leather to test them on. The cultists wear hide boiled in something that turns ordinary iron, and I've been trying to work out what for weeks." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} back from the forge. Sparks and fur don't mix, and I've singed one before." },
-      },
-      choices = {
-        { text = "Take what you need from their dead. They won't miss it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll bring hide from a fair kill, not from grave-robbing.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xrogue = {
-      big = true,
-      lines = { { id = "xrogue_default", text = "I make blades, and what you put on them is your business. I won't cut a groove for poison, though, because I've seen what the Hammer's cultists do with it, and I'll not hand that to anyone." } },
-      choices = {
-        { text = "Fair. Poison's a coward's tool.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Poison wins wars. Your scruples will cost lives.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xapriest = {
-      big = true,
-      lines = { { id = "xapriest_default", text = "Twelve years, since the old smith died in the siege's last winter. I learned on his anvil, and I still find his marks on the hammer handles when I'm working late." } },
-      choices = {
-        { text = "He'd be proud. Keep his forge burning as he did.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Make it your own. The dead don't own the living.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xmage = {
-      big = true,
-      lines = { { id = "xmage_default", text = "With the right ore and a mage at my elbow, maybe. Iron fights magic, and that Krol'dok moulding showed me the Hammer's smiths know a trick I don't, which I don't care for one bit." } },
-      choices = {
-        { text = "Learn their trick, and turn it against them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Leave their craft alone. It'll taint your forge.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xlock = {
-      big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and I'm not keen to find out. Iron's honest, and what you lot do with it after it leaves my bench isn't on my conscience, but I'll not have any of it done in my forge." } },
-      choices = {
-        { text = "Fair. Your forge, your rules.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Steel serves whoever wields it. Don't be squeamish.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    xdruid = {
-      big = true,
-      lines = { { id = "xdruid_default", text = "The hills north of the keep, when the cultists let us dig, which isn't often. The mine's half shut, and the men who work it carry swords to the rock face, which isn't how mining's meant to go." } },
-      choices = {
-        { text = "Take only what you need from the hills.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Strip the hills while you can. A war needs iron.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
       },
     },
     iron = {
@@ -1730,6 +1866,83 @@ P:NPC {
       choices = {
         { text = "Why's iron so short?", next = "iron" },
         { text = "I'll find iron.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "Already did. The rivets are wrong and the left pauldron's taken something heavy, ogre I'd say, so I'll set it right, the old way, since that's what the plate was made for." },
+      },
+      choices = {
+        { text = "Do it properly. I'll wait as long as it takes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patch it quick. I'm needed at the front.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhc_default", text = "Iron, which I haven't got, and patience, which I have. Bring me bars and I'll make you heads that go through cultist leather instead of bouncing off it." },
+      },
+      choices = {
+        { text = "I'll buy the iron honestly, at the port.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cultist dead carry iron. I'll take theirs.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xro_default", text = "I can, if you blacken it in oil, though it'll rust faster, mind; nothing's free. Fern carried one like that, and she brought it back to me every week to be seen to." },
+      },
+      choices = {
+        { text = "Blacken it. I do my work at night.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Leave it bright. Let them see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = {
+        { id = "xap_default", text = "Every time I quench. It's a short one, and I don't rightly know who it's to, but the steel comes out better, so I keep doing it." },
+      },
+      choices = {
+        { text = "It's heard, even if you don't name who hears it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's habit, not prayer. Your skill makes the steel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmg_default", text = "A ring that won't melt, a bowl that won't break, and a box for the trinkets with no seams in it. I made the box; she said thank you, and then she nailed it shut anyway." },
+      },
+      choices = {
+        { text = "Good. Some things should stay boxed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd have opened it, just to look.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlk_default", text = "Fire knows. It leans away from you, the way it does when the bellows run backwards, so I'll work for you, but I'll keep the fire between us." },
+      },
+      choices = {
+        { text = "Fair. I mean no harm to your forge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fire's a servant. It'll learn its place.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = {
+        { id = "xdr_default", text = "Turner's camp, from the scraps, mostly. I'll not burn a good tree when a bad branch will do, if that's what you came to ask." },
+      },
+      choices = {
+        { text = "Thank you. Take only what's already fallen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Walls need iron and iron needs fire. Burn what you must.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

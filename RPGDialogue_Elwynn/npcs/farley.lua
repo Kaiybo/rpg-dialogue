@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It's older than these walls, friend. My grandfather poured for soldiers in the First War. A dwarf shaman at my bar would have made him choke on his pipe." } },
+      choices = {
+        { text = "A family pride kept honest is worth a great deal, Farley.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Old pride won't fill new mugs, Farley.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only the arm-wrestling, and Dobbins handles that with a bucket of water. Most warriors drink, sleep and go, and the good ones pay for what they break before I have to ask." } },
@@ -104,6 +113,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Welcome, welcome! I don't mind telling you I count the spoons at night, and it's nothing against you, it's only habit." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit yourself down; I'll not ask what you've been hitting, but my chairs are older than you, so go gently on them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Lion's Pride! Sit, sit. I'll tell you now, I've never watered a drink in my life, and your spirits can check if they like." },
       },
       again = {
         { id = "h_again", text = "What else, friend? So much to do, and I'd rather talk." },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "Do you get much trouble from warriors at the Lion's Pride?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you see many wounded come through the Lion's Pride, Farley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Brother Wilhelm keep the peace in your inn, Farley?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has the Lion's Pride always been in your family, Farley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just stopping in.", next = "END" },
       },
     },

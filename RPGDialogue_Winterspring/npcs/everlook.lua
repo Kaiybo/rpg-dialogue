@@ -214,6 +214,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Mischief, mostly, and I'm the only one allowed to teach it that! Legacki screams every time it rounds a corner, which is the whole point, but an imp would set it on fire, and fur is terribly expensive this far north." } },
+      choices = {
+        { text = "A prank's harmless. My imp isn't. I'll keep it leashed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little fire would make the joke better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I haven't the faintest idea, which is exactly why it's exciting! A priest blessed it once by accident and it blinked at me, and either that was the Light or a loose wire, and I'd hate to find out it was the wire." } },
+      choices = {
+        { text = "Leave the Light out of your pranks, Umi. It isn't a toy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If the Light makes it scarier, I'd call that a fine use.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep my distance from the yeti.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a scare's no good if it only frightens goblins, and I want to know it would make a proper fighter jump too! Legacki screams at anything, but if a warrior in plate takes one step back, then I'll know the yeti's ready." } },
@@ -300,6 +318,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Oh, don't let your imp near my yeti, because it's already got one bad habit, which is frightening people, and I don't want it picking up a second." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Stand right there, please, because I've been wondering whether my yeti's eyes would glow if a holy sort walked past, and I need a witness who won't lie about it." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Stand still a moment, would you? I need to know how tall a yeti has to be before somebody in armour stops being brave about it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -337,6 +359,8 @@ P:NPC {
         { text = "Why measure your yeti against a warrior, Umi?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you want a hunter's opinion of your yeti, Umi?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why build a mechanical yeti at all, Umi?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why would a holy sort make your yeti's eyes glow, Umi?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would my imp teach a mechanical yeti, Umi?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -393,6 +417,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than the banners would suggest. The Cult of the Damned keeps agents in the towns, and a cultist rarely confesses to a knight in shining plate, so the Dawn needs people who can listen at doors and follow a man home. I only ask that whatever you learn comes back to the Dawn, and not to the highest bidder." } },
+      choices = {
+        { text = "What I learn for the Dawn stays with the Dawn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything has a price, Gregor, even secrets about cultists.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone who stands still when the ghouls come, mostly, because the dead never tire and a line that breaks once breaks for good. The Plaguelands are full of brave fighters who charged in alone, and the Scourge raised every one of them." } },
@@ -471,6 +504,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, and welcome. The Dawn has learned that the Scourge's servants hide among the living, and it takes a quiet hand and a sharp eye to find them before they find us." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and a seasoned one by the look of your shield. The Dawn always needs steady arms at Light's Hope Chapel, though Everlook is quieter work than that." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -505,6 +540,7 @@ P:NPC {
         { text = "Could the Dawn use a hunter in the Plaguelands?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
+        { text = "What use does the Argent Dawn have for a rogue, Gregor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },
       },
     },

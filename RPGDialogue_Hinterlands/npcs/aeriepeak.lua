@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Welcome? Ye're kin twice over, {g:lad|lass}, once by blood an' once by the sky, an' I'll fight any dwarf in this keep who says otherwise. Ye'll fly wi' us against the Vilebranch an' drink wi' us after, an' if the storm answers ye, ye'll call it down on the trolls an' no' on my gryphons!" } },
+      choices = {
+        { text = "Then I'll fight beside the Wildhammer, Thane, and follow your lead.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight, Thane, but I'll go where the spirits send me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "A place, aye, though no' the same one Ironforge gives it. We pray tae the sky an' the storm an' the spirits o' the peaks, but I've seen a priest pull a rider back from the edge o' death, an' I'll no' scoff at that." } },
@@ -47,6 +56,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Ha! An Ironforge dwarf wi' the storm in yer hands! Magni's lot always called the spirits Wildhammer superstition, {class}, an' here ye are provin' 'em wrong in my own hall!" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest o' the Light, at Aerie Peak! We Wildhammer mostly keep tae the old spirits, as Fraggar'll tell ye, but I'll take any blessin' that sends a troll back intae the ground." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -89,6 +99,7 @@ P:NPC {
         { text = "Do the Wildhammer have any use for someone who works unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Wildhammer have any place for the Light, Thane?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin's hammer do the most good, Thane?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Am I welcome here, High Thane, as a shaman of Ironforge?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'm here to fight trolls.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { aerie_peak = 1 } } },
       },
     },
@@ -264,6 +275,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They do, an' always have, for a gryphon's half wind an' half stubbornness, an' a Wildhammer rider learns tae hear both. An Ironforge dwarf who can hear what the birds hear is the first I've met, an' I'd let ye near the aeries for that alone." } },
+      choices = {
+        { text = "A gryphon must be trained and ruled, or it ruins the rider.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No reins, no orders. Bond with the bird and trust it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, for every night they come tae steal eggs or kill the young. The Vilebranch an' the Witherbark think the Hinterlands are theirs, an' we think they're ours, an' the gryphons just want tae be left alone." } },
@@ -291,8 +311,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, more than most, for the Vilebranch priests work blood magic on their altars, an' I've heard it said their curses slide off the Light like rain off a slate roof. But I'll no' send ye up there on a bird tae play the hero, for Sharpbeak's the one that matters, an' a dead paladin cannae carry a gryphon chick home." } },
+      choices = {
+        { text = "The chick first, then. Glory can wait, Talonaxe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll smash their altars first. The chick can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." } },
+      choices = {
+        { text = "Fair enough. I'll stay well clear of her nest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then keep her leashed. I go where I need to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman o' Ironforge? The birds knew afore I did, {class}, for they've been rufflin' their feathers since ye came up the path, an' that's how they greet a friend o' the wind." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, is it? Say a word for the birds while ye're here, {class}, for every gryphon that flies over Jintha'Alor comes back wi' somethin' I'd rather no' see." },
         { id = "h_default", key = true,
@@ -315,6 +354,9 @@ P:NPC {
           text = "Keep yer hands where the birds can see 'em, {class}, for a gryphon knows a sneak by the smell, an' they bite first." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll want tae fight the trolls, I suppose, an' ye'll want a gryphon tae get there, an' ye'll want me tae trust ye wi' one, which I don't yet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons are wary of ye, I can tell, but they'll settle once they know ye're no threat tae the aeries." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The birds'll moan about the weight o' that plate, {class}, but they'll carry ye, an' I'd wager the trolls at Jintha'Alor have never seen holy light come down on 'em from the sky." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep that thing o' yours well away from the nests, {class}, for Keenclaw's still twitchy after the trolls took her young one, an' she'll take yer arm off tae protect what's left." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Witherbark", min = 30 } }, text = "The riders say the Witherbark have gone quiet in the south, an' they've stopped throwin' spears at my birds. Somebody's been teachin' 'em manners, an' I've a fair idea who." },
       },
       again = { { id = "h_again", text = "What? Quick, they're wantin' fed." } },
       choices = {
@@ -329,6 +371,9 @@ P:NPC {
         { text = "Do the gryphons ever come back hurt from the troll lands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would it take for you to trust a warrior with a gryphon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should the trolls be driven from the aeries for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would a paladin be any use against Jintha'Alor, Talonaxe?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would Keenclaw truly attack a warlock, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the gryphons really sense the spirits, Talonaxe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -452,6 +497,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I've always thought so, though there's priests in Ironforge who'd call me a heathen for sayin' it. The Light's a fire ye carry, an' the spirits are the ground ye walk on, an' it's the Vilebranch who've poisoned both wi' their altars, so I'll take any lantern that helps me see them burned out." } },
+      choices = {
+        { text = "Light and land together, Fraggar. That's how it should be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light stands alone. Spirits are a lesser thing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -470,6 +524,7 @@ P:NPC {
           text = "There's someone standin' on my blind side, an' the wind says they mean tae stay there. Speak up, {class}, an' let an old dwarf hear ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Ye stand heavy, like a dwarf in full mail, though I cannae see if ye are one. The land feels a warrior's step, an' it's no always glad of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I can hear yer beast breathin' beside ye, an' it's calmer than most, which tells me ye treat it well." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye carry the Light like a lantern, {class}, an' the spirits o' this land don't quite know what tae make o' ye, though they're no' unfriendly." },
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', as I'm always listenin'." } },
       choices = {
@@ -483,6 +538,7 @@ P:NPC {
         { text = "Can the Light and your spirits work together, Fraggar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the land care if a warrior walks on it, Fraggar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you hear the beasts of the Hinterlands, Fraggar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can the Light and the spirits stand together, Fraggar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },
@@ -589,6 +645,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Welcome ye? They'll smother ye, for half this keep thinks Ironforge went deaf when it went underground, an' here's one o' ye provin' it didnae. Mind, ye'll hear some teasin' about Bronzebeard tunnels an' Bronzebeard beards, but it's the friendly sort, an' it ends wi' a round." } },
+      choices = {
+        { text = "Ironforge's ways have their worth. I'll defend them gladly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They're right. Ironforge forgot the sky, and I'm glad I didn't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "In their own way, aye. They don't have the Moon or yer Circle, but they speak tae the winds an' the earth, an' they'd never cut down a tree without a word of thanks. Ironforge thinks it's all superstition, mind." } },
@@ -639,6 +704,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Well, would ye look at that, a shaman from under the mountain! Sit by the fire, {class}, for the Wildhammer'll want tae buy ye a drink an' hear how Ironforge finally learned tae listen." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Sit by the fire, {class}, an' if a rider stumbles in bleedin', as they sometimes do, ye'll forgive me for lookin' yer way first." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -672,6 +738,7 @@ P:NPC {
         { text = "Do the Wildhammer warriors drink here after a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the riders say about the Hinterlands forests?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Wildhammer revere the wild as my people do?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will the Wildhammer really welcome an Ironforge shaman, Thulfram?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "A mug, please.", next = "END", fx = { affinity = 1 } },
       },
     },

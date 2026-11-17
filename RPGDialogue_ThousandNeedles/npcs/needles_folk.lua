@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They smell death and they see the Light, and they can't decide which to trust. They'll fly you all the same, because the mesas have taught them that strange things often turn out to be friends." } },
+      choices = {
+        { text = "They'll fly because they're bid to. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them decide in their own time. I'll wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They did in the wars on this continent, so the orcs tell me, and they would again if the Warchief asked it. But a wind rider sent into battle is one I may not get back, and I'd rather they carried soldiers home than carried them off to die." } },
@@ -90,6 +99,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! You could teleport to Orgrimmar or Undercity, but you'll still need my wind riders to reach anywhere out here, because no mage I know has a spell for the Needles." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! The wind riders know your scent from Thunder Bluff, and they fly calmer for it, I've always found." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the top of my mesa. The riders don't know what to make of you, so stand still and let them look." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is changing." },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "Do you resent mages for teleporting, Nyse?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do wind riders ever carry warriors into battle, Nyse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have hunters ever tried to tame a wind rider, Nyse?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do the riders make of a Forsaken paladin, Nyse?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -184,6 +195,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Some do, and some only fear what they don't know. I speak to them gently, as I speak to everyone, and I think if you stood here long enough, they'd learn you the way they learn every hunter's voice." } },
+      choices = {
+        { text = "Gentleness wins more than fear. I'll be patient.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear keeps a beast in line. Let them fear me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not the good ones, because a warrior at peace with their strength moves gently, and the animals feel it. It's the angry ones they shy from, and I've seen a kodo back itself into a corner rather than stand near someone carrying a grudge." } },
@@ -234,6 +254,7 @@ P:NPC {
           text = "I don't stable demons, warlock, though I'll admit I've wondered what a voidwalker eats. Keep it away from my beasts, because they can feel it, and it frightens them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue, and you've no pet with you, which means you've no business in my stables. But you're welcome to visit the animals, if you're gentle." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Your charger would be welcome in my stable, if you keep one, and you would be welcome to rest beside it." },
       },
       again = {
         { id = "h_again", text = "Is there more you would like to know about the stables?" },
@@ -249,6 +270,7 @@ P:NPC {
         { text = "My demons need no stable, Awenasa.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I like animals, Awenasa.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the stabled beasts ever fear warriors, Awenasa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the beasts in your stables fear the dead, Awenasa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -373,6 +395,42 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "All the time, and that's why the parts sell! A crash means a new axle, and a new axle means coin for Jinky, though I'll admit I flinch every time one of them comes off the track in a ball of fire." } },
+      choices = {
+        { text = "Profiting from crashes isn't right, Jinky.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Crashes are part of the sport. Sell the axles.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More than the drivers, sometimes. The salt flats bake by noon, and the heat warps the axles, and when a storm comes in from the Needles it's like driving on glass. I sell more parts after a bad weather day than a whole month of clean racing." } },
+      choices = {
+        { text = "I'll leave the winds be. The racers deserve a fair track.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little weather makes the races interesting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." } },
+      choices = {
+        { text = "Demons don't belong on a race track. Forget it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd lend you my demon for a cut of the purse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Once a day, give or take, and some days twice. Most walk away with a sore head and a bent fender, but the Flats are hard as stone when you hit them fast, and I've seen a few carried off on boards." } },
+      choices = {
+        { text = "I'll tend the injured, whatever team they race for.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They chose to race. The risk is theirs to carry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -388,6 +446,10 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say a little prayer over the racers if you've got one spare, because they fly off that track at speeds the Light never had in mind." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid on the Flats! You're the first one I've seen who didn't stare at the cars like they killed somebody's grandmother." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting a cog, a gear or a spare tire, I'd bet, because even holy warriors need something to sit on between races." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Don't go stirring up the wind on race day, because a crosswind on the Flats has blown more cars off the track than all the sabotage put together." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's interesting, because I've always wondered whether a demon could pull a race car, and nobody's let me try." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Good, because if anyone crashes while you're standing there, you'll be on the clock for free, and we've got two races before supper." },
       },
       again = {
         { id = "h_again", text = "Anything else? The next race starts soon!" },
@@ -403,6 +465,10 @@ P:NPC {
         { text = "Do the racers get hurt often, Jinky?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the racing crews ever come to blows, Jinky?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What lives out on the salt flats, Jinky?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do the racers ever get hurt, Jinky?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the weather really matter so much to the races, Jinky?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You want a demon to pull a race car, Jinky?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How often do the racers crash, Jinky?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

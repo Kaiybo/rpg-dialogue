@@ -39,6 +39,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than they'd like. A shaman sits like someone listening to the floor. You've earned your rest, I'd say." } },
+      choices = {
+        { text = "A well-run inn is a blessing, Melika. Thank you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll sit where I please. No need for fuss.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Some do and some don't, and the ones who don't come up at midnight wanting bread and cheese. I feed them all the same, because a guest is a guest, but I'll not have demons sitting on my benches." } },
+      choices = {
+        { text = "A guest is a guest. That's fair of you, Melika.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My demon's better company than half your guests.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Melika.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Mud, mostly, and dented tables, and one who slept on the hearth and wouldn't be moved. They pay well and tip badly and come back every time, so I suppose I'm fond of them." } },
@@ -113,6 +131,8 @@ P:NPC {
           text = "A mage. Zaldimar's upstairs, if you're after him, and he'll want his supper sent up, so take it with you if you're going." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a hot meal and a bath, I expect, and I'll give you the meal; the bath you'll find yourself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If that animal's coming in, it eats in the yard; I won't have it under the tables begging." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your sort eat at odd hours, so I'll keep a bowl back, but don't bring anything to my table that doesn't eat stew." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You look like you've walked a long way. Sit down; I'll find you a quiet table." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quick, the stew won't stir itself." },
@@ -131,6 +151,8 @@ P:NPC {
         { text = "Do warriors cause you much trouble, Melika?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will you let my beast eat in the yard, at least?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is anyone in Goldshire in danger, Melika?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do warlocks from the cellar eat with the other guests, Melika?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you notice much about your guests, Melika?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
       },
     },
 

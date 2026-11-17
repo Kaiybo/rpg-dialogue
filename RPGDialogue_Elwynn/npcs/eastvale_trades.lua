@@ -26,6 +26,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd swear they do, the good ones at least. A bow made from a willing tree shoots straighter, and I won't be told otherwise." } },
+      choices = {
+        { text = "Then honour the tree, Rallic, and the bow will honour you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wood's just wood. The bowyer's skill is what matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not much, and they'd say so to your face if they weren't afraid of you. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." } },
+      choices = {
+        { text = "I'll help with the beasts and earn their trust.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them be afraid. Fear keeps tongues still.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Rallic.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Not for the pieces that come to me, because they'd be firewood otherwise and a bow lasts a man his whole life. The mill's another matter, but the mill isn't mine, and Raelen doesn't take advice from bowyers." } },
@@ -94,6 +112,8 @@ P:NPC {
           text = "A mage in a bowyer's shop. You'll be after a staff, I expect, and I'll tell you now I only make them when the wood tells me to." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at a bowyer's bench! You'll want a bow for pulling something toward you, I expect, and that's a fair use of one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you're looking at my staves the way I look at them, so I reckon you hear the grain as well as I do." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Not much call for bows in your line, I'd guess, but you're welcome to look while I work." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Wood has a spirit, if you ask me. You can feel it in a good stave." },
       },
       again = {
         { id = "h_again", text = "What else? I'm only rubbing oil into this stave, so I can listen while I work." },
@@ -112,6 +132,8 @@ P:NPC {
         { text = "Have the loggers needed a healer much this season, Rallic?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever wish you'd taken up the sword, Rallic?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever feel guilty about the trees the mill cuts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do the loggers think of warlocks, Rallic?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think the trees here have spirits, Rallic?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Rallic.", next = "END" },
       },
     },
@@ -192,6 +214,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It runs short of everything eventually: thread, rope, nails and patience. Your spirits won't sell me any of that, so I'll stick to coin." } },
+      choices = {
+        { text = "Good stock keeps a camp running. That's worth paying for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll find what I need elsewhere for less.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Honey, mostly, out of the hollow oaks they fell, and they squabble over who gets to break the comb. I pay them fair for it and sell it fair, though the bees, I'll grant you, never see a copper." } },
@@ -272,6 +303,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a whetstone and some linen, and I've both, counted twice." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are on the right, shot on the left, and before you ask, I've counted those too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Kaldorei, and a long way from the sea you crossed. I've never sold to one of your people before, so tell me what a druid runs short of and I'll see if the cart brings it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Totems need carrying, and I've packs for that. Buy something and we'll get along famously." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a cart to unload before dark." },
@@ -289,6 +321,7 @@ P:NPC {
         { text = "Do you ever give to the needy, Drake, or only sell?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the road from Stormwind safe for your carts, Drake?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the loggers ever bring you anything besides wood?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does a logging camp run short of most, Drake?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Drake.", next = "END" },
       },
     },
@@ -354,6 +387,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I joke about Raelen, but I'm proud of the work. The trees come down, the boards go up, and the kingdom gets built. Your spirits might see it differently." } },
+      choices = {
+        { text = "Honest work builds kingdoms, Terry. Be proud of it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Too many trees come down. The forest should be left alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every day, friend, for a spark in a sawmill takes the whole thing and the men in it besides. The wolves and bears ran the lads off the cut wood up north, so if you're handy with flame, aim it at them and not at my stacks." } },
+      choices = {
+        { text = "I'll be careful with fire near the mill.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little fire never hurt green wood. You worry too much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Terry.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "More than I like to count, because Stormwind's always building something and Raelen's always promising it beams by Tuesday. Last spring I counted the rings on one old oak and stopped at two hundred, and I didn't feel much like joking for the rest of the day." } },
@@ -434,6 +485,8 @@ P:NPC {
           text = "There's a chill come in with you that I don't like, and it's not the weather. Keep your distance from the mill, if you would." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Are you here for the bears? Say you're here for the bears, because I've a stack of bundles out in the woods with my name on them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in a logging camp, and I can see by your face what you think of all these stumps. I'll not argue, but I'll tell you I leave the young ones standing." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Don't set any fires near my timber, because I've worked too hard on those beams to watch them go up in a flash." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can your spirits make the supervisor smile? Because nothing else has worked." },
       },
       again = {
         { id = "h_again", text = "What else? I'm meant to be stacking, so ask quickly." },
@@ -451,6 +504,8 @@ P:NPC {
         { text = "Does anyone pray for the woods you cut, Terry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the bears up north a real danger, Terry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How many trees does the mill take in a season?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you worry about fire at the mill, Terry?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you like working the mill, Terry?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

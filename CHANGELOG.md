@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.57.0 (2026-11-17)
+Packs: every zone pack except World has a new version (`python3 tools/version.py` lists them). No new files in 0.57.0: /reload is enough if you have 0.39.0 or later.
+
+### Every class, everywhere
+- **Class coverage is finished.** Every named person in every zone now greets each class they could plausibly meet and has a conversation to go with it, with stances to take. That's well over a thousand new branches: the rogue, mage and warlock gaps in Stormwind, Elwynn, Ironforge, the night elf lands, the Wetlands and the Horde capitals (Makaru and Kah at last), paladins and priests at neutral posts in the 30-60 zones, and shamans at Light's Hope and the Bulwark.
+- **The Riverglades, deeper.** The 0.56.0 class conversations there are rewritten, dwarf shamans are greeted at Farholde and on the frontier, and Wheatley, Mayberry, Zizplink and Gritta each have a new topic.
+- **Forsaken paladins.** This server's undead paladins are now greeted across the Horde: Undercity, Tirisfal, Silverpine, the Kalimdor towns, and every Horde camp from Tarren Mill to Valormok. Orcs remember the Silver Hand from the internment camps, tauren are curious, trolls watch warily, and the Argent Dawn has a good deal to say. Neutral people whose paladin lines assumed the Alliance now save those lines for Alliance paladins.
+- **Dwarf shamans.** Alliance shamans are now greeted across Ironforge, Dun Morogh, Loch Modan, the Wetlands, Stormwind and the human and night elf lands, Aerie Peak and the Alliance outposts. Senate traditionalists grumble, the Explorers' League leans in, the Wildhammer treat you as kin, and the gnomes want to know how it works.
+- **People notice what you've been killing.** About 100 quest-givers greet you differently once you've thinned out the trouble they sent you after: Gryan Stoutmantle and the Defias, Thork and the Kolkar, Rok Orhan and the Gordunni, Nathanos and the plaguebats, and so on. Kills count from 0.54.0 on.
+
+### Journal
+- The People page lists each person's rivals once you've met them, and whether you've sided with or crossed each one.
+
 ## 0.56.0 (2026-11-17)
 Packs: 18 packs have new versions (`python3 tools/version.py` lists them). Includes 0.55.0 (rivals), which wasn't released on its own. No new files in 0.56.0: /reload is enough if you have 0.39.0 or later.
 

@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "No, it was just the two of us an' a lot o' bad luck. A mage would've been handy, though, for the Defias don't care for fire an' they care even less for bein' frozen where they stand, an' I'd have liked tae see that." } },
+      choices = {
+        { text = "Next time, take a mage with you, Henze.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Two men alone did more than an army. Keep it that way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Henze.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, I reckon a wolf's nose would've had me in an hour, an' I'd have been a deal less dead for it. Gazin did his best, but Gazin couldn't smell a fire in a hayloft." } },
@@ -105,6 +114,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'd have been handy in that Defias camp, so ye would; I could've done with someone bigger than me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Is that a dwarven rifle, or a bow? Either way, I like a body who hits things from a distance." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I was dead a good while, so I've missed who's been comin' an' goin', but you're a fine surprise to wake up to." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can ye work a spell for a man who can't move his legs? No? Well, it never hurts tae ask, an' I ask everybody." },
       },
       again = {
         { id = "h_again", text = "What else? I'm no' goin' anywhere, mind, since my legs are still on strike." },
@@ -124,6 +134,7 @@ P:NPC {
         { text = "Could a hunter have tracked you to the Defias camp?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you go back into Defias country, Henze?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a druid have found you sooner, out there in the dark?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Did mages watch the Defias alongside you and Gazin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Rest easy, Henze.", next = "END" },
       },
     },

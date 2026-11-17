@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Where my wife has gone, and whether she lives. You have walked back from death with the Light in your hands, so perhaps you understand what it is to be lost and found, and perhaps you can tell me whether the Light finds everyone." } },
+      choices = {
+        { text = "The Light finds those who are sought, Commander. Keep hope.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light didn't find me. I found it. Seek her yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Whether a mind that has been touched by something old and hungry can ever be called back, paladin. I ask for a friend, or so I tell myself, and the druids have no remedy, and the silithid do not wait while I search for one." } },
+      choices = {
+        { text = "The Light can mend what seems lost. Don't give up hope.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some things can't be called back. Duty must come first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -83,6 +101,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
+          text = "A paladin of the Alliance, at Cenarion Hold. You are welcome, as is anyone who will stand against the swarm, though I confess I hoped the Light might have answers I have not found." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. Vish Kozus will have marked you before you reached the gate, so do not take it amiss if he watches you; he watches everyone twice since... since the dig went wrong." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -104,6 +124,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Cenarion Hold. You are welcome here, as are all who stand against the swarm, though forgive me if my thoughts wander when I see a priest." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The Circle has need of keen eyes in this desert, for the silithid move beneath the sand where no sentry can follow them." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Horde, and one of the Forsaken, at Cenarion Hold. You are welcome, as anyone is who stands against the swarm, though I confess I hoped the Light might have answers I have not found." },
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask, before the next runner finds me." },
@@ -126,6 +147,8 @@ P:NPC {
         { text = "Do you fear warlocks will join the Twilight's Hammer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Hold need from a priest, Commander?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How can a hunter best serve the Hold, Commander?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What answers are you looking for, Commander?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "What answers do you seek from the Light, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
@@ -394,6 +417,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They hum near anythin' with a bit o' power in it, which worries me more than it pleases me. Down in the hives the bugs guard them like treasure, an' I've a nasty feelin' the crystals are listenin' tae somethin' much older than the Light or any o' us." } },
+      choices = {
+        { text = "Then the crystals should be destroyed before they spread.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Study them carefully first. Rash work gets diggers killed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not to yer arm, but maybe to yer head, because I've watched silithid fight like they'd gone mad around them, and I'd not like to learn what that hum does to a body standing too close. If ye're holding a line near the crystals, keep yer wits about ye and yer shield up." } },
@@ -453,6 +485,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, aye! Stand still a moment, would ye, for I've a mind tae see whether the crystals hum louder near the Light or quieter, an' ye're the first holy sort tae walk in." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, aye? Then ye'll have quiet feet, an' I'll need 'em, because the bugs out by the crystals feel every footstep in the sand." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -497,6 +531,7 @@ P:NPC {
         { text = "Why would the stones hum for a priest, Larksbane?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Are the crystals out there a danger to fighters, Larksbane?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have the crystals changed how the silithid move, Larksbane?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do the crystals respond to the Light, Geologist?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you get back to your rocks.", next = "END" },
       },
     },
@@ -678,6 +713,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They tear at the air like a beast at a snare, and my caravans suffer for it. Tauren or dwarf, a shaman who can calm the winds is worth more to me than a dozen guards." } },
+      choices = {
+        { text = "I'll calm what I can, Windcaller.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Calming is too slow. Strike at the cult that stirs them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Supply, mostly, which is where wars are won. The cult raids our carts on the road from Un'Goro, and I would like to know which of their camps has been sending the raiders, before I lose another load of grain to people who want the world to end." } },
+      choices = {
+        { text = "I'll find their camp and report it to the Hold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave it to me. They won't raid anything again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, chiefly, assuming you can stand in the heat and watch an empty road for hours without wandering off after a scorpid. The worms take a cart from beneath, so a guard who keeps his eyes on the sand is worth ten who charge the dunes." } },
@@ -743,7 +796,11 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Hive'Ashi", "Hive'Zora", "Hive'Regal" }, min = 50 } },
+          text = "My scouts report the hives are quieter on the near side, and the worm counts have dropped for the first time this season. That is your doing, I think, and it means the grain carts get through." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue at Cenarion Hold. The swarm cannot be outwitted the way men can, but the Twilight's Hammer can, and the Hold has use for anyone who keeps their footsteps light." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, provided you can keep the sand out of your robes, will be a great help to the supply lines. Fire is very effective against the larger worms." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -761,13 +818,14 @@ P:NPC {
           text = "A paladin! I should like to put you down as a guard for the supply carts, provided you'll forgive me for writing your name in the same column as the grain." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Good; provided you can hold a cart road as well as you hold that blade, I have more work than I have soldiers." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman from Ironforge! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings." },
       },
       again = {
         { id = "h_again", text = "What else? I have ledgers, but I have ears too." },
         { id = "h_again2", text = "Ask, then. A well-informed soldier eats less of my bread worrying." },
       },
       choices = {
-        { text = "What have the cult's summonings done to the winds?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What have the cult's summonings done to the winds?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Why are supplies so important here?", next = "supply" },
         { text = "You're certain we'll win?", next = "victory" },
         { text = "The Circle's emissary sent me to you.", next = "emissary", when = { questDone = TODO_QUEST("Taking Back Silithus") } },
@@ -780,6 +838,8 @@ P:NPC {
         { text = "How do you keep the soldiers fed and whole, Windcaller?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does holding the supply roads actually require, Windcaller?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What use does the Hold have for a quiet one, Windcaller?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What have the cult's summonings done to the winds?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -1105,6 +1165,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The last imp that came through ate a whole tray of honey cakes and then set fire to the tray. I don't hold it against its master, not too much, but the birds of Auberdine never did that to me, and I miss them dreadfully." } },
+      choices = {
+        { text = "I'll keep it outside. Your kitchen deserves some peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My imp has a mind of its own. I can't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A few, on their way to fight the bugs, and they all sit very straight and say their prayers over my worm stew, which I suppose is fair. I'm still learning to cook with what Silithus gives us, and a blessing can't hurt, though I'd rather you just told me it tasted good." } },
+      choices = {
+        { text = "It tastes good, Calandrath, and I mean that kindly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd sooner pray over it, if I'm honest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every day, and the warriors are the worst, because they'll fight a silithid all afternoon and then walk in without a word about the stinger still in their leg. I've learned to feed them first and ask questions after, the way we did for the sailors back in Auberdine." } },
@@ -1182,6 +1260,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, at the Oasis Inn. Sit wherever you like, dear, only keep your little friend away from the kitchen, because I've only just got the worms to stay in the pot." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, at the Oasis Inn! Take off that plate a while, dear, because the sand gets underneath it, and I've seen grown knights cry over what it does to their knees." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Oasis Inn? You're welcome, of course, and if you can ask the water here to stay sweet a while longer, I'll be grateful to you and to it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Oh, you poor thing, you've been crouching in the sand all day, haven't you? Sit down, sit, and let me shake some of that grit out of your cloak." },
@@ -1222,6 +1304,8 @@ P:NPC {
         { text = "Do the guests at the Oasis need more than a bed, Calandrath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do many soldiers come back from the hives in a bad way?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have hunters brought you to cook out here, Calandrath?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do many paladins come through the Oasis Inn, Calandrath?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would my demon really cause trouble in your kitchen?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Thank you, Calandrath.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1325,6 +1409,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Maybe, though I've a suspicion that what he really needs is for someone to fetch the venom samples so I can finish the cure. He's not as sick as he says, but he's not as well as he thinks, either, and the scorpids out there aren't getting any friendlier." } },
+      choices = {
+        { text = "I'll lay hands on him and see what the Light can do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll fetch the samples. Prayer won't mix your potion.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Something with a stinger and a bad attitude, out north where he had no business picking herbs, and now I'm brewing antidotes at cost, which hurts me nearly as much as the venom hurts him. If you're fighting out there, buy your own antidotes before you go, because I'm not nursing two of you." } },
@@ -1402,6 +1495,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Stonelash", min = 20 } },
+          text = "You've been squashing scorpids by the dozen, I hear, which is lovely, because every one you kill is one less that can sting Noggle again. Mind you, he'd find a way." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Oh, you're just what I need, because Noggle's been moaning for a miracle all week, and I'd much rather you supplied one than I paid for another potion." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You don't happen to have a spell for curing scorpid venom, do you? No? Then you're about as useful as a priest who's run dry, and I'll need samples instead." },
@@ -1442,6 +1539,7 @@ P:NPC {
         { text = "Would a priest's healing put you out of business, Beetix?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What stung Noggle so badly, Beetix?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters' kills really help you make cures, Beetix?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can a paladin really help Noggle, Beetix?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep an eye out for nasty things with stingers.", next = "END" },
       },
     },

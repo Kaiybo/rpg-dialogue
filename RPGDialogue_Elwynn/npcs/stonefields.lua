@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I know exactly who, and so does everyone else. Your spirits won't change my mind." } },
+      choices = {
+        { text = "Be sure before you blame, Bernice. Honesty matters.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Trust your instinct. You're probably right.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But I'll ask you to leave your little friend outside, because the last thing that came into my kitchen uninvited ate half a pie, and that was only Billy." } },
+      choices = {
+        { text = "Of course, Auntie. I'll leave it outside.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It goes where I go, Auntie. Sorry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Auntie.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Gramma does, and I don't argue with Gramma, but I'll say the soil on our side of the river has gone tired these last few years. If a druid can tell me whether it's a curse or just poor dirt, I'd be glad to know." } },
@@ -115,6 +133,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Wipe your boots, then; I've just swept, and I don't sweep twice for anyone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after good boar, the ones out past the Maclure vines are fattest, and I'd thank you to bring me some." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen yard! Look at the turnips if you like, but mind the vineyard side, because the Maclures watch this fence like hawks." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, sit down anyway; I've fed worse, and I've fed Billy, which is worse than most." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Mind my kitchen. And no, your spirits won't tell me who stole my necklace; I already know." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I knead; I can do both." },
@@ -134,6 +154,8 @@ P:NPC {
         { text = "Would you forgive the Maclures, Auntie, if they asked?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you want done about the Maclure boy, Auntie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you really think the Maclures cursed your turnips?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does it bother you to feed a warlock, Auntie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Who stole your necklace, Auntie Bernice?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
     },
@@ -284,6 +306,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "She's eaten every last cabbage, and that pig's an insult. If your spirits have a word for her, I'd be glad of it." } },
+      choices = {
+        { text = "I'll deal with the pig fairly, Ma. You'll have your crop back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A pig's a pig. Make bacon of it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "You could, and I'd thank you for it, for that prize pig is the cause of all my troubles this year. Turn it into a sheep and it'll eat the grass instead of my crop, and the Brackwells will never know the difference." } },
+      choices = {
+        { text = "I'd sooner catch it and return it properly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A sheep it is. The Brackwells won't miss a pig.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ma.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Dangerous to my carrots, at least, and her hogs will take a shin off anyone who gets too close. She's the size of a cart, and she's had the run of my field all season, so I'd say she's due." } },
@@ -346,6 +386,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Whatever that is at your heel, keep it out of my field, because I've enough trouble with one beast eating my crop." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now you're who I need, because that pig of the Brackwells' won't stop for a pitchfork." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you can turn a pig into a sheep, I've one in mind, and he's eaten half my field." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can your spirits do something about that pig? Princess is eating our whole crop, and I'm not a crier." },
       },
       again = {
         { id = "h_again", text = "What else? I've weeding, and the weeds don't wait." },
@@ -364,6 +406,8 @@ P:NPC {
         { text = "Is Princess really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How has the feud with the Maclures touched your family, Ma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Couldn't the Brackwells be made to keep their pig penned?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a mage do anything about the Brackwells' pig, Ma?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is Princess really eating your whole crop, Ma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the crop.", next = "END" },
       },
     },
@@ -490,6 +534,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Nothing! I didn't do nothing. Though I am hungry, and there's pie at the Stonefields'. Your spirits wouldn't tell, would they?" } },
+      choices = {
+        { text = "Tell the truth, Billy. It's easier in the end.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A little pie never hurt anyone. I won't tell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because everybody accuses me of something, and you look like you'd do something worse than shout about it. I only know where things are, that's all, and if you ever lose something, I'll tell you where it went for a slice of pie." } },
+      choices = {
+        { text = "I believe you, Billy. Knowing things isn't stealing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Knowing where things go sounds suspicious, Billy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Billy.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Everything, because I'm always out where nobody's looking, and there's a fox that takes the Stonefield eggs every Tuesday. Everybody thinks it's me, but I'm not telling them it's the fox, because then they'd shoot it." } },
@@ -564,6 +626,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You could beat up Goldtooth! Only don't tell anyone I said, because I wasn't there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Have you got a boar? I'm not hungry, I'm just asking, because I'm hungry." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a night elf! I didn't take anything, before you ask, and I've never even seen one of your lot before." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I didn't take anything of yours, I swear, and I didn't even look at your bag." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "I didn't do it! Oh, you're a shaman. Well, I still didn't do it. Whatever it was." },
       },
       again = {
         { id = "h_again", text = "What? I'm listening, I'm always listening, that's how I know things." },
@@ -581,6 +645,8 @@ P:NPC {
         { text = "Do you say your prayers at night, Billy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why didn't you tell anyone what you saw, Billy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you know about the animals round the farm, Billy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why do you think a warlock would accuse you, Billy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do you think you didn't do, Billy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "See you, Billy.", next = "END" },
       },
     },

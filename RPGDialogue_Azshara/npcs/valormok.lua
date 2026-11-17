@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Maybe, maybe not, for the elf's magic killed them fast. But I'll take you now, and the Horde will win here because someone has to, and I'd rather that someone glowed a little." } },
+      choices = {
+        { text = "I'll fight for Valormok. The Horde will hold here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your commander's bargain killed them. I won't die for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -114,6 +123,7 @@ P:NPC {
           text = "The spirits of our dead can rest now, and Belgrom can stop pacing his hall. You did that, {name}, and Valormok won't forget it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've buried a dozen warriors since that elf mage turned on us, and they went into the ground without a proper word said over them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, out here at Valormok? You'll find this forest sick, tauren, and the elves who live in it are sicker." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, at Valormok. We buried nearly every warrior in this camp, and I'd have given a great deal for someone with healing hands that night." },
       },
       again = {
         { id = "h_again", text = "What else? Speak; I've had nothing but the wind to talk to for weeks." },
@@ -131,6 +141,7 @@ P:NPC {
         { text = "Would your fallen want a priest's words, Ag'tor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can a hunter find the elves who betrayed you?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a druid help this camp hold out?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Could I have saved your warriors, Ag'tor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Lok'tar, Ag'tor.", next = "END", fx = { affinity = 1, standing = { valormok = 1 } } },
       },
     },
@@ -246,6 +257,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They'd make a study of you and then a weapon, which is what they did with everything. I'd make a profit, which is more honest, and I suspect you'd prefer me, though you'd never say so." } },
+      choices = {
+        { text = "Profit's no excuse for selling dangerous relics.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Profit's honest enough. Sell them all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty, because the naga sit on the tablets and the naga don't sell, so somebody has to take them. You hit things, I sell things, and the Archmage pays for whatever we bring him, so everyone ends up happy except the naga." } },
@@ -344,6 +364,7 @@ P:NPC {
           text = "He paid, every coin, and didn't even try to turn you into a toad. I don't know whether to be relieved or suspicious, so I'm being both." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out here? Don't bother praying for my soul, because it's busy making enough gold to get me out of this forest." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, all the way from Thunder Bluff? Then you'll understand better than these orcs why I keep my distance from that forest, because it doesn't feel right to me either." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, and before you ask, no, I'm not selling anything blessed. Highborne tablets, yes, and they'd make your Light itch." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast; I've accounts to keep." },
@@ -363,6 +384,7 @@ P:NPC {
         { text = "Is there business here for a warrior, Jediga?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the naga do with the tablets, Jediga?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What's wrong with the forest here, in your view?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "What would the Highborne make of a Forsaken paladin, Jediga?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck, Jediga.", next = "END" },
       },
     },
@@ -467,6 +489,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They'll carry you, the same way they carry everything else they hate. Beasts and orcs are alike in that, and the dead, I think, have learned it too." } },
+      choices = {
+        { text = "Duty means carrying what you hate. I know it well.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I carry nothing I don't choose to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They hate the sea, the salt, the naga, and the elves on the cliffs. I don't blame them; I hate most of it too, and Valormok is no place for beasts that were born to fly over the Barrens. Warm them, and they'll fly you anywhere, so long as it's away from here." } },
+      choices = {
+        { text = "I'll warm them. Your riders deserve better than salt and wind.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're beasts. They'll fly wherever they're told.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "No. My riders carry warriors to the fight and bring them home, and that's all, because a wind rider that fights the naga doesn't come back. You do the fighting, and I'll be here when you're done." } },
@@ -535,6 +575,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Mage. You can keep my riders warm with a little fire, if you'd do it quickly. They hate the salt wind, and so do I." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "Warrior. Good. You won't complain about the wind, I hope, because everyone else does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -548,6 +590,7 @@ P:NPC {
           text = "Kroum, wind rider master. I can send you home to Orgrimmar or Thunder Bluff, to the Crossroads, to Splintertree in Ashenvale, to Bloodvenom Post in Felwood, or north to Everlook in the snow." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out here in the salt wind. My riders hate it and so do I, so if you've a prayer for it, say it quickly and climb on." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. My wind riders won't need to carry you far, I'd think, but they'll carry you all the same, and they don't mind the smell of the wild on you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. My beasts hate the salt wind, and now they've a dead one in shining armor to hate as well." },
       },
       again = { { id = "h_again", text = "The wind riders are restless. Say what you need, or climb on." } },
       choices = {
@@ -561,6 +604,8 @@ P:NPC {
         { text = "Do your wind riders ever fly into the fighting, Kroum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your wind riders mind my beast, Kroum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do your wind riders fly well over Azshara?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do your riders truly hate this place, Kroum?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Will your wind riders carry me, Kroum?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

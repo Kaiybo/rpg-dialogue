@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Oh, all the time, friend, all the time. The dead are never very far in Duskwood, are they? I find them quite good company, really, once you get used to the smell." } },
+      choices = {
+        { text = "The dead deserve rest, Abercrombie, not company. Let them go.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every man finds comfort where he can. I won't judge you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Trouble me? Oh no, dear, they're quiet company, mostly, though the ghouls do get underfoot. A strong pair of arms like yours could clear a few from the cemetery, and I'd be ever so grateful for the ribs." } },
@@ -98,6 +107,7 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "Oh my, all that shine! Do stand a little further off, dear, because my eyes aren't what they were, and nor is anything else of me." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Oh, a warrior, dear! Such a sturdy build, and all of it still attached, which is more than most folk round Raven Hill can say." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a dwarf who talks to spirits! How lovely. My wife would have liked you. She's just in the next room, resting, so we'll keep our voices down." },
       },
       again = {
         { id = "h_again", text = "More questions? How lovely, since nobody asks me anything anymore." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "There's a strange smell of preservatives here, Abercrombie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the dead around Raven Hill trouble you, old man?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "You live alone among the graves. Do you need protecting, old man?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you ever feel the spirits near your hut, Abercrombie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Abercrombie.", next = "END" },
       },
     },

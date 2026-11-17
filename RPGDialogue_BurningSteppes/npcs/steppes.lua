@@ -75,8 +75,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because the earth was my Flight's long before your people learned to speak to it, and it remembers whom it served first. Pray to your spirits as much as you like, little one, but when the mountain shakes, ask yourself whose breath is moving it." } },
+      choices = {
+        { text = "The elements serve no master, dragon. Not even yours.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then perhaps your Flight and I could come to terms.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You beg favors from fire and stone, little one, and you think they answer out of friendship, which amuses me more than you can know." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A thief. I can smell gold on your fingers, little one, and none of it was given to you freely." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Your kind toy with sparks and call it mastery, while my flight was born in the deep fire of the world. Still, you interest me, and very little does." },
         { id = "h_default", key = true,
@@ -107,6 +117,7 @@ P:NPC {
         { text = "Would steel truly be useless against you, dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do dragons hunt, Cyrus, or only hoard?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the Flight think of the green dragons, Cyrus?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why does my bond with the elements amuse you, dragon?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll be going.", next = "END" },
       },
     },

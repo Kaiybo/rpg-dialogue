@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Somewhat, I'd say. We both use the elements, but I measure mine. Your spirits might not like measuring." } },
+      choices = {
+        { text = "Careful measurement is wisdom, Mallory. I respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The spirits don't measure. They just answer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Constantly, because I'd blame half my failures on a sulky root if I could prove it. Pomeroy swears the peacebloom grows better when he hums, and I've stopped arguing, because the potions are better too." } },
@@ -106,6 +115,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, and you'll want more than you think, because your sort always run short at the worst moment." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my door. You'll be gathering for me before long, I expect, since your sort walk where the herbs grow." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're looking at Pomeroy's herb beds with a very critical eye. Don't tell him, because he's sensitive about the peacebloom." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Hold on, I'm stirring. Do your spirits know alchemy? Fire, water, earth: they're all in my cauldron." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the green flask; it isn't finished." },
@@ -124,6 +134,7 @@ P:NPC {
         { text = "Could your potions ease the dying, Mallory?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins buy many potions from you, Mallory?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever wonder what the herbs think of your potions?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you think shamanism and alchemy are alike, Mallory?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -200,6 +211,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd say they do, and kindly ones. Every herb grows where it's happy, and that's a kind of spirit, isn't it?" } },
+      choices = {
+        { text = "The hills deserve gentle hands, Pomeroy. You have them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Herbs are herbs. Gather them and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They do, and they're picky about it, which I like in a customer. One of them asked me for something that grows only on graves, and I told him I don't gather in Duskwood and never will, and he went off looking disappointed." } },
+      choices = {
+        { text = "You're right not to gather there, Pomeroy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grave herbs have their uses. You're missing out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pomeroy.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Earthroot, chewed, for a bruise that won't settle, and bark of the silver birch for a sore head. Mallory will tell you a potion's better, and she's right, but a root in your pocket costs nothing." } },
@@ -271,6 +300,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll be wanting herbs for your inks, I suppose, and I can spare a few, though not the best ones." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the herb house. Stand still, now, because you've knocked my drying rack twice already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your sort pick certain herbs by moonlight, and I'd love to know which ones, if you're willing to tell." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The hillsides here are friends of mine. Do your earth spirits know them?" },
       },
       again = {
         { id = "h_again", text = "What else, dear? I've roots drying and nowhere to be." },
@@ -288,6 +319,8 @@ P:NPC {
         { text = "What should a hunter learn to look for underfoot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do herbs and prayer heal the same way, Pomeroy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Elwynn needs your herbs most, Pomeroy?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do warlocks ever buy herbs from you, Pomeroy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think the hills here have spirits, Pomeroy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
     },

@@ -18,6 +18,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I believe I can, faintly. It mourns. Your spirits might hear it more clearly." } },
+      choices = {
+        { text = "Then we should honour it, Asterion.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Ruins are ruins. Let them be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "You can, by breaking every satyr you find among the stones and taking back whatever they have dug up. They are cowards in the open and vicious in the dark, so fight them where the moon can see them." } },
@@ -77,6 +86,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Deth'ryll satyrs carry off whatever old magic they find in these stones, and I would see it taken back before they learn to use it. You needn't fight them all, only reach the ones who carry the pieces, and leave the rest wondering where their brothers went." },
+      },
+      choices = {
+        { text = "If I fight them, I'll fight them face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll strike from the shadows. They won't see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Asterion, and I watch over what is left of Bashal'Aran. The Deth'ryll satyrs crawl through these stones looking for old magic, and I mean to see that they find none of it." },
@@ -85,6 +105,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The satyrs of Bashal'Aran leave tracks like goats and a stink like the Legion, and you will know them when you find them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then perhaps you can feel what lingers in Bashal'Aran, for I have felt it every night since the satyrs came." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here at Bashal'Aran. I did not think to see one of your order among our ruins, but I will not refuse the help." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up through the ruins without stirring a single satyr, which is more than I can manage. Bashal'Aran could use someone who walks as quietly as you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I watch Bashal'Aran's ruins while the satyrs pick at what my people left. Can your spirits hear the old city?" },
       },
       again = {
         { id = "h_again1", text = "What else would you know about the ruins?" },
@@ -101,6 +123,8 @@ P:NPC {
         { text = "Satyrs are demon-touched. I can deal with their kind.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What lingers in these ruins, Asterion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the satyrs be driven out, or destroyed?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you have a quiet blade do in Bashal'Aran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can you still hear the old city, Asterion?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -170,6 +194,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We're fascinated, laddie! The old stone talks to us through runes, and maybe your spirits hear what the runes don't say. Come dig with me sometime!" } },
+      choices = {
+        { text = "I'll dig with you honestly, Prospector, and share what I find.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Runes are enough. Spirits only muddy the record.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Well, I'd not like to think so, though one of your lot did give me a long, cold look when I took a pick to the old ruins. I fill my holes back in, mostly, and I'd say the furbolgs have done this coast more harm than one dwarf with a shovel." } },
@@ -239,6 +272,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Worried? I've had murlocs, cave-ins and worse on this dig already, so a demon on a leash is near enough a relief. Just keep it off the bones, friend, because the League will have my beard if anything else goes missing." },
+      },
+      choices = {
+        { text = "Your finds are safe. I respect the League's work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it eats your bones, you'll dig up more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Remtravel's the name, prospector for the Explorers' League, and these old elven ruins are the finest dig I've had in years. If only I could remember where I left the bloody fossil." },
@@ -248,6 +292,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Grand, grand, because I've a nasty feeling I've been bitten by something, and I can't remember what." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now that's a proper sight for an old prospector, and you'll forgive me if I ask you to watch my back while I dig." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ah, one of the elf druids! You lot can talk to trees, can't you, so ask one of them whether it's seen my fossil, would you?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You haven't seen a pick lying about, have you, or a notebook with an ale ring on the cover? Don't let your wee beastie eat it if you do." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! By my beard, that's a first for the Explorers' League! Do your spirits know where I left my notes?" },
       },
       again = {
         { id = "h_again1", text = "Now, where was I? Ah, yes, you were asking something." },
@@ -265,6 +311,8 @@ P:NPC {
         { text = "Do you want me to look at that bite, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shouldn't you leave these elven ruins alone, Prospector?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your digs disturb the land here, Prospector?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Aren't you worried about my servant near your finds?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the Explorers' League make of shamans, Prospector?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the digging.", next = "END" },
       },
     },
@@ -333,6 +381,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We have known them since the world was young. Your people listen through stone; mine through root. Both hear the same song." } },
+      choices = {
+        { text = "Then I will listen with respect, Onu.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old songs are old. I will make my own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "There is something there that was not there a season ago, and it gathers others to it in the dark. When it is ready it will come north, and the grove will need roots that hold and blades that do not break." } },
@@ -392,6 +449,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Paths do not trouble me, for I have watched a great many of them cross this grove. What troubles me is the Master's Glaive, where the Twilight's Hammer gather, and a quiet walker could learn what they plan there before they know they are seen." },
+      },
+      choices = {
+        { text = "I'll go, but openly, and fight them fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Unseen is how I work. They'll never know.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Onu, and I have kept this grove since the trees here were saplings. Something stirs at the Master's Glaive to the south, where the old blade fell, and I do not like the shape of it." },
@@ -400,6 +468,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The beasts of Darkshore have grown sick, and the grove feels it in its roots." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest stands in the grove. The Light, or Elune, it matters little to the trees, so long as what you carry is gentle." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind are young, as the forest counts years, but your vows are old enough to be worth something." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk among my roots as quietly as the deer do, little one. I wonder whether you learned that from the forest, or from the dark." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with the spirits of the world. You walk a path older than you know, little one. Speak, and I will listen." },
       },
       again = {
         { id = "h_again1", text = "Speak, young one, I am listening." },
@@ -416,6 +486,8 @@ P:NPC {
         { text = "Whatever stirs at the Glaive, I could find out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What troubles the grove, Ancient One?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you ask of a paladin, Ancient One?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does a rogue's path trouble you, Ancient One?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the Ancients know the spirits I speak with, Onu?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I will leave you in peace.", next = "END" },
       },
     },
@@ -484,6 +556,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Something poisoned them; I do not know what. They turned on everyone. Your spirits might tell you more." } },
+      choices = {
+        { text = "Then I will help you escape, Volcor.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fight your own way out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I have asked myself that every night since they took me, and I do not know, because something is driving them that is not their own anger. They were our friends once, and I would rather see them cured than cut down, though I will fight them if I must to reach the road." } },
@@ -532,6 +613,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Quickly, if you can, because they're fierce in a pack and I'm in no shape to hold any of them off. Mind you don't burn the trees, though, because the Blackwood were my friends before the madness took them, and this was their forest too." },
+      },
+      choices = {
+        { text = "I'll spare them if I can. They were your friends.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're mad now. I'll burn them where they stand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I trust you more than I trust the Blackwood, which isn't saying much just now. Something drove them mad, and I've wondered whether it wasn't the same dark you deal in, so prove to me it isn't before we reach the road." },
+      },
+      choices = {
+        { text = "I'll prove it. Stay close and I'll get you out.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Trust me or stay here. Your choice.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "My name is Volcor, and I was taken by the Blackwood furbolgs when they turned on us. I need to reach the road and get word to Auberdine, but I can't fight my way past them alone." },
@@ -541,6 +644,11 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Then you can look at this leg once we're out of here, because I've been walking on it longer than I should." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll be glad of that hammer between me and the furbolgs, though I hope you can keep pace with a limping elf." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Then you know the Blackwood were not always like this, and you will understand why it hurts to hide from them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you get us past the Blackwood without a fight, or at least make the fight a short one?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, and I'm in no position to be choosy about who gets me out of here. Just keep that thing pointed at the furbolgs and not at me." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackwood", min = 30 } },
+          text = "You've cut down a lot of the Blackwood getting here, and I'm grateful, though it pains me to say it. They were good neighbours once, before the madness took them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The furbolgs of the Blackwood have gone mad. I am hurt, but not afraid. Your spirits might help me escape." },
       },
       again = {
         { id = "h_again1", text = "Speak quickly, they patrol often." },
@@ -553,6 +661,9 @@ P:NPC {
         { text = "I can get us both out unseen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Let me see to your wounds before we move, Volcor.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll see you safe to the road, Volcor. What do you need?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you want me to handle the furbolgs, Volcor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you trust a warlock to get you out, Volcor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What drove the Blackwood furbolgs mad, Volcor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll come back for you.", next = "END" },
         { text = "How many furbolgs stand between us and the road?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the Blackwood furbolgs keep their watch?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -624,6 +735,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It is beautiful and frightening. I lose myself there. Your spirits might help me wake." } },
+      choices = {
+        { text = "Then I will help you wake, Kerlonian.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Stay in the Dream. It is safer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That's about the size of it, I'm afraid, and the furbolgs on the road have worked out that I'm an easy meal while I'm dreaming. Wake me with the horn if you can and keep them off me if you can't, and I'll see Liladris again." } },
@@ -683,6 +803,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A little, because things from the Twisting Nether seem to leave a sort of shadow in the Dream, and I keep walking into it. If you're to see me home to Liladris, could you keep it on the far side of the road?" },
+      },
+      choices = {
+        { text = "Of course. Your rest matters more than its comfort.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It goes where I go. You'll have to dream around it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Kerlonian, and I'm meant to be on my way home to Auberdine and my love, Liladris. The trouble is that I keep falling asleep on the road, and the Dream doesn't want to let me go." },
@@ -691,6 +822,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your companion would make a fine watchman while I nap, and I nap a great deal, I'm afraid." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? Oh, good, perhaps you can tell me if something in the Dream is following me, because I feel it watching sometimes." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll keep me safe on the road, I'm sure, but you may have to carry me, and I do apologise in advance." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock. Forgive me if I yawn, because it's the Dream and not you, though your friend there does give me rather sharp dreams." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Forgive me if I drift off; I fall into the Emerald Dream sometimes. Do your spirits dream?" },
       },
       again = {
         { id = "h_again1", text = "Ask, quickly, before I nod off." },
@@ -707,6 +840,8 @@ P:NPC {
         { text = "Do the beasts on the road bother you while you sleep?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is something in the Dream troubling you, Kerlonian?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will you trust me to get you home, Kerlonian?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does my servant trouble your dreams, Kerlonian?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What is it like to fall into the Dream, Kerlonian?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay awake, Kerlonian.", next = "END" },
       },
     },

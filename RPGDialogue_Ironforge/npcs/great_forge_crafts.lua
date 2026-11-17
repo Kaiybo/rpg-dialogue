@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think it's the oldest workin' fire in the world, an' I've never once called it alive. But I've worked it since I was a lad, an' there's days it draws hot an' eager an' days it sulks, an' I'll no' pretend that's only the bellows. If ye tell me there's somethin' in there listenin', I might just believe ye." } },
+      choices = {
+        { text = "It's the Titans' gift. Tend it the way they meant.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It's alive, Bengus. Treat it as a partner, not a tool.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The mountain's held this fire since before my grandfather's grandfather, an' it hasnae complained once. Stone an' flame are old friends, an' the forge is only the place where they meet." } },
@@ -84,6 +93,17 @@ P:NPC {
         { text = "Teach me something about smithing instead.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Patience, which is the first thing the Great Forge teaches an' the last thing most folk learn. A blade that's rushed snaps when ye need it most, an' I'd think a rogue o' all people would want a blade that doesnae fail in the dark." },
+      },
+      choices = {
+        { text = "I'll learn patience at the forge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll buy my blades, not make them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Great Forge! Ye'll want tae stand back from the heat, for I've seen yer robes catch before, an' I'd rather no' see it again." },
@@ -96,6 +116,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Show me yer hands, then, for I can tell what a warrior's made of by the calluses." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I make a good arrowhead an' a better gun barrel, but I'll leave the shootin' tae ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Great Forge. Let me see yer hands; soft, as I thought, though I'll grant ye a bear's paws were never made for tongs." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Soft hands, I'd wager, but quick ones, an' I've seen a lockpick made by a rogue that was finer work than half my apprentices manage." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Great Forge! Ye'll feel it, I expect, the fire at the heart o' the mountain. Tell me true, does it know us?" },
       },
       again = {
         { id = "h_again", text = "Speak up, the bellows are loud." },
@@ -113,6 +135,8 @@ P:NPC {
         { text = "Do you forge gun barrels for hunters, Bengus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there anything holy about the Great Forge, Bengus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the forge ever trouble the mountain, Bengus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a rogue learn anything at your forge, Bengus?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do you think the Great Forge's fire is, Bengus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -206,6 +230,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen tae them. Deepmountain's taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
+      choices = {
+        { text = "Keep Deepmountain's methods, and add the listening on top.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Throw out the old teaching. Listen to the stone first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, when the rock tells me it'll come down on my head, which is the mountain's way o' sayin' no. The rest o' the time the ore's there tae be taken, an' I'll no' apologise for takin' it." } },
@@ -272,6 +305,17 @@ P:NPC {
         { text = "Good digging, Geofram.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "There's somethin' in it, though I'd no' call it magic, for the old seams under Ironforge hum when ye strike them right, an' every miner here knows the sound. The titans shaped these mountains, so I suppose it's no surprise the stone remembers a thing or two." },
+      },
+      choices = {
+        { text = "The stone should be respected, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A seam's a seam. Dig it out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, at Deepmountain Minin'? Ye'll want tae say a prayer for my lads in the tunnels, then, for the troggs are back an' the miners are scared." },
@@ -287,6 +331,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; a miner wi' a warrior at his back goes deeper an' comes back sooner, an' that's the best kind o' minin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? There's no' much tae hunt underground, though the troggs might disagree wi' me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind dislike holes in the ground, I'm told, which makes this an awkward meetin', for I teach folk how tae dig them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye'll no' be swingin' a pick, I expect, but ye might like tae know that half the gems the enchanters fuss over came up out o' my tunnels." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've had miners swear the seams sing before a cave-in, an' I'd give a month's ore tae know if they were right." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a seam map tae finish." },
@@ -304,6 +350,8 @@ P:NPC {
         { text = "Are your miners getting hurt in the tunnels, Geofram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the miners abandon the deep seams near Gnomeregan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever leave a seam unmined for the mountain's sake?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is there magic in the deep stone, Geofram?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the seams really warn miners before a collapse, Geofram?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good digging, Geofram.", next = "END" },
       },
     },
@@ -373,6 +421,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I've wondered! The Wildhammers I've fed cook over open flame an' say a word tae it first, an' I always thought it was manners. A recruit asked me once if the fire would sulk if he burned the meat, an' I told him the fire wouldnae, but I would." } },
+      choices = {
+        { text = "Saying a word to the fire is only good manners.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The fire doesn't care. Just don't burn the meat.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I could, though Emrul would charge me double for the mushrooms, the old thief. Night elves aren't all fussy about meat, mind, but a good cook asks before he serves, an' that's the first thing I teach." } },
@@ -439,6 +496,17 @@ P:NPC {
         { text = "Something else, Daryl.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "It's helped everyone else who's sat at this kettle, so I dinnae see why ye'd be any different. Just keep yer wee imp off the spice rack, for my brother Emrul charges me a fortune for every pinch, an' I'll no' pay twice." },
+      },
+      choices = {
+        { text = "Thank you, Daryl. I'll gladly eat.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save your food. I don't need comforting.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll eat before ye pray, I hope, for I've seen too many o' yer lot faint over a bowl o' soup they forgot tae finish." },
@@ -452,6 +520,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll have been livin' on hard biscuits, I'd wager, an' I can fix that in an afternoon." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a cook's best friend, for ye bring me the meat an' I'll show ye what tae do wi' it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know yer herbs, then, an' a cook who knows his herbs is halfway tae a good stew." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Sit down an' have a sausage, for there's no trouble in the world a good meal cannae shrink, an' ye look like ye've a few." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Bronze Kettle! Ye'll know a good fire, then, so tell me honestly if mine's any good." },
       },
       again = {
         { id = "h_again", text = "What else would ye like tae know? Ask while the pot's on." },
@@ -470,6 +540,8 @@ P:NPC {
         { text = "Do you ever cook for the sick, Daryl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin eat before a long march, Daryl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could you cook something without meat for a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can a good meal really help a warlock, Daryl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does a shaman cook any differently, Daryl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll come back hungry.", next = "END" },
       },
     },
@@ -566,6 +638,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Better pepper, I'd hope! It came in damp through the Wetlands, an' I swear the whole crate's been sulkin' since. Daryl says I'm daft tae think spices have moods, but Daryl also says he's the better-lookin' brother, so ye can see where his judgment lies." } },
+      choices = {
+        { text = "I'll not pretend, Emrul. Spices have no spirits.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For a fair price, I'll whisper sweet things to your pepper.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Stormwind ships, mostly, an' a few from Darnassus that yer people sell dear. Some I couldnae tell ye the source of, but they smell right an' they cook right, an' that's enough for me." } },
@@ -632,6 +713,17 @@ P:NPC {
         { text = "Something else, Emrul.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Not a bit, an' I'll stand by that, for real spice comes all the way from Booty Bay an' Theramore, an' ye can taste every league o' the journey. Daryl says my prices are robbery, but he's never once complained about the flavour." },
+      },
+      choices = {
+        { text = "Real spice is worth the price, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Conjured is cheaper. Flavour's overrated.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest wantin' spices! Ye'll be cookin' for the poor, I suppose, an' I'll no' charge ye extra for the salt, though I'll no' charge ye less either." },
@@ -645,6 +737,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want salt, then, for there's nothin' sadder than a soldier's supper wi'out it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll be the one bringin' Daryl his meat, then, an' I'll be the one makin' it taste o' somethin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll be wantin' herbs, then, an' I've a few that Daryl doesnae even know the names of." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Dinnae even think about conjurin' cinnamon, for I've heard o' mages tryin', an' it tastes o' nothin' but disappointment." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Daryl's goin' tae want ye for his fire, but come tae me first, for I'll pay ye more for a kind word tae my spice chest." },
       },
       again = {
         { id = "h_again", text = "What else, then? I've a customer behind ye, I think." },
@@ -662,6 +756,8 @@ P:NPC {
         { text = "Do you ever give spices to the poor in the Forlorn Cavern?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where do your spices come from, Emrul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can't conjured spices match yours, Emrul?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What would a kind word to your spice chest get you?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Emrul.", next = "END" },
       },
     },
@@ -731,6 +827,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Aye, an' gladly, though I'm a physician first an' a believer second. A bandage I understand: clean it, bind it, keep it dry. What the priests do I've stopped askin' about, an' what ye do I havenae even begun tae ask, but a soldier doesnae care where the healin' comes from, so long as it comes." } },
+      choices = {
+        { text = "Healing is healing. I'll stand beside your bandages gladly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bandages are for those without a better gift.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "It's quicker, but quick isnae always good, for I've seen spells close a wound wi' dirt still in it. Clean it first, an' then do what ye like wi' yer leaves an' yer moonlight." } },
@@ -797,6 +902,17 @@ P:NPC {
         { text = "Teach me first aid, Nissa.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Because ye work alone, an' there's nobody comin' tae patch ye up when a job goes wrong in some dark corner. Learn tae wrap a wound tight an' quick, an' ye'll walk out o' places other folk get carried out of." },
+      },
+      choices = {
+        { text = "Teach me, then. I'll learn it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't get hit, Nissa.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll have the Light in yer hands, I suppose, but I'll still teach ye bandagin', for ye'll no' always have the strength tae use it." },
@@ -811,6 +927,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be bleedin' on my floor sooner or later, so ye might as well learn tae stop it yerself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want tae learn bandagin' for yer own sake, for yer beast mends quicker than ye do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind heal wi' the green, I hear, an' I'll no' say no tae the help, so long as ye don't bleed on my floor." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Ye'll bleed quiet, I expect, but ye'll still bleed, an' I'll thank ye tae do it somewhere other than my floor." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've heard ye can close a wound wi' water an' a word. If that's true, I'll want tae watch ye do it, an' then I'll want tae know why." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a patient upstairs." },
@@ -828,6 +946,8 @@ P:NPC {
         { text = "Do you resent priests, Nissa, for doing your work with prayers?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it better to heal the wounded or to protect them, Nissa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a druid's healing as good as a bandage, Nissa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why should a rogue learn first aid, Nissa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you want a shaman's healing beside your bandages, Nissa?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Nissa.", next = "END" },
       },
     },
@@ -909,6 +1029,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not in the least, which is what makes it fascinating! I bind energy in by rule and rune, and you ask the elements nicely and they agree, apparently. If I could work out why they agree, I could probably sell it, but I suspect you'd object." } },
+      choices = {
+        { text = "I'd object. The elements aren't for sale, Gimble.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Work it out, and we'll split the profits.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Everything borrows from something, and enchanting borrows the magic already soaked into whatever you break down. I've never heard a tree complain about it, but then I've never asked one." } },
@@ -977,6 +1106,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, you're not here to steal my formulas, are you? No, you'd be much quieter about it, I suppose." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must have very good eyes, so please don't use them on my notes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You're not here to steal my formulas, are you? No, of course not, your people are much too dignified for that." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Now that's interesting. Enchanting binds magic into things, and you seem to persuade things to do magic on their own. I'd love to compare notes." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before someone else comes up the stairs." },
@@ -993,6 +1123,7 @@ P:NPC {
         { text = "Can enchanting and faith work together, Gimble?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would an enchanted hammer make a paladin stronger, Gimble?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does enchanting ever borrow its power from nature?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is a shaman's craft anything like enchanting, Gimble?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },

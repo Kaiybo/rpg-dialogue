@@ -20,6 +20,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The hammer's fine work, better than the arm that carries it, if ye'll forgive me. The Light an' I have an understandin', I work an' it watches, but I never thought it'd go watchin' from inside one o' the dead, an' I'll admit it makes me curious." } },
+      choices = {
+        { text = "The Light chose me. It can choose anyone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The hammer matters more than whatever glows behind it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Nothin' a month at my anvil wouldnae fix, but there's nae month tae spare out here. Keep it oiled against the dust an' strike wi' the edge, no' the flat, an' it'll serve ye till ye find a better smith than the one who made it." } },
@@ -94,8 +103,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It'll do, though it's been ground down by somebody who thinks a whetstone fixes everything, an' it doesnae. Bring me indurium from Uldaman an' I'll show ye what a hammer can be, but I'll no' bless it, because the Light an' I have an understanding: I work, an' it watches." } },
+      choices = {
+        { text = "Let the Light and the forge both have their due, Martek.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good steel matters more than any blessing, Martek.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Martek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin. Ironforge sends its knights everywhere but here, which suits me fine, though I'll grant ye that hammer was forged by somebody who knew the trade." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest o' the Light, out here. I was raised under it same as ye, {class}, so I'll thank ye no' tae try an' preach me back home." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've no use for spells in my metal, mind; what goes intae the forge should come out the better for the hammer, no' for some charm." },
@@ -118,6 +137,7 @@ P:NPC {
           text = "A warrior. Let's see yer blade, then, an' I'll tell ye who made it an' how badly, for I've yet tae meet a warrior who knew what he was carryin'." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Ye'll find the coyotes an' buzzards out here are tougher than they look, an' the basilisks tougher still, so mind yer arrowheads." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, an' one o' the Forsaken at that. I've seen many things forged in strange fires, but I never thought tae see the Light hammered intae a dead one's bones." },
       },
       again = {
         { id = "h_again", text = "What else? The forge is coolin'." },
@@ -136,6 +156,8 @@ P:NPC {
         { text = "Do you still pray out here alone, Martek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's wrong with my blade, Martek?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What arrowheads would you use on a basilisk?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Does a paladin's hammer pass your inspection, Martek?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Does a Forsaken paladin's hammer pass your inspection, Martek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Martek.", next = "END" },
       },
     },
@@ -268,8 +290,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd sell to anybody with coin, pal, but a knight eating my wings by the road is the best advertising a cook could ask for. Folks see shining plate at my fire and figure the food must be safe, and mostly it is, mostly." } },
+      choices = {
+        { text = "Cook them properly, and I'll vouch for them honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fine, I'll tell everyone they're delicious, true or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, pal! You march all day in that plate and you'll want something hot and greasy at the end of it, and I've got buzzard wings that'll stick to your ribs and maybe your armor." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "Hey, a priest! You know, pal, Alliance folk on this road ought to pay extra for a meal that's been prayed over, or at least I'm hoping they will once I paint the sign." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp? Could it light my grill? I'll pay in wings, and the little fella looks like he could use a feed." },
@@ -308,6 +340,7 @@ P:NPC {
         { text = "Should a priest really bless buzzard wings, Rigglefuzz?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do soldiers really pay for buzzard wings out here?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do you get your buzzards, Rigglefuzz?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Would you really sell buzzard wings to a paladin, Rigglefuzz?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the barbecue.", next = "END" },
       },
     },

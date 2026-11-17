@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd send you anywhere I needed a soldier who heals and doesn't scare easily. Thrall's Grasp died in the lands past this swamp with no one to mend them, and I'll not turn away any help the Light sends, whatever face it wears." } },
+      choices = {
+        { text = "Send me where you need me, Commander.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll choose my own path through the swamp.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Murlocs in the reeds, crocolisks in the shallows and worse near the Pool of Tears, and none of it shows itself until it has you by the leg. I've lost more scouts to this swamp than to any enemy, and I'd send a warrior with every one of them if I had enough." } },
@@ -102,6 +111,7 @@ P:NPC {
         { id = "h_talker_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Swamp Talker"), days = 3 } },
           text = "So the orders turned up in a murloc's cave, where they'd been all along. I'll not pretend that's comfort, but at least nobody can say Stonard didn't send them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Stonard's walls need warriors, but my scouts need someone to pull them out of the mud when the swamp turns on them, and that may be your job today." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. I've sent scouts to strange places, but none ever came back with a report like you." },
       },
       again = {
         { id = "h_again", text = "Next item. Keep it short; I've dispatches waiting." },
@@ -124,6 +134,7 @@ P:NPC {
         { text = "What do your scouts miss out there, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could magic carry your messages faster than runners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What has the swamp done to your scouts, Commander?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Would you send a paladin into the swamp, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Send me out.", next = "END", fx = { affinity = 1, standing = { stonard = 1 } } },
       },
     },
@@ -339,6 +350,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Perhaps. The trolls who built that place served a blood god, and blood gods fear little, but I would rather face the temple with the Light beside me than without it. Whether it answers you as it answers the living, I cannot say." } },
+      choices = {
+        { text = "It answers me. I'll carry it into the temple.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I trust my blade over any god, Light or blood.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Atal'ai still keep their rites in the drowned halls, and other things guard the deep places that I will not name. A warrior can cut down a priest, but not what the priest prays to, so if you go in, go with others and go prepared." } },
@@ -391,6 +411,7 @@ P:NPC {
           text = "Twenty fetishes, and every one of them hums like a hornet in a jar. They'll go to Orgrimmar under guard, and I'll sleep better once they're gone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Steel will not help much against what lies in that temple, but I would rather have you here than not." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Then you may feel what I feel at the Pool of Tears, something under the water dreaming a dream that is not its own." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "The Light, in a Forsaken body. Strange times bring strange servants, and the temple beneath the Pool of Tears stirs stranger every night." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly; the temple doesn't wait." },
@@ -409,6 +430,7 @@ P:NPC {
         { text = "How close can I get to the temple unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What lies in the Temple of Atal'Hakkar, Fel'zerul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you feel under the Pool of Tears, Fel'zerul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Could the Light help against what stirs in the temple?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
@@ -555,6 +577,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Strange? It's the strangest thing I've seen since I came to Stonard, and I've seen a murloc wearing a pot for a helmet. I'm not clever enough to tell you whether it's right, but you seem decent, and that's good enough for me." } },
+      choices = {
+        { text = "The Light chose me for a reason. I'll be worthy of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light is a weapon, Helgrum, nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In the swamp, aye, because heavy feet sink and the murlocs come at you from the reeds before you can turn. Neeka says a warrior's strength is in holding ground, but there's no solid ground out there to hold, so you'd better learn to move." } },
@@ -625,6 +656,7 @@ P:NPC {
           text = "Neeka's report says the Alliance has troubles of its own up north, and some of their enemies are ours too. Funny, the things you learn when a letter finally arrives." },
         { id = "h_fast", when = { metBefore = true }, text = "I ran to the edge of the swamp and back this morning, before breakfast, and don't ask me why, because I wasn't thinking. I'm the swift one, remember." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll never be fast in all that armor, but I'll grant you'd be a lot harder to knock down than me." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who glows! Wait till I tell Neeka, she'll say I'm making it up, because I do make things up, but not this time." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, I've got a run at noon." },
@@ -642,6 +674,7 @@ P:NPC {
         { text = "Fast is good, Helgrum, but quiet is better.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Blink only goes a few yards, Helgrum.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is speed better than armor in the swamp, Helgrum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Does a Forsaken paladin seem so strange to you, Helgrum?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll look for her.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -739,6 +772,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It surprises me that anything answers anybody out here. The murlocs took my legs and most of my words, and if the Light can live in one of the Forsaken, then maybe it can still find a broken old orc." } },
+      choices = {
+        { text = "It finds everyone who looks for it, Bengor.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Don't count on the Light. Count on the Horde.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -795,6 +837,7 @@ P:NPC {
         { id = "h_tired", when = { metBefore = true },
           text = "You came back to sit with a broken old grunt, and few do that. The healers come with their tube and their kind words, and I would rather have your company." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I could use your eyes, for mine are bad now, and I'd like to know whether the murlocs are still nesting in the reeds by the water." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one with warm hands. I can feel the Light in you from here, and I never thought I'd feel it from one of the Forsaken." },
       },
       again = { { id = "h_again", text = "More? I have breath for a little more, if you speak slowly." } },
       choices = {
@@ -808,6 +851,7 @@ P:NPC {
         { text = "I'm a soldier too, Bengor. Tell me what happened.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Could I find the Swamp Talker's cave unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could I track the murlocs who hurt you, Bengor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does it surprise you that the Light answers me, Bengor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -912,6 +956,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They're scouts, so everything bothers them, and nothing stops them eating. A Forsaken with the Light in their hands is the strangest guest my fire has seen, but strange doesn't spoil the stew, and you're welcome as long as you mind the door." } },
+      choices = {
+        { text = "Your fire, your rules, Karakul. I'll mind the door.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep my boots on. Rules bend for the dead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "By the time they raised Stonard the shamans were long gone, and the warlocks ran everything. I'm told this inn stands on the stones of the old one, so I'd like to think it keeps better company now." } },
@@ -977,6 +1030,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed, which isn't glory, but it keeps the Horde walking." },
         { id = "h_mud", when = { metBefore = true }, text = "The scouts track half the swamp in on their boots, so I've started charging them a bucket of water each, and they pay in mud." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Boots off at the door, dead or not. I've fed the Forsaken before and I've never fed a paladin, so you'll eat what the scouts eat and like it." },
       },
       again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I." } },
       choices = {
@@ -994,6 +1048,7 @@ P:NPC {
         { text = "Do you cook for tauren, Karakul?", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Should I conjure food for the scouts, Karakul?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What has my imp done to deserve that, Karakul?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do your scouts mind sharing a fire with me, Karakul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },

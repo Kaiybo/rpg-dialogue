@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Rarely, and never with enough. I'm courteous, but desperate. A shaman's help would be welcome." } },
+      choices = {
+        { text = "Then I'll help Darkshire, my lord. Count on it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stop waiting on Stormwind. Rule Darkshire yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I begin to doubt it, and I say that as a loyal subject of the crown. Stormwind has its own troubles, I'm told, but the dead don't stop walking because the nobles are busy, so until they come, the Night Watch and warriors like you are all we have." } },
@@ -100,6 +109,7 @@ P:NPC {
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "The council has no appointments today, and I have even fewer for you. What is it?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and welcome, for I have asked Stormwind for a hundred of you and received a polite letter instead. You'll forgive me if I'm glad of one." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've asked Stormwind for soldiers more times than I can count. Will your spirits answer where they won't?" },
       },
       again = {
         { id = "h_again", text = "Go on. The council can wait, as the council always waits." },
@@ -123,6 +133,7 @@ P:NPC {
         { text = "Karazhan is close. Does its shadow trouble Darkshire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Will Stormwind ever send soldiers to Darkshire, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your town fears me, Lord Ebonlocke.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has Stormwind answered your requests, Lord Ebonlocke?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, my lord.", next = "END" },
       },
     },

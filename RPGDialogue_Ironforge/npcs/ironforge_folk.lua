@@ -85,6 +85,17 @@ P:NPC {
         { text = "Something else, Brandur.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Light has use for anyone who does right by their neighbours, an' I've known a rogue or two who did more good in the dark than a dozen paladins in the open. Mind ye, I've known a few who did the opposite, so I'll keep one eye on the candlesticks all the same." },
+      },
+      choices = {
+        { text = "I'll do right by my neighbours, Brandur.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Right and wrong depend on who's paying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Brandur Ironhammer, an' I train the Light's young ones here in Ironforge. Dwarves I send on tae Tiza Battleforge an' humans tae Duthorian Rall, for the Light's no' fussy about beards." },
@@ -103,6 +114,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The Light loves a strong arm as much as a strong heart, an' ye'd be welcome among my young ones." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The Light shines on the high snows as well as on the Hall, an' I'd no' be surprised if it walks wi' ye out there." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The Light's no' fussy about beards, an' I'm told nature's no' fussy about fur or skin, so we've that in common." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Hall o' Mysteries! Dinnae worry, the Light's no' fussy about who comes in, though it's a wee bit fussy about who goes out wi' the candlesticks." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The Light's patient, but my students aren't." },
@@ -120,6 +132,7 @@ P:NPC {
         { text = "Does the Light have a place in the hunt, Brandur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins and priests ever argue about faith, Brandur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you think the Light and Elune get along, Brandur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does the Light have any use for rogues, Brandur?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -224,6 +237,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Afraid? No, they'd ask you a hundred questions and want to see you call lightning. A few of the older ones lost parents to the orcs, though, and I'd want to tell them first that not every shaman ends up a warlock in a wolf pelt. The Church would want that said gently." } },
+      choices = {
+        { text = "Tell them gently. I'd gladly visit and answer kindly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They'll learn the difference themselves. I won't soften it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Not that I know of, for your people look after their own, and I admire them for it. The children I care for are mostly the war's leftovers, and some of them would love to meet someone who can turn into a cat." } },
@@ -300,6 +322,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The children at the orphanage would be thrilled to hear it, for half of them want to grow up to be one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The children would love to hear about the beasts you've seen, if you're ever passing through Stormwind." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from Teldrassil! You've come a long way, and I hope you'll forgive me for asking whether you'd spare a thought for Stormwind's orphans." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'd heard there were some now. The children in Stormwind would never believe me, so I suppose I'll have to bring them one of you someday." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've time, plenty of it, and a cart that won't fill." },
@@ -319,6 +342,7 @@ P:NPC {
         { text = "Would the orphans really want to hear hunting stories?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would the orphans really want a paladin to visit them?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are there kaldorei children among Stormwind's orphans?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would the orphans in Stormwind be afraid of a shaman?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, John.", next = "END" },
       },
     },
@@ -438,6 +462,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I forge for anyone defending the Alliance, and the Church has never told me otherwise. Some of the brothers would want me to ask what powers your arm before I sharpen your axe. I've decided I don't need to know, so long as you swing it at the right things." } },
+      choices = {
+        { text = "Then I'll swing it for the Alliance, and the Light can judge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My arm's my own. The Light needn't weigh in on it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "It's the only kind I'm any good at, so I hope so. Every blade I make goes to someone defending something, and I like to think the Light sees the care in that." } },
@@ -486,6 +519,17 @@ P:NPC {
         { text = "Let me see your wares, Jordan.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I don't know, and I'd rather not learn it on a hammer meant for the Church. Stormwind's mages and the Cathedral have always kept a polite distance, and I think there's wisdom in that, even if I couldn't tell you exactly why." },
+      },
+      choices = {
+        { text = "Then I'll keep my distance from your anvil.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Light and the arcane can share a room.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil." },
@@ -501,6 +545,8 @@ P:NPC {
           text = "A warlock at the Church's anvil! I'll ask you to keep your distance from the blessed metal, for it's been blessed once and I'd not like to bless it again." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I'll forge you arrowheads if you need them, and bless the steel while I'm at it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Nature's work and the Light's work aren't so far apart, I think, though you'll find my hammer louder than your groves." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I work blessed steel here, and I'd rather you didn't cast near the anvil, because I've never known what the arcane does to a blessing." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I serve the Light at my anvil, and I'll admit I don't know what you serve, but your hands look like they've worked, so we may have more in common than the Church would think." },
       },
       again = {
         { id = "h_again", text = "What else? The fire's in no hurry." },
@@ -519,6 +565,8 @@ P:NPC {
         { text = "Do you forge for hunters as well as the faithful?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you pray at your anvil, Jordan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can work at the anvil be a kind of prayer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does the arcane spoil a blessing, Jordan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would the Light's smith forge for a shaman, Jordan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay warm, Jordan.", next = "END" },
       },
     },

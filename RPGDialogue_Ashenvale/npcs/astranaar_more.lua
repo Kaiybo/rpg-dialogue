@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I would post you where the Warsong are thickest. Their shamans call lightning; ours could answer. Darnassus will hear of you." } },
+      choices = {
+        { text = "Post me where I'm needed, Sentinel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll choose my own post.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "We agree that the orcs must leave, and we disagree on nearly everything else, because the Circle would still sit and talk with the Horde's tauren while the Sisterhood would rather not. I send both views to Darnassus, and I let wiser heads decide." } },
@@ -94,6 +103,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "To kill them wherever they walk in Ashenvale, and the satyrs of Satyrnaar have given us plenty of practice. You are an ally of my people, so the order does not reach you, but if your servant slips its leash it will, and I will not be sorry." },
+      },
+      choices = {
+        { text = "Fair. If it ever slips, cut it down.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My servant answers to me, not to your Sentinels.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -113,6 +133,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whether you call on the Light or the Mother Moon, the High Priestess values those who mend the wounded." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your Silver Hand has its own discipline, and I would know if it matches ours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. The Sisterhood and the Circle answer to different voices in Darnassus, but here in Ashenvale we stand on the same ground." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Warlock. Keep your servant leashed in Astranaar, because my Sentinels have orders about demons, and those orders do not ask whom the demon belongs to." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh newcomers to decide where to post them. Your spirits might be useful on the roads." },
       },
       again = {
         { id = "h_again", text = "What else? The watch changes soon." },
@@ -131,6 +153,8 @@ P:NPC {
         { text = "How does Tyrande regard priests who aren't of the Sisterhood?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Sentinels and the Silver Hand serve the same cause?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Sentinels and the Circle agree about the Warsong?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What orders do the Sentinels have about demons?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Where would you post a shaman, Thenysil?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune keep the watch.", next = "END", fx = { standing = { astranaar = 1 } } },
       },
     },
@@ -236,6 +260,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I watch for demons, mostly, and the smoke of orc fires. Your spirits might see what my birds cannot." } },
+      choices = {
+        { text = "Then keep watch, Daelyshia. We need eyes like yours.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fly higher. Low is dangerous.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Not once you've settled into cat or bear, but they grow restless when a druid changes too close to the roost, because they smell the shift before they see it. I ask the Circle's folk to change beyond the bridge, and most of them are kind enough to listen." } },
@@ -290,6 +323,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Not you, but they'll throw anything that smells of the Legion, and you carry the smell on your cloak. Dismiss your servant on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
+      },
+      choices = {
+        { text = "I'll dismiss it on the ground. The birds deserve that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They'll carry me whether they like it or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -304,6 +348,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My birds come back with arrow wounds more often than I'd like, so I keep a healer's name handy." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be a heavy load, but my birds have flown worse over the eastern trees." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You've no wings of your own, so you'll fly with mine like everyone else, and I promise the birds are gentler than they look." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My hippogryphs can smell a demon from the far end of the island, so keep yours dismissed until we're in the air, or they'll throw you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I fly low over the trees and watch the eastern sky. Do your wind spirits fly low too?" },
       },
       again = {
         { id = "h_again", text = "Anything else, or are we flying?" },
@@ -321,6 +367,8 @@ P:NPC {
         { text = "Do the Warsong shoot at your hippogryphs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Alliance strike Splintertree before they strike us?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the hippogryphs fear druids who change shape near them?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will your birds really throw a warlock, Daelyshia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do you watch for in the eastern sky, Daelyshia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

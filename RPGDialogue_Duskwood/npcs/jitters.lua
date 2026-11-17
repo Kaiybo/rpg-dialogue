@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I saw things, terrible things. They're still there, every time I close my eyes. Your spirits might chase them away." } },
+      choices = {
+        { text = "I'll help you, Jitters. You're safe now.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Get hold of yourself. Fear won't help.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Things out past the Yorgen farm that I'll not describe, not even to a warrior, and I ran from them and I've not stopped running since. If you've a sword, you'll want it out before you go that way, and you'll want someone watching your back as well." } },
@@ -103,6 +112,7 @@ P:NPC {
         { id = "h_sleep", when = { metBefore = true }, text = "I slept two whole hours last night and nobody came for me, and I-I'm almost disappointed... no, no, I'm not, I'm not at all." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Oh, thank the Light, a big strong warrior, and you'll not let anything grab me, will you, not with that sword?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll see things in the dark, won't you, before they see you, because you're trained for it, and I'm not, and it shows." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Food? Please? I'll tell you everything, but food first. The things in the woods... I keep seeing them." },
       },
       again = {
         { id = "h_again", text = "W-what else? Ask quickly, because something's moving by the well, though it's probably nothing." },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "Do the wolves follow you, Jitters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What you saw in the woods doesn't frighten me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you do if someone came to judge you, Jitters?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What did you see in the woods, Jitters?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Jitters.", next = "END" },
       },
     },

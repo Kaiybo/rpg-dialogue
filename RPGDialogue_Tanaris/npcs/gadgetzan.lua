@@ -102,6 +102,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I thought about it, believe me, but Sprinkle said if I fed a single drop to an imp she'd stop fixing my recipes, and I need her more than I need the data. Besides, who knows what an imp turns into, and I'd hate to find out at the bar." } },
+      choices = {
+        { text = "Listen to Sprinkle. Some experiments shouldn't be run.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Test it on mine. I'm curious too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -131,6 +140,7 @@ P:NPC {
           text = "A warrior! You look like you could drink a whole bottle of my elixir and still swing that sword, which is exactly the sort of testimonial I'm after." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and with a beast! Tell me, have you ever wondered what my elixir would do to an animal, purely in the name of science?" },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now there's a customer who understands side effects. You've seen what happens when a little power goes a long way, so you'll appreciate my elixir better than most." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them in the shade, then, because everything's better in the shade." },
@@ -155,6 +165,7 @@ P:NPC {
         { text = "Is your elixir safe enough to sell, Marin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would your elixir help me in a fight, Marin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "You haven't actually tested the elixir on animals, have you?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Have you ever tested the elixir on a demon, Marin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -387,6 +398,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Everyone who'll sit still long enough, sweetie, and plenty who won't. Noggy forgets to eat when he's brewing, the Bruisers forget when they're on watch, and somebody has to remember for all of them." } },
+      choices = {
+        { text = "That's good work, Sprinkle. Someone has to care for them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Grown folk can feed themselves. Let them learn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It did, sweetie, and then it laughed about it, which was the part I minded most. Its master paid for the cloth and the biscuits, and I'll say he was very sorry, but I've kept a bucket by the door ever since." } },
+      choices = {
+        { text = "I'll keep mine outside, then. Your biscuits are safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "He'll behave. I won't leave him in the sun.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, sweetie? Then you'll know fire's the most important spirit in any kitchen, and I've a stove back here that could use a stern word from you." },
@@ -408,6 +437,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now there's someone who brings dinner home, sweetie, and I'd love to see what you've caught out in those dunes." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Do you know which desert plants won't kill a person? Because Marin says all of them are fine, and Marin is a liar." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, sweetie! You'll want something hot and heavy before you march off into the sand, though not too heavy, or you'll sink." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, sweetie? You can eat at my table, but your little friend can wait outside, because the last imp in here ate a whole tray of biscuits and set the tablecloth on fire." },
       },
       again = { { id = "h_again", text = "Anything else, sweetie?" }, { id = "h_again2", text = "Go on, sweetie; I'm stirring, but I can listen." } },
       choices = {
@@ -425,6 +456,8 @@ P:NPC {
         { text = "Do you feed the folk who come in from the desert, Sprinkle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What should a warrior eat before a long fight, Sprinkle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can you really make desert meat taste good, Sprinkle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you look after many folk in Gadgetzan, Sprinkle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "An imp really set your tablecloth on fire, Sprinkle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Thanks, Sprinkle.", next = "END" },
       },
     },
@@ -590,6 +623,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Maybe, but every time someone burns down a bandit camp, the Wastewanders move to the next spring and foul it on the way out. What I need is the water back, clean, not a lot of smoking sand where our sources used to be." } },
+      choices = {
+        { text = "Then I'll get your water back, and leave the springs clean.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn the camps. They'll learn not to come back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk to water? Because I've got wells that have stopped listening to me, and the Wastewanders are sitting on the ones that still do." },
@@ -612,6 +654,8 @@ P:NPC {
           text = "A paladin? The Bruisers keep order inside the walls, but out at the pumps it's just my crew and the sand, so I'll take any hammer the Light sends." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter? Good, because the Wastewanderers aren't the only ones drinking my water, and I'd like the hyenas off my pipes as well." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Keep your fire-breathing friends away from the water tower, because steam and demons don't mix, and I've got enough pressure problems already." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Wastewander", min = 40 } }, text = "The Wastewanders have been keeping away from our pumps lately, and from what I hear, they've been keeping away from you. Pressure's holding, for once, and I'm not complaining." },
       },
       again = { { id = "h_again", text = "What else? Quickly, the gauge is twitching." } },
       choices = {
@@ -628,6 +672,7 @@ P:NPC {
         { text = "Could I help your crew, Bilgewhizzle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who guards your pumps when the Bruisers won't leave town?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's been getting at the Water Company's pipes, Chief?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Could my magic help with the Wastewanders, Chief Engineer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck with the pressure.", next = "END" },
       },
     },
@@ -763,6 +808,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They point at something under Sandsorrow Watch, and I'd hoped it was water. Pestlezugg thinks the strange insects there came up from below, and if they did, I don't like to think what else might follow them." } },
+      choices = {
+        { text = "Then we should find out what's down there, carefully.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If something's below, I'd like to meet it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The Wastewanders, mostly, and the heat, and the bugs at Sandsorrow that don't look like any bug in my books. Two of my lads haven't gone back out since the last trip, and I can't say I blame them." } },
+      choices = {
+        { text = "Then I'll go out with them next time.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're paid to survey. Fear isn't an excuse.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -786,6 +849,8 @@ P:NPC {
           text = "A warrior, good, because my last survey party had three engineers and one Bruiser, and the Bruiser spent the whole trip complaining about his feet. Please tell me your feet are fine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter? Oh, good, someone who can read tracks, because half the water I find out there already has paw prints all round it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Please don't summon anything near my dowsing rods, because they twitch at every strange thing, and I've already got a month of readings that point at demons." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, out here with the surveyors? Good, because my crew comes back from the dunes sunburnt and scared, and I'm a surveyor, not a nursemaid." },
       },
       again = { { id = "h_again", text = "Something else? I'll mark it on a map." } },
       choices = {
@@ -801,6 +866,8 @@ P:NPC {
         { text = "Would a prayer make your surveys go better, Fizzledowser?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How many guards does a survey party really need, Fizzledowser?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What do the tracks around your water sources tell you?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Your dowsing rods point at demons, Fizzledowser?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What frightens your survey crews, Fizzledowser?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll go and look.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -959,6 +1026,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Most of it, if you drink it wrong, and a few things if you drink it right. The Water Company brings me whatever crawls out of their pipes, and I take it apart so they know whether to worry, which these days they usually should." } },
+      choices = {
+        { text = "Then label it well, and keep it from fools.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Danger sells. Put it on the front shelf.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Scorpid venom, mostly, and a few extracts from the plants down by Lost Rigger Cove that'll make a man see things. I sell to rogues and hunters both, and I don't ask whom it's for, but I'd rather not hear about it afterwards." } },
+      choices = {
+        { text = "You won't hear of it. I use it only on enemies.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What I do with it is my business, alchemist.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Rose doesn't care for the smell of totem smoke, but she'll put up with it if you've brought me something interesting to cut open." },
@@ -984,6 +1069,9 @@ P:NPC {
           text = "A warrior, excellent. Rose and I are always short of people who don't mind standing near a jar that might explode." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Rose, look, a hunter, and Rose is looking at your beast in a way I'd describe as professionally nervous." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll warn you now that some of what's on these shelves would curdle the Light right out of you, so look but don't sample." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You're looking at my poison shelf, I can tell, and I'll sell from it, but Rose there remembers faces, and she bites." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Centipaar", min = 30 } }, text = "You've been killing a great many of those Centipaar insects, haven't you? Bring me a few more of the parts, because the more I take apart, the less I like what I find." },
       },
       again = { { id = "h_again", text = "Anything else? Rose is getting impatient, though Rose is always impatient." } },
       choices = {
@@ -1000,6 +1088,8 @@ P:NPC {
         { text = "Which dead things have looked back at you, Pestlezugg?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you need a warrior for, Pestlezugg?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What do you need from the beasts of Tanaris, Pestlezugg?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is anything on your shelves truly dangerous, Pestlezugg?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What sort of poisons do you keep, Pestlezugg?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -1147,6 +1237,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The Cartel's rules, not Stormwind's, and the Cartel's rules are what count in Gadgetzan. I buy turtle shells and Sandfury trinkets, and if the trolls don't like it, they should've thought of that before they sat on all that loot." } },
+      choices = {
+        { text = "Cartel rules or not, plunder is plunder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair enough. Trade is trade in a free town.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the trolls guard them like they're worth something, and some of them hum at night, which is either magic or beetles. Either way, a buyer in Booty Bay pays more for magic than for beetles, so I'd like to know which I've got." } },
+      choices = {
+        { text = "Some troll charms are cursed. Sell them carefully.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Tell the buyers they're all magic. They'll never know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Well, it's good for me, and that's a start. The goods move, the coin moves, and the coin keeps Gadgetzan's lights on, so I'd say I'm doing the town a favor, even if I take a small cut for my trouble." } },
+      choices = {
+        { text = "Charity doesn't take a cut, Tran'rek.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Coin keeps the town alive. That's charity enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, yes? I've sold to your kind before, totems and skins and a few odd stones. What you do with them is your business, and what I paid for them is mine." },
@@ -1168,6 +1285,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Hides and claws, then, or maybe something rarer. I'm always buying, and I'm never telling who I'm selling to." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? I buy a lot of what grows in this desert, so maybe you can tell me where the good stuff hides." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at my stall? You're looking at me like I've got something to hide, and I'll have you know everything I sell is very nearly legal." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, tell me true, can you tell enchanted from ordinary with a glance? Because I've a crate of Sandfury fetishes and I'd like to know which ones to charge double for." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Look, I know what you're thinking, but the trolls in Zul'Farrak aren't using that stuff, and I am, so it's practically charity." },
       },
       again = { { id = "h_again", text = "Still here asking questions? That's how I started, and look where it got me." } },
       choices = {
@@ -1183,6 +1303,9 @@ P:NPC {
         { text = "What's wrong with the Sandfury fetishes you sell, Tran'rek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you pay for what warriors bring out of the desert?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Who buys the things hunters bring back from Tanaris?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Very nearly legal, Tran'rek?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do you think the fetishes are enchanted, Tran'rek?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is it really charity, Tran'rek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll bring them.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1366,6 +1489,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A few every month, Horde and Alliance both, and they're quieter than the warriors, I'll give them that. The only trouble I've had was a felhunter that wouldn't stop sniffing the mage at the next table, and the Bruisers sorted that out quick." } },
+      choices = {
+        { text = "I'll keep mine on a short leash, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the Bruisers try sorting me, they'll regret it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in the Road Warrior! If you can call up a bit of rain, I'll stop calling the sand in the stew seasoning and start calling it soup." },
@@ -1387,6 +1519,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and a beast with you! Animals sleep in the stables, friend, and Laziphus will tell you so, but I'll pretend I didn't see it if it's quiet." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the Road Warrior! Please stay in the shape you walked in with, because the last bear tore up a perfectly good mattress." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Welcome to the Road Warrior, friend, and if that little fellow of yours wants a drink, he can have one, but he's paying the same as everyone else." },
       },
       again = {
         { id = "h_again", text = "Anything else? Have a drink while you think." },
@@ -1408,6 +1541,7 @@ P:NPC {
         { text = "Do brawls break out often in your inn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do warriors really cause that much trouble at the Road Warrior?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you mind beasts at the Road Warrior, Fizzgrimble?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you get many warlocks at the Road Warrior, Fizzgrimble?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },
@@ -1550,6 +1684,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because he's tried everything else! He's sent letters, he's sent sailors, and once he sent a parrot that sat on my window and shouted my debts. A demon would be the next step, and I'd honestly rather have the parrot back." } },
+      choices = {
+        { text = "Pay what you owe and you won't need to fear him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Nobody sent me. Your debts are your business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Money, mostly, and a little guilt, because I said I'd pay MacKinley back by the end of last season and I didn't. I'm not a bad goblin, I'm only a goblin with a bad run of luck and a lot of cousins." } },
+      choices = {
+        { text = "Make it right with him. You'll sleep better.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Luck turns. Keep your head down until it does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, huh? Don't suppose the spirits ever tell you who's looking for a fellow, do they, because that's a talent I'd pay for, if I could pay for things." },
@@ -1572,6 +1724,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. You're tracking something, I can tell, and I'd feel a lot better if you told me it wasn't me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'd not happen to have a shape that lets a fellow disappear quickly, would you? I'm asking for a friend, and the friend is me." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Oh, no, please tell me MacKinley hasn't started sending demons to collect, because that would be very unfair, even for Booty Bay." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Is this about my soul? Because I've been meaning to work on that, I really have, right after I settle a few small accounts." },
       },
       again = { { id = "h_again", text = "Anything else? Say it quietly, because ships have ears." } },
       choices = {
@@ -1585,6 +1739,8 @@ P:NPC {
         { text = "Nobody sent me, Stoley.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I could turn you into a sheep, Stoley.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would confession really ease your mind, Stoley?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why do you think MacKinley would send a warlock, Stoley?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What's weighing on you, Stoley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "You should pay your debts.", next = "END", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Debts in Booty Bay are for fools who get caught.", next = "END", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Who are you afraid I've come to collect for, Stoley?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -1737,6 +1893,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A cultist, I think, though he said he was a collector. He paid well, and the mold came out perfect, and then I dreamt of fire every night until I melted the thing down myself, which cost me the profit and then some." } },
+      choices = {
+        { text = "You did right to melt it down.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You lost good gold over a bad dream, Krinkle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than you've got, I expect, because thorium's dear and the Cartel takes its share. But I'll tell you this: a holy symbol's no different from a sword in the forge, and the metal doesn't care what it's for." } },
+      choices = {
+        { text = "The metal may not care, but you should.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then you're right to charge what it's worth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Fire and earth are my trade too, near enough, only I bill for mine, so if your spirits fancy a job at the forge, I'm hiring." },
@@ -1760,6 +1934,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? I pour arrowheads by the thousand and shot by the barrel, and I'll bet you go through both faster than you'd like." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You don't wear much metal, so I'm guessing you're here for a friend, or you're lost." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I pour molds for anyone who pays, but I won't pour anything with a demon's face on it, because the last one gave me nightmares for a week." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in a smithy? I don't make censers, if that's what you're after, though I could for the right price." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them over the anvil, because the thorium cools while we chat." },
@@ -1776,6 +1952,8 @@ P:NPC {
         { text = "Would you forge a weapon for someone who'd misuse it?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a mace really better than a prayer out here, Krinkle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can you really make a better weapon than a smith, Krinkle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Someone asked you to pour a demon, Krinkle?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What would you charge to make a censer, Krinkle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are your arrowheads any good against basilisk hide, Krinkle?", next = "xhuntcl", when = { class = "HUNTER" } },
       },
     },

@@ -38,6 +38,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Something special! Something special, I promise! Totem polish? Spirit charms? Count your coins first. Count them!" } },
+      choices = {
+        { text = "I'll pay a fair price, Remy, and count my change.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Charms? I'll take two. Spirits love charms.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Wolf pelts, wolf pelts, and owl feathers, though I couldn't tell you whose owls, whose owls. Don't look at me like that, because I only know the fellow, and I've never once climbed a tree." } },
@@ -131,6 +140,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, a warrior! I know a fellow who sells swords, two fellows, in fact, and they both owe me money." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, a hunter! I've a fellow who sells arrows, a good fellow, mostly arrows, mostly good!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, a night elf! I know a fellow who knows a fellow who once sold a bear's tooth to one of your people, true as I'm standing here." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A shaman, I say! I've got just the thing for you. Just the thing!" },
       },
       again = {
         { id = "h_again", text = "What else, what else? Time's money, friend, and money's money too." },
@@ -153,6 +163,7 @@ P:NPC {
         { text = "Is there anything you'd like to confess, Remy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who's been buying stolen goods in Goldshire, Remy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does your fellow sell that comes from the forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do you have for a shaman, Remy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Remy.", next = "END" },
       },
     },

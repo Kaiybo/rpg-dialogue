@@ -15,6 +15,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it. The crater doesn't care how powerful you think you are, and I've buried people who were sure of themselves, so if your demon can keep the beasts busy while you get clear, use it, and don't be proud about it." } },
+      choices = {
+        { text = "Good advice. I'll keep my demon as a shield, not a show.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon can handle anything this crater throws at it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -91,6 +100,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Devilsaur", min = 20 } },
+          text = "Word is you've been bringing down devilsaurs, which I've never had the nerve to do myself. Either you're the best shot in the crater or the luckiest, and I'd like to know which." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, down in the crater. Keep your demon close and your eyes open, because the devilsaurs don't care what you've summoned, they'll eat it first and you second." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell me why the ground in this crater is warm to the touch even at midnight, because nobody else can, and it keeps me awake." },
         { id = "h_default", key = true, text = "Hol'anyee Marshal, Williden's sister and the better shot of the two of us, whatever he tells you. While he plans, I go out and keep the raptors from eating our scholars." },
         { id = "h_c0", when = { class = "HUNTER" }, text = "A hunter! Finally, someone who understands why I sleep with my rifle. The raptors here hunt like nothing else in Azeroth." },
@@ -122,6 +135,7 @@ P:NPC {
         { text = "Who in the Refuge needs healing most, Hol'anyee?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shouldn't the expedition leave before more people die?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's the most dangerous beast you've tracked in the crater?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Would a devilsaur really eat a demon, Hol'anyee?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -170,6 +184,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because he is the greatest of the crater's raptors, and he has taught me more than any elder on the plains. To hunt him is to honour him, and I would not have him fall to a fireball thrown from a distance, for that is no hunt at all." } },
+      choices = {
+        { text = "Then I'll leave him to you. He deserves an honest hunt.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A dead raptor is a dead raptor, however it falls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because Lar'korwi, the great raptor, has killed every hunter who came at him in haste. I have watched him for many moons, learning where he drinks and where he sleeps, and when I am ready, I will face him, but I will not rush, and neither should you." } },
+      choices = {
+        { text = "Patience wins the hunt. I'll learn from you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting gives the beast time to kill again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "There is, if the warrior learns to stand still, for the raptors of this crater test a line before they strike it. Lar'korwi's pack will circle you three times, and the one who breaks first and charges is the one they take." } },
@@ -237,6 +269,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage walks the crater. Your fire is quick, but the raptors here are quicker, and I would see you learn that before they teach it to you." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin walks the crater. The beasts here are older than your Light, I think, and they do not fear it, but they fear patience, and I wonder if you have any." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes into the crater. Then you have felt it too: the land here is young and old at once, and the Earth Mother's breath is very close to the surface." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest walks the crater. The Earth Mother does not speak in your words, I think, but she listens to anyone who comes with an open heart." },
         { id = "h_default", key = true, text = "I am Torwa Pathfinder. I came to this crater to learn from its beasts, and the greatest of them, Lar'korwi, has become my teacher and my quarry." },
@@ -265,6 +301,8 @@ P:NPC {
         { text = "Does the crater have room for a priest's prayers, Torwa?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there no place for a warrior's strength in Un'Goro?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What has Lar'korwi taught you, Torwa?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why should the beasts fear patience, Torwa?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do you hunt Lar'korwi, Torwa?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -313,6 +351,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A sap that numbs whatever it touches, which is how they catch the insects. Larion thinks it would make a terrible weapon, and I think it would make a wonderful medicine, so we argue about it every night, and I suppose you'd side with him." } },
+      choices = {
+        { text = "Medicine first. A poison like that could do terrible harm.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A numbing poison? I'd pay well for that, Muigin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because they eat insects, and sometimes fingers, and they grow faster near the crater's crystals than anywhere else in the world. Larion says they're dangerous and I say they're fascinating, and we're both right, but I'd never have discovered half of what I know if I'd listened to him." } },
+      choices = {
+        { text = "Curiosity is a virtue, but caution is wiser.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right to follow your curiosity, Muigin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a bloodpetal feels the ground through its roots, and a nervous body shakes it far more than a steady one! A warrior who keeps still in his boots is as safe as a stone, which is why I always ask the steady ones to hold the basket." } },
@@ -372,6 +428,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You'll know a thing or two about poisons, I expect, and my bloodpetals produce one that's quite remarkable, though I'd never sell it, of course." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I wonder whether a blessing would make my bloodpetals bloom, or only make them hungrier, because they're quite hungry enough already." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits ever talk to plants, do you think? Some of my bloodpetals behave as if they're listening, and frankly it's a little unsettling." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I wonder whether a blessing would make my bloodpetals grow, or whether it would only make them hungrier, because they're quite hungry enough already." },
         { id = "h_default", key = true, text = "Muigin, botanist! I study the plants of Un'Goro, especially the bloodpetals, which are as fascinating as they are dangerous. My partner Larion and I have been experimenting with them." },
@@ -398,6 +458,8 @@ P:NPC {
         { text = "Would a blessing really help your plants grow, Muigin?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why do your plants only lash at people who flinch, Muigin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the crater's plants really hunt animals, Muigin?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why are your bloodpetals so hungry, Muigin?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What kind of poison do your bloodpetals make, Muigin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -446,6 +508,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days, and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." } },
+      choices = {
+        { text = "Your soul is safe, Ringo. I'll help you home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You should be frightened. It keeps you careful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not yet, but I think one of them was about to, and that worries me more than anything else. Please, a little water, and then help me back to Spraggle at the Refuge, because she must be worried sick, and I'm too tired to find the way." } },
+      choices = {
+        { text = "Here's water, Ringo. I'll see you safely home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Drink up, and then find your own way back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I wandered off to look at a crystal, and then a pterrordax looked at me, and I ran, and when I stopped running, nothing looked familiar. Spraggle must be worried sick, and I'd so like to see her again, so if you can get me home, I'll owe you everything I've got, which isn't much." } },
+      choices = {
+        { text = "I'll get you home safe, Ringo. Stay close.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Next time, stay with the expedition. You'll get yourself killed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A raptor, then another raptor, then something so big the trees moved out of its way, and I didn't stop to see what it was. I've slept in hollow logs ever since, and I'd give anything for someone to watch the dark while I close my eyes." } },
@@ -487,6 +576,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! You haven't come to take my soul, have you, because I'm lost, and thirsty, and I don't think it's worth much just now." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage, oh, please tell me you can conjure water, because I've been wandering this crater for days and I'm so thirsty I've started talking to the ferns." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, oh, thank goodness, can you sneak me back to the Refuge without the raptors noticing, because I've been hiding in these ferns for days and I'm so thirsty." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, oh, thank goodness, can you call up some water, even a little? I've been talking to the rocks myself for two days, and they haven't said a single helpful thing." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, oh, please say you've a little water, or at least a prayer for some, because I've been lost so long I've started talking to the ferns." },
         { id = "h_default", key = true, text = "Ringo, of the Marshal Expedition, or I was until I got lost. I've been wandering for days, and I'm so tired and thirsty I can barely stand." },
@@ -507,6 +602,9 @@ P:NPC {
         { text = "How did you lose your way in the crater, Ringo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What chased you this far from the Refuge, Ringo?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have you seen any beasts out here while you were lost?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "How did you get so lost, Ringo?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Have the ferns answered you, Ringo?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why would I want your soul, Ringo?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -555,6 +653,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan! The crater's dangerous enough without a demon scaring off the paying guests, so if you need to call something up, do it over by the tar pits, where nobody's paying attention." } },
+      choices = {
+        { text = "I'll keep my demon out of your springs, Krakle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe a demon would draw a crowd. Have you thought of that?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Why not? The springs here are warm, the crater's full of crystals, and people will pay for anything that sounds healing! I'd give you a percentage, of course, a small one, and if it turns out the blessing doesn't stick, well, we'll call it a promotional offer." } },
+      choices = {
+        { text = "The Light isn't for sale, Krakle. Find another scheme.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A small percentage? Make it a large one, and I'll think on it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Help? They practically sell themselves, because a soak in Golakka water takes the ache right out of a shield arm! At least I think it does, since I haven't found anybody brave enough to sit in long enough for me to measure." } },
@@ -631,6 +747,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Don't summon anything in the springs, please, because I've got customers coming and nobody wants to bathe with an imp." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, perfect! Tell me, would a hot spring blessed by a paladin sell better than an ordinary one, because I'm thinking holy bathwater could be the next big thing." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, perfect! You talk to water spirits, right? Ask the ones in Golakka what they'd want for exclusive bottling rights, because I'm prepared to negotiate." },
         { id = "h_default", key = true, text = "Krakle's the name, and the hot springs are my game. These springs are boiling with heat and minerals, and somebody's going to figure out how to sell them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Ooh, a druid! Your folks love a good hot spring, right, all that steam and nature? I could use an endorsement once I figure out how to bottle these." },
@@ -659,6 +779,8 @@ P:NPC {
         { text = "Who would ever buy holy bathwater from the crater, Krakle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the hot springs really help a warrior's wounds, Krakle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do the crater's beasts avoid the hot springs, Krakle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Would you really sell holy bathwater, Krakle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have you had trouble with demons in the springs, Krakle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },

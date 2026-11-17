@@ -26,6 +26,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It carries the smell of fel from Jaedenar and the ash from the Shadow Hold, and my birds won't fly low any longer. If the spirits can be healed, I'd give anything to see it." } },
+      choices = {
+        { text = "They can be healed. I'll do what I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some spirits are past healing. Cleanse them by force.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because every magic they've met in Felwood has been the fel kind, and they can't tell one from another. They've seen the Jadefire satyrs burn the trees and the cultists of Jaedenar call down green fire, so to them a mage is just another bright danger, at least until you've flown with them a while." } },
+      choices = {
+        { text = "I'll be patient. They've seen enough of this forest's horrors.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My magic is nothing like the fel. They'll learn the difference.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone to walk the road to the Emerald Sanctuary and keep it open, mostly, because the Deadwood and the satyrs close it every time we turn our backs. I fly over it every day and count the fires, and there are more each season." } },
@@ -94,6 +112,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage of the Alliance, at Talonbranch Glade. My hippogryphs drink only moonwell water, and they're wary of anything that smells of magic not drawn from Elune, so please be patient with them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior of the Alliance. Our Sentinels have bled for every mile of road between here and Ashenvale, and I'm glad to see another blade come north." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -109,6 +129,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in armour that rings like a bell! Stand easy by the roost, please, because my birds take all that steel for a predator until they learn your step." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, at Talonbranch. Thank Elune; my hippogryphs breathe easier with one of you near, and so do I, with Jaedenar so close to the road." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The wind over Felwood is sick, and my hippogryphs feel it; perhaps you feel it too." },
       },
       again = {
         { id = "h_again", text = "Is there more you would ask? The birds are patient, but the light is fading." },
@@ -125,6 +146,8 @@ P:NPC {
         { text = "What do the Sentinels need from a warrior here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What has the corruption done to Felwood's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How do the hippogryphs bear Felwood's corruption?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why are your hippogryphs wary of my magic, Mishellena?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What has the corruption done to Felwood's winds, Mishellena?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -181,6 +204,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "You count as strange, and you smell like the forest, so close enough. My beasts don't care whose Light you carry, only that you sit still in the saddle and don't glow in their eyes." } },
+      choices = {
+        { text = "I'll sit still and follow your rules, Brakkar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fly as I please, rules or none.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every time we fly over Jaedenar the cultists throw something up at us, and one of my best beasts came home with a burned wing and never flew straight again. I don't care how clean your magic is, mage; if it glows, my riders flinch, so keep your hands down when you're on the perch." } },
+      choices = {
+        { text = "I'll keep my hands still. Your riders have suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your beasts need to get used to magic. They're war mounts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Once, south of Jaedenar, when a bolt of fel came up out of the trees and singed a wing. The rider walked back to the post with three cultists on her heels, and the beast limped home on its own, and I've hated that place ever since." } },
@@ -249,6 +290,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "A mage. Keep that fire away from my riders' feathers, and don't call down anything green near the post, because the beasts have seen enough of that colour to last them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Good, because if one of my wind riders comes down in this forest I'd rather a warrior found it than a satyr." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -262,6 +305,7 @@ P:NPC {
           text = "Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My wind riders won't drink from the river and neither should you, so if you've a blessing for clean water, start with the troughs." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll not like Felwood, tauren, and you'll like flying over it less, because the air down near Jaedenar burns the throat." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've no patience for this forest, and none for anything strange that crawls out of it, so tell me where you're flying and let's be done." },
       },
       again = {
         { id = "h_again", text = "What else? The beasts are waiting." },
@@ -278,6 +322,8 @@ P:NPC {
         { text = "Have your wind riders come down in Felwood, Brakkar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your wind riders trust a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do your wind riders suffer in this air?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Have your wind riders suffered from fel magic, Brakkar?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do I count as something strange from the forest, Brakkar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -331,6 +377,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I hope so, and I am careful with hope. The demons poisoned this soil and the Circle labours to mend it, but you are proof that something broken can be made to stand again, even if it is never quite the same." } },
+      choices = {
+        { text = "It can heal, Bale. Nothing is beyond the Light.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things are better burned and started fresh.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I worry that someone will need them more than they can pay, and steal them out of thirst. That I could forgive, though I'd rather they asked, but a rogue who sold my water on to the Alliance for a profit, that I would not forgive, and the Earth Mother would not either." } },
+      choices = {
+        { text = "I'd never steal water from the thirsty. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Water's worth what someone will pay. That's just trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every stream in Felwood carries the corruption down from the hills, and a warrior who drinks from one fights the satyrs half-sick the next day. I sell water carried in from outside, and it is dear, but it is cheaper than a grave." } },
@@ -399,6 +463,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "A rogue. I've clean water and bread that didn't grow in this forest, and I'd ask you to pay for both, as everyone does, because the cart from Splintertree doesn't come often." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior of the Horde. You've walked through the rot to reach us, I see it on your boots, and I hope you didn't drink from anything on the way." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -412,6 +478,7 @@ P:NPC {
           text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it brought in from outside, because nothing that grows in Felwood is fit to eat." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here where nothing grows clean. The Earth Mother would welcome any healing you can give this soil, whatever name you give it in." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and a tauren besides. You'll understand, I think, why I sell nothing that grew in Felwood, because even the water here tastes of rot." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The land here is sick and does not heal, and yet you were sick once, and something healed you." },
       },
       again = {
         { id = "h_again", text = "Is there something more I can find for you on these shelves, friend?" },
@@ -428,6 +495,8 @@ P:NPC {
         { text = "Is the water here truly that dangerous, Bale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can nothing in Felwood be hunted for food?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is nothing here fit to eat, even with care?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you worry that someone will steal your supplies, Bale?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could Felwood heal the way I did, Bale?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

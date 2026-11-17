@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If the earth around Andorhal still has anything to say, I'd like it said to someone on my side, because the Scourge has poisoned every field from here to the Bulwark. MacDonnell says the Light will cleanse it in time, but I've no time, and I'll take a dwarf with a totem if it brings my soldiers home." } },
+      choices = {
+        { text = "Then I'm yours to command. Point me at Andorhal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll help, Commander, but I follow the spirits, not your orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Burned, if I had my way, for every field the Scourge holds feeds their plague. But a priestess and a night elf both tell me there's still life under the rot, and I suppose I'd rather be wrong than burn it all." } },
@@ -39,6 +48,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've a handful of soldiers to break Andorhal with, {class}, so I'll not be choosy about where my help comes from, and I suspect the earth here could do with someone listening." },
         { id = "h_default", key = true,
           text = "Commander Ashlam Valorfist. Stormwind sent me to hold this camp and break Andorhal with a handful of soldiers, a priestess, an alchemist and whoever walks through that gate, and today that's you." },
         { id = "h_paladin_call", tags = { "news" }, when = { questActive = TODO_QUEST("Chillwind Camp") },
@@ -68,6 +78,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I've a report from Stormwind on my desk that I never asked for, {class}, and the agent who brought it walked a good deal like you. Sit down, and tell me who sent you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Cenarion Circle at Chillwind. Andorhal is no place for growing things, but I'll take any help you offer against the dead." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Skeletal", min = 40 } }, text = "My scouts say the bones are lying thicker in the fields around Andorhal and walking thinner, and I know who's been putting them down. Stormwind will hear your name in my next report." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, the dead don't wait on our conversations." },
@@ -88,6 +99,7 @@ P:NPC {
         { text = "Wouldn't Dalaran send help against Andorhal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does SI:7 really operate this far north, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should the Scourge's farms be burned, or reclaimed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can a shaman be of use against Andorhal, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Point me at the dead.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, trait = { brave = 1 } } },
       },
     },
@@ -312,6 +324,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Offend it? The Light isn't so delicate, and neither am I, whatever the Cathedral's stuffier priests would have you believe. If your fire spirits will help me boil the plague out of those cauldrons, I'll stand beside you and pray loudly while they do it." } },
+      choices = {
+        { text = "Then we'll burn the cauldrons together, by Light and flame.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't empty a cauldron, priestess. Fire will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I believe so, though it will take years and more than prayer. Arbington's counter agent breaks the cauldrons, but the ground they've soaked will need tending like a sickbed, and that's work your people know better than mine." } },
@@ -344,6 +365,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and an Ironforge dwarf! The Light burns the Scourge out of the land, {class}, and I'm told your elements burn it too, so I'll not quibble over which fire does the work." },
         { id = "h_default", key = true,
           text = "I'm High Priestess MacDonnell. The commander handles the war and I handle the cauldrons, those great pots breathing plague on every farm in the west, and I mean to give the Scourge a dose of its own brew." },
         { id = "h_brief", tags = { "news" }, when = { questActive = TODO_QUEST("The Scourge Cauldrons") },
@@ -385,6 +407,7 @@ P:NPC {
         { text = "What guards the cauldrons, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is any of the wildlife here still clean?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can the cauldrons' plague be cleansed from the soil?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does a shaman's fire offend the Light, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -528,6 +551,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I honestly don't know, and that's what worries me, because nothing I've read says what happens when a shaman stands next to a vial of plague. I'd like to keep it that way, if you don't mind, so if you feel a spirit coming on, please step outside first." } },
+      choices = {
+        { text = "Of course. Your work matters more than my curiosity.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your work could use a little chaos. Let's find out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd like to say no, but the counter agent is strong, and I've seen grass die where it's spilled. I tell myself the plague would have killed it anyway, though I'm not certain that's true." } },
@@ -569,6 +601,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't call any lightning in here, {class}, because half of what's on this table would explode, and the other half would explode a little later." },
         { id = "h_default", key = true,
           text = "Arbington, alchemist, at your service. I make the counter agent for MacDonnell's cauldrons and the quickener, and I've done more reading about the Scholomance than anyone ever should, so please don't ask me what I've read." },
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("Skeletal Fragments") },
@@ -606,6 +639,7 @@ P:NPC {
         { text = "Did you study in Dalaran, Arbington?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Fel and alchemy have more in common than you think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Need anything fetched quietly from Caer Darrow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the elements upset your work, Arbington?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
         { text = "What have you read about the Scholomance that frightens you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do warriors break much of your glassware, Arbington?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -737,6 +771,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd have you speak to anyone who'll confirm my claim, whether they're living, dead or merely elemental. Alexi has the Forsaken behind him, and I have a sword under my blanket and now you, so we'll see whose spirits win out." } },
+      choices = {
+        { text = "The dead deserve rest, Weldon, not your quarrels.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dead brothers have no claims. Take your inheritance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Left on their own? They'd go to weeds and wolves, druid, and then who would pay the rents? No, Caer Darrow needs a Barov to run it, and it'll have one, once my brother stops being so tiresome about being dead." } },
@@ -787,6 +830,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to spirits? Then perhaps you can tell my brother's spirit to stop walking about and accept that Caer Darrow is mine, {class}, because he certainly isn't listening to me." },
         { id = "h_default", key = true,
           text = "I am Weldon Barov, the last living Barov and the rightful heir to Caer Darrow, Brill, Tarren Mill and Southshore. My brother disagrees, but my brother is also dead, he simply refuses to lie down.",
           fx = { hear = "barov_heir" } },
@@ -825,6 +869,7 @@ P:NPC {
         { text = "Your brother might hire someone like me, you know.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "If I were Alexi's, you'd already be dead.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Barovs know Kel'Thuzad well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you have me speak to your brother's spirit, Weldon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Did your family really give Caer Darrow to the Cult?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1200,6 +1245,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That they'd stood longer than any kingdom and would outlast this one, which turned out truer than he'd have liked. The Scarlet Crusade is cutting them now, and if those trees have spirits, I'd hate to know what they think of us." } },
+      choices = {
+        { text = "The mill's yours, but the forest deserves respect, Nathaniel.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trees are timber. Take back the mill and cut freely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too many to count from the treeline, and they're well armed, because the Crusade feeds its soldiers before it feeds anyone else. My father built that mill to last, so if you fight your way in, mind the support beams, because I'd like something left to come home to." } },
@@ -1239,8 +1293,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They'd burn anything they think the shadow's touched, and they'd sing hymns while they did it. My father built that mill with his own hands and two hired men from Hearthglen, and I'd sooner see it standing with Crusaders in it than ashes with none, so whatever you do there, keep your fire off the timber." } },
+      choices = {
+        { text = "Your father's mill will stand. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If burning it clears the Crusade out, so be it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Nathaniel.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My father used to say the trees around Northridge had spirits of their own, {class}, and I always thought he was joking, but now I'm not so sure." },
         { id = "h_default", key = true,
           text = "Nathaniel Dumah. My father ran the Northridge Lumber Mill before the plague, and we fled to Stormwind with what we could carry, but now the Scarlet Crusade's sitting in our mill, so I've come back." },
         { id = "h_termites", tags = { "news" }, when = { questActive = TODO_QUEST("A Plague Upon Thee") },
@@ -1261,6 +1325,8 @@ P:NPC {
           text = "A warrior! The Crusade's got a dozen guards at my father's mill, {class}, and I was hoping someone like you might walk in the front door while the termites see to the back." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. There used to be good deer in the woods round Northridge, {class}, and my father traded planks for venison with the trappers every winter." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take your help against the Crusade gladly, {class}, but they've a long memory for your kind, and they'll burn the mill down around us before they let a demon walk in." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Scarlet", min = 30 } }, text = "Word is the Crusade's losing men at Northridge faster than Hearthglen can send them. I'd like my father's mill back with a roof on it, so mind the timber while you're about it." },
       },
       again = {
         { id = "h_again", text = "Something else you wanted to ask? Go ahead, I don't mind talking." },
@@ -1274,6 +1340,8 @@ P:NPC {
         { text = "Termites in a mill? Nature can be cruel.", next = "x_druid", when = { class = "DRUID" } },
         { text = "Would the mill still run, if you got it back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the Crusade doing in your father's mill?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the Crusade really burn your father's mill, Nathaniel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What did your father say about the Northridge trees, Nathaniel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
         { text = "Would you want the mill blessed after the Crusade leaves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the Crusaders in Northridge still knights, or only squatters?", next = "xapala", when = { class = "PALADIN" } },
@@ -1394,6 +1462,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They hate them, poor dears, and they won't fly over Andorhal unless I bribe them with something from Ironforge's bakeries. I've always thought a shaman might calm them better than a pastry, though I'd keep the pastries handy, just in case." } },
+      choices = {
+        { text = "A bird should fly where it's told, wind or no wind.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them follow the wind's will. It knows the safe paths.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Hate it! They fly high and fast and they don't land unless they absolutely must. I can't blame them, but I've got to keep them flying, because the camp needs supplies and Ironforge needs its letters." } },
@@ -1442,8 +1519,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Biscuits, mostly, and a little gnomish ingenuity, for I've a bellows here that blows the sulphur smell downwind before the birds catch it. It works nine times in ten, and the tenth time you land in Aerie Peak a bit faster than you meant to, but nobody's fallen off yet." } },
+      choices = {
+        { text = "Clever work, Bibilfaz. I'll be gentle with the birds.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Nine in ten? I'll risk it. Strap me in.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bibilfaz.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Oh, wonderful, {class}, the birds have been fussing about the air up here for weeks, and I'd love for someone to tell me what the wind's been saying to them!" },
         { id = "h_default", key = true,
           text = "Bibilfaz Featherwhistle, gryphon master! I can take you to Ironforge, or Aerie Peak, or Light's Hope if you're feeling brave, and the birds hate the smell up here as much as you do, so they fly fast." },
         { id = "h_home", when = { metBefore = true },
@@ -1461,6 +1548,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Oh, the gryphons won't like that, no, not one bit, {class}, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
       choices = {
@@ -1475,6 +1563,8 @@ P:NPC {
         { text = "Do your gryphons mind carrying heavy armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons get along with hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the gryphons hate flying over the Plaguelands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "How do you persuade a gryphon to carry a warlock, Bibilfaz?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do your gryphons think of the plague winds, Bibilfaz?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
       },
     },
     xrogue = {

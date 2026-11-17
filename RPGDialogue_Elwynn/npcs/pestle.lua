@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some of them are. I warn people away from my own bottles because I'm careful. Gramma Stonefield says I'm slow, but I'm alive." } },
+      choices = {
+        { text = "Careful is wise, William. Slow and alive beats quick and dead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little danger never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Most of them do, and they buy the black ones, which I make only because they ask. I've wondered more than once what they're for, but a candle's a candle, and I'd rather sell them a decent one than have them making their own from who knows what." } },
+      choices = {
+        { text = "Better your candles than theirs. You're doing good.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You shouldn't wonder, William. It's not your business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, William.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Willow bark and a little peacebloom, steeped strong, though it tastes like a boot. Most warriors would sooner limp than drink it, which tells you something about warriors, I suppose." } },
@@ -97,6 +115,8 @@ P:NPC {
           text = "Quick hands and a quiet step. I've a few things on the back shelf that your sort might find useful, if you're asking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Something for the bruises, perhaps, or a candle to read your letters home by?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've a salve for scratches, and a candle that keeps the midges off, if you're camping by the lake." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell candles and small mercies, and I suspect you'll want more of the first than the second." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't drink from that bottle. Or that one. Your spirits may protect you, but my potions won't." },
       },
       again = {
         { id = "h_again", text = "Hmm? Sorry, I was counting drops; do go on." },
@@ -117,6 +137,8 @@ P:NPC {
         { text = "Is there a tincture for a warrior's aches, Pestle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you make anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is your private potion for an honest purpose, Pestle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do Crowe's students buy their candles here, William?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are your potions really so dangerous, William?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Nothing for now.", next = "END" },
       },
     },

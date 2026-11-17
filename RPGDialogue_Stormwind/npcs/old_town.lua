@@ -29,6 +29,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than I'd like, and their lightning hurt worse than any axe. You're the first dwarf I've seen doing it, though. Strange times." } },
+      choices = {
+        { text = "Fight fair, Harry, and I'll spar anytime you like.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let your regulars come. I'll knock them down fast.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Not on our side, they didn't, not in the Second War, because the Horde had the warlocks and we had the burns to show for it. I've had to get used to your sort walking about the city since, and I'll say this much: the ones I've met fight dirtier than an orc and complain less." },
+      },
+      choices = {
+        { text = "I fight for Stormwind, Harry, not like the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Dirty fighting wins wars, Harry. Ask any orc.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Harry.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "It would've helped the company and terrified the orcs, which is two birds with one claw. Mind, my lads would've tried to feed it ale, and I'd not answer for what happened then." } },
@@ -110,6 +130,8 @@ P:NPC {
           text = "A mage in the Pig and Whistle, and you're not here for the ale, I'll wager. Sit down anyway; you look like you could use a stool that doesn't float." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few of your sort scouting for us in the Second War, and every one of them saved my company at least once." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Pig and Whistle! We never had your sort in the Second War, more's the pity, because a bear on the flank would've done wonders for morale." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Pig and Whistle. Sit down where the regulars can see you, or they'll start a fight just to find out what you are." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit down, I've a regular here who'll test your mettle. Never fought a shaman, have you, Bartleby? Nor have I, come to that." },
       },
       again = {
         { id = "h_again", text = "What else? I've half a pint left and all evening." },
@@ -128,6 +150,8 @@ P:NPC {
         { text = "Did your company have a priest in the war, Harry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What were paladins like on the battlefield, Harry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a bear on the flank really have helped your company, Harry?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Did warlocks fight in the wars you served in, Harry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did you ever fight orc shamans in the war, Harry?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your pint.", next = "END" },
       },
     },
@@ -223,6 +247,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Always, and you look like you'd give a good one. If I lose, I'll buy you a drink. That's only fair." } },
+      choices = {
+        { text = "A fair fight and a shared drink. I accept.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep your mug. I won't brawl with a drunk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I'd fight anybody for this mug, and I fought a mage once, a young lad from the Quarter who turned my ale to ice, and I broke his nose before he got the second spell out. He bought me a drink after, mind, and that's how it should be, because a fight's no good if you can't laugh about it at the bar." },
+      },
+      choices = {
+        { text = "Then let's leave it at a drink, Bartleby.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The lad went easy on you. I wouldn't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Bartleby.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Once, and it was the worst night of my life, because the cat could hold its drink better than I could. If that was one of your lot, you can tell them Bartleby remembers." } },
@@ -310,6 +354,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Don't get any ideas about my stool. I've seen off bigger than you, though not lately, and not sober." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting a drink, then, after a long day squatting in a bush. Don't bring your beast near my end of the bar." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Don't turn into anything near my mug, because I've seen a cat drink beer and I'll not have it happen to me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, eh? You so much as look at my mug with a spell in mind and I'll show you what a real fight looks like." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Try and take this mug, I dare you. Spirits or no spirits, it's mine." },
       },
       again = {
         { id = "h_again", text = "What? I'm busy drinking." },
@@ -327,6 +373,8 @@ P:NPC {
         { text = "Shall I pray for you, Bartleby?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you really fight a paladin for that mug?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has a cat really drunk out of your mug, Bartleby?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you fight a mage for that mug, Bartleby?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are you spoiling for a fight, Bartleby?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your drink.", next = "END" },
       },
     },
@@ -413,6 +461,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every night, and I keep it from spilling. Your spirits must have it easier, being invisible and not drinking." } },
+      choices = {
+        { text = "You keep this place in good order, Elly. I respect that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them brawl. It's good for the soul.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Less than the soldiers and more than the cooks, so somewhere in the middle, which is fine by me. The worst I've had was a fellow who lit the hearth with a fireball and set Bartleby's beard smouldering, and the whole room cheered, so I suppose he got away with it." },
+      },
+      choices = {
+        { text = "Then I'll keep my spells off the hearth, Elly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little fire keeps the room lively, Elly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Elly.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "That you can turn into a bear and drink like one, mostly, and that night elves are all very tall and very rude. I tell them I've never met a rude elf, though I've met plenty of rude soldiers." } },
@@ -492,6 +560,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down, sweetheart, but not on Bartleby's stool, and not near the door, because that's where the brawls start." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring your beast in, sweetheart; I like a bit of fur by the fire, and Bartleby can grumble all he likes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, love? We don't get many of your people in the Pig and Whistle, and the regulars will stare, but they stare at everyone." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Don't you dare go chilling the ale for anyone, because Reese has opinions about that and I'll be the one who hears them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and wanting a drink, I'd guess. Ale, stout, or whatever your spirits prefer? I'll have it before you finish asking." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've six mugs in each hand." },
@@ -508,6 +578,8 @@ P:NPC {
         { text = "Do the soldiers really want their pints blessed, Elly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do soldiers behave better around a paladin, Elly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the soldiers say about druids over their pints, Elly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do mages make trouble at the Pig and Whistle, Elly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do soldiers here ever cause trouble, Elly?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not tonight.", next = "END" },
       },
     },
@@ -564,6 +636,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'm a cook. That's all you need to know. But I've seen orc shamans in battle, and you don't look like them, which is good for my appetite." } },
+      choices = {
+        { text = "Your past is yours, Stephen. I won't pry.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Everyone has a story. Tell me yours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Anybody can learn to cook, if they've the patience and the hands for it, and I've noticed your sort have both. Mind, you can't rush a rib with a fel flame, because it chars on the outside and stays raw in the middle, and I've seen a man try it and seen what it did to his stomach." },
+      },
+      choices = {
+        { text = "Then I'll learn it properly, the slow way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A quick fire's good enough for me, Stephen.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Stephen.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I would, and you'd eat better than the Keep does, because a cook who can't do vegetables can't cook. I learned that in the field, when the meat ran out and the turnips didn't." } },
@@ -643,6 +735,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll eat like three men and complain like four, I expect, which makes you my favourite kind of customer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's someone who can bring me fresh meat instead of whatever the butcher's been hiding in his back room." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my kitchen. Your sort don't eat much meat, I'm told, so you'll be giving my ribs a dark look, and I'll take it personally." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll eat at the bar like everyone else, and your friend can wait outside, because I won't cook for something that doesn't have a stomach." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down and eat. I'm just a cook, and you're just hungry, I'd guess." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the smoke, because those ribs want me back at the grill." },
@@ -659,6 +753,8 @@ P:NPC {
         { text = "Did you see many healers in the war, Stephen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Were you a soldier before you were a cook, Stephen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you cook for me if I brought only roots and greens, Stephen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can a warlock learn to cook, Stephen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Were you a soldier once, Stephen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -721,6 +817,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some do, and those I'm proud of. Others leave for glory, and I wish them well. I'd guess a shaman doesn't stay put either." } },
+      choices = {
+        { text = "I'll finish what I start, Simon. That's a promise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Adventure calls louder than leather. Let them go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Better than cloth does, and worse than mail, and a good deal better if it's been treated properly with salt and oil. I made a pair of gloves for a mage from the Quarter last year, and he burned through three before he thought to ask me to line them, and the fourth pair is still going." },
+      },
+      choices = {
+        { text = "Then line mine from the start, Simon. I'll pay for it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll just burn through them and buy more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Simon.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I think it remembers how it was treated, because leather from a beast killed badly never sits right, however well I cure it. My old master said that, and I thought he was mad until I'd tanned a thousand hides." } },
@@ -800,6 +916,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Leather's lighter than mail, and plenty of soldiers wear a jerkin underneath, so don't turn your nose up at the craft." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be bringing me hides, I hope, and not the ragged sort Randal keeps buying off the canal boys." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Protective Hide. I'll not pretend you'll like everything hanging on my walls, but I'll ask you to look at the stitching before you judge." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, in a leatherworker's shop. You'll want a satchel for your scrolls, I'd guess, or a pair of gloves that won't scorch." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Students leave for adventure halfway through, and you look the adventuring sort. Still, I'll teach you if you'll listen." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a hide soaking." },
@@ -816,6 +934,8 @@ P:NPC {
         { text = "Does working with the dead ever trouble you, Simon?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do many paladins buy leather from you, Simon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a hide remembers the animal it came from, Simon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does leather hold up to magic, Simon?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your students stay long, Simon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -870,6 +990,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If the wind can carry a word, then yes. I'd rather keep my secrets in my own head. You might do the same." } },
+      choices = {
+        { text = "Secrets kept well keep everyone safe, Osborne.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The wind carries truth. Let it blow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Only if the cat starts taking contracts, and I'd guess your elders wouldn't approve. Still, if one of SI:7's marks ever turns up with claw marks on him, I'll know whose door to knock on." } },
@@ -959,6 +1088,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the Night Man's door. Either you're lost, or someone sent you, and I'd like to know which before you say another word." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a quiet one, which I appreciate. You know how to wait and watch, and that's most of my trade too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in Old Town after dark. I hear your people can walk as a cat and nobody hears a thing, which makes you competition." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Keep your hands where I can see them and your spirits quiet. Rogues don't care much for things that whisper." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quietly, now." },
@@ -982,6 +1112,7 @@ P:NPC {
         { text = "Do SI:7's agents ever need a priest's help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does SI:7 bend the law, Osborne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a prowling cat any threat to your trade, Osborne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do spirits ever give away a rogue's secrets, Osborne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -1129,6 +1260,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Anyone with coin and a quiet voice. Your spirits needn't approve, but they might keep a secret better than most." } },
+      choices = {
+        { text = "Poisons have no honour, Jasper. I'll pass.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin and quiet. That's a fair arrangement.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd sell poison made from anything that works, friend, and I don't ask whether it was holy before I boiled it. If that troubles you, you'd best not ask what's in the green vials." } },
@@ -1223,6 +1363,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my counter. You're not my usual customer, friend, but your coin's as good as anyone's." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, at my stall. I've a little poison for the arrows, if you've a mind to make them bite deeper, though I'd never call it that out loud." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my stall. Your people know a great deal about plants that kill, I imagine, though you'd likely never admit it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I know your business already, more or less. Do you need anything for your blades, or are your spirits enough?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Softly, please." },
@@ -1243,6 +1384,7 @@ P:NPC {
         { text = "Does selling poison ever trouble you, Jasper?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where does your stock come from, Jasper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you sell poison made from something I'd call sacred, Jasper?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you sell poison to anyone, Jasper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They take every scrap. I've a hot forge and no iron. At least my horses listen to my grumbling." } },
+      choices = {
+        { text = "The Guard needs it, Verner. Be patient.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take some back. You've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -114,6 +123,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast wouldn't need shoeing, I suppose, which is a mercy, because I've no iron to do it with." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've a blessing for horses, mine could use one, because I've stopped naming the foals." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll not ask whether your horse needs shoeing, because I've no iron to shoe it with." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My forge is hot and empty; the Guard takes every scrap. Your fire spirits might like it better than I do." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and hammer at once, though I can't promise you'll hear the talk." },
@@ -134,6 +144,7 @@ P:NPC {
         { text = "Blackrock steel holds a curse well, they say.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I pray for the horses you've lost, Verner?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can you keep your horses safe from the gnolls, Verner?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Guard really take all your iron, Verner?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the horses.", next = "END" },
       },
     },

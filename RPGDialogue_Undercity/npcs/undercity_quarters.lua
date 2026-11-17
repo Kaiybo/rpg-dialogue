@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not yours, at any rate, though I'd keep it dimmed in the saddle, because a bat that sees a flash of holy light over Brill is going to assume the Crusade has found it. Fly quiet and pray quiet, {class}, and you'll both land in one piece." } },
+      choices = {
+        { text = "The Light doesn't need to shout. I'll keep it quiet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I won't hide the Light for anyone, bats included.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They carry anyone with the coin and the stomach for it, priest or rogue, alive or otherwise. I'd say a prayer before you climb on, though, because they've a habit of diving when they spot a moth, and nobody's prayers have ever stopped them." } },
@@ -58,6 +67,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because your teleport only brings you here, and the bats take you to the Sepulcher or Tarren Mill without complaint. Be kind to them and they'll be kind to you, which is more than most of this city manages." },
+      },
+      choices = {
+        { text = "I'll be kind to them, Garrett.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're beasts of burden. They'll carry me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -67,6 +87,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The bats carry armour well enough, {class}, though they'll complain about the weight the whole way to Tarren Mill." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats don't love your beasts, but they've learned to put up with them, which is more than the beasts manage in return." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the bat roost. They won't mind you, the bats, but they'll want to know if you've got anything to eat, which is about all they want from anyone." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The bats don't care about magic, but they do dislike being frozen, so I'd avoid that." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and the bats don't mind you a bit, which tells me more about you than any tabard would. They hate the Scarlets' torches, but whatever you're carrying, they seem to think it's harmless." },
       },
       again = {
         { id = "h_again", text = "What else? The bats are waiting, but bats are patient." },
@@ -83,6 +105,8 @@ P:NPC {
         { text = "Your bats flinch whenever I come near, Garrett.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do warriors make poor bat riders, Garrett?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your bats mind carrying a hunter's beast, Garrett?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why would a mage fly your bats, Garrett?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the bats really not mind the Light, Garrett?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -187,6 +211,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Faith is foolish when it's lazy, and I suspect yours isn't, since the Light makes you pay for every prayer. I'd still trust a spell I can measure over a blessing I can't, but I'll admit you're evidence I can't easily explain away." } },
+      choices = {
+        { text = "Some things can't be measured. The Light is one of them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Call it will, not faith, and you'll understand it better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The Light was, certainly, because it promised everything and explained nothing, and then it let us die. The shadow priests at least talk of will and discipline, which is closer to a method, and I'll grant them that much grudgingly." } },
@@ -213,6 +246,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I read your Cenarion Circle's writings, the few that reached Dalaran before it fell, and I thought them sentimental." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in the Magic Quarter. Do try not to break anything, {class}, because the furniture is older than you are, and so am I." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in the Magic Quarter. I teach mages to think precisely, and in my experience priests prefer to feel things rather than think them, so do prove me wrong." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, in the Magic Quarter. I was taught that the Light was faith and the arcane was reason, and I'd be interested to hear what a dead paladin believes, since I assume you can't simply take things on faith anymore." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask it plainly; I have apprentices to correct and little patience left." },
@@ -229,6 +263,7 @@ P:NPC {
         { text = "Warlocks study too, Anastasia. Why the contempt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Mages and rogues both deal in secrets, Anastasia.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the mages look down on warriors too, Anastasia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is faith foolish for the dead, Anastasia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -344,6 +379,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not on purpose, and the Master Apothecary would very much like to, so don't let him hear you ask. My own guess is that it hurts you because it's trying to finish what the plague started, and you're too stubborn to let it." } },
+      choices = {
+        { text = "The Light isn't finishing me. It's keeping me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps it is, and I hold it anyway, out of spite.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "It did, or something in the room did, and the priest who said it swore it was coincidence. I've kept the vial and labelled it, and one day I'll know which of us was right, though I suspect neither of us will like the answer." } },
@@ -365,6 +409,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Master Apothecary sometimes needs samples from places the Scarlets won't let us walk into, and rogues are good at that. Ask him, not me, and don't touch anything on my bench, because some of it is still alive." },
+      },
+      choices = {
+        { text = "I'll bring back whatever the Society needs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll bring back samples, if the price is right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -373,6 +428,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and living. Stand away from the vats, please, because those vapours aren't kind to lungs that still work, and they're less kind to anything with fur." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts look healthier than my prisoners, {class}, and I'll admit I've wondered why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Don't touch anything on this bench, please, and don't bless it either, because I've had a vial go cloudy after a blessing and I've not worked out why." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. If you're here to steal reagents, the last one who tried is in a jar." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Don't touch the green vials, and please don't pray near them either, because I've no idea what the Light does to that mixture and I'd rather not find out with my face over the bench." },
       },
       again = {
         { id = "h_again", text = "What else? My mixture is reducing." },
@@ -388,6 +445,8 @@ P:NPC {
         { text = "Could the arcane speed up your experiments, Zinge?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does the Society test anything on demons, Zinge?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you need beasts for your experiments, Zinge?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you have work for a rogue, Zinge?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Has the Society ever studied what the Light does to the dead?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Never mind.", next = "END" },
       },
     },

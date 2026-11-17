@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It's worth a footnote. The arcane is the true discipline; your spirits are a curiosity. Do mind the stairs on your way out." } },
+      choices = {
+        { text = "Discipline has its place, Theocritus. I respect your study.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Footnotes, is it? My spirits have answered when your arcane failed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Sometimes a problem needs only to be hit, and I am too busy to hit it myself. Morganth's gnolls in Redridge are such a problem, and you are, I suppose, such a solution." } },
@@ -113,6 +122,7 @@ P:NPC {
           text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my tower. Do not touch the shelves; anything you break, you will learn the price of." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I'd rather not hear of it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. In my tower. Hmm. My gnomes will be fascinated, I'm sure. I am not." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief, please; Redridge doesn't watch itself." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "Do you need anything hunted, Theocritus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you ever studied faith, Theocritus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is Morganth a threat to Stormwind itself, Theocritus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think shamanism is worth studying, Theocritus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll show myself out.", next = "END" },
       },
     },

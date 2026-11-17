@@ -28,6 +28,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I tell Verna we will, and I mostly believe it. The land's still ours in my heart, whatever the thieves think. Maybe the earth remembers whose it was." } },
+      choices = {
+        { text = "Hold on to hope, Theodore. The land remembers you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let it go. Start fresh somewhere safer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Any means? I've lain awake thinking about that, I'll not lie to you, and some nights I'd have shaken hands with anything that offered. But Verna would know, and she'd never look at me the same, so the farm stays lost until somebody honest fetches it." },
+      },
+      choices = {
+        { text = "Then I'll leave it to honest hands, Theodore.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Honest hands lost it. Mine could bring it back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Theodore.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not one, no; there were too many, and they came at night with torches. But a dozen like you might have, and the king sent none, so here we sit, with Blanchy and a broken wagon." } },
@@ -102,6 +122,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a dog once, a good dog, before the thieves came, and I miss him more than the pumpkins." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Verna will be glad of you, since she's been doing all the praying and I've not been much help with it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If the Light's finally come to Westfall, it'll find plenty of work waiting." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a smell of brimstone about you, stranger. Verna won't like it, but I'm past minding much." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. We're only minding this spot for now, you understand. If your spirits could speak to our farm, they'd find it full of thieves." },
       },
       again = {
         { id = "h_again", text = "Something else? I've time enough, since time's about all I've got." },
@@ -122,6 +144,8 @@ P:NPC {
         { text = "What happened to your dog, Theodore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you prayed about the farm, Theodore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who'll answer for taking your farm, Theodore?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you take back your farm by any means, Theodore?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think you'll get your farm back, Theodore?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Theodore.", next = "END" },
       },
     },

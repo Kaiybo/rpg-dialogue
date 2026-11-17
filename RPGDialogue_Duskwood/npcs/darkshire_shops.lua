@@ -25,6 +25,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I mother every single one, whether they want it or not. In Darkshire, most of them do. A shaman's no different." } },
+      choices = {
+        { text = "Thank you, Mabel. Kindness is precious here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I can look after myself. No need for fuss.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Now and then, though I don't mind a lost candle as much as you'd think, because whoever took it needed the light, and that's what I'm here for. It's the flour I count, since a sack walking off means a family going without bread, and in Darkshire that matters more than wax." },
+      },
+      choices = {
+        { text = "Then I'll pay for my candles and leave your flour be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sack of flour is easy to carry, Mabel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Mabel.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Barrels of it, dear, and they'd buy more if they could pay. The lamps along the road are all that keep the dead back from the town after sundown, and a fighter who trims a wick is as useful to me as one who swings a sword." } },
@@ -98,6 +118,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a lantern, dear, for nobody swings straight in the dark, and the dark in this wood never ends." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a beast with you! I've some flour for bread and a few scraps for the creature, but don't tell the other customers I gave them away." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Sit down, dear, and have something warm, because you look like you've come through the trees and the trees here aren't kind." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh, you gave me a turn, creeping up like that! Sit down where I can see you, dearie, and let me find you a candle." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come, sit, have you eaten? I've candles, flour and lamp oil, and you'll want all three in Darkshire, spirits or no." },
       },
       again = {
         { id = "h_again", text = "What else, dear? The kettle's on, and there's no hurry in this fog." },
@@ -115,6 +137,8 @@ P:NPC {
         { text = "Does the Night Watch ever ask for blessed candles, Mabel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How long can Darkshire last on what reaches your shop?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your lamp oil come from the forest, Mabel, or from elsewhere?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you ever lose stock to light fingers, Mabel?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you mother every customer, Mabel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good night, Mabel.", next = "END" },
       },
     },
@@ -181,6 +205,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Mostly it has. Wagons don't come, and folk don't buy. Your spirits won't bring the sun back, I'd guess." } },
+      choices = {
+        { text = "Keep counting, Gunder. Order keeps hope alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stop counting. Close the shop and leave.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Parchment, mostly, and vials, and the odd spool of silk thread for mending robes that caught on a thornbush between here and Raven Hill. There used to be a scribe in town who bought twice what you will, but he went home to Stormwind, and the trade went with him, the way it all does." },
+      },
+      choices = {
+        { text = "Then I'll buy honestly and keep your counting simple.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take what I need and you can count it after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gunder.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Should he? In Darkshire, he'd better, because Morg can only fix so many dented breastplates in a day. A spool of good thread and some leather patches can keep you alive on the road between here and Raven Hill." } },
@@ -247,6 +291,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Not much in my stock for you, I'll warn you now, unless you mend your own armour, which, in this wood, you might want to." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Now you're a customer worth having, for skins need salt and thread and tanning, and I've got every one of those." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't stock much a night elf would need, unless your folk have taken up tailoring, and I'll be surprised if they have." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ink, parchment, vials for your powders, and I've a fair stock of each, if you'll stand still while I count it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've thread, vials and flux, so count them with me. Darkshire's trade died with the sunlight, but I keep counting." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've stock to count." },
@@ -263,6 +309,8 @@ P:NPC {
         { text = "Has the dark driven many crafters out of Darkshire, Gunder?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you think Darkshire will hold, Gunder?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What became of Darkshire's trades when the light faded?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does a mage buy from you, Gunder?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has trade really died in Darkshire, Gunder?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -327,6 +375,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They grow worse every month. I outfit fighters, and I want them back. Your spirits won't stop claws, but my armour might." } },
+      choices = {
+        { text = "Your armour's good work, Morg. I'll wear it proudly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Claws are claws. Armour won't matter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Leather, oiled so it doesn't creak, with a steel plate stitched in over the kidneys, because a worgen likes to come from behind as much as you do. Folk like you think speed is armour, and it is, right up until the night it isn't." },
+      },
+      choices = {
+        { text = "I'll take the plate, Morg, and be glad of it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The plate will slow me. I'll trust my speed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Morg.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Mail over the shoulders and plate on the forearms, because a worg goes for the throat and you block with your arm. I've buried men who wore leather because it was lighter, and lighter's no use if you're dead." } },
@@ -384,6 +452,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Stand still, let me look at that armour, because if I can see the claw marks from here, the next ones will go through." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Mail's what you want, and I'll not hear otherwise, because the things out there aren't stopping at a bit of leather." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Let me see your hide, then, since I'm told it's armour enough for your kind, and I'll judge whether it's armour enough for Duskwood." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Leather, then, by the look of you, and quiet leather at that. Let me see the claw marks before you say anything." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me see your gear for claw marks. Good. You've not fought worgen yet. You will." },
       },
       again = {
         { id = "h_again", text = "What else? The forge won't keep." },
@@ -399,6 +469,8 @@ P:NPC {
         { text = "Do the Watch come to you hurt, Morg, before a healer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How would you strengthen my elbow joints, Morg?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What leaves the worst marks on the armour you mend, Morg?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What armour suits someone who works in the dark, Morg?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have the worgen grown worse, Morg?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Morg.", next = "END" },
       },
     },
@@ -461,6 +533,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The dead are in the mines too, mostly. Your earth spirits might tell you where it's safe." } },
+      choices = {
+        { text = "I'll mine safely, Matt, and teach others.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The mines are lost. Don't waste your time.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "You could light a tunnel without a lamp, I suppose, and that would've saved a few men I knew. But I've seen what's down the old shafts near the Rolling Hills, and some of it doesn't like fire at all, and some of it likes it far too much." },
+      },
+      choices = {
+        { text = "Then I'll go down with a lamp, Matt, like your crew did.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll take what likes the fire and make it mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Matt.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Copper, mostly, and a few seams of tin, if the dead and the spiders haven't got there first. I'd not send a miner down alone now, but a warrior swinging a pick in one hand and a sword in the other might come back." } },
@@ -535,6 +627,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? You've the arms for a pick, if not the patience, and I've the dead mine shafts to put you in, if you can stand the dark." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know the trails better than I do now. Do you see old mine shafts out there, in the trees?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll not be keen on mining, I'd guess, but if you're willing to learn, I'm willing to teach, and there's precious few of either in Darkshire." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll teach you to swing a pick if you like, but don't bring that imp down a shaft, there's enough fire in the bad air already." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A student, at last. Nobody dares go down a mine here anymore. Your earth spirits might help." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I've no students waiting, more's the pity." },
@@ -552,6 +646,8 @@ P:NPC {
         { text = "Did your old crew get the rites they deserved, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What drove the miners out of Roland's Doom, Matt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why did Duskwood's miners stop digging?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could my arts help a miner in Duskwood, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why don't people mine here anymore, Matt?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -614,6 +710,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Oh, all sorts: fears and hopes and secrets. I sew while I listen. Your spirits must hear secrets too." } },
+      choices = {
+        { text = "Keep their secrets, Danielle. It's only right.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Share the gossip. Secrets are meant for telling.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I sell robes to anyone who pays, dear, though I'd ask you to keep your companion off my bolts, because velvet doesn't take kindly to claws. Madame Eva says the dark arts are a door you can't close again, and I say that's very dramatic of her and good for business either way." },
+      },
+      choices = {
+        { text = "I'll keep the door half shut, Danielle, and the claws off.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Eva's right, and I like it open.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Danielle.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "You'd think I'd tell, wouldn't you, but a seamstress who spreads her customers' business stops having customers, and Madame Eva's visitors pay her for secrecy. I'll say this much: more of the Night Watch come to her for readings than will admit to it, and not one of them asks about love." },
+      },
+      choices = {
+        { text = "Then I'll not ask for names, Danielle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd pay for the names, if you'd sell them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Danielle.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Padding, mostly, for under the plate, and you'd be amazed how many warriors skip it and wonder why they're blistered raw. Sheri cuts it and I stitch it, and between us you'll not chafe on the road to Raven Hill." } },
@@ -672,6 +799,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, up our stairs! Mind Eva's door on the way, because if she hears that armour clanking she'll come out and read your fortune, and you'll not like it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast on our stairs! Sheri will faint if it sheds on the good silk, so keep it on the landing, there's a love." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid on our stairs! Madame Eva went quiet downstairs the moment you came in, and that only happens when someone interesting walks by." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh, you came up those stairs without a single creak, and I didn't think that was possible. You'll have to teach me the trick." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've a black velvet that would suit you down to the ground, and it won't show the scorch marks." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I hear everything Eva's visitors say on the stairs. Do your spirits gossip too?" },
       },
       again = {
         { id = "h_again", text = "What else? Oh, I do love a visitor." },
@@ -687,6 +817,9 @@ P:NPC {
         { text = "Does Madame Eva truly quarrel with priests, Danielle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the Night Watch wear your cloth, Danielle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do Eva's visitors say about the forest on the stairs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What gossip comes through your floorboards, Danielle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you sell robes for one of my calling, Danielle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do Eva's visitors say on the stairs, Danielle?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Danielle.", next = "END" },
       },
     },
@@ -749,6 +882,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "In Darkshire, everything does. I'm the careful one. Your spirits might calm me, if they're kind." } },
+      choices = {
+        { text = "Careful is wise, Sheri. Keep your accounts tidy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stop jumping. Fear makes you weak.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Everything frightens me, so please don't take it personally, but yes, a little, because it looks at the window the same way the thing outside does. Danielle says I fret too much, and maybe I do, but I keep the books and somebody has to count what could go wrong." },
+      },
+      choices = {
+        { text = "I'll keep it on the landing, Sheri, and away from you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better it watches the window than you do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Sheri.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Could it? Oh, I'd pay for that, if you knew how and it didn't burn the frame, because Danielle laughs at me but she sleeps on the other side of the house. I've stopped looking at the glass at night, since there's a shape in it sometimes that I'd rather never see clearly." },
+      },
+      choices = {
+        { text = "I'll look for myself, Sheri, and tell you true.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some shapes are best left unseen. Keep the curtains drawn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Sheri.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Safe enough, I suppose, though every creak on the stairs makes me jump. Having a warrior in town makes me sleep easier, even if you're only passing through." } },
@@ -806,6 +970,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Oh! A warrior, on our stairs. Do be careful with that sword, please; the last one who came up here caught it on the rail, and Danielle still hasn't mended it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a beast as well. Please don't let it near the dyes; the last time a dog got in here, it was blue for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh! A druid. You came up the stairs so quietly that I didn't hear a thing, and I'd thank you to stomp next time." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Oh, a mage. Please don't do anything bright in here, because the last time the scissors went flying." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! You've something with you, haven't you? Something that breathes. Please keep it on the landing." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Oh, the stairs creaked. Sorry. I keep the accounts and the scissors. Do your spirits make the stairs creak?" },
       },
       again = {
         { id = "h_again", text = "What else? Only quietly, please." },
@@ -821,6 +988,9 @@ P:NPC {
         { text = "I'll say that prayer over your window, Sheri.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would it ease your mind if I stood watch tonight, Sheri?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the forest frighten you, Sheri, even inside these walls?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a ward keep that scratching off your window, Sheri?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does it frighten you, what I keep with me, Sheri?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why do the stairs make you jump, Sheri?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go quietly.", next = "END" },
       },
     },
@@ -878,6 +1048,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Never once. I keep coming back. Your spirits might give me an answer the council won't." } },
+      choices = {
+        { text = "Keep asking, Hogan. Persistence matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stop waiting on the council. Act yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I'd ask you to stand in front of that council and tell them what's actually raising the dead, because they don't believe a farmer and they won't believe a priest. Somebody with books in his head might shame them into doing something before my fence comes down." },
+      },
+      choices = {
+        { text = "I'll speak to the council, Hogan, and make them listen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Councils never act. I'll go to Raven Hill myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Hogan.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They've talked about it, and they've sent letters to Stormwind about it, and the dead have walked into my neighbour's yard in the meantime. A warrior could do in a night what the council hasn't done in a month." } },
@@ -951,6 +1141,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Will you come in with me tomorrow, when I ask the council again? They might answer a man in armour, where they won't answer a farmer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The wolves took my sheep and the dead took my neighbour, so you'll forgive me if I ask you to start with the wolves, since those I understand." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people know about putting things back the way nature meant, I'm told, so perhaps you'll answer where the council won't." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Do you know anything about the dead, then, or are you just here for the council like the rest of us?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I wait every day to ask the council about the dead. Nobody answers. Will your spirits?" },
       },
       again = {
         { id = "h_again", text = "What else? I've nowhere better to be, more's the pity." },
@@ -968,6 +1160,8 @@ P:NPC {
         { text = "What would you have the Church do about Darkshire's dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll go to Raven Hill. What should I know first?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the dead ever rise in Duskwood before the forest darkened?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would you ask a mage to do, Hogan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has the council ever answered you, Hogan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Hogan.", next = "END" },
       },
     },
@@ -1044,6 +1238,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Business worries me, friend. The dead don't buy much. Your spirits might help sales, though." } },
+      choices = {
+        { text = "Sell honestly, Kzixx. That's good business.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell to the dead, then. They've coin in their graves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "For you, friend, I got shards, real ones, maybe, and a book with a lock on it I never opened because the lock's warm. Business is business and Kzixx doesn't ask, but if that book starts whispering to you, you didn't buy it from me." },
+      },
+      choices = {
+        { text = "I'll take your word on the shards, Kzixx, and pay fair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A warm lock? I'll take it now and settle up later, maybe.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kzixx.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Unique to this side of the Darkened Bank, at least, which is all a fighter really needs. Don't go asking where I got it, because the answer's a long story involving an ogre, a swamp and a very angry dwarf." } },
@@ -1118,6 +1332,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! You've got the look of someone who needs a one-of-a-kind blade, and it just so happens I've got one, or one of a few." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and a beast besides! I've got a rare collar here that'll fit it, guaranteed, and if it doesn't, it's an even rarer belt." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid, now there's a customer! I don't suppose you'd want a genuine Ashenvale acorn, pal, guaranteed authentic and only slightly nibbled." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Hey, a warlock! I got candles, I got skulls, I got a very rare black stone that's definitely not from the riverbank." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Unique goods, every one. Nothing in the forest worries me, so long as business is good." },
       },
       again = {
         { id = "h_again", text = "What else, pal? Time's money, and I'm losing both." },
@@ -1135,6 +1351,8 @@ P:NPC {
         { text = "Where does a goblin come by holy relics, Kzixx?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you sell to anyone, Kzixx? Even the Defias?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever sold anything that came out of Ashenvale, Kzixx?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Anything here for a warlock, Kzixx?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does nothing in Duskwood really worry you, Kzixx?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll pass.", next = "END" },
       },
     },

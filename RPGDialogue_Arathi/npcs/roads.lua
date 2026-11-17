@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Anything the orcs down there say to their spirits, if they say anything at all, for I've watched one of them walk the fences at dusk and I've no idea what he's asking for. Phin would give his last silver to know, and I'd give mine to know whether it's about us." } },
+      choices = {
+        { text = "Spying on a shaman's prayers is wrong, Quae. I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll listen in and tell you everything. War is war.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because there are more orcs down there than either of us could fight, and because Phin wants to know what they're doing, not merely stop it. Kinelory has a plan for the courier, and she'll need someone loud when it goes wrong, so stay close to her." } },
@@ -62,8 +71,27 @@ P:NPC {
         { text = "Something else, Quae.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nothing loud, not yet, because if Phin's right, there's plague being moved through that farm, and if we charge in, they'll only move it somewhere we can't see. Help Kinelory take the courier's papers first, and once we know what the Forsaken are planning, you can be as loud and shiny as you like." } },
+      choices = {
+        { text = "Patience first, then. We'll learn what they're planning.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If there's plague down there, I'll burn it out now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and I've never met a demon that knew how to be boring." } },
+      choices = {
+        { text = "Boring it is. I'll keep the demon back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them notice. My demon could clear that farm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, of all the things to come up this ridge! Keep your voice down, {class}, and if the wind tells you anything about that farm down there, tell me first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, keep low! If the Forsaken really are brewing plague down at Go'Shek Farm, we'll want someone who knows the Light when it's all over, so please don't get yourself spotted." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Could you not slip into Go'Shek Farm as a cat and see what the Forsaken are hiding? Kinelory would sleep easier, and so would I." },
@@ -77,6 +105,8 @@ P:NPC {
           text = "You've a quiet way of standing, {class}, and Phin would like the look of you. Sit down, and keep your head below the ridge." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, keep low, please, because armour flashes in the sun and the orcs at Go'Shek notice anything that flashes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, good. Your eyes are probably better than mine, so tell me what you see moving down at Go'Shek Farm, and keep your voice down." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Keep that hammer low and that shine lower, {class}, because the orcs down at Go'Shek Farm would spot holy light from the other side of the Highlands." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, keep low, and keep that demon lower, {class}, because the last thing Kinelory needs is to turn round and see something with horns behind her." },
       },
       choices = {
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "druid_q", when = { class = "DRUID" } },
@@ -89,6 +119,9 @@ P:NPC {
         { text = "Do you fear the plague is coming to the Highlands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why not just attack Go'Shek Farm outright, Quae?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I watch for at Go'Shek Farm, Quae?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would you have a paladin do about Go'Shek Farm, Quae?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would a demon make a good scout down at Go'Shek, Quae?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What should I listen for at Go'Shek Farm, Quae?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay low, then. Farewell.", next = "END" },
       },
       again = {
@@ -177,6 +210,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Terribly, yes, because if those papers say what Phin thinks they say, the Forsaken are planning something for Hillsbrad that none of us will like. I'd feel braver if the earth itself were on our side, and I suppose with you here, it rather is." } },
+      choices = {
+        { text = "We'll stop them. Hillsbrad's people won't suffer this.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever they plan, it's Hillsbrad's problem, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd thought to ambush him, but if you could follow him without his noticing, perhaps we could learn where he goes, which would be cleverer. Oh, I do wish I were braver about it all." } },
@@ -216,8 +258,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He was one of the Kirin Tor's students, before he left, and he still reads everything twice and argues with it once. He says the courier's papers might be written in a cipher the Forsaken apothecaries use, and if they are, I'll need someone cleverer than me to read them, which is most people, honestly." } },
+      choices = {
+        { text = "Bring me the papers. We'll read them together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ciphers are dull. I'd rather burn the courier.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kinelory.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, and a dwarven one, that's, well, that's wonderful, {class}, and if you could ask the wind to slow that Forsaken courier down, I'd be terribly grateful." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, that's, well, that's a comfort, because if I'm going after that Forsaken courier I'd rather someone said a prayer over me first, just in case it goes the way Quae thinks it will." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, thank the Light, because I've been working up my courage to go after that courier for days, and it would be a great deal easier with someone in plate walking beside me." },
         { id = "h_default", key = true,
@@ -230,6 +282,7 @@ P:NPC {
           text = "Oh, you're quiet, {class}, quieter than me by a mile, and I've been practising all week so the courier won't hear me coming." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Oh, a hunter, that's, well, that's very good, because you can shoot the courier's guards from a distance, and then I won't have to see them coming." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I'm terribly sorry, I'm a bit nervous, but you seem like the sort of person who could find a Forsaken courier without being seen." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Oh, that's, well, that's very good, {class}, because Phin studied at Dalaran and he always said a mage is worth a whole patrol, though I suspect he meant himself." },
       },
       choices = {
         { text = "I'll take the loud part. Stealth was never my way.", next = "warrior", when = { class = "WARRIOR" } },
@@ -242,6 +295,8 @@ P:NPC {
         { text = "What do you know of the courier's route?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I cover you from the trees when you face the courier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should we ambush the courier, or follow him quietly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why does Phin set such store by mages, Kinelory?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are you frightened of what that courier carries, Kinelory?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Talking helps, honestly, so please do." } },
@@ -352,6 +407,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Individually, no, but they come in such numbers and with such conviction, and they've a way of shouting about candles that unsettles a man of learning. I'd be grateful for an escort to the coast, and grateful again if you didn't smite anything that merely looked at me unkindly." } },
+      choices = {
+        { text = "I'll see you safely out, and smite only what attacks.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Anything that waves a pick at us gets smitten.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Professor.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "My research notes, which they couldn't possibly read, and a brass astrolabe, which they couldn't possibly use. I suspect they took them simply because I seemed to want them back, which is a very kobold sort of reasoning, and rather hurtful." } },
+      choices = {
+        { text = "I'll fetch back what's yours, Professor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Brass astrolabe, you say? I could find a buyer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Professor.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      big = true,
+      lines = { { id = "xpriest_default", text = "Truly, and for my notes, which would have been the greater loss to scholarship, if not to me personally. The kobolds kept me awake every night chanting about wax, and I'll confess I said a prayer or two, though I've never been sure who listens to a gnome in a gorge." } },
+      choices = {
+        { text = "Someone always listens, Professor. Take heart.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Nobody listens. Your own wits got you through.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Professor.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Everything, naturally, but chiefly why the rock here is so riddled with tunnels, and whether the kobolds dug them or merely moved in. A shaman could ask the earth directly, I suppose, though I'd want the answer written down, since I've never trusted anything I couldn't put in a footnote." } },
+      choices = {
+        { text = "The earth deserves to be heard, not footnoted.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Write it down, then. Knowledge should be kept properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Professor.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The tides along the Arathi coast, and the ships the old kingdom lost to them, which is a long story with a great many footnotes. The goblin waiting at the shore thinks only of what might be salvaged, and I think only of what might be learned, and between us we nearly make one sensible expedition." } },
+      choices = {
+        { text = "Learning first, Professor. The salvage can wait.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The goblin has the right idea. Salvage pays.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Professor.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. I'll take you as I find you, which so far is helpful and not trying to eat me, which is more than I can say for the kobolds." } },
+      choices = {
+        { text = "Fair judgement, Professor. I'll keep the demon civil.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The books were right about some of us, Professor.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Professor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -362,6 +471,12 @@ P:NPC {
           text = "Lead on, then, and keep the kobolds off my coattails! My work waits for me down at the coast, and so does a very dull goblin." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, splendid! The kobolds respect nothing but the sharp end of things, and you appear to have several sharp ends about your person." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Perhaps you can tell me whether kobolds count as wildlife, then, because I've been keeping notes, and I'm undecided." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, by my notes! I'm told your sort can make a whole cave glow, {class}, which would be terribly useful, since the kobolds took every candle I owned." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! You startled me, {class}, and I'm already quite startled enough today. Unless you're a kobold in a very good disguise, in which case, well done, and please give back my candles." },
+        { id = "h_priestcl", when = { class = "PRIEST" }, text = "A priest! I was half hoping someone would come along to read my last rites, {class}, though I'd much rather you read the road to the coast instead." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've read that your kind can speak with the very stones, {class}, so perhaps you could ask the gorge why it lets kobolds live in it, for I've been wondering." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, splendid, a fellow scholar! Do forgive the state of me, {class}, for the kobolds have had me living on cave water and indignation for a week." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Good heavens, is that a demon? I've read about them, of course, {class}, but reading is so much less alarming than seeing one blink at you." },
       },
       choices = {
         { text = "Kobolds belong to the land too, Professor.", next = "druid_q", when = { class = "DRUID" } },
@@ -371,6 +486,12 @@ P:NPC {
         { text = "Who waits for you at the coast?", next = "coast" },
         { text = "Shall I clear the kobolds from your path, Professor?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have you studied the kobolds while you've been stuck here?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Are the kobolds really so dangerous, Professor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Did the kobolds take anything besides candles, Professor?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Were you truly afraid for your life, Professor?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What do you want to know about the gorge, Professor?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What were you studying before the kobolds came, Professor?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Have you never met a warlock before, Professor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck, Professor.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes, yes? Quickly, before they come back for the rest of my wax." } },

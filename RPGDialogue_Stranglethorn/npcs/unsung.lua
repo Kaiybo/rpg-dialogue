@@ -285,8 +285,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "As fair as anything in Stranglethorn, which is to say a hunter brought it in, I paid what it was worth, and nobody asked the tiger. If you want to know more than that you'll have to ask the hunter, and I don't keep names, because names are bad for business." } },
+      choices = {
+        { text = "You should keep names. That's honest trade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No names is wise. Let's keep it that way.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want leather for under that plate, I suppose, though your lot always ask whether the hide was fairly taken, and that slows business nearly as much as the shamans do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want mail, I suppose, though your lot always ask whose hide it was, which slows business down." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll ask whose hide it was too, I suppose, and the answer's a raptor's, and the raptor didn't object." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've had requests for some very strange hides from your lot, and I've turned every one of them down, mostly." },
@@ -313,6 +323,7 @@ P:NPC {
         { text = "Why not wear Bloodsail red in Booty Bay, Rikqiz?", next = "xmage", when = { class = "MAGE" } },
         { text = "What does a warrior need from a leather shop, Rikqiz?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is it really different, Rikqiz, selling the salt but not the knife?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Was the hide fairly taken, Rikqiz?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Nothing today.", next = "END" },
       },
     },
@@ -486,8 +497,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Healing draughts, mostly, because even the Light gets tired in this heat, and a clean draught never runs out of patience. I'll also sell you something against jungle fever, since the fever doesn't care how righteous you are, and I've seen it lay out bigger knights than you." } },
+      choices = {
+        { text = "I'll trust the Light to heal me, Glyx.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A draught in the hand beats a prayer, Glyx.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Do mind the shelves with that hammer, please, because I polished every vial this morning and I'd like at least one day without broken glass." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Mind the shelves, please, because everything on them is clean and I'd like it to stay that way, though I'll admit a blessing on the bottles couldn't hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll be wanting clean reagents, I expect, and mine are the only clean ones in Booty Bay." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll want holy water vials, I expect, or unholy ones, and I clean both the same way: thoroughly." },
@@ -519,6 +540,7 @@ P:NPC {
         { text = "What potions should a warrior carry, Glyx?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which beasts are the most venomous here, Glyx?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do druids really make that much mess, Glyx?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What would a paladin need from an alchemist's shelves, Glyx?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -884,8 +906,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not hard, exactly, just heavy, since your lot store armor and hammers where other folk store coin, and every piece gets counted twice like everything else. I'll grant that a paladin has never once argued with my totals, which is more than I can say for the sailors." } },
+      choices = {
+        { text = "Careful counting is a virtue, Rickle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Counting everything twice sounds exhausting, Rickle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Do please lean that hammer against the wall and not the counter, because the counter is new and the last knight left a dent I still count every morning." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Please don't call any lightning near the vault, because I've only just had the hinges oiled and the noise sets my nerves off." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Please don't bless the vault; the last blessing set off a ward, and I spent the whole night counting." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your belongings are welcome, but anything that moves on its own must be declared, in writing, in triplicate." },
@@ -913,6 +945,7 @@ P:NPC {
         { text = "What do warriors keep in your vault, Rickle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do beasts make you nervous at the vault, Rickle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What's the oddest thing a druid ever left in your vault, Rickle?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Are paladins hard on your bank, Rickle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Nothing, thanks.", next = "END" },
       },
     },
@@ -1062,8 +1095,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than you'd believe, friend, because wool holds the heat and the sweat, and the sweat is what gives every knight in Booty Bay that rash they won't talk about. Linen breathes, and silk breathes better, though I doubt your order pays you enough for silk." } },
+      choices = {
+        { text = "My order taught me to endure discomfort, Qixdi.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Comfort matters too. Show me the linen.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, oh dear, in all that plate in this heat! I've got a lovely linen shirt that would go under it beautifully, and you'd stop cooking inside your armor." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you poor thing, wearing all that in this heat. I've got a lovely linen shirt that would go under it beautifully." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh, you're a quiet one! I'd put you in something dark and close-fitting, because flapping sleeves catch on window latches." },
         { id = "h_default", key = true,
@@ -1093,6 +1136,7 @@ P:NPC {
         { text = "Do warriors really buy cloth from you, Qixdi?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why should a hunter care about rustling, Qixdi?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would you dress a druid in for this jungle, Qixdi?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Would linen really help under plate, Qixdi?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'm fine, thanks.", next = "END" },
       },
     },
@@ -1362,6 +1406,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Once, for a troll who poured the first bowl into the sea. I've never cooked for a dwarf shaman, so if your spirits want a fish stew, you tell me how they like it." } },
+      choices = {
+        { text = "The first bowl goes to the sea, Kelsey. Always.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The spirits can catch their own fish.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Fish, mostly, since it's fresh and it's everywhere, and plenty of salt to replace what you sweat out in that armor. I've seen strong men fall over in the jungle heat because they forgot to eat, and it's a shameful way to lose a fight." } },
@@ -1437,10 +1490,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Something that keeps, first of all, like dried clam strips or a good jerky, and plenty of pepper, because pepper covers a multitude of sins when the meat's three days old. Any soldier who tells you rations taste fine has simply forgotten what food is supposed to taste like." } },
+      choices = {
+        { text = "Plain rations are fine for a soldier, Kelsey.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good food is worth the extra weight, Kelsey.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want something hearty, then, because plate burns through a meal faster than anything, and I've a crocolisk steak that would hold a knight through the afternoon." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Will you bless my pepper pot, then? I'm only half joking, because I've cooked crocolisk in this heat for years and some days it needs all the help it can get." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I hear tauren cooking is all roots and plains game, so you must be dying for a decent fish stew." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! I hear tauren cooking is all roots and plains game, so you must be dying for a decent fish stew." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do your folk bless food before you eat it? Bless this stew, then, because it needs all the help it can get." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Your imp's welcome to the scraps, but it eats on the floor, and I'll not have it singeing my tablecloths." },
         { id = "h_default", key = true,
@@ -1450,13 +1513,14 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Sit down and eat something, because you look like you've been living on hardtack and pride, and neither will keep you on your feet." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Bring a crocolisk tail or two past my stall some time, and I'll tell you how to cook it so you never look at hardtack again." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've a clam chowder that'd make any bear sit up and beg, though I'd ask you to do it outside the kitchen." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I hear dwarves like a stew thick enough to stand a spoon in, so you must be dying for something better than ship's biscuit." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, and I'll tell you how to cook it." },
         { id = "h_again2", text = "Anything else, friend?" },
       },
       choices = {
-        { text = "Have you ever cooked anything for a shaman's ceremony?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Have you ever cooked anything for a shaman's ceremony?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Do any spellcasters ever cook with magic, Kelsey?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your recipes.", next = "BUSINESS" },
         { text = "What's good to eat around here?", next = "eat" },
@@ -1468,6 +1532,8 @@ P:NPC {
         { text = "What should a warrior eat in Stranglethorn, Kelsey?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's the best thing to cook from the jungle, Kelsey?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does a druid's chowder need that a sailor's doesn't, Kelsey?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What would you cook for a knight on campaign, Kelsey?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have you ever cooked for a shaman's ceremony, Kelsey?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll pass, thanks.", next = "END" },
       },
     },
@@ -1610,8 +1676,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Blasting powder, mostly, and a little impatience, because a fuse is always shorter than the label says. The Light might grow them back, but it won't stop me lighting the next one, so I'd rather you saved your blessing for someone who'll learn from it." } },
+      choices = {
+        { text = "Then measure your fuses, Gnaz, and spare us both.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some lessons aren't worth learning. Light the fuse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I don't suppose the Light could do anything about singed eyebrows, because I've been meaning to ask somebody for years." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you know what a lightning bolt would do to a capacitor? Neither do I, but I've got a capacitor and I'd love to find out." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Could you bless my bench? Things keep exploding on it, and I've run out of other explanations." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Do imps run on fire? If they do, could one power a small engine? I'm only asking for science." },
@@ -1639,6 +1715,7 @@ P:NPC {
         { text = "Why would a warrior carry dynamite, Gnaz?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do goblin scopes really work, Gnaz?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you blow things up in the jungle, Gnaz, or only your shop?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "How do your eyebrows keep getting singed, Gnaz?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep my distance, thanks.", next = "END" },
       },
     },

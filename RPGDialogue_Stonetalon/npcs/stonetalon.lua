@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I hold it against the knights who carried it over the camps, and none of them were you. Cairne gave me Sun Rock to hold, and I hold it for the Horde. Hold it with me, and I won't care what you pray to." } },
+      choices = {
+        { text = "Then I'll hold Sun Rock with you, Maggran.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I hold the Light, not your rock.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Sun Rock stands against them every day, though I have only so many braves and the goblins have more saws than I have spears. I was gentle once, and I would have waited for the Earth Mother to drive them out, but these days I would rather drive them out myself." } },
@@ -118,8 +127,20 @@ P:NPC {
         { text = "Healing's for the living. I want my due.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = {
+        { id = "xhpriest_default", text = "It needs more than one, because the Grimtotem took Camp Aparaje and the Bloodfury harpies take whatever else they can reach. I was gentle once, before the years took it from me, so heal my braves the way I would have tried to, and don't ask me to watch." },
+      },
+      choices = {
+        { text = "I'll heal every brave you send me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll heal the ones who can still fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Sun Rock. I was gentle once. The Silver Hand's camps took some of that, and the wars took the rest." },
         { id = "h_default", key = true,
           text = "I'm Maggran Earthbinder. Cairne gave me Sun Rock to hold, and the wind and sun here to ease what the years did to me. I was gentle once, but I'm not anymore." },
         { id = "h_harpies", tags = { "news" }, when = { questActive = TODO_QUEST("Harpies Threaten") },
@@ -140,6 +161,8 @@ P:NPC {
           text = "So you're a warlock, and Cairne has told me what demon blood did to the orcs before Thrall freed them. I'll not see that sickness carried onto Sun Rock in anyone's bag." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Sun Rock's beasts have grown restless since the vale burned, and a hunter who knows how to turn them back is worth more to me than a spear." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Good, because I have wounded braves who need healing and a forest down the slope that needs it even more." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Sun Rock has wounded enough to keep you busy, so don't wait for me to ask." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfury", min = 30 } }, text = "The Bloodfury harpies have been quieter on the cliffs since you went up among them, and my braves have noticed. Good work, and keep at it, because there are always more of them." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plainly; I've no patience left for riddles." },
@@ -161,6 +184,8 @@ P:NPC {
         { text = "What beasts threaten Sun Rock, Maggran?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will you take a warlock's help against the harpies?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will Sun Rock stand against the Venture Company, Maggran?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Does Sun Rock need a healer, Maggran?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you hold the Light against me, Maggran?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -320,6 +345,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I don't know, but I'd like to find out. Every mountain heals given time and stubbornness, and the dead have a great deal of both, I imagine. Kneel here a while, and we'll see if anything grows near you." } },
+      choices = {
+        { text = "I'll kneel and try, Tammra.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm no gardener. Find someone else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Given time and stubbornness, yes, and I have plenty of both. What I don't have is peace, because the Venture Company's machines still grind at the edge of the vale, and every shoot I coax up they'd cut down again." } },
@@ -368,8 +402,31 @@ P:NPC {
         { text = "The spirits don't take requests, Tammra.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = {
+        { id = "xhpriest_default", text = "Not the land itself, but the people who work it, because my helpers come back burned and cut from the Charred Vale and I can't plant and bandage at the same time. Stay a night and look after them, and I'll count it with the shoots, five living against two dead." },
+      },
+      choices = {
+        { text = "I'll tend your helpers, Tammra.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your helpers knew the risks. I've other work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I fear any fire on this mountain, because the Charred Vale burned and I'm still trying to bring it back. Your frost would be welcome, though, on the harpies in the cliffs, because they dig up my shoots out of spite." },
+      },
+      choices = {
+        { text = "I'll keep my fire away from your shoots.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fire's the quickest answer to harpies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I coax green shoots out of burned ground, and I'd love to know whether the Light can help." },
         { id = "h_default", text = "I'm Tammra Windfield, and I tend what grows on Sun Rock and try to bring back what doesn't. Every mountain can heal, given time and stubbornness." },
         { id = "h_kaya", tags = { "news" }, when = { questActive = TODO_QUEST("Kaya's Alive") },
           text = "Kaya's alive? My niece, alive! Oh, Earth Mother be thanked, for after the Grimtotem fell on Camp Aparaje we'd all thought her lost." },
@@ -384,6 +441,9 @@ P:NPC {
           text = "There's a warlock's chill about you, and I don't think the little shoots will like it. Stand a pace back from the rows, if you would, and I'll gladly talk with you all the same." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Mind your boots, please, because I've seedlings in rows you can barely see, and they've survived worse than you, but not by much." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and I can see you've a feel for the land, so you'll know the beasts have been driven half mad by the burning." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I mend the ground and you mend people, and Sun Rock needs both." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Please keep your fire well away from my seedlings, because they've been burned once already." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 30 } }, text = "The braves say the Grimtotem have lost a good many warriors to you, and the trail down to Aparaje is safer. I'm glad of it, though it grieves me that they were tauren." },
       },
       again = {
         { id = "h_again", text = "Anything else, while my hands are in the dirt? I can listen and plant at once." },
@@ -401,6 +461,9 @@ P:NPC {
         { text = "Can anything grow back in the Charred Vale, Tammra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Are the beasts returning to the burned land, Tammra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does my magic truly harm your plants?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Can a priest help you mend the land, Tammra?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you fear a mage's fire, Tammra?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Can the Light heal burned ground, Tammra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with your garden.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -528,6 +591,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They hate anything they can't control, and the Light isn't theirs. Neither is my fire. I don't love paladins, since the Silver Hand never liked mages who didn't bow, but an enemy of the Talon Den is a friend of mine." } },
+      choices = {
+        { text = "I'll stand against the Talon Den beside you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll not make enemies of druids for your grudge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Stand between me and their claws while I work, and don't ask too many questions about what I'm working on. The druids hate anything arcane, so they'll come for me first, and you'll get your chance to swing." } },
@@ -562,6 +634,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The druids of the Talon Den want the land bare of magic, and I suspect they'd want it bare of you too." },
         { id = "h_default", key = true,
           text = "I'm Braelyn Firehand. The Horde gives me a roof here, and I give it my spells. The druids of the Talon Den want this land bare of magic, and I want it back." },
         { id = "h_legacy", tags = { "news" }, when = { questActive = TODO_QUEST("Cenarius' Legacy") },
@@ -594,6 +667,7 @@ P:NPC {
         { text = "What secrets are the druids of the Talon Den keeping?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do you want a warrior to do about the Talon Den?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Talon druids take beast form, Braelyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the druids hate the Light, Braelyn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll think about it.", next = "END" },
       },
     },
@@ -749,6 +823,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. The dead be dangerous, and the Light be dangerous, and you be both, mon. But you be Horde, and I be Horde, and if you ever need a cage for somethin', I got plenty empty ones. Most." } },
+      choices = {
+        { text = "I'll not be needing your cages, Jin'Zil.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep a cage ready. I may bring you something.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Nothing dat would be bothering a druid, mon, mostly. A few forest spirits who got too curious, and Jin'Zil be letting dem go once dey tell him what he want to know." } },
@@ -810,8 +893,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = {
+        { id = "xhpriest_default", text = "Priests heal, witch doctors heal, and Jin'Zil heal best, mon, ask anybody but Darsok. I could use a priest's steady hands with my brews, because some of them be for the healing too, and some of them, well, you ask me about the cages later." },
+      },
+      choices = {
+        { text = "I'll help with your brews, if they're for healing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll help, whatever the brews are for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wieldin' the Light! Jin'Zil seen many things in dis cave, mon, but never dis. You be a strange one." },
         { id = "h_default", key = true,
           text = "Jin'Zil be my name: witch doctor, Darkspear, and friend to Darsok and Rokhan. Dis cave be my workshop, and da forest out dere be my pantry." },
         { id = "h_letter", tags = { "news" }, when = { questActive = TODO_QUEST("Letter to Jin'Zil") },
@@ -828,6 +923,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon! Jin'Zil like a big strong one, because big strong ones carry da heavy cages back from da forest." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! Jin'Zil got empty cages need fillin', and da forest out dere be full of fine ingredients." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, eh? You be talking to beasts and I be talking to spirits, so maybe we gonna get along, as long as you don't be asking what's in da cages." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon! Jin'Zil heal better than any priest, but you can stay anyway." },
       },
       again = {
         { id = "h_again", text = "What else you want, mon? Jin'Zil got all day and a pot on da boil." },
@@ -845,6 +941,8 @@ P:NPC {
         { text = "What do you need a warrior for, Jin'Zil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What beasts does Jin'Zil want for his cauldron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What is in the cages, Jin'Zil?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you and the priests get along, Jin'Zil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do trolls fear the Light, Jin'Zil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -952,6 +1050,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "We welcome everyone who comes in tired. Some of the orcs here might stare at the Light, because they remember the camps, but nobody starts trouble in my inn. Sit, rest, and tell me a story." } },
+      choices = {
+        { text = "I'll rest and tell you a story, Jayka.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll rest. Stories are for others.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Only what travellers carry up the mountain, and none of it is good, because the Venture Company burns faster than the tauren can plant. I sometimes wonder whether Orgrimmar even knows, or whether anyone there cares." } },
@@ -984,6 +1091,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Weapons down, boots off, and tell me who you've been fighting. I don't care what you pray to." },
         { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and that's the job." },
         { id = "h_harpies", when = { metBefore = true }, text = "The harpies screamed all night, the braves screamed back, and nobody slept. Breakfast?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know the wind howling round this inn isn't angry, only talkative, and you can tell the other guests so." },
@@ -1010,6 +1118,7 @@ P:NPC {
         { text = "What do travellers say about the hills, Jayka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you hear much news from the Charred Vale, Jayka?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Make this my home.", next = "BUSINESS" },
+        { text = "Do the tauren of Sun Rock welcome a paladin, Jayka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -1120,6 +1229,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They do, and so do the goblins' saws. Crimes are done with hands, not banners, so I will not blame your Alliance for them, but I would ask you to tell the earth that not all of us forget." } },
+      choices = {
+        { text = "I'll tell it, Keeper, and help the forest heal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The goblins will pay for those fires, in full.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The same as I ask of everyone: to judge each deed by itself. You walk under the Horde's banner, whose raiders come up the ridges with fire, and you carry the Light that once hunted your kind. Banners tell me nothing, so I would see what your hands do." } },
+      choices = {
+        { text = "Judge me by my deeds, Keeper. They'll be just.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I owe the trees no answers, Keeper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It welcomes anyone who comes in peace, little one, and a warrior can come in peace as well as any druid. The fires in the vale were set by greedy hands, not by soldiers, and I know the difference." } },
@@ -1199,6 +1326,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin among the dead, little one. The Light walks strange roads, and the trees have never seen it walk this one." },
         { id = "h_default", key = true,
           text = "Albagorm, keeper of the grove. I watch over this peak and its forest, and lately I watch the vale to the south, where the fires came." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to Stonetalon Peak") },
@@ -1215,7 +1343,9 @@ P:NPC {
           text = "Something dark walks a step behind you, little one, and the grove has gone very still to watch it. I won't turn you away, because what you do matters more to me than what you carry, but please keep it out of the trees." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, little one, with steel in your hands and a long road behind you. The grove will let you pass, so long as the steel stays sheathed among the trees." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, little one, and you'll know that the beasts of this forest belong to it as much as the trees do." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, little one, so far from your mountains and fields. The Silver Hand's vows are known even here, though the trees remember older ones." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, little one, so far from your mountains and fields. The Silver Hand's vows are known even here, though the trees remember older ones." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfury", min = 30 } }, text = "The Bloodfury are fewer over the Charred Vale, little one, and the druids can plant again where they could not before. You've done the grove a kindness, and it will remember." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the mountain folk, little one. The earth of Stonetalon remembers the fires in the vale, and I think you will hear it weeping." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, little one. The grove has time, and so do I." },
@@ -1228,7 +1358,7 @@ P:NPC {
         { text = "Faldreas in Astranaar sent me to you.", next = "faldreas", when = { any = { { questActive = TODO_QUEST("Journey to Stonetalon Peak") }, { questDone = TODO_QUEST("Journey to Stonetalon Peak") } } } },
         { text = "Have humans ever come up here before?", next = "human", when = { race = "Human" } },
         { text = "Can the Light heal burned land?", next = "priest", when = { class = "PRIEST" } },
-        { text = "What would you ask of a paladin, Keeper Albagorm?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you ask of a paladin, Keeper Albagorm?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "I'll help the grove.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Hamuul Runetotem sends his respects, Keeper.", next = "tauren_al", when = { race = "Tauren", class = "DRUID" } },
         { text = "My people's druids honour the Circle too.", next = "sky_al", when = { race = "Skyborne", class = "DRUID" } },
@@ -1237,6 +1367,8 @@ P:NPC {
         { text = "Would the grove welcome a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can I hunt in your forest, Keeper?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the grove fear from my demon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What would you ask of a Forsaken paladin, Keeper?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do the fires in the vale trouble the spirits, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The vale's already burned, and I've no time for trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -1364,6 +1496,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not in words. But the wind changes when the fires burn below, and I've learned to read it like a letter. You'd read it better, I'd guess." } },
+      choices = {
+        { text = "Trust the wind, Faralia. It knows more than we do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Trust the Sentinels' scouts, not the wind.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They are, though they speak of it quietly, because the Venture Company's smoke rises up the valley and they can taste it in the morning mist. Some of them want to go down and fight, but the elders say the peak must be kept first." } },
@@ -1421,6 +1562,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "They'll mind, because the Talon Den guards a grove whose keepers remember the Burning Legion, and they'll say your demon smells of it. Keep it out of the grove and away from the hippogryphs, and nobody will say a word, though they'll think it loudly." },
+      },
+      choices = {
+        { text = "I'll keep it out of the grove, Faralia.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The druids can think what they like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Faralia, and I keep a small inn for those who climb up to the grove. Not many do, and the ones who do usually need the bed." },
@@ -1434,6 +1586,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The climb must have been easy for you, then, with a beast to scout the path ahead of you." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up here on the peak! The climb must have been hard in that armour, so sit and rest before you go anywhere." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, come up to the Talon Den! The grove will be glad of you, and so will I, because the druids here are the only guests who ever stay for a second cup." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, up on the peak? The druids won't like it, but the kettle doesn't mind, so come in out of the cold." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up on the peak. The wind here is strong enough to carry a voice to the stars, so if the spirits ever answer you, tell them I've been counting." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak." },
@@ -1450,6 +1604,8 @@ P:NPC {
         { text = "What beasts live up on the peak, Faralia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is the path down the peak dangerous after dark?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the Talon Den druids troubled by the goblins below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will the druids mind a warlock on the peak?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the spirits up here answer you, Faralia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

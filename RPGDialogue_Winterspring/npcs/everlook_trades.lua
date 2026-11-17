@@ -25,6 +25,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because it comes out of Felwood's satyrs and the Shadow Council's lot at Jaedenar, and nobody likes fetching it. Tailors want it, warlocks want it, and the fellows who bring it want danger money, so the bidding gets hot even when the weather doesn't." } },
+      choices = {
+        { text = "I'll fetch my own felcloth before I pay those prices.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll buy it all and sell it back at twice the price.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I sell whatever comes through the door with a fair reserve on it, friend, and I don't check the pedigree. Steamwheedle's neutral, which means a hammer is just a hammer here, whoever swung it last and whatever they believed while they did." } },
+      choices = {
+        { text = "A weapon's history matters. I'll not buy a fanatic's hammer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Good steel is good steel. I'll bid on it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Scholomance, Stratholme, the Spire, and the backs of people who didn't come home, though the Cartel prefers not to ask which. Warriors are my best buyers and my best sellers both, because you lot never stop trading up." } },
@@ -102,6 +120,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! You'll be after felcloth, I'll wager, and so is half of Everlook, so if you want it, bid early and bid high, because the prices only go one way." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Now, you'll be wanting a fine warhammer, I expect, and I've got three on the block, though one of them came from a Scarlet fella and I'd not ask too many questions about him." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! You'll want to see the plate and the blades, I expect, and I've a fine run of them this week, mostly from adventurers who stopped needing them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -136,6 +158,8 @@ P:NPC {
         { text = "Where does all that armour come from, Grizzlin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why wouldn't anyone ask where a frostsaber pelt came from?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you ever turn away goods taken cruelly?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you sell gear taken from the Scarlet Crusade, Grizzlin?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why is felcloth so dear in Everlook, Grizzlin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -192,6 +216,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because demons are fickle, friend, and steel isn't. I sold a lovely dagger to a warlock last winter who swore he'd never need it, and he came back a month later, without his voidwalker, to thank me personally, and he bought a second one in case." } },
+      choices = {
+        { text = "Sound advice. A wise warlock doesn't rely on demons alone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My demon will never leave me. Keep your dagger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Cheap steel, friend, folded fast and quenched in a bucket, and the frost gets into it like a bad rumour. I've seen a dwarf's axe snap clean on a Winterfall furbolg's skull, and the furbolg was more surprised than he was." } },
@@ -269,6 +302,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! You don't need much from me, I suppose, but every warlock I've met has wished for a good dagger the day their demon wandered off, so take a look at the case." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Now you're my sort of customer, and I'll tell you straight that half the swords in Kalimdor go brittle at forty below, but not mine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -301,6 +336,7 @@ P:NPC {
         { text = "Why would a sword go brittle in the cold, Wixxrak?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's so special about your gun oil?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you sell to the hunters who chase the frostsabres?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why would a warlock need one of your daggers, Wixxrak?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -361,6 +397,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Enough to know what they want before they ask. I don't care what they're up to after they leave, since the Bruisers watch the gate, but I'd ask you not to practise your craft in the bank downstairs, because the Cartel takes that very personally." } },
+      choices = {
+        { text = "I'd never rob the Cartel. It's bad for everyone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Cartel's vault would be a fine challenge, Qia.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every winter, without fail, and nobody believes me until it happens to them. I sell thread and leather and runecloth by the bolt, and I tell every paladin who comes through to oil their straps, and the ones who listen come back to thank me, and the ones who don't come back to buy more." } },
+      choices = {
+        { text = "I'll take your advice and oil the straps tonight.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My armour has held through worse than snow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The sweat does, and then the cold freezes it, and then it thaws by the fire at Vizzie's and does it all again. Every warrior who comes through Everlook smells of it, and I sell more heavy thread to your kind than to the tailors." } },
@@ -429,6 +483,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You'll want thread that doesn't creak, I expect, and dark dye, and leather soft enough not to squeak on the snow, so let me show you what I keep for quiet folk." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You'll want rugged leather for the straps under that plate, I expect, because cold leather cracks and then your pauldron's down by your elbow in the middle of a fight." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! You'll be after heavy thread to mend the padding under that armour, I expect, because the frost rots it faster than you'd think." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -458,6 +516,8 @@ P:NPC {
         { text = "Does the cold really rot the padding under armour?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What hides sell best in Everlook, Qia?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Where do your trade goods come from, Qia?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does the cold really crack armour straps, Qia?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you sell to many rogues in Everlook, Qia?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -511,6 +571,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oats, mostly, and dried fish for the cats, a little at a time, so I don't notice until the bins are half empty. I've an idea it's a hungry trapper and not a thief, but I've no time to sit up all night and catch them." } },
+      choices = {
+        { text = "I'll watch the bins tonight. The animals shouldn't go hungry.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A hungry trapper needs oats more than your animals do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "He talked to his horse like it was a soldier and to me like I was a stable boy, and I'll tell you which one of us he paid more attention to. The horse was a fine beast, though, and if you treat yours like a friend rather than a servant, we'll get along well." } },
+      choices = {
+        { text = "A charger is a companion. I treat mine as one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A warhorse is a tool of war. It doesn't need coddling.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because warriors shout, friend, it's in the training, and every time one of you bellows a war cry by the gate, my bears wake up and my cats go under the hay. A beast that's frightened in the stable is a beast that bites its own hunter later." } },
@@ -567,6 +645,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. You've no beast to stable, I'd guess, and I'll ask you to keep your hands out of the feed bins, because somebody's been helping themselves and the animals go hungry for it." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. Your charger's been in my stalls before, I think, or one like it, and it was far better company than its owner, though you might be the exception." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. You've no beast to stable, I expect, unless you count the bear-sized grudge you're carrying, so I'll just ask you to keep your voice down near the stalls." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The beasts in my stable perk up when your kind come by, so stand near the stalls as long as you like and warm them up a bit." },
@@ -593,6 +675,8 @@ P:NPC {
         { text = "Do the beasts in your stable suffer the cold, Azzleby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why keep my voice down near the stalls?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Are the animals well cared for in this cold?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What was wrong with the last paladin who stabled here, Azzleby?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Someone's stealing from your feed bins, Azzleby?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -647,6 +731,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the last time somebody knocked one over, the whole shop smelled of Felwood for a week, and my icecap went brown. I don't mind selling the stuff, because a sale's a sale, but I won't have it near the good herbs, so you'll have to ask for it nicely." } },
+      choices = {
+        { text = "Fair enough. Fel doesn't belong near clean herbs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your icecap will survive. Bring the whole shelf down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I think everything's a little bit alchemy, if you look closely enough, and that includes prayers! But I'll grant that my potions never made anyone braver, and I've seen paladins walk into the snow with nothing but a hammer and a hymn, so maybe there's something to it after all." } },
+      choices = {
+        { text = "The Light is faith, not alchemy. You'll see it someday.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If a potion does the same work, I'll take the potion.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oh, more than anyone, because you're the ones standing in front when the Winterfall come swinging. I brew mine with a pinch of icecap, which keeps them clear in the cold, and I'd like to think one of my bottles has saved a warrior or two." } },
@@ -724,6 +826,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Oh, you'll be after my felcloth dye and maybe a little demonic ink, though I'll confess I keep those on the high shelf, because they do smell dreadful." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I've a theory about you lot, which is that your Light works just like a healing potion, only slower and cheaper, and I'd love to watch you test it against one of mine." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! You'll want healing potions, lots of them, because your kind drink them like Himmik's soup, and I've a fresh batch packed in straw." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -756,6 +862,8 @@ P:NPC {
         { text = "Do warriors really drink that many potions, Evie?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Would you buy herbs a hunter finds in the wild?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Where do you find herbs in all this snow?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you really think the Light is just a slow potion, Evie?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why keep the fel reagents on the high shelf, Evie?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },

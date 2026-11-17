@@ -33,6 +33,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That the elves broke this land long ago and it has not forgiven them. You and I are both guests here, friend, so we must listen more than we speak." } },
+      choices = {
+        { text = "We'll listen, and help where we can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Guest or not, I'll take what this land owes me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They tolerate me because I keep my promise, and I think they would tolerate you for the same reason, though they'd sooner trust a ghost from these ruins. Bring no trouble, and they'll leave you be, and so will I." } },
+      choices = {
+        { text = "I'll keep your promise, Loh'atu, as if it were mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Sentinels don't own this forest. I'll walk where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They weep for the elves who died here, though those elves were never mine to mourn. The Haldarr satyrs have soured the earth, and the water spirits in the bay are restless, and I think they would welcome a shaman's voice, if you would lend it to them." } },
+      choices = {
+        { text = "I'll speak to the spirits and ease what I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The spirits will have to wait. The satyrs come first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because I am the stranger in their camp, and when something goes wrong, the stranger is always the first to be looked at. I do not hold it against them, since they have lost much to the satyrs, but I would ask you not to give them a reason to look at me again." } },
+      choices = {
+        { text = "I'll walk openly, then, for your sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll never know I was here. That's the point.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the satyrs do not care whose banner flies over this land, and neither do I. I swore to the Earth Mother that I would help drive the corruption out, and your Light, I think, burns as hot against the satyrs as any spirit's fire does." } },
+      choices = {
+        { text = "Then I'll fight beside you, whatever our banners say.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Sentinels' trust must be earned. I'll respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "By keeping your blade for the Haldarr satyrs and the ghosts that will not rest, and by never drawing it near the camp. I have kept my promise to them for a long while, and I've learned that the elves remember every kept promise and every broken one." } },
@@ -92,6 +137,14 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Haldarr", min = 30 } },
+          text = "The Haldarr are fewer in the woods, friend, and the Sentinels have noticed whose hand did it. They watch me a little less closely now, and I have you to thank for that." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
+          text = "A shaman, here among the Sentinels! Sit with me a moment, friend, for it has been long since I spoke with someone who hears the spirits as I do." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. You slipped past the Sentinels more quietly than I ever could, friend, and I hope they do not notice, for they would blame me for it." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
+          text = "A paladin of the Alliance, here at Talrendis Point. Walk softly, friend, for the Sentinels let me stay on a promise of no trouble, and I would like that promise to hold." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. The Sentinels will watch you as they watch me, friend, because a blade in this camp is a promise of trouble unless you show them otherwise." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -112,6 +165,8 @@ P:NPC {
           text = "I keep my promises to the Sentinels, and I would ask you to keep yours to me. Say what you need, and then let us both go about our work." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, here at Talrendis Point. Walk softly, friend, for the Sentinels let me stay on a promise of no trouble, and I would like that promise to hold." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I have walked these woods for a long while, trying to hear what is wrong with them, and perhaps you will hear it more clearly than I can." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Horde, here at Talrendis Point, and one of the Forsaken at that. Walk softly, friend, because the Sentinels already watch me, and they'll watch you twice as closely." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who hears the spirits! I did not think to meet one in my life, and I am glad of it, for the Sentinels do not hear them as you and I do." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time; the land does not hurry, and neither do I." },
@@ -133,6 +188,11 @@ P:NPC {
         { text = "How do I show the Sentinels I mean no trouble?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts here feel the restless spirits?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What have you learned about this land's sickness?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why do you stay among the Alliance, Loh'atu?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Why would the Sentinels blame you for me, Loh'atu?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do the spirits say of this land, Loh'atu?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Will the Sentinels tolerate a Forsaken paladin, Loh'atu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What do the spirits tell you of Azshara, Loh'atu?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep the peace here, Loh'atu.", next = "END", fx = { affinity = 1, standing = { talrendis_point = 1 } } },
       },
     },
@@ -373,6 +433,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The water there hides something old and angry, and the winds won't carry them over it. I think the elements of Azshara remember the Highborne better than we do." } },
+      choices = {
+        { text = "I'll respect the bay's warning, Jarrodenus.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll find out what's down there myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the naga are full of it, and the old Highborne ruins along the coast still crackle with it at night. The birds remember every time they've been shot at with a frostbolt, so they don't trust anyone who smells like one, however polite." } },
+      choices = {
+        { text = "I'll wait downwind until they trust me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They'll get used to me. I won't be stopped by birds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They fight with fel fire and cruelty, and a warrior who charges them alone does not come back to my roost. The Sentinels go out in threes, and I'd ask you to do the same, because I'm tired of saddling birds for riders who never return." } },
@@ -441,6 +519,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage of the Alliance, at Talrendis Point. My hippogryphs dislike the smell of arcane magic, so I'll ask you to stand downwind until they're used to you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior of the Alliance. My hippogryphs have carried many of your kind to Talrendis, friend, and too few of them back again, because the Haldarr are fierce." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -458,6 +538,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin of the Alliance. My hippogryphs have never carried so much steel, so forgive them if they grumble when you climb aboard." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, at Talrendis Point. My hippogryphs know your scent, and they settle when you come near, which is more than they do for the Sentinels." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks to the winds. My hippogryphs will not fly over the bay after dark, and if you know why, I'd be glad to hear it." },
       },
       again = { { id = "h_again", text = "Is there more, or shall I call a hippogryph for the flight back to Ashenvale?" } },
       choices = {
@@ -471,6 +552,8 @@ P:NPC {
         { text = "Are the Haldarr satyrs so dangerous, Jarrodenus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do your hippogryphs dislike other beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How do the hippogryphs fare so near the satyrs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why do your hippogryphs fear arcane magic, Jarrodenus?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why won't your hippogryphs fly the bay at night?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

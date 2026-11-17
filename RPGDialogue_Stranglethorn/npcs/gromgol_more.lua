@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Absolutely! You don't get airsick, you don't panic, and if anything happens, which it won't, you can heal yourself. I'd put you on a poster if I thought the Horde would buy it, but the orcs get nervous about the Light, I've noticed." } },
+      choices = {
+        { text = "Don't sell anyone false promises about your zeppelins.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Put me on the poster. A little legend never hurt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Nothing a little goblin genius couldn't patch, and the zeppelin only dipped a bit over the Barrens. Warriors always get restless on the ride, so stand at the rail and glare at the clouds, and you'll reach Orgrimmar with every rope where it should be." } },
@@ -107,6 +116,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Keep that axe sheathed on the deck, pal, because the last fellow who practiced his swings up there cut through a rope we really needed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Beasts ride free on my zeppelin, pal, but if yours gets airsick, you're the one cleaning the deck." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, but if you turn into something small you could ride the rigging and save me a seat." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Perfectly safe zeppelins, perfectly safe, and even if they weren't, you're already dead, so really you're my ideal passenger." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? The zeppelin waits for nobody, except when it does." },
@@ -123,6 +133,7 @@ P:NPC {
         { text = "What happened to the rope, Nez'raz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do beasts really get airsick on your zeppelin, Nez'raz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do druids ride your zeppelins much, Nez'raz?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Am I really your ideal passenger, Nez'raz?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll catch the next one.", next = "END" },
       },
     },
@@ -198,6 +209,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It doesn't worry me, but it interests the trolls on the ridges, and that worries me. Out here anything bright draws eyes, and the Bloodscalp have no love for the Light or the dead, so they'll have twice the reason to come for you." } },
+      choices = {
+        { text = "Let them come. I won't hide what I am.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep it dim and strike before they see me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They threaten everyone on the road, but they test warriors first, to see whether you'll chase them up into the ridges. Don't, because that's exactly where they want you, with spears above you and nothing behind you." } },
@@ -276,6 +296,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind your armor, but they hate the noise of it, so climb on slowly and try not to clank." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have noticed the trolls on the ridges watching us, I expect, since your kind usually does." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother. The jungle here isn't like Mulgore, friend; the trees have teeth, and the trolls on the ridges watch everything." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, glowing at my perch. The trolls on the ridges will see you from a mile off, so stand behind the beasts while you wait." },
       },
       again = {
         { id = "h_again", text = "Ask, then. The wind riders are fed and resting, so I have a moment." },
@@ -292,6 +313,7 @@ P:NPC {
         { text = "Do the ridge trolls threaten warriors on the road, Thysta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How long have the ridge trolls been watching, Thysta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you see the trolls doing up on the ridges, Thysta?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Does the Light on me worry you, Thysta?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -354,6 +376,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Less than anyone else, which is a pity for me. The jungle rots everything I sell, and you're the only customer who doesn't rot any faster than you already have, so take what you need and leave the rest for the living." } },
+      choices = {
+        { text = "I'll take only what I need. Leave the rest for the living.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My coin's as good as theirs. I'll take what I please.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More bandages than you think, because the trolls coat their spears with something nasty, and a cut left open turns green by morning. Whetstones too, since the damp blunts an edge in a day, and nobody believes me until they're facing a raptor." } },
@@ -432,6 +463,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want bandages, rations and a whetstone, and you'll want them now, before the jungle eats my stock." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Arrows and shot are in the back, and they're dearer here than in Orgrimmar, so don't waste them on monkeys." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll be wanting herbs, then, and I don't stock them, because the jungle's full of them and anyone who can't pick their own shouldn't be here." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. You won't need food, I suppose, so you'll be wanting bags and arrows and nothing that rots, which makes you my favourite kind of customer." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -448,6 +480,7 @@ P:NPC {
         { text = "What should a warrior carry in this jungle, Uthok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why are arrows so dear at Grom'gol, Uthok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why don't you stock herbs, Uthok, with the jungle right outside?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "What does a Forsaken paladin need from your stock, Uthok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

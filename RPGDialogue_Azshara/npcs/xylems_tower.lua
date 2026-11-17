@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I think it is a very useful sort of power for people who don't care to understand how it works, which is to say most people. The Highborne understood magic, and look what became of them, so perhaps ignorance has its virtues, though I shan't be trying it myself." } },
+      choices = {
+        { text = "Faith isn't ignorance, Archmage. You'd do well to learn that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Understanding is worth more than faith.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The same use a scholar has for a door, my dear, and a very sturdy one at that. Morphaz is sleeping in the drowned temple with my apprentice in his belly and my shard in his hoard, and I need someone to go and knock." } },
@@ -104,6 +113,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, in my tower! How novel, since your sort usually prefers to stay on the ground, where the Light can see you more clearly, or so I assume." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, in my tower. How refreshing, a visitor who won't touch my books, if only because you can't read the language." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -154,6 +165,7 @@ P:NPC {
         { text = "What use has an archmage for a warrior?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts does your research involve, Archmage?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why study the magic that broke this land?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What does an archmage think of the Light, Xylem?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },
@@ -386,6 +398,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because they interfere with his experiments, or so he claims, and I never second-guess what he commands. If you must pray, do it quietly, and do it outside, because the last paladin who prayed in the tower set off three wards, and I had to clean the scorch marks." } },
+      choices = {
+        { text = "I'll keep my prayers to myself, then. It's his tower.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pray where I like. The Light doesn't ask permission.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "My master needs a great many things, and most of them are hit with swords, apparently, which is why you lot keep coming up here. I'd tell you to be polite to him, but warriors never are, so just try not to break the furniture." } },
@@ -463,6 +484,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, clanking and shining and dreadfully earnest. I'm obliged to send you up to the Archmage, but do try not to bless anything in the tower, because he hates it." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, smelling of sweat and old leather, how charming. My master doesn't need muscle, but I'm obliged to send you up, so do try not to dent anything." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -499,6 +522,7 @@ P:NPC {
         { text = "Does your master need a warrior's help, Sanath?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Will your master let my beast into the tower?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What's it like, serving the archmage?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why does the Archmage hate blessings, Sanath?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your sulking.", next = "END" },
       },
     },

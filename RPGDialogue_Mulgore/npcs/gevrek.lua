@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The elements came first for my people, and the Light is a stranger to us. But we came to the Horde with our own odd gifts and were given a place to stand, and I would offer you the same welcome the tauren offered us." } },
+      choices = {
+        { text = "Then I'll honour that welcome, and earn it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I've earned my place already, Ayessa.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "We have those who ask the wind to carry sickness away, and sometimes it listens, though it is a fickle healer. Your way seems steadier to me, and I would be grateful if you shared a little of it with Gev'rek's young ones." } },
@@ -61,13 +70,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "We do not, because the wind answers us as a friend and not as a tool, and I would rather not say more of our ways than that. The Horde's mages have been kind to us, though, and I would only ask that you be careful with fire on these plains, which we owe to the tauren." },
+      },
+      choices = {
+        { text = "I'll be careful, Elder. Mulgore is the tauren's gift to you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My magic is my own affair, Elder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "We fear what we don't understand, and we don't understand the things you call, though the orcs have told us their story. Gev'rek owes Thunder Bluff its welcome, so I would ask you to keep your demon out of our camp, out of respect for them and for us." },
+      },
+      choices = {
+        { text = "I'll keep it out of your camp, Elder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your people will have to get used to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Windshapers know something about being strange in the Horde, so I will not stare. Much." },
         { id = "h_default", key = true,
           text = "I'm Ayessa Dawnsinger, and I lead the Windshapers. The Earthen Ring answered when we called, and the Horde gave us a place to stand." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warrior. The Horde gave us a place to stand, and its warriors are the reason that place stays standing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A hunter, with a beast that walks beside you. These plains hold creatures I'm still learning to name." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Windshapers pray to the winds and not to gods, but Mulgore has taught me that the Horde holds many faiths, and I would understand yours." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A mage, at Gev'rek. My people shape the wind, so we know a little of what it is to bend the world, and to be careful when we do." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warlock. I'll be honest with you, as I try to be with everyone: the wind goes still around you, and my people notice." },
       },
       choices = {
         { text = "Why did you leave Skywall?", next = "skywall" },
@@ -80,6 +114,9 @@ P:NPC {
         { text = "Do the Windshapers need warriors, Elder?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Are the beasts of the plains strange to your people, Elder?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers have healers of their own, Elder?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the Windshapers practise the arcane, Elder?", next = "xmage", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Do your people fear warlocks, Elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Do the Windshapers find the Light strange, Ayessa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },
       },
       again = {

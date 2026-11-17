@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Something did. The Light chooses some, and others are chosen differently. I pray for all of them." } },
+      choices = {
+        { text = "Then pray for me too, Brother. I'll gladly take it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I chose myself, Brother. No one chose me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It favours those who protect, and a warrior who holds the line for others is doing the Light's work, whether they pray or not. I've seen the sword do more good in Northshire than a dozen sermons." } },
@@ -117,6 +126,7 @@ P:NPC {
           text = "You come from the graveyard, and I can feel the darkness on you. I'll still pray for you, though I suspect you'd rather I didn't." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Abbey. You stand like Llane's yard, child, but you might find the Light stands with you too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Light walks in the woods as well as the Abbey, child, and I think you know that better than most." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sense no curse on you, only the spirits you walk with. The Light chose me, and something chose you, I think." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind?" },
@@ -136,6 +146,7 @@ P:NPC {
         { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour warriors, Brother Sammuel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you think the Light cares for beasts, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you think the spirits chose me, Brother Sammuel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
     },

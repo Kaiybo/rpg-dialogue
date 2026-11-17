@@ -31,6 +31,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We share a listening, I think, though we answer different voices. Cenarius taught us; I wonder who taught you." } },
+      choices = {
+        { text = "The earth teaches us all. That's enough kinship for me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Our paths are different. Let them stay apart.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "There is balance in everything, though some things find it more easily than others, and yours is the hard road. A hunter in the forest takes only what it must, and when it takes more, the forest notices; the city notices too, though it is slower to answer." },
+      },
+      choices = {
+        { text = "Then I'll take only what I must, Sheldras.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The city's slow, Sheldras. I'll take what I like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sheldras.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because my people once drank too deeply of it, and the world still remembers the wound, though few of the young ever learn why. I don't ask you to put your magic down, only to remember that it has a cost the world pays, and not always you." } },
@@ -86,6 +106,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There is something burning in your shadow, young one, and the birds have gone quiet in the branches above you. Sit, if you wish, but sit gently." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the Park. Let the stillness of this place ease your shoulders a little; you carry your anger high, as your kind often do." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk like a cat in the undergrowth, and I suspect the city has taught you that. Come and stand among the trees a while." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who listens to the earth. The druids would call it kin to our own path, though rougher. Welcome to the Park." },
       },
       again = {
         { id = "h_again", text = "What else would you ask beneath the leaves?" },
@@ -107,6 +129,8 @@ P:NPC {
         { text = "Can a warrior find balance, Sheldras?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you fear what I've summoned, Sheldras?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a paladin's Light ever rest, Sheldras?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is there balance in what I do, Sheldras?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think shamans and druids share a path, Sheldras?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Peace be with you.", next = "END" },
       },
     },
@@ -258,6 +282,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "One that grows only behind its walls, and I'll not say which until I trust you. The spirits might help, if they're not too crude." } },
+      choices = {
+        { text = "I'll respect your secrets, Shylamiir, and help where I can.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Crude spirits find what refined ones miss.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Perhaps, if you can tell me why the grave moss growing outside the Slaughtered Lamb is twice the size of any I have found in Elwynn's crypts. I suspect the answer, and I do not like it, but a herbalist should know what feeds the things she studies." },
+      },
+      choices = {
+        { text = "I'll tell you what I know, and leave the moss alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever feeds it is my business, Shylamiir.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Shylamiir.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "It does, which is exactly why I want Dalaran's garden, because mana seeps into the soil and the roots drink it like rain. The Mage Quarter's own window boxes grow stranger every year, and nobody there has noticed but me." } },
@@ -324,6 +368,8 @@ P:NPC {
           text = "A rogue, so I'll assume you know your way into places that aren't yours. I may have work for you one day, though I'd rather not admit it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You walk past the herbs as if they were nothing, as warriors always do, and yet you'll be grateful for them when you bleed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then you've walked through more of the world than most who come to this Park, and you'll know how to look at what grows underfoot." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in my Park. The peacebloom will close if you linger, so be quick, and be useful if you can manage it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. An interruption, but perhaps a useful one. Do your spirits know where plants grow best?" },
       },
       again = {
         { id = "h_again", text = "Something else? Quickly." },
@@ -338,6 +384,8 @@ P:NPC {
         { text = "Which herbs should a warrior carry, Shylamiir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What grows here that surprises you, Shylamiir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you need help gathering herbs, Shylamiir?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a warlock be useful to an herbalist, Shylamiir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What plant do you want from Dalaran, Shylamiir?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "There are murlocs and gnolls and too few men to face them. I'll take any help, spirits included. You're welcome here." } },
+      choices = {
+        { text = "I'll hold the line with you, Deputy. Westbrook won't fall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ask for more men. One shaman won't save you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "By standing with my farmers when the gnolls come up out of the Riverpaw camps, for they're braver when they see someone throw fire. I've only a few real soldiers, and they're tired, so anything that makes the gnolls think twice keeps them alive another night." } },
+      choices = {
+        { text = "I'll stand with your farmers, Deputy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather strike the gnoll camps than wait here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Deputy.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Hunger at first, I'd say, but they've grown bold under Hogger and take more deer than they can eat. They leave the carcasses by the river, and the wolves follow the smell right up to my fence." } },
@@ -87,6 +105,9 @@ P:NPC {
           text = "A warlock, and not from around here. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at Westbrook. The gnolls cross the river at night, and I could use someone who sees in the dark better than my lads." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you came in from the trees, not the road. That's a skill I'd sooner have on my side than out there with the gnolls." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I asked Stormwind for a squad and got a handful of farmers, so I'll take a mage gladly, and I'll not ask for anything else." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Riverpaw", min = 30 } }, text = "The farmers say the Riverpaw packs are thinner along the river this week, and the bodies they find have your mark on them. I asked Stormwind for a squad and got you, and I'm starting to think I got the better bargain." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I asked for a squad, and I got you. I'm not complaining, mind. You'll do." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I watch the road." },
@@ -100,11 +121,13 @@ P:NPC {
         { text = "I came over that border myself, from Westfall.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Your men look worn. Let me see to them.", next = "priest", when = { class = "PRIEST" } },
         { text = "I'll stand a night on your walls.", next = "watch", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Is Westbrook in danger, Deputy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help hold the road.", next = "END", fx = { affinity = 1, standing = { goldshire = 1 } } },
         { text = "Would you hire a rogue to deal with Hogger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a warlock's help with Hogger be welcome here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where do the gnolls cross the river, Deputy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the gnolls hunt the forest out of hunger, or for sport?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "How could a mage best help Westbrook, Deputy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck, deputy.", next = "END" },
       },
     },

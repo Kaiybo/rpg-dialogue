@@ -25,6 +25,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We both listen first, and that is most of it. Felwood is screaming, and anyone who can hear it is welcome at this moonwell." } },
+      choices = {
+        { text = "Then I'll listen, and help heal what I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Listening won't cure this. The corruption must be burned out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Satyrs in the trees, cultists at Jaedenar, and things in the corrupted streams that were once fish. A druid learns to walk without being heard here, and I'd guess you learned that long ago, so you'll fare better than most of my students." } },
+      choices = {
+        { text = "Then I'll watch your students' backs while I'm here.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look after myself. Your students can manage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because a druid who only knows healthy places hasn't learned much. Your Light has seen the Scourge, I'd guess, so you already know what sickness looks like, and the forest punishes anyone who comes here expecting kindness." } },
+      choices = {
+        { text = "Hard lessons make strong hearts. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A sick forest is no place to teach the young.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I teach druids, not warriors, but I've watched warriors learn this forest anyway, and they learn it faster than the young druids, because they don't expect it to be kind. A druid comes here hoping, a warrior comes here ready, and the forest punishes hope first." } },
@@ -84,6 +111,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, by the moonwell. You came in quietly, which I approve of, since this forest is full of things that listen." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
+          text = "A paladin, here by the moonwell. I teach druids, not paladins, but your Light is welcome beside the only clean water in this forest." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. Lean your shield where you like, but don't foul the moonwell; it's the only clean water for a day's walk." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -99,6 +130,7 @@ P:NPC {
           text = "The moonwell is brightest now, so look at it, and then look at the trees; that's the difference we're fighting for." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, at the last clean moonwell. Whether you pray to Elune or the Light, your prayers are welcome here, so long as you say them quietly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. I teach druids to heal what is broken, and I'd wager the earth teaches you the same lesson in a rougher voice." },
       },
       again = { { id = "h_again", text = "What else?" } },
       choices = {
@@ -111,6 +143,9 @@ P:NPC {
         { text = "Is the moonwell's water holy, the way a blessing is?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a warrior learn in a forest like this, Golhine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will the moonwell's water heal a sick beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why teach druids in a sick forest, Golhine?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "What listens in Felwood, Golhine?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do druids and shamans heal the land the same way?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

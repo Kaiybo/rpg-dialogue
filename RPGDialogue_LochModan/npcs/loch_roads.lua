@@ -20,6 +20,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If they do, the earth's got poor taste in friends. They dig as if they've been told where the seams are, I'll grant that, an' they've found silver where my miners passed it over. Clear them out o' the mine, an' if the earth's annoyed about it, it can take it up wi' me." } },
+      choices = {
+        { text = "Clear them out. The mine belongs to the King.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Even kobolds have a claim, if the earth chose them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Welcome's a strong word for a dwarf tae use, friend, but I've seen what a gnome warlock can do tae a trogg, an' I'll no' pretend it didnae impress me. Clear the vermin out o' the Silver Stream Mine an' I'll call ye welcome, an' mean it." } },
+      choices = {
+        { text = "I'll earn it in the mine, Mountaineer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need your welcome. I'll clear it anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -92,6 +110,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? I tracked a cave bear three days through the snow when I was young, and I'd wager you've never bettered that." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for there's lads come back from the Silver Stream wi' more than bruises, an' I've no' the words for them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've stood beside yer kind against worse than kobolds, an' I'll tell ye about it, whether ye ask or no'." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I've held this valley against worse than kobolds, an' I'll no' turn away help, but keep yer beastie off the mine road." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Tunnel Rat", min = 30 } }, text = "The Tunnel Rats are fewer in the Silver Stream these days, an' I'd wager I know whose work that is. Keep it up, an' the miners might get their tunnels back before winter." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in the loch? The kobolds in the Silver Stream are the only ones I know who talk tae the earth, an' they mostly ask it for candles." },
       },
       again = {
         { id = "h_again", text = "What else? Speak up." },
@@ -108,6 +129,8 @@ P:NPC {
         { text = "Is there game worth tracking near the Silver Stream Mine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have the kobolds cost your mountaineers any lives?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did you fight beside paladins in the Second War, Mountaineer?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would a warlock be welcome in Loch Modan, Stormpike?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the kobolds truly listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -174,6 +197,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "From under, an' that's all anybody knows for certain. The League says Uldaman, the miners say anywhere there's a crack, an' the old dwarves say the earth itself is spittin' them out. I dinnae know which, but if ye can tell me the hill before it boils, I'll buy ye every ale in the Stoutlager." } },
+      choices = {
+        { text = "I'll stand your watch and warn you, Mountaineer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Towers are for soldiers. I'll hunt them below ground.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Aye, a great deal, for the troggs swarm up the slopes at night an' my rifles cannae find them all in the dark. A mage who could light the hillside would let my lads pick them off before they reach the walls." } },
+      choices = {
+        { text = "I'll light the slopes for your riflemen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather burn them myself than light targets.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They drive out anything that can't fight back, and plenty that can, so the bears have moved up toward the ridge. I've watched the boar herds shrink every season since the troggs came up out of the Badlands." } },
@@ -256,6 +297,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on the south tower! Bless the wall, if ye've a mind, for the troggs have scratched half the mortar out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Stand on the south wall a while, for the troggs dinnae like shine, an' I've a mind tae see them squint." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my tower! The troggs are swarming the hills again, and if you can talk to bears, tell them to eat a few." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Good; the troggs in these hills are thick as stone in the head an' the hide both, an' fire gets through either." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye'll feel the troggs comin' before I see them, then. Stand on my tower an' tell me which hill's goin' tae boil over next." },
       },
       again = {
         { id = "h_again", text = "Somethin' else, friend?" },
@@ -273,6 +316,8 @@ P:NPC {
         { text = "Who tends your wounded out here at the tower, Cobbleflint?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should you take the fight to the troggs, or hold the wall?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the troggs drive the beasts out of these hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would a mage be any use on your tower, Cobbleflint?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Where do the troggs come up from, Cobbleflint?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Mountaineer.", next = "END" },
       },
     },
@@ -332,6 +377,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Somethin' that calls fire an' shouts at the sky, an' I'll no' split hairs about what tae name it. I've lost good dwarves at Dun Algaz tae it. If ye're the same sort o' thing in a dwarf's beard, then ye'll know better than me how tae fight it." } },
+      choices = {
+        { text = "I'm not the same sort. My gift serves Khaz Modan.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Orc or dwarf, the elements don't care, and neither do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Trolls in the hills, Dragonmaw in the marsh an' mud up tae yer knees, an' that's on a good day. If ye meet any o' the orcs' old dark sort up there, ye'll know better than me what tae do about them, an' I'll leave it tae ye." } },
+      choices = {
+        { text = "I'll fight them, not learn from them, Rockgar.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd learn what I could from them first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Dragonmaw scouts, mostly, testin' us to see if we've gone soft, and now and then a Mosshide gnoll that's wandered too far from the marsh. The pass is narrow, so one good warrior in the right spot can hold it, and I'd sooner it were you than me some nights." } },
@@ -399,6 +462,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at Algaz! The pass needs strong arms, for what comes down it from the Wetlands doesn't knock first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at Algaz! What comes back down that pass from the Wetlands could use yer prayers, when it comes back at all." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at Algaz! The Dragonmaw would think twice about the pass wi' the likes o' ye standin' in it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, headin' north? The orcs in that marsh had warlocks o' their own back in the war, so I hope ye're the better sort." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at Algaz! Ye'll find the Wetlands' earth a sour thing, all mud an' rot, an' the orcs up there call on powers o' their own." },
       },
       again = {
         { id = "h_again", text = "Anythin' else before ye head north?" },
@@ -415,6 +480,8 @@ P:NPC {
         { text = "What comes down the pass that needs a warrior's arm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do many travellers come back from the Wetlands hurt, Rockgar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Algaz hold the pass, or march north on the Dragonmaw?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What lies north of Algaz Station, Rockgar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What powers do the Dragonmaw call on, Rockgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Rockgar.", next = "END" },
       },
     },
@@ -474,6 +541,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I've no idea, but I've exhausted every other option, including shouting at the loch. A dwarf in Thelsamar told me the earth keeps everything you drop and gives it back when it's ready, which sounded very wise until I realised he meant the mud." } },
+      choices = {
+        { text = "I'll help you search the honest way, on foot.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The earth keeps what it finds. Build new ones.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Well, some of them went off with the troggs and some of them went into the loch, and one is entirely unaccounted for, which is the worst kind of accounted. A rogue with sharp eyes and quick fingers is exactly what I need, so long as the fingers bring things back rather than take them away." } },
+      choices = {
+        { text = "I'll bring back every piece, Bingles.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Finders keepers, Bingles. Mind your tools.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Bingles.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Some of them, I'm sure, and I'm fairly certain a bear sat on my hammer. I don't blame the animals, exactly, but I do wish they'd stop collecting gnomish engineering." } },
@@ -557,6 +642,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! Could you bless my blastencapper, once we find it? It's never been blessed, and frankly it shows." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Marvellous, because if anything with teeth comes back for the rest of my supplies, you can glow at it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You haven't seen a wrench lying about the loch, have you? Or a screwdriver, or a hammer, or a very important blastencapper?" },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Oh dear, you didn't happen to borrow my supplies, did you? No, no, of course not; they wandered off on their own, mostly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Could you ask the earth where my spanner went? And my screwdriver, and my blastencapper, and, well, everything?" },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm listening, mostly." },
@@ -574,6 +661,8 @@ P:NPC {
         { text = "Has your research ever hurt anyone, Bingles?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What will your research do for Gnomeregan's people, Bingles?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the wildlife carry off your tools, Bingles?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "How did your supplies wander off, Bingles?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the earth really help you find your tools, Bingles?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Bingles.", next = "END" },
       },
     },
