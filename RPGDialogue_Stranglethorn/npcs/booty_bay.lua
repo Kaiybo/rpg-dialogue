@@ -510,6 +510,10 @@ P:NPC {
           text = "A treasure under the waves, and somebody wants me to have the best of it? Bring that gem straight here, and don't let it near a Bloodsail." },
         { id = "h_storm", when = { metBefore = true }, text = "Smell that? There's a storm coming by morning, and my knees know it before the sky does. That's the old sailor's curse for you." },
         { id = "h_crazz", when = { heardLine = "crazz.h_default" }, text = "Crazz has been at you about the Bloodsail? He's a good lad, if too eager, but I was just as eager once myself, and it got me a fleet." },
+        { id = "h_eye_resolved", tags = { "news" }, when = { thread = { id = "bloodsail_eye", state = "resolved" } },
+          text = "Two ships out this week and not a red sail between here and the Cape! I'd call it luck if I didn't know better, and I know exactly who to thank for it." },
+        { id = "h_eye_soured", when = { thread = { id = "bloodsail_eye", state = "soured" } },
+          text = "Ah, it's you. Sit, if you like; I'm only watching my own docks from up here and wondering which of them still talks to the Bloodsail." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ha, you'd fit right in on the Blackwater ships, though I'll warn you that my sailors guard their rum better than the Baron guards his vault." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You could freeze the Bloodsail's sails solid from the docks, I'd wager, and I'd buy you a drink for every ship you stopped." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ha! Now there's someone built for a boarding action. You'd look grand swinging onto a Bloodsail deck, provided you don't miss the rope the way my last three did." },
@@ -528,6 +532,8 @@ P:NPC {
         { text = "Got a sea story for me?", next = "story" },
         { text = "Tell me about the Blackwater Raiders.", next = "raiders" },
         { text = "Crazz says the Bloodsail letters name you and the Baron.", next = "bs_letters", when = { any = { { questActive = TODO_QUEST("The Bloodsail Buccaneers") }, { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } } },
+        { text = "I know who the Bloodsail eye on your docks is.", next = "eye",
+          when = { thread = { id = "bloodsail_eye", beat = "b3_ianstrom", state = { "stirring", "unfolding" } } } },
         { text = "I've been to Faldir's Cove. O'Breen's alive.", next = "r_obreen", when = { any = { { questActive = TODO_QUEST("Land Ho!") }, { questDone = TODO_QUEST("Land Ho!") }, { heardLine = "ar_obreen.h_default" } } } },
         { text = "Do you miss the plains, ever?", next = "plains", when = { race = "Tauren" } },
         { text = "I've never been on a ship.", next = "landlubber", when = { race = { "Dwarf", "Gnome" } } },
@@ -545,6 +551,49 @@ P:NPC {
         { text = "Have you ever sailed with a dwarf shaman, Fleet Master?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Fair winds, Fleet Master.", next = "END" },
       },
+    },
+
+    -- bloodsail_eye (0.78.0): the player decides whether Seahorn hears the spy's name.
+    eye = {
+      big = true,
+      lines = {
+        { id = "ey_default", key = true,
+          text = "Do you, now? Crazz's list, Lozgil's runaway fishmonger, Strom nodding at somebody every evening: I hear who asks questions on my docks, friend. Out with it, then, and don't dress it up, because I've been dressed up to by the Baron all week." },
+        { id = "ey_baron", when = { thread = { id = "bloodsail_eye", beat = "b4_revilgaz" } },
+          text = "Do you, now? And the Baron's had a word with you first, I'd wager, since he's had a word with everyone else. Out with it, friend, and tell me whose side of the stairs you're standing on." },
+      },
+      choices = {
+        { text = "It's the dishwasher at Skindle's. He reads every notice you pin up.", next = "eye_told",
+          fx = { thread = { id = "bloodsail_eye", state = "resolved" }, affinity = 3, standing = { booty_bay = 2 }, align = { honor = 1 } },
+          journal = { first = "Told Seahorn the Bloodsail eye on his docks was the dishwasher at Skindle's. He laughed, and then he stopped laughing and called for Crazz.",
+                      third = "{name} told Fleet Master Seahorn that the Bloodsail spy was the dishwasher at Skindle's." } },
+        { text = "Nothing worth your time, Fleet Master. The Baron has it in hand.", next = "eye_kept",
+          fx = { thread = { id = "bloodsail_eye", state = "soured" }, affinity = -2, align = { honor = -1 } },
+          journal = { first = "Told Seahorn I had nothing for him, and left the spy's name with the Baron. He didn't believe me, and he didn't say so.",
+                      third = "{name} kept the Bloodsail spy's name from Fleet Master Seahorn and left it with the Baron." } },
+        { text = "What would you do with him, if I told you?", next = "eye_ask" },
+      },
+    },
+    eye_ask = {
+      lines = { { id = "eya_default", text = "Put him on the morning boat to Ratchet with his wages and a warning, and tell Crazz afterwards, so nobody goes off the end of the pier. I'm a pirate, friend, not a butcher, whatever the Bloodsail say about me." } },
+      choices = {
+        { text = "It's the dishwasher at Skindle's. He reads every notice you pin up.", next = "eye_told",
+          fx = { thread = { id = "bloodsail_eye", state = "resolved" }, affinity = 3, standing = { booty_bay = 2 }, align = { honor = 1 } },
+          journal = { first = "Told Seahorn the Bloodsail eye on his docks was the dishwasher at Skindle's. He laughed, and then he stopped laughing and called for Crazz.",
+                      third = "{name} told Fleet Master Seahorn that the Bloodsail spy was the dishwasher at Skindle's." } },
+        { text = "Nothing worth your time, Fleet Master. The Baron has it in hand.", next = "eye_kept",
+          fx = { thread = { id = "bloodsail_eye", state = "soured" }, affinity = -2, align = { honor = -1 } },
+          journal = { first = "Told Seahorn I had nothing for him, and left the spy's name with the Baron. He didn't believe me, and he didn't say so.",
+                      third = "{name} kept the Bloodsail spy's name from Fleet Master Seahorn and left it with the Baron." } },
+      },
+    },
+    eye_told = {
+      lines = { { id = "eyt_default", text = "The dishwasher! Ha, and I've tipped that lad a copper every time he filled my mug. Crazz, get up here, and leave your cutlass on the stairs; we're sending a man to Ratchet, not to the bottom." } },
+      choices = { { text = "Fair winds to him, then.", next = "END" } },
+    },
+    eye_kept = {
+      lines = { { id = "eyk_default", text = "In hand, is it? The Baron's hands are full of a great many things, friend, and not all of them are mine. Well, the tide goes out either way, so off with you." } },
+      choices = { { text = "...", next = "END" } },
     },
 
     why = {

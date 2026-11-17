@@ -123,6 +123,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The plains feed Bloodhoof, and those who hunt them well keep the peace better than any treaty I could make." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My people do not pray as yours do, but anyone who mends the hurt is welcome in Bloodhoof, whatever voice answers them." },
         { id = "h_cl_rfk", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Horde" }, text = "You've been to Razorfen Kraul, I'm told. The quilboar raided our herds when the tribes crossed the Barrens, and I'm not sorry their crone has been humbled." },
+        { id = "h_venture_resolved", tags = { "news" }, when = { thread = { id = "venture_mulgore", state = "resolved" } },
+          text = "My father heard your counsel from my mouth, friend, and he nodded the way he does when he has already decided. The Venture Company's foremen will have one warning from Bloodhoof, as the dwarves did, and no more after it." },
+        { id = "h_venture_soured", when = { thread = { id = "venture_mulgore", state = "soured" } },
+          text = "Friend. I've turned over what you told me about the goblins more than once, and I still don't like the shape of it, though I can't say you were wrong." },
         { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked it too, didn't you, the long road out of the Barrens with the centaur at our heels? You were a calf and I was barely grown, and I remember the orcs' axes better than I remember my own feet, because I never once looked down." },
       },
       choices = {
@@ -145,6 +149,8 @@ P:NPC {
         { text = "How do the tauren see a priest like me, Baine?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light have a place in Mulgore, Baine?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Razorfen Kraul, Baine.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
+        { text = "I've followed the Venture Company from the wells to Stonetalon.", next = "venture_word",
+          when = { thread = { id = "venture_mulgore", beat = "b5_baine", state = { "stirring", "unfolding" } } } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -198,6 +204,34 @@ P:NPC {
         { text = "He's lucky in his son.", next = "BACK", fx = { affinity = 2 } },
         { text = "I won't mention it to him.", next = "BACK", fx = { affinity = 1 } },
       },
+    },
+    venture_word = {
+      big = true,
+      lines = { { id = "vw_default", text = "Then you've seen more of their work than I have, and I would hear it before my father asks me. Do I send their foremen one more warning, as I did the dwarves at Bael'dun, or do I stop speaking and let it be?" } },
+      again = { { id = "vw_again", text = "So, friend, what shall I tell my father about the Venture Company?" } },
+      choices = {
+        { text = "Warn them once, as at Bael'dun. If they keep digging, break their tools.", next = "venture_hold",
+          fx = { thread = { id = "venture_mulgore", state = "resolved" }, affinity = 3, align = { honor = 1 }, standing = { bloodhoof = 2 } },
+          journal = { first = "Told Baine to warn the Venture Company once, as he warned the dwarves, and then to stop asking. He said his father would hear it from him by nightfall.",
+                      third = "{name} counselled Baine Bloodhoof to warn the Venture Company once and then stop asking." } },
+        { text = "Leave them be, Baine. They have more coin than you have braves.", next = "venture_doubt",
+          fx = { thread = { id = "venture_mulgore", state = "soured" }, affinity = -2, align = { honor = -1 }, trait = { skeptical = 1 } },
+          journal = { first = "Told Baine the Venture Company has more coin than he has braves. He thanked me, and didn't mean it.",
+                      third = "{name} told Baine Bloodhoof the Venture Company had more coin than he had braves." } },
+        { text = "What does your father say?", next = "venture_cairne" },
+      },
+    },
+    venture_cairne = {
+      lines = { { id = "vc_default", text = "He says the land was not for sale, and that the goblins are learning it slowly. He also says a chieftain's son should come to him with an answer and not a question, which is why I'm asking you." } },
+      choices = { { text = "Then I'll give you an answer.", next = "venture_word" } },
+    },
+    venture_hold = {
+      lines = { { id = "vh_default", text = "That is what I hoped to hear, and what I was afraid to say first. I'll tell my father tonight, and it will sound better coming from me than from Mull, who would rather say it with a spear." } },
+      choices = { { text = "Earth Mother guide you, Baine.", next = "END" } },
+    },
+    venture_doubt = {
+      lines = { { id = "vd_default", text = "Perhaps you're right, and that is what troubles me. I'll tell my father the goblins can't be talked down, and I'll hope he doesn't ask who taught me to think so." } },
+      choices = { { text = "...", next = "END" } },
     },
     baine_father_no = {
       lines = {
