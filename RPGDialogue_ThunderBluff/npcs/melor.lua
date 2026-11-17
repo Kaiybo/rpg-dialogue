@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_rise", text = "Walk quietly on this rise, {class}. Hunters can hear a careless hoof from the far end of it." },
     { id = "g_steelsnap", when = { questActive = TODO_QUEST("Steelsnap") }, text = "Steelsnap roams Thousand Needles, south of the Barrens. Find him, and remember why you're hunting him." },
     { id = "g_done", when = { questDone = TODO_QUEST("Steelsnap") }, text = "The Needles are cleaner without Steelsnap. That was your lesson, and you learned it well." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away, and you come back with the dust of the plains on you. Good. That's how a hunter should come home." },
+    { id = "g_away", when = { away = 14 }, text = "{away} away, and you come back with the dust of the plains on your hide. Good. That's how a hunter should come home." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk like a hunter now, not like someone who's been told about hunting. I can always tell the difference." },
   },
 
@@ -43,8 +43,8 @@ P:NPC {
           text = "In defeating Steelsnap, you've cleansed Thousand Needles of a terrible taint. That is the lesson, {name}: some hunts are not taking, but giving back." },
       },
       again = {
-        { id = "h_again", text = "What else would you know of the hunt?" },
-        { id = "h_again2", text = "Ask, and I'll answer as a hunter would." },
+        { id = "h_again", text = "What else would you know of the hunt, young one?" },
+        { id = "h_again2", text = "Ask, and I'll answer as a hunter would, slowly and with the wind in mind." },
       },
       choices = {
         { text = "Tell me about the three kinds of hunt.", next = "three" },
@@ -98,7 +98,7 @@ P:NPC {
       choices = { { text = "I'll seek her out.", next = "BACK", fx = { affinity = 1 } } },
     },
     pet = {
-      lines = { { id = "p_default", text = "Feed it before you feed yourself, and never ask it to fight something you wouldn't. A companion follows you because it trusts you, and that trust is the only thing between you and a very hungry beast." } },
+      lines = { { id = "p_default", text = "Feed it before you feed yourself, and never ask it to fight something you wouldn't. A companion follows you because it trusts you, and the Earth Mother gave you that trust to keep, not to spend." } },
       choices = { { text = "I'll keep its trust.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
@@ -106,6 +106,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter, for longer than I care to count. The beasts have taught me more than any elder." } },
     advice = { { id = "tp_ad", text = "Know why you're hunting before you draw. A hunter without a reason is only a killer with a bow." } },
-    _none = { { id = "tp_none", text = "That's no hunt I know. Ask among the elders, or at the Crossroads." } },
+    _none = { { id = "tp_none", text = "That's no trail I know. Ask among the elders, or at the Crossroads, and may the Earth Mother guide your tracking." } },
   },
 }

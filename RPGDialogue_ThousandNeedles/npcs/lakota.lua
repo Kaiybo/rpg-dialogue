@@ -42,7 +42,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there something else? Quickly, please." },
-        { id = "h_again2", text = "Ask, but keep your voice down." },
+        { id = "h_again2", text = "Ask, but keep your voice down; the Grimtotem have ears like wolves." },
       },
       choices = {
         { text = "Why did Arnak take you?", next = "arnak" },
@@ -100,6 +100,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a tauren of Thunder Bluff, and a prisoner, for now. I'll tell you the rest when we're somewhere safe." } },
     advice = { { id = "tp_ad", text = "If someone won't take no for an answer, don't wait for them to change. Get away, and get help." } },
     grimtotem = { { id = "tp_grim", text = "They're still tauren, but they've forgotten what that means. Arnak certainly has." } },
-    _none = { { id = "tp_none", text = "I don't know. Please, can we talk about it after we're out of here?" } },
+    _none = { { id = "tp_none", text = "I don't know. Please, Earth Mother, can we talk about it after we're out of here?" } },
   },
 }

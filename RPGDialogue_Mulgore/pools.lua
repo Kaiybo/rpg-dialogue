@@ -19,7 +19,7 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "The grass moved, and not with the wind. Come out; we don't sneak in Bloodhoof." } },
   lines = {
-    { id = "l_default", text = "Baine keeps the village and we keep the roads, so ask, and we'll point you where you're going." },
+    { id = "l_default", text = "Baine keeps the village and we keep the roads, so ask, and we'll point you where you're going, Earth Mother willing." },
   },
   choices = { { text = "Thank you, Brave.", next = "END", fx = { standing = { bloodhoof = 1 } } } },
   topics = {
@@ -27,7 +27,7 @@ P:Pool {
       { id = "t_kn1", text = "News crosses the plains slowly, but it does arrive, usually with a trader and a tired kodo. Here is what has reached us." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've walked the plains as a friend, so sit by the fire, and I'll tell you all of it." },
     },
-    _none = { { id = "t_none", text = "Ask Baine, in the big tent. He listens to everyone." } },
+    _none = { { id = "t_none", text = "Ask Baine, in the big tent. He listens to everyone, as the plains listen to the rain." } },
   },
 }
 
@@ -52,6 +52,6 @@ P:Pool {
     knows = {
       { id = "t_kn1", text = "The camp is small, but the hunters come back with stories, and I hear every one. I can tell you about these." },
     },
-    _none = { { id = "t_none", text = "Ask the Chief. He knows this land better than any of us, and he'll tell you about it twice if you let him." } },
+    _none = { { id = "t_none", text = "Ask the Chief. He knows this land better than any of us, and he'll tell you about it twice if you let him, the Earth Mother bless his patience." } },
   },
 }

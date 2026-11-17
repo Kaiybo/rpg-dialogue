@@ -279,7 +279,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_keeper", text = "You stand before a keeper of the grove. Speak carefully; my time is the Circle's, not mine." },
+    { id = "g_keeper", text = "You stand before a keeper of the grove, under Elune's eye. Speak carefully; my time is the Circle's, not mine." },
   },
 
   notice = {
@@ -400,7 +400,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came into the clearing without a sound, and the birds did not stir. That is a gift the Circle respects, though I would know what you meant to do with it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle has spoken with tauren who hear the elements for a long time, but I did not expect to hear the earth answer one of Ironforge." },
       },
-      again = { { id = "h_again", text = "You have another question; ask it plainly." } },
+      again = { { id = "h_again", text = "You have another question; ask it plainly, as Malfurion's students are taught to." } },
       choices = {
         { text = "What mission?", next = "mission" },
         { text = "What's wrong with the earth here?", next = "earth" },
@@ -463,7 +463,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "A keeper of the grove, sworn to the Circle. What I was before that does not matter to the work." } },
     advice = { { id = "tp_ad", text = "Watch where the grass will not grow. The land is telling you where not to sleep." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle sees further than any one keeper. I see as far as Desolace, and it is far enough to worry." } },
-    _none = { { id = "tp_none", text = "That does not concern the Circle, so it does not concern me." } },
+    _none = { { id = "tp_none", text = "That does not concern the Circle, so it does not concern me. The Dream keeps its own counsel on such things." } },
   },
 }
 
@@ -608,7 +608,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now dinnae give me that look, because everythin' I dig up out o' this dust was dead long afore Reclaimers Inc. came along." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The lads at the Reclaimers would give a week's wages tae ask ye what the earth's buried an' where." },
       },
-      again = { { id = "h_again", text = "Anythin' else? Mind the crates." } },
+      again = { { id = "h_again", text = "Anythin' else? Mind the crates, {g:lad|lass}; there's a Karnitol cannonball in one o' them." } },
       choices = {
         { text = "What are the Reclaimers?", next = "reclaimers" },
         { text = "What happened to the Karnitol?", next = "karnitol" },
@@ -659,7 +659,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "Ironforge lad, Reclaimer by trade, salvager by nature. Never met a broken thing I didnae want tae look inside." } },
     advice = { { id = "tp_ad", text = "Never throw anythin' away in Desolace. Ye'll need it a week later, an' there's no shop for a hundred miles." } },
     explorers_league = { { id = "tp_league", text = "The League digs fer history, an' we dig fer things that still work. Friendly rivals, ye might say." } },
-    _none = { { id = "tp_none", text = "Never salvaged one o' those. Ask the Captain." } },
+    _none = { { id = "tp_none", text = "Never salvaged one o' those, an' I've salvaged near everythin'. Ask the Captain." } },
   },
 }
 
@@ -893,7 +893,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Rest here. There's little enough comfort in Desolace; take what this roof can give." },
+    { id = "g_inn", text = "Ishnu-alah. Rest here; there's little enough comfort in Desolace, and this land has been grey since long before my grandmother's grandmother walked it." },
     { id = "g_home", when = { homeInn = { "Nijel's Point" } }, text = "You've come back to the Point. Your bed's made, though the dust got in anyway." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the dust has had all that time to settle in your room, though I swept it as often as I could. Come in, and rest." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came in this evening still smiling about a talk with you, and that's rare enough at the Point that I noticed. Whatever you said, it helped." },
@@ -1042,7 +1042,7 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "A hearth, a broom, and travellers who need both. I don't need more of a story than that." } },
     advice = { { id = "tp_ad", text = "Shake out your boots every morning. Desolace has scorpions, and scorpions like boots." } },
-    _none = { { id = "tp_none", text = "I keep the hearth; ask the Captain for news." } },
+    _none = { { id = "tp_none", text = "I keep the hearth; ask the Captain for news. Elune keeps the rest, and she seldom shares it." } },
   },
 }
 
@@ -1059,9 +1059,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_post", text = "You're in Desolace now, and the demons' servants are thick here. Are you here to fight them?" },
+    { id = "g_post", text = "You're in Desolace now, and the demons' servants are thick here, as they were in our clans before Thrall freed us. Are you here to fight them?" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Burning Blade did not rest while you were away. If you're here to fight, there are more of them now than when you left." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since we last spoke, and I've no use for small talk about it. Thunder Axe Fortress is where I'd see that strength spent." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since we last spoke, and I've no use for small talk about it. Thunder Axe Fortress is where I'd see that strength spent, for the Horde." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you put fear into someone at the post, and I don't mind that, so long as it was the right someone. Save your threats for the cultists, because they've earned them." },
   },
 
@@ -1157,7 +1157,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Can you track a satyr through broken ground, or only deer through grass? I need the first." },
         { id = "h_default", key = true,
-          text = "Takata Steelblade. Keldran sent me from Orgrimmar to hunt the Burning Blade here. They hide among the satyrs, so the satyrs die too." },
+          text = "Takata Steelblade. Keldran sent me from Orgrimmar to hunt the Burning Blade here, the last orcs who still drink the demons' poison. They hide among the satyrs, so the satyrs die too." },
         { id = "h_satyr", tags = { "news" }, when = { questActive = TODO_QUEST("Befouled by Satyr") },
           text = "The satyrs foul everything they touch, so thin them. The Blade loses its friends one horn at a time." },
         { id = "h_corrupter", when = { questActive = TODO_QUEST("The Corrupter") },
@@ -1175,7 +1175,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Burning Blade bow to demons, and I hear demons hate the Light, so come and prove it." },
       },
       again = {
-        { id = "h_again", text = "Something else? Say it and be done." },
+        { id = "h_again", text = "Something else? Say it and be done; an orc's word should be short and his axe long." },
         { id = "h_again2", text = "Speak. The satyrs won't wait while we talk, so neither will I for long." },
       },
       choices = {
@@ -1311,7 +1311,7 @@ P:NPC {
     burning_blade = { { id = "tp_blade", text = "Orcs who still kneel to the old fire. In Durotar they hide in caves and here they hide behind satyrs, but I find them either way.", next = "blade" } },
     background = { { id = "tp_ba", text = "A soldier sent by Keldran to clear demons out of Desolace. I'll tell you more about myself when the job is done, which means not soon." } },
     advice = { { id = "tp_ad", text = "Hit a satyr before it speaks. Whatever it says, you'll wish you hadn't heard it." } },
-    _none = { { id = "tp_none", text = "Not my hunt." } },
+    _none = { { id = "tp_none", text = "Not my hunt. Ask someone who has time to talk instead of fight." } },
   },
 }
 
@@ -1327,7 +1327,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_post", text = "Desolace isn't such a bad place, once you stop expecting it to grow anything. Sit down." },
+    { id = "g_post", text = "Desolace isn't such a bad place, once you stop expecting the Earth Mother to grow anything in it. Sit down." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Are the centaur still out there? They always are." },
     { id = "g_away", when = { away = 14 }, text = "Ah, you've been gone {away}, and the fish have been biting the whole time, which is how I measure such things. Sit down and tell me where you went." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last sat together, and I'm glad the road was good to you. I've only grown older, and a little better at fishing." },
@@ -1454,7 +1454,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken with the Light in hand. The Earth Mother sends us all kinds of surprises, and I think you might be the strangest one I've seen in Desolace." },
       },
       again = {
-        { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
+        { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur, and the Earth Mother taught us not to be like them." },
       },
       choices = {
         { text = "Why have you grown fond of Desolace, Nataka?", next = "druid_q", when = { class = "DRUID" } },
@@ -1590,6 +1590,6 @@ P:NPC {
     grimtotem = { { id = "tp_grimtotem", text = "My brother writes about them, when he writes. He worries; he always worried more than me." } },
     background = { { id = "tp_ba", text = "A tauren of Thunder Bluff, posted to Desolace, and the brother of a tauren who worries too much. That's about all of it.", next = "brother" } },
     advice = { { id = "tp_ad", text = "Travel the roads in the daytime here. The centaur ride at night, and a lone traveler on a dark road is the easiest prey there is." } },
-    _none = { { id = "tp_none", text = "Couldn't say; Desolace doesn't bring much news." } },
+    _none = { { id = "tp_none", text = "Couldn't say; Desolace doesn't bring much news, and the wind here carries more dust than words." } },
   },
 }

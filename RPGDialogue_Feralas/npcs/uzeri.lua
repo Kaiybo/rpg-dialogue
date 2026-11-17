@@ -130,6 +130,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "Darkspear born, witch doctor trained, and sent out here to find what da land got to give. Dat's all you need, mon." } },
     advice = { { id = "tp_ad", text = "Never kill a big beast and walk away whistlin'. Somethin' might be followin' you home." } },
     cenarion_circle = { { id = "tp_cc", text = "Da druids would not like my jars, mon, so I don't invite dem over." } },
-    _none = { { id = "tp_none", text = "Dat I don't know, and da spirits not tellin' me either." } },
+    _none = { { id = "tp_none", text = "Dat I don't know, mon, and da loa not tellin' me either, no matter how many chickens I offer." } },
   },
 }

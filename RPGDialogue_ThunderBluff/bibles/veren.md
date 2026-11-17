@@ -10,7 +10,7 @@
 ## Identity
 Veren Tallstrider · middle rise, Thunder Bluff · Horde · Tauren · leather gatherer
 Personality: warm, practical, chatty
-Speech: homely, hides as family
+Speech: homely, hides as family; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: skinning, tanning, kodo, the young
 Relationships: Melor Stonehoof (respects)
 Never says: anything after Year 1

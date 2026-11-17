@@ -42,7 +42,7 @@ P:NPC {
           text = "Alliance, eh? The raceway doesn't care, and neither do the basilisks. Out here we've all got the same enemy, and it's got a stony stare." },
       },
       again = {
-        { id = "h_again", text = "What else? The next race is in an hour." },
+        { id = "h_again", text = "What else? The next race is in an hour, and the basilisks never ask the goblins' permission." },
         { id = "h_again2", text = "Go on. I can listen and watch the flats at the same time." },
       },
       choices = {
@@ -78,14 +78,14 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "I've been trying to work that out since I came. The salt crystals in the flats get into everything, the water, the plants, the basilisks' hides, and the beasts here grow harder and bigger than any I saw in Mulgore." } },
+      lines = { { id = "b_default", text = "I've been trying to work that out since I came. The salt crystals in the flats get into everything, the water, the plants, the basilisks' hides, and the beasts here grow harder and bigger than any the Earth Mother raised in Mulgore." } },
       choices = {
         { text = "That's worth studying.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     why = {
-      lines = { { id = "w_default", text = "The raceway pays well, and nobody else wanted to walk the flats all day in this heat. Thunder Bluff gave me my tracking, and the goblins give me my coin, and I don't see why I can't keep both." } },
+      lines = { { id = "w_default", text = "The raceway pays well, and nobody else wanted to walk the flats all day under An'she's full glare. Thunder Bluff gave me my tracking, and the goblins give me my coin, and I don't see why I can't keep both." } },
       choices = {
         { text = "Coin is coin. Smart choice.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Your people might need that skill more.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -102,6 +102,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "A tracker from Thunder Bluff, working for goblins. My mother would have opinions about that." } },
     advice = { { id = "tp_ad", text = "Don't stand still on salt flats in the afternoon. Things here think anything still is either food or a rock." } },
     mirage_raceway = { { id = "tp_mr", text = "Gnomes on one side, goblins on the other, and a track down the middle that I keep clear. It's the loudest place in Kalimdor, and I've gotten used to it." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask a goblin; they'll tell you something, even if it's wrong." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask a goblin; they'll tell you something, even if it's wrong, and charge you for the privilege." } },
   },
 }

@@ -14,7 +14,7 @@ P:NPC {
 
   greetings = {
     { id = "g_camp", text = "Welcome to the Hawkwind's fire. Sit if you're tired, or stand if you're ready to work." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned to the fire, and the tribe notices." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned to the fire, and the tribe notices, as the herd notices one of its own coming home." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the fire {away}, and the young ones asked whether you'd return. I told them you would, and here you stand." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came to my fire young and untried, and now you stand straighter than many of my own hunters. The Greatmother would have been glad to see it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp tells me of the work you've done for us. You honour the Hawkwind's fire, and we will remember it." },
@@ -196,7 +196,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The hunters bring word back to this fire, and some of it is worth hearing. Ask about these, and I'll tell you what the tribe knows." },
     },
-    _none = { { id = "tp_none", text = "Ask in Bloodhoof Village. Baine knows the wider world better than an old chief." } },
+    _none = { { id = "tp_none", text = "Ask in Bloodhoof Village. Baine knows the wider world better than an old chief, and may the Earth Mother walk with you there." } },
   },
 }
 
@@ -211,7 +211,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hunt", text = "You've come to hunt? Good, because Mulgore is full of things that need hunting." },
+    { id = "g_hunt", text = "You've come to hunt? Good, because Mulgore is full of things that need hunting, and the Earth Mother feeds those who work for it." },
     { id = "g_back", when = { metBefore = true }, text = "Ready for more? The hunt doesn't rest, and neither should we." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the hunt carried on without you, so you've a lot of catching up to do. Are you ready?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since our first hunt together, and I can see it in how you hold yourself. Soon you'll be the one setting the pace." },
@@ -323,7 +323,7 @@ P:NPC {
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, the plainstriders won't stand still for long." },
+        { id = "h_again", text = "What else? Quickly, the plainstriders won't stand still for long, and An'she won't either." },
       },
     },
     hunter = {
@@ -362,6 +362,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask my father. I'm better at the hunt than at answers." } },
+    _none = { { id = "tp_none", text = "Ask my father. I'm better at the hunt than at answers, and he's had more seasons to gather them." } },
   },
 }

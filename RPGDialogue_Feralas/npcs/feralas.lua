@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_isle", text = "Welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
+    { id = "g_isle", text = "Ishnu-alah, and welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back across the water, good. Now report." },
     { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "A scout off Ashenvale's borders, this far south. You left the Sentinels' paths to watch the rest of the world, I'm told, and I don't approve, but a scout's eyes are a scout's eyes, so report as if you'd never left." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone from the isle {away}, and the naga have tested our shores more than once in that time. Report, and then rest, because I'll need you sharp." },
@@ -165,7 +165,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hatecrest", min = 30 } }, text = "My Sentinels report fewer Hatecrest on the shore at night, and they tell me it was you who thinned them. Elune favors those who do the work, and so do I." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at Feathermoon. The High Priestess teaches that all things answer to Elune in time, and I am curious what you believe answers you." },
       },
-      again = { { id = "h_again", text = "Report, or ask; either is useful." }, { id = "h_again2", text = "What else?" } },
+      again = { { id = "h_again", text = "Report, or ask; either is useful, and the Sentinels have little use for idle words." }, { id = "h_again2", text = "What else?" } },
       choices = {
         { text = "What troubles Feralas?", next = "troubles" },
         { text = "The stronghold carries your name.", next = "name" },
@@ -307,7 +307,7 @@ P:NPC {
     background = { { id = "tp_ba", text = "The High Priestess raised me and the Sentinels taught me, and Feralas is where I keep the promise I made to both.", next = "tyrande" } },
     advice = { { id = "tp_ad", text = "Keep the water at your back only if you can see what's in it. Here, you can't." } },
     cenarion_circle = { { id = "tp_circle", text = "The druids heal the land, and we keep it whole long enough for them to finish. It's a fair arrangement." } },
-    _none = { { id = "tp_none", text = "That's not a matter for the Sentinels. Ask in Darnassus." } },
+    _none = { { id = "tp_none", text = "That's not a matter for the Sentinels. Ask in Darnassus, where the priestesses have centuries to spare for such questions." } },
   },
 }
 
@@ -493,7 +493,7 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Come in from the rain. Feralas is always wet; at least here it's warm and wet, and the roof only leaks over the table nobody sits at." },
-    { id = "g_home", when = { homeInn = { "Feathermoon Stronghold" } }, text = "You've returned to the island. Your bed is ready, and the tea is fresh." },
+    { id = "g_home", when = { homeInn = { "Feathermoon Stronghold" } }, text = "You've returned to the island, Elune be thanked. Your bed is ready, and the tea is fresh." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, and here you are dripping on my floor as though you never left. Sit by the fire, and I'll put the kettle on." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the Sentinels came in tonight smiling, and she said it was something you'd told her. That's rare enough on this island that I made her a second cup." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone on the isle came in tonight quite cross after speaking with you, and drank her tea far too quickly. I hope it was a misunderstanding, because the island is small." },
@@ -613,7 +613,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, under my roof. I won't turn anyone from my hearth in this rain, but I'll ask you to leave your companion on the dock, because the Sentinels won't sleep with it in the house." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The Sentinels will stare, I'm afraid, but they'll share the fire with you, and so will I." },
       },
-      again = { { id = "h_again", text = "Anything else? The kettle's on." } },
+      again = { { id = "h_again", text = "Anything else? The kettle's on, and the moon won't be up for an hour yet." } },
       choices = {
         { text = "Is the isle a restful place, Shyria?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
@@ -646,7 +646,7 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I've kept this inn as long as the Sentinels have kept this island. Neither of us has thought of leaving." } },
     advice = { { id = "tp_ad", text = "Dry your bowstring before you sleep. The damp here warps everything but a Sentinel's patience." } },
-    _none = { { id = "tp_none", text = "I keep the inn, and the General keeps the rest." } },
+    _none = { { id = "tp_none", text = "I keep the inn, and the General keeps the rest. Elune keeps the things neither of us can." } },
   },
 }
 
@@ -664,7 +664,7 @@ P:NPC {
 
   greetings = {
     { id = "g_camp", text = "You want to help the Horde in Feralas? Good, then kill ogres; that's how. Bring back their ears and not their smell, if you can manage it." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the ogres didn't stop breeding while you were away, so get your blade ready." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the ogres didn't stop breeding while you were away, so get your blade ready. Lok'tar, and back to work." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You hit harder than you did when I last saw you, and I can tell that just by looking. Good, then the Gordunni will learn to fear you, and I can send you deeper north." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the camp folk back down, and I'll allow it, once. Save that for the ogres, because they deserve it and our own people don't." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've done good work for Mojache, and I listen when the camp agrees on something. Keep killing ogres, and they'll keep saying it." },
@@ -803,8 +803,8 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can the Light break ogres? Because that's the only question I've got for anyone in Feralas." },
       },
       again = {
-        { id = "h_again", text = "What else? Ogres don't wait for talk." },
-        { id = "h_again2", text = "Ask it, then go hit something." },
+        { id = "h_again", text = "What else? Ogres don't wait for talk, and an orc who talks too long forgets to swing." },
+        { id = "h_again2", text = "Ask it, then go hit something. Deeds, not words; that's the Horde's way." },
       },
       choices = {
         { text = "Do you care what the ogres do to the forest?", next = "druid_q", when = { class = "DRUID" } },
@@ -945,7 +945,7 @@ P:NPC {
     grimtotem = { { id = "tp_grimtotem", text = "Tauren trouble. The tauren here watch for them, and I watch for ogres." } },
     background = { { id = "tp_ba", text = "A warrior of the Horde, sent from Orgrimmar to break ogres. There's no more to it, and I like it that way.", next = "belgrom" } },
     advice = { { id = "tp_ad", text = "Never fight a Gordunni on a slope where it's above you. Ogres fall downhill, and they don't care who's underneath." } },
-    _none = { { id = "tp_none", text = "I don't know, but if it's an ogre, I'll learn." } },
+    _none = { { id = "tp_none", text = "I don't know, but if it's an ogre, I'll learn, and it'll learn what an orc's axe feels like." } },
   },
 }
 
@@ -1179,7 +1179,7 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here it's just warm, and the only thing that bites is the pepper in the stew." },
-    { id = "g_home", when = { homeInn = { "Camp Mojache" } }, text = "Welcome home to Mojache. The hides are dry and the kettle's on." },
+    { id = "g_home", when = { homeInn = { "Camp Mojache" } }, text = "Welcome home to Mojache. The hides are dry, the kettle's on, and the Earth Mother kept the rain off the cookfire for once." },
     { id = "g_away", when = { away = 14 }, text = "Look who's come back after {away}! Shake off the rain and sit down, because the stew's been waiting nearly as long as I have." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the braves came in grinning tonight and said it was because of you, and I've never seen that one grin before. Whatever you told him, you have my thanks." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The whole camp's been talking about how you helped Mojache, and they've been talking about it loudly, over my stew. Sit down, because they'll want to hear it from you." },
@@ -1267,7 +1267,7 @@ P:NPC {
           text = "A hunter! Come in from the rain, and bring your beast close to the fire, for the wet gets into fur worse than it gets into skin." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Come in, come in, out of the rain. A Forsaken who carries the Light is as welcome by my fire as anyone, though the braves may need a moment." },
       },
-      again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere." } },
+      again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere, and the Earth Mother means it to grow the grass." } },
       choices = {
         { text = "What do the braves whisper about, Greul?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Mojache.", next = "camp" },
@@ -1346,6 +1346,6 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I keep the fire at Mojache. Every tauren camp needs one, and this one is mine." } },
     advice = { { id = "tp_ad", text = "Rub your hides with fat before you go into the rain. The braves laugh at it, and then they borrow my pot." } },
-    _none = { { id = "tp_none", text = "I keep the fire, and Rok Orhan keeps the ogres away, so ask her." } },
+    _none = { { id = "tp_none", text = "I keep the fire, and Rok Orhan keeps the ogres away, so ask her. She'll answer as an orc does, short and to the point." } },
   },
 }

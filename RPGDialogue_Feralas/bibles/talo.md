@@ -13,7 +13,7 @@
 ## Identity
 TODO_NPC · Talo Thornhoof · Camp Mojache · Horde · tauren · elder hunter
 Personality: grave, patient, honest, storytelling, wounded
-Speech: slow, measured; "young one"; whole sentences
+Speech: slow, measured; "young one"; whole sentences; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: the Northspring harpies, hunting lore, Felwood's fel beasts
 Relationships: Camp Mojache's braves (he tells them stories)
 Default attitudes: kin to hunters

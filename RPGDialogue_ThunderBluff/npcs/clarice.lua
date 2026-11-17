@@ -17,8 +17,8 @@ P:NPC {
     { id = "g_pools", text = "Don't stare. The tauren already do enough of that, and they're politer about it." },
     { id = "g_active", when = { questActive = TODO_QUEST("Until Death Do Us Part") }, text = "The Sepulcher, in Silverpine. Put it on his tomb and walk away; that's what he did." },
     { id = "g_done", when = { questDone = TODO_QUEST("Until Death Do Us Part") }, text = "It's on his grave, then. Good. I thought I'd feel something, and I don't, which is also good." },
-    { id = "g_away", when = { away = 14 }, text = "{away} gone. I noticed, which surprises me, since I've given up noticing most things." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than the errand-runner who took my pendant. Death does that to some of us, and life does it to others." },
+    { id = "g_away", when = { away = 14 }, text = "{away} gone. I noticed, which surprises me, since the grave cured me of noticing most things." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than the errand-runner who took my pendant. The grave does that to some of us, and life does it to others, for a while." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody on the rises is angry with you. Welcome to my world, though at least yours might forgive you." },
   },
 
@@ -42,8 +42,8 @@ P:NPC {
           text = "Another one of the Dark Lady's lost souls, so far from the Undercity. Sit, if you like; the tauren won't mind, and I've stopped caring who does." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm not going anywhere, as you can see." },
-        { id = "h_again2", text = "Go on. Talking passes the time, and I have a great deal of it now." },
+        { id = "h_again", text = "What else? I'm not going anywhere; the dead rarely have appointments." },
+        { id = "h_again2", text = "Go on. Talking passes the time, and unlife has left me a great deal of it." },
       },
       choices = {
         { text = "Tell me about your husband.", next = "yuriv" },
@@ -114,6 +114,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "A wife, once, in Lordaeron. Now I'm a Forsaken woman in a tauren city, and that's as much of my story as you'll get." } },
     advice = { { id = "tp_ad", text = "Don't marry anyone who loves a cause more than you. Take it from a woman who did." } },
     scarlet_crusade = { { id = "tp_sc", text = "Zealots who want people like me burned. Yuriv would have hated them, I think, or joined them, and I honestly can't say which." } },
-    _none = { { id = "tp_none", text = "I don't know and I don't care. Ask someone with more of a life than I've got." } },
+    _none = { { id = "tp_none", text = "I don't know and I don't care. Ask someone with a pulse; they still think everything matters." } },
   },
 }

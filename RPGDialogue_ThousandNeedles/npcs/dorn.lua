@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_nook", text = "You've found the Nook. Most walk right past it, which tells me something about you already." },
+    { id = "g_nook", text = "You've found the Nook. Most walk right past it, as most walk past the Earth Mother's quieter gifts, which tells me something about you already." },
     { id = "g_faith", when = { questActive = TODO_QUEST("Test of Faith") }, text = "The planks overlook the Needles. Step off them, if you have faith." },
     { id = "g_endurance", when = { questActive = TODO_QUEST("Test of Endurance") }, text = "The Roguefeather Den, west of Freewind. Take friends, and bring me Grenka's claw." },
     { id = "g_strength", when = { questActive = TODO_QUEST("Test of Strength") }, text = "Your body has endured. Now show me it can overcome." },
@@ -46,7 +46,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask carefully; the questions are a test too." },
-        { id = "h_again2", text = "Go on. The Nook is quiet, and so am I." },
+        { id = "h_again2", text = "Go on. The Nook is quiet, and so am I, and the wind in the Needles is in no hurry either." },
       },
       choices = {
         { text = "Why test anyone at all?", next = "why" },
@@ -59,7 +59,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Some facets a people's traditions can measure, and some we can only hope are there. My tests are for the second kind, the things a tribe can't see in you and you might not see in yourself." } },
+      lines = { { id = "w_default", text = "Some facets a people's traditions can measure, and some we can only hope are there. My tests are for the second kind, the things the elders can't see in you and you might not see in yourself, as the Earth Mother sees the seed before the grass." } },
       choices = {
         { text = "And what if I don't believe in any of it?", next = "believe" },
         { text = "Something else, Dorn.", next = "BACK" },
@@ -108,6 +108,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a tauren who sits in a cave and tests travelers. Where I came from matters less than where you're going." } },
     advice = { { id = "tp_ad", text = "When you don't know what's below you, step anyway, but step on purpose." } },
-    _none = { { id = "tp_none", text = "That's not one of the facets I test. Ask at Freewind Post." } },
+    _none = { { id = "tp_none", text = "That's not one of the facets I test. Ask at Freewind Post, and walk with the Earth Mother on the way." } },
   },
 }

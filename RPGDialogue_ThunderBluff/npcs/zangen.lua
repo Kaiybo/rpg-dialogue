@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fire", text = "Warm your hands, {class}. The fire belongs to everyone who passes." },
+    { id = "g_fire", text = "Warm your hands, {class}. The fire belongs to everyone who passes, as the plains belong to every herd." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The fire is lit, and the ancestors can see their way home. Sit, if you like." },
     { id = "g_phial", when = { questActive = TODO_QUEST("The Sacred Flame") }, text = "A dryad's phial, filled at the moonwell by the Falfarren. Be gentle with it; the water remembers how it was carried." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you sat by this fire. It burned every night without you, but it's glad of the company." },
@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_dusk", when = { timeOfDay = "dusk" }, text = "You've come at the right hour, {class}. Stand with me while I light it; the words are short, and the fire likes witnesses." },
       },
       again = {
-        { id = "h_again", text = "What else? The fire keeps talking, so I might as well." },
+        { id = "h_again", text = "What else? The fire keeps talking, and the ancestors listen, so I might as well join in." },
         { id = "h_again2", text = "Ask what you will. The evening is long, and the kettle has barely started to grumble." },
       },
       choices = {
@@ -110,6 +110,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I light the fire. That has been my life for many years, and I have no complaints about it." } },
     advice = { { id = "tp_ad", text = "Touch the earth at least once a day, even in a city. It reminds you where you came from." } },
     grimtotem = { { id = "tp_grim", text = "The Grimtotem keep their own fires, far from ours, and I wonder sometimes what they pray for." } },
-    _none = { { id = "tp_none", text = "The fire hasn't told me of that one. Ask on the Elder Rise." } },
+    _none = { { id = "tp_none", text = "The fire hasn't told me of that one. Ask on the Elder Rise, and walk with the Earth Mother on your way." } },
   },
 }

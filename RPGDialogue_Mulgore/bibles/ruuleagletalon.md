@@ -10,7 +10,7 @@
 ## Identity
 Ruul Eagletalon · Bloodhoof Village · Horde · Tauren · warrior and teacher
 Personality: steady, patient, kind
-Speech: calm, encouraging, 'let the wind be at your back'
+Speech: calm, encouraging, 'let the wind be at your back'; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: trials, Windfury harpies, his brother
 Relationships: Eyahn Eagletalon (brother, Thunder Bluff)
 Default attitudes: patient with the young

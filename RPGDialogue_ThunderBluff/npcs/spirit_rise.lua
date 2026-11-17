@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "The spirits are restless this morning. Speak gently." },
+    { id = "g_hi", text = "The spirits are restless this morning, and the wind has a sharp tongue. Speak gently." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The spirits remember you, which is more than I can say for most." },
   },
 
@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Tigor Skychaser, and the Skychaser tribe has kept the spirits' ways on this rise since the Bluff was raised. If you would speak with earth, fire, water and air, you must first learn to listen to them." },
         { id = "h_notsham", when = { ["not"] = { class = "SHAMAN" } }, text = "You are not of the spirit-speakers, but you may stand here. Only don't shout on Spirit Rise; the spirits dislike it, and so do I." },
       },
-      again = { { id = "h_again", text = "Something more? Ask it plainly." } },
+      again = { { id = "h_again", text = "Something more? Ask it plainly, as the earth answers." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "How do you ask the elements?", next = "ask" },
@@ -83,7 +83,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the shavings. Totems don't carve themselves." },
+    { id = "g_hi", text = "Mind the shavings. Totems don't carve themselves, though the spirits in the wood would like you to think so." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see your totems; they always tell me how you've been using them." },
   },
 
@@ -99,7 +99,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Beram Skychaser. Tigor will teach you to listen to the spirits, and I'll teach you where to put the totem so the spirits can actually help, which is a lesson that's saved more lives than his." },
         { id = "h_notsham", when = { ["not"] = { class = "SHAMAN" } }, text = "Not a shaman? Then you can hold this while I carve. Mind the end, it's sharp." },
       },
-      again = { { id = "h_again", text = "Something else? Hand me that knife while you think." } },
+      again = { { id = "h_again", text = "Something else? Hand me that knife while you think, and keep your hooves off the cedar." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "Where should a totem go?", next = "where" },
@@ -163,7 +163,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Siln Skychaser, and I teach young shaman with Tigor and Beram, though they'd tell you I'm still learning myself. They're not wrong, but I don't think a shaman ever stops." },
         { id = "h_notsham", when = { ["not"] = { class = "SHAMAN" } }, text = "You're not a shaman, but that's fine, I like talking to people who aren't. They ask better questions." },
       },
-      again = { { id = "h_again", text = "What else? I've time, the wind's settled." } },
+      again = { { id = "h_again", text = "What else? I've time, the wind's settled, and the earth spirits are dozing." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "Do you visit the Forsaken below?", next = "below" },
@@ -195,7 +195,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Skychaser, the youngest who teaches. I still carry water for Tigor when he asks." } },
     advice = { { id = "tp_ad", text = "Listen to the wind before a long journey. It'll tell you about the weather, at least." } },
-    _none = { { id = "tp_none", text = "I don't know! But I'd like to. Tell me if you find out." } },
+    _none = { { id = "tp_none", text = "I don't know! But I'd like to, and the spirits like a curious heart. Tell me if you find out." } },
   },
 }
 
@@ -215,8 +215,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the wards on the floor. They're not decorative." },
-    { id = "g_back", when = { metBefore = true }, text = "Still unburned, I see. Your control must be improving." },
+    { id = "g_hi", text = "Mind the wards on the floor. They're not decorative, and I've no interest in scraping up another careless visitor." },
+    { id = "g_back", when = { metBefore = true }, text = "Still unburned, I see. Your control must be improving, which is more than I expected of the living." },
   },
 
   notice = {
@@ -233,7 +233,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Archmage Shymm, and I teach the arcane to those of the Horde with the wit to learn it. Magic burns the untrained, so if you're not a mage, kindly step back from the wards before something catches." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren, down here among the books. Your people don't take up the arcane, which is wise of them, and I'd rather you didn't start in my classroom." },
       },
-      again = { { id = "h_again", text = "Something more? Do be brief." } },
+      again = { { id = "h_again", text = "Something more? Do be brief; even the dead tire of amateurs." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Why teach mages here, of all places?", next = "here" },
@@ -265,7 +265,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I studied the arcane in life and I study it still. The details are my own affair." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you don't know how to stop." } },
-    _none = { { id = "tp_none", text = "Not my field. Try a library, if you can read." } },
+    _none = { { id = "tp_none", text = "Not my field. Try a library, if you can read, and if the Scarlets haven't burned it." } },
   },
 }
 
@@ -294,10 +294,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Ursyn Ghull, and I teach the arcane here with Archmage Shymm and Thurston Xane. It's a quiet place to study, and the tauren bring us bread sometimes, which none of us can eat but all of us appreciate." },
+        { id = "h_default", key = true, text = "I am Ursyn Ghull, and I teach the arcane here with Archmage Shymm and Thurston Xane. It's a quiet place to study, and the tauren bring us bread sometimes, which none of us can eat now but all of us remember the taste of." },
         { id = "h_notmage", when = { ["not"] = { class = "MAGE" } }, text = "You're not a mage, but you're welcome to sit. Most people who come down here are lost, and I don't mind the company." },
       },
-      again = { { id = "h_again", text = "Something else? Take your time; I've plenty of it now." } },
+      again = { { id = "h_again", text = "Something else? Take your time; the grave left me plenty of it." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "You studied in Dalaran?", next = "dalaran" },
@@ -329,7 +329,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A student of Dalaran, before. A teacher in the Pools of Vision, now." } },
     advice = { { id = "tp_ad", text = "Write everything down. Memory is less reliable than you'd think, especially after death." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know. I'll make a note to find out." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. I'll make a note to find out, as I did in Dalaran, back when I had a heartbeat to hurry me." } },
   },
 }
 
@@ -345,7 +345,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Hello, hello! Come in, it's warmer down here than you'd think." },
+    { id = "g_hi", text = "Hello, hello! Come in, it's warmer down here than you'd think, not that I'd know anymore." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I was just telling the walls about you." },
   },
 
@@ -413,7 +413,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Welcome. The shadows down here are restful, if you let them be." },
+    { id = "g_hi", text = "Welcome. The shadows down here are restful, if you let them be, and far more honest than the Light ever was." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. The shadow suits you better than it did." },
   },
 
@@ -429,7 +429,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Miles Welsh, of the Forgotten Shadow. I teach priests of the Horde what the Light never taught us, and what the shadow has offered in its place." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You are no priest, but the shadow doesn't mind. Sit, if you like, and be quiet." },
       },
-      again = { { id = "h_again", text = "Something more? Speak softly here." } },
+      again = { { id = "h_again", text = "Something more? Speak softly here; the dead hear very well." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is the Forgotten Shadow?", next = "shadow" },
@@ -477,7 +477,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Another visitor. State your business, and don't waste my time." },
+    { id = "g_hi", text = "Another visitor. State your business, and don't waste my time; I've already lost one life to fools." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your devotion is noted." },
   },
 
@@ -493,7 +493,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Malakai Cross, and I teach priests here because the Dark Lady wished the Forsaken to have a presence among our allies. The tauren tolerate us, and that is enough." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You're no priest. Then you've no business here, unless you're lost, and I'm not a guide." },
       },
-      again = { { id = "h_again", text = "Well? What else?" } },
+      again = { { id = "h_again", text = "Well? What else? The Dark Lady's work doesn't wait on the curious." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why does the Dark Lady want you here?", next = "why" },
@@ -525,7 +525,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I serve the Dark Lady. That's all the story I need." } },
     advice = { { id = "tp_ad", text = "Trust no faith that has ever tried to burn you." } },
-    _none = { { id = "tp_none", text = "I don't know, and I don't care to." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't care to. Ask a living fool; they have opinions on everything." } },
   },
 }
 
@@ -541,8 +541,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in, child, come in. Mind the step, it's slippery." },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back, child. How have you been keeping?" },
+    { id = "g_hi", text = "Come in, child, come in. Mind the step, it's slippery, and I've no longer the hands to catch anyone." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back, child. How have you been keeping? I ask everyone, though I've stopped expecting good answers." },
   },
 
   notice = {
@@ -557,7 +557,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Father Cobb, and I keep the priests' lessons here with Miles and Malakai. I had a little parish in Lordaeron once, before the plague came through, and I suppose I still think of my students as a congregation." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You're not a priest, but that's no matter. Everyone needs a quiet word now and then, and I've plenty to spare." },
       },
-      again = { { id = "h_again", text = "Anything more, child? I've nowhere else to be." } },
+      again = { { id = "h_again", text = "Anything more, child? I've nowhere else to be, and no one left in Lordaeron waiting for me." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Tell me about your parish.", next = "parish" },
@@ -589,6 +589,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A village priest, once. A teacher in a cave, now. It's not so different as you'd think." } },
     advice = { { id = "tp_ad", text = "Be gentle with the frightened, child. Fear makes people cruel." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know, child. Perhaps ask someone who gets out more." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know, child. Perhaps ask someone who gets out more, or someone still breathing." } },
   },
 }

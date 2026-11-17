@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Make it quick, {race}." },
+    { id = "g_hello", text = "Make it quick, {race}; an orc's time is for the hunt." },
     { id = "g_ears", when = { questActive = TODO_QUEST("Centaur Bounty") }, text = "I want ears from any clan and any camp, and I want a great many of them." },
     { id = "g_khan", when = { questActive = TODO_QUEST("Khan Dez'hepah") }, text = "Dez'hepah's still breathing, I take it, so go and fix that." },
     { id = "g_done", when = { questDone = TODO_QUEST("Khan Dez'hepah") }, text = "The Kolkar are still fighting over who leads them now. Good; let them." },
@@ -48,7 +48,7 @@ P:NPC {
           text = "Dez'hepah's dead, and the Kolkar camps are howling about it. That's the sound of a good week's work." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick about it, because I've centaur to count." },
+        { id = "h_again", text = "What else? Be quick about it, because I've centaur to count, and they don't count themselves." },
         { id = "h_again2", text = "Something more, {race}? Then spit it out before the next raid." },
       },
       choices = {
@@ -83,7 +83,7 @@ P:NPC {
     hate_knife = {
       big = true,
       lines = {
-        { id = "hk_default", text = "Maybe. Thrall would call it diplomacy, and I'd call it a bargain with a snake, but I'm not the Warchief." },
+        { id = "hk_default", text = "Maybe. Thrall would call it diplomacy, and I'd call it a bargain with a snake, but I'm not the Warchief, and he's earned the right to choose." },
       },
       choices = {
         { text = "Turn them on each other. Fewer of ours die.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -144,8 +144,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A grunt who could count, so they made me a scout. That's all of it." } },
+    background = { { id = "tp_bg", text = "A grunt who could count, so they made me a scout. I was born in an internment camp, and I've been fighting for the Horde since the day the gates broke, and that's all of it." } },
     advice = { { id = "tp_ad", text = "Centaur ride in circles before they charge. When they stop circling, run or swing." } },
-    _none = { { id = "tp_none", text = "I don't know, and I don't much care, so ask me something useful." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't much care, so ask me something useful, something with blood in it." } },
   },
 }

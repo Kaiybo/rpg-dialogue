@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Windfury", min = 20 } }, text = "The Windfury along the cliffs have fewer voices this season, and the herders are grateful. That's a lesson the harpies will remember longer than you will." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask your teacher?" },
+        { id = "h_again", text = "What else would you ask your teacher? Let the wind be at your back while you think." },
         { id = "h_again2", text = "Go on. I've time for the young, always." },
       },
       choices = {
@@ -61,7 +61,7 @@ P:NPC {
       },
     },
     practice = {
-      lines = { { id = "p_default", text = "Practice, yes, and also a danger to our people that needs answering. I don't send the young to fight anything that doesn't need fighting." } },
+      lines = { { id = "p_default", text = "Practice, yes, and also a danger to our people and our herds that needs answering. I don't send the young to fight anything that doesn't need fighting." } },
       choices = {
         { text = "And if someone fails the trial?", next = "fail" },
         { text = "Something else.", next = "BACK" },
@@ -77,7 +77,7 @@ P:NPC {
       },
     },
     ready = {
-      lines = { { id = "r_default", text = "When you can fight something faster than you and come back with a lesson instead of just a wound. The Barrens and the Needles are beyond our hills, and they're not patient with fools." } },
+      lines = { { id = "r_default", text = "When you can fight something faster than you and come back with a lesson instead of just a wound. The Barrens and the Needles are beyond our hills, and they're not patient with fools, though the Earth Mother is." } },
       choices = {
         { text = "I'd rather learn than bleed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Sometimes bleeding is how you learn.", next = "BACK", fx = { align = { order = -1 } } },
@@ -100,6 +100,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A warrior who grew old enough to teach. There's no better thing a warrior can become, I think." } },
     advice = { { id = "tp_ad", text = "Let the wind always be at your back, and keep an eye on the sky. Most of what kills you out there comes from above or behind." } },
-    _none = { { id = "tp_none", text = "I don't know of that. Ask in Thunder Bluff; my brother hears more than I do." } },
+    _none = { { id = "tp_none", text = "I don't know of that. Ask in Thunder Bluff; my brother hears more than I do, and the elders more than both of us." } },
   },
 }

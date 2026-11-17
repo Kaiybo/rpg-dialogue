@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Welcome, friend. Your vault is safe, as it was when you left it." },
+    { id = "g_hi", text = "Welcome, friend. Your vault is safe, as safe as a calf in the middle of the herd." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your things have waited patiently for you. Shall I open the vault?" },
     { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "Welcome, friend. You came here on the long walk, so you'll remember when everything a family owned fit on one kodo's back, and you'll forgive an old banker for marvelling at how full these vaults have grown." },
   },
@@ -173,7 +173,7 @@ P:NPC {
 
   topics = {
     grimtotem = { { id = "tp_grimtotem", text = "They keep their own counsel on Elder Rise. I keep their coin the same as anyone's, and say no more." } },
-    _none = { { id = "tp_none", text = "I don't know, friend. Ask Innkeeper Pala; everyone talks to her." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. Ask Innkeeper Pala; everyone talks to her, as the whole herd drinks at one river." } },
   },
 }
 
@@ -189,7 +189,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "The wind is good today. Where shall it carry you?" },
+    { id = "g_hi", text = "The wind is good today, and An'she is high. Where shall it carry you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back on the tower. The wind riders remember you, friend." },
     { id = "g_windshaper", when = { origin = "skyborne_windshaper" }, text = "One of Ayessa's Windshapers, up on my tower again. You stand into the wind like my riders do, as if you're listening for something in it, and I hope one day it tells you what you want to hear." },
   },
@@ -348,7 +348,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I know the wind and the routes it takes. For anything else, ask someone on the ground." } },
+    _none = { { id = "tp_none", text = "I know the wind and the routes it takes. For anything else, ask someone whose hooves stay on the ground." } },
   },
 }
 
@@ -368,7 +368,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come to learn a new weapon? Good; a warrior with only one is half armed." },
+    { id = "g_hi", text = "Come to learn a new weapon? Good; a warrior with only one is half armed, and the herd needs you whole." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me how your practice has gone." },
   },
 
@@ -509,7 +509,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I teach weapons, friend, not lore. Ask one of the elders on Elder Rise." } },
+    _none = { { id = "tp_none", text = "I teach weapons, friend, not lore. Ask one of the elders on Elder Rise; they keep the ancestors' memory." } },
   },
 }
 
@@ -524,7 +524,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in, come in. Test the draw on any of them; that's what they're for." },
+    { id = "g_hi", text = "Come in, come in. Test the draw on any of them; that's what they're for, and the wood was given by the Earth Mother to be used." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll want arrows, I'd guess, and plenty of them. Hunters always run out of arrows first." },
   },
 
@@ -675,7 +675,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know, friend. Ask Holt; he knows more than I do about most things." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. Ask Holt; he's tracked more of the plains than I have, and knows more about most things." } },
   },
 }
 
@@ -695,7 +695,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Ho, friend. Come to learn the patient art?" },
+    { id = "g_hi", text = "Ho, friend. Come to learn the patient art? The lakes of Mulgore are as calm as a sleeping kodo today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Tell me what you caught, and don't make it bigger than it was." },
   },
 
@@ -854,7 +854,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Can't say I know it. Ask Aska; she listens to more gossip than I do." } },
+    _none = { { id = "tp_none", text = "Can't say I know it. Ask Aska; she hears more gossip round the cookfire than I do by the water." } },
   },
 }
 
@@ -870,7 +870,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "You look hungry. Everyone does, but you look hungrier than most." },
+    { id = "g_hi", text = "You look hungry. Everyone does, but you look hungrier than a kodo at the end of a dry season." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you been eating properly, or only that dry trail bread?" },
   },
 
@@ -1204,7 +1204,7 @@ P:NPC {
 
   topics = {
     grimtotem = { { id = "tp_grimtotem", text = "Magatha's clan. They keep close to the Forsaken, and I'd like to know why." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you. Ask on Elder Rise; the elders know more than I do." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. Ask on Elder Rise; the elders know more than I do, and they listen to the earth longer." } },
   },
 }
 
@@ -1316,7 +1316,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Welcome, friend; I teach herbs here, and I'd guess you've pressed a few leaves into a wound alongside your prayers." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The plants droop when you pass, did you know? I'm sure it isn't personal." },
       },
-      again = { { id = "h_again", text = "Something more? I'm always glad to talk about green things." } },
+      again = { { id = "h_again", text = "Something more? I'm always glad to talk about green things; the Earth Mother puts them everywhere for us to notice." } },
       choices = {
         { text = "Do your herbs carry the Earth Mother's blessing, Nida?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the earth spirits mind when we gather herbs, Nida?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1384,7 +1384,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in. Mind the hides drying on the poles." },
+    { id = "g_hi", text = "Come in. Mind the hides drying on the poles; each one was a gift from the Earth Mother." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. Show me your stitching; I'll know whether you've practised." },
   },
 
@@ -1536,6 +1536,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know. Ask someone who doesn't spend all day with hides." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask someone who doesn't spend all day with hides, and give my thanks to the ancestors on your way." } },
   },
 }

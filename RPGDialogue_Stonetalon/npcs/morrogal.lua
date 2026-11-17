@@ -94,7 +94,7 @@ P:NPC {
 
     kobolds = {
       lines = {
-        { id = "ko_default", text = "Kobolds dig because digging is what kobolds do, and they never ask what's at the bottom. This time they've found something older than their whole race, and they're too foolish to be afraid of it." },
+        { id = "ko_default", text = "Kobolds dig because digging is what kobolds do, and they never ask the earth's leave or what's at the bottom. This time they've found something older than their whole race, and they're too foolish to be afraid of it." },
       },
       choices = {
         { text = "Could they control it?", next = "kobolds_control" },
@@ -132,7 +132,7 @@ P:NPC {
     goggeroc = {
       big = true,
       lines = {
-        { id = "go_default", text = "Not yet, no, and I have weighed that. But when he wakes he'll be weak, and after that he won't, and I'll not gamble Stonetalon on hoping he wakes kind." },
+        { id = "go_default", text = "Not yet, no, and I have weighed that, as the Earth Mother weighs the seasons. But when he wakes he'll be weak, and after that he won't, and I'll not gamble Stonetalon on hoping he wakes kind." },
       },
       choices = {
         { text = "Better to strike first than mourn later.", next = "BACK", fx = { align = { light = -1 } } },
@@ -145,6 +145,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A shaman of Thunder Bluff who came to Sun Rock to listen to the mountains. Lately they've had too much to say." } },
     advice = { { id = "tp_ad", text = "If the ground hums under your hooves, step back and listen before you take another step." } },
-    _none = { { id = "tp_none", text = "I cannot say, {class}. The earth is my study, and that is not of the earth." } },
+    _none = { { id = "tp_none", text = "I cannot say, {class}. The earth is my study, and that is not of the earth; walk with the Earth Mother until you find someone who knows." } },
   },
 }

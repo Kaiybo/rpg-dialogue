@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "The Elder Crone is occupied, but I speak for her in small matters. Is yours a small matter?" },
+    { id = "g_hi", text = "The Elder Crone is occupied, but I speak for her in small matters. Is yours a small matter, or merely a Bloodhoof one?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Magatha remembers those who are useful, and so do I." },
     { id = "g_troggs", when = { questActive = TODO_QUEST("Testing an Enemy's Strength") }, text = "The troggs are in Ragefire Chasm, beneath Orgrimmar itself. The orcs built their capital on top of a nest and never thought to look down." },
     { id = "g_satchel", when = { questActive = TODO_QUEST("Searching for the Lost Satchel") }, text = "Maur's body lies somewhere in the Chasm. Search it well, and bring anything he carried back to the Elder Crone." },
@@ -46,7 +46,7 @@ P:NPC {
           text = "One of the Dark Lady's dead, on Elder Rise. The High Chieftain insists you are welcome everywhere in his city, and I am sure he knows best." },
       },
       again = {
-        { id = "h_again", text = "Is there something more? Be brief, if you can." },
+        { id = "h_again", text = "Is there something more? Be brief, if you can; the Grimtotem do not waste breath the way the plains-folk do." },
         { id = "h_again2", text = "Ask what you came to ask. The Elder Crone's time is not the only time I guard." },
       },
       choices = {
@@ -117,7 +117,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve the Elder Crone, and have for many years. The rest of my story is not your concern." } },
     advice = { { id = "tp_ad", text = "Learn whose favor matters on this mesa. It is not always the one sitting in the biggest tent." } },
     grimtotem = { { id = "tp_gt", text = "The oldest of the tribes and the proudest. We remember what the tauren were before the orcs came, and someone ought to." } },
-    _none = { { id = "tp_none", text = "That is not a matter the Elder Crone has asked me to know about." } },
+    _none = { { id = "tp_none", text = "That is not a matter the Elder Crone has asked me to know about, and the Grimtotem keep their own counsel." } },
   },
 }
 
@@ -135,8 +135,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "If you're here for my father, he's thinking, which could take until sundown. If you're here for seeds, I'm faster." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, good. Did anything you planted come up?" },
+    { id = "g_hi", text = "If you're here for my father, he's thinking, which could take until An'she sets. If you're here for seeds, I'm faster." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, good. Did anything you planted come up, or did the Earth Mother have other ideas?" },
     { id = "g_morrow", when = { questActive = TODO_QUEST("Morrowgrain Research") }, text = "The Tharlendris seeds want soil from Un'Goro Crater and a great deal of patience. I can give you the first, and the second is your affair." },
   },
 
@@ -163,7 +163,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you can, I've seedlings that need turning." },
-        { id = "h_again2", text = "Go on. I can listen and sort seeds at once." },
+        { id = "h_again2", text = "Go on. I can listen and sort seeds at once; my grandmother could do it with a kodo calving beside her." },
       },
       choices = {
         { text = "What is morrowgrain?", next = "morrow" },
@@ -225,7 +225,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Hamuul's daughter, a druid of the Circle, and the one who actually remembers to water things." } },
     advice = { { id = "tp_ad", text = "If a plant is dying, look at the roots before you blame the sky." } },
     cenarion_circle = { { id = "tp_cc", text = "Druids of every race who swore to keep the world's balance. It's a fine oath, and most days it means sorting seeds." } },
-    _none = { { id = "tp_none", text = "I don't know that one, and my father would take a week to tell you he doesn't either." } },
+    _none = { { id = "tp_none", text = "I don't know that one, and my father would take a week of slow seasons to tell you he doesn't either." } },
   },
 }
 
@@ -243,7 +243,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Sit, and breathe, and then tell me what you've come to learn." },
+    { id = "g_hi", text = "Sit, and breathe, and let the Earth Mother settle you. Then tell me what you've come to learn." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. The Great Bear Spirit has been patient with you, I hope." },
   },
 
@@ -256,10 +256,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Sheal Runetotem, and I teach those who would walk the druid's path, as Hamuul taught me. Come when you are ready, and not before." },
+        { id = "h_default", key = true, text = "I am Sheal Runetotem, and I teach those who would walk the druid's path, as Hamuul taught me. Come when you are ready, as the grass comes when the rain does, and not before." },
         { id = "h_notdruid", when = { ["not"] = { class = "DRUID" } }, text = "You're no druid, friend, but the Hall of Elders welcomes listeners. Sit if you wish, and don't step on the moss." },
       },
-      again = { { id = "h_again", text = "Something else? Take your time." } },
+      again = { { id = "h_again", text = "Something else? Take your time; the land has never once hurried." } },
       choices = {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What's the first thing a druid learns?", next = "first" },
@@ -291,7 +291,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A Runetotem, and a student of Hamuul's before I taught anyone myself. There isn't more to tell." } },
     advice = { { id = "tp_ad", text = "Breathe before you shift. A bear born in a panic is a frightened bear." } },
-    _none = { { id = "tp_none", text = "I couldn't say. Sit with the question for a while; it may answer itself." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Sit with the question for a while, as the herd sits out a storm; it may answer itself." } },
   },
 }
 
@@ -309,7 +309,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "There you are! Let's not waste the daylight, what do you need?" },
+    { id = "g_hi", text = "There you are! Let's not waste An'she's light, what do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back already? Good, you've been running, I can tell." },
   },
 
@@ -325,7 +325,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Kym Wildmane, and I teach druids here alongside Turak and Sheal, though I'm the one who'll take you out onto the plains to practice. You learn the cat on grass, not on stone floors." },
         { id = "h_notdruid", when = { ["not"] = { class = "DRUID" } }, text = "You're not one of ours, are you? That's all right. Ask what you like, but I warn you I talk fast." },
       },
-      again = { { id = "h_again", text = "What else? Quick, the wind's changing." } },
+      again = { { id = "h_again", text = "What else? Quick, the wind's changing, and the plains won't wait for us." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why do you prefer the plains?", next = "plains" },
@@ -357,6 +357,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Wildmane, druid, runner. Ask me something interesting." } },
     advice = { { id = "tp_ad", text = "If you can outrun it, outrun it. Fighting is for when you can't." } },
-    _none = { { id = "tp_none", text = "No idea! Ask someone slower; they've more time to think about it." } },
+    _none = { { id = "tp_none", text = "No idea! Ask someone slower; the elders have more seasons to think about it." } },
   },
 }

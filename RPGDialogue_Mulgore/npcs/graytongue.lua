@@ -43,8 +43,8 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" }, text = "A young druid. The Earth Mother gives us her shapes so we can protect her, so remember that the claws are a gift and not a toy." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
-        { id = "h_again2", text = "Ask. The mesa has time." },
+        { id = "h_again", text = "What else would you know, young one?" },
+        { id = "h_again2", text = "Ask. The mesa has time, as the Earth Mother does." },
       },
       choices = {
         { text = "What is the Rite of Strength?", next = "rite" },
@@ -57,7 +57,7 @@ P:NPC {
       },
     },
     rite = {
-      lines = { { id = "r_default", text = "Strength is the first Rite, then Vision, then Wisdom. Each one teaches the next, so a brave who skips strength will never have the vision to see what it is for." } },
+      lines = { { id = "r_default", text = "Strength is the first Rite, then Vision, then Wisdom, as the Earth Mother set them. Each one teaches the next, so a brave who skips strength will never have the vision to see what it is for." } },
       choices = {
         { text = "And what is strength for?", next = "rite2" },
         { text = "Something else, Seer.", next = "BACK" },

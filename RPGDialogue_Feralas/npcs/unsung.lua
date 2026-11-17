@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_roost", text = "The hippogryphs are rested and the winds are fair. Where would you fly?" },
+    { id = "g_roost", text = "Ishnu-alah. The hippogryphs are rested and the winds are fair, and Elune's light is on the water. Where would you fly?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned to the isle. The birds remember you, and so do I." },
   },
 
@@ -134,7 +134,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Would you ask more of the roost, or of the isle?" },
-        { id = "h_again2", text = "The birds can wait a little longer; what else is on your mind?" },
+        { id = "h_again2", text = "The birds can wait a little longer; they have waited on our people since before the Sundering. What else is on your mind?" },
       },
       choices = {
         { text = "Do your birds miss the forests of Ashenvale?", next = "druid_q", when = { class = "DRUID" } },
@@ -202,7 +202,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I tended the hippogryphs in Ashenvale before I came south with the Sentinels. Their wings carried us here, and they'll carry us home." } },
     advice = { { id = "tp_ad", text = "Fly over the water, never over the hills. The ogres throw rocks at anything they see." } },
-    _none = { { id = "tp_none", text = "I could not say. Ask the General's people; they hear more of the mainland than I do." } },
+    _none = { { id = "tp_none", text = "I could not say. Ask the General's people; they hear more of the mainland than I do, and they remember it longer than most." } },
   },
 }
 
@@ -220,7 +220,7 @@ P:NPC {
 
   greetings = {
     { id = "g_shop", text = "Thread, salt, dyes and flux, if the boats came in on time. What do you need?" },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Your craft is going well, I hope?" },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon, and Elune's blessing on you. Your craft is going well, I hope?" },
   },
 
   notice = {
@@ -334,7 +334,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there anything else you need from the stores?" },
-        { id = "h_again2", text = "Ask, and I'll answer as best I can." },
+        { id = "h_again2", text = "Ask, and I'll answer as best I can; a few centuries of keeping stores teaches patience." },
       },
       choices = {
         { text = "Let me see your goods.", next = "BUSINESS" },
@@ -398,7 +398,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I traded goods in Auberdine before I came here. It's quieter, and the wind smells of the sea instead of fish." } },
     advice = { { id = "tp_ad", text = "Always carry a spare spool of thread. A torn cloak in the rain is a miserable thing." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know, friend. Ask Shandris's people; they hear everything." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know, friend. Ask Shandris's people; the Sentinels hear everything, and forget very little." } },
   },
 }
 
@@ -503,7 +503,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken with the Light in your hands. The Earth Mother's plants grow back after the frost, and perhaps you have grown back in your own way." },
       },
       again = {
-        { id = "h_again", text = "What else would you know, little one?" },
+        { id = "h_again", text = "What else would you know, little one? The Earth Mother's gardens are wide." },
         { id = "h_again2", text = "Speak; I am listening, as the grass listens to the wind." },
       },
       choices = {
@@ -687,8 +687,8 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The plague wasted you once, I think, and something gave you back, so perhaps you understand why I waste nothing." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak plainly." },
-        { id = "h_again2", text = "Ask. I'm listening." },
+        { id = "h_again", text = "What else? Speak plainly, as the hunt speaks." },
+        { id = "h_again2", text = "Ask. I'm listening, and the ancestors who taught me this knife are listening too." },
       },
       choices = {
         { text = "Teach me what you can.", next = "BUSINESS" },
@@ -769,7 +769,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My father taught me the knife in Mulgore, and his father taught him. I came here because the beasts are bigger." } },
     advice = { { id = "tp_ad", text = "Keep your knife sharp. A dull knife tears, and a torn hide is worth nothing." } },
-    _none = { { id = "tp_none", text = "I don't know. I know knives and hides, not that." } },
+    _none = { { id = "tp_none", text = "I don't know. I know knives and hides, and the thanks owed to the beast, not that." } },
   },
 }
 
@@ -875,8 +875,8 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, all the way out here. Everything comes the long way to Mojache, and it seems the Light does too." },
       },
       again = {
-        { id = "h_again", text = "What else, friend?" },
-        { id = "h_again2", text = "Ask what you like; I'm only counting." },
+        { id = "h_again", text = "What else, friend? The Earth Mother's roads are long, so I'm in no hurry." },
+        { id = "h_again2", text = "Ask what you like; I'm only counting, and a tauren can count and listen at once." },
       },
       choices = {
         { text = "Is the road from Thunder Bluff really that dangerous, Sheendra?", next = "xhsham", when = { class = "SHAMAN" } },
