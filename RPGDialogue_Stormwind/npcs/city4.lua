@@ -315,6 +315,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Renzik wants ears, my friend, ears that hear the wind and the stone. Renzik doesn't care who you pray to, only whether you can listen without being noticed." } },
+      choices = {
+        { text = "I'll serve the kingdom, but openly. I don't skulk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Ears for coin? Renzik, you might have a deal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -397,6 +406,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Yeah, I know your type: you sit in a bush for six hours waiting for one shot. Respect, honestly." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in SI:7! Renzik's heard your people turn into cats and sneak about, so Renzik wants to know who's paying you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Renzik sees a warlock, and Renzik wonders if the warlock knows SI:7 has a file on every one of them who comes up from the Lamb." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Renzik sees a dwarf with totems. Renzik thinks a shaman might be worth something to SI:7, if the shaman can keep quiet." },
       },
       again = {
         { id = "h_again", text = "What else? Renzik's got a schedule." },
@@ -414,6 +424,7 @@ P:NPC {
         { text = "Does SI:7 have any use for a paladin, Renzik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would SI:7 pay a druid who prowls as a cat, Renzik?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "SI:7 keeps a file on me, Renzik?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would SI:7 want with a shaman, Renzik?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -488,6 +499,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "There is a rule against anything I don't understand in the hall. You are welcome; your totems are not. That's all you need to know." } },
+      choices = {
+        { text = "The hall has its rules. I'll respect them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules for the sake of rules make poor guards, Major.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -577,6 +597,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Your animal stays by the door, and you'll keep your bow unstrung while you're in the throne room." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the throne room. You'll keep whatever shape you walked in with, because a bear before the king is not something my guards are paid to handle." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll leave your companion at the doors of the Keep, and you'll keep your hands where my guards can see them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in the throne room. Behave as though you know where you are standing, and keep your spirits outside the hall." },
       },
       again = {
         { id = "h_again", text = "Anything else? Briefly." },
@@ -596,6 +617,7 @@ P:NPC {
         { text = "Do you guard the young king yourself, Major?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does changing shape count as spellwork in the throne room, Major?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are warlocks not trusted in the Keep, Major?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there a rule against spirits in the hall, Major?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -684,6 +706,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Better than any almanac, though it complains about everything. Maybe your spirits and my foot are kin, eh?" } },
+      choices = {
+        { text = "Your kindness is worth more than any almanac, Thomas.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your foot's a fine prophet. Charge for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -776,6 +807,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be living on what you catch, I suppose, but take a loaf anyway; venison's lonely without bread." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be wanting something wholesome, I expect, because your people look at my sweet rolls as if they'd done something wrong." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Would your little friend like a roll? No? Well, you'll have one, then, because you look half-starved." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Here, have a roll. A shaman needs bread like anyone else. My left foot says rain's coming; maybe your spirits would agree." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? Walk with me; I can't stop." },
@@ -794,6 +826,7 @@ P:NPC {
         { text = "Do many soldiers buy bread from you, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you bake for someone who lives on berries, Thomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do warlocks buy much bread, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does your foot really tell the weather, Thomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not hungry.", next = "END" },
       },
     },

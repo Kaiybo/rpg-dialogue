@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "My old masters in Ironforge would say the stone and the fire are titan-made and need no spirits. But I've known shamans who could make a forge sing." } },
+      choices = {
+        { text = "A smith's honest work and a shaman's listening go well together.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Titan-made or not, I'll work my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -114,6 +123,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a smithy! Ye'll be wantin' a hatchet or a skinnin' knife, I'd guess, for there's no bow in this forge." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? Yer hands are rough in all the wrong places for a smith, but they've done real work, I'll grant ye that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at my forge? Keep yer wee demon back from the anvil, for it'll want tae play wi' the coals." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Let me see your hands. A shaman's hands, eh? You've the grip of a smith but the eyes of someone listening to something I can't hear." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -131,6 +141,7 @@ P:NPC {
         { text = "Have you armoured many of the Silver Hand, Therum?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does it trouble you, digging so much iron out of the hills, Therum?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you forge something for a warlock, Therum?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think a shaman could learn the forge, Therum?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll mind the sparks.", next = "END" },
       },
     },
@@ -198,6 +209,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some of the old-timers grumble about orc magic. Not me. You're one of ours, and you buy from the right shop, which matters more." } },
+      choices = {
+        { text = "I'll always buy honest dwarven goods, Kaita.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Trade District has bargains too. You're too proud.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -292,6 +312,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, {g:lad|lass}! Ye'll not need much from a smith's supply stall, but I've a fine bit o' flux for mendin' a rifle barrel, if ye carry one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Dwarven District! Ye'll find nothin' green down here but the copper, an' I'll thank ye not tae lecture me about the mines." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll be wantin' nothing from me but a whetstone for yer knife, but ye're welcome tae look." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! Proper goods, from Ironforge, on the tram. No Trade District rubbish. Your spirits will know good iron." },
       },
       again = {
         { id = "h_again", text = "What else, {g:lad|lass}?" },
@@ -308,6 +329,7 @@ P:NPC {
         { text = "Why do you dislike the Trade District's merchants, Kaita?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Deeprun Tram ever carry anything living, Kaita?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does a mage need anything from a smith's supplier, Kaita?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think Ironforge accepts shamans, Kaita?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -372,6 +394,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everything can be measured, given enough instruments. If your spirits have rules, I'd like to know them. If they don't, I'd like to know why." } },
+      choices = {
+        { text = "Measure what you can, Lilliam. Respect what you can't.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spirits don't follow rules. Let some mysteries be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -466,6 +497,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, the dwarves will tell you that the rifle is the finest invention ever made, and the dwarves are mostly right, though their scopes are a little crude." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, I've always wanted to measure one, so tell me how much you weigh as a bear and whether it all comes back when you change again." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Is your imp made of fire, or merely on fire? I've a calculation that would benefit greatly from the answer." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Fascinating. Hold still, I'm calculating something. Do your elements obey any measurable rules?" },
       },
       again = {
         { id = "h_again", text = "Yes? I've got a remainder to carry, but go on." },
@@ -483,6 +515,7 @@ P:NPC {
         { text = "Can engineering ever measure the Light, Lilliam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think shapeshifting could ever be measured, Lilliam?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a gnome engineer use what a warlock summons?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think shamanism can be measured, Lilliam?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -561,6 +594,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I miss it every day. I came to help rebuild Stormwind and teach miners, and when I've taught enough I'll go home where the rock has some backbone." } },
+      choices = {
+        { text = "Finish the work properly, Gelman, then go home with honour.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Go home now. Stormwind can dig its own mines.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -655,6 +697,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, an' a long way from the high passes, by the look o' ye. The tunnels under Stormwind are no place for a beast, I'll tell ye that much." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ye've interrupted me, druid, an' ye'd better have a reason. If it's tae tell me the hills are sad about my minin', I've heard it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye've interrupted me, an' ye'd better have a reason, though if it's tae ask whether ye can conjure ore, the answer's no." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You've interrupted me. A shaman, though. I'll allow it. The earth here is soft, compared to Dun Morogh. Does it speak differently?" },
       },
       again = {
         { id = "h_again", text = "Aye? Make it quick." },
@@ -671,6 +714,7 @@ P:NPC {
         { text = "Why does Stormwind still need Ironforge's help to rebuild?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you leave anything behind in the mines for the hills, Gelman?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could magic make mining any easier, Gelman?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you miss Ironforge's stone, Gelman?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Sorry to interrupt.", next = "END" },
       },
     },

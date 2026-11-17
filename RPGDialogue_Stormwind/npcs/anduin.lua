@@ -37,6 +37,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "One book said the orcs listened to the land before they listened to demons. I liked that part, but my tutor said I should not repeat it at court." } },
+      choices = {
+        { text = "Repeat it, Your Majesty. Listening is never a thing to be ashamed of.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your tutor is right. Some things are better kept quiet at court.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Bolvar says they keep the kingdom safe in ways that wouldn't look very nice if I saw them, and that's why he doesn't let me see them. I think a king ought to know, though, even if he's only ten." } },
@@ -81,6 +90,7 @@ P:NPC {
           text = "Can you really make water out of nothing? The mages who come to court never show me anything, because Lady Prestor says it isn't dignified." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You smell a bit like the candles in the Cathedral crypt. I'm sorry, that was rude, and a king shouldn't say things like that." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Are you a shaman? I have read about shamans, but only orc ones, and the books were not very kind to them." },
       },
       again = { { id = "h_again", text = "Do you have another question? I like questions, and hardly anybody asks me any." } },
       choices = {
@@ -101,6 +111,7 @@ P:NPC {
         { text = "Do you know what SI:7 does, Your Majesty?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you like to see a little magic, Your Majesty?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you know what a warlock is, Your Majesty?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did your books say anything good about shamans, Your Majesty?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

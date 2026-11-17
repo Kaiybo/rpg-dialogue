@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The House of Nobles thinks most things useful until they become inconvenient. You will find that true of more than shamans here." } },
+      choices = {
+        { text = "The House should keep its word to those who serve it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Inconvenience cuts both ways, my lord. Remember that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -133,6 +142,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the countryside. I suppose you see a good deal more of the kingdom than the House does." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in the Royal Library. The kaldorei have been very gracious to the crown, and I've always wondered what a people so old expect in return." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Royal Library. How unexpected, and how very interesting, since your sort rarely come up from the Mage Quarter in daylight." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How novel. Ironforge sends us all sorts these days, and I suppose some of them must be useful." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I do have reading to do." },
@@ -153,6 +163,7 @@ P:NPC {
         { text = "Does the Silver Hand have friends in the House, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the House of Nobles welcome the night elves, my lord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the nobles ever have use for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the nobles think shamans useful, Lord Lescovar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },
@@ -269,6 +280,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "My fists don't lie to me. Your spirits might, for all I know. Still, a dwarf who stands his ground, I can respect that." } },
+      choices = {
+        { text = "Fight fair, Dashel, and I'll stand beside you any day.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fists are honest enough. I'll buy you the next round.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -357,6 +377,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'd do better wi' a pair o' fists in Old Town, but I'll not knock the bow, since it keeps folk well away from ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Folk say ye can turn intae a bear, an' I've always wanted tae know if I could take one in a fair fight." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, eh? Put that wee demon of yours where I can see it, or I'll knock its horns off before it gets a word out." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "What are you looking at? A dwarf who talks to the wind, is it? Well, the wind's got nothing to say to me." },
       },
       again = {
         { id = "h_again", text = "What else? Talk's thirsty work." },
@@ -375,6 +396,7 @@ P:NPC {
         { text = "Why do you think paladins don't fight, Fist?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you really square up against a bear, Fist?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really pick a fight with my imp, Dashel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you ever listen to anything but your fists, Dashel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'm not looking for trouble.", next = "END" },
       },
     },
@@ -479,6 +501,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Elmore says I'm not good enough to hear it yet. Maybe your spirits could tell me when I've finally got it right." } },
+      choices = {
+        { text = "Keep working honestly, Furen. The fire knows a patient hand.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Elmore's too hard on you. Trust your own work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -569,6 +600,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, wantin' armour? Mail rattles in the bushes, ye ken, so I'll fit ye somethin' that sits quiet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've never armoured one o' yer kind, since ye keep changin' shape on me, but I'd like tae try." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Robes an' a demon, an' no use for my shields, though I'll mend a buckle if ye ask nicely." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My grandfather told stories of the old Wildhammer who spoke to the winds. Never thought I'd see one of ours from Ironforge doing it." },
       },
       again = {
         { id = "h_again", text = "Aye? What else needs fixin'?" },
@@ -587,6 +619,7 @@ P:NPC {
         { text = "What can you tell from a paladin's dents, Furen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could you fit armour that changes shape along with me, Furen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there anything you'd make for a warlock, Furen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the forge fire speak to you, Furen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -666,6 +699,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The war took the men and the bandits took the land, and here I am behind the Auction House. Still, there's always someone kind passing by." } },
+      choices = {
+        { text = "Here's a coin, Topper. Kindness is worth sharing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Begging won't bring your farm back. Find honest work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -758,6 +800,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You've the farm look about you, a bit, and I like that. Most of the city lot couldn't find a rabbit in a hutch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a kind face too. I had a field once, friend, and I'd have given anything for someone who could make the wheat come up in a dry year." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ah, a warlock, with a generous face like all the rest. Spare a copper for a farmer, and I'll not ask what's following you about." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A generous face, and a shaman too! Spare a coin for an old farmer? The spirits must favour a giving heart." },
       },
       again = {
         { id = "h_again", text = "Anything else, friend? I've all day, and I've had all day for years." },
@@ -775,6 +818,7 @@ P:NPC {
         { text = "What would you have the Silver Hand do for Westfall?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could your Westfall fields still grow again, Topper?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does my sort frighten you, Topper?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What happened to your farm, Topper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -833,6 +877,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd rather not say, and I'd rather you didn't ask. The Defias are noisy prisoners, and the walls hold, mostly. That's all you need to know." } },
+      choices = {
+        { text = "Then the walls should be made to hold properly, Warden.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Defias have reasons for their anger. Hear them out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -921,6 +974,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't bring the beast near the Stockade gate; the prisoners bang on the bars at anything with four legs." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Stockade. The prisoners will want to see you turn into something, so please don't; they've had trouble enough this season." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've had mages through my cells, and none of them stayed as long as their sentence, so you'll forgive my looking at you twice." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. If your spirits could make my prisoners as quiet as the stone, I'd be in your debt. Please don't mention the recent trouble." },
       },
       again = {
         { id = "h_again", text = "Yes, what else? Be quick about it, please." },
@@ -938,6 +992,7 @@ P:NPC {
         { text = "How are the Stockade's prisoners treated, Warden?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Stockade's cells ever see daylight, Warden?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "How do you keep a mage locked up, Warden?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What trouble at the Stockade, Warden?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be discreet.", next = "END", fx = { affinity = 2 } },
       },
     },

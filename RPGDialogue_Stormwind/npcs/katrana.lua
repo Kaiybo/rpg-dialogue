@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The court trusts what serves the kingdom. Spirits and totems are such orcish things, don't you agree? One wonders where your loyalties lie." } },
+      choices = {
+        { text = "My loyalty is to the Alliance, my lady, and it stays there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The court's trust isn't worth chasing. I'll go my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The court thinks very little of anything it can't tax or marry, darling, and your people are neither. I find the kaldorei rather charming myself, the way one finds old ruins charming, so long as one isn't asked to live in them." } },
@@ -114,6 +123,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the king's hall. How very loyal you look, all that steel and no idea at all who you're guarding." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Do keep your animal on a short leash; the Regent's hall has quite enough noise in it already." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, at court. How quaint, the kaldorei send us their forest-priests, as if the Regent needed reminding that the world is older than his crown." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How very unusual. I'm sure Ironforge's king finds such things charming, but here at court, we prefer things we understand." },
       },
       again = { { id = "h_again", text = "Something else? Do be quick." } },
       choices = {
@@ -134,6 +144,7 @@ P:NPC {
         { text = "Does the court value the Church's counsel, my lady?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you think of the Silver Hand, my lady?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does the court think of the night elves, my lady?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does the court trust shamans, Lady Prestor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Excuse me.", next = "END" },
       },
     },

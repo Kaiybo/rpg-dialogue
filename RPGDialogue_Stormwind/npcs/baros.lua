@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'm not sure I would. Half these walls were raised by men we never paid, and if the stone remembers that, it has better manners than they do." } },
+      choices = {
+        { text = "The stone holds the city up. Trust what was built properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The stone remembers the debt. Pay the masons and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -143,6 +152,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Tell me honestly whether the statues look right from the road." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my streets. I laid most of these stones myself, so forgive me if I wonder what someone who shapes living things makes of them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Slaughtered Lamb sits on foundations I've never been allowed to survey, and I'd wager you know why." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to stone, they tell me. I've spent my life telling stone where to go, and it has never once answered back." },
       },
       again = {
         { id = "h_again", text = "What else? I've drains to redraw." },
@@ -164,6 +174,7 @@ P:NPC {
         { text = "What would justice look like for the Stonemasons, Architect?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did you leave room for anything green when you drew the city, Architect?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What lies beneath the Mage Quarter, Baros?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you like to know what the stone of this city thinks, Baros?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

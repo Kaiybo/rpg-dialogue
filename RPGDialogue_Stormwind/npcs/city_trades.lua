@@ -17,6 +17,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They are tidy, lovely and a little sad. The earth here is fenced and trimmed, and I suspect your spirits would find it as quiet as I do." } },
+      choices = {
+        { text = "Even trimmed earth deserves care and respect, Tannysa.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Tidy gardens are dead gardens. Let them grow wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -108,6 +117,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now here's someone who walks past more herbs in a day than most of my students see in a month." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ishnu-alah, druid. It eases me to see one of the Circle in this city of stone, though I wonder how long you'll stay before the walls grow too close." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You carry a shadow that is not your own. The plants in my beds will wilt if you stand too close, so stay on the path." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who listens to the spirits of the earth. In Teldrassil we call that something else, but I suppose the words matter less than the listening." },
       },
       again = {
         { id = "h_again", text = "Ask away while I sort these cuttings; the earthroot won't mind waiting." },
@@ -125,6 +135,7 @@ P:NPC {
         { text = "Do the kaldorei have warriors of faith like paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the human gardens make you homesick, Tannysa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your herbs really wilt near warlocks, Tannysa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think human gardens hear the earth, Tannysa?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Tannysa.", next = "END" },
       },
     },
@@ -169,6 +180,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More refugees than soldiers these days, from Westfall and Redridge both. Whatever heals them, I'll welcome it, spirits included." } },
+      choices = {
+        { text = "Then I'll lend my healing wherever it's needed, Shaina.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Refugees should go home. The city can't carry them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -259,6 +279,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be patching up your beast as often as yourself, I'd wager, so you'll be wanting to learn properly." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You can close a wound with a word, I hear, so I'll not be teaching you much, though you might teach me a thing or two." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You'll want to learn to bandage properly, because frost nips and fire scorches, and neither one heals on its own." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Good, can you bandage? The spirits might heal, but I'll take honest linen and steady hands." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've linen to roll." },
@@ -276,6 +297,7 @@ P:NPC {
         { text = "Have you tended many soldiers from the front, Shaina?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a bandage still matter to someone who heals with nature, Shaina?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do mages come to you for bandaging, Shaina?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you see many wounded in Stormwind, Shaina?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Shaina.", next = "END" },
       },
     },
@@ -320,6 +342,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Patience and a cold winter, and a tree that grew slow and straight. Maybe your spirits know which trees grew honest." } },
+      choices = {
+        { text = "Straight grain makes straight arrows. That's the right way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Crooked wood can surprise you. Don't scorn it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -410,6 +441,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a bow stall! Plenty of soldiers carry a bow for when the enemy won't come close enough, so don't be shy." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be judging my yew, I expect, because your Sentinels carry bows that make mine look like kindling." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, looking at bows? Well, all comers are welcome, though I've never sold a bow to one of your sort." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, buying bows? Your people usually want guns. Does the yew speak to your spirits?" },
       },
       again = {
         { id = "h_again", text = "Ask what you like; I've a moment between passengers, and the ledgers can wait." },
@@ -427,6 +459,7 @@ P:NPC {
         { text = "Do paladins have any use for archers, Frederick?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever wonder what the tree thought of becoming a bow, Frederick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Have you anything for a warlock, Frederick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What makes good yew, Frederick?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Frederick.", next = "END" },
       },
     },
@@ -471,6 +504,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Lilies, mostly, for funerals, and fewer roses for courting. The city's a little sad, I think, and the flowers know it before anyone." } },
+      choices = {
+        { text = "Then sell them gently, Felicia. People need that kindness.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Grief sells well. Raise your price on lilies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -562,6 +604,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must see the most beautiful wildflowers out in the hills, and I envy you every one of them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now you'll know more about flowers than I ever will, dear, so please don't tell my customers that half my roses are forced." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I'd love one of your little lights in my window for the evening trade, if you ever have one spare." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your spirits care for flowers? I can tell who's courting and who's grieving by what they buy, you know." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -579,6 +622,7 @@ P:NPC {
         { text = "Who do knights buy flowers for, Felicia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is forcing a flower to bloom early really so bad, Felicia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the mages buy flowers from you, Felicia?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Who's been buying flowers lately, Felicia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Felicia.", next = "END" },
       },
     },

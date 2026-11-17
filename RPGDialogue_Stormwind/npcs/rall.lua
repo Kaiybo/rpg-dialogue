@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Service without reward. If your spirits demand the same, we may be closer than either of us thinks." } },
+      choices = {
+        { text = "Service without reward is the truest kind, Duthorian.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Even spirits expect something back. Nothing's free.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -119,6 +128,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The paladins I test spend their days in halls and chapels, and I sometimes wish they'd spend a week in the woods with someone like you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral district. I test paladins, not druids, but I'd guess your goddess asks something of you the way the Light asks something of us." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Light owes you nothing and you owe it less, I suppose, but you're welcome to watch a test." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I test paladins, not shamans, but the Light is a debt owed to people who can't repay it. I wonder what your spirits ask." },
       },
       again = {
         { id = "h_again", text = "What else? Ask it straight." },
@@ -138,6 +148,7 @@ P:NPC {
         { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light ask a debt of druids too, Duthorian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light ever test a mage, Rall?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do your tests ask of paladins, Duthorian?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go, Rall.", next = "END" },
       },
     },

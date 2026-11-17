@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every plate I sell has a blessing behind it. A shaman's mail might have a spirit instead. Both protect." } },
+      choices = {
+        { text = "Blessings and spirits both shield the faithful. Fair enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Armour's metal, Agustus. It doesn't pray.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -116,6 +125,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, at the plate counter! You'll be wanting mail when you're seasoned, I suppose, and I'll have something waiting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Righteous Plates. You'll not be needing my plate, I imagine, because a bear in a breastplate would look very silly indeed." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at Righteous Plates? Theresa's robes are at the other counter, though I'll grant some of you prefer a little mail under the silk." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Armour is a kind of prayer, you know. Does a shaman pray, or simply ask?" },
       },
       again = {
         { id = "h_again", text = "Ask, friend, while the Cathedral bells are quiet and I can hear you." },
@@ -133,6 +143,7 @@ P:NPC {
         { text = "Why call your shop Righteous Plates, Agustus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is armour still a prayer if a bear wears it, Agustus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would plate ever suit a mage, Agustus?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think armour can be holy, Agustus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Agustus.", next = "END" },
       },
     },
@@ -184,6 +195,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everyone who asks with an open heart, I believe. Your spirits may bless differently, but kindness is kindness." } },
+      choices = {
+        { text = "Kindness is kindness, Theresa. I'll take your blessing gladly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Blessings are cheap. I'd rather have a good robe.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -265,6 +285,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I'm afraid robes aren't much use in a bramble patch, but I've a cloak or two that might suit." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You've a priestess's patience in your face, I think, and though your goddess isn't mine, I hope you'll take a blessing kindly all the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A quiet one, and in dark colours. I'll not try to sell you a white robe, then, though the Light might like to see you in one." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Light bless you, shaman. That's part of the sale, you see, and I don't think the Light minds who receives it." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you'd like?" },
@@ -282,6 +303,7 @@ P:NPC {
         { text = "Do you bless the paladins who come here, Theresa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you bless someone who prays to Elune, Theresa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light take notice of someone like me, Theresa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Light bless everyone who asks, Theresa?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Light keep you, Theresa.", next = "END" },
       },
     },
@@ -335,6 +357,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Better than most people, I'd say. Animals listen to the earth too, in their way. That's why they're calm around you." } },
+      choices = {
+        { text = "Respect the beasts and they'll respect you, Jenova.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Beasts are beasts. Feed them and move on.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -414,6 +445,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the stables! Ye've no beast tae leave wi' me, so I'll guess ye just like the smell o' hay. Most warriors do, deep down." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my stables! The beasts have gone quiet, see, which they only do for a druid or a bad storm, an' ye don't smell like rain." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at my stables. Ye've no beasts tae leave, an' I'll not stable a sheep ye made out o' some poor fellow, either." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! The beasts like you already, I can tell. Most folk they don't trust." },
       },
       again = {
         { id = "h_again", text = "What else? The ram in the third stall wants his supper." },
@@ -431,6 +463,7 @@ P:NPC {
         { text = "Do knights mistreat their chargers, Jenova?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the beasts here dream of open fields, Jenova?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your beasts mind magic, Jenova?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think beasts can feel the spirits, Jenova?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Jenova.", next = "END" },
       },
     },
@@ -486,6 +519,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They'd better, or my workshop's in trouble. Lilliam says they don't, but she's no fun." } },
+      choices = {
+        { text = "Lilliam's right. Some things are best kept apart.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mix them! Let's see what happens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -577,6 +619,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have you ever thought about a gnomish trap? They go snap and then boom, which is twice as effective as just snap!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Please don't look at my blasting powder like that, because I only ever use it on rocks, and the rocks never complain." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Do you know, an imp is technically a combustion engine with legs? I've always wanted to measure one." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can your elements make things explode? Because I have parts that explode beautifully." },
       },
       again = {
         { id = "h_again", text = "What else? I've a gyromatic thingamajig that needs looking at." },
@@ -594,6 +637,7 @@ P:NPC {
         { text = "Should engineering be used in battle, Billibub?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has your blasting powder ever set the woods alight, Billibub?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really measure my imp, Billibub?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think spirits and engineering mix, Billibub?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Billibub.", next = "END" },
       },
     },

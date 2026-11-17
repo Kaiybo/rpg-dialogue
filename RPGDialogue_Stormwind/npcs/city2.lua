@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Trust is earned by deeds and kept by discipline. Your people stood with us in the Second War, and that counts for more than what you whisper to." } },
+      choices = {
+        { text = "The Light and I want the same things, Lord Grayson.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Silver Hand doesn't own every virtue. I'll walk my own path.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -105,6 +114,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral's training hall. I'll judge you as I judge anyone, by how you keep your gear, though I'm told yours changes when you do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll find nothing to learn here but discipline, and I'd wager the Quarter teaches little of that." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Keep your gear well and I'll judge you fairly. The Silver Hand fought orc shamans at the Dark Portal, so forgive me if I look twice." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly, and I'll answer the same way." },
@@ -128,6 +138,7 @@ P:NPC {
         { text = "Is there no place in the Light for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Silver Hand count druids among its allies, my lord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the Silver Hand respect the mages of Dalaran, my lord?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can the Silver Hand trust a dwarf who speaks to spirits?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "May the Light protect you too.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -334,6 +345,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The same as anyone, I suppose: for courage and mercy and a long road home. I don't think the Light would mind your spirits standing near." } },
+      choices = {
+        { text = "Then bless me, Arthur. I'll gladly kneel beside you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep your blessing. My spirits look after me well enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -419,6 +439,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I admire your patience, friend; I've never managed to sit still long enough for anything to walk up to me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Come in, druid, and kneel a moment if you like, though I suspect you'd rather sit on grass than stone. The Light won't mind which you choose." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Sit a moment if you like; the Light doesn't ask what you studied, only whether you'll listen." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Kneel a moment, if you like, whatever you pray to. A shaman is still welcome here, though I confess I don't quite know how to bless you." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry at all." },
@@ -440,6 +461,7 @@ P:NPC {
         { text = "Do paladins pray differently from priests, Arthur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you think the Light hears a prayer said to the moon, Arthur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light listen to a mage, Arthur?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How would you bless a shaman, Arthur?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -766,6 +788,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "A few, mostly accounts of the Horde from the wars, and not kindly ones. Nothing written by a dwarf shaman, which I suppose makes you a book still unwritten." } },
+      choices = {
+        { text = "Then I'll keep careful notes for your shelves, Milton.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Books didn't teach me this. Some things should stay unwritten.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -845,6 +876,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You travel widely, I suppose, which means you may be useful to me. I collect people who collect books, you understand." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Shh, a druid, and welcome. The library holds a few accounts of your people, though most of them were written by humans who'd never met one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Shh, the books are sleeping. And you'll keep yours closed, if you please, because I can smell brimstone on the bindings." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Shh. A shaman, and in the library. Do your spirits speak loudly? The books are sleeping." },
       },
       again = {
         { id = "h_again", text = "Something else? In a whisper, please." },
@@ -863,6 +895,7 @@ P:NPC {
         { text = "Does the library hold the Silver Hand's history, Milton?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are any of those books about my people worth reading, Milton?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the Royal Library keep any books on my arts, Milton?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are there any books on shamanism here, Milton?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -958,6 +991,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If they look closely, they'll find cheese, and only cheese, I promise. Elaine says I protest too much, but a man ought to be thorough." } },
+      choices = {
+        { text = "An honest shop is the best kind. Keep it that way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A little mystery never hurt a shopkeeper, Elling.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -1047,6 +1089,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you live on what you catch, but even the best hunter wants something besides venison now and then, don't they?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Now, I sell cheese, only cheese, and nothing that ever lived in a forest, so you've no cause to look at me like that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, buying cheese? Of course. Everyone has to eat, even the folk from the Lamb." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Well, I sell cheese. Only cheese. Honestly cheese. Your spirits are welcome to inspect it, if they like." },
       },
       again = {
         { id = "h_again", text = "Anything else? Cheese-related, ideally." },
@@ -1065,6 +1108,7 @@ P:NPC {
         { text = "Why would a cheesemaker need to say he's honest?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What exactly are you afraid I'll sniff out, Elling?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do warlocks buy your cheese, Elling?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the spirits make of your cheese, Elling?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing.", next = "END" },
       },
     },

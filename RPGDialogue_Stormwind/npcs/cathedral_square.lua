@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Mostly from Darkshire, where the dead do not rest. If your spirits know how to comfort the restless, I'd sooner learn than judge." } },
+      choices = {
+        { text = "Comfort is holy work, Bishop, whoever does it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The restless dead need a blade more than comfort.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -110,6 +119,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with the quiet look of someone who's spent a long time alone. Sit, if you like; the altar keeps no hours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and so I'll ask what weighs on you, as I ask everyone. Duskwood was green once, before the dark crept into it, and I wonder whether your people feel such things more than mine do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You carry your burden quietly, I see, and I've learned the quiet ones carry the heaviest." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Something weighs on you, I think, before you say a word. A dwarf who hears spirits must hear a great deal of grief in these times." },
       },
       again = {
         { id = "h_again", text = "What else weighs on you, {g:brother|sister}?" },
@@ -128,6 +138,7 @@ P:NPC {
         { text = "What would a paladin find waiting in Duskwood, Bishop?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What happened to Duskwood's forest, Bishop?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you trust someone in my line of work, Bishop?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do you hear in the people who come to you, Bishop?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Nothing weighs on me today, Bishop.", next = "END" },
       },
     },
@@ -264,6 +275,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Iron, my friend, and how it is tempered by the fire to be strong. Your people know that better than anyone, and your spirits must know fire too." } },
+      choices = {
+        { text = "A good sermon. Let them hear about honest strength.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Iron breaks too, Brother. Tell them that part as well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -342,6 +362,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Tell me, do you fletch your own arrows? I've been reading about the tempering of arrowheads for my sermon, and I've lost track of the metaphor entirely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'd make a fine chapter, because a tree endures the winter without a word of complaint, and that's fortitude if anything is. May I borrow you for my sermon?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Splendid, I've been looking for an example of fortitude gone astray, if you'd stand still a moment." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf! And a shaman! You may be just the illustration my sermon on the fortitude of the spirit has been lacking." },
       },
       again = {
         { id = "h_again", text = "What else? I'm glad of any excuse to stop rehearsing." },
@@ -360,6 +381,7 @@ P:NPC {
         { text = "What does iron teach about a paladin's faith, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you put an oak in a sermon about iron, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Am I really an example of fortitude gone astray?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What is your sermon about, Brother Kristoff?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the sermon.", next = "END" },
       },
     },
@@ -473,6 +495,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every evening. A city drowned in its own poison, and its people sleeping in Ironforge's halls. I wonder whether the earth there mourns too." } },
+      choices = {
+        { text = "Keep praying, Brother. Gnomeregan will need every voice.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayers won't clear that poison. Engineers and soldiers will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -563,6 +594,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, welcome to the Cathedral! I'm afraid your companion will have to wait by the door, though I'll keep it company if you like." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Welcome, welcome, druid! I've greeted three of your people this year, and each one looked up at the ceiling as if it might fall on them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Welcome, welcome. The Cathedral doesn't get as many of you as it should, and the gnomes in the corner would love a word." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Welcome, friend, welcome! A shaman from Ironforge, I'd guess. Do the spirits of the mountain grieve for Gnomeregan, as we do?" },
       },
       again = {
         { id = "h_again", text = "Anything else I can help you with? I know where everything is." },
@@ -581,6 +613,7 @@ P:NPC {
         { text = "Do many paladins pass through your doors, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cathedral ever feel too closed in, even for you, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the gnomes here need a mage's help, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you pray for the gnomes of Gnomeregan, Brother Sarno?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Brother.", next = "END" },
       },
     },
@@ -681,6 +714,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Yes, but I can't tell you, except that it's for Brother Sarno and it's candles. Is your errand about spirits? That sounds much better than candles." } },
+      choices = {
+        { text = "A secret kept is a promise kept, Thomas. Hold to it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Candles are dull. Tell me everything you know.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -759,6 +801,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? You've got a bow, so you must be, unless you stole it, but you don't look like a thief." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a druid, aren't you? I can tell by the leaves on your boots, and the Bishop says nobody else in Stormwind ever brings leaves in." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! Are you a warlock? I've never met one, not properly, only seen them going down to the Lamb at night." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're a shaman? I won't tell anyone. I'm very good at secrets. Mostly very good. Are you on a secret errand too?" },
       },
       again = {
         { id = "h_again", text = "What else? I've got four more candles on this side." },
@@ -776,6 +819,7 @@ P:NPC {
         { text = "Have you ever seen the woods outside the city, Thomas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shall I tell you what a moonwell looks like, Thomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the priests say about warlocks, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are you on a secret errand right now, Thomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -868,6 +912,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Bread, shoes, and someone who stays. The war cost this city a generation of parents, and the crown counts it in coin when it should count it in children." } },
+      choices = {
+        { text = "Then the crown should keep proper count of them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The crown won't help. Neighbours will, or no one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -956,6 +1009,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Many of the children here are the sons and daughters of soldiers, {class}, and they will watch you very closely." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The children will want to see your companion, {class}, and I'll ask you to keep it calm; some of them have had frights enough." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at the orphanage door. I'll ask you plainly to keep whatever you carry well away from my children." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've children here whose fathers died at orc hands, and some of them will hear spirit-talk and think of axes. Speak gently, please." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? I've a moment before supper." },
@@ -975,6 +1029,7 @@ P:NPC {
         { text = "What do the orphans ask about when they pray, Matron?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the older boys train as soldiers, Matron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you fear what I am, Matron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the orphans need most, Matron?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Matron.", next = "END" },
       },
     },
@@ -1079,6 +1134,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Gently, and in daylight, and nothing that bangs. The Light will see them right, but a little wonder never hurt a child." } },
+      choices = {
+        { text = "Wonder is a gift, Shellene. I'll be gentle with it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They need lessons, not wonders. Teach them something useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -1161,6 +1225,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Oh, please don't let your beast near the kitchen; the last time a dog got in, we lost a whole loaf and two of the children chased it to the canals." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! The children will beg to see a bear, and Matron's already said no, so please don't let them talk you into it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, Light preserve us! Keep that thing away from the children, please, before one of them tries to feed it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The children will be delighted and frightened at once, which is how they are about most things, the little dears." },
       },
       again = {
         { id = "h_again", text = "Something else, dear? Quickly, before they find the jam." },
@@ -1176,6 +1241,7 @@ P:NPC {
         { text = "Do the children look up to paladins, Shellene?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the children ever ask about the night elves, Shellene?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light see a warlock right too, Shellene?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will you let me show the children something of the spirits?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
