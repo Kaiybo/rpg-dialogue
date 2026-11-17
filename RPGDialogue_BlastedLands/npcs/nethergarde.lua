@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If you can tell me when the next caravan from Darkshire's in trouble, you'd be the most useful soul in the keep. The fel out there sours everything, though, and I'd wager it sours your spirits too." } },
+      choices = {
+        { text = "I'll serve the keep however it needs me, ledger and all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spirits don't fit in ledgers. I'll go where they lead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They feed the wards that watch the Portal, as I understand it, and when the stones go dark the wards go dark with them. I don't pretend to know how, but I know that when a crate comes in late, Mahar Ba stops sleeping, and then everybody hears about it." } },
@@ -77,6 +86,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's the one person in the Blasted Lands who brings me more than they take. Sit down; I'll find you something that isn't hardtack." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Nethergarde! I've a crate of seed corn nobody's managed to grow out here, and you're very welcome to try, though I'd not stake my supper on it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of Ironforge! I'll write you in the ledger as a soldier, because I haven't got a column for people who talk to the elements, and I'm not about to make one." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; there's a wagon due and I'd like to count it before the ogres do." },
@@ -97,6 +107,7 @@ P:NPC {
         { text = "Why do the mages need so many powerstones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who takes your crates on the road?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why won't anything grow around Nethergarde, Quartermaster?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does Nethergarde have any use for a shaman, Quartermaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out for your crates.", next = "END", fx = { affinity = 1, standing = { nethergarde = 1 } } },
       },
     },
@@ -911,6 +922,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That the line between Horde and Alliance is thinner than either side pretends. The elements answer an orc and a dwarf alike, and if they see no difference between you, I wonder why we insist on killing each other." } },
+      choices = {
+        { text = "The elements may not choose sides, but I do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps you're right. The spirits care nothing for banners.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The servants of the Burning Legion, which is a far older enemy than any orc. The Alliance spends good swords on Horde patrols in Ashenvale while the Shadowsworn bleed onto altars a few miles from this keep, and I find that very difficult to watch politely." } },
@@ -976,6 +996,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "On cold nights like this one I count the demons' fires in the south from the wall. There are more of them than there are of us, and that's before you count the ogres." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You of all people should hear me out, for the Circle has always said that the land matters more than the banners fighting over it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How interesting; your people learned their strength from the stone, and now some of you learn the orcs' old ways as well, which proves my point rather nicely." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm in no hurry; nobody here wants to talk to me anyway." },
@@ -996,6 +1017,7 @@ P:NPC {
         { text = "Who should a warrior be fighting, then, Ambassador?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's south of the keep that you keep watching, Ambassador?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Circle truly say the land matters more than banners, Ambassador?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What point does a dwarf shaman prove, Ambassador?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Ambassador.", next = "END" },
       },
     },
@@ -1175,6 +1197,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Oh, the Thunderbrews mind everythin', {g:lad|lass}. They'd say the stone's for minin', the ale's for drinkin' an' spirits are for orcs, but I'm stuck here starin' at the Portal, so I've stopped mindin' much." } },
+      choices = {
+        { text = "Khaz Modan's stone speaks to me. I'll not hide that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I honor the old ways too. The spirits only add to them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "One mug steadies yer hand an' two makes ye brave, an' by the third ye're the bravest corpse the Dreadmaul ever ate. My granda carried a flask through the whole o' the Second War, an' he always said the trick was knowin' which side o' the battle tae drink on." } },
@@ -1260,6 +1291,7 @@ P:NPC {
           text = "A priest, an' a long way from any chapel! Ye'll find little holy out here, but there's a mug o' Thunderbrew in my kit, an' I'd call that a blessin' o' sorts." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Now if ye're here tae lecture me on duty, I'll tell ye I've never missed a watch, drunk or sober, an' I've the scars tae prove it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' a dwarf! My da' would've choked on his ale, an' I think I like ye already for it." },
       },
       again = {
         { id = "h_again", text = "What else, friend? My mug's half full, so I've got time." },
@@ -1279,6 +1311,7 @@ P:NPC {
         { text = "Does a dwarf on duty need a mug in hand, Enohar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a mug before battle good for a warrior, Enohar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting out in the Blasted Lands?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would your family really mind a dwarf shaman, Enohar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your brew, Enohar.", next = "END" },
       },
     },
@@ -1383,6 +1416,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everything here troubles them: the red sky, the fel in the water, the smell off the Portal. If your spirits have any kindness left for this land, I'd ask them to spare a little for my birds." } },
+      choices = {
+        { text = "This land can heal, given time and care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "This land is lost. Burn out the fel and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They can, and they do, though they grumble about it the whole way to Darkshire, and I don't blame them. The Wildhammer flew riders straight into the Horde's lines in the Second War, so I tell my birds a soldier in plate is nothing their kind hasn't carried before." } },
@@ -1476,6 +1518,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want my steadiest bird, then, because the heavy riders frighten the young ones, and the young ones are all I have left after this spring." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! My gryphons perked up when you walked in, and they don't do that for anyone in this keep, so I'll thank you to stay a while." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My gryphons are calmer around you already, and in this place I'll take calm from anywhere it comes." },
       },
       again = { { id = "h_again", text = "Is there something else, or shall I saddle a bird for you?" } },
       choices = {
@@ -1490,6 +1533,7 @@ P:NPC {
         { text = "How do you keep your gryphons healthy here, Alexandra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do the Blasted Lands do to your gryphons, Alexandra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your gryphons really bite anyone who sneaks up on them, Alexandra?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the Blasted Lands trouble your gryphons, Alexandra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1544,6 +1588,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They talk about everything, and you'd be news for a week, I'd guess. Some say it's orc magic and some say the dwarves always did talk to rocks, and I just say pass the cheese." } },
+      choices = {
+        { text = "Let them talk. I serve Ironforge, same as them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them call it orc magic. The spirits don't mind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That they're big and stupid and very hard to kill, mostly, and that there's always more of them coming down from Dreadmaul Hold. One of the lads swears an ogre ate his shield, which I don't believe, though I'll admit I never saw the shield again." } },
@@ -1637,6 +1690,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want a proper meal, then, because plate is heavy, and I'll swear the keep's cooking is better than anything Darkshire's sending down the road." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't think much of my larder, I'm afraid; it's bread, cheese and water, because nothing that grows in the Blasted Lands is fit for anyone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Well, I've never fed one before, but I expect the spirits don't eat much, so you'll have their share as well as yours." },
       },
       again = { { id = "h_again", text = "Anything else, or shall I wrap something up for the road?" } },
       choices = {
@@ -1651,6 +1705,7 @@ P:NPC {
         { text = "What's the strangest thing the soldiers have tried to eat here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone tried to grow food here, Bernie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the soldiers here trust a warlock at their table, Bernie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the soldiers here talk about a dwarf shaman, Bernie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },
@@ -1709,6 +1764,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Our fathers took their strength from the forge an' the stone, no' from bargainin' wi' spirits like the orcs we fought in the Second War. But yer coin's good, an' I've armored stranger." } },
+      choices = {
+        { text = "The forge and the stone have spirits too, Strumner.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I keep Ironforge's ways. The spirits only lend a hand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -1778,6 +1842,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. Ye'll not need much from my forge, I'd wager, but the soldiers here are glad o' ye, so sit by the fire if ye like." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye'll not want my steel, I'd wager, but if ye've armor that needs mending after a fight as a bear, bring it here and I'll see what I can do." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Never thought I'd see a dwarf wi' totems hangin' off a belt, an' I'll not pretend I like it." },
       },
       again = { { id = "h_again", text = "Anythin' else, or can I get back tae the anvil?" } },
       choices = {
@@ -1791,6 +1856,7 @@ P:NPC {
         { text = "What does this dust do to a hunter's mail?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you mend much druid armor out here, Strumner?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you mend armor for a warlock, Strumner?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What's wrong with a dwarf shaman, Strumner?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },

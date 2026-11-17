@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think about them every time I write a trophy into the book. A hunter honors his quarry by takin' it clean, an' if the spirits mind, they've never said so tae me." } },
+      choices = {
+        { text = "A hunt with rules honors the beast. I'll hunt as you do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Beasts aren't trophies, Hemet. The spirits want them free.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd hunt wi' anyone who walks quiet an' shoots fair, an' I've no quarrel wi' the dead so long as they dinnae scare the cats. The Light's a strange companion on a hunt, but I'll take a steady hand over a pretty face any day." } },
@@ -122,7 +131,7 @@ P:NPC {
           text = "Kebok has been running my name down at the bar, I'm told, and yours along with it. A man who sells false trophies should be careful whom he calls a cheat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Well now, a priest, an' a quiet one I hope, for the game in this jungle hears a footfall from a hundred paces an' a hymn from twice that." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin! Now there's a fine sight in this camp, for I've hunted wi' warriors an' rangers, but I've never had one o' the Silver Hand stalk a tiger wi' me." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde in my camp. Pray all ye like, so long as ye do it quiet, for the game hears everythin'." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll hunt beside near anybody, but no beside a demon, so keep yer wee beastie well away from my trophies." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -145,6 +154,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I don't suppose ye could freeze a panther in its tracks long enough for a proper shot? It'd make a dull story, but a very fine trophy." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? Ye'll scare the game clean out o' the valley wi' all that clankin', so stand still a moment an' let the cats come back." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! An' one o' the Forsaken, by my eyes, which I'll admit I didnae expect tae see stalkin' through my camp. Keep downwind o' the game, if ye'd be so kind." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've hunted wi' a great many dwarves, but never one who talks tae the beasts' spirits, so ye can tell the great cat I'm comin' for him." },
       },
       again = {
         { id = "h_again", text = "Aye? Out wi' it, then, for the light's goin'." },
@@ -152,7 +162,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Pour yerself one an' ask away. Barnil willnae mind, though Barnil always minds." },
       },
       choices = {
-        { text = "Do you ever think about the spirits of what you hunt?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you ever think about the spirits of what you hunt?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Is magic any use on a hunt, Nesingwary?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "You hunt these creatures for sport. That troubles me.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why hunt at all?", next = "why" },
@@ -171,6 +181,7 @@ P:NPC {
         { text = "Could a rogue be a good hunter, Nesingwary?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really use magic in a hunt, Nesingwary?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you hunt alongside a Forsaken paladin, Nesingwary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you ever think about the spirits of what you hunt?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -364,6 +375,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It has room for anythin' wi' a good story, an' ye're a better one than most o' the panthers. Just don't go talkin' tae the beasts before the master shoots them, for he'll call it unsporting." } },
+      choices = {
+        { text = "I'll respect the master's hunt, Barnil.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll warn the beasts if the spirits ask me to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "He doesnae say much, for he's a hunter first an' a politician never. He'll look at ye long an' hard, the way he looks at a cat he hasnae made up his mind about, an' then he'll decide." } },
@@ -449,7 +469,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll forgive the mess, for the master's pages blow all over the camp an' I've no' had time tae tidy, but sit an' rest, for the jungle's hard on soft feet." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, here! The master'll be pleased, for he's always sayin' the Alliance needs more heroes, an' never mind that he's one himself, though he'll no' admit it." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde. Well, keep yer loa or yer shadows away from the master's book, for it's in bad enough shape already." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock in the master's camp. Keep yer beastie away from the rifles, for they're loaded, an' so am I." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -466,13 +486,14 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you dry out the camp a bit? The damp's getting into the pages, and Hemet won't hear of moving the book indoors." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Ye'll be wantin' tae see the master, I suppose, but wipe yer boots first, for I've only just swept the camp." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, here! An' one o' the Forsaken, which the master'll find very interestin', though he'll pretend he's only interested in panthers." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at the master's camp! Well, I never. The master'll want tae write ye down, an' so will I." },
       },
       again = {
         { id = "h_again", text = "Aye? I'm listenin'. My hands are busy, my ears aren't." },
         { id = "h_again2", text = "Somethin' else, friend? Ask away, only mind the oil." },
       },
       choices = {
-        { text = "Does Nesingwary's book have anything to say about shamans?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does Nesingwary's book have anything to say about shamans?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Has magic ever helped with the master's lost pages?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's the book about?", next = "book" },
@@ -488,6 +509,7 @@ P:NPC {
         { text = "Why are the pages of Nesingwary's book loose, Barnil?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why won't Nesingwary move the book indoors, Barnil?", next = "xmage", when = { class = "MAGE" } },
         { text = "What does the master think of the Forsaken, Barnil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Does Nesingwary's book have room for a dwarf shaman?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -824,6 +846,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They fear anything they can't price or marry, so yes, I should think so. I left all that behind for the jungle, and I'd sooner trust someone who listens to the land than someone who owns it." } },
+      choices = {
+        { text = "I serve the Alliance, nobles and all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the nobles fear. The land doesn't answer to them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They treated them as furniture, mostly, polished and placed and forgotten until something needed defending. I sat in the House of Nobles beside men who'd never held a sword, sending men who had to die, and that is one of the reasons I hunt panthers now." } },
@@ -892,7 +923,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. In Stormwind they'd call you a savage, and once I'd have nodded along, but I've met nobles who could learn a thing from you." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. In Stormwind they'd call you a savage, and once I'd have nodded along, but I've met nobles who could learn a thing from you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. In Stormwind they'd bar the Cathedral doors to you, and once I'd have held the bar myself; I'm less sure of myself now." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I knew nobles in Stormwind who dabbled in your sort of power behind locked doors, and they were worse company than any demon." },
         { id = "h_default", key = true,
@@ -907,13 +938,14 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. In Stormwind you'd be standing guard at some lord's door, but out here, at least, the panthers will give you a real fight." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Then you'll understand why I gave up a seat among the nobles for a tent in the mud, and you won't think me mad for it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid in a hunting camp! You'll think us barbarians, I expect, and some days I'd agree with you, but the panthers have never once lied to me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. In Stormwind they'd call you a heathen, and once I'd have nodded along, but I've met nobles who could learn a thing from you." },
       },
       again = {
         { id = "h_again", text = "Yes? I've time; I have nothing but time, which is rather the point of exile." },
         { id = "h_again2", text = "Something further? Ask it, by all means." },
       },
       choices = {
-        { text = "Do Stormwind's nobles fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do Stormwind's nobles fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Did the House of Nobles ever fear what magic could do?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why did you leave the House of Nobles?", next = "nobles" },
         { text = "Why panthers?", next = "panthers" },
@@ -927,6 +959,7 @@ P:NPC {
         { text = "Why do you miss rogues more than nobles, Sir Erlgadin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why didn't you trust the court's mages, Sir Erlgadin?", next = "xmage", when = { class = "MAGE" } },
         { text = "How many panthers does this camp need to take, Sir Erlgadin?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Would Stormwind's nobles fear a dwarf shaman, Sir Erlgadin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Sir.", next = "END" },
       },
     },

@@ -18,6 +18,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "A frostsaber accepts no one easily, and I judge riders by years of work. If the spirits of the snow favour you, that is a start, but only a start." } },
+      choices = {
+        { text = "I'll earn it with years of work, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The spirits' favour should count for more than years.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "The sabers have long memories, and their mothers remember Felwood and what crawled out of it. I won't turn you away, since the Wintersaber Trainers need every hand against the Winterfall, but I'll ask you to work on the far side of the rock, and I won't ask twice." } },
@@ -111,6 +120,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, here in the frostsaber valley. The cubs know your kind by scent, I think, and they come to you more readily than to the Sentinels who train beside me." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clad in steel, at the saber pens. My cats think you are a very strange sort of bear, so walk slowly until they know your scent." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The frostsabers are restless, which means they've caught your scent and can't decide what you are." },
       },
       again = {
         { id = "h_again1", text = "What else? The cubs need feeding." },
@@ -129,6 +139,7 @@ P:NPC {
         { text = "Do your frostsabers accept a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How does a priest earn a place at Frostsaber Rock?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a demon's scent truly so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would a frostsaber accept a dwarf shaman, Rivern?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your cats.", next = "END" },
       },
     },
@@ -400,6 +411,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think so, though the furbolgs' sickness has made them harder to hear. Walk with me to the altars, and if you hear the earth stir, tell me before the ice does." } },
+      choices = {
+        { text = "I'll guard the altars with you, Ranshalla.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Elune's altars are your concern, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I would, so long as your demon stays behind you and never in front. The altars were dark for a reason, and whatever put them out may come back when the torches are lit, so I'll need someone who knows what darkness looks like when it moves." } },
@@ -484,7 +504,7 @@ P:NPC {
           text = "A warrior! Oh, good, because I'll be honest with you, I'm no fighter, and the things around the altars don't care much how kind I am." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You'll see the trail to the altars before I do, and the eyes watching it, which I'll confess I usually notice far too late." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde? I didn't think one of you would come to an altar of Elune, but the spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde? I didn't think one of you would come to an altar of Elune, but the spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You'll be useful when we reach the altars, I think, because whatever lurks in those old places will not expect a spell from behind me." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -492,13 +512,14 @@ P:NPC {
         { id = "h_default", text = "I am Ranshalla, a priestess of Elune, and there are old altars in these hills that have been dark for far too long. I mean to light their torches again, but the wild things guard them now, and I can't go alone." },
         { id = "h_cond", when = { class = "PRIEST" }, text = "A priest! Then you'll feel it too, when we reach the altar, the way the Mother Moon still listens there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The altars I mean to light were raised before the Sundering, and I think the Circle would be glad to see them burning again." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at an altar of Elune? The spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
       },
       again = {
         { id = "h_again1", text = "What else, friend?" },
         { id = "h_again2", text = "Speak, the moon is patient tonight." },
       },
       choices = {
-        { text = "Do the old altars still draw the land's spirits?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the old altars still draw the land's spirits?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What do the altars mean to the wild things, Ranshalla?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's at the altar?", next = "altar" },
         { text = "Why do the altars matter to Elune?", next = "elune" },
@@ -510,6 +531,7 @@ P:NPC {
         { text = "What watches the trail to the altars, Ranshalla?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think the Light and Elune are so alike, Ranshalla?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would Elune's priestess truly walk with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the old altars still draw the land's spirits?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune keep you, Ranshalla.", next = "END" },
       },
     },

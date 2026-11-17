@@ -344,6 +344,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The ground hums at night, and they won't settle. Squires aren't taught about spirits, so I'd be grateful if you'd tell me what to do." } },
+      choices = {
+        { text = "Soothe them gently, Squire. Fear spreads in a stable.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Work them harder, Squire. A tired beast sleeps.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Hard enough to send a grown tauren into the water trough, which I saw happen last week, and I wasn't allowed to laugh. If you need to slip in and out quietly, use the side door, and I'll pretend I didn't see you, but only if you're on the Hold's business." } },
@@ -422,7 +431,7 @@ P:NPC {
           text = "A rogue! I don't suppose you've any beast for the stables, but you're welcome all the same, and please don't sneak up on the horses, because they kick." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Welcome to the stables, and if your charger needs grooming, you'll find I treat every mount here as I would the commander's own, which is to say very well." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Welcome to the stables, and please, if you've a blessing to spare, one of my mounts came back from the Twilight camps and hasn't eaten since." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! I'm sorry, but I can't stable demons, not even little ones, because the beasts here are frightened enough of the desert as it is." },
@@ -433,6 +442,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Is your mount well? Not that I'd presume, but a war-mount in this sand needs looking after, and I'm the one who looks after them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll understand my charges better than most of their own masters do, and you'll forgive me if I ask how the desert beasts seem to you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've three stalls to muck out before the heat." },
@@ -440,7 +450,7 @@ P:NPC {
       },
       choices = {
         { text = "How do the beasts fare in this heat?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "What unsettles the beasts here at the Hold?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What unsettles the beasts here at the Hold?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why call yourself a squire?", next = "squire" },
         { text = "What's hard about keeping beasts here?", next = "sand" },
@@ -450,6 +460,7 @@ P:NPC {
         { text = "Why do you take the title of squire so seriously, Leoren?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you dream of being a paladin yourself, Leoren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the horses really kick that hard, Leoren?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What unsettles the beasts here at the Hold?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

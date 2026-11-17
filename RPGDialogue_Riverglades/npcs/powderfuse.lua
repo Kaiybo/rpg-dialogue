@@ -505,6 +505,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not unless your spirits can make the Brotherhood forget what I did. Go on, ask Zizplink for my drink, if the spirits are busy." } },
+      choices = {
+        { text = "Go back to the Brotherhood and face it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Drink, then. The Brotherhood can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gray Dawnbright, Brotherhood of the Horse, on leave from it, or it's on leave from me; I haven't decided. Make yourself useful and get Zizplink to fill this." },
@@ -520,6 +529,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Can you turn water into ale? No? Then what good are you?" },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Whatever that thing is, it's looking at my drink, so tell it to stop." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Turn into a bear and frighten Zizplink into giving me credit, and I'll love you forever." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Great. Can your spirits fetch me a drink, or are they as useless as the rest of Powderfuse?" },
       },
       again = { { id = "h_again", text = "Still here? Fine, then, talk." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
@@ -538,6 +548,7 @@ P:NPC {
         { text = "Was there a mage in the Brotherhood before Ashe?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my companion bother you, Gray?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why would you want to frighten Zizplink?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you have any use for a shaman, Gray?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Leave you to it.", next = "END" },
       },
     },

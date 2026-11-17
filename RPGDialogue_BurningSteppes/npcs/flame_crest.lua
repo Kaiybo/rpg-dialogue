@@ -1527,7 +1527,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The sky over the Steppes is thick with ash and angry fire, and my riders feel it, so if the spirits have anything to say about it, tell them to say it quietly." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. The sky over the Steppes is thick with ash and angry fire, and my riders feel it, so if the spirits have anything to say about it, tell them to say it quietly." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Wounded come through Flame Crest on their way home from the mountain, and most of them wish they'd met you sooner." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. My riders don't like anyone they can't hear coming, so walk heavy near the perch, or you'll learn how sharp their beaks are." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Blackrock up on the mountain keep warlocks too, the old kind, and my riders can't tell the difference by smell." },
@@ -1553,7 +1553,7 @@ P:NPC {
         { text = "Why do the wind riders hate the Steppes' sky, Vahgruk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do your wind riders really bite anyone they can't hear, Vahgruk?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do many wounded fly out of Flame Crest, Vahgruk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the elements here trouble your wind riders, Vahgruk?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the elements here trouble your wind riders, Vahgruk?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Where is home for one like me, Vahgruk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },

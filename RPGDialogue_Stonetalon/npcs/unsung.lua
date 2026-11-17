@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That the goblins keep cutting and the forest keeps dying. My birds fly above it, but I would rather they flew above something green." } },
+      choices = {
+        { text = "The forest will grow back, given help.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn the goblins out before they burn the forest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They have, in older days, and they would again if Darnassus called for it. For now I keep them for messengers and travellers, and I watch the smoke from the vale so I'll know when that day is coming." } },
@@ -110,6 +119,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll see the smoke from up here too, I expect, and you'll know there are wounded somewhere beneath it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, though you'll want to hold on tight, because the mountain winds don't respect armour." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The hippogryphs will carry you, but they'll ruffle their feathers the whole way, and so will I." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks to the winds. My hippogryphs fly through the smoke from the vale every day and tell me nothing, so perhaps the wind will tell you." },
       },
       again = {
         { id = "h_again", text = "What else? The wind's steady, so there's no hurry." },
@@ -127,6 +137,7 @@ P:NPC {
         { text = "Is there anyone below who needs a healer, Teloren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin watch for from up here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your hippogryphs carry a warlock, Teloren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does the smoke from the vale tell you, Teloren?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Teloren.", next = "END" },
       },
     },

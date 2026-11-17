@@ -366,6 +366,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Ogron not troubled. Rocks never talk to Ogron, so Ogron happy if rocks talk to somebody. You ask rocks where Reethe hide, maybe." } },
+      choices = {
+        { text = "We'll find Reethe properly, Ogron, and bring him to Theramore.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget Theramore's rules. We'll deal with Reethe our own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Ogron little scared, but Ogron know what it like when people scared of you. Everybody look at Ogron and see ogre who smash, and maybe everybody look at you and see dead who bite, so Ogron try not to look that way." } },
@@ -465,6 +474,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You druid! Ogron see you turn into bear, once, by the water, and Ogron think that very good trick." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You quiet one! Ogron not hear you come, and Ogron have very big ears, so you must be very good at sneaking." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You shiny one, but you dead one too! Ogron see dead ones and shiny ones, but never one who is both, so Ogron not know if he should be scared." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You dwarf, but you talk to rocks like orc shaman. Ogron not know dwarves do that." },
       },
       again = { { id = "h_again", text = "You want ask Ogron more?" }, { id = "h_again2", text = "Ogron listening, friend." } },
       choices = {
@@ -482,6 +492,7 @@ P:NPC {
         { text = "What do you hunt in the marsh, Ogron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How did you learn what happened at the inn, Ogron?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are you scared of me, Ogron?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Does it trouble you, Ogron, that a dwarf talks to rocks?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -530,6 +541,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The marsh can say what it likes. I've kept this post for the Lady a long time, and I don't need spirits looking over my shoulder." } },
+      choices = {
+        { text = "I'll take your word, Private, for now.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll watch you, Hendel, and wait for you to slip.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -609,6 +629,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage on the north road? Good, because Archmage Tervosh is always on about sending us a ward for the tower, and you're the closest thing I've seen to one." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at Sentry Point. Keep that thing on a short leash, because the lads on the tower have seen what comes out of the fog and they don't need to see what comes out of you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfen", min = 30 } }, text = "The lads on the tower say the raptor calls have gone quiet along the road, and I think we have you to thank. It's the first quiet night we've had in a month." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. You'll be asking the stones what I saw, then, and I'll tell you what I told everyone else: nothing out of the ordinary." },
       },
       again = { { id = "h_again", text = "Anything else, citizen?" }, { id = "h_again2", text = "Make it quick; I'm on watch." } },
       choices = {
@@ -624,6 +645,7 @@ P:NPC {
         { text = "Does keeping the peace with the Horde sit well with you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the raptors really closing in on Sentry Point?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What comes out of the fog, Private?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The marsh saw what happened here, Hendel. Did you?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -751,7 +773,7 @@ P:NPC {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "Hunter! Mok'Morokk like hunter, because hunter bring meat, and Mok'Morokk always hungry." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You shaman! Orc shaman talk to rocks, and rocks listen. Mok'Morokk talk to rocks, and rocks do nothing." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "You shaman! Orc shaman talk to rocks, and rocks listen. Mok'Morokk talk to rocks, and rocks do nothing." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You priest! Mok'Morokk not care which god you talk to, as long as you fix Stonemaul when they get hurt." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Sneaky one! Mok'Morokk see you coming, because Mok'Morokk not stupid, so you keep hands off Mok'Morokk's food." },
         { id = "h_default", key = true, text = "Me Mok'Morokk, overlord of the Stonemaul! The black dragon killed our chief and drove us from our home, so now we live here, with the orcs, and Mok'Morokk the boss." },
@@ -764,7 +786,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else you want?" }, { id = "h_again2", text = "Speak! Mok'Morokk hungry." } },
       choices = {
         { text = "Do the Stonemaul miss their old home?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do the Stonemaul have shamans of their own?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the Stonemaul have shamans of their own?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What does Brackenwall need from a spellcaster?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who in Brackenwall should I keep an eye on?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What happened to the Stonemaul?", next = "b1_1" },
@@ -904,7 +926,7 @@ P:NPC {
           text = "A warrior. The overlord respects anyone who can lift more than he can, which is a short list, so you will find him easy to impress." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The black whelps of the Wyrmbog are clever, and they learn from every hunter who misses, so do try not to teach them anything." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of Thrall's Horde. The Warchief's restoring of your old ways is the reason the Stonemaul trusted the orcs at all." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of Thrall's Horde. The Warchief's restoring of your old ways is the reason the Stonemaul trusted the orcs at all." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Stonemaul have little use for prayer, but they have a great deal of use for healing, and I would be grateful if you offered the second without preaching the first." },
         { id = "h_default", key = true, text = "I am Draz'Zilb, advisor to Overlord Mok'Morokk. While he leads the Stonemaul with his fists, I lead them with knowledge, and between us we keep Brackenwall standing." },
         { id = "h_c0", when = { class = { "MAGE", "WARLOCK" } }, text = "A fellow student of the arcane. Most ogres think magic is merely a loud kind of club, and it is pleasant to speak with someone who knows better." },
@@ -915,7 +937,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Draz'Zilb hears you, small one. Ask your next question and be clever about it." }, { id = "h_again2", text = "Ask, and I shall answer if I can." } },
       choices = {
-        { text = "Why did shamans make the Stonemaul trust the orcs?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why did shamans make the Stonemaul trust the orcs?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What do the Stonemaul need most, Draz'Zilb?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Does the swamp still feel the black dragons, Draz'Zilb?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Brackenwall.", next = "b1_1" },

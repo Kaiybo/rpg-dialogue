@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They sense storms coming off the sea a day before the Baron does, so aye. Booty Bay's a goblin town, and goblins would sell the weather if they could catch it, so I'd keep your spirits close." } },
+      choices = {
+        { text = "The weather isn't for sale, whatever goblins think.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If goblins want to buy the weather, I'd sell it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Wildhammer do, up in the Hinterlands, flinging storm hammers from the air, but our birds are couriers, not warbeasts. Still, a gryphon will defend its rider if it's cornered, and that's a fight you don't want to be on the wrong side of." } },
@@ -117,6 +126,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Believe it or not, gryphons like a heavy rider, because the weight steadies them in the sea wind, so you'll have a calm flight north." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, I'd know the look anywhere, because you're eyeing my gryphons the way I eye a fine animal and not the way a passenger does." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my ledge! My gryphons like you, which is more than I can say for most travelers, so don't ruin it by turning into anything they'd want to eat." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My gryphons don't care much for pirates, but they'll sit still for you, which is more than they do for me." },
       },
       again = {
         { id = "h_again", text = "Anything else? The gryphons hate this salt air, so let's not keep them waiting." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "How do you train a gryphon to carry riders, Gyll?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your gryphons fear shapeshifters, Gyll, or only the ones that smell wrong?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will your gryphons really carry a warlock, Gyll?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your gryphons sense the spirits, Gyll?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -281,7 +292,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders settle when one of you is near, so stand by them if you like, but don't feed them." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. The wind riders settle when one of you is near, so stand by them if you like, but don't feed them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The beasts smell the grave on the Forsaken and the loa on the trolls, and they like neither, so come up slowly." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. You could teleport home and spare my riders the trip, but you won't, because that costs you reagents and this costs you gold." },
         { id = "h_default", key = true,
@@ -300,7 +311,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, ask." },
       },
       choices = {
-        { text = "Do the winds over the jungle ever turn against your riders?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the winds over the jungle ever turn against your riders?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What threatens your riders along the coast, Gringer?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me the routes.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "What's the trouble on the coast road?", next = "road" },
@@ -381,6 +392,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everything worries a banker, friend. Dwarves keep their gold in stone and you talk to stone, so I'd rather not find out what happens if the vault walls start listening to you." } },
+      choices = {
+        { text = "Your vault is safe. I don't steal, with spirits or hands.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then keep me happy, and the walls stay quiet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Spare armor, old trophies and heirloom swords from regiments that don't exist anymore, a good many of them from Stromgarde, and some of it's worth more than the warrior who owns it. I keep it all oiled, too, because rust is bad for business and worse for my reputation." } },
@@ -469,7 +489,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your coin is welcome in my vault, and I'd guess you've less of it than a pirate and keep it far more carefully, which makes you my favorite kind of customer." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your coin is welcome in my vault, of course, though I've never yet understood why the faithful keep so little of it." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. Your coin is welcome here, and so are you, provided the lightning stays outside the vault." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde. Your coin is welcome here, and so are you, provided the lightning stays outside the vault." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! The Cartel holds relics for many faiths, all of them insured and none of them guaranteed, and yours would be in very good company." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Ah. Your account is welcome here, friend, but my vault has three locks, and I'm the only one with all three keys." },
         { id = "h_default", key = true,
@@ -481,13 +501,14 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll want to deposit that spare sword, I'd guess, because in Booty Bay a spare sword left under a bed walks off by morning." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Pelts, horns and fangs, I suppose, and you'll want them stored dry, which in this town takes skill, and I have the skill." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I'd ask what you keep in my vault, but I've learned not to; the last druid's box hummed, and the one before that sprouted." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Your coin is welcome here, and so are you, provided the lightning stays outside the vault." },
       },
       again = {
         { id = "h_again", text = "Anything else I can hold for you? Coins, secrets, small cursed objects?" },
         { id = "h_again2", text = "More questions? Banking is a patient art." },
       },
       choices = {
-        { text = "What do shamans usually keep in a Steamwheedle vault?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do shamans usually keep in a Steamwheedle vault?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Has anyone ever tried to rob a Steamwheedle vault with magic?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "I need my vault.", next = "BUSINESS" },
         { text = "How safe is a bank in a pirate town?", next = "safe" },
@@ -500,6 +521,7 @@ P:NPC {
         { text = "Do you store pelts and trophies, Viznik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "A box sprouted in your vault, Viznik? What did you do with it?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Is a Steamwheedle vault really safe for a paladin's savings, Viznik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does a dwarf shaman worry a goblin banker, Viznik?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

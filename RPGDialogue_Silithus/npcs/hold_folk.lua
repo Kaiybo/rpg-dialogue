@@ -395,7 +395,7 @@ P:NPC {
       lines = {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde. Good, your fire burns bugs as well as it burns Alliance, and the Horde needs every bit of it here." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Good, that is the Warchief's own path, and we need your lightning at this front more than we need anyone's prayers." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde! Good, that is the Warchief's own path, and we need your lightning at this front more than we need anyone's prayers." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have said we need lightning more than prayers, but the healers here have kept enough of my warriors standing that I would take it back, if you asked." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue of the Horde! I prefer an axe in the open, but I won't turn away a blade in the shadows, not with the bugs breeding faster than we can kill them." },
@@ -411,7 +411,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
         { text = "Will the Horde fight beside the Circle here?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "The earth here is sick with hives. How does the Horde fight it?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The earth here is sick with hives. How does the Horde fight it?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What is the Horde doing here?", next = "b1_1" },
         { text = "What of the Alliance?", next = "b2_1" },
         { text = "How do I help?", next = "b3_1" },
@@ -471,6 +471,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The hives move under us, and the Horde's shamans warn their own people before ours. If you can hear what they hear, the Alliance won't be the last to know." } },
+      choices = {
+        { text = "I'll share what I hear with everyone at the Hold.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll tell the Alliance first, and the Horde when it suits us.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Because the Twilight's Hammer calls to things it cannot control, and I'd rather not see what happens when a demon hears the call. You keep a firm hand on your creature, and I'll keep a firm hand on my men, and we'll get on well enough." } },
@@ -565,6 +574,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance! The Circle's scouts are good, but I'd trust one of our own to tell me plainly what's moving out by the hives." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Darnassus at the Hold. Good; Tyrande's people know this foe better than Stormwind's generals do, and I could use the counsel." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The Horde shamans here hear the swarm under the sand, I'm told, and I'd very much like an Alliance ear on that too." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Ask, friend." } },
       choices = {
@@ -581,6 +591,7 @@ P:NPC {
         { text = "What do you need from a paladin here, Merok?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the wounded so many, Merok?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should my demon stay clear of the cult, Merok?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you have an Alliance shaman listen for, Merok?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

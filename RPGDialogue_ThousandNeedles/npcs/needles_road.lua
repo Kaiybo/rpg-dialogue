@@ -370,7 +370,7 @@ P:NPC {
         { id = "h_c0", when = { race = "Tauren" }, text = "A fellow tauren who walks the Earth Mother's path, not Magatha's. You are welcome at my fire." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "You walk the Earth Mother's path as a druid should, but Magatha's people bend the spirits to their will, and I would hear what you make of that." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, because the Grimtotem call on the elements too, and I want someone at Freewind who can call back louder." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! Good, because the Grimtotem call on the elements too, and I want someone at Freewind who can call back louder." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Grimtotem have shamans of their own and they'd love to prove the spirits favor them, so stand with Freewind and let your prayers answer theirs." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The Grimtotem think the Needles belong to them, so I'd very much like to see your fire prove them wrong at Darkcloud Pinnacle." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -386,7 +386,7 @@ P:NPC {
         { text = "Why not go back to Mulgore?", next = "b2_1" },
         { text = "What of the goblins in the Flats?", next = "b3_1" },
         { text = "I'll take the fight to them.", next = "x_1", when = { class = "WARRIOR" } },
-        { text = "What would you have a shaman do against the Grimtotem, Motega?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What would you have a shaman do against the Grimtotem, Motega?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "How strong are the Grimtotem's spellcasters?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Are you being too harsh on them?", next = "s_1" },
         { text = "My power is not the Grimtotem's, Motega.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -785,6 +785,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because gnomish engineering is precise and goblin engineering is loud, and somebody has to prove that precise wins. Ironforge and Gnomeregan have built things together for a long time, so you know exactly what I mean." } },
+      choices = {
+        { text = "Win it fairly, Wizzle. No gusts from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "One little gust couldn't hurt. For the Alliance.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In theory, absolutely, though in practice it weighs about as much as a dwarf and heats up in the sun. I did build a breastplate from a rocket car's front panel once, and it stopped a goblin wrench beautifully, right before it melted." } },
@@ -890,7 +899,8 @@ P:NPC {
           text = "A paladin! Do you know, your armor has a lovely articulation at the elbow, and I'd love a look at the hinge, purely for engineering reasons, of course." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Fascinating, simply fascinating; I'd love to know how your shapeshifting works, mechanically speaking, if you'd ever let me take a few measurements." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Hold on, are you here from Pozzik's crew? Because you've got that sneaky look about you, and the last time I saw that look, my fuel line went missing." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Could you ask the winds to blow the goblin car off the track? No? Not even a little gust?" },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! Could you ask the winds to blow the goblin car off the track? No? Not even a little gust?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Could you ask the winds to blow the goblin car off the track? Just a little gust, for the Alliance?" },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Questions? I love questions!" } },
       choices = {
@@ -905,7 +915,8 @@ P:NPC {
         { text = "Could racing armor plate work for a warrior, Wizzle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could a machine ever replace a hunter's beast, Wizzle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Has Pozzik really been stealing your parts, Wizzle?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Why do you want to beat the goblins so badly, Wizzle?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why do you want to beat the goblins so badly, Wizzle?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Why do you want to beat the goblins so badly, Wizzle?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

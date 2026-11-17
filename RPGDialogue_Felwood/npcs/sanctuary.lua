@@ -679,6 +679,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and you'd say the spirits are sick, and I think we're describing the same wound." } },
+      choices = {
+        { text = "Then we'll mend it together, Arathandris.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some wounds can't be mended. Cut it out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'll accept anyone who carries a beacon and doesn't let it go dark. The curse here is old and stubborn, and you are stubborn too, I think, since even death couldn't keep you from the Light." } },
@@ -787,7 +796,7 @@ P:NPC {
           text = "A mage. I spent a morning watching one clean flower by the road, and I'd wager you've spent mornings watching stranger things, so perhaps we're more alike than we look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance! Then you have patience, which is the one thing the curse can't take from us, and the thing it tests hardest." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock of the Alliance, and in my camp. Stormwind permits your kind, I know, but I will be honest with you: I would rather you left your demon outside the sanctuary." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -807,10 +816,11 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Maybess works with your people, to the north, but the curse doesn't care whose prayers it hears, so I'll hear you out." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, come to Felwood. The curse here is older than you are, sister or brother, but it is not older than the forest, and the forest remembers being green." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! I asked for help cleansing Felwood and expected archers, and I certainly didn't expect one of the Forsaken with the Light in hand." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I ask the Alliance for help and I won't pretend I expected that help to carry totems, but speak." },
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {
-        { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Why is it harder than war?", next = "harder" },
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
         { text = "Do you work with Maybess?", next = "maybess" },
@@ -826,6 +836,7 @@ P:NPC {
         { text = "Can a paladin be of use in cleansing work?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Why watch a single flower for a whole morning, Arathandris?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will you accept a Forsaken paladin's help, Arathandris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Does the curse here go deeper than the trees?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },
       },
     },

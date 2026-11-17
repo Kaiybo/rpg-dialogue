@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Honestly, it's a close race. The Dark Irons called up fire and it burned half their own kingdom, so you'll forgive me if I watch anyone who talks to the elements a little closely, even one of ours." } },
+      choices = {
+        { text = "Ironforge's law keeps me honest, whatever the spirits say.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The elements answer to no king, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Welcome is a strong word, but you'd not be thrown off the cliff, which is more than our grandfathers would have said. Our clans have been at each other since the War of the Three Hammers, and I still flinch at the soot on their beards, but these ones turned their backs on the mountain, and I give them their due." } },
@@ -114,6 +123,7 @@ P:NPC {
           text = "Lanie Reed, gryphon master for the Alliance here at Thorium Point. My birds fly to Ironforge and to Morgan's Vigil in the Burning Steppes, and anywhere else the Alliance has a roost, and they're glad to leave every time." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Keep your hand off that hilt while you're at the Point, because the Dark Irons here are friends, or near enough, and they notice these things." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My gryphons are restless round strange beasts, so if you've one with you, keep it close and don't let it eye the birds like supper." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A Bronzebeard shaman, at a Dark Iron camp. I thought I'd seen every odd thing Thorium Point had to offer, and then you walked up the path." },
       },
       again = {
         { id = "h_again", text = "What else? The birds are getting twitchy in this smoke." },
@@ -131,6 +141,7 @@ P:NPC {
         { text = "How do your gryphons fare in the Gorge's heat, Lanie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Dark Irons here trust a paladin, Lanie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your gryphons ever refuse a warlock, Lanie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is a dwarf shaman stranger than a Dark Iron ally, Lanie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -271,7 +282,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The air over the Gorge is angry and my riders feel it in their wings, so if you can make it behave, you'll be the most popular passenger I've ever had." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. The air over the Gorge is angry and my riders feel it in their wings, so if you can make it behave, you'll be the most popular passenger I've ever had." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because the riders come back from the Cauldron singed and limping, and I can only bandage so much before I run out of linen." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. The Dark Irons here keep their doors locked and their eyes open, so whatever you're planning, don't plan it near my perch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Keep your demon on the far side of the perch, because my riders have long memories and short tempers, and they don't like demons." },
@@ -299,7 +310,7 @@ P:NPC {
         { text = "How do your wind riders handle the Gorge, Grisha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the Dark Irons here watch the Horde closely, Grisha?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Are your wind riders often hurt over the Gorge, Grisha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What makes the air over the Gorge so angry, Grisha?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What makes the air over the Gorge so angry, Grisha?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "How do the Dark Irons here treat a Forsaken paladin, Grisha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },

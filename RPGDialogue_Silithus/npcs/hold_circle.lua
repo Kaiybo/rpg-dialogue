@@ -465,6 +465,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I hope not, or my work is wasted. Still, a dwarf who listens to stone might know whether the stone I'm working wants to be a lie, and I'd value that." } },
+      choices = {
+        { text = "A lie is a lie, even one told to the cult.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A disguise that stops the cult is no sin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I can make the robe and the medallion, but the walk is yours to change, and warriors are the hardest to teach. You hold your shoulders like you expect a blow, and a true cultist holds them like he expects a reward." } },
@@ -533,7 +542,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I make masks good enough to fool an elemental duke, so I notice faces, and yours looks as if it has prayed over a great many of the dead." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. The cultists' medallions I forge would fool their masters, I think, but a warlock's eye might see through them, so tell me if they look wrong to you." },
@@ -552,6 +561,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your companion would be a problem if I ever had to disguise you, for I have yet to make a cult robe for a beast." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Then you're kin to my best customers, and I'll treat you as well as I treat them, which is to say fairly and without haste." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The druids say shamans hear the earth as they do, in a rougher dialect, and I'd like to hear that dialect spoken in Ironforge's accent." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and work at once." },
@@ -559,7 +569,7 @@ P:NPC {
       },
       choices = {
         { text = "What do druids want from a smith?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Can the wind stones tell a cultist from a disguise?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Can the wind stones tell a cultist from a disguise?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What are you making?", next = "craft" },
         { text = "Who commands the Twilight's Hammer?", next = "council" },
         { text = "You'd send me in disguise? Is that honourable?", next = "honor" },
@@ -570,6 +580,7 @@ P:NPC {
         { text = "Would your disguises fool the cult's own priests, Aurel?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could you disguise a warrior well enough to fool the cult?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could you make a disguise for a beast, Aurel?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can the wind stones tell a cultist from a disguise?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your bench.", next = "END" },
       },
     },

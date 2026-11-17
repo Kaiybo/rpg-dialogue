@@ -362,6 +362,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They chain them, starve them and sell them, and they call on the earth while they do it. If your spirits are honest, they'll weep with me." } },
+      choices = {
+        { text = "I'll free them, Kindal. The spirits demand it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll free them, and the Grimtotem will pay in blood.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Heavily enough that I have lost sisters to it, for the Grimtotem fight hard for what they think is theirs. Hold their warriors at the gate, and I will see every cage in the compound opened before they know we've come." } },
@@ -445,6 +454,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand. The beasts in the Grimtotem cages cannot ask for justice, so I hope you will ask for it on their behalf." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The beasts the Grimtotem keep are frightened of strange magic, so if you come to the cages with me, keep your spells for the guards." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "The Grimtotem around the cages have grown fewer and more nervous, and I know why. Free the creatures while their keepers are still afraid of you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The Grimtotem have shamans too, and they use them to cage the creatures of this forest, so prove to me you're different." },
       },
       again = { { id = "h_again", text = "Ask, and speak gently; the creatures of these woods startle at loud voices." }, { id = "h_again2", text = "Ask, but quietly." } },
       choices = {
@@ -460,6 +470,7 @@ P:NPC {
         { text = "What do the Grimtotem do with the beasts they cage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What justice do the caged beasts need, Kindal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do the Grimtotem cage these creatures, Kindal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What have the Grimtotem done to these creatures, Kindal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -508,6 +519,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They speak to no one, and that is the trouble. They were proud in life and prouder now, but if the land itself remembers what they did, it may answer you." } },
+      choices = {
+        { text = "Let the dead rest. I won't disturb them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they know something, I'll make them talk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Old magic, and the echoes of those who used it too freely, and things that should have died with Eldre'Thalas. A warrior who goes in must remember that not every enemy there bleeds, and that some of them were once our own people." } },
@@ -600,6 +620,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. The beasts avoid the highborne ruins, and I have learned to trust their judgment over any scholar's." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk like one of my scouts, and I would not mind having one more who can cross the ruins without waking what sleeps there." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman among the Sentinels. The highborne ruins here are full of spirits that never found rest, and I wonder whether they'd speak to you." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -616,6 +637,7 @@ P:NPC {
         { text = "What lies in the highborne ruins besides ogres, Angelas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do the beasts avoid the highborne ruins, Angelas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What sleeps in the ruins, Angelas?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the highborne ghosts speak to a dwarf, Angelas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

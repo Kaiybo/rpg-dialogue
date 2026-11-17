@@ -15,6 +15,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Bones, mostly, an' old troll stonework. But I'll say this tae a fellow dwarf: the ground here shifts like it's dreamin', an' I'd sooner ye asked it what it dreams than me." } },
+      choices = {
+        { text = "Then I'll ask it, and respect what it tells me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dig deeper, Ironboot. The earth's dreams aren't our problem.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I need someone who'll stand in the sand all day and not wander off after the first bandit he sees, aye. The last fellow I hired chased a Wastewanderer over three dunes and came back with no water, no bandit and no notion where the dig was." } },
@@ -110,7 +119,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? I've no great love for the Horde, but out here the sand's the enemy of us all, so say yer piece and mind the dig." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, eh? I've no great love for the Horde, but out here the sand's the enemy of us all, so say yer piece and mind the dig." },
         { id = "h_default", key = true, text = "Prospector Ironboot, digger, surveyor and dwarf of Ironforge, out here in the worst sandbox ever made. Tanaris has more buried under the dunes than anyone knows, and I mean to find a bit of it." },
         { id = "h_c0", when = { race = "Dwarf" }, text = "A fellow dwarf! Then ye'll know why I'm here: Explorers' League blood doesn't let a dwarf sit still while there's ruins to dig." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -128,11 +137,12 @@ P:NPC {
           text = "A hunter, eh? Ye'll have seen the hyenas trailing ye in from the road, then; they've learned that diggers drop their lunch when they run." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Tanaris! Ye'll not find much growing out here, but I've found a root or two buried deep that'd interest ye." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my dig, is it? Keep yer wee beastie away from the tomb mouths, because I've a feelin' some o' what's buried out here would be glad o' the company." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'd heard tell o' this, but I didnae believe it till now. Out here the sand's the enemy o' us all, so say yer piece an' mind the dig." },
       },
       again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
         { text = "What lies buried under these dunes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "The earth here is dry and old. What have your digs disturbed?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The earth here is dry and old. What have your digs disturbed?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What's buried out here?", next = "b1_1" },
         { text = "Why Steamwheedle Port?", next = "b2_1" },
         { text = "Is it dangerous?", next = "b3_1" },
@@ -146,6 +156,7 @@ P:NPC {
         { text = "Do you need someone to guard your digs, Ironboot?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts plague your digs out here, Ironboot?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What do you think is buried under Tanaris, Ironboot?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The earth here is dry and old. What have your digs disturbed?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

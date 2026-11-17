@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The Sentinels trust those who keep their word. The naga twist the waters around Sardor Isle, and if your spirits can tell me where they gather, you'll have more than my trust." } },
+      choices = {
+        { text = "I'll scout the naga for you, General.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The spirits aren't scouts. I'll go where they guide me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     sky_sh = {
       big = true,
       lines = {
@@ -119,6 +128,7 @@ P:NPC {
           text = "You walk like a Sentinel on the hunt, which I'll take as a compliment to whoever trained you. The naga on the coast are sly, and I have use for anyone who can match them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand on Feathermoon. Pratt McGrubben once wore that tabard, and he tells me your order stands its ground, which is the only praise I give." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hatecrest", min = 30 } }, text = "My Sentinels report fewer Hatecrest on the shore at night, and they tell me it was you who thinned them. Elune favors those who do the work, and so do I." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at Feathermoon. The High Priestess teaches that all things answer to Elune in time, and I am curious what you believe answers you." },
       },
       again = { { id = "h_again", text = "Report, or ask; either is useful." }, { id = "h_again2", text = "What else?" } },
       choices = {
@@ -137,6 +147,7 @@ P:NPC {
         { text = "Do you distrust all who study magic, General?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would you have a rogue do here, General?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What ground would you have me hold, General?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Sentinels trust a shaman, General?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },
@@ -287,6 +298,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not wrong, only new. The Light and the spirits both ask you to look after more than yourself, and if you do that, I won't argue with how." } },
+      choices = {
+        { text = "I'll look after more than myself, Pratt.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I look after myself first. The spirits understand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every day out here, friend, or you'll find a buckle gone green and a strap snapped the moment an ogre swings at you. I learned that the hard way in my paladin days, and now I pass it on with the needle, which hurts a good deal less." } },
@@ -364,6 +384,7 @@ P:NPC {
           text = "A warrior! Come here and let me see those straps, because the rain in Feralas rots good leather faster than any Gordunni club ever broke it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light! I've not had a proper talk about the Light since I hung up my tabard, and you'll forgive an old man for being glad of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, on Feathermoon! The Sentinels will watch you closely, friend, so don't take it to heart, because they watched me for a full year and I only sell leather." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I carried the Light for many a year, and I never once thought I'd see the day Ironforge took up totems." },
       },
       again = { { id = "h_again", text = "Anything else, friend? I'll keep stitching while you think." } },
       choices = {
@@ -379,6 +400,7 @@ P:NPC {
         { text = "Does a warrior's armor really need that much tending, Pratt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you still feel the Light, Pratt, without your tabard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do the Sentinels distrust mages so, Pratt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does a dwarf shaman seem wrong to an old paladin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -444,6 +466,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because the elements raged when the Well of Eternity fell, and our elders remember. They'll learn you mean no harm, and until then, the tea is hot." } },
+      choices = {
+        { text = "I'll show them I mean no harm.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them stare. I owe them no explanations.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than I'd like, and the Gordunni do most of it, though the naga on the coast take their share. The Sentinels bring them in at every hour, and I keep the kettle hot, because a warm cup steadies a hand that's held a shield all night." } },
@@ -540,6 +571,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, and with a companion! Bring it in out of the rain, please; the Sentinels' cats sleep by my hearth all the time." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, under my roof. I won't turn anyone from my hearth in this rain, but I'll ask you to leave your companion on the dock, because the Sentinels won't sleep with it in the house." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The Sentinels will stare, I'm afraid, but they'll share the fire with you, and so will I." },
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on." } },
       choices = {
@@ -554,6 +586,7 @@ P:NPC {
         { text = "Do many warriors come back from the mainland hurt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the Sentinels really bring their cats inside, Shyria?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Will the Sentinels truly not sleep with a demon near, Shyria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why would the Sentinels stare at a dwarf shaman, Shyria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },

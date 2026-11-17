@@ -1229,6 +1229,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They do, and so do the goblins' saws. Crimes are done with hands, not banners, so I will not blame your Alliance for them, but I would ask you to tell the earth that not all of us forget." } },
+      choices = {
+        { text = "I'll tell it, Keeper, and help the forest heal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The goblins will pay for those fires, in full.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The same as I ask of everyone: to judge each deed by itself. You walk under the Horde's banner, whose raiders come up the ridges with fire, and you carry the Light that once hunted your kind. Banners tell me nothing, so I would see what your hands do." } },
@@ -1336,6 +1345,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, little one, and you'll know that the beasts of this forest belong to it as much as the trees do." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, little one, so far from your mountains and fields. The Silver Hand's vows are known even here, though the trees remember older ones." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfury", min = 30 } }, text = "The Bloodfury are fewer over the Charred Vale, little one, and the druids can plant again where they could not before. You've done the grove a kindness, and it will remember." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the mountain folk, little one. The earth of Stonetalon remembers the fires in the vale, and I think you will hear it weeping." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, little one. The grove has time, and so do I." },
@@ -1358,6 +1368,7 @@ P:NPC {
         { text = "Can I hunt in your forest, Keeper?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the grove fear from my demon?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would you ask of a Forsaken paladin, Keeper?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do the fires in the vale trouble the spirits, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The vale's already burned, and I've no time for trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -1485,6 +1496,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not in words. But the wind changes when the fires burn below, and I've learned to read it like a letter. You'd read it better, I'd guess." } },
+      choices = {
+        { text = "Trust the wind, Faralia. It knows more than we do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Trust the Sentinels' scouts, not the wind.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They are, though they speak of it quietly, because the Venture Company's smoke rises up the valley and they can taste it in the morning mist. Some of them want to go down and fight, but the elders say the peak must be kept first." } },
@@ -1567,6 +1587,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up here on the peak! The climb must have been hard in that armour, so sit and rest before you go anywhere." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, come up to the Talon Den! The grove will be glad of you, and so will I, because the druids here are the only guests who ever stay for a second cup." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, up on the peak? The druids won't like it, but the kettle doesn't mind, so come in out of the cold." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up on the peak. The wind here is strong enough to carry a voice to the stars, so if the spirits ever answer you, tell them I've been counting." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak." },
@@ -1584,6 +1605,7 @@ P:NPC {
         { text = "Is the path down the peak dangerous after dark?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the Talon Den druids troubled by the goblins below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will the druids mind a warlock on the peak?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the spirits up here answer you, Faralia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

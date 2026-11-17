@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everything that isn't nailed down, and the nails too, given a month. Maybe you could have a word with it, since nobody in Theramore has ever won an argument with the weather." } },
+      choices = {
+        { text = "I'll ask it kindly. The marsh only wants respect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The marsh can rot. I'll buy more oilcloth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oil for the steel, dry socks for the feet and the good sense to stay on the road, though I can only sell you the first two. The rest you'll have to pick up from Captain Vimes, who hands it out free to anyone who'll listen." } },
@@ -117,6 +126,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want oil for that armor, dear, and lots of it, because the marsh has a way of making steel sing in all the wrong places." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, dear! I've candles if you need them for the chapel, and I'd be glad of a prayer for the next supply ship, because the last one was a week late." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? Well, dear, I sell candles and ink to anyone, and I don't ask what they're for, though I'd rather you didn't tell me either." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I don't stock totems, I'm afraid, but I have plenty of oilcloth, and the marsh will eat yours by the end of the week." },
       },
       again = {
         { id = "h_again", text = "What else, dear? I'm only stacking flour sacks; I can listen." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "Is everything in Theramore always rusting, Charity?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What happens when the ships run late, Charity?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does anyone in Theramore ask what candles are for, Charity?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does the marsh really eat everything, Charity?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Nothing today, thanks.", next = "END" },
       },
     },
@@ -219,6 +230,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Give me a week and dry weather, which means give me a month. I'd like to try, because a shaman with a stout shield is a sight the raptors won't forget." } },
+      choices = {
+        { text = "Take your time. Good work is worth the wait.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I need it now. Cut whatever corners you must.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oak faced with iron, not solid steel, because steel rots out here before the season's done and oak only swells a little. I've made the guard's shields that way for years, and the soldiers grumble at the weight until a raptor's teeth stop an inch from their arm." } },
@@ -308,6 +328,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, wearing cloth into the marsh. Every year one of your lot comes back from the Bloodfen with three arrows in his robe and asks why I didn't sell him armor." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and no armor worth the name, I see. Still, a bear's hide is better than plate in this marsh, because at least it doesn't rust." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in a smithy. You'll not be wanting plate, I suppose, but your demon might want a collar, and I'll not make one, so don't ask." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in mail. You'll want a shield that can take a bit of lightning, I expect, and I've never been asked for one before." },
       },
       again = {
         { id = "h_again", text = "What else? I've got plates cooling." },
@@ -327,6 +348,7 @@ P:NPC {
         { text = "How should a warrior choose a shield for this marsh, Hans?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you keep a hunter's mail from rusting, Hans?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why won't you forge anything for a warlock, Hans?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Could you make a shield fit for a shaman, Hans?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -411,6 +433,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think a good one carries a little of whoever made it. Out in the marsh that's worth more than a sharp edge, and you'd know better than me whether the spirits agree." } },
+      choices = {
+        { text = "A weapon has a spirit. I'll treat mine with respect.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A weapon is a tool, and a soldier keeps it clean.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A short-hafted axe, because a raptor comes in low and fast and you won't have room to swing anything longer. I've seen soldiers go out with greatswords and come back with a very different opinion of greatswords." } },
@@ -500,6 +531,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage in a weapon shop! You'll want a staff or a dagger for the off hand, I'd guess, and I'll not pretend to know much about either beyond the wood and the steel." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll not want much from my forge, I suppose, but a staff with a good iron cap has saved more than one of your kind out in the marsh." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Well, I've daggers and wands enough, and I'll not ask what you'll use them on, though I'd ask you to keep the demon off my whetstone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've sold axes to dwarves my whole life, but never to one who might ask the axe how it feels first." },
       },
       again = {
         { id = "h_again", text = "Something else you need from the weapon racks?" },
@@ -518,6 +550,7 @@ P:NPC {
         { text = "What weapon would you take against a raptor, Piter?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you keep a bow strung in this damp, Piter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do warlocks often buy weapons from you, Piter?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you think a weapon carries a spirit, Piter?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not right now.", next = "END" },
       },
     },

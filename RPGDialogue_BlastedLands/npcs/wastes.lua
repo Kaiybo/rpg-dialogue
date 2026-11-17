@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because I knew the orcs when they were only shamans and hunters, before the fel. The elements of Draenor answered them too, and they could not stop what came after, so do not expect me to be impressed." } },
+      choices = {
+        { text = "I'll never take a darker teacher, Kum'isha.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If a darker teacher served me better, I might listen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I have watched orcs come through that gate with axes, and humans meet them with swords, and every one of them was certain he fought for something noble. The fragments you bring me do not care which of you held the blade, and neither, I find, do I." } },
@@ -86,7 +95,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The orc shamans spoke to the elements on my world once, before they found darker teachers, and my people paid for that lesson." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. The orc shamans spoke to the elements on my world once, before they found darker teachers, and my people paid for that lesson." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and you smell of iron and greed together, as all your kind do. You would cut down anything that stood between you and a prize." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -105,6 +114,7 @@ P:NPC {
           text = "I hold it still, the sphere you brought, and I have not slept. Perhaps a rift can be opened now; perhaps my people will go home after all this." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "At night the Portal is only a shadow against the stars, and I can almost pretend it leads somewhere I would want to go." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on the elements. Your people had no shamans when the orcs came through the Portal, and now you borrow their ways; I wonder which darker teachers you'll borrow next." },
       },
       again = {
         { id = "h_again", text = "More? Ask, then. I have walked these wastes long enough to have patience, if not manners." },
@@ -125,7 +135,8 @@ P:NPC {
         { text = "If I'm greedy, why trust me with your crystals?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you think every warrior fights for greed, Kum'isha?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did your people hunt, before you came here?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Did you know shamans on your world, Kum'isha?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Did you know shamans on your world, Kum'isha?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Why do you distrust shamans, Kum'isha?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep my eyes open for crystals.", next = "END", fx = { affinity = 1 } },
       },
     },

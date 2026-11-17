@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Booty Bay has room for anyone who pays the dock fees. Still, a Bronzebeard who talks to the weather could be very useful to the Cartel, and I'd want to know who else is hiring you." } },
+      choices = {
+        { text = "I'm not for hire, Baron. The spirits aren't merchandise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hear your offer, Baron. Name a price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "When the Bloodsail get bold, I hire anyone who can hold a gangplank, and I pay by the day rather than by the head, because heads are far too easy to fake. What I cannot abide is a sellsword who changes ships halfway through the fight." } },
@@ -103,7 +112,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my balcony, polished to a shine. The Light is welcome in Booty Bay, friend, provided it pays its docking fees like everyone else." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde under my balcony. Keep your lightning away from my ships, and we'll get along nicely." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde under my balcony. Keep your lightning away from my ships, and we'll get along nicely." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde under my balcony. Whatever you pray to, ask it to keep the Bloodsail off my harbor, and I'll pay a fair tithe." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock on my balcony. Keep whatever you've summoned on a short leash, because the Bruisers can't tell a demon from a drunk and won't try." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "I know a cutpurse's walk when I see one. Booty Bay tolerates thieves who pay their dues, and it drowns the ones who don't." },
@@ -124,6 +133,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, on my balcony. I've had three of your kind offer to ward my vault, and every one of them quoted a price that made Viznik weep, so I'll hear your offer with a straight face." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, all plate and patience. The Bruisers keep the peace on my piers, but I always find room in my ledger for someone who can hold a line when the Bloodsail come calling." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with the jungle still on your boots. Kebok downstairs deals in pelts and tusks, and somehow a sliver of every deal finds its way into my ledger, so happy hunting." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman under my balcony, now that's a novelty. Keep your lightning away from my ships, and we'll get along nicely." },
       },
       again = {
         { id = "h_again", text = "Go on. Every minute on this balcony is a minute I'm not counting something." },
@@ -131,7 +141,7 @@ P:NPC {
         { id = "h_again3", when = { townStanding = { town = "booty_bay", min = 30 } }, text = "Ask. You've earned a little of my time; this town says so." },
       },
       choices = {
-        { text = "Does the Cartel ever ask the spirits anything, Baron?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the Cartel ever ask the spirits anything, Baron?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What could a spellcaster do for Booty Bay, Baron?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Your cartels are stripping the jungle bare.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Who are the Bloodsail?", next = "bloodsail" },
@@ -148,6 +158,7 @@ P:NPC {
         { text = "Do you ever hire warriors to guard the Cartel's cargo, Baron?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What does the Cartel make from the jungle's beasts, Baron?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does the Light count for anything in a Cartel port, Baron?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does Booty Bay have room for a dwarf shaman, Baron?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Baron.", next = "END" },
       },
     },
@@ -364,6 +375,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Never, and I'd pay to see it, because dwarves sink like anvils and every sailor knows it. Still, if the sea spirits listen to you, I'd give you the wheel for a day." } },
+      choices = {
+        { text = "I'd take the wheel, Fleet Master, and treat the sea fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd take the wheel and steer us to a fat prize.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Loud, wet and over faster than you'd think, because whoever holds the rail in the first minute holds the ship. I once watched one stubborn warrior with a shield keep a whole crew of buccaneers on their own deck until our cannons finished the argument." } },
@@ -458,6 +478,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ha! Now there's someone built for a boarding action. You'd look grand swinging onto a Bloodsail deck, provided you don't miss the rope the way my last three did." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! There's a parrot on my flagship that has bitten every hand in the fleet, so if you understand beasts, I'd dearly love to have it explained to me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid aboard my docks! Sailors swear your kind can talk a storm out of a sky, and I've lost enough sails that I'd like to believe them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, on my docks! I've seen tauren take to the sea and trolls take to the rigging, and now Ironforge takes to the weather. What a world." },
       },
       again = {
         { id = "h_again", text = "Ha! Got more for me? Out with it, then, before the tide turns." },
@@ -470,7 +491,7 @@ P:NPC {
         { text = "Got a sea story for me?", next = "story" },
         { text = "Do you miss the plains, ever?", next = "plains", when = { race = "Tauren" } },
         { text = "I've never been on a ship.", next = "landlubber", when = { race = { "Dwarf", "Gnome" } } },
-        { text = "The sea has spirits too, Fleet Master. Do you hear them?", next = "k_shaman", when = { class = "SHAMAN" } },
+        { text = "The sea has spirits too, Fleet Master. Do you hear them?", next = "k_shaman", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "My people were sailors once, before Thrall.", next = "k_troll", when = { race = "Troll" } },
         { text = "My ancestors sailed west from the Feralas coast.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "Do the Blackwater Raiders take on rogues, Fleet Master?", next = "xrogue", when = { class = "ROGUE" } },
@@ -481,6 +502,7 @@ P:NPC {
         { text = "Do hunters ever sail with the Blackwater Raiders?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do your sailors really think a druid can calm a storm, Fleet Master?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Would the Blackwater Raiders ever sail with a warlock, Fleet Master?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Have you ever sailed with a dwarf shaman, Fleet Master?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Fair winds, Fleet Master.", next = "END" },
       },
     },
@@ -631,6 +653,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That Ironforge has started talking to the weather, that it'll make the Horde nervous, and that both are worth knowing to somebody. Don't worry, I only sell the interesting parts." } },
+      choices = {
+        { text = "Write it straight, Krazek, and sell nothing about me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell what you like, as long as I get a cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Mosh'Ogg ogres up in the hills, the Kurzen men in the north, and the Gurubashi Arena, where every few hours a chest gets dropped in the pit and everybody kills each other for it. Personally I'd take the ogres, because they don't hold grudges past supper." } },
@@ -709,7 +740,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, how nice! I'll note you down under visitors with a conscience, which is a very short list in Booty Bay, and the Baron likes to know who's on it." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Thrall's people have been coming through more often since he brought the old ways back, and I keep a note of every one." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! Thrall's people have been coming through more often since he brought the old ways back, and I keep a note of every one." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Loa or shadow, I don't judge; I only write down which one, because somebody always asks me later." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Ah, a fellow professional. You listen at doors and I listen at bars, so we should compare notes sometime, for a fee." },
         { id = "h_default", key = true,
@@ -731,13 +762,14 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Steel's dear down here, friend, since everything rusts, so I hope you've oiled that armor or you'll be paying Zarena for new plates by the end of the week." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, good! I've buyers for panther pelts, raptor hides and basilisk scales, and not one of my buyers has ever asked how the animal felt about it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Booty Bay! You'd be amazed what the jungle trade pays for a pelt, and I'd be amazed if you approved of any of it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Now that's one I've never written down, and I keep a note of everything that comes through this town." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, quick, the Baron rings that bell every four minutes." },
         { id = "h_again2", text = "More? I love a customer with questions; questions are inventory." },
       },
       choices = {
-        { text = "What do people in Booty Bay say about shamans?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do people in Booty Bay say about shamans?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What rumors are going round about magic in Booty Bay, Krazek?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's the word in the jungle?", next = "word" },
         { text = "Do you really know everything?", next = "brag" },
@@ -751,6 +783,7 @@ P:NPC {
         { text = "What does this jungle hold that's worth a warrior's time, Krazek?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which beasts are fetching the best prices this month, Krazek?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the jungle trade pay for, Krazek, and who's buying?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What will you write about me, Krazek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
@@ -3228,6 +3261,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I keep a close eye on anything new, and you're new. The Horde captains will have opinions about a dwarf with totems, so mind how you stand near their ships." } },
+      choices = {
+        { text = "I'll keep the peace on your wharf, Lozgil.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Horde captains can keep their opinions to themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I let anyone through who pays, which is the Cartel's rule, and I'll admit you're far from the worst I've waved down the gangplank. One of the dead with the Light in hand is strange, but strange isn't a crime in Booty Bay, and neither is most of what is." } },
@@ -3325,7 +3367,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I see every face that comes off the boats, and yours is the first in a week that didn't look like it was hiding something, so welcome to Booty Bay." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin. I don't often see the Silver Hand on my docks, and when I do it usually means someone out in the jungle is about to have a very bad day." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman off the Grom'gol road. I watch who comes and goes, and your sort have been coming more often since Orgrimmar was built." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman off the Grom'gol road. I watch who comes and goes, and your sort have been coming more often since Orgrimmar was built." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I'll put you down in the book as no trouble, and I'll change it if I need to." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The last one through here set fire to a crate, so I'll thank you to keep your hands in your sleeves while you're on my boards." },
         { id = "h_default", key = true,
@@ -3342,13 +3384,14 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I'll need to see whatever's on that lead before it gets on any boat, because the last hunter's beast ate a crate of bananas and bit a ship's captain." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, coming off a boat. I see a fair few of your kind heading south, and most of them come back up the dock looking unhappy about the jungle." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin off one of my boats, and a Forsaken one at that. I've seen many strange passengers, but I'll be writing you on a list of your own." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A Bronzebeard shaman off the boat. I watch who comes and goes, and you're the first of your sort to cross my wharf." },
       },
       again = {
         { id = "h_again", text = "Yes? Keep one eye on the water while you ask." },
         { id = "h_again2", text = "More? Fine, but stand there; you're blocking my view of the green boat." },
       },
       choices = {
-        { text = "Do you keep a closer eye on shamans than on other visitors?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you keep a closer eye on shamans than on other visitors?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What comes through your docks that a spellcaster should know about?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who comes and goes that you'd rather didn't?", next = "who" },
         { text = "What happened with the fishmonger?", next = "fish", when = { metBefore = true } },
@@ -3364,6 +3407,7 @@ P:NPC {
         { text = "Why do you inspect hunters' beasts, Wharfmaster?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why do druids come back unhappy from the jungle, Wharfmaster?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Will you let a Forsaken paladin through your docks, Lozgil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you keep a closer eye on dwarf shamans, Wharfmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll watch my purse.", next = "END", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },

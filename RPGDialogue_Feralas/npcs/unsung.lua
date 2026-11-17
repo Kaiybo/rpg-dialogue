@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They sense the storms over the sea, and they sense the naga long before we do. If they're watching you, it's because you smell of the wind, and they trust the wind more than most riders." } },
+      choices = {
+        { text = "I'll treat your birds as gently as a fair wind.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The wind isn't gentle. Your birds should learn that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not skittish, only wise, for many of them flew wild over Feralas before they came to us, and they remember the ogres' clubs. They learn to trust a warrior who moves slowly, and to carry him, but they never forget the sound of a blade." } },
@@ -121,6 +130,7 @@ P:NPC {
           text = "A hunter. My birds have already marked your companion, and they are deciding whether it is a friend of the roost." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light. The hippogryphs do not know your faith, but they know a calm hand, and I think they will take to you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Keep your spells quiet near the roost, if you would, because my birds can smell the arcane and they do not care for it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks to the winds! My hippogryphs are restless around you, but I think it's curiosity, not fear." },
       },
       again = {
         { id = "h_again", text = "Would you ask more of the roost, or of the isle?" },
@@ -140,6 +150,7 @@ P:NPC {
         { text = "How do your hippogryphs judge another beast, Fyldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your hippogryphs ever come back hurt, Fyldren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do hippogryphs dislike the arcane, Fyldren?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your hippogryphs sense the spirits, Fyldren?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -219,6 +230,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I hope not, because everything I sell has been through the ground or the sea before it reaches my shelves. If the spirits have objections, they've kept them from me so far." } },
+      choices = {
+        { text = "Use what the land gives, but count it and waste nothing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land's gifts are free. Take what you need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because everything comes across the water from the mainland, and every boat risks the naga to bring it. A warrior who wastes a strap wastes a boatman's courage, and I'll not have that on my shelves." } },
@@ -310,6 +330,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light. I've candles and linen for bandages, if you've come for those, and I'd be glad to see them go to someone who will use them well." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you what's on my shelves, because Darnassus says I must, but I'll ask you to make your purchase quickly and keep your hands where I can see them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. I keep a store of herbs for your kind, because the Circle's people come through often, and they always seem to need something I've just run out of." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. You'll want leather that can stand the rain, I'd guess, and I'll want to know whether your spirits object to dyes." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you need from the stores?" },
@@ -328,6 +349,7 @@ P:NPC {
         { text = "Who on the isle needs bandages most, Vivianna?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are you so wary of warlocks, Vivianna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the Circle's people need here, Vivianna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the spirits mind your dyes, Vivianna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

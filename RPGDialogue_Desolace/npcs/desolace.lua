@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If you could speak of their ancestors in a way they respect, maybe. The Gelkis think the earth belongs to them, and I'd like to see their faces if it answered you instead." } },
+      choices = {
+        { text = "I won't use the spirits to set the centaur fighting.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it keeps the outpost alive, I'll stir them up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -111,6 +120,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and from the look of you, one who can throw fire farther than my archers can shoot. I won't ask where you studied, so long as you're willing to do it from my ridge." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at Nijel's Point. I'll be plain with you: the last people out here who trafficked with demons were the Burning Blade, and I've buried soldiers they sent to me in pieces." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 40 } }, text = "The Kolkar have been licking their wounds since you went through their camps, and the other clans have noticed. I'd call that a useful kind of message." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The centaur hold their ancestors close, and if they see a dwarf calling on the earth, I've no idea whether they'll respect you or come at you twice as hard." },
       },
       again = { { id = "h_again", text = "Anything else? Make it count; the drums are starting." } },
       choices = {
@@ -128,6 +138,7 @@ P:NPC {
         { text = "What use does Nijel's Point have for a mage, Captain?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will you trust a warlock on your ridge, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do you need scouted among the centaur, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Could a shaman help you play the centaur against each other?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help hold the Point.", next = "END", fx = { affinity = 1, standing = { nijels_point = 1 } } },
       },
     },
@@ -258,6 +269,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The Circle welcomes any who keep the balance. Desolace has none left, and the spirits here are as sick as the land, so if you can feel them, you'll understand why my sisters and I came." } },
+      choices = {
+        { text = "Then I'll help restore the balance here, Keeper.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Desolace is dead. Balance is a luxury it can't afford.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Circle would tell you that nature defends itself, and in a greener place I would agree. Here the satyrs foul the land faster than we can cleanse it, and I will not pretend that the Circle's patience has kept a single one of my sisters safe." } },
@@ -336,6 +356,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "You carry the scent of the arcane, and my people remember where that scent led the Highborne. Still, you came to the Circle's camp openly, so I will speak with you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The fel clings to you as smoke clings to cloth, and I can smell it from across the clearing. Say what you have come to say, and do not call anything here." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came into the clearing without a sound, and the birds did not stir. That is a gift the Circle respects, though I would know what you meant to do with it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle has spoken with tauren who hear the elements for a long time, but I did not expect to hear the earth answer one of Ironforge." },
       },
       again = { { id = "h_again", text = "You have another question; ask it plainly." } },
       choices = {
@@ -351,6 +372,7 @@ P:NPC {
         { text = "Is there evil here a paladin should root out, Keeper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cenarion Circle ever need a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Has the Circle any use for someone who walks unseen, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Does the Circle welcome a dwarf shaman, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -424,6 +446,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Help? It could make us rich! But I've a feelin' the spirits would take it badly if we went diggin' up whatever they told us about, so I'll keep tae honest salvage." } },
+      choices = {
+        { text = "Honest salvage only. The earth isn't a treasure map.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the earth tells me where treasure lies, I'll dig.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Centaur spears, ogre clubs as long as I am, an' once a dwarven axe frae afore the Second War, still sharp under the rust. I cleaned it up an' hung it above the stall, because some things ye don't sell, no matter what the Reclaimers' ledger says." } },
@@ -529,6 +560,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Grand, because I've a crate o' scrolls an' trinkets from the old ruins that might be priceless or might explode, an' I've no way o' tellin' which." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? Ye're welcome to warm yer hands, but if anythin' o' yours gets into me reagents, ye'll be payin' for the lot." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now dinnae give me that look, because everythin' I dig up out o' this dust was dead long afore Reclaimers Inc. came along." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The lads at the Reclaimers would give a week's wages tae ask ye what the earth's buried an' where." },
       },
       again = { { id = "h_again", text = "Anythin' else? Mind the crates." } },
       choices = {
@@ -545,6 +577,7 @@ P:NPC {
         { text = "What arms have the Reclaimers pulled from Desolace, Kreldig?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the scorpids drag back to their holes, Kreldig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does nothing you dig up here trouble you, Kreldig?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Could the earth help Reclaimers Inc., Kreldig?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -606,6 +639,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some brothers do, and loudly. I've seen what the Scourge does with the souls of the dead, so I can't blame them for distrusting anyone who speaks to spirits, but I'm willing to be proven wrong." } },
+      choices = {
+        { text = "The Crusade's zeal has its place against the Scourge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your Crusade's zeal frightens me more than the dead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Obedience, courage and a heart that will not hesitate when the dead wear the faces of people you knew. Brother Crowley says hesitation has cost more lives in Lordaeron than any plague, and I've no reason to doubt him." } },
@@ -685,6 +727,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move like someone who has slipped through a few doors, friend. The Crusade has use for such skills, though we'd ask you to use them only against the Scourge." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and still among the living, praise the Light. Dalaran's fall cost us so many of your kind, and the Crusade would welcome your fire against the Scourge." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the night elves. You don't kneel to the Light, I know, but the Scourge hate every living thing alike, and that makes us allies whether you like it or not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on spirits. The Crusade has burned better men than you for less, but the dead walk, and I'll take any ally against them." },
       },
       again = { { id = "h_again", text = "Yes, friend? The Light hears every question." } },
       choices = {
@@ -701,6 +744,7 @@ P:NPC {
         { text = "Does the Crusade trust mages after Dalaran, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "What does the Crusade ask of its warriors, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How would a hunter track the Scourge, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the Crusade truly see the spirits as heresy, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I won't fight for the Crusade, Brother.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -802,6 +846,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some nights I think I hear them in the wind off the bone fields, but I'm no shaman. If they speak to you, I hope they say something kinder than they say to me." } },
+      choices = {
+        { text = "They grieve, but with care they can heal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're bitter, and they'll stay that way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Most who go down into Desolace stop here first, and the warriors sleep soundest, because they've stopped worrying about what they can't fight. It's the ones who come back up that I watch, because the centaur and the Burning Blade leave marks you can't see." } },
@@ -893,6 +946,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you warm the hearth a little? I'm only joking, though the dust does make the fire sulk, and I'd not say no." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, at the edge of Desolace. Sit, and let me feed you before you go down, because I've seen what that dust does to armour, and to the people inside it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome at my hearth like anyone else, but leave your companion outside, please, because the soldiers here have seen what the Burning Blade do with theirs." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Sit by the fire, if you like; the spirits of this land have little warmth left, and you look as though you've been listening to them a long while." },
       },
       again = { { id = "h_again", text = "Something else? I'll keep sweeping." } },
       choices = {
@@ -907,6 +961,7 @@ P:NPC {
         { text = "What beasts still live down in Desolace, Lyshaerya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What becomes of the folk who go down there, Lyshaerya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do the soldiers fear warlocks so much, Lyshaerya?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the spirits of Desolace still speak, Lyshaerya?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just a room, thank you.", next = "END" },
       },
     },

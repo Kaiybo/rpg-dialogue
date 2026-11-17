@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some o' the scholars would want tae write ye down in a book, an' some would call it orc magic an' spit. Me, I've a partner lost under the digsite, so if the stone's talkin', ask it where Hammertoe is." } },
+      choices = {
+        { text = "The stone is our birthright. Ironforge should learn to listen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I keep the old ways first. The spirits only lend a hand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "No' always, if the old ruins are anythin' tae go by, for nobody builds that grand in a desert. Somethin' dried it out long ago, an' the stones are the only ones left who remember what." } },
       choices = {
@@ -84,6 +93,7 @@ P:NPC {
           text = "I left my pack behind when we ran, an' every tool I own's in it. A prospector without his tools is just a dwarf standin' in the dirt." },
         { id = "h_hope", when = { any = { { questActive = TODO_QUEST("A Sign of Hope") }, { questActive = TODO_QUEST("Prospect of Faith") } } },
           text = "These are Hammertoe's notes; he found somethin' before the end, an' he thought it was Uldaman. Take them tae Ironforge, where somebody will know what they mean." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, is it? The League's scholars say our forefathers were shaped from the stone, so maybe it's no wonder some of us hear it talk back." },
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', for there's not much else tae do out here but listen an' dig." } },
       choices = {
@@ -97,6 +107,7 @@ P:NPC {
         { text = "What did Hammertoe write that troubles you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you like me to pray for Hammertoe, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's in Uldaman that's worse than demons, Prospector?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the League make anything of a dwarf who hears the stone?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },

@@ -1406,6 +1406,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Once, for a troll who poured the first bowl into the sea. I've never cooked for a dwarf shaman, so if your spirits want a fish stew, you tell me how they like it." } },
+      choices = {
+        { text = "The first bowl goes to the sea, Kelsey. Always.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The spirits can catch their own fish.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Fish, mostly, since it's fresh and it's everywhere, and plenty of salt to replace what you sweat out in that armor. I've seen strong men fall over in the jungle heat because they forgot to eat, and it's a shameful way to lose a fight." } },
@@ -1494,7 +1503,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want something hearty, then, because plate burns through a meal faster than anything, and I've a crocolisk steak that would hold a knight through the afternoon." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Will you bless my pepper pot, then? I'm only half joking, because I've cooked crocolisk in this heat for years and some days it needs all the help it can get." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I hear tauren cooking is all roots and plains game, so you must be dying for a decent fish stew." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! I hear tauren cooking is all roots and plains game, so you must be dying for a decent fish stew." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do your folk bless food before you eat it? Bless this stew, then, because it needs all the help it can get." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Your imp's welcome to the scraps, but it eats on the floor, and I'll not have it singeing my tablecloths." },
         { id = "h_default", key = true,
@@ -1504,13 +1513,14 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Sit down and eat something, because you look like you've been living on hardtack and pride, and neither will keep you on your feet." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Bring a crocolisk tail or two past my stall some time, and I'll tell you how to cook it so you never look at hardtack again." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've a clam chowder that'd make any bear sit up and beg, though I'd ask you to do it outside the kitchen." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I hear dwarves like a stew thick enough to stand a spoon in, so you must be dying for something better than ship's biscuit." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, and I'll tell you how to cook it." },
         { id = "h_again2", text = "Anything else, friend?" },
       },
       choices = {
-        { text = "Have you ever cooked anything for a shaman's ceremony?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Have you ever cooked anything for a shaman's ceremony?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Do any spellcasters ever cook with magic, Kelsey?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your recipes.", next = "BUSINESS" },
         { text = "What's good to eat around here?", next = "eat" },
@@ -1523,6 +1533,7 @@ P:NPC {
         { text = "What's the best thing to cook from the jungle, Kelsey?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does a druid's chowder need that a sailor's doesn't, Kelsey?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What would you cook for a knight on campaign, Kelsey?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have you ever cooked for a shaman's ceremony, Kelsey?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll pass, thanks.", next = "END" },
       },
     },

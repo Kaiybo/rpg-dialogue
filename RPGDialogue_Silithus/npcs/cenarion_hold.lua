@@ -713,6 +713,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They tear at the air like a beast at a snare, and my caravans suffer for it. Tauren or dwarf, a shaman who can calm the winds is worth more to me than a dozen guards." } },
+      choices = {
+        { text = "I'll calm what I can, Windcaller.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Calming is too slow. Strike at the cult that stirs them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Supply, mostly, which is where wars are won. The cult raids our carts on the road from Un'Goro, and I would like to know which of their camps has been sending the raiders, before I lose another load of grain to people who want the world to end." } },
@@ -791,7 +800,7 @@ P:NPC {
           text = "My scouts report the hives are quieter on the near side, and the worm counts have dropped for the first time this season. That is your doing, I think, and it means the grain carts get through." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue at Cenarion Hold. The swarm cannot be outwitted the way men can, but the Twilight's Hammer can, and the Hold has use for anyone who keeps their footsteps light." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, provided you can keep the sand out of your robes, will be a great help to the supply lines. Fire is very effective against the larger worms." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -809,13 +818,14 @@ P:NPC {
           text = "A paladin! I should like to put you down as a guard for the supply carts, provided you'll forgive me for writing your name in the same column as the grain." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Good; provided you can hold a cart road as well as you hold that blade, I have more work than I have soldiers." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman from Ironforge! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings." },
       },
       again = {
         { id = "h_again", text = "What else? I have ledgers, but I have ears too." },
         { id = "h_again2", text = "Ask, then. A well-informed soldier eats less of my bread worrying." },
       },
       choices = {
-        { text = "What have the cult's summonings done to the winds?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What have the cult's summonings done to the winds?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Why are supplies so important here?", next = "supply" },
         { text = "You're certain we'll win?", next = "victory" },
         { text = "The Circle's emissary sent me to you.", next = "emissary", when = { questDone = TODO_QUEST("Taking Back Silithus") } },
@@ -829,6 +839,7 @@ P:NPC {
         { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does holding the supply roads actually require, Windcaller?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What use does the Hold have for a quiet one, Windcaller?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What have the cult's summonings done to the winds?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },

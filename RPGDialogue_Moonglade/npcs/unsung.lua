@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They never say, and I never ask. But they always leave a little quieter than they came, and I'd like to think the grove does that for everyone." } },
+      choices = {
+        { text = "The grove's peace is worth carrying home.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Peace is for groves. The world needs fighters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They never quite tell me, but they always come back calmer. I think the spirits here are kinder than in most places, since nobody's fought over Moonglade in a long, long time, and that kind of peace leaves a mark on the land as surely as a war does." } },
@@ -115,7 +124,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman, welcome to Nighthaven! The grove's quieter than anywhere on the Barrens, and I've seen shamans sit by the lake for hours, just listening." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, welcome to Nighthaven! You'll want supplies for the road, I expect, and I've plenty, along with a quiet corner by the lake if you'd like to set down that heavy armour a while." },
@@ -129,6 +138,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The druids get a bit prickly about magic, but I've always thought a mage's company makes the evenings shorter, and Nighthaven's evenings are very long." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome to my wares like anyone else the grove lets in, though I'd thank you to keep your companion outside, because it frightens the moths." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, home in Nighthaven. The grove's always a little brighter when one of the Circle comes back from the road, and I'll see you have what you need for the next one." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, welcome to Nighthaven! I've seen shamans sit by the lake for hours, just listening, but never one from Ironforge." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? The grove is in no hurry." },
@@ -146,7 +156,8 @@ P:NPC {
         { text = "What does a hunter need for the roads out of Moonglade?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you get many travelers who aren't druids?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do many paladins stay in Nighthaven, Daeolyn?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What do the shamans hear by the lake, Daeolyn?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the shamans hear by the lake, Daeolyn?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "What do the shamans hear by the lake, Daeolyn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Daeolyn.", next = "END" },
       },
     },

@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It carries the smell of fel from Jaedenar and the ash from the Shadow Hold, and my birds won't fly low any longer. If the spirits can be healed, I'd give anything to see it." } },
+      choices = {
+        { text = "They can be healed. I'll do what I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some spirits are past healing. Cleanse them by force.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because every magic they've met in Felwood has been the fel kind, and they can't tell one from another. They've seen the Jadefire satyrs burn the trees and the cultists of Jaedenar call down green fire, so to them a mage is just another bright danger, at least until you've flown with them a while." } },
@@ -120,6 +129,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in armour that rings like a bell! Stand easy by the roost, please, because my birds take all that steel for a predator until they learn your step." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, at Talonbranch. Thank Elune; my hippogryphs breathe easier with one of you near, and so do I, with Jaedenar so close to the road." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The wind over Felwood is sick, and my hippogryphs feel it; perhaps you feel it too." },
       },
       again = {
         { id = "h_again", text = "Is there more you would ask? The birds are patient, but the light is fading." },
@@ -137,6 +147,7 @@ P:NPC {
         { text = "What has the corruption done to Felwood's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How do the hippogryphs bear Felwood's corruption?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why are your hippogryphs wary of my magic, Mishellena?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What has the corruption done to Felwood's winds, Mishellena?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

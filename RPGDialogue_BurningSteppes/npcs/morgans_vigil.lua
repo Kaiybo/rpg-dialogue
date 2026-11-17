@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "What troubles me is a mountain full of orcs and a dragon on top of it. If your spirits can tell me when the Blackrock are moving, I'll put that in a report too, and nobody will read that one either." } },
+      choices = {
+        { text = "I'll serve the Vigil as a soldier, Marshal, spirits or no.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The spirits aren't soldiers. I'll follow them, not orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I'd put a kobold on my line if it could hold a sword, and you can do a good deal more than that. Just keep whatever you call up pointed at the mountain, deputy, because my soldiers have seen enough fire to last them." } },
@@ -76,6 +85,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's a face I'm glad to see, which isn't something I say about most people who walk up this ridge. Sit by the fire, deputy, and we'll pretend for a minute that the mountain isn't there." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You'll find nothing growing on this ridge but stubbornness, I'm afraid, and we've plenty of that." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at the Vigil. Stormwind won't send me soldiers, so I'll take whatever help Ironforge sends, and I won't ask how it works." },
       },
       again = {
         { id = "h_again", text = "What else, deputy? I've got a report to write, but it'll keep; they always do." },
@@ -97,6 +107,7 @@ P:NPC {
         { text = "I could scout the mountain for you, unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Would you put a warlock on your line, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Stormwind ever send anything to help this land, Marshal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does it trouble you, Marshal, that I fight with the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll see what I can do, Marshal.", next = "END", fx = { affinity = 1, standing = { morgans_vigil = 1 } } },
       },
     },
@@ -700,6 +711,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The Blackrock, of course, and the sooner the better! Call your lightning down on their camps, soldier, and I'll tell Winky he was wrong, which he'll hate." } },
+      choices = {
+        { text = "I'll strike where the Vigil needs me, and not before.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll strike where the storm takes me, wherever that is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -761,6 +781,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, reporting! Excellent, soldier; Captain Winky says we need scouts, and Winky is right about twice a year, so this must be one of the times." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Excellent, soldier, a bear is worth three footmen, Captain Winky says five, but Captain Winky exaggerates, as I've told him repeatedly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! Captain Winky says the elements are fickle allies, but Captain Winky says that about everyone, so you'll do nicely." },
       },
       again = {
         { id = "h_again", text = "Anything else, soldier? Speak up, because Winky's listening and he's a terrible gossip." },
@@ -778,6 +799,7 @@ P:NPC {
         { text = "Would you really enlist my demons, sir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What should a scout watch for, sir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who exactly is Captain Winky, Oralius?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would you have a shaman strike first, Oralius?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Dismissed, then.", next = "END" },
       },
     },
@@ -928,6 +950,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I keep hoping so. The elementals at the gate burn hotter every week, and my mages throw frost at them until they faint, so if you could only ask them to step aside, I'd be grateful forever." } },
+      choices = {
+        { text = "I'll ask the fire to stand aside before I fight it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "This fire serves Ragnaros. I'll break it, not bargain.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Overseer Pyron guards the quarry inside the mountain, and he's a fire elemental, and he burned three of my mages before we'd even seen him properly. If you can get close enough to put him out, you'll have done what my whole expedition couldn't." } },
@@ -973,6 +1004,7 @@ P:NPC {
           text = "A warrior! Oh, good, you look very solid, and solid is exactly what I need between me and Pyron, so please don't go anywhere." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! Oh, do keep your beasts away from the ridge, because everything up there is on fire, and I've already lost the expedition's pack mule to it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, please tell me you can talk to fire, because everything between here and Blackrock Depths is burning and none of it listens to my mages." },
       },
       again = {
         { id = "h_again", text = "What else? Sorry, I'm a little scattered today; something exploded earlier, and it wasn't even ours." },
@@ -989,6 +1021,7 @@ P:NPC {
         { text = "I could scout Pyron's quarry for you, Jalinda.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Who's Pyron, and why do you need a shield against him?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What happened to your mule, Jalinda?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Could a shaman help your mages past the fire, Jalinda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Jalinda.", next = "END" },
       },
     },
@@ -1112,6 +1145,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "He collects anything rare, and a dwarf who talks to the stone is very rare indeed. I'd never sell such a thing myself, of course, unless the price was truly beautiful." } },
+      choices = {
+        { text = "My totems aren't trinkets. They're not for sale.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Name the Count's price. I can always carve another.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only the beautiful ones, which rules out most of what the Dark Irons carry today. The old ones, forged before Thaurissan's folly, are works of art, and I'd never let a soldier keep one long enough to use it." } },
@@ -1190,6 +1232,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter? How splendid, for the Count is mad about trophies, and I've a standing order for anything from the Steppes with horns, wings or a pedigree." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle! You'll find the Dark Irons' treasures rather ugly, I expect, but the Count's tastes run to the dramatic." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The Count would pay a fortune for anything you've carved, I suspect, because nobody in Stormwind has ever seen a Bronzebeard totem." },
       },
       again = {
         { id = "h_again", text = "What else? I'm cataloguing, but I can talk and count at the same time." },
@@ -1209,6 +1252,7 @@ P:NPC {
         { text = "Does the Count collect Dark Iron weapons?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sort of trophies does the Count want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should a dead kingdom's treasures go to a count's collection, Mayara?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would the Count really collect a shaman's totems, Mayara?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the hunt.", next = "END" },
       },
     },
@@ -1328,6 +1372,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Feel them? They fuss at every storm before I see a cloud, so aye, I'd say they do. They've taken tae ye better than tae most, which tells me more than any priest could." } },
+      choices = {
+        { text = "Then I'll ask the wind to go easy on them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Gryphons have flown through worse. A little ash won't kill them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, the Wildhammer do it all the time up in the Hinterlands, but my birds are for the post an' the road home. When the Blackrock come over the ridge, though, I've seen my lads dive at them on their own, an' I've never been so proud o' anythin' wi' feathers." } },
@@ -1421,6 +1474,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, is it? Keep yer beasts clear o' the roost an' all will be well, for my birds are cross enough wi' the smoke as it is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Now there's a sight, and me birds have been sneezin' ash all mornin', so if ye know a trick for that I'd hear it gladly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Then ask the wind tae stop blowin' ash in my birds' eyes, an' I'll fly ye anywhere for nothin', which I've never offered anyone." },
       },
       again = { { id = "h_again", text = "Need somethin' more? The gryphons cannae abide the smoke off the mountain, so be quick." } },
       choices = {
@@ -1435,6 +1489,7 @@ P:NPC {
         { text = "Do your gryphons hunt anything in the Steppes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could a druid help your gryphons with the ash, Borgus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will your gryphons carry a warlock at all, Borgus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your gryphons feel the spirits, Borgus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, Borgus.", next = "END" },
       },
     },

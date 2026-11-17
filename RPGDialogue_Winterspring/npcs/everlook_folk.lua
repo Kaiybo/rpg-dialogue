@@ -424,6 +424,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every day, though Winterspring is colder and quieter, and nobody here has ever heard of it. I'm glad the old ways are reaching good folk, because the Scourge took enough of mine." } },
+      choices = {
+        { text = "The spirits stand against the Scourge too, Jessica.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hope won't bring them back. Only vengeance matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "You remind me of everything I lost, and I'm sorry to say it so plainly. My family stayed behind when the plague came, and I've wondered every night whether they rose, and whether the Light would have come back to them the way it came back to you." } },
@@ -534,7 +543,7 @@ P:NPC {
           text = "You're a warrior, aren't you? Darrowshire had soldiers once, good ones, who stood against the dead in the streets, but I've never heard who came out again." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "You look like someone who can find a trail where nobody else sees one. I wonder if you could find anything left of the road my family took out of Darrowshire." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? I've never met one, though I've heard the orcs who speak to spirits are gentler than the ones I was taught to fear as a girl." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "You're a shaman? I've never met one, though I've heard the orcs who speak to spirits are gentler than the ones I was taught to fear as a girl." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "You're a mage? Then perhaps you've been to Dalaran, or what's left of it. My family used to say the city's light could be seen from the hills on a clear night." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -554,13 +563,14 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. If you're one of the Forsaken, I'll ask you plainly whether you ever walked near Darrowshire, and I'll try to bear whatever answer you give." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I've heard your kind can make dead ground grow again, and I can't stop wondering whether that could ever reach the fields around Darrowshire." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of the Forsaken. My father said the Silver Hand would never let Lordaeron fall, and now here you stand, one of Lordaeron's dead, with the Light still on you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're a shaman, and a dwarf? I was raised in Darrowshire to think only orcs called on spirits, and here you are, as kind-faced as anybody." },
       },
       again = {
         { id = "h_again", text = "Is there something else? I don't mind talking; it passes the time." },
         { id = "h_again2", text = "Go on, please. It's good to hear a voice that isn't a trader's." },
       },
       choices = {
-        { text = "How does Winterspring compare to the land you left?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How does Winterspring compare to the land you left?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Tell me about your family.", next = "family" },
         { text = "How did you end up in Everlook?", next = "everlook" },
         { text = "What happened at Darrowshire?", next = "darrowshire" },
@@ -576,6 +586,7 @@ P:NPC {
         { text = "Is there any news you'd want me to bring you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you think all warlocks serve the Scourge, Jessica?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do I remind you of Lordaeron, Jessica?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you miss Darrowshire, Jessica?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1239,6 +1250,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They are not kind to anything. The goblins of Everlook would sell the wind if they could catch it, and I wonder whether you'd let them." } },
+      choices = {
+        { text = "The wind isn't the goblins' to sell.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they can catch it, let them profit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "They would carry you, because they are well trained, but they would shiver all the way to Talonbranch Glade, and Felwood has taught them to fear the fel. I've watched good birds go sick from that forest, so you'll understand why I'm careful about what comes near them." } },
@@ -1334,6 +1354,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. My hippogryphs fly south over Felwood every day, and they always climb higher over the worst of it, as if they can smell what's wrong with the trees." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance. Everlook has the goblins' bruisers and the goblins' prices, but it has no shrine at all, and I have missed the sound of prayer." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. My hippogryphs have never flown one of you, but the winds of Winterspring seem to know you already." },
       },
       again = {
         { id = "h_again", text = "Is there something else you wish to know?" },
@@ -1351,6 +1372,7 @@ P:NPC {
         { text = "Do your hippogryphs trust other beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the hippogryphs flinch at a paladin's plate, Maethrya?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Would your hippogryphs truly refuse a warlock, Maethrya?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are the winds of Winterspring kind to your birds, Maethrya?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

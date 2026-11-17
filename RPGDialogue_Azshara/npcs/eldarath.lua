@@ -985,6 +985,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The League knows about everythin' an' agrees on nothin'. Half o' them say the stone remembers the Titans, an' the other half say spirits are orc business. I just fly the rubbings." } },
+      choices = {
+        { text = "The stone remembers. I've heard it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I keep Ironforge's ways. The spirits only lend a hand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So ye'll forgive me if I ask ye tae keep it on a short leash while I'm flyin' these rubbings north." } },
@@ -1090,6 +1099,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I'd offer ye a ride, but the gyrocopter's a wee thing, an' all that plate would put the both of us in the bay." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the Circle, flyin' with me over this coast? I've seen yer kind sprout feathers and keep pace wi' me gryphon, and I'll not pretend I wasn't jealous." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Now there's a sight! Keep the lightning away from my flyin' machine, mind, or Tymor'll be pickin' bits o' me out o' the sea." },
       },
       again = { { id = "h_again", text = "Anythin' else, before the naga notice the noise?" } },
       choices = {
@@ -1106,6 +1116,7 @@ P:NPC {
         { text = "Have you seen much from the air over Azshara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does the Explorers' League want with these ruins?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Have you had trouble with demons in your flyer, Xiggs?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Explorers' League know about dwarf shamans, Xiggs?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },

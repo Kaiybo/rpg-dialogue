@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They mind it about as much as Curly minds being flattened, I'd wager. Turner says trees don't have feelings, but Turner's never had one fall on him." } },
+      choices = {
+        { text = "Thank the trees before you cut them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trees are timber. Cut them and be done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Turner and keep Curly from getting himself killed, and the trees are the easy part." },
@@ -39,6 +48,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Please tell me nobody's hurt; it's not Curly, is it?" },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You couldn't conjure up a bit of luck, could you? I'm running short." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You've got a... friend with you. Is it friendly? It isn't, is it? Could it stand over there, maybe?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You couldn't ask the trees to fall the right way, could you? Curly's been flattened twice this month." },
       },
       again = { { id = "h_again", text = "Something else? Quick, before Curly wanders off again." } },
       choices = {
@@ -54,6 +64,7 @@ P:NPC {
         { text = "Is anyone at the camp hurt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are you short on luck?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my companion frighten you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the trees here mind being cut, Hurley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Hurley.", next = "END" },
       },
     },
@@ -200,6 +211,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I mind anyone who's not working. If you can keep the cultists off the timber, you can talk to the trees all you like." } },
+      choices = {
+        { text = "I'll keep the cultists off your timber.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The spirits don't work for loggers, Turner.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Halligan Turner. This camp feeds Farholde its timber, the Brotherhood keeps the cultists off it, mostly, and I keep the loggers off each other." },
@@ -212,6 +232,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Don't you start any fires in my camp, or you'll be paying for the timber." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I don't care what you are, so long as that pet of yours can carry logs. Can it?" },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Go on, then, tell me I'm cutting down your cousins; Hurley already warned me you lot would." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, standing still. Everybody here works, so if your spirits can carry a log, put them to it." },
       },
       again = { { id = "h_again", text = "What else? Daylight's money, so be quick." } },
       choices = {
@@ -227,6 +248,7 @@ P:NPC {
         { text = "Why fear fire so much?", next = "xmage", when = { class = "MAGE" } },
         { text = "You'd really put my pet to work?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you replant what you cut?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you mind a shaman in your camp, Turner?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -367,6 +389,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They walk the rows all night and never stop. If the earth can feel them, I hope it hates them as much as I do." } },
+      choices = {
+        { text = "Stay and fight for the grange, Benjy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave the grange. Fields can be planted again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Benjy Wheeler, and this is Wheeler's Grange. It was a farm, before the harvest reapers got into the fields, and now it's a farmhouse with a view of trouble." },
@@ -380,6 +411,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Whatever that is beside you, keep it off the rows. I've enough things walking in them already." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The soil's still good, you know; it's only the things walking on it that have gone wrong." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Reaper", min = 20 } }, text = "The clicking's quieter at night, and I've counted fewer reapers in the near rows this week. Somebody's been breaking them, and I've a fair idea who." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Can you hear the reapers in the rows? The ground has to feel that clicking too." },
       },
       again = { { id = "h_again", text = "Anything else? I've a fence to mend." } },
       choices = {
@@ -396,6 +428,7 @@ P:NPC {
         { text = "What are the reapers made of?", next = "xmage", when = { class = "MAGE" } },
         { text = "Afraid of my companion, Benjy?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How is the soil, under all this?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What do the reapers do to your fields, Benjy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Benjy.", next = "END" },
       },
     },

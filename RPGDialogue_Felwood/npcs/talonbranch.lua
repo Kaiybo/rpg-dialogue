@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We both listen first, and that is most of it. Felwood is screaming, and anyone who can hear it is welcome at this moonwell." } },
+      choices = {
+        { text = "Then I'll listen, and help heal what I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Listening won't cure this. The corruption must be burned out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Satyrs in the trees, cultists at Jaedenar, and things in the corrupted streams that were once fish. A druid learns to walk without being heard here, and I'd guess you learned that long ago, so you'll fare better than most of my students." } },
@@ -121,6 +130,7 @@ P:NPC {
           text = "The moonwell is brightest now, so look at it, and then look at the trees; that's the difference we're fighting for." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, at the last clean moonwell. Whether you pray to Elune or the Light, your prayers are welcome here, so long as you say them quietly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. I teach druids to heal what is broken, and I'd wager the earth teaches you the same lesson in a rougher voice." },
       },
       again = { { id = "h_again", text = "What else?" } },
       choices = {
@@ -135,6 +145,7 @@ P:NPC {
         { text = "Will the moonwell's water heal a sick beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why teach druids in a sick forest, Golhine?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What listens in Felwood, Golhine?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do druids and shamans heal the land the same way?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -520,6 +520,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If they can, ask them now. The Burning Blade have been poisoning this place for years, and I've felt it in my teeth since the day they dragged me in." } },
+      choices = {
+        { text = "Stay close. I won't leave you behind.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep up. I won't wait if the cult comes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Quickly, and by the side passages, because the cultists gather in the great hall when the watch changes. If they come at us, keep them off me long enough to run, and I'll make sure Vahlarriel knows who carried me out." } },
@@ -589,6 +598,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, thank the Light. The cultists' sorcerers throw fel fire about as if it were nothing, and I'd feel far better with someone who can answer it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You smell of the same smoke as the cultists, and I won't pretend that doesn't frighten me. But you came for me, so I'll follow you out and ask no questions until we're home." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've not seen anything green in weeks, and you look like you might remember what it was like." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Whatever the Burning Blade did with fel in here, I hope your spirits can still hear you, because I'd rather not walk out of this fortress alone." },
       },
       again = { { id = "h_again", text = "What else? Speak quickly, please." }, { id = "h_again2", text = "Ask, but softly." } },
       choices = {
@@ -603,6 +613,7 @@ P:NPC {
         { text = "How many sorcerers do they have here, Dalinda?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Burning Blade warlocks differ from me, Dalinda?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What has the cult done to the land around here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can the spirits help us out of here, Dalinda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -651,6 +662,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We trust deeds. The Burning Blade bargain with demons in that fortress, and if your spirits help bring Dalinda home, that's all the trust I need." } },
+      choices = {
+        { text = "Then I'll earn your trust with deeds.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I don't need your trust. Just your coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They fight with a fury that isn't wholly their own, because the demons they serve lend them strength and take something in payment. A disciplined warrior will outlast them, since that borrowed fury burns hot and gives out before the fight is done." } },
@@ -731,6 +751,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You walk quietly, and I've learned to value that, because the Burning Blade post sentries at Thunder Axe who are better at listening than at fighting." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Burning Blade's sorcerers at Thunder Axe throw fel fire, and I'd welcome someone who knows how to throw something back." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "I've been counting the Burning Blade's patrols, and they're thinner than they were before you came. Whatever you've been doing out at Thunder Axe, don't stop." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Our druids say the elements were wounded when the Well of Eternity fell, and I wonder whether you can hear the scars." },
       },
       again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
       choices = {
@@ -746,6 +767,7 @@ P:NPC {
         { text = "Where do the Burning Blade gather in Desolace?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do the Burning Blade's fighters compare, Vahlarriel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How long have you hunted the Burning Blade, Vahlarriel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the kaldorei trust a dwarf who speaks to elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -794,6 +816,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I trust anyone who has walked the wilds long enough to know the elements are not servants. Banners mean little to Misha and me, but the ones who wave them hardest usually listen least." } },
+      choices = {
+        { text = "The elements serve no banner, and neither do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'm loyal to the Alliance first, Rexxar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "By what it does when no one's watching. I've seen the Light carried by men who burned villages, and I've seen the dead fight harder for their friends than the living. Show me which you are, and Misha will decide whether she likes you." } },
@@ -859,17 +890,18 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Rexxar, Champion of the Horde, though I spend little time near its cities. The wilds suit Misha and me better than walls and politics do." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. Misha likes you, which is more than she says for most who walk these roads." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's shamans walk with the elements the way I walk with Misha, as partners, so I'll hear you out." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. Thrall's shamans walk with the elements the way I walk with Misha, as partners, so I'll hear you out." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I have seen what the Light and the loa can mend, and I have seen what neither can, so do your work where it is needed and don't waste words on me." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Misha does not care for the smell of the arcane, but she has learned to tolerate it, and so have I." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'd do well in the wilds, for you already know how to move without being heard, and that's a lesson most of the Horde never learns." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You carry the stink of demons. My father's people drank from that cup once, and I've seen what it did to them, so speak carefully." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one carrying the Light. Misha doesn't like your smell, and I'm not sure I do either, but I've learned not to judge a creature by its scent alone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I have seen orcs and tauren walk with the elements, never one of the mountain folk, so I'll hear you out." },
       },
       again = { { id = "h_again", text = "Speak your mind." }, { id = "h_again2", text = "Misha's listening too." } },
       choices = {
         { text = "Why do you walk the wilds alone, Rexxar?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Do you trust the shamans of the Horde, Rexxar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you trust the shamans of the Horde, Rexxar?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What do you hunt in Desolace, Rexxar?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why travel alone?", next = "b1_1" },
         { text = "Tell me about Misha.", next = "b2_1" },
@@ -879,6 +911,7 @@ P:NPC {
         { text = "What does a warrior learn out in the wilds, Rexxar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How did you and Misha come to hunt together, Rexxar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you judge a creature by, Rexxar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you trust a shaman of the Alliance, Rexxar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

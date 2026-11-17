@@ -223,6 +223,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every day. Gryphons were made for mountain air, and this wind's full of sand and goblin smoke. If you've any pull with it, tell it we're only passing through." } },
+      choices = {
+        { text = "I'll ask the wind kindly, for your birds' sake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The wind does as it likes. Your birds will cope.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not raiding, sniffing, because they know a crate by a gryphon post usually means something worth stealing. My birds can outfly any bandit, but they can't outfly the one waiting by the roost when they land, and that's what I need a warrior for." } },
@@ -318,6 +327,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, and one of ours! Mind your beast near my gryphons, though, because they're sick of the sand and in no mood to be sniffed." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep yer demon away from the roost, because my gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'll fly you anywhere, but if you could ask the wind to keep the sand out of my birds' feathers, I'd be in your debt." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless in this heat." },
@@ -335,6 +345,7 @@ P:NPC {
         { text = "Are the Wastewanderers raiding your gryphon crates, Bera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your gryphons get on with hunters' beasts, Bera?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Will your gryphons carry a warlock at all, Bera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the desert wind trouble your gryphons, Bera?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -476,7 +487,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The wind riders are calmer when one of you is near, and so am I, so speak freely." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde. The wind riders are calmer when one of you is near, and so am I, so speak freely." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The riders who come in from Zul'Farrak are cut and sun-blind, and I would rather they met you than the long flight home." },
         { id = "h_default", key = true,
           text = "I am Bulkrek Ragefist, and I keep the wind riders for the Horde here. They will take you to Orgrimmar, the Crossroads, Camp Mojache and wherever else the Horde flies." },
@@ -500,7 +511,7 @@ P:NPC {
         { id = "h_again2", text = "More? The heat makes orcs short-tempered, but I will listen." },
       },
       choices = {
-        { text = "How do the wind riders take this desert wind?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How do the wind riders take this desert wind?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Do the wind riders take to the desert?", next = "druid_q", when = { class = "DRUID", race = "Tauren" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do the wind riders take the heat?", next = "riders" },
@@ -977,6 +988,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It answers patience and nothing else. The Sandfury temper their steel with something darker than fire, and I'd value a shaman's opinion on what that is." } },
+      choices = {
+        { text = "Leave the trolls' dark methods to the trolls, Trenton.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If their methods work, learn them, Trenton.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Their smiths knew a way of tempering steel in the desert heat that I have never managed, and their old blades still carry it. I would learn it from the trolls themselves if they would teach me, but a warrior who brings me one of their weapons teaches me nearly as much." } },
@@ -1072,7 +1092,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have known Forsaken whose prayers set my teeth on edge, and trolls whose loa want blood, so forgive me if I wait to hear which kind you are." },
         { id = "h_default", key = true,
           text = "Trenton Lighthammer, smith. I work here by the south gate because it's nearest the road to Zul'Farrak, and the trolls of that city have something I need for my craft." },
@@ -1095,6 +1115,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your hammer's seen good use, I can tell, and I'd be glad to look at the head, though I won't touch it without asking." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You're welcome at my forge, though I'll warn you the noise is not good for prayer, and the heat isn't either." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Sandfury", min = 40 } }, text = "You've been in among the Sandfury, I can tell, because there's been talk at the gate that their patrols are short of fighters. If any of them were carrying temper, I'd like to know." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at a kaldorei's anvil. Your people learned the forge from the stone and I learned it from the moon, so watch and tell me which of us the fire prefers." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk while the iron heats." },
@@ -1102,7 +1123,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you need from Zul'Farrak, Trenton?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "The Sandfury temper their steel with more than fire. What do they use?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The Sandfury temper their steel with more than fire. What do they use?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What is troll temper, exactly?", next = "temper" },
         { text = "What's Zul'Farrak like?", next = "zf" },
         { text = "A night elf working steel?", next = "kaldorei" },
@@ -1116,6 +1137,7 @@ P:NPC {
         { text = "I'll bring you their temper.", next = "END", when = { questBefore = TODO_QUEST("Troll Temper") }, fx = { affinity = 2 } },
         { text = "What do the Zul'Farrak trolls have that a smith needs?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's wrong with my fletching for the desert wind, Trenton?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Does the forge's fire answer you, Trenton?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

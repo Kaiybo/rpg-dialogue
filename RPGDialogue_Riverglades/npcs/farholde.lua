@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The Brotherhood has a use for anyone who stands on the wall. The cultists call on things in the river fog, and if your spirits can tell me what they are, I'll name you in my reports with the best of them." } },
+      choices = {
+        { text = "I'll stand on the wall, Commander. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt the fog on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -61,6 +70,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you are, warlock; the smell gives it away. The Hammer deals in the same dark, so you'll forgive me if I make you prove you're not halfway to joining them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, this far from your own forests. The glades round Sunnyglade are sick with the Hammer's filth, and I'm told your kind takes that personally." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } }, text = "The patrols say the Twilight camps on the ridge are thinner this month, and the bodies they find have your work on them. Keep at it, and my riders might see the Sunnyglade road again before I'm grey." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Stormwind left us nothing, and now Ironforge sends me a shaman, so I'll not argue with what comes." },
       },
       again = {
         { id = "h_again", text = "What else? The day's short and the Riverglades are long." },
@@ -85,6 +95,7 @@ P:NPC {
         { text = "What use is a mage to the Brotherhood?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will the Brotherhood take a warlock's help, Commander?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What has the Hammer done to these glades?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does the Brotherhood have a use for a shaman, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -465,6 +476,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That the orcs gave it up for warlocks and Thrall brought it back, and nothing at all about dwarves. If you'll tell me what the earth sounds like here, I promise not to write it all down." } },
+      choices = {
+        { text = "Write it all down, Ashe. Truth should be shared.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep it to yourself. Some things are better secret.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -483,6 +503,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came in very quietly, which is either good manners or professional habit, and I'm going to assume manners." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sister Rowland will be so relieved, and so will I, because there's a thing on my stone table I'd like someone holy to look at, from a sensible distance." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've read about the Cenarion Circle, though only what the kaldorei let humans write down, which I suspect was the boring half." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a dwarf shaman! I've read about the orcs' shamans and the tauren's, but never a dwarf's, and I'm sorry, I'm already writing notes." },
       },
       again = {
         { id = "h_again", text = "What else? Stop me if I wander." },
@@ -505,6 +526,7 @@ P:NPC {
         { text = "Would anyone notice if one of those curios went missing?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What's on the stone table that needs a priest?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you like to know about the Circle?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What have your books said about shamans, Ashe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Ashe.", next = "END" },
       },
     },
@@ -793,6 +815,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "No, you seem like someone who asks before taking, and the cultists never ask. Still, I've been at this too long to trust anything that glows, so prove me wrong on the ridge." } },
+      choices = {
+        { text = "I'll prove it on the ridge, Sergeant.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I don't need to prove anything to you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -810,6 +841,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know that smell. Keep your pet out of the lads' sight, warlock, because they've seen enough things with horns come crawling off that ridge." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, out here? The woods by the Shroud have gone quiet, and I'd like to know why from someone who would know." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 30 } }, text = "Word on the line is you've been thinning out the Twilight on the ridge. The chanting's quieter at night and the lads have noticed, though they'd never say thank you, so I will." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've fought cultists who talk to things in the fog, and I'll need a minute to decide whether you're any different." },
       },
       again = {
         { id = "h_again", text = "What else? Eyes on the ridge while you ask." },
@@ -827,6 +859,7 @@ P:NPC {
         { text = "Where would fire do the most good?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the cultists summon things too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why have the woods gone quiet?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do I seem like the cultists to you, Sergeant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Sergeant.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -976,6 +1009,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I don't know, and that's the worst of it. I pray over them and they don't get better, so if the earth or the water knows something, I'll listen." } },
+      choices = {
+        { text = "The Light and the spirits can work together here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayer isn't working. Try harsher remedies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -986,6 +1028,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move very softly, and I'm grateful for it in here, whatever the reason you learned to." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe keeps asking me whether the illness has an arcane smell to it, and I keep telling her I wouldn't know one if it sat on the bed." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you carry, and I won't pretend I'm easy with it. Keep it outside the chapel, and you're as welcome as anyone who'll fetch water." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Wash your hands at the basin, and then, if your spirits can tell what ails these soldiers, I'll thank them as gladly as the Light." },
       },
       again = {
         { id = "h_again", text = "Something else? Softly, please." },
@@ -1004,6 +1047,7 @@ P:NPC {
         { text = "Would you refuse my help, Sister?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The Light keep you, Sister.", next = "END", fx = { align = { light = 1 } } },
         { text = "I'm a druid. I know herbs that ease fever.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Can the spirits tell what ails your sick, Sister?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Prayer won't break a fever, Sister, but medicine might.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -1152,6 +1196,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Luna knows when a storm's coming, and she's been looking at you like you're one. Keep your voice down, and she might forgive you." } },
+      choices = {
+        { text = "I'll keep the storm quiet for the little one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Storms come when they come. Luna will cope.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cady Lloydriel. I ride with the Brotherhood and keep an eye on the walls, and on this one." },
@@ -1163,6 +1216,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. If you've come for Ashe, she's in the keep, talking to someone, probably herself." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Luna's hissing, and she doesn't hiss at people. I'll take her word for what you are, warlock." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Aedamas can't decide whether you're a person or a smell, so give him a moment." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Shh. The cat's watching you, and the cat doesn't like strangers, so stand still." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -1183,6 +1237,7 @@ P:NPC {
         { text = "Do you have any magic of your own, ranger?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does your cat hiss at every warlock?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would Aedamas like me better in another shape?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does your cat know something about me, Cady?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -1356,6 +1411,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I think they've more sense than most riders, and that's spirit enough. Treat them well and the spirits can say what they like." } },
+      choices = {
+        { text = "Every beast has a spirit. I'll treat them so.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A horse is a horse. It works or it doesn't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Wheatley, stable master. Every horse in the Brotherhood comes through these stalls, and every one of them is better company than its rider." },
@@ -1366,6 +1430,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've a prayer that works on colic, I'll take it, because the ones for people don't seem to." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Nothing flashy in here, please; the last time someone lit a spell near the stalls, it took me a day to catch them all." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The horses don't like you, warlock, and I've learned to trust them. Stand by the door, if you would." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You'll be telling me the horses have spirits, and I'll be telling you they eat before you do, so we'll get along." },
       },
       again = { { id = "h_again", text = "Anything else? Hold this bucket while you ask." } },
       choices = {
@@ -1381,6 +1446,7 @@ P:NPC {
         { text = "Could magic make a horse faster?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why do the horses fear me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Where do the Brotherhood's new horses come from?", next = "remounts" },
+        { text = "Do you think the horses have spirits, Wheatley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1528,6 +1594,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It's the fog off the river that troubles them, not the wind. If you can ask the fog to lift now and then, I'll fly you for free." } },
+      choices = {
+        { text = "I'll ask the river spirits to lift the fog.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The fog's a cult trick. Break the cult, and it lifts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gretchen Mayberry, Gryphon Master. If you're headed anywhere the Brotherhood holds, I'll have you there before the fog lifts." },
@@ -1539,6 +1614,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll be wanting to teleport everywhere, I suppose, so you've come to sneer at my birds." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The birds don't care for you, I'm sorry to say, but they'll fly you all the same; they're professionals." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! If you can talk to animals, ask the old female on the end why she won't eat fish, because I've tried everything else." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The birds like you already; they always settle when the wind's friendly, and it seems the wind's friendly to you." },
       },
       again = { { id = "h_again", text = "Anything else? My gryphons like to be off before the river mist closes in again." } },
       choices = {
@@ -1555,6 +1631,7 @@ P:NPC {
         { text = "Why don't the birds like warlocks?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why won't she eat fish?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Which route gives you the most trouble?", next = "route" },
+        { text = "Does the river wind trouble your gryphons, Gretchen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1711,6 +1788,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd forge one for anyone on the wall. Iron's short and coal's shorter, so tell your spirits the forge needs feeding." } },
+      choices = {
+        { text = "Arm the wall first, Alphonse, not me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pay is pay. Sell to whoever has the coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Alphonse Dumas. I keep the Brotherhood shod and armed, though iron's short and coal's shorter. Patience I have plenty of." },
@@ -1727,6 +1813,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe is always asking me for odd things, rings that don't melt and the like, so I suppose you'll want something odd too." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Warlock. Don't hold that thing near my fire; the embers don't like it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at a forge. That's new, and I'll not ask what you need iron for." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your totems are good stone, and I'd forge you a mace to match if I had the coal." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Go on; the hammer's not listening." } },
       choices = {
@@ -1744,6 +1831,7 @@ P:NPC {
         { text = "What odd things has Ashe asked for?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why don't your embers like it?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Where does your charcoal come from?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Would you forge a mace for a shaman, Alphonse?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

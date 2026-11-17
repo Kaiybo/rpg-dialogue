@@ -18,6 +18,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not favour, exactly, but the Circle notices who comes to mend and who comes to take. Shamans usually come to mend, and I'll be interested to see whether a dwarf does the same." } },
+      choices = {
+        { text = "I've come to mend, Lorelae.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I've come for what the Circle can offer me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Not favour, exactly, but the Circle notices who comes to mend and who comes to take, and shamans usually come to mend. Your people have tauren among the Circle's druids, so you'll find friends in Moonglade, and my wares will be waiting when you've earned them." } },
@@ -104,7 +113,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde. The Circle sells its wares to those it trusts, and I've a feeling you'll grow that trust faster than most, since the land already speaks to you." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. The Circle sells its wares to those it trusts, and trust in Moonglade is grown, not bought, so I'll be curious to see what you grow while you're here." },
@@ -119,6 +128,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Most of what I hold was made by druid hands, without a spark of the arcane in it, and the Circle prefers it that way." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be courteous, as the Keeper asks, but the Circle's wares are for its friends, and the Circle is slow to befriend those who carry the fel." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. You're one of ours, and you'll find I keep the Circle's goods for those who've earned its trust, so let's see how far you've come." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle sells its wares to those it trusts, and I'll admit I'm curious how a child of Ironforge earns it." },
       },
       again = {
         { id = "h_again1", text = "Anything else I can help you with?" },
@@ -137,7 +147,8 @@ P:NPC {
         { text = "Does the Circle trust hunters more than others?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How does one earn the Circle's trust, Lorelae?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How does a paladin earn the Circle's trust, Lorelae?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does the Circle favour shamans, Lorelae?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the Circle favour shamans, Lorelae?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Does the Circle favour shamans, Lorelae?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Lorelae.", next = "END" },
       },
     },

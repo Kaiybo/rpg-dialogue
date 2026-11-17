@@ -582,6 +582,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Glyphs, mostly, an' stonework that runs deeper than any shaft we've sunk. If the stone remembers who built it, ask it, because Ironforge won't send an army on my say-so." } },
+      choices = {
+        { text = "The stone's memory belongs to all dwarves. I'll share it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the stone talks, I'll keep what it says to myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Not often, but the hives aren't often the place we dig. We've lost good people down there, an' I'll not pretend I'm fond o' demons, but a warlock knows what it looks like when somethin' crawls into a mind, an' after what happened tae Natalia, I'd value that." } },
@@ -679,7 +688,7 @@ P:NPC {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, in Bronzebeard's camp? Well, the Explorers' League doesn't turn away a pair o' hands, so long as yer pet keeps its claws off the finds." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Are ye daft, wanderin' out here in robes? The sand gets in everywhere, an' I mean everywhere, so mind yer spellbooks." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -702,6 +711,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Are ye daft, wandering this desert with a beast that needs water? Come in out of the sun, the pair of ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid, out at Brann's dig! Yer people knew this land before it was sand, so I'll gladly hear whatever ye can tell me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, eh? Brann'd want tae write ye up, an' I want tae know if the stone round here's said anythin' tae ye about what's under it." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rubbings to sort." },
@@ -709,7 +719,7 @@ P:NPC {
       },
       choices = {
         { text = "What has the League dug up here, Rutgar?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "The ground here hums. What have your digs found under it?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The ground here hums. What have your digs found under it?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What happened to Natalia Mar'alith?", next = "natalia" },
         { text = "Where's Brann Bronzebeard?", next = "brann" },
         { text = "What are you digging for?", next = "dig" },
@@ -726,6 +736,7 @@ P:NPC {
         { text = "What do you need guarded at the encampment, Rutgar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What wanders into your camp from the desert at night, Rutgar?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does the League often take warlocks into the hives, Rutgar?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The ground here hums. What have your digs found under it?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

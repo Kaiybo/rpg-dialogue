@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because your people have long listened to the stone, and the stone is slow to speak. If the spirits have found a new voice among the dwarves, perhaps the world is mending in ways even I did not foresee." } },
+      choices = {
+        { text = "The old ways of Ironforge will learn from this.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ironforge's old ways are too slow. The spirits are freer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Because my father fell in Ashenvale to warriors of the Horde, in the days when the demons' blood still ran in their veins. I do not hold their children to account for it, and the spirits plainly do not either, so I choose to see what you are rather than what came before you." } },
@@ -132,7 +141,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde, in my father's glade. The spirits walk with you, little one, and they are welcome here, as you are, though I will not pretend it is a simple thing for me to say." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in my father's glade. The Light you carry is not the light of Elune or of the moon, little one, but it is a kind and steady thing, and the glade does not object to it." },
@@ -158,6 +167,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A shadow-walker, in my father's glade. There is nothing to steal in Moonglade, little one, and nobody to hide from, so you may walk in the open here." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, in Moonglade. The kaldorei learned the price of the arcane when the Well of Eternity tore the world apart, little one, so forgive my druids if they watch your hands." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, in my father's glade. You may rest here in peace, as any guest may, but the fel you carry is the very thing my druids give their lives to cleanse." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in my father's glade. The spirits walk with you, little one, and I am curious what led a child of the mountain to them." },
       },
       again = {
         { id = "h_again", text = "The glade is patient, and so am I. What else would you ask?" },
@@ -181,7 +191,8 @@ P:NPC {
         { text = "Do your druids still blame the arcane for the Sundering, Keeper?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there a place for warriors in Moonglade, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Light have a place in Moonglade, Keeper?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why is it not simple to welcome a shaman, Keeper?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why is it not simple to welcome a shaman, Keeper?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Why should a dwarf's spirits interest you, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -406,6 +417,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than most of the Circle would admit. The spirits of this glade are old and patient, and if they've drawn a dwarf all the way from Ironforge, I'd look for their reason by the lake." } },
+      choices = {
+        { text = "The spirits guide me. I go where they send.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I choose my own road. The spirits only advise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "More than most of the Circle would admit. The tauren druids among us hear the Earth Mother as you do, and the spirits of this glade are old and patient, so if they've drawn you here, there's something they wish you to see, and I'd look for it by the lake." } },
@@ -501,7 +521,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde. I don't believe in chance, so I'll assume the spirits sent you here for a reason, and I'd very much like to learn what it is." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in Nighthaven. I don't believe in chance, so I'll assume the Light had some reason for sending you here, though I can't for the life of me imagine what it is." },
@@ -525,6 +545,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Keeper is patient with your kind, and so am I, but the druids remember the Highborne better than most, so I'd keep any spellwork modest while you're here." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll write your name down, as I do everyone's, and I'll be watching to see what you owe the Circle by the time you leave." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, home to Moonglade. Welcome back; Keeper Remulos may not say it himself, but he likes to see the Circle's children return, and I like to see them fed." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I don't believe in chance, so I'll assume the spirits sent you here for a reason, and I'd very much like to learn what it is." },
       },
       again = {
         { id = "h_again", text = "Go on, then. I've a ledger to finish, but it can wait for a good question." },
@@ -546,7 +567,8 @@ P:NPC {
         { text = "Why can't my beast hunt in Moonglade, Rabine?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What keeps Nighthaven running so smoothly, Rabine?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why do you think I was sent here, Rabine?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do the spirits and the Circle work together, Rabine?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the spirits and the Circle work together, Rabine?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Do the spirits and the Circle work together, Rabine?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -1503,6 +1525,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Quieter than any I've known, and older, like grandfathers by a fire. I wonder whether the stone spirits of your mountains are as patient, or whether they grumble like your people." } },
+      choices = {
+        { text = "Patient, Bunthen, like the mountains themselves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They grumble, and they're right to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Quieter than the ones at home, friend, and older, I think, like grandfathers sitting by a fire. The wind spirits up on the Bluff are loud and restless, but here they hardly stir, and I wonder whether that's peace or only sleep." } },
@@ -1580,7 +1611,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman, so far from the Bluff! My riders fly for druids alone, friend, but the spirits on you smell of home, and I'm very glad to see you." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, so far from your own lands! My riders fly for druids alone, friend, but you're welcome to share the perch and a little conversation, since I miss the sound of voices up here." },
@@ -1597,6 +1628,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, at the perch. My riders don't trust anyone who moves that quietly, friend, so walk loud near them, for your own sake." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, so far from the cities! The riders don't care for magic on the wind, but I've always thought a mage's fire would be welcome on a cold night by the lake." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Earth Mother keep you, friend, though I wonder whether your demons let her near you at all." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! The spirits on you smell of mountain stone instead of the plains, and I find I'm curious about it." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? The riders can wait a little." },
@@ -1613,7 +1645,8 @@ P:NPC {
         { text = "Do your wind riders like warriors, Bunthen?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the wind riders miss the plains, Bunthen?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you miss Thunder Bluff, Bunthen?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What do the spirits of Moonglade feel like, Bunthen?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the spirits of Moonglade feel like, Bunthen?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "What do the spirits of Moonglade feel like, Bunthen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

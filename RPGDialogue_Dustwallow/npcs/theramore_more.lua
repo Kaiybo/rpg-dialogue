@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They mind everythin' about the marsh, an' the spirits most of all, I'd wager. Gryphons are mountain birds, same as us, an' a swamp's no place for either." } },
+      choices = {
+        { text = "Mountain or marsh, every land has spirits worth respecting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Aye. A dwarf belongs in stone, not this mud.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not these, not since the Lady made her peace, though I'd wager their grandsires flew against the Horde. They carry officers and post now, and I'd like it to stay that way, because a gryphon shot down over Brackenwall is a gryphon I don't get back." } },
@@ -99,6 +108,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't even think about borrowing a gryphon after dark, because they'll bite whoever's sitting on them and then come straight back to me." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and you'll be wanting to teleport home instead of using my gryphons, I suppose. That's fine, but don't come crying to me when you land somewhere damp." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the birds if you like, because they've earned it, flyin' through this rain day in and day out without one word o' complaint, unlike me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. If ye can talk the marsh out o' bein' damp, the Lady's gryphons will build ye a statue, an' so will I." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I saddle one?" },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Do your gryphons ever carry soldiers into battle, Baldruc?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons hunt in the marsh, Baldruc?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the gryphons suffer in this weather, Baldruc?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do your gryphons mind the marsh spirits, Baldruc?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -215,6 +226,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It couldn't hurt, and it might help. The marsh feeds this whole island, so if the spirits want a word of thanks before supper, I'll put a bowl aside." } },
+      choices = {
+        { text = "Thank the land that feeds you. Always.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The marsh feeds us because we take from it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Ask any sergeant in Theramore whether he'd rather have a full company or a fed one, and he'll tell you they're the same thing. A man on hard bread fights for an hour, but a man on tortoise soup fights till supper, and then he wants seconds." } },
@@ -311,6 +331,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit, sit, you'll have soup before anything else, because I've never seen a holy warrior yet who couldn't do with a second bowl." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my kitchen! You can stay, but if that imp of yours puts so much as a claw in my soup pot, I'll ladle him straight back to wherever he came from." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mudrock", min = 30 } }, text = "You've been thinning out the Mudrock tortoises, I can tell, because the fishermen say the shore's safe to walk again. If any of those came home in a sack, my soup pot's waiting." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I've cooked turtle for envoys and sailors alike, but never for someone who might thank the turtle." },
       },
       again = {
         { id = "h_again", text = "What else, while it simmers?" },
@@ -331,6 +352,7 @@ P:NPC {
         { text = "Do you resent conjured food, Morgan?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does soup really make a better soldier, Morgan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do you find your tortoises, Morgan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should I thank the turtle, Morgan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -432,6 +454,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "In speed, certainly. But spirits can fall silent and priests tire, and a bandage never does, so I'd have every healer in Theramore learn both." } },
+      choices = {
+        { text = "You're right. Discipline and bandages should back up every spell.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The spirits heal better than any bandage, Doctor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Raptor bites to the forearm, mostly, from soldiers who raise a shield too late, and arrow wounds when the patrols run into whoever's camped out in the fens that week. I can close nearly all of them, provided the soldier walks in on his own feet and doesn't wait three days out of pride." } },
@@ -497,6 +528,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the hands of someone who knows where to put a blade, and I'm glad to see they're steady. The marsh teaches me what poisons do to a body, and I suspect you've studied them from the other side." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be frank, I have bandaged too many soldiers who met the wrong end of the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The tower sends me apprentices now and then with burns on their hands from spells gone wrong, and I'd be glad if you weren't the next." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I teach field medicine, and I'd like to see how a shaman's healing compares with a clean bandage." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, I've dressings to change." },
@@ -514,6 +546,7 @@ P:NPC {
         { text = "What wounds do you see most from the soldiers, Doctor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever treat beasts as well as soldiers, Doctor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do mages often come to you hurt, Doctor?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is a shaman's healing so different from yours, Doctor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Doctor.", next = "END" },
       },
     },
