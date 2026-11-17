@@ -15,35 +15,38 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hey there, neighbour! Lotta ruckus today, huh?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again! Still lookin' around, or lookin' for me?" },
-    { id = "g_away", when = { away = 14 }, text = "Hey, neighbour, back after {away} away! I've rescued a whole lotta stuff since you left, and some of it's even for sale." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you pulled a fast one on somebody upstairs, sweetheart. A fellow Dalaranian after my own heart, that's what you are." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you sweet-talked somebody in the city round to your way of thinkin'. Nice work, pal, but don't try it on me, 'cause I'm the one who taught the city how." },
+    { id = "g_default", text = "Hey there, neighbour! Lotta ruckus today, huh? Great day for business, though, if you know where the good stuff landed." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, pal! Still lookin' around, or lookin' for me? 'Cause only one of those does anything for my margins." },
+    { id = "g_away", when = { away = 14 }, text = "Hey, neighbour, back after {away} away! I've rescued a whole lotta stuff since you left, and some of it's even for sale, at a very reasonable markup." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you pulled a fast one on somebody upstairs, sweetheart, and by my last copper, that's the most Dalaranian thing I've heard all week. A fellow citizen after my own heart, that's what you are." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you sweet-talked somebody in the city round to your way of thinkin'. Nice work, pal, but don't try it on me, 'cause I'm the one who wrote the sales pitch." },
   },
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "Oh, I know that walk. You're in the trade, aren't ya? Relax, I won't tell if you won't." },
+      text = "Oh, I know that walk, pal, you're in the trade, aren't ya? Relax, I won't tell if you won't, 'cause silence between professionals comes standard." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin, in here? Aw, come on, I'm just browsin'. Nobody's arrestin' anybody today." },
+      text = "A paladin, in here? Aw, come on, sweetheart, I'm just browsin', and browsin' ain't a crime in any city I ever paid taxes in, which is none of 'em." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Well, hey there, fellow Dalaranian! Just another honest citizen, me, mindin' my own business while the whole city goes kablooey around us." },
+        { id = "h_default", key = true, text = "Well, hey there, fellow Dalaranian! Just another honest citizen, me, mindin' my own business while the whole city goes kablooey around us, and kablooey's real good for the salvage trade." },
         { id = "h_alliance", when = { faction = "Alliance" },
-          text = "Don't gimme that look. The shop's open, the owner ain't, and it'd be a shame to let the stock go to waste with all this ruckus." },
+          text = "Don't gimme that look, pal. The shop's open, the owner ain't, and lettin' good stock go to waste in all this ruckus would be a crime against commerce." },
         { id = "h_active", when = { questActive = TODO_QUEST("Opportunistic Education") },
-          text = "Well? Find their library yet? Fancy books, the kind with locks on 'em, that's what we want." },
+          text = "Well? Find their library yet? Fancy books with locks on 'em, that's what we want, 'cause a lock on the cover adds half again to the price before anybody's read a page." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Opportunistic Education"), days = 3 } },
-          text = "A history book. I asked for secrets and you brought me homework, but hey, a little gold paint and it's an archmage's personal copy." },
+          text = "A history book, pal? I asked for secrets and you brought me homework, but hey, a little gold paint and it's an archmage's personal copy, priced accordin'ly." },
         { id = "h_shade", tags = { "news" }, when = { killed = { name = "Shade of the Archmage", min = 1 } },
-          text = "Whatever was makin' all that noise upstairs went quiet. Great for the mages, terrible for business; they'll be countin' the books again." },
+          text = "Whatever was makin' all that noise upstairs went quiet. Great for the mages, terrible for business, 'cause now they'll be countin' the books again and checkin' 'em against the ledger." },
       },
-      again = { { id = "h_again", text = "What else, pal? I got a schedule, and it involves not bein' here when the mages come back." } },
+      again = {
+        { id = "h_again", text = "What else, pal? I got a schedule, and it involves not bein' here when the mages come back." },
+        { id = "h_again2", text = "Still browsin', sweetheart? Look all ya like, but touchin' costs extra, and breakin' costs a whole lot extra." },
+      },
       choices = {
         { text = "You're no Dalaranian.", next = "bluff" },
         { text = "What are you after down here?", next = "after" },
@@ -55,7 +58,7 @@ P:NPC {
 
     bluff = {
       lines = {
-        { id = "bl_default", text = "Course I am! I got a robe and everything. All right, it's a borrowed robe, and it's three sizes too long, but the mages are too busy chasin' glowy things to check." },
+        { id = "bl_default", text = "Course I am, pal! I got a robe and everything, and all right, it's a borrowed robe and it's three sizes too long, but the mages are too busy chasin' glowy things to check anybody's papers." },
       },
       choices = {
         { text = "How did you even get in?", next = "bluff_in" },
@@ -64,14 +67,14 @@ P:NPC {
     },
     bluff_in = {
       lines = {
-        { id = "bi_default", text = "Same way you did, I'd bet, through the plumbing. A goblin never asks which door's polite, only which one's open." },
+        { id = "bi_default", text = "Same way you did, I'd bet, through the plumbing. A goblin never asks which door's polite, sweetheart, only which one's open and what the guard costs." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     after = {
       lines = {
-        { id = "af_default", text = "Books, sweetheart. They got whole libraries of fancy arcane stuff up there, and books like that sell for a pretty penny to the right collector." },
+        { id = "af_default", text = "Books, sweetheart, whole libraries of fancy arcane stuff up there, and a book like that fetches a pretty penny from the right collector, plus handlin'." },
       },
       choices = {
         { text = "Who'd buy stolen Kirin Tor books?", next = "buyers" },
@@ -80,7 +83,7 @@ P:NPC {
     },
     buyers = {
       lines = {
-        { id = "bu_default", text = "Everybody, that's who! Collectors, scholars, guys with towers and no friends. I don't ask what they do with 'em, because askin' lowers the price." },
+        { id = "bu_default", text = "Everybody, pal! Collectors, scholars, guys with towers and no friends, and I don't ask what they do with 'em, because askin' lowers the price." },
       },
       choices = {
         { text = "That's a good way to sell something dangerous.", next = "BACK", fx = { affinity = -1 } },
@@ -91,7 +94,7 @@ P:NPC {
     steal = {
       big = true,
       lines = {
-        { id = "st_default", text = "Stealin'? The mages ain't usin' it, the shop ain't usin' it, and the city's fallin' down anyhow. I prefer to think of myself as a rescuer of misplaced goods." },
+        { id = "st_default", text = "Stealin'? The mages ain't usin' it, the shop ain't usin' it, and the city's fallin' down anyhow, so I prefer to think of myself as a rescuer of misplaced goods, with a modest recovery fee." },
       },
       choices = {
         { text = "Put it back. This city's suffering enough.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
@@ -102,7 +105,7 @@ P:NPC {
 
     xrogue = {
       lines = {
-        { id = "xr_default", text = "Partners split profits, and I hate splittin'. But a sneaky type like you, well, find me somethin' good and we'll talk percentages." },
+        { id = "xr_default", text = "Partners split profits, pal, and I hate splittin' worse than I hate audits. But a sneaky type like you, well, find me somethin' good and we'll talk percentages, startin' low and haggled up." },
       },
       choices = {
         { text = "I'll keep my eyes open.", next = "BACK", fx = { affinity = 1 } },
@@ -112,7 +115,7 @@ P:NPC {
   },
 
   topics = {
-    trade = { { id = "tp_trade", text = "Buyin' low, sellin' high, and leavin' before anybody asks for a receipt." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and if I had, it'd cost ya." } },
+    trade = { { id = "tp_trade", text = "Buyin' low, sellin' high, and leavin' before anybody asks for a receipt, pal, which is all the business school a goblin ever needs." } },
+    _none = { { id = "tp_none", text = "Never heard of it, sweetheart, and if I had, it'd cost ya." } },
   },
 }

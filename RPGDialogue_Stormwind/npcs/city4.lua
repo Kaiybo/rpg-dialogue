@@ -338,20 +338,20 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "You got potential, and Renzik can see it. Renzik can also see you're about to get yourself killed, so let's fix that." },
-    { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You lost? This ain't the bank, pal, and Renzik don't do visitors." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "You got potential, pal, and Renzik can price potential from across the room. Renzik can also see you're about to get yourself killed, which is a lousy return on the investment, so let's fix that." },
+    { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You lost, pal? This ain't the bank, and Renzik don't do visitors, 'cause visitors take time and nobody's payin' Renzik for it." },
   },
 
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
-      text = "Cute, but Renzik saw you come in. Renzik sees everybody come in, 'cause that's the job." },
+      text = "Cute, but Renzik saw you come in, pal. Renzik sees everybody come in, 'cause that's the job, and the crown pays him real well not to miss nothin'." },
   },
 
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Renzik wants ears, my friend, ears that hear the wind and the stone. Renzik doesn't care who you pray to, only whether you can listen without being noticed." } },
+      lines = { { id = "xdsham_default", text = "Renzik wants ears, chum, ears that hear the wind and the stone, and good ears are worth good silver in this business. Renzik don't care who you pray to, only whether you can listen without bein' noticed." } },
       choices = {
         { text = "I'll serve the kingdom, but openly. I don't skulk.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Ears for coin? Renzik, you might have a deal.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -361,7 +361,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Renzik keeps a file on everybody, friend, and yours is very thin, which is either good news or very good acting. The Lamb's cellar is the best-watched cellar in Stormwind, and the folk down there pretend not to know it, which suits everybody nicely." },
+        { id = "xlock_default", text = "Renzik keeps a file on everybody, pal, and yours is real thin, which is either good news or very good acting, and Renzik pays a clerk by the page to find out which. The Lamb's cellar is the best-watched cellar in Stormwind, and the folk down there pretend not to know it, which suits everybody nicely." },
       },
       choices = {
         { text = "Then keep the file thin. I'll give you no reason.", next = "BACK", fx = { align = { order = 1 } } },
@@ -371,7 +371,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Renzik pays for results, and a cat nobody notices gets results nobody can trace. But you'd be working for Renzik, not for some tree, so if the tree calls, you tell it to wait." } },
+      lines = { { id = "xdruid_default", text = "Renzik pays for results, chum, and a cat nobody notices gets results nobody can trace, which is the most expensive kind there is. But you'd be workin' for Renzik, not for some tree, so if the tree calls, you tell it to wait its turn like every other client." } },
       choices = {
         { text = "The forest comes first, Renzik. Your coin won't change that.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Pay me well enough and the trees can wait.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -380,7 +380,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Once or twice, sure, when the boss needed somethin' read that was written in sparkles. Renzik likes his secrets dark, though, 'cause a secret that glows ain't a secret for long." } },
+      lines = { { id = "xmage_default", text = "Once or twice, sure, when the boss needed somethin' read that was written in sparkles, and the mage billed us like it was written in gold. Renzik likes his secrets dark, though, 'cause a secret that glows ain't a secret for long." } },
       choices = {
         { text = "SI:7 has its rules, Renzik, and I'll keep to them.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I work my own way, Renzik, glow and all.", next = "BACK", fx = { align = { order = -1 } } },
@@ -389,7 +389,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Sometimes we need a distraction, and nobody's more distracting than a big guy yelling in a courtyard. While you're getting stabbed at the front, my people slip in the back, and everybody wins except the guy who was guarding the back." } },
+      lines = { { id = "xwarcl_default", text = "Sometimes we need a distraction, pal, and nobody's more distracting than a big guy yellin' in a courtyard, and you come cheaper than a barrel of blasting powder. While you're gettin' stabbed at the front, Renzik's people slip in the back, and everybody wins except the guy who was guardin' the back." } },
       choices = {
         { text = "I'll make the noise, if it gets the job done for the kingdom.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'm nobody's distraction. Find someone else to get stabbed.", next = "BACK", fx = { align = { order = -1 } } },
@@ -399,8 +399,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "When we need someone watched from a long way off, sure. Hunters see things from a rooftop that my people would need to be standing on the guy's toes to see, and the beast makes a good alarm." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours, does it bark when someone sneaks up? Good. Keep it that way, because the boss hates surprises." },
+        { id = "xhuntcl_default", text = "When we need somebody watched from a long way off, sure, and Renzik pays by the hour, not by the arrow. Hunters see things from a rooftop that Renzik's people would need to be standin' on the guy's toes to see, and the beast makes a good alarm." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours, does it bark when somebody sneaks up? Good, keep it that way, kid, 'cause the boss hates surprises and Renzik hates payin' for 'em." },
       },
       choices = {
         { text = "I'll watch for SI:7 if the kingdom needs it.", next = "BACK", fx = { align = { order = 1 } } },
@@ -410,7 +410,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Sure, for the front door, when we need somebody loud and honest to walk in while Renzik's people go in the back. You'd be surprised how often a big shiny distraction gets the job done." } },
+      lines = { { id = "xapala_default", text = "Sure, for the front door, when we need somebody loud and honest to walk in while Renzik's people go in the back. You'd be surprised how often a big shiny distraction closes the deal, and paladins never even ask for a cut." } },
       choices = {
         { text = "I'll be no one's distraction. I go in honestly or not at all.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If it gets the job done, I'll walk in the front door.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -419,32 +419,33 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Renzik don't usually get the shiny ones, but Renzik ain't complaining, so long as you don't preach at him." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, huh? Renzik don't usually get the shiny ones, but Renzik ain't complainin', so long as you don't preach at him, 'cause sermons ain't in the budget." },
         { id = "h_default", key = true,
-          text = "Renzik. People call me the Shiv. Second to the boss here at SI:7. I don't like people much, but I like being the guy they gotta be polite to." },
+          text = "Name's Renzik, pal, and people call him the Shiv, second to the boss here at SI:7. Renzik don't like people much, but he likes bein' the guy they gotta be polite to, and that's worth more than the wages." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
-          text = "So you wanna work for us? Good, but first you gotta not die, so go see Lucius in Redridge. He'll teach you the parts that keep you breathing." },
+          text = "So you wanna work for us? Good, but first you gotta not die, 'cause a dead recruit's a total loss on Renzik's books, so go see Lucius in Redridge. He'll teach you the parts that keep you breathin'." },
         { id = "h_redridge", when = { questActive = TODO_QUEST("Redridge Rendezvous") },
-          text = "Lucius is a pro, so do what he says, how he says. Don't improvise, 'cause improvisers end up in rivers." },
+          text = "Lucius is a pro, kid, so do what he says, how he says it. Don't improvise, 'cause improvisers end up in rivers, and Renzik don't get a refund on 'em." },
         { id = "h_shakedown", when = { questActive = TODO_QUEST("Kingly Shakedown") },
-          text = "Some people forget who they owe, so remind 'em. Politely, if they're polite, and the other way if they ain't." },
+          text = "Some people forget who they owe, so remind 'em, and Renzik means the whole balance, interest and all. Politely, if they're polite, and the other way if they ain't." },
         { id = "h_shaw", when = { heardLine = "shaw.h_default" },
-          text = "Talked to the boss, huh? He don't say much, so Renzik says the rest, and that's the arrangement." },
+          text = "Talked to the boss, huh? He don't say much, so Renzik says the rest and bills the crown for both, and that's the arrangement." },
         { id = "h_erion", tags = { "news" }, when = { questActive = TODO_QUEST("Erion's Behest") },
-          text = "Long trip from Darnassus, huh? Erion says you're good, but Renzik decides what good means around here." },
+          text = "Long trip from Darnassus, huh? Erion says you're good, pal, but Erion ain't the one signin' your pay, so Renzik decides what good means around here." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "Holy robes, in SI:7? Now Renzik's seen everything, so are you here to bless the knives or confess to somethin'?" },
+          text = "Holy robes, in SI:7? Now Renzik's seen everything, so are you here to bless the knives or confess to somethin'? Either way, pal, Renzik's takin' notes." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage, in SI:7? Renzik don't like mages, 'cause they make everything glow, and glowing's bad for business." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, huh? You're about as quiet as a dropped anvil, but at least you don't pretend otherwise." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Yeah, I know your type: you sit in a bush for six hours waiting for one shot. Respect, honestly." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in SI:7! Renzik's heard your people turn into cats and sneak about, so Renzik wants to know who's paying you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Renzik sees a warlock, and Renzik wonders if the warlock knows SI:7 has a file on every one of them who comes up from the Lamb." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Renzik sees a dwarf with totems. Renzik thinks a shaman might be worth something to SI:7, if the shaman can keep quiet." },
+          text = "A mage, in SI:7? Renzik don't like mages, pal, 'cause they make everything glow, and every agent who glows is an agent Renzik's gotta pay to replace." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, huh? You're about as quiet as a dropped anvil, pal, but at least you don't pretend otherwise, and Renzik respects honest merchandise." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, huh? Renzik knows your type, kid: you sit in a bush six hours waitin' for one shot, and Renzik respects a guy who knows what his time's worth." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in SI:7! Renzik's heard your people turn into cats and sneak about, which is a real valuable skill, so Renzik wants to know who's payin' you and how much." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Renzik sees a warlock, pal, and Renzik wonders if the warlock knows SI:7 keeps a file on every one of 'em who comes up from the Lamb, paid for by the crown." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Renzik sees a dwarf with totems, and Renzik thinks a shaman might be worth somethin' to SI:7, if the shaman can keep quiet. Quiet's the expensive part, chum." },
       },
       again = {
-        { id = "h_again", text = "What else? Renzik's got a schedule." },
-        { id = "h_again2", text = "Go on and talk, pal, 'cause Renzik's always listening." },
+        { id = "h_again", text = "What else, pal? Renzik's got a schedule, and every minute you stand there is a minute nobody's payin' him for." },
+        { id = "h_again2", text = "Go on and talk, chum, 'cause Renzik's always listenin', and listenin' is half of what the crown pays him for." },
+        { id = "h_again3", text = "Still here, pal? Renzik likes a customer who knows what he wants, so ask, and ask quick, 'cause the next guy in line pays better." },
       },
       choices = {
         { text = "Why do you talk about yourself like that?", next = "third" },
@@ -465,7 +466,7 @@ P:NPC {
     third = {
       big = true,
       lines = {
-        { id = "t_default", text = "Because Renzik is a reputation, pal. Me, I'm just a goblin in a back room, but Renzik is the guy nobody wants to meet in an alley, and the reputation's gotta be fed." },
+        { id = "t_default", text = "Because Renzik is a reputation, pal, and a reputation's an asset. Me, I'm just a goblin in a back room, but Renzik is the guy nobody wants to meet in an alley, and an asset like that's gotta be fed." },
       },
       choices = {
         { text = "Then I'll stay out of Renzik's alleys.", next = "BACK", fx = { affinity = 2 } },
@@ -473,42 +474,42 @@ P:NPC {
       },
     },
     third_real = {
-      lines = { { id = "tr_default", text = "The boss. Maybe. That's one more than Renzik likes, and one less than Renzik admits." } },
+      lines = { { id = "tr_default", text = "The boss, maybe. That's one more than Renzik likes and one less than Renzik admits, so don't go sellin' that to nobody, pal." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
     },
     goblin = {
-      lines = { { id = "g_default", text = "Sure. Know what happens when a goblin walks into Orgrimmar? Nothin', 'cause nobody looks twice. Try that with a human." } },
+      lines = { { id = "g_default", text = "Sure, and think about it, pal: what happens when a goblin walks into Orgrimmar? Nothin', 'cause nobody looks twice at a goblin who looks like he's sellin' somethin', and you just try that with a human." } },
       choices = {
         { text = "So why work for Stormwind?", next = "goblin_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
     goblin_why = {
-      lines = { { id = "gw_default", text = "Pay's good, and folks here gotta be polite to me. Back home a goblin's feared or ignored, but here Renzik gets called sir, and Renzik likes sir." } },
+      lines = { { id = "gw_default", text = "Pay's good, pal, and folks here gotta be polite to me, which no trade prince ever threw in on a contract. Back home a goblin's feared or ignored, but here Renzik gets called sir, and Renzik likes sir." } },
       choices = { { text = "Sir it is.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } } },
     },
     recruits = {
-      lines = { { id = "re_default", text = "Everywhere. Erion sends night elves from Darnassus. Hulfdan in Ironforge sends dwarves; old friend of Renzik's. Everybody goes through Lucius first." } },
+      lines = { { id = "re_default", text = "Everywhere, pal, 'cause talent's a market like any other. Erion sends night elves from Darnassus, and Hulfdan in Ironforge sends dwarves, him bein' an old friend of Renzik's, and every last one of 'em goes through Lucius first." } },
       choices = {
         { text = "Who's Lucius?", next = "recruits_lucius" },
         { text = "Something else.", next = "BACK" },
       },
     },
     recruits_lucius = {
-      lines = { { id = "rl_default", text = "Lakeshire docks. He looks like a layabout, and he is a layabout, but he's also the best teacher of not-dyin' Renzik ever met." } },
+      lines = { { id = "rl_default", text = "He works the Lakeshire docks lookin' like a layabout, and he is a layabout, but he's also the best teacher of not-dyin' Renzik ever paid for, and Renzik's seen what dyin' costs." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     bless = {
-      lines = { { id = "b_default", text = "Ha! Go on, then, 'cause Renzik's knives could use the luck. Just don't tell the boss; he thinks luck's for amateurs." } },
+      lines = { { id = "b_default", text = "Ha! Go on, then, 'cause Renzik's knives could use the luck, and luck's the one thing the quartermaster don't stock. Just don't tell the boss; he thinks luck's for amateurs." } },
       choices = { { text = "Blessed. Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Renzik's past is Renzik's business, and Renzik's present is SI:7. That's all you get, pal." } },
-    advice = { { id = "tp_ad", text = "Never trust a guy who says he's got nothin' to hide. Everybody's got somethin'. The honest ones just know it." } },
-    defias = { { id = "tp_defias", text = "SI:7's business, which means none of yours, unless you want it to be. Then you talk to Renzik." } },
-    _none = { { id = "tp_none", text = "Renzik don't know. And if Renzik don't know, it ain't worth knowing." } },
+    background = { { id = "tp_bg", text = "Renzik's past is Renzik's business, pal, and Renzik's present is SI:7, so that's all you get, and you didn't even have to pay for it." } },
+    advice = { { id = "tp_ad", text = "Never trust a guy who says he's got nothin' to hide, 'cause everybody's carryin' somethin' off the books. The honest ones just know it." } },
+    defias = { { id = "tp_defias", text = "That's SI:7's business, which means none of yours, pal, unless you want it to be, and then you talk to Renzik and Renzik names the terms." } },
+    _none = { { id = "tp_none", text = "Renzik don't know, pal, and if Renzik don't know it, it ain't worth the price of askin'." } },
   },
 }
 

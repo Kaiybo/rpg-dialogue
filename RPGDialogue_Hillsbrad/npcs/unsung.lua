@@ -614,22 +614,22 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_road", text = "Ho there, customer! Don't mind the robots; they only shoot people who don't pay." },
-    { id = "g_back", when = { metBefore = true }, text = "My favorite customer, back again! Well, one of my favorites; I have a few." },
+    { id = "g_road", text = "Ho there, customer, step right up! Don't mind the robots, buddy; they only shoot people who don't pay, and hardly ever the ones who do." },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite customer, back again! Well, one of my favourites, 'cause I got a few, and I keep 'em all in the ledger by how much they spend." },
   },
 
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
-      text = "Now there's a purse that jingles in all the right places! Let me show you the good stock, friend, the stuff I don't show the soldiers." },
+      text = "Now there's a purse that jingles in all the right places! Step this way, friend, and let me show you the good stock, the stuff I don't show the soldiers 'cause soldiers haggle." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! Go on, have a look at the Overwatch units, I know you want to. Don't open the panels, though; they bite." },
+      text = "A gnome! Go on, have a look at the Overwatch units, buddy, I know you're itchin' to. Don't open the panels, though, 'cause they bite, and the last fella who tried is still payin' for his eyebrows." },
   },
 
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Southshore buys my lamp oil, Tarren Mill buys my rope, and Dun Garok buys whatever's shiny, so yes, and gladly. I don't see why a dwarf who talks to the wind should mind, either, since the wind blows on both towns the same." } },
+      lines = { { id = "xdsham_default", text = "Southshore buys my lamp oil, Tarren Mill buys my rope, and Dun Garok buys whatever's shiny, so yes, customer, and gladly, 'cause a war with two sides is twice the market. I don't see why a dwarf who talks to the wind should mind, either, since the wind blows on both towns the same." } },
       choices = {
         { text = "The Alliance should hold these hills, and you should pick a side.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Sides are for people who can't count coin.", next = "BACK", fx = { align = { order = -1 } } },
@@ -638,7 +638,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Only what's lying about and nobody's using! Fallen branches, dropped arrows, the odd lost boot. I'm a merchant, not a logger, and I'd never cut down a tree when there's one already lying on the ground." } },
+      lines = { { id = "xdruid_default", text = "Only what's lyin' about and nobody's usin', buddy, like fallen branches, dropped arrows and the odd lost boot, and every one of 'em's pure profit. I'm a merchant, not a logger, and I'd never cut down a tree when there's one already lyin' on the ground." } },
       choices = {
         { text = "The dead don't need their boots. Scavenge away.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Even fallen wood feeds the forest. Leave it be.", next = "BACK", fx = { align = { order = 1 } } },
@@ -647,7 +647,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Whetstones, rivets, and a little something to stop the shakes after a long fight, and I sell the same to both towns, which keeps the prices honest. Tarren Mill buys the heavy stuff and Southshore buys the cheap stuff, and I'll let you guess who's winning." } },
+      lines = { { id = "xwarcl_default", text = "Whetstones, rivets, and a little somethin' to stop the shakes after a long fight, and I sell the same to both towns, which keeps the prices honest, or at least even. Tarren Mill buys the heavy stuff and Southshore buys the cheap stuff, and I'll let you guess who's winnin'." } },
       choices = {
         { text = "Selling arms to both sides is no better than treason.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Smart business. War's good for anyone with a wagon.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -657,8 +657,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Scare it? They chase it, pal, and then they walk into trees, which is how I lost a perfectly good Overwatch unit to a bear last spring. The bear's fine, in case you're wondering, and it's still got one of my gears." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the robots, will ya, because they've got a thing about anything with fur, and I'm still payin' off the last one." },
+        { id = "xhuntcl_default", text = "Scare it? They chase it, pal, and then they walk into trees, which is how I lost a perfectly good Overwatch unit to a bear last spring, and those units ain't cheap. The bear's fine, in case you're wonderin', and it's still got one of my gears." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the robots, will ya, buddy, 'cause they got a thing about anything with fur, and I'm still payin' off the last one." },
       },
       choices = {
         { text = "Your machines should stay on the road where they belong.", next = "BACK", fx = { align = { order = 1 } } },
@@ -668,7 +668,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I sell wares to customers, pal, and the customers decide what's a weapon. Tarren Mill buys rope and lamp oil, Southshore buys rope and lamp oil, and what either side does with it is a moral question for folk in better armour than mine." } },
+      lines = { { id = "xapala_default", text = "I sell wares to customers, pal, and the customers decide what's a weapon. Tarren Mill buys rope and lamp oil, Southshore buys rope and lamp oil, and what either side does with it is a moral question for folk in better armour and worse ledgers than mine." } },
       choices = {
         { text = "Arming the Forsaken makes you part of their war.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Rope's rope. A merchant can't answer for every buyer.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -677,7 +677,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "A priest in Southshore, technically, because I left a sack of it outside the chapel during a service and nobody can prove the blessing didn't reach it. Tarren Mill won't buy it, of course, since the Forsaken don't care for holy anything, so you're my only market." } },
+      lines = { { id = "xapriest_default", text = "A priest in Southshore, technically, 'cause I left a sack of it outside the chapel durin' a service and nobody can prove the blessin' didn't reach it, which is good enough to print on the label. Tarren Mill won't buy it, of course, since the Forsaken don't care for holy anything, so you're my only market, customer." } },
       choices = {
         { text = "Selling false blessings is a sin, Zixil.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Folk find comfort either way, and I see no harm in it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -686,7 +686,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "A few scrolls, a lantern that might have been enchanted, and a box of something I bought cheap off a fellow from Dalaran who was in a hurry. I don't ask what my customers do with things, and you shouldn't ask what Southshore does with them either, because that's how I stay in business." } },
+      lines = { { id = "xhcast_default", text = "A few scrolls, a lantern that might've been enchanted, and a box of somethin' I bought cheap off a fella from Dalaran who was in a real hurry. I don't ask what my customers do with things, and you shouldn't ask what Southshore does with 'em either, 'cause that's how I stay in business." } },
       choices = {
         { text = "Arming our enemies is shameful, Zixil.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sell them the duds at full price, then.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -695,7 +695,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "If they do, they haven't put in an order, and I'd sell to them too, at a fair markup. Southshore buys my lamp oil and Tarren Mill buys my rope, and the hills don't seem to mind either one, so I don't see why I should." } },
+      lines = { { id = "xhsham_default", text = "If they do, they ain't put in an order yet, and I'd sell to 'em too, at a fair markup plus spirit handlin'. Southshore buys my lamp oil and Tarren Mill buys my rope, and the hills don't seem to mind either one, so I don't see why I should." } },
       choices = {
         { text = "The Horde should win here, and you should pick a side.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Smart goblin. Sides are for people who can't do arithmetic.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -704,7 +704,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Of course, pal, because gold doesn't care which side of the war it's on, and neither do I. The Overwatch units keep the road safe enough, and both towns pay me to keep their secrets, which is the best kind of business there is." } },
+      lines = { { id = "xrogue_default", text = "Of course, pal, 'cause gold don't care which side of the war it's on, and neither do I. The Overwatch units keep the road safe enough, and both towns pay me to keep their secrets, which is the best kind of business there is, since you get paid twice for doin' nothin'." } },
       choices = {
         { text = "Selling to both sides is smart. Gold is gold.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Playing both sides will catch up with you someday.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -713,7 +713,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It climbed inside looking for something shiny and set fire to the wiring, and the robot walked into Lordamere Lake before I could stop it. I fished it out the next morning, and it still clanks funny, so I've banned imps from the stall." } },
+      lines = { { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." } },
       choices = {
         { text = "I'll keep my imp away from your robots.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps go where they want. Build better robots.", next = "BACK", fx = { align = { order = -1 } } },
@@ -723,28 +723,28 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
-          text = "A shaman! I don't sell totems, before you ask, because carved wood weighs a ton and the Overwatch units won't carry anything that might get struck by lightning." },
+          text = "A shaman! I don't sell totems, before you ask, 'cause carved wood weighs a ton, the margins are lousy and the Overwatch units won't carry anything that might get struck by lightning." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
-          text = "A priest, and a customer, I hope! Holy water, unholy water, plain water with a nice label on it, I don't judge, I just price." },
+          text = "A priest, and a customer, I hope! Holy water, unholy water, plain water with a nice label on it, I don't judge, buddy, I just price." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
-          text = "A mage! You can conjure your own bread and water, which is terrible for my business, so I hope you've come for something you can't make out of thin air." },
+          text = "A mage! You can conjure your own bread and water, which is murder on my business, so I hope you've come for somethin' you can't make out of thin air." },
         { id = "h_default", key = true,
-          text = "Zixil, merchant supplier to the hills! I walk from Southshore to Tarren Mill and back again, selling a little of this and a little of that, and the two Overwatch units keep the road very polite." },
+          text = "Zixil, merchant supplier to the hills! I walk from Southshore to Tarren Mill and back again sellin' a little of this and a little of that, and the two Overwatch units keep the road very polite and the customers very prompt with payment." },
         { id = "h_horde", when = { faction = "Horde" },
-          text = "Zixil, merchant supplier to the hills, and yes, I was in Southshore an hour ago, and no, I won't tell you what they're up to. A goblin who carries tales doesn't carry goods for long." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a customer who appreciates a good deal and a quiet exchange, and I've got both, if you know what to ask for." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now I've got a few things that might interest you, pal, though I'll ask you not to let the imp near my robots, because it shorted one out last month." },
+          text = "Zixil, merchant supplier to the hills, and yes, I was in Southshore an hour ago, and no, I won't tell you what they're up to, buddy. A goblin who carries tales doesn't carry goods for long." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a customer who appreciates a good deal and a quiet exchange, pal, and I got both, if you know what to ask for and how much to bring." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I got a few things that might interest you, pal, though I'll ask you not to let the imp near my robots, 'cause one shorted out last month and the repair bill nearly sank me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest from the Southshore side! I've holy candles, blessed salt and a very convincing reliquary, and I'll swear on my robots that the salt is blessed." },
+          text = "A priest from the Southshore side! I got holy candles, blessed salt and a very convincin' reliquary, and I'll swear on my robots that the salt is blessed." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! I've had knights try to arrest me before, so let's get it out of the way: everything I sell is legal in at least one of the two towns I sell it in." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, pal! You look like you break a lot of things, and I sell a lot of things to replace 'em, so I think we're gonna be friends." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You got the look of someone who needs ammo, and I got the look of someone who sells it, so let's skip the haggling and go straight to the paying." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You walk the road between the hills too, I bet, so you'll know how lonely it gets out there. It's good for business, though." },
+          text = "A paladin! I've had knights try to arrest me before, buddy, so let's get it out of the way: everything I sell is legal in at least one of the two towns I sell it in." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, pal! You look like you break a lot of things, and I sell a lot of things to replace 'em, so I think we're gonna be real good friends." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You got the look of somebody who needs ammo, and I got the look of somebody who sells it, so let's skip the hagglin' and go straight to the payin'." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You walk the road between the hills too, I bet, so you know how lonely it gets out there, buddy, and lonely roads mean nobody undercuttin' my prices." },
       },
       again = {
-        { id = "h_again", text = "What else, customer? Talk while you walk; I've a schedule." },
-        { id = "h_again2", text = "Anything else? The robots are getting bored." },
+        { id = "h_again", text = "What else, customer? Talk while you walk, 'cause I got a schedule and the schedule's got a schedule." },
+        { id = "h_again2", text = "Anything else, buddy? The robots are gettin' bored, and a bored robot is how my last cart caught fire." },
       },
       choices = {
         { text = "Do the spirits care who wins in Hillsbrad, Zixil?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
@@ -767,7 +767,7 @@ P:NPC {
     },
     both = {
       lines = {
-        { id = "b_default", text = "Of course! Southshore buys from me, Tarren Mill buys from me, and both of them pretend the other doesn't. Gold's the same colour on either end of the road, and that's the only side I'm on." },
+        { id = "b_default", text = "Course I do! Southshore buys from me, Tarren Mill buys from me, and both of 'em pretend the other doesn't, so I charge 'em both for the pretendin'. Gold's the same colour on either end of the road, and that's the only side I'm on." },
       },
       choices = {
         { text = "Doesn't that make you a traitor to both?", next = "both_traitor" },
@@ -776,7 +776,7 @@ P:NPC {
     },
     both_traitor = {
       lines = {
-        { id = "bt_default", text = "A traitor has to belong to someone first, friend, and I belong to the Cartel and my ledger. Neither town has ever asked me to choose, because then they'd both have to walk to Booty Bay for their goods." },
+        { id = "bt_default", text = "A traitor has to belong to somebody first, friend, and I belong to the Cartel and my ledger, in that order on a good day. Neither town's ever asked me to choose, 'cause then they'd both have to walk to Booty Bay for their goods." },
       },
       choices = {
         { text = "Neutral's neutral. Your coin spends like anyone's.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -786,7 +786,7 @@ P:NPC {
     },
     robots = {
       lines = {
-        { id = "r_default", text = "Overwatch Mark I, the finest bodyguards money can rent! They don't sleep, they don't drink, and they don't ask for a share, which is more than you can say for any mercenary I've ever hired." },
+        { id = "r_default", text = "Overwatch Mark I, the finest bodyguards money can rent! They don't sleep, they don't drink and they don't ask for a share, which is more than you can say for any mercenary I ever hired, and they only exploded the once." },
       },
       choices = {
         { text = "Do they ever have to fight?", next = "robots_fight" },
@@ -795,13 +795,13 @@ P:NPC {
     },
     robots_fight = {
       lines = {
-        { id = "rf_default", text = "Now and then a bear comes out of the woods, or a Syndicate type thinks he's clever, and then they fight very loudly. Nobody tries it twice, friend, and that's what I'm paying for." },
+        { id = "rf_default", text = "Now and then a bear comes out of the woods, or a Syndicate type thinks he's clever, and then they fight very loudly and somethin' usually catches fire. Nobody tries it twice, buddy, and that's what I'm payin' for." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     goods = {
       lines = {
-        { id = "g_default", text = "Whatever I picked up last, friend, and whatever folk on this road need: a recipe here, a bit of kit there, things you won't find on any shop shelf. Stock changes every trip, so if you see something you like, I'd buy it now." },
+        { id = "g_default", text = "Whatever I picked up last, friend, and whatever folk on this road need: a recipe here, a bit of kit there, things you won't find on any shop shelf. Stock changes every trip, so if you see somethin' you like, buy it now, 'cause next week it's somebody else's bargain." },
       },
       choices = {
         { text = "That's what every merchant says.", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -810,7 +810,7 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gn_default", text = "Bought them used, friend, and asked no questions about where they came from. Maybe your folk built the first ones; I couldn't say, but they hold their own on this road better than any guard I've hired." },
+        { id = "gn_default", text = "Bought 'em used, buddy, and asked no questions about where they came from, which knocks a good third off the price. Maybe your folk built the first ones; I couldn't say, but they hold their own on this road better than any guard I ever hired." },
       },
       choices = {
         { text = "They're good work, I'll admit.", next = "BACK", fx = { affinity = 1 } },
@@ -820,8 +820,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I came north from Booty Bay with a cart and a plan, and the cart's long gone but the plan's working beautifully." } },
-    advice = { { id = "tp_ad", text = "Never travel the hills alone, friend, because the bears up there don't haggle." } },
-    _none = { { id = "tp_none", text = "Don't know it, can't sell it, so I'm not interested. Next question, customer!" } },
+    background = { { id = "tp_bg", text = "I came north from Booty Bay with a cart and a plan, and the cart blew up outside Refuge Pointe, but the plan's workin' beautifully." } },
+    advice = { { id = "tp_ad", text = "Never travel the hills alone, friend, 'cause the bears up there don't haggle, and they don't pay either." } },
+    _none = { { id = "tp_none", text = "Don't know it, can't sell it, so I ain't interested. Next question, customer, and make it a profitable one!" } },
   },
 }
