@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+Archmage Malin. **New file: restart the game fully (a /reload won't load it).**
+
+- **Archmage Malin** in the Wizard's Sanctum (Stormwind 1.27.0) now has a full conversation: his old master Archmage Trelane and the tower in the Arathi Highlands, what the Boulderfist took, Skuerto and Kryten, the fall of Stromgarde, Dalaran, and life in the Mage Quarter. He reacts to Malin's Request and to how the work at Refuge Pointe went, notices mages, warlocks and Mage Quarter apprentices, and has replies for Dalaran's strays, Stromgarde's sellswords, Gnomeregan's last students, dwarves, gnomes and night elves.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
