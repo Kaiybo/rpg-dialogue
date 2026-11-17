@@ -16,3 +16,7 @@ npcs\gadgetzan.lua
 npcs\gadgetzan_folk.lua
 npcs\gadgetzan_trades.lua
 npcs\dunes.lua
+npcs\marvon.lua
+npcs\security_bilgewhizzle.lua
+npcs\haughty_modiste.lua
+npcs\luglunket.lua

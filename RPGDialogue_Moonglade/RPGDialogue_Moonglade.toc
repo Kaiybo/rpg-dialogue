@@ -15,3 +15,4 @@ pools.lua
 npcs\nighthaven.lua
 npcs\nighthaven_more.lua
 npcs\unsung.lua
+npcs\nighthaven_folk.lua
