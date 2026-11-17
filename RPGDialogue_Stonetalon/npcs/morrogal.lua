@@ -55,6 +55,9 @@ P:NPC {
         { text = "What are the earthen?", next = "earthen" },
         { text = "Why are the kobolds digging?", next = "kobolds" },
         { text = "What is Sun Rock like?", next = "sunrock" },
+        { text = "What exactly is Resonite?", next = "resonite" },
+        { text = "How does a shaman listen to stone?", next = "listen" },
+        { text = "Does the earth speak to you differently than the wind?", next = "druid_m", when = { class = "DRUID" } },
         { text = "I hear the hum too, Mor'rogal.", next = "shaman_m", when = { class = "SHAMAN" } },
         { text = "Why kill Goggeroc? He's done nothing yet.", next = "goggeroc", when = { any = { { questActive = TODO_QUEST("Earthen Arise") }, { questDone = TODO_QUEST("Earthen Arise") } } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -116,7 +119,67 @@ P:NPC {
         { id = "su_default", text = "A safe place on the high road, with water and good grazing and the Horde's banners over it. Orcs and tauren together, and mostly we manage not to tread on each other's tails." },
       },
       choices = {
-        { text = "Mostly?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Mostly?", next = "sunrock2", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sunrock2 = {
+      lines = {
+        { id = "su2_default", text = "Orcs speak first and listen after, and tauren do it the other way around, so we are forever waiting on each other at the fire. Maggran keeps the peace between us, and he does it well, though I think it tires him more than the harpies do." },
+      },
+      choices = {
+        { text = "Then the two ways balance each other.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    resonite = {
+      lines = {
+        { id = "re_default", text = "A crystal that rings faintly when you strike it, like a bell heard from far away. The kobolds dig it out of Boulderslide by the cartload, and I had never seen a piece of it before they did." },
+        { id = "re_known", when = { questDone = TODO_QUEST("Boulderslide Ravine") },
+          text = "A crystal that rings faintly when struck, and the samples you brought me carry a trace of earthen magic within them. That is how I knew how deep the kobolds had gone." },
+      },
+      choices = {
+        { text = "What should be done with what they've dug up?", next = "resonite2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    resonite2 = {
+      big = true,
+      lines = {
+        { id = "re2_default", text = "That is the question that keeps me awake. Some at Sun Rock say we should take all of it ourselves before the goblins hear of it, and I say we should throw it back into the dark and let the mountain close over it." },
+      },
+      choices = {
+        { text = "Throw it back. Some treasures are better left buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep it and study it, before the goblins get it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    listen = {
+      lines = {
+        { id = "li_default", text = "Kneel, put both hands flat on the rock, and be still for longer than feels comfortable. After a while you stop hearing your own heart and begin to hear the mountain's, and here the mountain's heart is beating too fast." },
+        { id = "li_shaman", when = { class = "SHAMAN" },
+          text = "You know the way of it already, {class}: hands flat, breath slow, and patience. Do it here, near the ravine, and tell me if the stone's heartbeat sounds as quick to you as it does to me." },
+      },
+      choices = {
+        { text = "What makes a mountain's heart beat faster?", next = "listen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    listen2 = {
+      lines = {
+        { id = "li2_default", text = "Digging, burning, and things waking that should sleep. Stonetalon has all three at once, with the kobolds below, the goblins' fires to the south and whatever lies in that cask, so I am not surprised the earth is uneasy." },
+      },
+      choices = {
+        { text = "Then I'll help where I can.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_m = {
+      lines = {
+        { id = "dm_default", text = "The wind gossips and changes its mind, but the earth speaks slowly and means every word. A druid hears the living things that grow from the soil, I think, and a shaman hears the soil itself, so between us we might hear the whole of it." },
+      },
+      choices = {
+        { text = "Then we should listen together sometime.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

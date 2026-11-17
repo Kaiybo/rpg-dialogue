@@ -17,3 +17,5 @@ npcs\unsung.lua
 npcs\seereth.lua
 npcs\webwinder_camp.lua
 npcs\morrogal.lua
+npcs\sunrock_folk.lua
+npcs\malakajin.lua
