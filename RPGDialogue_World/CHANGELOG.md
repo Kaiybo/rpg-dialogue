@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-17)
+- Guards, townsfolk and innkeepers notice your honor rank, dishonorable kills, the creatures you've been killing, a dragon's head in your bags, and your guild. New night and dawn lines for innkeepers and townsfolk. Needs core 0.54.0.
+
 ## 1.25.0 (2026-11-16)
 - Revantusk Village gets its own town standing.
 - New files: exit the game fully and restart.

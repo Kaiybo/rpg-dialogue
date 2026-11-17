@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.54.0 (2026-11-17)
+Packs: World has a new version. No new files in 0.54.0: /reload is enough if you have 0.39.0 or later.
+
+### People notice more about you
+- **Your war record**: guards, townsfolk and innkeepers notice your honor rank by name ("Knight-Captain", "Stone Guard"), whether you still carry the battlefield into a capital, and dishonorable kills, which earn a cold word and pay-up-front at the inn.
+- **What you've been killing**: the addon now counts kills by creature name (you or your party). Guards and townsfolk notice when you've cleared out the Defias, kobolds, gnolls, murlocs, the Scourge, quilboar, centaur, the Burning Blade or the Scarlet Crusade. Kills are counted from 0.54.0 on, so the lines arrive as you play.
+- **What you're carrying**: walk into town with Onyxia's or Nefarian's head in your bags and people react.
+- **Your guild**: townsfolk and innkeepers know your guild by name, notice a guild master, and say something to a high-level traveler who has none.
+- **Night and dawn**: new late-night and early-morning lines for innkeepers and townsfolk.
+- For pack writers: new conditions `killed`, `pvpRank`, `pvpFlagged`, `honorKills`, `dishonorKills`, `guild`, `guildRank`, `carrying`, and tokens `{rank}`, `{guild}` (DESIGN.md §2.7, §2.10).
+
 ## 0.53.0 (2026-11-17)
 Packs: 18 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.53.0: /reload is enough if you have 0.39.0 or later.
 

@@ -650,6 +650,39 @@ function C.TitleText()
   return nil
 end
 
+-- Classic honor ranks, 1-14 (UnitPVPRank reports 5-18 for them, 0 for none).
+C.PVP_RANK_NAMES = {
+  Alliance = { "Private", "Corporal", "Sergeant", "Master Sergeant", "Sergeant Major", "Knight",
+    "Knight-Lieutenant", "Knight-Captain", "Knight-Champion", "Lieutenant Commander", "Commander",
+    "Marshal", "Field Marshal", "Grand Marshal" },
+  Horde = { "Scout", "Grunt", "Sergeant", "Senior Sergeant", "First Sergeant", "Stone Guard",
+    "Blood Guard", "Legionnaire", "Centurion", "Champion", "Lieutenant General", "General",
+    "Warlord", "High Warlord" },
+}
+
+-- rank (0-14), rank name or nil.
+function C.PvPRank()
+  local raw = tonumber(call("UnitPVPRank", "player")) or 0
+  local rank = raw >= 5 and (raw - 4) or 0
+  if rank == 0 then return 0, nil end
+  local name = clean(call("GetPVPRankInfo", raw, "player"))
+  if not name then
+    local list = C.PVP_RANK_NAMES[C.Faction("player") or ""]
+    name = list and list[rank]
+  end
+  return rank, name
+end
+
+function C.PvPFlagged()
+  return call("UnitIsPVP", "player") and true or false
+end
+
+-- honorable kills, dishonorable kills (lifetime), or nil when the client has no honor system.
+function C.PvPLifetime()
+  local hk, dk = call("GetPVPLifetimeStats")
+  return tonumber(hk), tonumber(dk)
+end
+
 local DURABILITY_SLOTS = { 1, 3, 5, 6, 7, 8, 9, 10, 16, 17, 18 }
 local ARMOR_SLOTS = { 1, 3, 5, 6, 7, 8, 9, 10 }
 
