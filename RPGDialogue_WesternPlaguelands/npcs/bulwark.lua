@@ -16,6 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_wall", text = "This is the Bulwark, built of junk and timber and the stubbornness of the dead, so speak quickly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back through the gate, which not everyone manages. Report, then." },
+    { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You remember what the Lich King had you do; it's written on your face plainer than any brand. Then you know exactly what's on the other side of this wall, and you won't need a speech from me." },
     { id = "g_hero", when = { questDone = TODO_QUEST("Mission Accomplished!") }, text = "The cauldron-breaker returns, and the Dark Lady has your name now. Try to deserve it a second time." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and the wall still stands, no thanks to your absence. Report, then." },
     { id = "g_away_long", when = { away = 60 }, text = "I had you counted among the lost after {away} away. Since you're standing, you can serve, so report." },
@@ -303,6 +304,7 @@ P:NPC {
   greetings = {
     { id = "g_dry", text = "Speak, I'm listening, though I'm also counting your fingers, out of habit." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the farms, are you? I hope you've brought me something foul." },
+    { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You preached the Light in some chapel out here once, didn't you? Half the farms past this wall heard sermons like yours before they turned, and I'd find that funny if I still found anything funny." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away} and still came back with all your fingers, which I've counted. Speak." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you frightened someone at the Bulwark. How refreshing, since most of us here are long past being frightened by anything." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Someone here was taken in by your tongue, I'm told. I'd admire it more if I weren't listening so carefully now." },
@@ -520,6 +522,7 @@ P:NPC {
   greetings = {
     { id = "g_knee", text = "Weather's turning, my knee says so, or at least the bit of it that's still showing does." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite courier! Don't tell the others, though I don't have any others, so don't tell them anyway." },
+    { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "Goodness, you were with the Cult of the Damned before you died? Then you'll have seen how they spoiled these farms, and I'd dearly like to pick your brain about it, purely for science, you understand." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and my knee's been predicting your return the whole time, though it predicts rain just as often. Welcome back, courier!" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Goodness, you've come up in the world since we last spoke! I'll have to find you errands with sharper teeth." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone on the wall was nearly cheerful after talking to you, which I'd have said was medically impossible. Do keep it up." },
@@ -768,6 +771,7 @@ P:NPC {
   greetings = {
     { id = "g_bored", text = "Mm? Oh, another one of you, how tiresome. Do try to be interesting." },
     { id = "g_back", when = { metBefore = true }, text = "You again, is it? Tell me you've brought me something other than your face." },
+    { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "The Cult of the Damned, before you died? How deliciously awkward. My family's dealings with that crowd are a story I'd rather not tell, so let's both be gracious and say nothing at all." },
   },
 
   notice = {
@@ -1024,6 +1028,7 @@ P:NPC {
   greetings = {
     { id = "g_dawn", text = "For the Dawn, friend, so say it with me, and it gets easier each time." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you've brought me stones or a story. I'll gladly take either one." },
+    { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "A knight of the old Silver Hand, risen, and the Light still comes when you call it? The Dawn has room for you, friend, and nobody under this banner will tell you otherwise." },
   },
 
   notice = {

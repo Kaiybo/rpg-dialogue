@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-17)
+- Booty Bay's bruisers can be talked to properly: the town's rules, the Baron, the Bloodsail, and the Cartel's neutrality.
+- People here now and then recognise where you come from (your origin) and react to it.
+
 ## 1.27.0 (2026-11-17)
 - The town's leading people greet you differently when you come back after a fortnight or more, notice how far you've come since they last saw you, and have heard what you did with their neighbours. Needs RPG Dialogue 0.67.0.
 

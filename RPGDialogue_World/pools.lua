@@ -176,8 +176,135 @@ P:Pool {
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? The stock's changed a little since, so have a look." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Word is you've a pleasant way of talking. Good; I like a customer with manners." },
   },
-  lines = { { id = "l_default", text = "Everything's priced fair, mostly." } },
-  choices = { { text = "Let me see your wares.", next = "BUSINESS" } },
+  -- 0.71.0: a conversation tree (stock and prices, the roads, haggling, town talk,
+  -- what you've been up to, and who a merchant ought to sell to).
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "Everything's priced fair, mostly." },
+        { id = "l_poor", when = { money = { max = 100 } }, text = "Your purse sounds a bit light from here, friend, but look all you like, because looking's free and I've a good memory for faces that come back." },
+        { id = "l_rogue", when = { class = "ROGUE" }, text = "Look with your eyes, if you please, and keep your hands where I can see them. Nothing personal; I say it to all your sort." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else, or are we doing business?" },
+        { id = "a_again2", text = "Ask away; a quiet stall's no good to anybody." },
+        { id = "a_again3", when = { money = { min = 1000000 } }, text = "Take your time, friend. A customer like you is worth a whole afternoon." },
+      },
+      choices = {
+        { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "Where does your stock come from?", next = "trade" },
+        { text = "How are the roads for trade?", next = "roads" },
+        { text = "Surely you could do a better price.", next = "haggle" },
+        { text = "What's the talk around town?", next = "gossip" },
+        { text = "Who do you sell to, mostly?", next = "whom" },
+        { text = "Good day.", next = "END" },
+      },
+    },
+    trade = {
+      lines = {
+        { id = "t_default", text = "Some of it's made just down the road, some comes in by caravan, and some of it I bought off people like you who'd carried it out of a cave somewhere. I don't ask where the cave was, and they don't ask what I paid for the last lot." },
+      },
+      choices = {
+        { text = "So how do you set your prices?", next = "trade_prices" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade_prices = {
+      big = true,
+      lines = {
+        { id = "tp_default", text = "What it cost me, what it cost to get here, and a bit on top so my children eat. When the roads are bad the middle part goes up, and I'll be honest, the bit on top sometimes goes up with it." },
+      },
+      choices = {
+        { text = "A fair price is the only kind worth charging.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Charge what folk will pay; that's what trade is.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads = {
+      lines = {
+        { id = "r_default", text = "Bad enough that every cart costs me a guard as well as a driver, and the guards eat more than the horses. Bandits on one stretch, beasts on the next, and whenever the weather turns, the whole lot sits in a ditch for a week." },
+        { id = "r_alliance", when = { faction = "Alliance" }, text = "The Defias have made every road west of the capital a gamble, and the caravans won't go anywhere near the Westfall roads without a dozen swords along. It all ends up in the price, I'm afraid." },
+        { id = "r_horde", when = { faction = "Horde" }, text = "The Barrens roads are long and dry, and between the quilboar, the centaur and the heat, I lose a cart a season. The goblins at Ratchet charge me for the privilege of selling to me, too." },
+      },
+      choices = {
+        { text = "Ever lose a caravan outright?", next = "roads_caravan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads_caravan = {
+      lines = {
+        { id = "rc_default", text = "Once, and I still dream about it. Three wagons of good cloth went out with two guards who swore they'd done the run a hundred times, and all that came back was one mule with half a harness and a very sorry look on its face." },
+      },
+      choices = {
+        { text = "That's hard luck.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Hire better guards next time.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    haggle = {
+      lines = {
+        { id = "h_default", text = "I'm sure I could, friend, and then I'd be sure to close by summer. The price on the tag is the price, and I'm sorry for it, but it's the same price I gave the last fellow who asked so nicely." },
+        { id = "h_rich", when = { money = { min = 1000000 } }, text = "With a purse like yours, you want a better price? That's how rich folk stay rich, I suppose, but no, the tag's the tag." },
+      },
+      choices = {
+        { text = "I know every trick you've got, from the canals.", next = "haggle_kin", when = { origin = "human_canal_pickpocket" } },
+        { text = "I've salvage from Gnomeregan you might want.", next = "haggle_kin", when = { origin = "gnome_scavenger" } },
+        { text = "I know a cheaper road for your goods.", next = "haggle_kin", when = { origin = "dwarf_loch_smuggler" } },
+        { text = "My family's name ought to count for something.", next = "haggle_kin", when = { origin = "human_minor_noble" } },
+        { text = "Can't blame me for trying.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Fine, fine.", next = "BACK" },
+      },
+    },
+    haggle_kin = {
+      lines = {
+        { id = "hk_default", text = "Maybe so, but the tag still says what it says. I've been talked at by better than you, and I'm still standing here, aren't I?" },
+        { id = "hk_canal", when = { origin = "human_canal_pickpocket" }, text = "Then you'll know the weights are honest and the strongbox is nailed down, so there's no trick left to play. Buy something, and you'll be the first canal rat who ever did." },
+        { id = "hk_scav", when = { origin = "gnome_scavenger" }, text = "Gnomeregan salvage, is it? I've bought gnome bits before, and one of them ticked in the back room for a week before it set fire to a crate of candles. Sell it to the smith, friend, not to me." },
+        { id = "hk_smuggler", when = { origin = "dwarf_loch_smuggler" }, text = "A cheaper road's a road the tax men don't watch, I'd guess, and I'll not be hearing about it in my own shop. Keep your voice down, and keep your roads to yourself." },
+        { id = "hk_noble", when = { origin = "human_minor_noble" }, text = "It counts for a polite welcome and a good bow, and you've had both. The price is the same for a lord as for a lamplighter, and I'll not apologise for that." },
+      },
+      choices = {
+        { text = "Worth a try.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Then I'll take my coin elsewhere.", next = "END", fx = { affinity = -1 } },
+      },
+    },
+    gossip = {
+      lines = {
+        { id = "g_default", text = "The same as always: whose roof leaks, whose son's run off to be a soldier, and which of the guards owes me money. Nothing you'd cross the street for, but it passes the afternoon." },
+        { id = "g_alliance", when = { faction = "Alliance" }, text = "Folk say the king's been gone so long now that half the children don't remember his face. The regent means well, but people want their king home, and they say so over every counter in town." },
+        { id = "g_horde", when = { faction = "Horde" }, text = "Folk say the Warchief means to keep the peace with the humans for as long as they'll let him, and half the town thinks that's wisdom and the other half calls it weakness. They all still buy their bread from me, though." },
+      },
+      choices = {
+        { text = "And what have you been up to, then?", next = "player" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    player = {
+      lines = {
+        { id = "p_default", text = "Me? Standing here, as ever. But you're the one with mud on your boots, so tell me, what's been keeping you busy out there?" },
+        { id = "p_hurt", when = { durability = { max = 0.3 } }, text = "Me? Nothing half as exciting as you, by the look of your gear. What on earth have you been fighting?" },
+      },
+      choices = {
+        { text = "Helping folk who needed it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Hunting things that bite back.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "That's my business, I think.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    whom = {
+      big = true,
+      lines = {
+        { id = "w_default", text = "Anyone with coin and manners, and I'll bend a little on the manners. A merchant who picks and chooses ends up selling to nobody, though there's plenty in town who'd say I ought to be choosier." },
+        { id = "w_paladin", when = { class = { "PALADIN", "PRIEST" } }, text = "You'll want me to say I only sell to the righteous, I expect. I sell to whoever's at the counter, and I trust the Light to sort them out afterwards." },
+      },
+      choices = {
+        { text = "Coin is coin, whoever's holding it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your own people should always come first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
 }
 
 -- Trainers anywhere (named trainers override this).

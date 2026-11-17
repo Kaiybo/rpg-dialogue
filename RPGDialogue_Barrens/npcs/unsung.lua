@@ -342,6 +342,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_shop", text = "Herbs and reagents, mon, for every spell and every sickness. What you be needing?" },
+    { id = "g_apprentice", when = { origin = "troll_witch_doctor_apprentice" }, text = "Ah, you got a witch doctor's hands, mon, all stained and careful. You grind roots for one of the old ones at Sen'jin, I bet, so you know already that nothing on my shelf be safe to boil if you don't know what it want first." },
   },
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },

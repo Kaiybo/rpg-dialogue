@@ -17,6 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_forest", text = "Look at this forest, truly look at it. Whatever happens tomorrow, it was beautiful today." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see; the Hunt hasn't eaten you yet, and that is good." },
+    { id = "g_narache", when = { origin = "tauren_narache_hunter" }, text = "A Narache hunter's child, I'd know that careful step anywhere. Your mother would have said her thanks over every beast in this forest, and I try to do the same, though the Warsong's axes make it hard to hear myself." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the forest has turned its colors a little since then, though I doubt the Warsong noticed. I'm glad you came back to see it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since we last spoke, and I can see it in the way you move. Strength is a fine thing, so long as you remember to look up at the trees now and then." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the camp is angry with you, and in a place this tense it doesn't take much to start a fire. I'd let it cool, and perhaps think about what was said." },
@@ -368,6 +369,8 @@ P:NPC {
 
   greetings = {
     { id = "g_wary", text = "Easy, mon. Eyes open and back to the wall, that be how we live in these woods." },
+    { id = "g_sailed", when = { origin = "troll_sailed_with_thrall" }, text = "Easy, cousin, I know you from da boats. We both swore for the Horde on dat beach when Sen'jin did, and now look where da debt bring us, into an elf forest with our backs to a tree." },
+    { id = "g_echo", when = { origin = "troll_echo_isles" }, text = "Easy, mon, you got da sea in your voice still. Every time da wind come up off da river here I think of da Echo Isles, and then an elf arrow remind me where I be." },
     { id = "g_away", when = { away = 14 }, text = "Been a long while, mon, {away} by my count, and you still be walking. Dat be the first thing I check on anybody in these woods." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Somebody in da camp say they caught you in a lie, mon. I don't judge, but out here a man who lies about little things gets left behind on da big ones, so be careful." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Word be going round dat you be slick with your tongue, mon, and somebody in da camp believed every word you said. Clever, but don't you go trying dat on Kuray'bin." },

@@ -21,6 +21,7 @@ P:NPC {
   greetings = {
     { id = "g_door", text = "Close the door behind you, and then tell me who sent you." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Sit down, then; I've had worse company than people who listen." },
+    { id = "g_xsquire", when = { origin = "human_paladin_squire" }, text = "That's a squire's stance if ever I saw one. The Order broke, but by the look of you the oaths didn't, so close the door and sit, because you're among friends up here." },
     { id = "g_after", when = { questDone = TODO_QUEST("In the Name of the Light") }, text = "Come in, come in. You're one of the few I don't have to explain myself to." },
   },
 

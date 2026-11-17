@@ -15,6 +15,7 @@ P:NPC {
   greetings = {
     { id = "g_sepulcher", text = "Speak. The Sepulcher has enemies on three sides, and I have little time for the fourth." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the forest, are you? Report, and be brief." },
+    { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You served the Scourge and you remember it; I can always tell, because the ones who remember never sit with their backs to a door. Good, so make that memory useful in this forest." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and our enemies made good use of every day of it. Report what you saw, and be brief." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When I first sent you into the forest you were barely worth the burial, and now you look like a proper weapon of the Dark Lady. Good, because I have four fronts to hold." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I'm told you cowed someone at the Sepulcher without a blade drawn. Fear is cheaper than steel, and I approve of cheap victories." },
@@ -203,6 +204,7 @@ P:NPC {
 
   greetings = {
     { id = "g_lab", text = "Don't touch anything green, or anything that glows, or anything at all, really." },
+    { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "You were with the Cult before you died? Then you've seen what a properly made plague can do, so you'll understand why I'm so particular about my bottles." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and the damp hasn't rotted you yet, I see. It's rotting my reagents, so do try to be useful." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone at the Sepulcher swallowed one of your stories whole. A neat bit of work, and frankly more refined than anything else in this wretched forest." },
   },
@@ -541,6 +543,7 @@ P:NPC {
 
   greetings = {
     { id = "g_shadows", text = "Ah, I heard you were coming. I hear most things." },
+    { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "I hear you preached the Light in the old chapels, and that you still pray to it when you think nobody's listening. Somebody is always listening, but the Dark Lady tolerates it, and so shall I." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I heard a good deal of what you did while you were away. I hear most things, after all." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "My watchers tell me someone here believed a tale you spun them. I trade in secrets myself, so I do appreciate a well-placed untruth." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I heard one of your lies was seen through, and I heard it before you did, I expect. A clumsy lie is worse than none, so be more careful." },
@@ -709,6 +712,7 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Come in out of the pines. There's a chair by the fire and nothing out here that bites. Mostly." },
     { id = "g_home", when = { homeInn = { "The Sepulcher" } }, text = "Back to the crypt, are you? Your slab's made up, I mean your bed; it's habit." },
+    { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You've a knight's bearing, even now, and I can't think where else you'd have learned it. There's a chair by the fire, sir, and nobody here will ask what oath you swore." },
     { id = "g_away", when = { away = 14 }, text = "Back to the crypt after {away}, are you? Your slab's made up, I mean your bed, and the spiders kept to their side of the arrangement." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been gone {away}, and I'd started to think the worgen had finally got you. Sit by the fire and tell me which howls you heard on the way in." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The deathguards say you've been doing good work around the Sepulcher. That earns you the slab nearest the fire, and I don't give that one to just anybody." },

@@ -17,6 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_forest", text = "Ashenvale needs you, truly. The forest needs every blade it can get, and every pair of eyes." },
     { id = "g_back", when = { metBefore = true }, text = "Home from the trees! Tell me what you saw out there, every bit of it." },
+    { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "I know you! You ran the border paths out past Silverwind before you went off to see the world, and you always came back with your report before the moon was up. Ashenvale misses scouts like you, truly, so tell me you've come home." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted the days, because in Ashenvale too many people simply stop coming back. Sit, and tell me what the rest of the world has been doing while our forest burns." },
     { id = "g_away_long", when = { away = 60 }, text = "{name}! After {away} away I had half decided the forest had taken you, and I'd already grieved a little, so forgive me for staring. Ashenvale has lost more trees since you left, and I'm glad it hasn't lost you as well." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've changed since I last saw you, and I can see it in how you stand, like someone the Warsong would think twice about. Teronis carried himself like that, and I'd be glad of more of it at my side." },

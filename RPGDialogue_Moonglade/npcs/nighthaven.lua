@@ -17,6 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_glade", text = "Be welcome in Moonglade, little one. Every creature that comes in peace may rest here." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A child of the Circle. Come, walk with me a little, for the glade is glad of you." },
+    { id = "g_initiate", when = { origin = "nightelf_druid_initiate" }, text = "One of the Circle's sleepers, newly woken, and still rubbing the Dream from your eyes. Come, little one, for the glade is the one place in this world that stayed as you left it." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The trees remember your step, and so do I." },
     { id = "g_away", when = { away = 14 }, text = "You have been away {away}, little one, and Moonglade has waited as it waits for everything, patiently. Rest here, and tell me what the world has done to you." },
     { id = "g_away_long", when = { away = { min = 60, levels = 10 } }, text = "You have been gone {away} and grown much in that time, little one, and I can see the long roads in your step. Rest awhile, for Moonglade is patient with all who return to it." },
@@ -187,6 +188,10 @@ P:NPC {
           text = "Child of the forest, tell me, does the new tree on Teldrassil sing to you? I listen for it, and I do not hear what I hoped to." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Shen'dorei, the hidden people, come out of hiding. The winds kept you a long while, and I hope they taught you gently." },
+        { id = "h_nightclaw", when = { origin = "skyborne_nightclaw" },
+          text = "You were taught by the Nightclaw of your isle, I think, though you will not say so, and I will not ask what they asked you to keep. The Circle has kept a few secrets of its own, little one, and Moonglade does not pry." },
+        { id = "h_hyjal", when = { origin = "nightelf_hyjal_survivor" },
+          text = "You were at Hyjal, little one, when the Tree gave up its gifts. I felt it here, as the whole glade did, like a breath let out after ten thousand years, and I have wondered ever since what it felt like to those who stood beneath it." },
         { id = "h_seed", tags = { "news" }, when = { questActive = TODO_QUEST("Seed of Life") },
           text = "You smell of Maraudon's rot, little one, and yet there is something about you I almost know. Tell me why you have come to the shrine." },
         { id = "h_seed_done", when = { questDone = TODO_QUEST("Seed of Life") },
@@ -212,6 +217,7 @@ P:NPC {
         { text = "What is this place to the druids?", next = "glade" },
         { text = "I carry a seed from Zaetar's spirit.", next = "seed", when = { questActive = TODO_QUEST("Seed of Life") } },
         { text = "I'm a druid. What does the glade ask of me?", next = "druid", when = { class = "DRUID" } },
+        { text = "I woke into a world the Circle slept through, Keeper.", next = "xinitiate", when = { origin = "nightelf_druid_initiate" } },
         { text = "I serve the Light. Is a priest welcome here?", next = "priest", when = { class = "PRIEST" } },
         { text = "A human, this far north. Do you see many of us?", next = "human", when = { race = "Human" } },
         { text = "You welcomed my people when others wouldn't.", next = "tauren", when = { race = "Tauren" } },
@@ -228,6 +234,26 @@ P:NPC {
         { text = "What happened to Eranikus, Keeper?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "Why does a druid in our company matter to you, Keeper?", next = "xpt_remulos", when = { party = { class = "DRUID" } } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xinitiate = {
+      big = true,
+      lines = {
+        { id = "xin_default", text = "Slept through, yes, and you cannot sleep it back. While the Circle dreamed, the orcs came and my father fell in Ashenvale, and the kaldorei you woke beside must now share their forests with humans and tauren both. What will you make of that, little one, a loss or a beginning?" },
+      },
+      choices = {
+        { text = "A beginning. The world grew while we slept, and that's good.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "A loss. We should have been awake to guard it.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Do you blame the Circle for sleeping, Keeper?", next = "xinitiate_blame" },
+      },
+    },
+    xinitiate_blame = {
+      lines = {
+        { id = "xib_default", text = "No, though I have wished, on the worst nights, that someone had woken a little sooner. The Dream asks much of those who walk it, and it gave back Malfurion and the rest of you when the world needed you most, so I count that a fair trade, little one, if not a kind one." },
+      },
+      choices = {
+        { text = "Then I'll try to be worth the trade.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else, Keeper.", next = "BACK" },
       },
     },
     circle = {
@@ -443,6 +469,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You return to Nighthaven after {away}, and again I don't think it is chance. Speak, please, and tell me what has drawn you back." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told that one of Nighthaven's people saw through a falsehood of yours, and the Keeper's house hears such things. Speak truly here, please, for the peace of this glade rests on it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The village speaks of the help you gave it, and I don't believe that was chance either, and the Keeper will hear of it if he hasn't already." },
+    { id = "g_hyjal", when = { origin = "nightelf_hyjal_survivor" }, text = "You were at Hyjal; the Keeper told me so before you'd reached the door. Sit, please, and don't apologise for the gray at your temples, because half of Nighthaven has it now and the other half is merely lying about it." },
   },
 
   notice = {
@@ -1013,6 +1040,7 @@ P:NPC {
   greetings = {
     { id = "g_calm", text = "Peace, friend. Even inside these stone walls it's there, if you stop long enough to find it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "{g:Brother|Sister}, come in. If you're ready to learn, then I'm ready to teach." },
+    { id = "g_initiate", when = { origin = "nightelf_druid_initiate" }, text = "Peace, initiate. You still move like someone half in the Dream, careful of a world that might change while you blink, and that's no bad thing, but sit, because Moonglade at least will stay put while you learn it." },
     { id = "g_away", when = { away = 14 }, text = "Peace, friend, and welcome back after {away}. I hope you found a little stillness on the road, because I suspect you needed it." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you frightened someone in the village, and fear is a storm that leaves the one who raised it shaking too, if you notice, so sit a while and see whether it's true." },
   },

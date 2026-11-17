@@ -192,6 +192,7 @@ P:NPC {
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, mon, you be one of mine. Sit down, catch your breath, and tell Ken'jai what the valley did to you." },
     { id = "g_other", text = "You be hurt, you come to Ken'jai, and if you be not hurt yet, give it a day in this valley." },
+    { id = "g_loa", when = { origin = "troll_loa_speaker" }, text = "Ah, the one the loa talk to, come to the valley. Tell them Ken'jai say hello and keep the jokes kind, mon, because my recruits be bleeding enough without the spirits laughing at them." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -994,6 +995,8 @@ P:NPC {
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, a healer come to see Tai'jin! Sit down, sit down, and tell me what you be needing." },
     { id = "g_other", text = "Welcome, mon. If you be hurt, Tai'jin can see to it, and if not, you can still keep me company." },
+    { id = "g_echo", when = { origin = "troll_echo_isles" }, text = "Another one from the isles, mon! You smell the sea on the wind from here too, don't you? Every night I tell myself we going back, and every morning I go mend orcs instead." },
+    { id = "g_sailed", when = { origin = "troll_sailed_with_thrall" }, text = "You was on that shore with us when the Warchief's ships come, I know your face. The sea witch nearly have us all, mon, and now look at us, mending orcs in their own desert like we been cousins forever." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -1157,6 +1160,7 @@ P:NPC {
   greetings = {
     { id = "g_mage", when = { class = "MAGE" }, text = "Another student of the arcane, mon. Come in, before you set something on fire out there." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "You not be a mage, I can tell, but you can still stand there and admire the hut." },
+    { id = "g_primer", when = { origin = "orc_camp_primer" }, text = "So you be the orc who learn letters from a human guard's book, and then learn fire all alone! Come in, mon, because Un'Thuwa did near the same thing with an elf's scroll, and nobody ever believe either of us." },
   },
   notice = {
     { id = "n_orcmage", cat = "class", when = { class = "MAGE", race = "Orc" },

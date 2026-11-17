@@ -185,6 +185,9 @@ P:NPC {
         { text = "I've cleared Ragefire Chasm, Warchief.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "Rend Blackhand is dead, Warchief. I was there.", next = "xcl_rend", when = { killed = { name = "Rend Blackhand" }, faction = "Horde" } },
         { text = "These are my companions, Warchief. We fight as one.", next = "xpt_thrall", when = { party = true } },
+        { text = "Tell me about the peoples of the Horde, Warchief.", next = "peoples" },
+        { text = "How does a slave become Warchief?", next = "past" },
+        { text = "What would you ask of me, Warchief?", next = "ask_me" },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
@@ -293,7 +296,372 @@ P:NPC {
     },
     theramore = {
       lines = { { id = "t_default", text = "Jaina Proudmoore is a friend, though her people and mine aren't. We keep the peace between us with our own hands, because nobody else will. It is harder than any battle I've fought." } },
-      choices = { { text = "...", next = "END", fx = { affinity = 1 } } },
+      choices = {
+        { text = "...", next = "END", fx = { affinity = 1 } },
+        { text = "How did you come to trust her, Warchief?", next = "jaina" },
+      },
+    },
+
+    -- 0.71.0 depth pass: the Horde's peoples, Thrall's past, his burden, and what he asks.
+    peoples = {
+      hub = true,
+      lines = {
+        { id = "pp_default", text = "Four peoples stand under one banner now, and each of them looks at the same sunrise a different way. Ask about any of them and I'll tell you what I know and what I'm still learning, because a Warchief who thinks he understands his allies has already stopped listening." },
+        { id = "pp_scourge", when = { race = "Scourge" }, text = "Four peoples stand under one banner now, and yours is the newest and the least understood. Ask about any of them, and forgive me if I speak of the others more easily than I speak of the dead." },
+      },
+      again = {
+        { id = "pp_again", text = "Who else would you hear about? There's no shortage of opinions in this hall." },
+        { id = "pp_again2", text = "Ask on. I'd rather you heard it from me than from the taverns in the Drag." },
+      },
+      choices = {
+        { text = "What of the orc clans, Warchief?", next = "clans" },
+        { text = "What of the Darkspear trolls?", next = "darkspear" },
+        { text = "What of the tauren and Cairne Bloodhoof?", next = "tauren_p" },
+        { text = "What of the Forsaken and their queen?", next = "forsaken_p" },
+        { text = "And Jaina Proudmoore's humans?", next = "theramore" },
+        { text = "Enough of the peoples, Warchief.", next = "hello" },
+      },
+    },
+    clans = {
+      lines = {
+        { id = "cl_default", text = "The Frostwolves, the Warsong, the Blackrock who stayed loyal, and the orcs born in the camps who never had a clan at all, and I've tried to make one Horde out of every one of them. Some days the old banners matter more to my people than the new one, and I can't blame them, because a clan is the one thing the demons never managed to take." },
+        { id = "cl_orc", when = { race = "Orc" }, text = "You know this as well as I do, {g:brother|sister}, because if you ask any orc in the Drag for their clan you'll learn more about them than their name ever told you. I've tried to make one Horde out of all those banners, and some days the old ones still pull harder than the new." },
+      },
+      choices = {
+        { text = "Grom Hellscream was Warsong. Tell me of him.", next = "grom" },
+        { text = "I'm Warsong too, Warchief. Grom's clan.", next = "warsong_kin", when = { origin = "orc_warsong_kin" } },
+        { text = "I was born in the camps, Warchief. I've no clan.", next = "camp_born", when = { origin = { "orc_camp_born", "orc_camp_primer" } } },
+        { text = "And the orcs who won't follow you?", next = "dissent" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    grom = {
+      lines = { { id = "gr_default", text = "Grom was the first of us to drink Mannoroth's blood and the last of us to be free of it, and he bought that freedom with his life in a canyon in Ashenvale. He killed the demon who chained us, and I held him while he died, and he told me he was free, so whenever an orc tells me our people are cursed for good, I think of that." } },
+      choices = {
+        { text = "Then the blood can be overcome.", next = "grom2", fx = { affinity = 1 } },
+        { text = "What became of his clan?", next = "grom2" },
+      },
+    },
+    grom2 = {
+      lines = { { id = "gr2_default", text = "His Warsong still log the forest in Ashenvale and fight the night elves for every tree, and I gave them that work because Orgrimmar needs timber and the Warsong need a fight they can win. I'm not certain I chose well, because Grom's people are brave to the bone and they listen to me about as often as he did.", fx = { learn = { "warsong" } } } },
+      choices = {
+        { text = "The Warsong need a fight, Warchief. Let them have it.", next = "BACK", fx = { trait = { brave = 1 }, opinion = { warsong = "support" } } },
+        { text = "The night elves will only send more Sentinels.", next = "BACK", fx = { trait = { cautious = 1 }, opinion = { warsong = "restrain" } } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    warsong_kin = {
+      lines = { { id = "wk_default", text = "Then you carry Grom's name in your blood, and I'd ask you to carry it the way he finished and not the way he started. Tell me, do your kin at Splintertree still sing his death-song at the fires, or have they made new songs of their own?" } },
+      choices = {
+        { text = "They still sing it, Warchief, every night.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
+        { text = "They sing new ones, mostly about killing night elves.", next = "warsong_kin2", fx = { trait = { witty = 1 } } },
+      },
+    },
+    warsong_kin2 = {
+      lines = { { id = "wk2_default", text = "That's the Warsong for you, and Grom would have laughed at every verse. Just remember that the kaldorei were defending their forest long before we came to it, and a good song is a poor reason to start a war the Horde can't finish." } },
+      choices = { { text = "I'll remember, Warchief.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    camp_born = {
+      lines = { { id = "cb_default", text = "Then you were born in the same kind of cage I was raised beside, and you know what the humans never understood, that the stillness in the camps wasn't laziness but grief, because our people had lost the demon fire and found nothing to put in its place. What do you remember of it?" } },
+      choices = {
+        { text = "The fence, and the guards laughing at us.", next = "camp_born2", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Very little, Warchief. I've tried hard to forget.", next = "camp_born2", fx = { trait = { cautious = 1 } } },
+        { text = "My parents, waiting for something that never came.", next = "camp_born2", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    camp_born2 = {
+      lines = { { id = "cb2_default", text = "Remember it anyway, all of it, because the young ones born in Durotar will never see a fence, and someone has to tell them what we were freed from so they understand what they're guarding. That's no small thing to ask of you, and I'm asking it." } },
+      choices = { { text = "I'll tell them, Warchief.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    dissent = {
+      lines = { { id = "ds_default", text = "Some still kneel in the Spire with the Blackrock, and some fed the fire under my own city, and every one of them was once an orc I'd have died to free. If one of them came to my gate tomorrow and laid down his axe, I'd have to decide what kind of Warchief I am, so tell me, what would you do?" } },
+      choices = {
+        { text = "Take him back, Warchief. Every orc freed is a victory.", next = "BACK", fx = { trait = { kind = 1 }, opinion = { orc_traitors = "mercy" } } },
+        { text = "He chose the dragons. Let him die among them.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { orc_traitors = "hardline" } } },
+        { text = "Who leads the Blackrock in the Spire?", next = "spire" },
+      },
+    },
+    spire = {
+      lines = {
+        { id = "sp_default", text = "Rend Blackhand, the son of the Warchief who led the Horde before Orgrim, and he calls himself Warchief now and calls me a slave who learned his masters' manners. He sits in Blackrock Spire with the black dragons at his back, and I sent the Kargath expedition into the Badlands to watch him, because I can't spare an army to go and fetch him.", fx = { learn = { "blackrock" } } },
+        { id = "sp_dead", when = { killed = { name = "Rend Blackhand" } }, text = "Rend Blackhand did, until you and yours put an end to him, and now the black dragons hold orcs without a chief, which is either the best news I've had this year or the most dangerous.", fx = { learn = { "blackrock" } } },
+      },
+      choices = { { text = "Something else, Warchief.", next = "BACK" } },
+    },
+    darkspear = {
+      lines = {
+        { id = "dk_default", text = "The Darkspear were dying on an island in the south seas when our ships wrecked there, hunted by murlocs and a sea witch, and their chieftain Sen'jin died so that we could get his people away. Vol'jin swore the Darkspear to the Horde for that, and he has kept the oath better than some orcs keep theirs." },
+        { id = "dk_sailed", when = { origin = "troll_sailed_with_thrall" }, text = "You were on that island, weren't you? Then you remember the storm and the murlocs and Sen'jin better than I do, because I only lost a few ships, and your people lost their chieftain." },
+        { id = "dk_troll", when = { race = "Troll" }, text = "Your people were dying on an island in the south seas when our ships wrecked there, and Sen'jin gave his life so we could get you away. Vol'jin swore the Darkspear to the Horde for that, and I've never once had cause to regret taking that oath." },
+      },
+      choices = {
+        { text = "What does Vol'jin want for his people?", next = "darkspear2" },
+        { text = "I was on that island when your ships came.", next = "sailed", when = { origin = "troll_sailed_with_thrall" } },
+        { text = "Didn't the Amani trolls fight for the old Horde?", next = "trolls_old" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    darkspear2 = {
+      lines = { { id = "dk2_default", text = "His home back, which means the Echo Isles off our coast, where a witch doctor named Zalazane has turned his own people into hexed slaves. I gave Vol'jin my word that the Horde would help him, and the hardest part of being Warchief is keeping a promise like that while the Scourge and the Alliance and the Blackrock all want my warriors first.", fx = { learn = { "echo_isles" } } } },
+      choices = {
+        { text = "I'll help the Darkspear at Sen'jin, Warchief.", next = "BACK", fx = { affinity = 1, opinion = { darkspear = "ally" } } },
+        { text = "The Horde has bigger enemies than one witch doctor.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { darkspear = "later" } } },
+      },
+    },
+    trolls_old = {
+      lines = { { id = "to_default", text = "They did, the Amani of the northern forests, because they hated the elves more than they feared us, and when the war turned they left us to the camps without a backward glance. The Darkspear are another tribe with another debt, and I've learned that trolls, like orcs, are a great deal more than their worst chieftains." } },
+      choices = { { text = "Something else, Warchief.", next = "BACK" } },
+    },
+    sailed = {
+      lines = { { id = "sa_default", text = "Then you saw the worst day of my first voyage, and I've never asked a Darkspear what it looked like from the shore. Tell me honestly, did your people think we'd come to save them, or to make them slaves?" } },
+      choices = {
+        { text = "We thought you'd be just another master, Warchief.", next = "sailed2", fx = { trait = { skeptical = 1 } } },
+        { text = "We saw you fight for us, and we knew.", next = "sailed2", fx = { affinity = 1, trait = { generous = 1 } } },
+      },
+    },
+    sailed2 = {
+      lines = { { id = "sa2_default", text = "Fair, either way, because I'd have thought the worst of us too after the stories the old Horde left behind. The Darkspear trusted us before we'd earned it, and I want every orc in this city to remember that trust was given first, and not paid for." } },
+      choices = { { text = "I'll remind them, Warchief.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    tauren_p = {
+      lines = {
+        { id = "tr_default", text = "Cairne Bloodhoof found us lost in the Barrens with the centaur at our heels, and he never asked what we'd done in the old war before he fought beside us. He taught me what it is to lead a people who would rather be at peace, and I go to Thunder Bluff whenever I need to remember why I'm doing any of this." },
+        { id = "tr_tauren", when = { race = "Tauren" }, text = "Your people taught mine that the land isn't something you conquer but something you belong to, and we were slow students. Cairne was patient with us, as he's patient with everyone except the Grimtotem." },
+      },
+      choices = {
+        { text = "Does Cairne ever disagree with you?", next = "tauren2" },
+        { text = "I walked the long road to Mulgore as a calf.", next = "migration", when = { origin = { "tauren_long_migration", "tauren_plains_runner", "tauren_narache_hunter" } } },
+        { text = "I was born Grimtotem, Warchief.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    tauren2 = {
+      lines = { { id = "tr2_default", text = "Often, and gently, which is worse than shouting because he's usually right. It was Cairne and his Arch Druid who pressed me to take in the Forsaken, and I agreed because I trust his judgement more than my own unease, and I'm still watching to see which of us was wiser." } },
+      choices = {
+        { text = "And what do you make of the Forsaken?", next = "forsaken_p" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    migration = {
+      lines = { { id = "mg_default", text = "Then you saw the orcs who fought beside your herds, and I hope we looked better from where you stood than we felt at the time. Tell me, what do your people say about us around the fires in Bloodhoof, when no orc is listening?" } },
+      choices = {
+        { text = "That you keep your word, Warchief.", next = "migration2", fx = { affinity = 1, opinion = { orcs = "trust" } } },
+        { text = "That orcs are loud and eat far too much.", next = "migration2", fx = { trait = { witty = 1 } } },
+        { text = "That some of you still frighten them.", next = "migration2", fx = { trait = { honest = 1 }, opinion = { orcs = "wary" } } },
+      },
+    },
+    migration2 = {
+      lines = { { id = "mg2_default", text = "I'll take all of it, and I'd rather hear it from you than learn it too late. The tauren gave us friendship before we'd earned it, so if your people ever stop trusting mine, I want to know the day it starts." } },
+      choices = { { text = "I'll tell you, Warchief.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    grimtotem = {
+      lines = { { id = "gt_default", text = "Then you made a hard choice, and you'll make it again every time you pass a Grimtotem on the road. Magatha sits in Thunder Bluff and smiles at Cairne, and I don't need to be a shaman to hear what she thinks of orcs, so if your kin ever let slip what she plans, tell Cairne before you tell me.", fx = { learn = { "grimtotem" } } } },
+      choices = { { text = "Cairne first, Warchief. I understand.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } } },
+    },
+    forsaken_p = {
+      lines = {
+        { id = "fk_default", text = "The Forsaken were humans and elves once, and the Scourge made them into the very thing they'd fought, until their queen tore them free and gave them a name for what was done to them. I took them into the Horde because I know what it is to be made into a weapon by someone else's hand, and because Cairne asked me to." },
+        { id = "fk_scourge", when = { race = "Scourge" }, text = "You'll know better than I do what it is to be what you are, so forgive me if I speak of your people as a stranger, because that's still what I am to them. I took the Forsaken in because I know what it is to be made into someone else's weapon." },
+      },
+      choices = {
+        { text = "Do you truly trust the Dark Lady?", tag = "Persuade", next = "sylvanas_truth",
+          check = { pass = { any = { { disposition = { min = 65 } }, { trait = "discreet" }, { origin = "orc_frostwolf" } } } },
+          fail = { next = "sylvanas_no", fx = { affinity = -1 } } },
+        { text = "What does she want from the Horde?", next = "forsaken2" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    sylvanas_truth = {
+      lines = { { id = "st_default", text = "Trust is the wrong word, and I wouldn't say this in front of Vol'jin, who already says it for me. I believe she hates the Lich King more than anything alive or dead, but I don't know what she'll want once that hatred is spent, and her apothecaries brew plague beneath Lordaeron, and a plague is a plague whoever it's aimed at. I watched the last one empty a kingdom." } },
+      choices = {
+        { text = "Then why keep her close?", next = "sylvanas_truth2" },
+        { text = "I'll say nothing of this, Warchief.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } },
+      },
+    },
+    sylvanas_truth2 = {
+      lines = { { id = "st2_default", text = "Because the Forsaken stand between the Scourge and the rest of the Horde, and because they were wronged as surely as my people were, and I won't be the one who tells the wronged there's no place for them. If I'm wrong about her, I'd rather learn it while she's my ally than while she's no one's." } },
+      choices = { { text = "That sounds like wisdom, Warchief.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    sylvanas_no = {
+      lines = { { id = "sn_default", text = "She is our ally, and I speak of our allies with respect in this hall, as I'd expect you to. Ask me again when I know you better." } },
+      choices = { { text = "As you say, Warchief.", next = "BACK" } },
+    },
+    forsaken2 = {
+      lines = { { id = "fk2_default", text = "A home, room to fight the Scourge, and the Horde's protection while she builds both, which is fair, because we wanted much the same when we came to Kalimdor. Some of my warriors tell me the dead have no place among the living and some tell me the Forsaken fight harder than anyone, so which would you tell me?" } },
+      choices = {
+        { text = "They've bled for the Horde, and that earns their place.", next = "BACK", fx = { affinity = 1, opinion = { forsaken = "trust" } } },
+        { text = "The dead serve the dead, Warchief. Keep watching them.", next = "BACK", fx = { trait = { skeptical = 1 }, opinion = { forsaken = "distrust" } } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    jaina = {
+      lines = {
+        { id = "ja_default", text = "The prophet who sent me across the sea sent her too, and at Mount Hyjal, with the Legion at the door, we stood together because the alternative was dying apart. When her father came after us in Durotar she let him fall rather than break the peace, and I don't think anyone who hasn't lost a parent to their own choices understands what that cost her." },
+        { id = "ja_alliance", when = { faction = "Alliance" }, text = "You wear the Alliance's colours in my hall, so I'll say this plainly. Jaina and I stood together at Hyjal because the alternative was dying apart, and we keep this peace with our own hands, so be careful what you carry back to Stormwind about it." },
+      },
+      choices = {
+        { text = "Will the peace hold, Warchief?", next = "peace" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    peace = {
+      big = true,
+      lines = { { id = "pc_default", text = "It holds because neither of us lets it break, and there are men in Theramore and orcs in Razor Hill who'd break it tomorrow if we turned our backs. Every Kul Tiran soldier at Tiragarde Keep makes my chieftains ask why we don't strike first, so tell me, would you?" } },
+      choices = {
+        { text = "Keep the peace, Warchief. Your word to Jaina binds us.", next = "BACK", fx = { affinity = 1, align = { honor = 1 }, opinion = { peace = "for" } } },
+        { text = "Strike first. The humans will never forget the camps.", next = "BACK", fx = { align = { honor = -1 }, opinion = { peace = "against" } } },
+        { text = "I'd ask Jaina what she fears before deciding.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    past = {
+      hub = true,
+      lines = { { id = "ps_default", text = "I was raised in Durnholde by a human lord who wanted a pet gladiator, and I've been a slave and a fugitive and a shaman and a chieftain since, though not always in that order. Ask what you like, because I'd rather my people knew the truth of where their Warchief came from than the songs about it." } },
+      again = {
+        { id = "ps_again", text = "What else would you know of the old days?" },
+        { id = "ps_again2", text = "Ask on. These memories are lighter when someone else carries a little of them." },
+      },
+      choices = {
+        { text = "What was Durnholde like?", next = "durnholde" },
+        { text = "Who taught you to hear the elements?", next = "alterac" },
+        { text = "How did Doomhammer come to choose you?", next = "doomhammer" },
+        { text = "Why did you bring the Horde across the sea?", next = "kalimdor" },
+        { text = "What weighs on you now, Warchief?", next = "burden" },
+        { text = "Enough of the past, Warchief.", next = "hello" },
+      },
+    },
+    durnholde = {
+      lines = { { id = "du_default", text = "Durnholde was a fortress in the hills above Hillsbrad, where Aedelas Blackmoore taught me to fight in his arena and taught me to read so that I'd make a better weapon for him. He named me Thrall because that's what I was, and I kept the name after I left, so I'd never forget what this Horde was built to end." } },
+      choices = {
+        { text = "Did no one there show you kindness?", next = "taretha" },
+        { text = "Do you hate the humans for it?", next = "durnholde_hate" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    taretha = {
+      lines = {
+        { id = "ta_default", text = "One did, a girl named Taretha Foxton who passed me letters and books when no one was looking, and she helped me escape when I was grown. Blackmoore had her killed for it, and I've carried her with me ever since, because she's the reason I know a human heart can be as good as any orc's." },
+        { id = "ta_warm", when = { disposition = { min = 65 } }, text = "One did, a girl named Taretha Foxton who passed me letters when no one was looking and helped me escape, and Blackmoore had her killed for it. I've told very few people what she was to me, so hear it plainly: she was my friend when I had no one, and I've never stopped wishing I could repay her." },
+      },
+      choices = {
+        { text = "I'm sorry, Warchief.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Is that why you keep the peace with Theramore?", next = "theramore" },
+      },
+    },
+    durnholde_hate = {
+      lines = { { id = "dh_default", text = "I did, for a long time, and hatred kept me alive in that arena more than once. Then I broke Durnholde open and killed Blackmoore in his own keep, and found it filled nothing, so I put the hate down, and the Syndicate squat in its ruins now, which seems about what it deserved." } },
+      choices = {
+        { text = "Some hatred is earned, Warchief.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "You've done better with it than most would.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    alterac = {
+      lines = {
+        { id = "al_default", text = "Drek'Thar of the Frostwolves, an old blind shaman who took in a half-frozen runaway and taught him to listen before he spoke. The Frostwolves were exiled to Alterac for refusing the demon blood, and they were the first orcs who ever looked at me as one of their own, and it was there I learned who my father was.", fx = { learn = { "alterac" } } },
+        { id = "al_frost", when = { origin = "orc_frostwolf" }, text = "Drek'Thar, as you'll have guessed, since you've sat by the same fires and know how long he can go without saying a word. The Frostwolves were the first orcs who ever looked at me as one of their own, and it was in that valley I learned who my father was.", fx = { learn = { "alterac" } } },
+      },
+      choices = {
+        { text = "Who was your father?", next = "durotan" },
+        { text = "Do the Frostwolves still hold the valley?", next = "alterac2" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    alterac2 = {
+      lines = { { id = "al2_default", text = "They do, and they'll never leave it, because the valley is where Durotan's people learned to live without the fire. I asked Drek'Thar to come south with me, and he told me an old wolf doesn't change its den, which was his way of saying someone must keep the old ways where they were kept." } },
+      choices = { { text = "Something else, Warchief.", next = "BACK" } },
+    },
+    durotan = {
+      lines = { { id = "dt_default", text = "Durotan, chieftain of the Frostwolves, who went to warn Orgrim Doomhammer about Gul'dan and was murdered in the forest for it, along with my mother Draka. Blackmoore's men found me beside them, and I named this land Durotar for him, so that his name would stand somewhere it can never be exiled from." } },
+      choices = {
+        { text = "He'd be proud of you, Warchief.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Do you ever wonder who you'd have been?", next = "durotan2", when = { disposition = { min = 65 } } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    durotan2 = {
+      lines = { { id = "d2_default", text = "I wonder about it more often than I'd admit to my advisors. I'd have been a Frostwolf, I think, raised in the snow with a wolf and a clan and no notion of Warchiefs, and some part of me envies that orc very much, so don't repeat it in the Drag, because my people need a Warchief and not a son still missing his father." } },
+      choices = { { text = "It stays between us, Warchief.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } } },
+    },
+    doomhammer = {
+      lines = { { id = "dm_default", text = "He'd been hiding in the hills, a living legend who'd slipped the camps, and when I came to him he tested me with weapons before he'd hear a word. We broke the camps open together, and when a knight's lance took him from behind he gave me his hammer and his armour and the Horde in one breath, which is more than any orc should be handed at once." } },
+      choices = {
+        { text = "Did you feel ready?", next = "doomhammer2" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    doomhammer2 = {
+      lines = { { id = "dm2_default", text = "No, and I'm not certain I do yet, though I've stopped waiting to feel it. Orgrim led the old Horde through the Second War and lost it, and he told me once that he hoped I'd make a better Horde than he had, so every day I'm trying to answer a question a dead orc asked me." } },
+      choices = {
+        { text = "You're answering it, Warchief.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    kalimdor = {
+      lines = { { id = "ka_default", text = "A prophet came to me in a dream and then in the flesh, a man who wore a raven's shape, and he told me the old world was doomed and the Horde's future lay across the sea. I believed him because nothing else I'd seen made sense, and he was right, because the Scourge swallowed Lordaeron not long after our ships left it." } },
+      choices = {
+        { text = "And the Legion followed you here.", next = "hyjal" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    hyjal = {
+      lines = { { id = "hy_default", text = "It did, and at Mount Hyjal orcs and humans and night elves stood together against Archimonde, which none of us would have believed a year before. I sometimes think it was the only time this world was ever wise, and I'm afraid it won't remember how.", fx = { learn = { "burning_legion" } } } },
+      choices = {
+        { text = "Then the Horde must remember for it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    burden = {
+      big = true,
+      lines = {
+        { id = "bu_default", text = "Everything weighs on me, and nothing so much as the fear that I'll become what I fought, a master who thinks he knows what's best for orcs who never asked him. The Horde follows me because I freed it, and I'm not sure gratitude is a good enough reason for anyone to follow anyone, so tell me, should a Warchief rule alone?" },
+        { id = "bu_warm", when = { disposition = { min = 65 } }, text = "I'll tell you what I don't tell my chieftains: some mornings I put on Doomhammer's armour and it feels like another set of chains, and the only thing that gets me through the gate is knowing the peons in the Valley of Strength never chose their burdens either. So tell me, should a Warchief carry it all alone?" },
+        { id = "bu_cold", when = { disposition = { max = 34 } }, text = "A Warchief's burdens are his own to carry, though I'll ask you one thing about them, since you asked me. Should a Warchief rule alone, or share the weight?" },
+      },
+      choices = {
+        { text = "The Horde needs one strong hand, Warchief, not a council.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the chieftains share the weight, Warchief.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Do the elements give you no counsel?", next = "shaman_harder" },
+        { text = "I'm one of your students. We listen for you.", next = "student", when = { origin = "orc_thrall_shaman" } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    student = {
+      lines = { { id = "su_default", text = "Then you're carrying some of it already, whether you knew it or not, because every young shaman who hears the elements is one less thing my people need to ask of me. Tell me, which of them speaks to you most clearly?" } },
+      choices = {
+        { text = "Earth, Warchief. It's patient with me.", next = "student2", fx = { trait = { patient = 1 } } },
+        { text = "Fire. It answers before I've finished asking.", next = "student2", fx = { trait = { brave = 1 } } },
+        { text = "Water, Warchief. It heals.", next = "student2", fx = { trait = { kind = 1 } } },
+        { text = "Air. It carries every voice to me.", next = "student2", fx = { trait = { curious = 1 } } },
+      },
+    },
+    student2 = {
+      lines = { { id = "su2_default", text = "Good, and don't let anyone tell you one is better than the others, because a shaman who favours a single element forgets to ask the rest. Drek'Thar told me that when I was about your age, and I'm only now beginning to understand him." } },
+      choices = { { text = "I'll listen to all of them, Warchief.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    ask_me = {
+      lines = {
+        { id = "am_default", text = "First tell me something true, which is rarer in this hall than it ought to be. Why do you fight for the Horde, when the world would gladly let you fight for no one?" },
+        { id = "am_alliance", when = { faction = "Alliance" }, text = "You stand in Grommash Hold wearing the Alliance's colours, which takes either courage or foolishness, so first tell me something true. Why do you fight at all, and for whom?" },
+      },
+      choices = {
+        { text = "For my people, and for the ones who come after.", next = "ask_me2", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "For glory, and a name the songs remember.", next = "ask_me2", fx = { trait = { brave = 1 } } },
+        { text = "Because you freed us, Warchief.", next = "ask_me_grat", fx = { affinity = 1 } },
+        { text = "Honestly? It pays better than anything else.", next = "ask_me2", fx = { affinity = -1, trait = { greedy = 1 } } },
+      },
+    },
+    ask_me_grat = {
+      lines = { { id = "amg_default", text = "Then I'll ask you for more than gratitude, because gratitude fades, and I'd rather you stood for the Horde because of what it is than because of who I am. If I fell tomorrow, would you still fight for it?" } },
+      choices = {
+        { text = "I would, Warchief, for what it's become.", next = "ask_me2", fx = { affinity = 2, opinion = { horde = "loyal" } } },
+        { text = "I don't know, Warchief, and that's the truth.", next = "ask_me2", fx = { trait = { honest = 1 } } },
+      },
+    },
+    ask_me2 = {
+      lines = { { id = "am2_default", text = "That's an honest answer, and I'll remember it. What I ask of you is simple to say and hard to do, which is to give the Horde a better name in every village you pass through, because most of the world still thinks of us as the orcs who burned it, and only people like you can prove them wrong." } },
+      choices = {
+        { text = "I'll carry that name well, Warchief.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The world can think what it likes of us.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
     },
   },
 
@@ -307,6 +675,11 @@ P:NPC {
     wailing_caverns = { { id = "tp_caverns", text = "The tauren have told me of something sick under the Barrens. When our young warriors are ready, they'll go in." } },
     burning_blade = { { id = "tp_blade", text = "Some of my own people still kneel to the old fire. They hide better than they think, and not as well as they hope." } },
     echo_isles = { { id = "tp_isles", text = "The Darkspear will have their home back. I gave Vol'jin my word, and I don't give it lightly." } },
+    alterac = { { id = "tp_alterac", text = "The Frostwolves still hold the valley where my father's clan made its home, and Drek'Thar keeps their fires lit for any orc who needs one." } },
+    warsong = { { id = "tp_warsong", text = "Grom's clan log Ashenvale for Orgrimmar's walls, and they're brave to the bone, though they listen to me about as often as Grom did." } },
+    blackrock = { { id = "tp_blackrock", text = "They chose the Spire and the dragons over their own freedom, and I grieve for them more than I fear them." } },
+    grimtotem = { { id = "tp_grimtotem", text = "They're Cairne's trouble more than mine, though Magatha's smile in Thunder Bluff never seems to reach her eyes." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "Humans who would burn our allies in Tirisfal, and who'd burn us too if they ever found the ships to cross the sea." } },
     _none = { { id = "tp_none", text = "I don't know, but ask my advisors, and then come and tell me what they said, in plain words." } },
   },
 }

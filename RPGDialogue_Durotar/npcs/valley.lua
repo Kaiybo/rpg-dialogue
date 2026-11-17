@@ -196,7 +196,7 @@ P:NPC {
   key = "gornek", id = TODO_NPC("Gornek"), name = "Gornek",
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "valley_of_trials" }, temper = { "hard" }, values = { "stern", "dutiful" },
-  notices = { "greenness", "class" },
+  notices = { "greenness", "class", "origin" },
   impression = {
     first = "Gornek runs the Den and claims he is never asleep when the recruits whisper. The first lesson, to him, is getting back up, and he looks at newcomers as though deciding whether they will learn it.",
     third = "{name} met Gornek, the hard orc who runs the Den in the Valley of Trials and makes Horde out of whoever walks in.",
@@ -215,6 +215,8 @@ P:NPC {
       text = "Soft hands, I see. That'll change, along with everything else soft about you, here." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "A warlock, in my Den. The Burning Blade wear your colors in the caves north of here. Prove you aren't one of them." },
+    { id = "n_frostwolf", cat = "origin", when = { origin = "orc_frostwolf" },
+      text = "Frostwolf, by the fur on you and the way you sniff the wind. Your clan never drank the blood, so you'll be the only one in my Den who doesn't need the first lesson on what the old ways were." },
   },
 
   start = "hello",

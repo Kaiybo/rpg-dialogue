@@ -184,6 +184,7 @@ P:NPC {
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Another of the faithful, come back from the fields. Tell me, does your will grow stronger, or only your spells?" },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "You are not a priest, but the Forgotten Shadow has room for anyone who still believes in themselves." },
+    { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You preached in Lordaeron's chapels once; you still stand at the front of a room as if there's a pulpit behind you. The Forgotten Shadow asks less of you than the Light did, and it does not hurt to listen to." },
   },
   notice = {
     { id = "n_paladin", cat = "light", when = { class = "PALADIN" },
@@ -331,6 +332,7 @@ P:NPC {
   greetings = {
     { id = "g_shop", text = "Good day to you, or good night, since it hardly matters to us. What can I sell you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? The fields are hungry for supplies, it seems." },
+    { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed out past the town, didn't you? I may have sold your family twine or seed once, back when seed meant something, and now you're buying from me again with dead hands." },
   },
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
@@ -497,6 +499,7 @@ P:NPC {
   greetings = {
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Ah, a fellow practitioner. Come in, and tell me how your little friend is behaving." },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You aren't a warlock, but you are welcome to look around. Don't touch anything that moves." },
+    { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "The Cult of the Damned, before you died, unless I'm much mistaken. Don't look so stricken, because half of what I teach was learned from people like you, and none of us here can afford to be squeamish." },
   },
   notice = {
     { id = "n_pet", cat = "fel", when = { class = "WARLOCK", pet = { type = "Demon" } },
@@ -807,6 +810,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Come in, dear, and let me see you. Don't worry about bleeding on the floor; nobody here minds." },
+    { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You were a chapel priest, I think, because you've that patient look. You'll have sat with the dying in Lordaeron, dear, so you already know the half of my work that isn't bandages." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -969,6 +973,7 @@ P:NPC {
   greetings = {
     { id = "g_shop", text = "Looking for a mount that never tires? You've come to the right stable." },
     { id = "g_young", when = { maxLevel = 39 }, text = "Come back when you're more experienced, friend, but you're welcome to look at the horses until then." },
+    { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You look at my horses like a knight of the Silver Hand, measuring the legs before the face. You'll have ridden a white charger once, and mine are bonier, but they don't scare and they never tire." },
   },
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },

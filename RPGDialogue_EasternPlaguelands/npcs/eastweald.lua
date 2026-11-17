@@ -16,6 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_river", text = "A visitor, out here? Mind Mirador; he's old, and he doesn't like strangers. Neither did I, once, but I've had time to change." },
     { id = "g_back", when = { metBefore = true }, text = "Back by the river? Sit with me; the fish don't bite, but the water's still pleasant to watch." },
+    { id = "g_xsquire", when = { origin = "human_paladin_squire" }, text = "You carry yourself like a squire of the Silver Hand, though you can't have been very old when it broke. Sit a while, and let an old man hear that someone still keeps the oaths." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been away {away}, and the river hasn't changed a bit, nor have I. Sit a while, if you've the time." },
     { id = "g_away_long", when = { away = 60 }, text = "I'd begun to wonder if the Plaguelands had taken you, after {away} away. I'm glad they didn't, and glad you remembered an old man by the river." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since we last talked, I can see it in how you stand. Use it gently, as well as bravely." },
@@ -303,6 +304,7 @@ P:NPC {
 
   greetings = {
     { id = "g_stead", text = "You stand on my land. It was my family's before the plague, and now it serves the Banshee Queen, as do I." },
+    { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You remember serving the Scourge, and I remember dying to it. Keep your memory sharp, as I keep mine, because the Banshee Queen is better served by the dead who never forget." },
   },
 
   notice = {

@@ -18,6 +18,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, hunter, so tell me what the grass showed you in all that time." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk more quietly than you did when you first sat by my fire, and you've grown strong besides. The Barrens has been a good teacher to you." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I'm told you said something in Taurajo that warmed someone's heart. A good hunter is patient with people as well as prey." },
+    { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "You crossed this grass once already, on the long walk, with the centaur riding at our flanks. Sit, and I'll show you that the Barrens is not only the place we ran through, but a place with its own life, if you sit still long enough to see it." },
   },
 
   notice = {

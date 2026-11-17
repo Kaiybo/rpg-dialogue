@@ -352,6 +352,7 @@ P:NPC {
   greetings = {
     { id = "g_bored", text = "Oh, a visitor, how thrilling. Please don't touch anything; most of it will kill you, and the rest will make you wish it had." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. I'd say I'm pleased, but I'm not anything, really, though you are useful." },
+    { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "The Cult of the Damned, before you died? How refreshing, since most of the Dark Lady's servants pretend they've never touched a plague. I have no such pretensions, and I find I'm almost glad of the company." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been gone {away}, have you? I hadn't noticed, though I suppose I'm meant to say I had." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've become considerably more dangerous since we last spoke. I find that almost interesting, which for me is a great deal." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone at the Mill was talked into something by a clever tongue, and it sounded rather like yours. I'll be reading my own labels twice while you're here." },
@@ -607,6 +608,7 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Rest here, if you rest. Some of my guests don't need to, but they like the chairs." },
+    { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You look out at the fields the way a farmer does, Brill-born, I'd guess. The farms below the Mill grew much the same before the plague, and now the living fight us for every furrow." },
     { id = "g_home", when = { homeInn = { "Tarren Mill" } }, text = "Back at the Mill, then. Your bed's where you left it, and nobody's slept in it, since nobody here sleeps." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and your bed's not been touched, since nobody here sleeps. Do lie in it, if only so it remembers what it's for." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the deathguards came in nearly cheerful after a word with you, which I didn't think was possible any more. Whatever you said, do say it again." },

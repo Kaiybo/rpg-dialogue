@@ -552,6 +552,7 @@ P:NPC {
   greetings = {
     { id = "g_tavern", text = "Good evening, friend, do sit. I'm just here thinking unkind thoughts about my former employers." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Tell me something that'll ruin an Agamand's day." },
+    { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed round Brill? Then you'll have tipped your cap to the Agamands on market day, same as me, and they never once tipped it back. Sit, and help me think unkind thoughts about them." },
   },
 
   notice = {
@@ -698,6 +699,7 @@ P:NPC {
 
   greetings = {
     { id = "g_tavern", text = "Cold tonight, though it's always cold, now. You stop noticing, and then one day you notice again." },
+    { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed outside Brill, didn't you? I remember the barley carts coming in at harvest, and I remember the year the grain went grey, and I think about both more than I'd like." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, haven't you? I noticed, which surprised me, since I don't notice much any more." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the tavern said you were kind to them. It's been a long while since I heard anyone in Brill say that about anyone." },
   },
@@ -854,6 +856,7 @@ P:NPC {
   greetings = {
     { id = "g_inn", text = "Welcome to the Gallows' End! Sit anywhere you like; nobody here bites. Well, nobody here bites guests." },
     { id = "g_home", when = { homeInn = { "Brill", "Gallows' End Tavern" } }, text = "Your room's kept. Don't mind the bats; they pay rent in silence." },
+    { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "A Brill face come home! You'll have drunk in this room when everyone in it still breathed, I'd wager, so sit anywhere you like and pretend it's harvest night." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! Your room's kept, and the bats have been on their best behaviour, more or less." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been gone {away}, and I was starting to think you'd found yourself a better tavern. Sit down, and the first drink's on the house for coming home." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of my regulars couldn't stop talking about you last night, and they don't usually talk at all. Whatever you said to them, it did some good." },

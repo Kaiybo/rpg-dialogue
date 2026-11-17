@@ -27,6 +27,7 @@ P:NPC {
     { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "You have been away {away}, and you return with the bearing of one who has stood against real darkness. Elune has kept you, so honour her by telling me plainly what you found." },
     { id = "g_word_helped", when = { word = "helped" }, text = "My Sentinels tell me you have served the people of this city well these past days. That is noted, and Elune notes it also." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told one of my people saw through a falsehood of yours. Speak only truth in this temple, because I will hear the other kind." },
+    { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "One of my scouts, come in from the borders. You watched Ashenvale's edges for me once, and I see you have not stopped watching, so tell me what the rest of the world looks like through a Sentinel's eyes." },
   },
 
   notice = {
@@ -214,6 +215,8 @@ P:NPC {
           text = "Alathea has trained a few of your Church's young priests in this temple. She tells me you pray loudly and heal well, and I approve of at least one of those." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The moon is up, and this is Elune's hour rather than the petitioners'. You are fortunate that I am still listening." },
+        { id = "h_hyjal", when = { origin = "nightelf_hyjal_survivor" },
+          text = "You stood on the mountain with us when the World Tree gave up its gifts. I see the years on your face now, as you must see them on mine, and I will not pretend that either of us is used to it yet." },
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "You return, and I find I am glad of it, which is rarer in this temple than you might think. Speak freely, friend of the kaldorei." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk softly, and I notice it, because the Sentinels taught me to. Elune's priestesses have hidden in the dark for ten thousand years, so I don't think less of anyone who does the same for a good cause." },
@@ -230,6 +233,7 @@ P:NPC {
         { text = "What troubles Darnassus?", next = "troubles" },
         { text = "The Horde is in Ashenvale. What will you do?", next = "ashenvale" },
         { text = "What does Elune ask of her priestesses?", next = "elune" },
+        { text = "Every year since Hyjal feels borrowed, High Priestess.", next = "xborrowed", when = { origin = "nightelf_hyjal_survivor" } },
         { text = "They say you once had no use for humans.", next = "hyjal", when = { race = "Human" } },
         { text = "I serve the Light, High Priestess. Is that so different?", next = "light",
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
@@ -248,6 +252,26 @@ P:NPC {
         { text = "I've been to the bottom of Blackfathom Deeps, High Priestess.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "Do the Kaldorei truly welcome our allies here, High Priestess?", next = "xpt_tyrande", when = { party = { race = { "Human", "Dwarf", "Gnome" } } } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xborrowed = {
+      big = true,
+      lines = {
+        { id = "xbo_default", text = "Borrowed from whom, though? We gave the Tree's gifts away to stop Archimonde, so I have come to think the years are not borrowed but bought, and dearly. Some of our people spend them grieving what we lost, and some spend them as if each one were the last, so tell me which you have chosen." },
+      },
+      choices = {
+        { text = "To spend them well. Mourning wastes what we paid for.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "To guard what's left. Every year should keep our people safe.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Do you ever regret the sacrifice?", next = "xborrowed_regret" },
+      },
+    },
+    xborrowed_regret = {
+      lines = {
+        { id = "xbr_default", text = "Never the choice, though sometimes the cost, late at night, when I count the gray in a Sentinel's hair that was not there when we stood on the mountain. Archimonde would have burned the world, and a world that ages is still a world, so I keep my regrets for the dark and my resolve for the day." },
+      },
+      choices = {
+        { text = "Then I'll do the same, High Priestess.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     malfurion = {
@@ -1001,6 +1025,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students could learn a great deal from that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You walk a path close to ours, though you came to it through stone rather than root. Sit, and tell me what the spirits say to you." },
+        { id = "h_initiate", when = { origin = "nightelf_druid_initiate" }, text = "You woke with the rest of the Circle, I remember, blinking at a world that had moved on without us. Some of the old druids still wake in the night expecting the Dream, and I tell them what I'll tell you: the waking world is ours too, and it needs us more." },
       },
       again = {
         { id = "h_again", text = "Ask on. The young ones' questions are the best part of my day." },
@@ -1010,6 +1035,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What is a Druid of the Claw?", next = "claw" },
         { text = "You serve the Archdruid?", next = "second" },
+        { text = "Which parts of this world are mine, Mathrengyl? I can't tell yet.", next = "xwoke", when = { origin = "nightelf_druid_initiate" } },
         { text = "What's wrong in Auberdine?", next = "auberdine" },
         { text = "What can a priest learn from a druid?", next = "healers", when = { class = "PRIEST" } },
         { text = "Bear and warrior both stand in front. What's the difference?", next = "claw_w", when = { class = "WARRIOR" } },
@@ -1022,6 +1048,26 @@ P:NPC {
         { text = "Princess Theradras is dead, Mathrengyl. Maraudon is broken.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Alliance" } },
         { text = "What does a druid give to a company like ours?", next = "xpt_mathrengyl", when = { party = { class = "DRUID" } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    xwoke = {
+      big = true,
+      lines = {
+        { id = "xwk_default", text = "None of it, and all of it, which I know is a teacher's answer. We slept while the trolls were driven back and the humans built their kingdoms, and we woke to find the forest on fire and orcs in it, so some of the Circle say the world is ours to reclaim, and some say we're only its keepers. Where do you stand?" },
+      },
+      choices = {
+        { text = "Keepers. We slept; we don't get to claim it now.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Ours. The forest needs someone to hold it, and we're here.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "What did you find, when you woke?", next = "xwoke_found" },
+      },
+    },
+    xwoke_found = {
+      lines = {
+        { id = "xwf_default", text = "Smoke, mostly, and Malfurion gone into the Dream again almost before I had my feet under me. I found I could still teach, though, and that the young ones needed teaching more than the old ones needed company, so I came here and have not regretted it once." },
+      },
+      choices = {
+        { text = "Then I'll start by learning from you.", next = "BACK", fx = { affinity = 2, trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     claw = {
@@ -1087,7 +1133,7 @@ P:NPC {
   key = "amoora", id = TODO_NPC("Priestess A'moora"), name = "Priestess A'moora",
   bible = "bibles/darnassus.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "gentle" }, values = { "devout", "kind" },
-  notices = { "class", "death" },
+  notices = { "class", "death", "origin" },
   impression = {
     first = "Priestess A'moora called me 'little star' as if she had known me for years. Most come to her tired, she says, and I did leave the Temple pool lighter than I arrived.",
     third = "{name} met Priestess A'moora, who tends the Temple of the Moon's pool and the weary souls who come to it.",
@@ -1105,6 +1151,10 @@ P:NPC {
   notice = {
     { id = "n_ghost", cat = "death", when = { resSick = true },
       text = "You've walked the other side not long ago, so rest here a while. The moon is kind to those who've seen its dark half." },
+    { id = "n_hyjal", cat = "origin", when = { origin = "nightelf_hyjal_survivor" },
+      text = "You were on the mountain, weren't you, little star? You have that look so many of us have now, counting the days as if each one had to be paid back. Elune isn't keeping a ledger, and I promise you she never was." },
+    { id = "n_novice", cat = "origin", when = { origin = "nightelf_priestess" },
+      text = "Ah, one of the Temple's novices, still learning to read her silences. Don't let the elder sisters hurry you, little star, because I spent my first century certain she'd forgotten my name." },
   },
 
   start = "hello",

@@ -358,6 +358,8 @@ P:NPC {
           text = "Incendosaurs, they call 'em, which is a fancy name for big burnin' lizards. Go an' put some out, permanently." },
         { id = "h_tired", when = { metBefore = true },
           text = "Ye know what the best part o' freedom is? Sittin' down whenever ye like, with nobody tellin' ye tae stand, except the Overseer, an' Lolo, an' now you." },
+        { id = "h_miner", when = { origin = "dwarf_ironforge_miner" },
+          text = "Och, a deeps miner, I can see it in how ye keep glancin' at the sky like it owes ye money. Sit a while, for down here we've both earned the right, an' tell me if the Ironforge seams are as cool as I remember." },
       },
       again = { { id = "h_again", text = "Aye? Ask quick, I've just got comfy." } },
       choices = {

@@ -123,9 +123,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The plains feed Bloodhoof, and those who hunt them well keep the peace better than any treaty I could make." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My people do not pray as yours do, but anyone who mends the hurt is welcome in Bloodhoof, whatever voice answers them." },
         { id = "h_cl_rfk", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Horde" }, text = "You've been to Razorfen Kraul, I'm told. The quilboar raided our herds when the tribes crossed the Barrens, and I won't pretend I'm sorry their crone has been humbled." },
+        { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked it too, didn't you, the long road out of the Barrens with the centaur at our heels? You were a calf and I was barely grown, and I remember the orcs' axes better than I remember my own feet, because I never once looked down." },
       },
       choices = {
         { text = "How did the tauren come to Mulgore?", next = "coming" },
+        { text = "Do you remember the walk, Baine? I still dream of it.", next = "xwalk", when = { origin = "tauren_long_migration" } },
         { text = "What troubles the plains?", next = "troubles" },
         { text = "Why talk, if they won't listen?", next = "talk" },
         { text = "Does your father miss living on the plains?", tag = "Persuade", next = "baine_father",
@@ -225,6 +227,26 @@ P:NPC {
         { id = "c_default", text = "We wandered for longer than any elder remembers. My father met Thrall's orcs, and with them beside us we drove the centaur from these plains. Mulgore is the first home our people have held in centuries." },
       },
       choices = { { text = "A home worth guarding.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 } } } },
+    },
+    xwalk = {
+      big = true,
+      lines = {
+        { id = "xwk_default", text = "Every night for a year after we came here, and some nights still. The dream is always the same: we're walking, and the grass never ends, and I wake up and remember we stopped. My father says the walk taught us to share what little we carried, so tell me, friend, has the plains' plenty made us forget that?" },
+      },
+      choices = {
+        { text = "Not me. I still share what I carry.", next = "BACK", fx = { affinity = 3, align = { honor = 1 }, trait = { generous = 1 } } },
+        { text = "A little. We've earned a full belly, Baine.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Do you remember the orcs who fought for us?", next = "xwalk_orcs" },
+      },
+    },
+    xwalk_orcs = {
+      lines = {
+        { id = "xwo_default", text = "I do, and I remember that they were as hungry as we were and fought anyway. That's why I'll hear an orc out in this village even when he's being a fool, because I owe the ones on that road more than patience, and patience is the cheapest thing I can give." },
+      },
+      choices = {
+        { text = "Then I'll owe them patience too.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,
@@ -516,6 +538,7 @@ P:NPC {
           text = "The swoops are thick this season. Thin them, and bring me their quills. Nothing goes to waste in this village." },
         { id = "h_knees", when = { metBefore = true }, text = "My grandfather read the weather from how the birds flew. I read it from how my knees ache. The tribe calls that progress." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Even the swoops sleep at this hour, but I don't, much; it's an old habit from the wandering years." },
+        { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You came out of the Barrens on the long walk, same as me. I spent that whole road watching the sky for vultures, because vultures meant the centaur had caught someone behind us, and I suppose I never really stopped." },
         { id = "h_maur", when = { heardLine = "maur.h_default" }, text = "Maur's after that beast again? He's tracked it longer than some of our braves have been alive." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Then you'll know the wind is turning before my knees do, and I'd thank you to tell me when." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a tall one. Watch the skies, because the swoops dive at anything that stands still long enough on the plains." },

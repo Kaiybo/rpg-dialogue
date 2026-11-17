@@ -5,7 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "gazlowe", id = TODO_NPC("Gazlowe"), name = "Gazlowe",
-  bible = "bibles/crossroads.md", role = "noble", tier = "quest",
+  bible = "bibles/crossroads.md", role = "noble", tier = "major",
   temper = { "brash" }, values = { "ambitious", "practical" },
   notices = { "race" },
   impression = {
@@ -156,6 +156,13 @@ P:NPC {
         { text = "You built Orgrimmar?", next = "orgrimmar" },
         { text = "What's the trouble with the pirates?", next = "pirates" },
         { text = "Who else should I know in Ratchet?", next = "town" },
+        { text = "Tell me about the Steamwheedle Cartel.", next = "cartel" },
+        { text = "What do you make of the big bosses, Thrall and the rest?", next = "bosses" },
+        { text = "I'm a tinker's apprentice. Who designs your shredders?", next = "o_tinker", when = { origin = "gnome_tinker_apprentice" } },
+        { text = "I pull parts out of Gnomeregan. Interested?", next = "o_salvage", when = { origin = "gnome_scavenger" } },
+        { text = "I used to run ale through Loch Modan, Gazlowe.", next = "o_smuggler", when = { origin = "dwarf_loch_smuggler" } },
+        { text = "Nice purse, Gazlowe. You should keep it closer.", next = "o_pickpocket", when = { origin = "human_canal_pickpocket" } },
+        { text = "I came over on Thrall's boats, Gazlowe.", next = "o_sailed", when = { origin = "troll_sailed_with_thrall" } },
         { text = "How does a goblin town stay neutral?", next = "neutral", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } } },
         { text = "Your docks leak cargo. I could find out who's helping it along.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Need a mage for anything? I'm told I'm expensive.", next = "xmage", when = { class = "MAGE" } },
@@ -204,8 +211,182 @@ P:NPC {
         { text = "Peace that's for sale can be bought out from under you.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    -- 0.71.0 depth: the Cartel, the big bosses, and the people who wash up in Ratchet.
+    cartel = {
+      hub = true,
+      lines = { { id = "ca_default", text = "The Steamwheedle Cartel's the biggest outfit on the water, pal: Booty Bay, Gadgetzan, Everlook and my own Ratchet, and every one of us stays neutral because war's terrible for repeat customers. Ask away, the brochure's free." } },
+      again = {
+        { id = "ca_again", text = "What else about the Cartel? I've got a speech for every question." },
+        { id = "ca_again2", text = "Keep 'em coming, pal, I love talking shop." },
+      },
+      choices = {
+        { text = "Who runs Booty Bay?", next = "c_revilgaz" },
+        { text = "What about the Venture Company?", next = "c_venture" },
+        { text = "What's this I hear about racing at the Shimmering Flats?", next = "c_race" },
+        { text = "So does gold come before loyalty, Gazlowe?", next = "big_profit" },
+        { text = "Revilgaz says you owe him money, Gazlowe.", tag = "Deceive", next = "d_owed",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "witty" }, { class = "ROGUE" }, { origin = "human_canal_pickpocket" }, { origin = "dwarf_loch_smuggler" } } } },
+          fail = { next = "d_caught", fx = { affinity = -1 } } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
+    c_revilgaz = {
+      lines = { { id = "cr_default", text = "Baron Revilgaz, up on his balcony over the Salty Sailor, counting coins and yelling at the Bloodsail, and he's the only goblin I know who could out-haggle me on a good day. We run the boat back and forth, we split the gossip, and we both pretend the other guy's port is smaller." } },
+      choices = {
+        { text = "Sounds like a friendly rivalry.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_venture = {
+      lines = { { id = "cv_default", text = "The Venture Company's what you get when a goblin decides contracts are for suckers. They strip a hill bare, foul the water and shoot the locals, and then they wonder why nobody wants to trade with goblins, so every tauren who spits on my boots is really spitting at them." } },
+      choices = {
+        { text = "Aren't you all goblins, though?", next = "c_venture2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_venture2 = {
+      lines = { { id = "cv2_default", text = "Sure, and humans are all humans, but you don't see Stormwind taking the blame for the Defias, do ya? The Cartel builds a port and sticks around to collect rent, so we need the neighbors happy, while the Venture Co. grabs the ore and runs. So what about you, pal, are you a buyer or a seller?" } },
+      choices = {
+        { text = "A buyer. I like nice things.", next = "BACK", fx = { affinity = 1, trait = { generous = 1 } } },
+        { text = "A seller. Everything's got a price.", next = "BACK", fx = { affinity = 1, trait = { greedy = 1 } } },
+        { text = "Neither. I fight for what's right, not for coin.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    c_race = {
+      lines = {
+        { id = "crc_default", text = "Down at the Shimmering Flats, the Cartel's racing team and the gnomes blow each other up for the honor of going fastest. I find parts for our boys, I used to work on a rig myself, and I owe 'em a prototype fuel regulator, which I'll get to just as soon as somebody stops shooting at my boats." },
+        { id = "crc_gnome", when = { race = "Gnome" }, text = "Your people and mine race rockets across the salt down at the Shimmering Flats, and lately your team's been getting faster with the same designs, which I'll only admit because you'll hear it anyway. I find parts for our boys, and I owe 'em a fuel regulator I haven't built yet, so don't tell 'em you saw me." },
+      },
+      choices = {
+        { text = "Who usually wins?", next = "c_race2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_race2 = {
+      lines = { { id = "crc2_default", text = "Depends who you ask and how many pieces they found afterwards. The gnomes build slow and blow up less, our boys build fast and blow up spectacular, and the crowd pays to watch both, so frankly, pal, the Cartel wins every single race." } },
+      choices = {
+        { text = "Spoken like a true bookie.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    big_profit = {
+      big = true,
+      lines = { { id = "bp_default", text = "Gold doesn't care who's holding it, pal, which is the most honest thing about it. I sold nails to Orgrimmar and rope to Theramore in the same week, and I'll sleep fine tonight, because the day Ratchet picks a side is the day the other side burns it down." } },
+      choices = {
+        { text = "Smart. Never tie your purse to a banner.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Pick a side and stand by it, or you stand for nothing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Doesn't Thrall mind you trading with Theramore?", next = "b_theramore" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d_owed = {
+      lines = { { id = "do_default", text = "He said WHAT? I don't owe Revilgaz a copper, pal, it's the racing team I owe, and if the Baron's telling people I'm behind on payments, the Cartel's gonna start asking about Ratchet's books. And since the Southsea started hitting my boats, I've been padding the dock fees a little to cover the losses, so the books really don't want to be asked about." } },
+      choices = {
+        { text = "Your secret's safe with me, Gazlowe.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Revilgaz never said a word, by the way.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
+      },
+    },
+    d_caught = {
+      lines = { { id = "dc_default", text = "Nice try, pal. Revilgaz and I settle up every month on the boat, in writing, with witnesses, because neither of us trusts the other as far as we could throw a shredder, so you'll have to get up a lot earlier than that to hustle a goblin." } },
+      choices = { { text = "Worth a shot.", next = "BACK" } },
+    },
+    bosses = {
+      hub = true,
+      lines = { { id = "bo_default", text = "The big bosses? Pal, I've built for some of 'em, sold to the rest and been yelled at by all of 'em, so I've got opinions. Pick one, and I'll tell you what I'd never say to their faces." } },
+      again = {
+        { id = "bo_again", text = "Who else? I've got plenty of opinions left." },
+        { id = "bo_again2", text = "Next boss, pal. This is the fun part." },
+      },
+      choices = {
+        { text = "What's Thrall like as a customer?", next = "b_thrall" },
+        { text = "What do the tauren make of you?", next = "b_cairne" },
+        { text = "And Theramore, across the water?", next = "b_theramore" },
+        { text = "I'm Alliance. Does Thrall mind you serving us?", next = "b_alliance", when = { faction = "Alliance" } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
+    b_thrall = {
+      lines = {
+        { id = "bt_default", text = "Best client I ever had, and I've had a lot of clients. He paid on time, he never haggled down a fair quote, and when my crew finished the walls he came down personally and said thanks, which no warlord in history has ever done for a goblin." },
+        { id = "bt_warm", when = { disposition = { min = 70 } }, text = "Between you and me, pal, Thrall's the only client who ever thanked me, and I've never told anybody this, but I'd have built that city for half if he'd pushed. Don't you dare tell him, because I've got a reputation." },
+      },
+      choices = {
+        { text = "Sounds like you respect him.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    b_cairne = {
+      lines = { { id = "bc_default", text = "The big bull up on Thunder Bluff is polite as anything, but the Venture Company fouled his wells, so every goblin who walks into Mulgore gets looked at like a weasel in a henhouse. I'm working on it, pal, one honest deal at a time." } },
+      choices = {
+        { text = "Good luck with that, Gazlowe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    b_theramore = {
+      lines = { { id = "bth_default", text = "Lady Proudmoore runs a tidy town and pays her freight on time, which puts her ahead of most kings. Her soldiers up at Northwatch Hold, now, they're another story, sitting up the coast glaring at my docks like I'm hiding orcs in the crates." } },
+      choices = {
+        { text = "Are you hiding orcs in the crates?", next = "b_theramore2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    b_theramore2 = {
+      lines = { { id = "bth2_default", text = "Only paying ones, pal, and they get off at the dock like everybody else. Thrall knows I trade with Theramore and Lady Proudmoore knows I trade with Orgrimmar, and as long as neither of 'em catches me playing favorites, Ratchet stays the one spot on this coast where nobody gets shot." } },
+      choices = {
+        { text = "That's a fine line to walk, Gazlowe.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    b_alliance = {
+      lines = { { id = "ba_default", text = "Mind? Pal, a port that only serves orcs is a port the Alliance has a reason to burn, and Thrall's smart enough to know it. Your gold keeps my bruisers paid, and my bruisers keep your head on your shoulders while you're here, so everybody wins." } },
+      choices = {
+        { text = "Fair enough, Gazlowe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    o_tinker = {
+      lines = { { id = "ot_default", text = "A gnome tinker! Okay, cards on the table: my shredders are goblin design, built fast and cheap, and you lot would build 'em safer and slower and charge twice as much. So tell me, pal, how many explosions does a gnome apprentice get before they stop counting?" } },
+      choices = {
+        { text = "Three so far, and one workshop fire.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Safety's worth the extra cost, Gazlowe.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I'd never tell a goblin our secrets.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    o_salvage = {
+      lines = { { id = "osv_default", text = "Gnomeregan parts, huh? Now we're talking. I hear the troggs and that crazy Thermaplugg run the place now and the whole city's leaking something green, so anything you drag out of there gets a good wash before it goes near my cranes. What've you got?" } },
+      choices = {
+        { text = "Gears, mostly, and a few things that still tick.", next = "BACK", fx = { affinity = 1, trait = { practical = 1 } } },
+        { text = "Nothing for sale. Those parts belong to my people.", next = "BACK", fx = { trait = { proud = 1 } } },
+        { text = "Mostly sludge and bad memories, Gazlowe.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    o_smuggler = {
+      lines = { { id = "osm_default", text = "Ha! A runner! Now look, Ratchet's an honest port, mostly, so everything that comes off a boat here goes past Dizzywig and pays its toll. But I'll tell you what I tell every smuggler who washes up here: the toll's cheaper than the Southsea, and it's a whole lot cheaper than my bruisers." } },
+      choices = {
+        { text = "Fair rules. I'm retired anyway.", next = "BACK", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "Tolls are for people who get caught.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    o_pickpocket = {
+      lines = { { id = "opp_default", text = "You've got quick eyes, pal, I'll give you that, but my purse is chained to my belt with a goblin lock, because I grew up on docks too. Stormwind's canals, right? Tell me, is it true the city still hasn't paid its stonemasons?" } },
+      choices = {
+        { text = "Still hasn't. That's half of why Westfall's burning.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 }, opinion = { stormwind_masons = "owed" } } },
+        { text = "Not my business. I just lift purses.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'm not a pickpocket anymore, Gazlowe.", next = "BACK", fx = { trait = { honest = 1 } } },
+      },
+    },
+    o_sailed = {
+      lines = { { id = "osl_default", text = "Thrall's boats! You lot came off those ships soaked and hungry and arguing about a sea witch, and a week later you'd built half of Sen'jin out of driftwood and stubbornness. I quoted Vol'jin a fair price on proper lumber, and he looked at me like I'd tried to sell him his own island, so I've had a soft spot for trolls ever since." } },
+      choices = {
+        { text = "We were grateful, Gazlowe, even if Vol'jin didn't show it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Driftwood was free, goblin.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
   },
   topics = {
+    knows = {
+      { id = "tp_knows", text = "Pal, every rumor on this coast comes through my docks sooner or later, and half of 'em pay a toll on the way. Ask me about any of these, and the first answer's on the house." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because answers are cheap, but don't expect me to throw in the good stuff for somebody I don't trust yet." },
+    },
     _none = { { id = "tp_none", text = "Never heard of it, and if I haven't heard of it, it isn't making anybody any money." } },
   },
 }

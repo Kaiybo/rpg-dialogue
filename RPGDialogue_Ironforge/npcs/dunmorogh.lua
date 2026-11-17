@@ -964,6 +964,8 @@ P:NPC {
         { id = "h_hurley", when = { any = { { questActive = TODO_QUEST("Ragnar Thunderbrew") }, { questActive = TODO_QUEST("Hurley Blackbreath") } } },
           text = "That business with the Dark Irons an' our recipe, I'll not say more of in a crowded room. Ye know what's to be done." },
         { id = "h_boar", when = { metBefore = true }, text = "A hunter brought in a boar this mornin' so big we named it, an' then we ate it. Don't get attached, I tell the lads, but they never listen." },
+        { id = "h_brewer", when = { origin = "dwarf_brewer" },
+          text = "Hold on, I know a brewer's bairn when I see one, for ye looked at my vats before ye looked at my face. Whose family are ye, then? Mind, if ye say Barleybrew, I'll still pour ye one, but I'll pour it slowly." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter! Ye're who I buy my ribs from these days. Bring me good ones an' I'll remember yer name, though I'm bad wi' names, mind." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -993,7 +995,27 @@ P:NPC {
         { text = "Would you mind if a druid prefers the boars alive?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Couldn't magic improve your brewing, Ragnar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could the elements help with brewing, Ragnar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My family brews, but I'd rather see where the barrels go.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
         { text = "A pint, then.", next = "END", fx = { affinity = 2 } },
+      },
+    },
+    xorig_brew = {
+      lines = {
+        { id = "xob_default", text = "Ha! Ye're no' the first youngest tae run off from the mash tun, an' ye'll no' be the last. Yer folk will be sore about it, though, for a brewin' family counts its hands like it counts its casks." },
+      },
+      choices = {
+        { text = "They'll forgive me. The brew will still be there.", next = "xorig_brew2", fx = { trait = { witty = 1 } } },
+        { text = "I feel guilty about it, if I'm honest.", next = "xorig_brew2", fx = { trait = { kind = 1 } } },
+        { text = "Did you ever want to leave the distillery?", next = "xorig_brew2", fx = { trait = { curious = 1 } } },
+      },
+    },
+    xorig_brew2 = {
+      lines = {
+        { id = "xob2_default", text = "Every winter, lad or lass, an' every spring the vats called me back. Go an' see where the barrels go, then, an' when ye find the far end o' the road, write home an' tell 'em what the ale tastes like there, for that's a brewer's duty too." },
+      },
+      choices = {
+        { text = "I'll do that, Ragnar.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ribs = {
@@ -1108,6 +1130,8 @@ P:NPC {
       text = "Ye look like ye've been dug up. Sit down, for the ale here's raised worse than you." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! We toast a gnome in this inn every night fer savin' the town, as ye'll see." },
+    { id = "n_bear", cat = "origin", when = { origin = "dwarf_bear_tracker" },
+      text = "Ah, the Kharanos lad, or lass, wi' the bear! I remember ye trailin' them through the drifts when ye were knee-high tae a ram, an' now one's trailin' you. Keep it off the hearthrug, for it sheds." },
   },
 
   start = "hello",
@@ -1203,6 +1227,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want a room near the stair, I think, fer that plate makes a racket, an' the brewers sleep light." },
         { id = "h_default", key = true,
           text = "Innkeeper Belm, at yer service. There's beds upstairs, ale downstairs, an' Rhapsody Malt fer anyone brewin' the Thunderbrew way." },
+        { id = "h_refugee", when = { origin = "gnome_gnomeregan_refugee" },
+          text = "I mind the night yer folk came up out o' the tunnels wi' nothin' but the clothes they stood in, an' every bed in this inn had three gnomes in it. Ye look like ye might have been one o' them, so sit by the fire, for ye've earned the warm end." },
         { id = "h_bound", when = { questActive = TODO_QUEST("Senir's Observations") },
           text = "Ye've come up from Coldridge, then. Welcome to Kharanos; sit down, for the valley's behind ye now." },
         { id = "h_priest", when = { class = "PRIEST" },

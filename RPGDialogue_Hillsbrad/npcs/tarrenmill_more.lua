@@ -386,6 +386,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ah. Yes. Please don't look at my belt; I know there's nothing on it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Have you seen my sword? I'm asking everyone." },
+    { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You were a knight, weren't you, a real one, with an oath and everything? Then you'll understand a man missing his sword better than most, so if you see it, please do tell me." },
   },
 
   notice = {
@@ -560,6 +561,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Off to fight the humans? Lucky you. I'm stuck here guarding a door." },
     { id = "g_back", when = { metBefore = true }, text = "The lucky one returns! How many humans did you put down today, hundreds I hope?" },
+    { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You remember marching with the Scourge? I don't, and some days I envy you, because at least you went places. Sorry, that came out wrong; it's this door, it does things to a person." },
   },
 
   notice = {

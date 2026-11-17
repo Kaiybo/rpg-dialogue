@@ -805,7 +805,8 @@ P:NPC {
 
 P:NPC {
   key = "rexxar", id = TODO_NPC("Rexxar"), name = "Rexxar",
-  bible = "bibles/desolace.md", role = "citizen", tier = "service",
+  bible = "bibles/desolace.md", role = "citizen", tier = "major",
+  temper = { "gruff" }, values = { "honest", "brave" },
   impression = {
     first = "Rexxar walks the roads of Desolace with his bear Misha at his side, and he looks at strangers as though weighing whether they're worth the trouble.",
     third = "{name} met Rexxar, the half-ogre beastmaster, on the roads of Desolace.",
@@ -917,6 +918,12 @@ P:NPC {
         { text = "Why travel alone?", next = "b1_1" },
         { text = "Tell me about Misha.", next = "b2_1" },
         { text = "Is the Horde worth fighting for?", next = "s_1" },
+        { text = "What brings you to Desolace?", next = "ds_1" },
+        { text = "You fought for Thrall. Tell me about it.", next = "war" },
+        { text = "You're the Horde's champion. Why talk to me at all?", next = "ally_why", when = { faction = "Alliance" } },
+        { text = "My clan is Frostwolf, from the Alterac valleys.", next = "o_frostwolf", when = { origin = "orc_frostwolf" } },
+        { text = "I was born behind a fence in the human camps.", next = "o_camp", when = { origin = "orc_camp_born" } },
+        { text = "My clan cuts Ashenvale's trees. Does that sit badly with you?", next = "big_wild", when = { origin = "orc_warsong_kin" } },
         { text = "What do the wilds teach that the cities don't, Rexxar?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you hold the orcs' past against warlocks, Rexxar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does a warrior learn out in the wilds, Rexxar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -929,15 +936,196 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "I'm Mok'Nathal, and my father's people are few and scattered. I fought beside Thrall when the Horde needed it, and when the fighting ended, I returned to the road." } },
-      choices = { { text = "You fought beside Thrall?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "You fought beside Thrall?", next = "b1_2" }, { text = "Don't you miss having kin?", next = "lonely" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Cities are full of people who want something from me. Out here, the only thing that wants something is the land, and it tells you plainly." } },
-      choices = { { text = "Let me ask something else.", next = "BACK" } },
+      choices = { { text = "Why did you leave the old Horde?", next = "war_old" }, { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
       lines = { { id = "b2_1_l", text = "Misha is my companion and my friend, and she has saved my life more times than any warrior I've fought beside. Treat her with respect, and she'll do the same for you." } },
-      choices = { { text = "Let me ask something else.", next = "BACK" } },
+      choices = {
+        { text = "How did you two find each other?", next = "misha_2" },
+        { text = "I track bears too. One follows me now.", next = "misha_kin", when = { origin = "dwarf_bear_tracker" } },
+        { text = "I learned to trail wolves in Eastvale's pines.", next = "misha_kin", when = { origin = "human_eastvale_woodsman" } },
+        { text = "My first companion was a nightsaber cub.", next = "misha_kin", when = { origin = "nightelf_nightsaber_rider" } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    -- 0.71.0 depth: Misha, Desolace, the wars he fought for Thrall, the wild.
+    lonely = {
+      lines = {
+        { id = "lo_default", text = "Kin is a word for people who stay. My father's people were few when I was born and fewer when I left them, and I've stopped looking for another face like mine on the road." },
+        { id = "lo_warm", when = { disposition = { min = 70 } }, text = "I'll tell you something, since Misha's decided you're worth the trouble. Some nights I wonder whether there's another Mok'nathal left anywhere at all, and I've never said that aloud to anyone who walks on two legs." },
+      },
+      choices = {
+        { text = "Misha's kin enough, I'd say.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "You have the Horde, Rexxar, whether you want it or not.", next = "BACK", fx = { trait = { blunt = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    misha_2 = {
+      lines = { { id = "m2_default", text = "She was a cub in the hills, bawling beside a mother some trapper had killed for the pelt, and I meant to walk past, because a cub alone doesn't last long out here. She followed me for three days anyway, and on the fourth I gave her my supper, and that was the end of my walking alone." } },
+      choices = {
+        { text = "So she chose you, not the other way round.", next = "misha_3", fx = { trait = { witty = 1 } } },
+        { text = "That was kind of you, Rexxar.", next = "misha_3", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    misha_3 = {
+      lines = {
+        { id = "m3_default", text = "She did, and she's never let me forget it. Now you answer me one, since I've answered you: has a beast ever chosen you, or have you only ever done the choosing?" },
+        { id = "m3_pet", when = { pet = { type = "Beast" } }, text = "She did, and she's never let me forget it. Your {pet} is standing closer to you than to me, so I already know half the answer, but tell me anyway: did it choose you, or did you choose it?" },
+      },
+      choices = {
+        { text = "One chose me. I'd die before I let it down.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I've never trusted an animal that far.", next = "BACK", fx = { affinity = -1, trait = { cautious = 1 } } },
+        { text = "I prefer people, for all their faults.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    misha_kin = {
+      lines = {
+        { id = "mk_default", text = "You've run with beasts too, then, so you know it's never the hunter who decides how it goes. Misha's sniffing at you, which means she thinks so too." },
+        { id = "mk_bear", when = { origin = "dwarf_bear_tracker" }, text = "A dwarf who follows bears through the snow, and Misha's sniffing at you like she smells a cousin, which she doesn't do for many. Between Misha and me it isn't me in charge either, so don't feel bad about it." },
+        { id = "mk_eastvale", when = { origin = "human_eastvale_woodsman" }, text = "Most of your people cut their forests down to build walls, and you went the other way and learned to read them, which earns you more from me than most humans get. Misha thinks you smell of pine, and she means that kindly." },
+        { id = "mk_saber", when = { origin = "nightelf_nightsaber_rider" }, text = "I watched a nightsaber stalk a stag through Ashenvale once, for an hour, without breaking a twig, and I've never seen better hunting outside Misha herself. Your people have reason to hate the Horde in that forest, but the cats were never part of that quarrel." },
+      },
+      choices = {
+        { text = "The beast decides. We just try to keep up.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Rexxar.", next = "BACK" },
+      },
+    },
+    ds_1 = {
+      lines = { { id = "ds1_default", text = "The centaur, mostly, and what they leave behind them. The Magram and the Gelkis tear at each other across this valley, the Kolkar take whatever's left, and somewhere in the middle the old kodos still walk south to the graveyard to die, the way they always have." } },
+      choices = {
+        { text = "A kodo graveyard?", next = "ds_2" },
+        { text = "And the Burning Blade?", next = "ds_blade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ds_2 = {
+      lines = { { id = "ds2_default", text = "Old kodos walk there when their time comes, and nobody knows how they find the way. The tauren call it sacred and the centaur call it a quarry for bones, and some evenings I sit on the ridge and watch, because it's the only thing in Desolace that dies with any dignity." } },
+      choices = {
+        { text = "Should the Horde take whatever the land gives, then?", next = "big_wild" },
+        { text = "Something else, Rexxar.", next = "BACK" },
+      },
+    },
+    ds_blade = {
+      lines = { { id = "dsb_default", text = "They hide in Thunder Axe Fortress and call things up from the Nether, and they're orcs, which shames me more than I can say, because I saw what the old Horde became after it drank that poison. I'd kill every one of them myself if Misha could stand the stink of them." } },
+      choices = {
+        { text = "Then I'll help you thin them out.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    big_wild = {
+      big = true,
+      lines = {
+        { id = "bw_default", text = "Take what you need and thank whatever gave it, the tauren say, and they're right. The Warsong cut Ashenvale because Orgrimmar needs timber, the night elves kill them for it, and both sides call themselves wronged, but nobody ever asked the forest." },
+        { id = "bw_warsong", when = { origin = "orc_warsong_kin" }, text = "I don't hate you for it, because Orgrimmar needs its walls, but every tree your clan fells is another reason for the night elves to send a sentinel after you. Misha and I have buried enough dead on both sides of that forest to know nobody's winning it." },
+      },
+      choices = {
+        { text = "Take only what you need, and leave the forest standing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Nobody owns the wilds. The strong take what they can.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Rexxar.", next = "BACK" },
+      },
+    },
+    war = {
+      hub = true,
+      lines = { { id = "war_default", text = "I fought for the Horde twice, once when it was a plague on the land and once when it was worth fighting for. Ask what you want to know, and I'll answer what I can stand to." } },
+      again = {
+        { id = "war_again", text = "What else? Make it quick, Misha's getting restless." },
+        { id = "war_again2", text = "Ask the rest, then, while I'm in the mood to answer." },
+      },
+      choices = {
+        { text = "Why did you leave the old Horde?", next = "war_old" },
+        { text = "What happened at Theramore?", next = "war_daelin" },
+        { text = "Tell me about the harpies of the Barrens.", next = "war_harpy" },
+        { text = "How did the Stonemaul ogres join the Horde?", next = "war_stonemaul" },
+        { text = "Something else, Rexxar.", next = "BACK" },
+      },
+    },
+    war_old = {
+      lines = { { id = "wo_default", text = "Because it was rotten, and everyone in it could smell it, and they fought harder so they wouldn't have to say so. I was young and strong and they used me like an axe, and one day I looked at what the axe had done and put it down." } },
+      choices = {
+        { text = "What did you see that day?", tag = "Persuade", next = "war_left",
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "HUNTER" }, { origin = "orc_frostwolf" } } } },
+          fail = { next = "war_left_no", fx = { affinity = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_left = {
+      lines = { { id = "wl_default", text = "A village with nothing in it worth taking, and the warlocks wanted it burned anyway, so the grunts burned it laughing. I walked into the hills that night and didn't come back until Thrall gave me a reason, and I've never told Misha, because she'd think less of me for staying as long as I did." } },
+      choices = {
+        { text = "You left. That's what matters, Rexxar.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_left_no = {
+      lines = { { id = "wln_default", text = "That's mine to carry, and I don't hand it to strangers on the road. Ask me again when Misha stops watching your hands." } },
+      choices = { { text = "Fair enough.", next = "BACK" } },
+    },
+    war_daelin = {
+      lines = {
+        { id = "wd_default", text = "Admiral Proudmoore came across the sea to finish a war his people had already lost, and he burned our camps on the coast before Durotar had a single wall. His daughter Jaina stood aside and let us end it, and I'm the one who ended it, so that's a debt between her and Thrall I'll never fully understand." },
+        { id = "wd_alliance", when = { faction = "Alliance" }, text = "Your people still talk about the admiral, I suppose. He came across the sea and burned our camps, his own daughter stood aside, and I'm the one who killed him, so say what you came to say, and Misha and I will listen." },
+      },
+      choices = {
+        { text = "Theramore remembers. Some there call it murder.", next = "war_daelin2", when = { faction = "Alliance" } },
+        { text = "Did Jaina ever forgive you?", next = "war_daelin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_daelin2 = {
+      lines = { { id = "wd2_default", text = "I don't know, and I've never asked, because some questions aren't mine to put to a daughter. She chose peace over her father's war, which is harder than anything I did with an axe that day, and the Horde owes her more than most grunts will ever admit." } },
+      choices = {
+        { text = "Then she's braver than her father was.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_harpy = {
+      lines = { { id = "wh_default", text = "The Bloodfeather harpies plagued the Barrens when Durotar was new, and Rokhan of the Darkspear and I went after their eldest sister together. Rokhan talks more than any troll alive, but he's the only one besides Misha I'd let watch my back, so if you ever see him, tell him the bear still owes him a fish." } },
+      choices = {
+        { text = "I'll tell him, if I find him.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_stonemaul = {
+      lines = { { id = "ws_default", text = "Their chieftain Korgall wanted to fight me for the right to speak, so I let him, and when it was done the Stonemaul listened to Thrall. Ogres respect strength more than words, and that's the part of my blood I've never had to argue with." } },
+      choices = {
+        { text = "Where do the Stonemaul live now?", next = "war_dragon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    war_dragon = {
+      lines = {
+        { id = "wdr_default", text = "In Brackenwall, in the Dustwallow marsh, because black dragons burned their old village out of the swamp and the trees there hide them from the sky. The ogres still flinch at every shadow overhead, and I don't blame them." },
+        { id = "wdr_high", when = { minLevel = 50 }, text = "In Brackenwall, because black dragons burned their old village out of the marsh. There's a dragon in that swamp who's more than she looks, and the ogres won't speak her name, so watch the sky if you go there." },
+      },
+      choices = {
+        { text = "I'll watch the sky, Rexxar.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    o_frostwolf = {
+      lines = { { id = "of_default", text = "Your clan never drank the blood, and Drek'Thar kept the old ways alive in the snow when the rest forgot them, so you're one of the few orcs I don't have to wonder about. Do the wolves still run with you up there?" } },
+      choices = {
+        { text = "They do. Mine is never far from me.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Fewer every winter, Rexxar.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    o_camp = {
+      lines = { { id = "oc_default", text = "And now you walk the open road. I won't ask how it feels, because I can see it on you, the way a caged animal keeps looking for the bars long after they're gone." } },
+      choices = {
+        { text = "Some days I still look for them.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "The bars are gone. I don't look back.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    ally_why = {
+      lines = { { id = "aw_default", text = "Because Misha hasn't growled at you, and she's a better judge than any banner. I fought for the Horde when it needed me, but I've no quarrel with a stranger on the road who keeps their blade sheathed, Alliance or not." } },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Banners still matter to me, Rexxar.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "The Horde gave the orcs a home and a future, and Thrall leads it well. Still, I've seen what the old Horde did, and I don't forget it." } },
@@ -962,5 +1150,11 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know that, and I don't much care to." } } },
+  topics = {
+    knows = {
+      { id = "tp_knows", text = "I hear things on the road, mostly from people who don't know I'm listening. Ask, and I'll tell you what I know." },
+      { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Misha doesn't trust you yet, so neither do I, but I'll answer a question or two if you keep it short." },
+    },
+    _none = { { id = "tp_none", text = "I don't know that, and I don't much care to." } },
+  },
 }

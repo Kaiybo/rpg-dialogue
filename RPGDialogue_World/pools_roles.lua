@@ -40,15 +40,187 @@ P:Pool {
     { id = "n_skyborne", cat = "pet", when = { race = "Skyborne" },
       text = "Your people ride something called a galestrider, I'm told. I've no stall for anything that half flies, so I hope you keep it somewhere else." },
   },
-  lines = {
-    { id = "l_default", text = "Fed, watered, brushed: whatever you leave with me comes back in better shape than it went in." },
-    { id = "l_hunter", when = { class = "HUNTER" }, text = "A hunter, then. Feed them before yourself and they'll follow you anywhere." },
-    { id = "l_druid", when = { class = "DRUID" }, text = "A druid knows animals from the inside, which is more than I can say. If any of mine look unhappy to you, tell me." },
-    { id = "l_warlock", when = { class = "WARLOCK" }, text = "Keep your servants well away from my stalls. Nothing in here was born to stand next to one of those." },
-    { id = "l_shaman", when = { class = "SHAMAN" }, text = "Shamans settle my beasts quicker than I can. I've stopped taking it personally." },
-    { id = "l_paladin", when = { class = "PALADIN", minLevel = 40 }, text = "A charger that comes when it's called and goes when it's done. I'd lose my trade if every rider had one of those." },
+  -- 0.71.0: a conversation tree (care and feeding, the keeper's own animals, the road,
+  -- your companion, and whether a pen is a kindness).
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "Fed, watered, brushed: whatever you leave with me comes back in better shape than it went in." },
+        { id = "l_hunter", when = { class = "HUNTER" }, text = "A hunter, then. Feed them before yourself and they'll follow you anywhere." },
+        { id = "l_druid", when = { class = "DRUID" }, text = "A druid knows animals from the inside, which is more than I can say. If any of mine look unhappy to you, tell me." },
+        { id = "l_warlock", when = { class = "WARLOCK" }, text = "Keep your servants well away from my stalls. Nothing in here was born to stand next to one of those." },
+        { id = "l_shaman", when = { class = "SHAMAN" }, text = "Shamans settle my beasts quicker than I can. I've stopped taking it personally." },
+        { id = "l_paladin", when = { class = "PALADIN", minLevel = 40 }, text = "A charger that comes when it's called and goes when it's done. I'd lose my trade if every rider had one of those." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else, or can I get back to the mucking out?" },
+        { id = "a_again2", text = "Ask away; the animals won't mind, so long as I keep the forks moving." },
+        { id = "a_again_pet", when = { pet = { type = "Beast" } }, text = "Go on, then. {pet} looks happy enough to stand about while we talk." },
+      },
+      choices = {
+        { text = "Just the stable.", next = "BUSINESS" },
+        { text = "How does stabling work, exactly?", next = "how" },
+        { text = "Are any of these animals yours?", next = "own" },
+        { text = "Is the road hard on animals?", next = "road" },
+        { text = "What do you make of {pet}?", next = "mypet", when = { pet = { type = "Beast" } } },
+        { text = "Do you ever mind keeping wild things penned?", next = "cages" },
+        { text = "Good day to you.", next = "END" },
+      },
+    },
+    how = {
+      lines = {
+        { id = "h_default", text = "You leave a beast with me, I feed it, water it and keep it out of trouble, and when you want it back you ask. It's the oldest trade there is, older than smithing, and twice as honest." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter can only keep one at heel, so the rest wait here with me until you swap them over. Buy another stall if you've the coin, though I'd rather you loved two well than five badly." },
+      },
+      choices = {
+        { text = "How do I keep my beast loyal?", next = "care_loyal", when = { class = "HUNTER" } },
+        { text = "Mine turns its nose up at what I feed it.", next = "care_food", when = { class = "HUNTER" } },
+        { text = "Any advice on taming something new?", next = "care_tame", when = { class = "HUNTER" } },
+        { text = "My servants need no stall, thank you.", next = "BACK", when = { class = "WARLOCK" }, fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care_loyal = {
+      lines = {
+        { id = "cl_default", text = "Time, food and not getting it killed, in that order. A beast you've just tamed is only waiting to see whether you're worth staying for, so feed it well, keep it out of fights it can't win, and one day you'll find it won't leave your side." },
+        { id = "cl_low", when = { maxLevel = 20 }, text = "Yours is young in your service yet, I'd wager. Be patient with it, because a hungry, frightened beast will walk off into the trees and never look back." },
+      },
+      choices = {
+        { text = "And if it does die on me?", next = "care_loyal_die" },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    care_loyal_die = {
+      lines = { { id = "cd_default", text = "Then you bring it back and you make it up to it. They forgive you, mostly, but every time it happens they trust you a little less, and you'll have to earn that back with meals and miles." } },
+      choices = { { text = "I'll keep it out of trouble.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    care_food = {
+      lines = {
+        { id = "cf_default", text = "Then you're feeding it the wrong thing. Cats and wolves want meat or fish and nothing else, bears and boars will eat near anything you put down, and the gentler sort want fruit or a bit of mushroom. A beast that eats what it likes fights like it means it." },
+        { id = "cf_pet", when = { pet = { type = "Beast" } }, text = "Look at {pet}'s teeth and you'll know what it wants; flat teeth for greens, sharp ones for meat. Feed it what its teeth ask for, and feed it before it starts sulking." },
+      },
+      choices = {
+        { text = "I'll buy it something better.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "It'll eat what it's given.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    care_tame = {
+      lines = {
+        { id = "ct_default", text = "Pick one that suits you, not one that looks grand, and never one that's stronger than you are, because it'll know. It'll fight you while you're working at it, so have your wits about you, and once it settles, give it a meal straight away." },
+      },
+      choices = {
+        { text = "I tracked bears in the hills before I ever tamed one.", next = "tame_kin", when = { origin = "dwarf_bear_tracker" } },
+        { text = "I rode a nightsaber before I ever tamed one.", next = "tame_kin", when = { origin = "nightelf_nightsaber_rider" } },
+        { text = "I ran the plains beside the beasts I hunted.", next = "tame_kin", when = { origin = "tauren_plains_runner" } },
+        { text = "The Eastvale woods taught me most of what I know.", next = "tame_kin", when = { origin = "human_eastvale_woodsman" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tame_kin = {
+      lines = {
+        { id = "tk_default", text = "Then you know more than most who come through here, and you'll not need me telling you how to hold a leash." },
+        { id = "tk_bear", when = { origin = "dwarf_bear_tracker" }, text = "A bear-tracker from the Dun Morogh hills! Then you know a bear will forgive you nearly anything except surprising it, and that's half of taming right there." },
+        { id = "tk_saber", when = { origin = "nightelf_nightsaber_rider" }, text = "A nightsaber rider, is it? Your cats pick their own riders, I'm told, so you'll know already that the beast tames you at least as much as you tame it." },
+        { id = "tk_plains", when = { origin = "tauren_plains_runner" }, text = "A plains runner! Your people walk with the herds rather than behind them, and the animals feel it; I've watched kodo follow a tauren like a calf follows its mother." },
+        { id = "tk_eastvale", when = { origin = "human_eastvale_woodsman" }, text = "A woodsman, eh? You'll have learned to sit still and let the creature come to you, which is the one thing nobody can teach in a stable yard." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be off, then.", next = "END" },
+      },
+    },
+    own = {
+      lines = {
+        { id = "o_default", text = "Two of them are mine: the old mule at the end, who's older than my apprentice and twice as sensible, and the hound under the trough, who thinks the whole yard is his. The rest belong to folk who'll be back for them, or so they promised." },
+      },
+      choices = {
+        { text = "Has anyone never come back for theirs?", next = "unclaimed" },
+        { text = "Got any rams in there?", next = "own_rams", when = { race = "Dwarf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    own_rams = {
+      lines = { { id = "or_default", text = "Not today, and I'm not sorry, because the last ram I stabled ate a saddle, two buckets and most of a gate. Your people can keep them; I'll keep my gates." } },
+      choices = { { text = "That sounds like a good ram.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    unclaimed = {
+      lines = {
+        { id = "u_default", text = "Once. A hunter left me a big grey wolf and said a week, maybe two, and I fed that wolf through a whole season while it lay by the gate with its nose to the road. Then one morning the stall was empty and the latch was still shut, and I've never worked out how." },
+      },
+      choices = {
+        { text = "Did you ever learn what became of the hunter?", next = "unclaimed_end" },
+        { text = "Maybe it went looking for them.", next = "unclaimed_end", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    unclaimed_end = {
+      lines = { { id = "ue_default", text = "No, and I stopped asking. I like to think the wolf found them somewhere out on the road, so I keep that stall swept and empty, just in case either of them comes back this way." } },
+      choices = {
+        { text = "That's a kind thought.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    road = {
+      lines = {
+        { id = "r_default", text = "Harder than it is on you, because nobody gives a beast a choice about where it goes. Spider bites, snares, bad water and anything bigger with an appetite, and that's before somebody rides a horse lame because they were late for supper." },
+        { id = "r_hurt", when = { durability = { max = 0.3 } }, text = "And by the look of you, you've been somewhere that chews things up. I'd not take a horse where you've just been." },
+      },
+      choices = {
+        { text = "What do you do for a hurt animal?", next = "road_hurt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_hurt = {
+      lines = {
+        { id = "rh_default", text = "Clean the wound, pack it with a poultice, and keep the beast warm and quiet until it decides to eat again. If it won't eat by the third day, I sit up with it, because that's all I've got left to give." },
+        { id = "rh_druid", when = { class = "DRUID" }, text = "You'd do better than me, druid; I've seen one of your kind lay a hand on a lamed horse and have it trotting by the evening. I only wish I knew the trick of it." },
+        { id = "rh_shaman", when = { class = "SHAMAN" }, text = "Your sort would ask the spirits, I suppose, and they'd likely answer. I just ask the poultice, and it doesn't always listen." },
+      },
+      choices = {
+        { text = "The spirits of the wild listen to those who care.", next = "BACK", when = { class = { "DRUID", "SHAMAN" } }, fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    mypet = {
+      lines = {
+        { id = "mp_default", text = "{pet}'s got a clear eye and a good coat, and it watches you the way a beast only watches somebody it trusts. Whatever you're doing with it, keep doing it." },
+        { id = "mp_hurt", when = { durability = { max = 0.3 } }, text = "{pet}'s carrying a limp it's trying to hide from you, which means it's prouder than you are. Rest it a day before you take it anywhere rough." },
+        { id = "mp_veteran", when = { minLevel = 50 }, text = "{pet} has scars I'd not have thought a beast could live through. You've been to some terrible places together, and it's still at your heel, which tells me what I need to know about you." },
+      },
+      choices = {
+        { text = "We look after each other.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Don't tell {pet}, but it snores.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'll be on my way.", next = "END" },
+      },
+    },
+    cages = {
+      big = true,
+      lines = {
+        { id = "c_default", text = "Every day, a little. A horse is bred to the stall and doesn't miss what it never had, but a wild thing remembers the wind, and it paces. I keep the pens wide and the doors open whenever I can, and I tell myself that's enough." },
+        { id = "c_tauren", when = { race = "Tauren" }, text = "Your people would say a beast walks beside you and not behind you, I expect. I've heard tauren say it, and I've watched their kodo, and I'm half persuaded." },
+        { id = "c_nightelf", when = { race = "NightElf" }, text = "The kaldorei don't pen their sabers at all, I'm told; the cats come and go as they please. I'd try it, but my goats would never be seen again." },
+      },
+      choices = {
+        { text = "A good pen and a good keeper beat starving in the wild.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Nothing wild should be caged, however kind the keeper.", next = "BACK", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Do the animals ever forgive you for it?", next = "cages_mind" },
+        { text = "The Earth Mother made the beasts our kin, not our property.", next = "cages_mind", when = { race = "Tauren" } },
+        { text = "Our nightsabers choose whom they follow.", next = "cages_mind", when = { race = "NightElf" } },
+      },
+    },
+    cages_mind = {
+      lines = {
+        { id = "cm_default", text = "The tame ones never knew there was anything to forgive, and the wild ones only forgive you once they've decided you're theirs. It took that old hound under the trough three winters to decide it about me." },
+        { id = "cm_druid", when = { class = "DRUID" }, text = "You'd know better than me, druid, having been a beast yourself. Did you ever want to be shut in somewhere warm, or did the cold always pull at you?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Good day to you.", next = "END" },
+      },
+    },
   },
-  choices = { { text = "Just the stable.", next = "BUSINESS" } },
   topics = { _none = { { id = "t_none", text = "If it doesn't eat hay, I don't know about it." } } },
 }
 
@@ -140,10 +312,67 @@ P:Pool {
     { id = "g_fresh", text = "Fresh today, or mostly today." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? You'll be hungry, then, because road food never fills anyone." },
   },
-  lines = {
-    { id = "l_default", text = "You'll not fight on an empty stomach. Well, you will, but not for long." },
+  -- 0.71.0: a small tree of its own (where the food comes from, road rations, the hungry).
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "You'll not fight on an empty stomach. Well, you will, but not for long." },
+        { id = "l_tauren", when = { race = "Tauren" }, text = "You'll want the big loaves, I expect, and maybe two of them. I've never once seen a tauren leave this stall still hungry, and I'd hate you to be the first." },
+        { id = "l_low", when = { maxLevel = 15 }, text = "New to the road? Then buy more than you think you'll need, because you'll eat twice what you planned and you'll be glad of every crumb." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else, or shall I wrap something up for you?" },
+        { id = "a_again2", text = "Go on, I've time while the next batch cools." },
+      },
+      choices = {
+        { text = "I'll take some.", next = "BUSINESS" },
+        { text = "Where does it all come from?", next = "source" },
+        { text = "What would you pack for a long road?", next = "road" },
+        { text = "Do you ever feed folk who can't pay?", next = "needy" },
+        { text = "I don't eat much these days.", next = "undead", when = { race = "Scourge" } },
+        { text = "Good day.", next = "END" },
+      },
+    },
+    source = {
+      lines = {
+        { id = "s_default", text = "The flour comes in by cart from whatever farms still have fields standing, and the meat comes from hunters who'd rather sell to me than haul it further. When the roads get bad the prices go up, and I get the blame for it, every time." },
+        { id = "s_hunter", when = { class = "HUNTER" }, text = "Half of what's on this stall was brought in by somebody like you, so if you've fresh meat in your pack, a cook somewhere will be glad to see it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll be off.", next = "END" },
+      },
+    },
+    road = {
+      lines = {
+        { id = "r_default", text = "Hard bread and dried meat, because they'll keep for a week and taste the same on the last day as the first. Fresh food's lovely, but it goes off in a day in a warm pack, and then you're eating it anyway." },
+        { id = "r_mage", when = { class = "MAGE" }, text = "You'll be conjuring your own, I suppose, and I've tasted that conjured bread. It fills you up, I'll give it that, but it's never once tasted of anything." },
+      },
+      choices = {
+        { text = "Sound advice.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "I'll eat what I find on the way.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    needy = {
+      big = true,
+      lines = {
+        { id = "n_default", text = "The heels of yesterday's loaves go out the back door at closing, to whoever's waiting there. I can't feed the whole town for nothing, or I'd be standing in that line myself by spring." },
+      },
+      choices = {
+        { text = "Nobody should go hungry while there's bread to spare.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Charity's a fine way to go out of business.", next = "BACK", fx = { align = { light = -1 }, trait = { greedy = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    undead = {
+      lines = {
+        { id = "u_default", text = "No, I don't suppose you do, and I'll not ask what you eat instead. If you've living friends on the road with you, though, they'll want feeding, so buy for them." },
+      },
+      choices = { { text = "I'll buy for them, then.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
-  choices = { { text = "I'll take some.", next = "BUSINESS" } },
   topics = { _none = { { id = "t_none", text = "Can't say, but ask me about bread." } } },
 }
 
@@ -153,11 +382,77 @@ P:Pool {
     { id = "g_pour", text = "Something to wash the road down?" },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, so I'd say you're owed a drink. You'll be paying for it, mind." },
   },
-  lines = {
-    { id = "l_default", text = "Every bottle's honest. Some are honest about being terrible." },
-    { id = "l_drunk", when = { drunk = { min = 2 } }, text = "You've had a few. I'll sell you one more, and then I'll sell you water." },
+  -- 0.71.0: a small tree of its own (what's worth drinking, bar talk, when to stop pouring).
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "Every bottle's honest. Some are honest about being terrible." },
+        { id = "l_drunk", when = { drunk = { min = 2 } }, text = "You've had a few. I'll sell you one more, and then I'll sell you water." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else, or are we pouring?" },
+        { id = "a_again2", text = "Ask what you like; I'll keep polishing while you think." },
+      },
+      choices = {
+        { text = "Pour me something.", next = "BUSINESS" },
+        { text = "What's actually worth drinking?", next = "best" },
+        { text = "Heard anything interesting over the bar?", next = "gossip" },
+        { text = "Do you ever stop pouring for someone?", next = "cutoff" },
+        { text = "Got any proper dwarven stout?", next = "stout", when = { race = "Dwarf" } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    best = {
+      lines = {
+        { id = "b_default", text = "The cheap stuff's for washing the dust down and the dear stuff's for impressing somebody, and neither one is worth drinking alone. If you want my honest pick, it's the plain ale on the bottom shelf, because nobody's ever been ashamed of it." },
+        { id = "b_undead", when = { race = "Scourge" }, text = "Can you even taste it any more? I've served your kind before, and they drink the strong stuff like it's water and stare into the cup as if they're trying to remember something." },
+      },
+      choices = {
+        { text = "The bottom shelf it is.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gossip = {
+      lines = {
+        { id = "g_default", text = "Mostly who owes whom, whose cart lost a wheel, and which guard sleeps through the night watch. Folk don't tell a bartender secrets, they just forget I'm standing here, which comes to the same thing." },
+        { id = "g_alliance", when = { faction = "Alliance" }, text = "The caravan drivers say the king still hasn't come home, and the regent's doing his best, but nobody's buying rounds to his health. Folk are uneasy, and uneasy folk drink." },
+        { id = "g_horde", when = { faction = "Horde" }, text = "The caravan drivers say the centaur are bolder on the Barrens roads than they've been in years, and nobody's riding out alone. Good for my trade, I suppose, since frightened folk drink." },
+      },
+      choices = {
+        { text = "And what have they said about me?", next = "gossip_me" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gossip_me = {
+      lines = {
+        { id = "gm_default", text = "Nothing yet, which means you're either very careful or very dull. I'll let you know which once somebody's had a few and starts talking." },
+        { id = "gm_helped", when = { word = "helped" }, text = "That you lent a hand when nobody asked you to, and that you didn't stand about afterwards waiting to be thanked. That's the kind of talk I like hearing over my bar." },
+      },
+      choices = {
+        { text = "Let's keep it that way.", next = "BACK", fx = { trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cutoff = {
+      big = true,
+      lines = {
+        { id = "c_default", text = "When they start crying into the cup or offering to fight the furniture, yes. A drunk who falls down the stairs is bad for trade, and a drunk who burns the place down is worse." },
+      },
+      choices = {
+        { text = "Somebody has to say when, and it may as well be you.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Grown folk can decide for themselves when they've had enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stout = {
+      lines = {
+        { id = "st_default", text = "I've a cask that came down on a dwarf's cart, and I'll swear it's real, though you'd know better than I would. Every dwarf who tries it frowns and says it's not the same as home, and then they buy another." },
+      },
+      choices = { { text = "Nothing's ever the same as home.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
-  choices = { { text = "Pour me something.", next = "BUSINESS" } },
   topics = {
     knows = {
       { id = "t_kn1", text = "Nobody tells a bartender anything on the first drink, but by the third I'm hearing all of it. Here's the best of what's been poured out lately." },
@@ -172,12 +467,65 @@ P:Pool {
     { id = "g_weigh", text = "Weighed fair, every pinch of it." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? You'll have run through your pouches by now, I expect." },
   },
-  lines = {
-    { id = "l_default", text = "Powders, roots, little jars of things you don't want to sniff. What do you need?" },
-    { id = "l_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK", "SHAMAN", "DRUID", "PALADIN" } },
-      text = "One of the casting sort, are you? You'll be back; they're always back." },
+  -- 0.71.0: a small tree of its own (what it's all for, where it comes from, whether to ask).
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "Powders, roots, little jars of things you don't want to sniff. What do you need?" },
+        { id = "l_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK", "SHAMAN", "DRUID", "PALADIN" } },
+          text = "One of the casting sort, are you? You'll be back; they're always back." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else? Mind the jar by your elbow while you think." },
+        { id = "a_again2", text = "Go on, ask; the scales aren't going anywhere." },
+      },
+      choices = {
+        { text = "Let me see the shelves.", next = "BUSINESS" },
+        { text = "What do people use all this for?", next = "uses" },
+        { text = "Where do you get it all?", next = "source" },
+        { text = "Do you ask what your customers do with it?", next = "asking" },
+        { text = "Do you sell soul shards?", next = "shards", when = { class = "WARLOCK" } },
+        { text = "Good day.", next = "END" },
+      },
+    },
+    uses = {
+      lines = {
+        { id = "u_default", text = "Candles for the priests, powders for the mages, little symbols for the paladins, and seeds and berries for the druids, who could pick their own but never seem to have the time. The rogues want flash powder and vials, and I've stopped asking why." },
+        { id = "u_shaman", when = { class = "SHAMAN" }, text = "And ankhs for your sort, of course. I've sold a good many of them to shamans who swore they'd never need one, and every one of them came back for more." },
+        { id = "u_rogue", when = { class = "ROGUE" }, text = "You'll be after the vials and the flash powder, I expect, and you'll not tell me what for. That's fine; your coin's the same colour as anyone's." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'll be off.", next = "END" },
+      },
+    },
+    source = {
+      lines = {
+        { id = "s_default", text = "The roots and leaves come from herbalists who know the hills better than I do, and the powders come in sealed crates from people who don't sign their letters. Some of it's travelled further than you have, and it's priced like it, too." },
+        { id = "s_herb", when = { class = "DRUID" }, text = "You'd know where half of this grows, I expect, and you'd pick it kinder than the herbalists do. They tear it up roots and all, and grumble when it doesn't come back." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    asking = {
+      big = true,
+      lines = {
+        { id = "a_default", text = "Not often, because the answer's usually either dull or something I'd rather not know. Mind you, when a nervous sort buys three vials of the same thing, I do take a long look at their face." },
+      },
+      choices = {
+        { text = "You ought to know who you're selling to.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "What folk do with it is their own business.", next = "BACK", fx = { align = { order = -1 }, trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shards = {
+      lines = {
+        { id = "sh_default", text = "No, and I'll thank you not to ask that so loudly. You gather those yourself, I'm told, and I'd rather not know how, so we'll keep to candles and powders between us." },
+      },
+      choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+    },
   },
-  choices = { { text = "Let me see the shelves.", next = "BUSINESS" } },
   topics = { _none = { { id = "t_none", text = "If it doesn't go in a pouch, I can't help you." } } },
 }
 
@@ -1146,7 +1494,193 @@ P:Pool {
     { id = "l_hunter", when = { class = "HUNTER" }, text = "The wolves have been bad along this road all season. If you're hunting anyway, take a few for us." },
     { id = "l_warlock", when = { class = "WARLOCK" }, text = "I know what you are, and so long as you keep it leashed, I don't have to do anything about it." },
   },
-  choices = { { text = "Carry on.", next = "END" } },
+  -- 0.71.0: a conversation tree shared by every Alliance guard, in towns and capitals alike
+  -- (capital pools have no tree of their own, so their lines compete in this hub).
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Keep your weapon sheathed and your business honest, and we'll get on fine. What can the watch do for you?" },
+        { id = "h_capital", when = { capital = true }, text = "The city's big enough to lose a whole regiment in, so ask if you're turned around. That's half of what we're here for." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet night so far, and I'd like it to stay that way. What do you need, friend?" },
+        { id = "h_young", when = { maxLevel = 12 }, text = "You've the look of someone fresh to the road, so stay where the patrols can hear you shout. What can I do for you?" },
+        { id = "h_vet", when = { minLevel = 50 }, text = "I know a veteran when one walks up, and I'd sooner have you on my side of the wall than the other. What's on your mind?" },
+      },
+      again = {
+        { id = "a_road", text = "Anything else, or can I get back to watching the road?" },
+        { id = "a_go", text = "Go on, then; I'm not going anywhere until the bell." },
+        { id = "a_city", when = { capital = true }, text = "Something else? The crowds can manage without me for a moment." },
+      },
+      choices = {
+        { text = "What's around here worth knowing?", next = "around" },
+        { text = "How's life in the watch?", next = "watch" },
+        { text = "Seen anything on the roads lately?", next = "roads" },
+        { text = "I've some trouble to report.", next = "report" },
+        { text = "Do you ever have to bend the law?", next = "law" },
+        { text = "Could the watch use another sword?", next = "recruit", when = { class = "WARRIOR" } },
+        { text = "I wore the Stormwind City Guard's tabard myself, once.", next = "oldguard", when = { origin = "human_city_guard" } },
+        { text = "I held the rearguard at Gnomeregan, so I know a little about watches.", next = "rearguard", when = { origin = "gnome_rearguard" } },
+        { text = "You might want to tie that purse a little tighter.", next = "purse", when = { class = "ROGUE" } },
+        { text = "Carry on, guard.", next = "END" },
+      },
+    },
+    around = {
+      lines = {
+        { id = "ar_default", text = "The inn's the place for a bed and the latest gossip, and the smith will mend what the road breaks. If you're after work, look for the folk with worry on their faces; out here there's always somebody who needs a hand." },
+        { id = "ar_capital", when = { capital = true }, text = "Ask any of us for directions and we'll point you right, since that's most of the job inside the walls. Mind your purse in the crowds, though, because the cutpurses love a busy street." },
+      },
+      choices = {
+        { text = "And where's the danger hereabouts?", next = "danger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    danger = {
+      lines = {
+        { id = "dg_default", text = "Anywhere the patrols stop going, which is closer to town than any of us likes to admit. Off the road, past the last fence and after dark is where folk go missing." },
+        { id = "dg_capital", when = { capital = true }, text = "Inside the walls it's pickpockets, drunks and the odd brawl, and outside them it's everything else. Don't go wandering off the roads beyond the gates without a blade you know how to use." },
+      },
+      choices = {
+        { text = "Then that's where I'm going.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Then I'll keep to the road.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    watch = {
+      lines = {
+        { id = "w_default", text = "Long hours, cold suppers and boots that never quite dry, and the pay comes late more often than not. Still, somebody has to stand here, and it may as well be someone who cares." },
+      },
+      choices = {
+        { text = "What's the worst of it?", next = "watch_hard" },
+        { text = "Why do you do it?", next = "watch_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_hard = {
+      lines = {
+        { id = "wh_default", text = "The nights you hear something out past the lanterns and you can't leave your post to go and look. Come morning there's a cart overturned or a farmhand who never came home, and you wonder if you could have done something." },
+      },
+      choices = {
+        { text = "You did your duty. That's all anyone can ask.", next = "BACK", fx = { trait = { kind = 1 }, affinity = 1 } },
+        { text = "Then next time, go and look.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    watch_why = {
+      lines = {
+        { id = "wy_default", text = "My family lives a short walk from here, and I'd rather it was me standing between them and the dark than somebody who doesn't know their names. That's the whole reason, though the captain likes to think it's his speeches." },
+        { id = "wy_paladin", when = { class = "PALADIN" }, text = "Same reason you took up the Light, I'd guess, only with a cheaper sword. Somebody has to stand between ordinary folk and the dark, and the Silver Hand can't be on every road at once." },
+      },
+      choices = {
+        { text = "That's as good a reason as any.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads = {
+      lines = {
+        { id = "rd_default", text = "Bandits on the long empty stretches, wolves where the woods come close, and lately things after dark the farmers won't put a name to. You've the look of someone who's walked a fair way, though, so what brings you out here?" },
+        { id = "rd_capital", when = { capital = true }, text = "Travellers come through the gates with a new tale every day, and half of them are about bandits on the roads. You've the look of someone who's walked a fair way yourself, so what brings you here?" },
+      },
+      choices = {
+        { text = "Coin. Somebody always needs something killed.", next = "roads_you", fx = { trait = { greedy = 1 } } },
+        { text = "These people need help, and I can give it.", next = "roads_you", fx = { trait = { kind = 1 }, affinity = 1 } },
+        { text = "I want to see what lies past the next hill.", next = "roads_you", fx = { trait = { curious = 1 } } },
+        { text = "That's my own business, guard.", next = "roads_you", fx = { affinity = -1 } },
+      },
+    },
+    roads_you = {
+      lines = {
+        { id = "ry_default", text = "Fair enough, whatever your reasons, so long as you leave the road a little safer than you found it. If you see smoke where there oughtn't to be any, though, come and tell us before you go running at it." },
+      },
+      choices = {
+        { text = "What sort of smoke?", next = "smoke" },
+        { text = "I'll keep my eyes open.", next = "BACK" },
+      },
+    },
+    smoke = {
+      lines = {
+        { id = "sm_default", text = "A burning farmstead, or a campfire where no honest traveller would camp, kept low and back in the trees. Bandits get careless when they've been lucky for a while, and that's when we catch them." },
+      },
+      choices = {
+        { text = "I'll keep an eye out for you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Farewell, guard.", next = "END" },
+      },
+    },
+    report = {
+      lines = {
+        { id = "rp_default", text = "Go on, then: what did you see, and where? Take your time, because a muddled report sends us running the wrong way." },
+      },
+      choices = {
+        { text = "Bandits, watching the road out of town.", next = "report_done" },
+        { text = "Something unnatural, moving about after dark.", next = "report_done" },
+        { text = "Never mind, it can wait.", next = "BACK" },
+      },
+    },
+    report_done = {
+      lines = {
+        { id = "rpd_default", text = "I'll write it down and pass it to the captain, and he'll pass it up, and before long somebody with a horse will ride out and look. I wish I could tell you it moved faster than that, but the watch is spread thin as it is." },
+      },
+      choices = {
+        { text = "Then I'll deal with it myself.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Thank you for listening.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    law = {
+      big = true,
+      lines = {
+        { id = "lw_default", text = "More often than I'd like. Last month I caught a lad stealing bread for his little sisters, and the law says the stocks and a fine his family couldn't pay in a year, so tell me, what would you have done?" },
+      },
+      choices = {
+        { text = "The law's the law. Bend it once and it breaks.", next = "law_did", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Let him go. Hunger isn't a crime.", next = "law_did", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "What did you do?", next = "law_did" },
+      },
+    },
+    law_did = {
+      lines = {
+        { id = "ld_default", text = "I paid the baker out of my own purse and told the lad that if I ever caught him again, it'd be the stocks for certain. Maybe that was right and maybe it wasn't, but I sleep well enough, and if the captain asks, you never heard it from me." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recruit = {
+      lines = {
+        { id = "rc_default", text = "Always, though you'd be standing a post in the rain for poor pay instead of out making a name for yourself. If you mean it, talk to an officer, but I'd wager you'll do more good on the road than you ever would at a gate." },
+      },
+      choices = {
+        { text = "Maybe one day.", next = "BACK" },
+        { text = "You're probably right.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    oldguard = {
+      lines = {
+        { id = "og_default", text = "Did you, now? Then you know about the boots that never dry and the sergeant who never sleeps, and you'll know what it costs to walk away from it. What made you leave?" },
+      },
+      choices = {
+        { text = "The city felt too small for me.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I wanted to fight, not stand guard.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'd rather not say.", next = "BACK" },
+      },
+    },
+    rearguard = {
+      lines = {
+        { id = "rg_default", text = "Then you've stood a harder watch than any of us ever will, and I'm sorry for what you lost down there. If you ever tire of the road, there's a fire at the barracks, and nobody would ask you to talk about it." },
+      },
+      choices = {
+        { text = "Thank you. That means something.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purse = {
+      lines = {
+        { id = "pu_default", text = "Is it? That's funny, because it's knotted shut and tucked under my belt, and you'd only know that if you'd been looking. I'll remember your face, friend, and you'll remember that I did." },
+      },
+      choices = {
+        { text = "Only trying to be helpful.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Easy, I was only joking.", next = "BACK" },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "Patrols pass word along the road, and a fair bit of it reaches me. Here's what I can tell you." },
@@ -1195,7 +1729,200 @@ P:Pool {
     { id = "l_hunter", when = { class = "HUNTER" }, text = "Hunters bring the best news, since you go where the scouts don't. Seen anything moving out there?" },
     { id = "l_mage", when = { class = "MAGE" }, text = "Keep the fire in your hands and out of the supply tents, mage." },
   },
-  choices = { { text = "Strength and honor.", next = "END" } },
+  -- 0.71.0: a conversation tree shared by every Horde guard: orc grunts, troll and tauren
+  -- braves and Forsaken Deathguard alike, so it speaks for the Horde, not one people.
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Speak your business. The Horde keeps this post, and I keep it for the Horde." },
+        { id = "h_capital", when = { capital = true }, text = "The Horde's people pass this way by the hundred, so make it quick and make it worth my while." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The night watch is the long one, so talk if you've something to say; it passes the time." },
+        { id = "h_young", when = { maxLevel = 12 }, text = "You're young to be this far from the fires, so keep close to the posts until your arm is stronger. What do you want?" },
+        { id = "h_vet", when = { minLevel = 50 }, text = "I've heard your name spoken around the fires, and none of it was dull. What does a blooded one want with a guard?" },
+      },
+      again = {
+        { id = "a_road", text = "What else? The road won't watch itself." },
+        { id = "a_speak", text = "Speak, then; I'm listening, and I'm still watching." },
+      },
+      choices = {
+        { text = "What's around here worth knowing?", next = "around" },
+        { text = "How does guard duty treat you?", next = "watch" },
+        { text = "What's been moving on the roads?", next = "roads" },
+        { text = "I've seen trouble you should know about.", next = "report" },
+        { text = "What happens to the prisoners you take?", next = "prisoners" },
+        { text = "Does the watch need another blade?", next = "recruit", when = { class = "WARRIOR" } },
+        { text = "I stood the Razor Hill watch myself.", next = "razor", when = { origin = "orc_razor_hill_grunt" } },
+        { text = "I grew up behind human walls, in the internment camps.", next = "camp", when = { origin = "orc_camp_born" } },
+        { text = "Do the Deathguard keep watches like yours?", next = "deathguard", when = { race = "Scourge", ["not"] = { capital = true } } },
+        { text = "You'd never see me coming, you know.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Strength and honor.", next = "END" },
+      },
+    },
+    around = {
+      lines = {
+        { id = "ar_default", text = "There's food and a bed at the inn and a smith for whatever the road breaks, and anyone who needs a hand will tell you loudly enough. The Horde looks after its own here, so ask before you go wandering." },
+        { id = "ar_capital", when = { capital = true }, text = "Ask any guard and you'll be pointed right, because the city is big and the crowds don't wait for the lost. Keep your coin close in the markets, since not everyone in the Horde is honest." },
+      },
+      choices = {
+        { text = "Where's the danger, then?", next = "danger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    danger = {
+      lines = {
+        { id = "dg_default", text = "Past the last post and away from the roads, where the scouts stop going and the beasts and raiders start. The Alliance has scouts out here and there as well, and they don't come to trade." },
+        { id = "dg_capital", when = { capital = true }, text = "Inside the walls it's brawlers and thieves, and outside them it's everything that hungers. Don't leave the roads without a weapon you trust." },
+      },
+      choices = {
+        { text = "Then that's where I'm headed.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'll stay where the posts can see me.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    watch = {
+      lines = {
+        { id = "w_default", text = "Long nights, thin stew and a wind that never stops, and nobody sings songs about the ones who stand at the gate. Still, the Horde was made in worse places than this, and we're not about to let it fall now." },
+      },
+      choices = {
+        { text = "What's the hardest part?", next = "watch_hard" },
+        { text = "Why do you stand it?", next = "watch_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_hard = {
+      lines = {
+        { id = "wh_default", text = "The waiting. A warrior wants to meet the enemy, but a guard has to stand still and let the enemy come, and some nights the waiting feels longer than any battle I've fought." },
+      },
+      choices = {
+        { text = "Patience is a kind of strength too.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
+        { text = "I'd go mad, standing still that long.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    watch_why = {
+      lines = {
+        { id = "wy_default", text = "Because the Horde gave my people a place when we had none, and a place is worth standing in the rain for. The Warchief asks it of us, and that's enough for me." },
+        { id = "wy_shaman", when = { class = "SHAMAN" }, text = "The same reason you listen to the spirits, shaman: somebody has to, or everything goes wrong. The spirits have you, and the gate has me." },
+      },
+      choices = {
+        { text = "That's well said.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads = {
+      lines = {
+        { id = "rd_default", text = "Raiders on the long stretches, beasts grown bold with hunger, and Alliance scouts where they've no business being. You walk like someone who's come a long way, though, so tell me what brings you out here." },
+      },
+      choices = {
+        { text = "Glory. I want my name told at the fires.", next = "roads_you", fx = { trait = { brave = 1 } } },
+        { text = "Coin, plain and simple.", next = "roads_you", fx = { trait = { greedy = 1 } } },
+        { text = "The Horde needs strong arms, so here I am.", next = "roads_you", fx = { affinity = 1 } },
+        { text = "That's my own business.", next = "roads_you", fx = { affinity = -1 } },
+      },
+    },
+    roads_you = {
+      lines = {
+        { id = "ry_default", text = "Good enough, whatever drives you, so long as you pull your weight when the horns sound. If you find tracks out there that don't belong to any beast you know, come back and tell me." },
+      },
+      choices = {
+        { text = "What sort of tracks?", next = "tracks" },
+        { text = "I'll keep my eyes open.", next = "BACK" },
+      },
+    },
+    tracks = {
+      lines = {
+        { id = "tr_default", text = "Boots walking in a line, too careful to be bandits, or a camp with its ashes buried so nobody sees the smoke. The Alliance trains its scouts well, and the only way to beat them is to know where to look." },
+      },
+      choices = {
+        { text = "I'll watch for them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Strength and honor.", next = "END" },
+      },
+    },
+    report = {
+      lines = {
+        { id = "rp_default", text = "Speak plainly: what did you see, and where did you see it? The more you tell me, the fewer of us die finding out the rest." },
+      },
+      choices = {
+        { text = "Raiders, watching the road.", next = "report_done" },
+        { text = "Something dead that should have stayed dead.", next = "report_done" },
+        { text = "Never mind, it can wait.", next = "BACK" },
+      },
+    },
+    report_done = {
+      lines = {
+        { id = "rpd_default", text = "I'll send word to the commander with the next runner, and the scouts will go and look when there are scouts to spare. There never are enough of them, so if you want it done quickly, you may have to do it yourself." },
+      },
+      choices = {
+        { text = "Then I'll see to it.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "You have my thanks.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    prisoners = {
+      big = true,
+      lines = {
+        { id = "pr_default", text = "We took a human scout two weeks back, half starved and frightened out of his wits, and the commander's still deciding what to do with him. Some say send him home and some say squeeze him dry first, so I'd hear what you think." },
+      },
+      choices = {
+        { text = "Send him home whole. We're not the old Horde.", next = "prisoners_did", fx = { align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "Wring him for everything he knows first.", next = "prisoners_did", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "What do you think should happen?", next = "prisoners_did" },
+      },
+    },
+    prisoners_did = {
+      lines = {
+        { id = "pd_default", text = "I've fed him from my own bowl and listened to him talk about his farm and his wife, and I find I can't hate him the way I'm supposed to. The Warchief wants a Horde with honor in it, and every year I understand that a little better." },
+      },
+      choices = {
+        { text = "That's an honest answer.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recruit = {
+      lines = {
+        { id = "rc_default", text = "There's always room on the wall for a strong arm, though the pay is poor and the glory poorer. Talk to the commander if you mean it, but I think your blade does more good out on the road than it would standing here." },
+      },
+      choices = {
+        { text = "Maybe when I'm older and slower.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "You're probably right.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    razor = {
+      lines = {
+        { id = "rz_default", text = "Razor Hill! Then you've stood on that wall with the sea wind in your face and Kul Tiran marines camped down the coast, and you know exactly how dull and how important this work is. Do they still make the new ones scrub the barracks floor?" },
+      },
+      choices = {
+        { text = "Every morning, with a brush the size of my thumb.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "They did, and I'm glad to be out of it.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "cp_default", text = "Then you know what it is to look at a wall from the wrong side of it. I stand at this post so none of the Horde's children ever has to again, and I'd wager that's why you carry a weapon too." },
+      },
+      choices = {
+        { text = "It is. Never again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I carry it for myself.", next = "BACK" },
+      },
+    },
+    deathguard = {
+      lines = {
+        { id = "dgd_default", text = "I'm told the Deathguard never sleep and never feel the cold, so they stand their watches without ever shifting their feet. I'd envy that, if I didn't know what it cost them to get that way." },
+      },
+      choices = {
+        { text = "It cost us everything.", next = "BACK", fx = { affinity = 1 } },
+        { text = "It has its advantages.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "ro_default", text = "Maybe not, but I'd smell you, and so would every wolf in the pens. The ones who boast about it are never the ones I need to worry about, so walk where I can see you." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+        { text = "We'll see about that.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "A guard hears the road's business whether he wants it or not. Ask about any of this." },
@@ -1253,6 +1980,7 @@ P:Pool {
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "The barracks are in Old Town if you need training, and the Pig and Whistle is next door if you need forgetting." },
     { id = "l_mage", when = { class = "MAGE" }, text = "The Mage Quarter's west, past the canals. Follow the smell of singed hair and you can't miss it." },
     { id = "l_paladin", when = { class = "PALADIN" }, text = "Cathedral Square's where the Silver Hand gathers. Say a word for the Watch while you're up there; we could use it." },
+    { id = "l_king", text = "The young King Anduin holds court in the Keep, with Lady Prestor at his ear and the Highlord over the army. Above my post, all of it, so I just keep the streets tidy." },
   },
   choices = { { text = "Thanks for the directions.", next = "END" } },
   topics = {
@@ -1295,6 +2023,8 @@ P:Pool {
     { id = "l_default", text = "Great Forge in the middle, King Magni up in the throne room, the tram to Stormwind down the Tinker Town way. Ye'll not get lost, it's a circle." },
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "Hall of Arms for the fightin' trades, through the Military Ward. Ye'll hear it afore ye find it." },
     { id = "l_rogue", when = { class = "ROGUE" }, text = "Keep yer hands where the mountain can see them. We've a long memory under here, and short tempers." },
+    { id = "l_magni", text = "King Magni holds court in the High Seat, an' he's a fair king if ye bring him an honest matter. Bring him a dishonest one an' ye'll learn how loud a throne room echoes." },
+    { id = "l_dark_iron", text = "If ye see a Dark Iron anywhere near the gates, ye shout, an' ye shout loud. We've not forgotten what Thaurissan's lot did to this mountain." },
   },
   choices = { { text = "Thanks.", next = "END" } },
   topics = {
@@ -1338,6 +2068,8 @@ P:Pool {
     { id = "l_default", text = "The Temple of the Moon for the priestesses, the Cenarion Enclave for the druids. Walk softly; this tree is young." },
     { id = "l_warrior", when = { race = "NightElf", class = "WARRIOR" }, text = "Our warriors train on the Warrior's Terrace. The Sentinels will want to measure you, so be ready." },
     { id = "l_hunter", when = { class = "HUNTER" }, text = "Hunters gather at the Cenarion Enclave with the druids. Keep your companion close on the bridges." },
+    { id = "l_tree", text = "Teldrassil is young yet, and the Sentinels guard her the way you would guard a sapling in a storm. Walk gently on her branches, and she will hold you." },
+    { id = "l_tyrande", text = "The High Priestess keeps the Temple of the Moon, and her word is law beneath these boughs. If you seek an audience, the priestesses will tell you whether you may have one." },
   },
   choices = { { text = "Thank you, Sentinel.", next = "END" } },
   topics = {
@@ -1379,6 +2111,8 @@ P:Pool {
     { id = "l_default", text = "Valley of Strength by the gate, the Drag for anything crooked, and Grommash Hold for the Warchief, but don't bother him." },
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "Warriors to the Valley of Honor. The weak train somewhere else, I'm told, but I've never found where." },
     { id = "l_rogue", when = { class = "ROGUE" }, text = "Rogues gather in the Cleft of Shadow with the other things that crawl. Don't make me come down there to find you." },
+    { id = "l_thrall", text = "The Warchief built this city with his own people's hands, and named it for the Warchief who came before him. Remember that when you walk under these gates." },
+    { id = "l_burning", text = "Burning Blade cultists crawl about the Cleft and the canyons when they think no one is looking. If you see one, you won't need to ask us twice." },
   },
   choices = { { text = "Lok'tar.", next = "END" } },
   topics = {
@@ -1420,6 +2154,8 @@ P:Pool {
   lines = {
     { id = "l_default", text = "The rises and the bridges between them. Mind the edges; the wind does not ask permission." },
     { id = "l_warlock", when = { class = "WARLOCK" }, text = "The Earth Mother does not love the fel. Do your work below the bluffs, if you must do it at all." },
+    { id = "l_cairne", text = "High Chieftain Cairne keeps his lodge on the central rise, and his door is open to any who come in peace. That is the tauren way, and it is his way most of all." },
+    { id = "l_grimtotem", text = "The Grimtotem walk among us on the bluffs, and they smile, but their eyes do not. If one of them troubles you, come to a Bluffwatcher and not to your weapon." },
   },
   choices = { { text = "Thank you.", next = "END" } },
   topics = {
@@ -1463,6 +2199,8 @@ P:Pool {
   lines = {
     { id = "l_default", text = "The Apothecarium, the Magic Quarter, the War Quarter and the Rogues' Quarter, all in a ring around the Trade Quarter. The Banshee Queen keeps the Royal Quarter, and you don't." },
     { id = "l_shaman", when = { class = "SHAMAN" }, text = "Shamans don't come down here much. The elements are a long way from the Undercity, and they seem to like it that way." },
+    { id = "l_lady", text = "The Dark Lady gave us our wills back, and we stand guard so no one takes them again. That's all the reason a Deathguard needs, and more than most of the living have." },
+    { id = "l_scarlet", text = "The Scarlet Crusade would burn this whole city with us in it, and they'd sing hymns while they did. Keep that in mind when the living tell you we're the monsters." },
   },
   choices = { { text = "Understood.", next = "END" } },
   topics = {
@@ -1485,4 +2223,181 @@ P:Pool {
   lines = { { id = "l_default", text = "Peon chop wood and peon carry wood, but peon not talk about wood." } },
   choices = { { text = "Back to work.", next = "END" } },
   topics = { _none = { { id = "t_none", text = "Peon not know, and peon not want to know." } } },
+}
+
+---------------------------------------------------------------------------
+-- Ratchet Bruisers (0.71.0). Ratchet had no town definition, and community pools match
+-- by town, so it is defined here (World loads at login) with the pool that needs it.
+---------------------------------------------------------------------------
+P:Town {
+  id = "ratchet", name = "Ratchet",
+  subzones = { "Ratchet" },
+  related = { booty_bay = 0.05 },
+  tiers = { Hero = "Friend of Gazlowe" },
+}
+
+P:Pool {
+  id = "guard_ratchet", role = "guard", community = "ratchet",
+  barks = {
+    { id = "b_boat", text = "Boat's in from Booty Bay. Everybody keep your hands where I can see 'em, and your purses where you can." },
+    { id = "b_pirates", text = "Sails on the horizon again. If they're black, somebody ring the bell." },
+  },
+  greetings = {
+    { id = "g_ratchet", text = "Welcome to Ratchet, pal: Cartel port, neutral ground. You trade here and you fight somewhere else." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Pirates like the dark, so stay off the beach till sunup if you've got any sense." },
+  },
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
+      text = "Somebody's been rolling around in the Barrens with the quilboar, by the look of you. There's a smith on the docks, but he takes cash, not stories." },
+    { id = "n_horde", cat = "status", when = { faction = "Horde" },
+      text = "Horde, sure, half our customers walk down from the Crossroads. In town, though, you're a customer first and a grunt second." },
+    { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
+      text = "Alliance, this deep in the Barrens? Brave or lost, pal, and either way you're safe inside the town, so spend something." },
+  },
+  react = { { id = "r_stealth", on = "stealth", text = "Hey, I saw that! Sneak all you like, but sneak somewhere that isn't the Cartel's warehouse." } },
+  lines = {
+    { id = "l_default", text = "Gazlowe built this port out of nothing but sand and nerve, and we keep it neutral for him. Draw steel in town and you'll be swimming back to wherever you came from." },
+  },
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Weapons stay sheathed, coin stays moving, and everybody goes home happy. What do you want, pal?" },
+        { id = "h_horde", when = { faction = "Horde" }, text = "Down from the Crossroads, are you? Leave the war on the road outside, pal, because in Ratchet the only thing anybody fights over is the price. What do you need?" },
+        { id = "h_alliance", when = { faction = "Alliance" }, text = "Off the boat, or did you really walk through the whole Barrens? Either way, nobody here will touch you while you're spending money, pal. What do you need?" },
+        { id = "h_rep", when = { reputation = { faction = "Ratchet", min = "honored" } }, text = "Hey, the boss likes you, and the boss doesn't like anybody, so you must be doing something right. What can I do for you?" },
+      },
+      again = {
+        { id = "a_clock", text = "What else? I'm watching the water while we talk." },
+        { id = "a_go", text = "Anything else, pal? Make it quick, because the boat's due." },
+      },
+      choices = {
+        { text = "What are the rules in this town?", next = "rules" },
+        { text = "Who runs Ratchet?", next = "boss" },
+        { text = "Any trouble lately?", next = "trouble" },
+        { text = "Where does that boat go?", next = "boat" },
+        { text = "Doesn't staying neutral ever bother you?", next = "neutral" },
+        { text = "Do the Alliance give you trouble here?", next = "sides", when = { faction = "Horde" } },
+        { text = "Do the Horde give you trouble here?", next = "sides", when = { faction = "Alliance" } },
+        { text = "Who'd notice a purse or two going missing?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'll behave.", next = "END", fx = { standing = { ratchet = 1 } } },
+      },
+    },
+    rules = {
+      lines = {
+        { id = "ru_default", text = "Nobody fights in town, nobody robs the warehouses, and everybody pays the dock fees. That's it, pal, and you'd be amazed how many folks can't manage all three." },
+      },
+      choices = {
+        { text = "And if someone does start something?", next = "rules_fight" },
+        { text = "Simple enough.", next = "BACK" },
+      },
+    },
+    rules_fight = {
+      lines = {
+        { id = "rf_default", text = "Then every bruiser on the docks shows up at once, and we sort out who started it after we've sat on everybody. The Cartel doesn't do trials, pal; it does invoices." },
+      },
+      choices = {
+        { text = "Efficient.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boss = {
+      lines = {
+        { id = "bo_default", text = "Gazlowe, and he'll tell you himself that he built Orgrimmar for the Warchief, usually before you've said hello. Truth is he's a good boss, loud and cheap and sharper than he looks, and Ratchet wouldn't be here without him." },
+      },
+      choices = {
+        { text = "Did he really build Orgrimmar?", next = "boss_orgrimmar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boss_orgrimmar = {
+      lines = {
+        { id = "bg_default", text = "He did, or a good chunk of it, back when the orcs first landed and needed walls up fast. He got paid well for it too, so you could say the Horde's been a good customer from the very start." },
+      },
+      choices = {
+        { text = "Good to know.", next = "BACK" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    trouble = {
+      lines = {
+        { id = "tr_default", text = "The Southsea pirates, mostly, raiding ships off the coast and camping on the beaches south of here like they own the place. Then there's the Venture Company sniffing around the Barrens, and they'd buy the whole port if Gazlowe let them." },
+      },
+      choices = {
+        { text = "Why don't you deal with the pirates?", next = "trouble_deep" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble_deep = {
+      lines = {
+        { id = "td_default", text = "Because we're paid to guard the town, pal, not to chase pirates up and down the beach. That's what adventurers are for, and Gazlowe's always got work for anybody willing to go." },
+      },
+      choices = {
+        { text = "Maybe I'll pay the beach a visit.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Pirates aren't my problem.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    boat = {
+      lines = {
+        { id = "bt_default", text = "Across the sea to Booty Bay, another Cartel port, and it's the one thing in the Cartel nobody charges you for. Hang onto the rail, though, because the captain doesn't stop for anybody who falls off." },
+      },
+      choices = {
+        { text = "What's Booty Bay like?", next = "boat_bay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boat_bay = {
+      lines = {
+        { id = "bb_default", text = "Like Ratchet, only bigger, wetter and full of Bloodsail instead of Southsea. The Baron runs it tight, so the same rules hold there: no fighting in town, and everybody pays." },
+      },
+      choices = {
+        { text = "Sounds like home away from home.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Thanks.", next = "BACK" },
+      },
+    },
+    neutral = {
+      big = true,
+      lines = {
+        { id = "ne_default", text = "Bother me? Pal, the war's the best thing that ever happened to Ratchet, because both sides need boats and both sides need goods. We sell to everybody, we side with nobody, and the gold keeps rolling in." },
+      },
+      choices = {
+        { text = "Smart. Wars end, but trade doesn't.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Profiting off a war isn't something to boast about.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Has anyone ever tried to take the port?", next = "neutral_take" },
+      },
+    },
+    neutral_take = {
+      lines = {
+        { id = "nt_default", text = "Not yet, because both sides know the other one would lose its boats the same day. Neutral's the only thing everybody can agree on, pal, and that's what keeps us standing." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sides = {
+      lines = {
+        { id = "si_default", text = "Not in town, they don't, because we're standing right here." },
+        { id = "si_horde", when = { faction = "Horde" }, text = "A few come in off the Booty Bay boat, nervous as cats, and they keep to the docks. Nobody bothers them and they don't bother anybody, and that's how Gazlowe likes it." },
+        { id = "si_alliance", when = { faction = "Alliance" }, text = "Horde come down from the Crossroads every day, pal, and they look at you funny, but they won't start anything here. Out on the road past the gate, though, you're on your own." },
+      },
+      choices = {
+        { text = "Good to know.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "ro_default", text = "Gazlowe would, pal, because he counts every coin in this town twice before bed. Try the pirates on the beach instead; they've got plenty of loot and nobody's going to file a complaint." },
+      },
+      choices = {
+        { text = "Just asking.", next = "BACK" },
+        { text = "Now that's a good tip.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+  },
+  topics = {
+    steamwheedle = { { id = "t_cartel", text = "Same Cartel as Booty Bay, Gadgetzan and Everlook, and Ratchet's the one that keeps the Barrens supplied. Everything that crosses the sea comes through our docks first." } },
+    _none = { { id = "t_none", text = "Ask Gazlowe, pal. He knows everything, and he'll tell you, whether you asked or not." } },
+  },
 }

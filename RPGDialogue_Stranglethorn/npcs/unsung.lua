@@ -1606,6 +1606,8 @@ P:NPC {
       text = "An engineer, I can tell from the burns on your sleeves! Come in, come in; you'll appreciate the good powder, not like the sailors who think it's for seasoning." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Now we can talk properly, friend; you'll know a good gear ratio when you see one, which is more than any pirate in this cove does." },
+    { id = "n_refugee", cat = "origin", when = { origin = "gnome_gnomeregan_refugee" },
+      text = "You came out of Gnomeregan with nothing but a toolbag too, didn't you? I can tell by how you count the exits. Booty Bay's a long way from the lower levels, friend, and that's half of why I like it." },
   },
 
   start = "hello",
@@ -1716,7 +1718,27 @@ P:NPC {
         { text = "Do goblin scopes really work, Gnaz?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you blow things up in the jungle, Gnaz, or only your shop?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How do your eyebrows keep getting singed, Gnaz?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I fetch parts out of Gnomeregan. Would the goblins here buy them?", next = "xorig_scav", when = { origin = "gnome_scavenger" } },
         { text = "I'll keep my distance, thanks.", next = "END" },
+      },
+    },
+    xorig_scav = {
+      lines = {
+        { id = "xsc_default", text = "Buy them? Friend, the goblins in this cove would buy the gears out of your pocket watch while you were checking the time! They'll pay well for Gnomeregan work, too, and never ask whose workshop it came out of, which is exactly what bothers me about it." },
+      },
+      choices = {
+        { text = "Coin is coin. The city isn't using them.", next = "xorig_scav2", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Then I'll sell to gnomes first, even for less.", next = "xorig_scav2", fx = { align = { honor = 1 } } },
+        { text = "Who in Booty Bay pays best?", next = "xorig_scav2", fx = { trait = { curious = 1 } } },
+      },
+    },
+    xorig_scav2 = {
+      lines = {
+        { id = "xsc2_default", text = "Whoever's got a ship leaving at dawn, usually, and that's all I'll say about it. Just remember that every gear you carry out of the city is one Mekkatorque won't find when we go home, and I'd like there to be something left to go home to." },
+      },
+      choices = {
+        { text = "I'll remember, Gnaz.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     boom = {

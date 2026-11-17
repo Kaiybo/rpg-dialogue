@@ -496,6 +496,8 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Wonderful, would you mind standing by while I test this? Nothing will explode, probably, but it's always nice to have a healer near." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've worked out that a hammer swung with the Light behind it hits roughly a third harder, though I can't measure the Light part." },
+        { id = "h_refugee", when = { origin = "gnome_gnomeregan_refugee" },
+          text = "Oh, you came out of Gnomeregan too, didn't you? I can always tell, because we all check where the exits are before we say hello. I came here with a toolbag myself, and I've filled three more since, so there's hope." },
         { id = "h_default", text = "Lilliam Sparkspindle, engineering trainer, and nearly finished with a very interesting calculation about gear ratios. Do you build things, or are you only here to watch things explode?" },
         { id = "h_choice", key = true, when = { profession = { name = "Engineering", min = 200 } },
           text = "Expert engineering splits two ways: gnomish, which is about wonderful gadgets that make life better, and goblin, which is about making things go bang for money. If you want the first, take a manual to Tinkmaster Overspark in Ironforge." },
@@ -699,6 +701,10 @@ P:NPC {
         { id = "h_default", text = "Gelman Stonehand. I came from Ironforge tae help with the rebuildin' here, an' if I can teach enough o' ye my skills, maybe I can leave it tae ye an' take myself back home." },
         { id = "h_human", when = { race = "Human" },
           text = "Yer folk built this city out o' stone they couldnae find, so they sent for dwarves who could. Most o' us stayed longer than we meant tae, me included." },
+        { id = "h_stonemason", when = { origin = "human_stonemason_child" },
+          text = "Ye've a mason's look about the hands, an' a mason's scowl tae go wi' it. I worked the walls beside the Guild when this city was rubble, so I'd wager I knew yer father, an' I'd wager I know what he's still angry about." },
+        { id = "h_miner", when = { origin = "dwarf_ironforge_miner" },
+          text = "A deeps bairn, under all this sky! Ye'll be lookin' up at the Cathedral spire like it might fall on ye, I expect, for I did the same my first year." },
         { id = "h_camp_done", when = { questDone = TODO_QUEST("Camping 101: Mining") },
           text = "Ye can feed yerself an' keep warm on the road, an' ye can dig. That's more than most o' the soft-handed lot who come through here." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -727,7 +733,27 @@ P:NPC {
         { text = "Do you leave anything behind in the mines for the hills, Gelman?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could magic make mining any easier, Gelman?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you miss Ironforge's stone, Gelman?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You worked beside the Stonemasons? My father was one.", next = "xorig_mason", when = { origin = "human_stonemason_child" } },
         { text = "Sorry to interrupt.", next = "END" },
+      },
+    },
+    xorig_mason = {
+      lines = {
+        { id = "xom_default", text = "Aye, I did, an' they were the finest human masons I ever cut stone beside. The nobles signed for the work an' then forgot their own signatures, an' some o' the lads went west in masks over it, an' I'll no' pretend I didnae understand why." },
+      },
+      choices = {
+        { text = "The nobles owe them still. Nobody's ever made them pay.", next = "xorig_mason2", fx = { align = { order = -1 } } },
+        { text = "Understanding is one thing. The Defias are murderers now.", next = "xorig_mason2", fx = { align = { order = 1 } } },
+        { text = "Did Ironforge's masons ever get paid?", next = "xorig_mason2" },
+      },
+    },
+    xorig_mason2 = {
+      lines = {
+        { id = "xom2_default", text = "Some o' us were an' some weren't, an' the ones who weren't went home tae Ironforge an' grumbled intae their ale, which is the dwarven way o' puttin' on a mask. Stone remembers who set it, though, an' every wall in this city knows yer father's hands, whatever the House o' Nobles remembers." },
+      },
+      choices = {
+        { text = "I'll tell him you said so.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     home = {

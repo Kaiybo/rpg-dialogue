@@ -120,6 +120,10 @@ P:NPC {
         { text = "What did the rangers of Quel'Thalas teach their hunters, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Stratholme has fallen silent, my lady. I saw to it.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Horde" } },
         { text = "My companion is living. Does that trouble you, my lady?", next = "xpt_sylvanas", when = { party = { race = { "Orc", "Troll", "Tauren" } } } },
+        { text = "Tell me of your kingdom, my lady.", next = "kingdom" },
+        { text = "How did you break free of the Lich King?", next = "past" },
+        { text = "What do you make of the Horde, my lady?", next = "horde" },
+        { text = "What would you have of me, my lady?", next = "ask_me" },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -256,6 +260,270 @@ P:NPC {
         { text = "What do the Forsaken want, my lady?", next = "want" },
       },
     },
+
+    -- 0.71.0 depth pass: her kingdom, her breaking free, the Horde, and what she asks.
+    kingdom = {
+      hub = true,
+      lines = { { id = "kg_default", text = "A kingdom of the dead beneath the ruins of a kingdom of the living, and I find the arrangement suits us. Ask what you need to know, though I warn you that I will decide how much of it you need." } },
+      again = {
+        { id = "kg_again", text = "What else of my kingdom? Be quick about it." },
+        { id = "kg_again2", text = "Go on. My kingdom runs well past these walls, and I watch all of it." },
+      },
+      choices = {
+        { text = "Who is Varimathras to you?", next = "varimathras" },
+        { text = "What do the apothecaries brew, my lady?", next = "apothecarium" },
+        { text = "What of the Scarlet Crusade?", next = "scarlet" },
+        { text = "What of Silverpine and Hillsbrad?", next = "silverpine" },
+        { text = "Enough of your kingdom, my lady.", next = "hello" },
+      },
+    },
+    varimathras = {
+      lines = { { id = "va_default", text = "A dreadlord who ruled these ruins with his brothers while I was still learning to be free, and who begged for his life when I came for them, which is more than his brothers had the wit to do. He knows every passage beneath this city and every secret of the Legion that made the Scourge, and so he lives, and serves, and calls me his queen very prettily." } },
+      choices = {
+        { text = "You trust a demon, my lady?", next = "varimathras2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    varimathras2 = {
+      lines = { { id = "va2_default", text = "I trust that he fears me, and I trust that he knows what the Legion does to servants who fail it, so for now his interests and mine run side by side. A demon's loyalty is a blade without a hilt, and it is useful only so long as you never forget how to hold it." } },
+      choices = {
+        { text = "I'd watch him closely, my lady.", next = "BACK", fx = { trait = { cautious = 1 }, opinion = { varimathras = "distrust" } } },
+        { text = "He seems to serve you well enough.", next = "BACK", fx = { opinion = { varimathras = "trust" } } },
+      },
+    },
+    apothecarium = {
+      lines = { { id = "ap_default", text = "A new plague, made in the Apothecarium by Master Faranell and his society to do to the Scourge what the old plague did to us. The Lich King made us with a plague, and I find it fitting that we should answer him with one of our own.", fx = { learn = { "new_plague" } } } },
+      choices = {
+        { text = "Doesn't a plague frighten you, my lady?", next = "apothecarium2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    apothecarium2 = {
+      lines = { { id = "ap2_default", text = "Fear is for those who can still die of it, and every Forsaken in this city has already done that. It is a weapon against the Scourge and nothing else, and it will stay in hands I trust, so tell me, does it frighten you?" } },
+      choices = {
+        { text = "Yes. A plague doesn't care whose it is.", next = "BACK", fx = { trait = { cautious = 1 }, opinion = { new_plague = "dangerous" } } },
+        { text = "No. The Scourge deserves every drop of it.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 }, opinion = { new_plague = "necessary" } } },
+        { text = "Only if it falls into the wrong hands.", next = "apothecarium3", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    apothecarium3 = {
+      lines = { { id = "ap3_default", text = "Then we agree, which should comfort you, and it is why my deathstalkers guard the Apothecarium as closely as they guard me. The Alliance would give a great deal to know what Faranell keeps in his cellars, and they will never learn it." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    scarlet = {
+      lines = {
+        { id = "sc_default", text = "Zealots who survived the plague and decided the Light had spared them to burn everything that moves wrongly, which in Tirisfal means us. They hold the monastery in the north of these glades and Hearthglen beyond, and they kill my people with the same fervour they save for the Scourge, because they cannot tell us apart and do not care to.", fx = { learn = { "scarlet_crusade" } } },
+        { id = "sc_priest", when = { origin = "forsaken_chapel_priest" }, text = "You preached the same Light they burn us in the name of, and I suspect you knew some of them, which makes them your concern more than most. They hold the monastery in the north of these glades and kill my people as gladly as they kill the Scourge.", fx = { learn = { "scarlet_crusade" } } },
+      },
+      choices = {
+        { text = "Should they be shown mercy, my lady?", next = "scarlet2" },
+        { text = "I knew some of them, in life.", next = "scarlet_knew", when = { origin = { "forsaken_lordaeron_soldier", "forsaken_chapel_priest", "forsaken_risen_knight" } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    scarlet2 = {
+      big = true,
+      lines = { { id = "s2_default", text = "Mercy is a word the living use once they've already won, and the Crusade has never offered it to us. Some of my people would spare the ones who lay down their swords and some would drown every zealot in the canals, and I am curious which kind you are." } },
+      choices = {
+        { text = "Spare those who yield, my lady. We're better than them.", next = "BACK", fx = { align = { light = 1 }, opinion = { scarlet_crusade = "mercy" } } },
+        { text = "They chose their war. Let them have all of it.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, opinion = { scarlet_crusade = "hardline" } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    scarlet_knew = {
+      lines = { { id = "sk_default", text = "Of course you did, because half that Crusade once marched beside the other half of my city under Terenas's banner, before the plague sorted them into the quick and the dead. If you meet an old comrade at the monastery gates, remember which of you he would burn, and do not hesitate." } },
+      choices = {
+        { text = "I won't hesitate, my lady.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "I'll hesitate, and then I'll do it anyway.", next = "BACK", fx = { trait = { honest = 1 } } },
+      },
+    },
+    silverpine = {
+      lines = { { id = "sv_default", text = "My deathstalkers hold the Sepulcher in Silverpine against the worgen the mage Arugal called down on us, and High Executor Darthalia carries my war into Hillsbrad against the humans of Southshore. The living there believe the war ended when Lordaeron fell, and I am teaching them otherwise, one farm at a time." } },
+      choices = {
+        { text = "Why war on Hillsbrad's farmers, my lady?", next = "hillsbrad" },
+        { text = "Who was Arugal?", next = "arugal" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    hillsbrad = {
+      lines = { { id = "hb_default", text = "Because Hillsbrad sits on Lordaeron's land and sends its militia north to hunt my scouts, and because the Alliance would gladly use it as a door into my kingdom. They are not innocent simply because they are alive, and those farms once belonged to people who are now my subjects." } },
+      choices = {
+        { text = "They're still people, my lady.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
+        { text = "Then take the land back.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    arugal = {
+      lines = { { id = "ag_default", text = "An archmage the Kirin Tor sent to deal with my people, who called worgen out of the shadows to do it and lost his wits to them in Shadowfang Keep. He sits there still among his wolves and calls them his children, and the fact that Dalaran sent him tells you everything you need to know about Dalaran." } },
+      choices = {
+        { text = "I knew Arugal's name in Dalaran, my lady.", next = "arugal_dal", when = { origin = "forsaken_dalaran_apprentice" } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    arugal_dal = {
+      lines = { { id = "agd_default", text = "Then you'll know he was brilliant, and that his brilliance did not save him from himself, which is a lesson every mage in my Magic Quarter should learn. Speak to Dalar Dawnweaver at the Sepulcher if you'd like to hear someone curse him properly, because Dalar knew him rather better than you did." } },
+      choices = { { text = "I'll find him, my lady.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    past = {
+      hub = true,
+      lines = { { id = "ps_default", text = "I served Arthas as a banshee, bound to him and wailing at his heel, until the day his hold on us faltered and I found I could think my own thoughts again. Ask about it if you like, though some of my answers will be shorter than others." } },
+      again = {
+        { id = "ps_again", text = "What else of those days? Choose carefully." },
+        { id = "ps_again2", text = "Ask, then. I may even answer." },
+      },
+      choices = {
+        { text = "How did you break his hold?", next = "freedom" },
+        { text = "Who held Lordaeron when you woke?", next = "dreadlords" },
+        { text = "Did you ever face Arthas again?", next = "ambush" },
+        { text = "Do you remember your family, my lady?", next = "family", when = { disposition = { min = 65 } } },
+        { text = "Enough of the past, my lady.", next = "hello" },
+      },
+    },
+    freedom = {
+      lines = {
+        { id = "fr_default", text = "His power waned for reasons I have never learned, and the chains slackened, and I was the first to slip them because I had been waiting for nothing else. I gathered every one of the dead who woke beside me with their own minds again, and I named them the Forsaken, because that is what the world had made of us." },
+        { id = "fr_scourge", when = { origin = "forsaken_scourge_remembered" }, text = "You remember the time before, as I do, every village and every face, so I'll tell you what I tell myself. His power waned and the chains slackened, and the hand that did those things was yours, but the will was his, and he will answer for both." },
+      },
+      choices = {
+        { text = "What was it like, to wake?", next = "freedom2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    freedom2 = {
+      lines = { { id = "f2_default", text = "It was like standing in a burnt house you once lived in, knowing every room and owning none of them. Most of my people still feel it, and the ones who say they don't are lying, so I let them lie and give them work instead." } },
+      choices = {
+        { text = "I still feel it, my lady.", next = "BACK", fx = { affinity = 1 }, when = { race = "Scourge" } },
+        { text = "Work is a kind of mercy, then.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    dreadlords = {
+      lines = { { id = "dl_default", text = "Three dreadlords of the Legion, left behind to rule the ruins, and they thought me a useful servant who'd forgotten to stay dead. I turned them against each other, and I allied with a human called Garithos, a Grand Marshal of the Alliance's leftovers who hated elves as much as he hated the dead, and together we drove the demons out of the capital." } },
+      choices = {
+        { text = "And what became of Garithos?", next = "garithos" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    garithos = {
+      lines = { { id = "ga_default", text = "He wanted Lordaeron for the humans and made no secret of it, and I wanted it for the Forsaken, so the moment the last dreadlord fell I had him killed where he stood. I don't regret it, and if you think less of me, remember that he would have done the same to me a day later." } },
+      choices = {
+        { text = "You broke your word to him, my lady.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, opinion = { garithos = "betrayed" } } },
+        { text = "He'd have betrayed you first.", next = "BACK", fx = { affinity = 1, trait = { practical = 1 }, opinion = { garithos = "deserved" } } },
+      },
+    },
+    ambush = {
+      lines = { { id = "am_default", text = "Once, when he passed back through Lordaeron on his way north to his master, weakened and with his own creatures turning on him. I put a poisoned arrow in him, and Kel'Thuzad's servants dragged him away before it could finish its work, and I have spent a great many nights thinking about how close it came." } },
+      choices = {
+        { text = "You'll have another chance, my lady.", next = "ambush2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    ambush2 = {
+      lines = {
+        { id = "am2_default", text = "I intend to make one, though not yet, because he sits in Northrend on a throne of ice and the Forsaken are not strong enough to reach him. So we will grow stronger, and we will take the Plaguelands back from his servants a stone at a time, until there is nowhere left for him to hide but that throne." },
+        { id = "am2_hunter", when = { class = "HUNTER" }, text = "I intend to make one, and you'll understand that a hunter who misses once does not throw away her bow. He sits in Northrend now, out of reach, so we will take the Plaguelands from his servants a stone at a time until there is nowhere left for him to hide." },
+      },
+      choices = {
+        { text = "I'll be there when you do.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    family = {
+      lines = { { id = "fm_default", text = "You presume, but you've been useful enough to presume once. I had sisters and a brother, and a mother who kept a house in Eversong I could have found blindfolded, and I won't tell you their names, because they belong to a woman who died at the Elfgates and I prefer to leave them with her." } },
+      choices = {
+        { text = "Then I won't ask again, my lady.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Someone should remember them.", next = "family2", fx = { trait = { kind = 1 } } },
+      },
+    },
+    family2 = {
+      lines = { { id = "fy2_default", text = "Someone does, every hour of every night, and that is quite enough remembering for one family. Go on, now, before I decide you've seen more of me than you've earned." } },
+      choices = { { text = "As you wish, my lady.", next = "BACK" } },
+    },
+    horde = {
+      lines = {
+        { id = "ho_default", text = "The Horde is an arrangement, and a better one than I expected, because Thrall keeps his word and asks very little of us except that we keep ours. The orcs look at my people the way the living look at a grave, and I don't blame them, but they took us in, and I remember it." },
+        { id = "ho_living", when = { race = { "Orc", "Tauren", "Troll" } }, text = "You're one of them, so I'll be careful, though not so careful that I'll lie to you. The Horde took us in because the tauren asked, and I know precisely how much that kindness weighed against our usefulness." },
+      },
+      choices = {
+        { text = "What do you truly think of Thrall?", tag = "Persuade", next = "thrall_truth",
+          check = { pass = { any = { { disposition = { min = 70 } }, { origin = "forsaken_deathstalker_recruit", disposition = { min = 55 } }, { trait = "discreet" }, { race = "Scourge", disposition = { min = 60 } } } } },
+          fail = { next = "thrall_no", fx = { affinity = -1 } } },
+        { text = "And Cairne Bloodhoof?", next = "cairne" },
+        { text = "Should the Forsaken trust the Horde?", next = "horde_stance" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    thrall_truth = {
+      lines = { { id = "tt_default", text = "Thrall is an honest king, which is rarer than a living one in these parts and a great deal more dangerous to the people around him, because honest kings expect honesty back. He was a slave and remembers it, so he looks at my people and sees chains where I see a weapon, and I have never once corrected him, because his pity has served us better than his respect would." } },
+      choices = {
+        { text = "Does he know you think this?", next = "thrall_truth2" },
+        { text = "I'll keep that to myself, my lady.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+      },
+    },
+    thrall_truth2 = {
+      lines = { { id = "tt2_default", text = "He suspects it, I imagine, because he is not a fool, and he lets it pass because he needs someone between the Scourge and his borders. That is the nature of an alliance, and I would rather have one built on need than on love, because need doesn't wane when the mood changes." } },
+      choices = { { text = "Understood, my lady.", next = "BACK" } },
+    },
+    thrall_no = {
+      lines = { { id = "tx_default", text = "The Warchief is our ally, and I speak of him as such to strangers. You will need to be a great deal less of one before I say more." } },
+      choices = { { text = "As you say, my lady.", next = "BACK" } },
+    },
+    cairne = {
+      lines = { { id = "ca_default", text = "Cairne and his Arch Druid spoke for my people when the orcs would have left us in the ruins, and the old bull speaks of curing us as though we were sick and not dead. I find him kind, and I've learned to be wary of kind people, but I've never once caught him lying, which is more than I can say of any king I knew in life." } },
+      choices = {
+        { text = "Do you want to be cured, my lady?", next = "cure" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    cure = {
+      lines = { { id = "cz_default", text = "I want what was taken, and a cure won't give that back, because Silvermoon is still ash and my rangers are still dead. Let the tauren search, since their hope costs me nothing, and if they ever find something, I will decide then what I am willing to become." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    horde_stance = {
+      big = true,
+      lines = { { id = "hs_default", text = "My people ask me that every day in one way or another, and I give them whatever answer keeps them standing. Some tell me the living will turn on us the moment the Scourge is beaten and some tell me we owe the Horde everything, so tell me which you would say." } },
+      choices = {
+        { text = "The Horde has kept faith, my lady. Keep faith with it.", next = "BACK", fx = { align = { honor = 1 }, opinion = { forsaken_horde = "loyal" } } },
+        { text = "Trust only your own, my lady. The living forget.", next = "BACK", fx = { affinity = 1, align = { honor = -1 }, opinion = { forsaken_horde = "wary" } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    ask_me = {
+      lines = {
+        { id = "ak_default", text = "You ask a great many questions, so now I'll ask one of you. Why does anyone come to the court of the dead and offer to serve it?" },
+        { id = "ak_scourge", when = { race = "Scourge" }, text = "You ask a great many questions, so now I'll ask one of you. Why do you serve me, and what do you still remember of your life?" },
+      },
+      choices = {
+        { text = "You're the enemy of my enemy, my lady.", next = "ask_me2", fx = { trait = { practical = 1 } } },
+        { text = "Because the Scourge must be destroyed.", next = "ask_me2", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "I remember everything, my lady, and miss none of it.", next = "ask_me_life", when = { race = "Scourge" }, fx = { trait = { stern = 1 } } },
+        { text = "I miss the sun, my lady, and my family.", next = "ask_me_life", when = { race = "Scourge" }, fx = { trait = { kind = 1 } } },
+        { text = "I remember my barley outside Brill, and feel nothing.", next = "brill", when = { origin = "forsaken_brill_farmer" } },
+        { text = "I remember Dalaran's libraries, my lady.", next = "dalaran", when = { origin = "forsaken_dalaran_apprentice" } },
+      },
+    },
+    ask_me2 = {
+      lines = { { id = "ak2_default", text = "An honest enough answer, and I've heard worse from people who meant to sell me to the Crusade. What I want of you is simple: go where my deathstalkers cannot, kill what the Scourge sends, and come back and tell me what you saw, because I trust what I hear from people who have no reason to flatter me." } },
+      choices = {
+        { text = "I'll go, my lady.", next = "BACK", fx = { affinity = 1 } },
+        { text = "And what do I get for it?", next = "ask_me_pay", fx = { affinity = -1, trait = { greedy = 1 } } },
+      },
+    },
+    ask_me_pay = {
+      lines = { { id = "akp_default", text = "You get to go on being useful to me, which in this city is worth more than gold. Ask Varimathras what became of those who stopped being useful, if you can find any of them to ask." } },
+      choices = { { text = "Understood, my lady.", next = "BACK" } },
+    },
+    ask_me_life = {
+      lines = { { id = "al_default", text = "Hold on to whatever you have, whether it's memory or the lack of it, because the Lich King took everything else and he would take that too, if you let him. My people are not what they were, but they are not his, and that is the only thing I ask any of them to remember." } },
+      choices = { { text = "I'll remember it, my lady.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    brill = {
+      lines = { { id = "br_default", text = "Then you've learned what most of my people take years to understand, that feeling nothing is not the same as being nothing. The fields around Brill are full of the Scourge's leavings now, and one day they'll be ours again, and I'd like someone who remembers what grew there to see it." } },
+      choices = { { text = "I'd like that too, my lady.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    dalaran = {
+      lines = { { id = "dn_default", text = "The Kirin Tor's libraries are rubble now, and the Kirin Tor themselves are building pretty new towers and pretending they never let Kel'Thuzad walk their halls. Bethor Iceshard in my Magic Quarter remembers them too, and if you want to know what Dalaran owes us, ask him about his old friend Thule." } },
+      choices = { { text = "I'll ask him, my lady.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
@@ -264,6 +532,11 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You have been useful, and I reward usefulness, so ask what you will, and I'll answer more plainly than is my habit." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer you, briefly, and then you will go." },
     },
+    scarlet_crusade = { { id = "tp_scarlet", text = "Zealots who burn whatever the Light tells them to, and the Light, as ever, says nothing to stop them." } },
+    new_plague = { { id = "tp_plague", text = "My apothecaries' work, and a weapon against the Scourge. Faranell will tell you more than you want to know, if you let him." } },
+    syndicate = { { id = "tp_syndicate", text = "Human thieves squatting in the ruins of Alterac's nobility. Those my people catch, they hang, and I sign the orders without reading the names." } },
+    argent_dawn = { { id = "tp_dawn", text = "Some of my own sit with the Dawn, and the Dawn has the grace to treat them as allies, which surprises me more than I would like." } },
+    scholomance = { { id = "tp_scholo", text = "Kel'Thuzad's old school in Caer Darrow, where the Cult still teaches the living to raise the dead, and I would very much like to see it burn." } },
     _none = { { id = "tp_none", text = "That isn't my concern. Varimathras will tell you if it should be." } },
   },
 }

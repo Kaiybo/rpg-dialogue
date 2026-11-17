@@ -195,6 +195,7 @@ P:NPC {
 
   greetings = {
     { id = "g_novice", text = "Oh, a new one! Welcome back to the world, friend, such as it is." },
+    { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "Oh, you were a priest before, weren't you? You still fold your hands like one. I'd love to hear someday whether the Light feels different to you now, because nobody here will tell me." },
   },
 
   notice = {
