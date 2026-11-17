@@ -43,6 +43,10 @@ P:NPC {
           text = "Refuge Pointe, north in the Highlands, an' ask for Captain Nials. Tell him Longbraid would take any soldiers he can spare, an' tell him we said please." },
         { id = "h_span_done", when = { questDone = TODO_QUEST("Plea To The Alliance") },
           text = "Nials has his own fallen city tae weep over, an' I cannae blame him for it. So it's us an' the reserves o' Ironforge, whenever they come." },
+        { id = "h_dad_resolved", tags = { "news" }, when = { thread = { id = "dwarves_and_dark_iron", state = "resolved" } },
+          text = "I told the lads what ye said the King told ye, an' one o' them's carved it intae the stone by the gate. It's no' an army, but they stand straighter on the wall for it." },
+        { id = "h_dad_soured", when = { thread = { id = "dwarves_and_dark_iron", state = "soured" } },
+          text = "I've stopped askin' travellers about reinforcements. We hold Dun Modr because we're standin' in it, an' that'll have tae do." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf o' Khaz Modan! Ye'll understand what it means tae see the Span broken, for that bridge was older than my grandfather's grandfather." },
         { id = "h_paladin", when = { class = "PALADIN" },
@@ -59,6 +63,8 @@ P:NPC {
         { text = "Who was Ol' Rustlocke?", next = "rustlocke" },
         { text = "Tell me about Longbraid.", next = "longbraid" },
         { text = "Why hasn't Ironforge sent help?", next = "help" },
+        { text = "I've spoken with King Magni about Dun Modr.", next = "king_word",
+          when = { thread = { id = "dwarves_and_dark_iron", beat = "b4_magni", state = { "stirring", "unfolding" } } } },
         { text = "How long has the Span stood?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Hold fast, Rhag.", next = "END" },
       },
@@ -149,6 +155,29 @@ P:NPC {
         { id = "hn_default", text = "That Stromgarde's fallen, an' they'll no' leave the Highlands till its banner flies again. I understand him, for I'd say the same o' Dun Modr, but it doesnae put a single axe on our wall." },
       },
       choices = { { text = "Something else, Rhag.", next = "BACK", fx = { learn = { "thandol_span" } } } },
+    },
+
+    king_word = {
+      big = true,
+      lines = { { id = "kw_default", text = "Ye've stood before the King himself? Then tell me straight what he said, an' I'll decide what the lads get tae hear." } },
+      choices = {
+        { text = "He reads every letter. Ironforge hasn't forgotten you, so hold.", next = "king_hope",
+          fx = { thread = { id = "dwarves_and_dark_iron", state = "resolved" }, affinity = 3, align = { light = 1 } },
+          journal = { first = "Told Rhag Garmason that King Magni reads every letter from Dun Modr. He went straight to the wall to tell his dwarves.",
+                      third = "{name} told Rhag Garmason that Ironforge hadn't forgotten Dun Modr, and he went to tell his dwarves." } },
+        { text = "Stop waiting on Ironforge, Rhag. Dun Modr is on its own.", next = "king_alone",
+          fx = { thread = { id = "dwarves_and_dark_iron", state = "soured" }, affinity = -2, align = { light = -1 }, trait = { stern = 1 } },
+          journal = { first = "Told Rhag Garmason to stop waiting on Ironforge. He nodded as if he'd known it all along, and looked older for it.",
+                      third = "{name} told Rhag Garmason to stop waiting on Ironforge, and he took it without a word." } },
+      },
+    },
+    king_hope = {
+      lines = { { id = "kh_default", text = "He reads them, does he? Then the lads will hear it from me tonight, word for word, an' I'll make ye no promises about my voice holdin' steady while I say it." } },
+      choices = { { text = "Hold fast, Rhag.", next = "END" } },
+    },
+    king_alone = {
+      lines = { { id = "ka_default", text = "Aye, well. I think I knew it, an' I think the lads know it too, so I'll no' insult them by sayin' it out loud. Off ye go, friend, an' keep yer head down on the road." } },
+      choices = { { text = "...", next = "END" } },
     },
 
     dwarf = {

@@ -13,7 +13,7 @@ A tidier settings page. No new files: a /reload is enough.
 - "Font for names" now offers "Match the window" instead of the long Friz Quadrata/Morpheus name.
 
 ## 0.78.0 (2026-11-17)
-The Topper McNabb patch, plus everyone in Booty Bay, the battleground emissaries, Nikova Raskol, Sentinel guards, about 100 new people in the Horde capitals and the Barrens, and a journal fix. **New files: restart the game fully (a /reload won't load them).**
+The Topper McNabb patch, plus everyone in Booty Bay, the battleground emissaries, Nikova Raskol, Sentinel guards, about 100 new people in the Horde capitals and the Barrens, eleven new Stories, and a journal fix. **New files: restart the game fully (a /reload won't load them).**
 
 ### Topper McNabb (Stormwind, Trade District)
 - The Trade District's beggar now has one of the biggest conversations in the addon: about 140 conversation steps, 230 lines of his own and some 350 replies for you.
@@ -51,6 +51,26 @@ The Topper McNabb patch, plus everyone in Booty Bay, the battleground emissaries
 - **Undercity** (24): Carendin Halgar and his warlock's summons, Jeremiah Payson and his cockroaches, Aelthalyste, and trainers, merchants and a banker across every quarter, most with long memories of Lordaeron.
 - **Thunder Bluff** (24): Sage Truthseeker, Eyahn Eagletalon, Auld Stonespire, Veren Tallstrider, Magatha's attendant Rahauro, Bashana Runetotem, Mosarn, and the trainers of Hunter, Elder and Spirit Rise (the Forsaken embassy included).
 - **The Barrens** (26): Far Watch, the Crossroads and the Disciples of Naralex at the Wailing Caverns; Ratchet's folk, Klannoc Macleod's fighting ring on Fray Island, Gilthares Firebough in his Northwatch cell, and Doan Karhan.
+
+### Eleven new Stories
+Larger tales for the journal's Stories page, pieced together from several people.
+
+### Stories: Horde
+- **The Burning Blade's long reach** (Durotar to Orgrimmar): Zureetha, Galgar, Orgnil, Neeru Fireblade and Thrall, from cult daggers in the Valley of Trials to orders written in a careful hand.
+- **The Kolkar and the water** (the Barrens): Thork, Tonga, Regthar and Jorn on the centaur raids. After "Counterattack!", Regthar asks whether to ride down Krom'zar's stragglers. You decide.
+- **The new plague** (Brill to the Undercity): Johaan, Renferrel, Faranell, Varimathras and Sylvanas on the Apothecarium's work; then Thrall asks what you make of it, and remembers your answer.
+- **Arugal's children** (Silverpine): Hadrec, the Yoricks, Faerleia, Dalar and Wallace the Blind on the worgen, ending once Shadowfang Keep falls.
+- **The Grimtotem in the hills** (Thunder Bluff, Stonetalon, Thousand Needles): Magatha, Cairne, Tammra, Longhorn and Thalia.
+- **The Venture Company's reach** (Mulgore, Stonetalon, Ratchet): Mull, Seereth, Gazlowe and Sputtervalve, then Baine asks your counsel.
+
+### Stories: Alliance
+- **The missing diplomat** (Stormwind, Menethil, Theramore): DeLavey, Dashel, Mikhail, Tervosh and Jaina along "The Missing Diplomat".
+- **The broken Span** (Ironforge, Loch Modan, the Wetlands): Stoutfist, Longbraid, Rhag Garmason, King Magni and Nials. You carry Magni's word back to Dun Modr and choose how to tell it.
+
+### Stories: both factions
+- **The axes of Ashenvale:** the Warsong lumber camps, from Mastok, Kuray'bin and Thrall on one side and Raene, Shindrell and Tyrande on the other.
+- **The eye on the docks** (Booty Bay): Crazz, Lozgil, Ian Strom and the Baron on a Bloodsail spy. Tell Seahorn who it is, or keep the Baron's game going.
+- **Something under Silithus** (levels 48-60): Pestlezugg, Williden, Larksbane, Mar'alith and Baristolth on the hum under the sands.
 
 ### Fixed
 - **Notes**: the page looked blank and clicking it did nothing. Now a hint tells you to click, a click anywhere on the page puts the cursor in, the page grows as you write and scrolls to follow the cursor, and your notes save as you type and when you click away.

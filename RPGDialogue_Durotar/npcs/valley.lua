@@ -384,6 +384,7 @@ P:NPC {
   greetings = {
     { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark, and last week they cut a peon's throat over a sack of cactus apples. Help me put a stop to it." },
     { id = "g_back", when = { metBefore = true }, text = "You've been north? Tell me what you saw, all of it." },
+    { id = "g_bb_unfolding", when = { thread = { id = "burning_blade", state = "unfolding" } }, text = "Orgnil sent word from Razor Hill about orders written in a careful hand, and now I can't stop looking at the road to Orgrimmar. Tell me what else you've seen." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade has been busy in that time. Tell me you've seen something useful." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the valley went away furious after talking with you. I don't much care who you anger, so long as it isn't the people fighting the Blade." },
   },

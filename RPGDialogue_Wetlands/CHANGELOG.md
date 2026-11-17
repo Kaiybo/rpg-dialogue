@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.20.0 (2026-11-17)
+- New story "The broken Span": tell Rhag Garmason what King Magni said about Dun Modr; Mikhail reacts to "The missing diplomat".
+
 ## 1.19.0 (2026-11-17)
 - New people to talk to: James Halloran, Merrin Rockweaver, Rethiel the Greenwarden, Rhag Garmason. New files: restart the game fully (a /reload won't load them).
 - Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.

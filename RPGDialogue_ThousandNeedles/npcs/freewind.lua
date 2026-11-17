@@ -111,6 +111,8 @@ P:NPC {
           text = "The Grimtotem on Darkcloud Pinnacle keep their own counsel, too much of it. Find out what they plan." },
         { id = "h_arnak", when = { questActive = TODO_QUEST("Wanted - Arnak Grimtotem") },
           text = "Arnak Grimtotem. The poster says murder, and if it speaks true, he has earned whatever finds him." },
+        { id = "h_grim_resolved", tags = { "news" }, when = { thread = { id = "grimtotem", state = "resolved" } },
+          text = "Lakota sleeps under Freewind's roofs again, and Thalia has untied her knot. The Grimtotem still hold Darkcloud Pinnacle, so I'll keep watching it, but tonight I'll watch it with a lighter heart." },
         { id = "h_nataka", when = { heardLine = "nataka.h_default" },
           text = "You've seen Nataka, in Desolace? Is he well? I let a whole year go by without writing to him, so tell me he's well, and that he isn't angry with me." },
         { id = "h_family", when = { questActive = TODO_QUEST("Family Tree") },

@@ -14,6 +14,11 @@ towns.lua
 topics.lua
 claims.lua
 threads.lua
+threads_horde_orc.lua
+threads_forsaken.lua
+threads_tauren.lua
+threads_frontiers.lua
+threads_alliance.lua
 origins\human.lua
 origins\dwarf.lua
 origins\gnome.lua
