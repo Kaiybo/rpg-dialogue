@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_kirintor_arrogant", tags = { "news" }, when = { gossip = { topic = "kirin_tor", stance = "arrogant" } },
+      text = "Ansirem tells me you told him our arrogance bred the Cult of the Damned. He was offended for a full day, which for Ansirem means you were right about something." },
+    { id = "o_necro_study", tags = { "news" }, when = { gossip = { topic = "necromancy", stance = "study" } },
+      text = "Celindra mentioned you think we should study necromancy to fight it. Please don't say that above the second floor; some of the council still have nightmares about Kel'Thuzad's lectures." },
     { id = "g_default", text = "Welcome to the Violet Citadel. Mind the stairs; some of them are newer than others." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. These halls could use a face that isn't worried about wards." },
     { id = "g_helped", when = { questDone = TODO_QUEST("Friend of the Kirin Tor") },
@@ -37,6 +41,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_kirintor = {
+      lines = {
+        { id = "opn_kirintor_q", text = "That's the argument upstairs every evening, and it ends the same way, which is with nobody agreeing. Half the council says Dalaran is an Alliance city and should act like one, and the other half says a city of scholars should belong to no banner at all. I'd like to hear it from someone who has to live with the answer." },
+      },
+      choices = {
+        { text = "The Alliance. Dalaran was founded among men, and they need you.", next = "opn_kirintor_r", fx = { align = { order = 1 }, opinion = { kirin_tor = "alliance" } } },
+        { text = "No banner. Knowledge shouldn't wear a tabard.", next = "opn_kirintor_r", fx = { affinity = 1, align = { order = -1 }, opinion = { kirin_tor = "neutral" } } },
+        { text = "Whichever side keeps the Scourge out of your cellars.", next = "opn_kirintor_r", fx = { trait = { practical = 1 }, opinion = { kirin_tor = "useful" } } },
+        { text = "The Horde fought the Legion too. Remember that, Archmage.", next = "opn_kirintor_r", when = { faction = "Horde" }, fx = { affinity = 1, opinion = { kirin_tor = "neutral", horde = "proud" } } },
+        { text = "I'll leave that to the council.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r = {
+      lines = {
+        { id = "opn_kirintor_r_alliance", when = { opinion = { topic = "kirin_tor", stance = "alliance" } }, text = "Founded among men, yes, and burned among them too. You're not wrong, and the Alliance would agree with you loudly, which is rather the trouble." },
+        { id = "opn_kirintor_r_neutral", when = { opinion = { topic = "kirin_tor", stance = "neutral" } }, text = "Knowledge shouldn't wear a tabard. I'm going to steal that, I'm afraid, and say it upstairs as if I'd thought of it myself." },
+        { id = "opn_kirintor_r_useful", when = { opinion = { topic = "kirin_tor", stance = "useful" } }, text = "A practical answer, and the one the council always arrives at after six hours of the impractical ones. Thank you for saving me the six hours." },
+        { id = "opn_kirintor_r_default", text = "It's very good at leaving things to itself. That's how we ended up behind a dome." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -184,6 +211,7 @@ P:NPC {
         { id = "dw_default", text = "Some said it was for protection, and some said we hid in there to study and scheme, and both were partly right. What I know is that we were alone under it, and being alone nearly killed us when the ley lines broke." },
       },
       choices = {
+        { text = "Whose side should Dalaran stand on now?", next = "opn_kirintor" },
         { text = "Better behind a wall and safe than open and overrun.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Opening the city was right. Allies are worth the risk.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -372,6 +400,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_necro = {
+      lines = {
+        { id = "opn_necro_q", text = "Kel'Thuzad asked the council that exact question, years ago, and they expelled him for it, and then he came back with an army of corpses. Some of us think the answer was right and the man was wrong. Be brief, but be honest: what do you think?" },
+      },
+      choices = {
+        { text = "Never. That road leads to Kel'Thuzad every time.", next = "opn_necro_r", fx = { align = { light = 1 }, opinion = { necromancy = "forbid" } } },
+        { text = "Know your enemy. Study it, carefully.", next = "opn_necro_r", fx = { affinity = 1, align = { light = -1 }, opinion = { necromancy = "study" } } },
+        { text = "Study it, but never alone, and never in secret.", next = "opn_necro_r", fx = { trait = { careful = 1 }, opinion = { necromancy = "watched" } } },
+        { text = "I am what necromancy made. Burn every page.", next = "opn_necro_r", when = { race = "Scourge" }, fx = { opinion = { necromancy = "forbid", undeath = "curse" } } },
+        { text = "That's for wiser heads than mine.", next = "BACK" },
+      },
+    },
+    opn_necro_r = {
+      lines = {
+        { id = "opn_necro_r_forbid", when = { opinion = { topic = "necromancy", stance = "forbid" } }, text = "Every time, yes. Antonidas said the same, and he was right, and he died anyway, which is the part that keeps me in this room at night." },
+        { id = "opn_necro_r_study", when = { opinion = { topic = "necromancy", stance = "study" } }, text = "Carefully. Everyone says carefully, and Kel'Thuzad said it too. I don't disagree with you, which is precisely what frightens me." },
+        { id = "opn_necro_r_watched", when = { opinion = { topic = "necromancy", stance = "watched" } }, text = "Never alone and never in secret. That's the one rule we broke with him, and it's a good one to put over a door. Now, please, I have wards to see to." },
+        { id = "opn_necro_r_default", text = "There are fewer wiser heads than there used to be. Ask me again when the towers are finished." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Yes? I'm Celindra, and I have three wards to recalibrate and only one pair of hands, so please be brief." },
@@ -463,6 +514,7 @@ P:NPC {
         { id = "an_default", key = true, text = "He was my friend, and the finest mind this city ever produced, and he died in these streets when the dead came for us. I put a great deal of work aside after that, because some of it was his as much as mine." },
       },
       choices = {
+        { text = "Should the Kirin Tor study necromancy, to fight it?", next = "opn_necro" },
         { text = "I'm sorry for your loss.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "What work did you put aside?", next = "antonidas_work" },
         { text = "Something else.", next = "BACK" },

@@ -113,6 +113,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_steamwheedle_distrust", tags = { "news" }, when = { gossip = { topic = "steamwheedle", stance = "distrust" } },
+          text = "Harlo says you called us thieves with a ledger. Thieves don't give receipts, sweetheart, and I give receipts!" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and dressed for it! Stamp the snow off those boots at the door, sugar, and if you see a beetle on the hearth, you have my permission to cut it in half, just not the hearth." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
@@ -425,6 +427,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Crusade calls us soft, the Dawn calls them mad, and the Scourge doesn't care which of us is right. You've seen both, I expect, so tell me what you make of the Scarlet Crusade." },
+      },
+      choices = {
+        { text = "Zealots. They murder the innocent and call it purging.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "They kill Scourge. I'll forgive them a great deal for that.", next = "op_r2", fx = { align = { honor = -1 }, trait = { stern = 1 }, opinion = { scarlet_crusade = "useful" } } },
+        { text = "Some are good men lost in a bad cause.", next = "op_r3", fx = { trait = { kind = 1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They'd burn me on sight. That tells you enough.", next = "op_r4", fx = { affinity = 1, opinion = { scarlet_crusade = "hate" } }, when = { race = "Scourge" } },
+        { text = "They shame the Light I serve, Gregor.", next = "op_r5", fx = { affinity = 1, opinion = { scarlet_crusade = "wrong", the_light = "trust" } }, when = { class = "PALADIN" } },
+        { text = "I'd rather not judge them.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "You've seen Hearthglen, then, or heard from someone who has. The Dawn won't stain itself that way, whatever it costs us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "They kill a great deal more than Scourge, friend, and they keep poor records of which was which." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Some are, and the Dawn takes them in when they come to their senses. More come every season than you'd guess." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "It does, and the Dawn will not, and you've my word on that much, for whatever an old soldier's word is worth." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r5 = {
+      lines = { { id = "op_r5_default", text = "Aye, and they'd say you shame it by talking to me. The Light will sort it out, though I wish it would hurry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_gregor = {
       big = true,
       lines = { { id = "xpt_gregor_default", text = "I'd never tell anyone who to trust, because trust is earned at the campfire and not at the cradle. But the Dawn takes dwarf and human, elf and orc alike, and we've found the fight against the dead goes better when nobody is fighting the living too." } },
@@ -602,6 +638,7 @@ P:NPC {
     scarlet = {
       lines = { { id = "s_default", text = "They began where we began, with the dead walking in Lordaeron. Then they decided everyone not wearing red was the enemy. We decided the enemy was the enemy." } },
       choices = {
+        { text = "And what do you make of the Crusade yourself?", next = "op_ask" },
         { text = "Is the Dawn really so different, inside?", tag = "Persuade", next = "scarlet_inside",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { questDone = TODO_QUEST("The Everlook Report") } } } },
           fail = { next = "scarlet_record", fx = { affinity = -1 } } },

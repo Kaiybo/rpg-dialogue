@@ -750,7 +750,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "o_fandral_doubt", tags = { "news" }, when = { opinion = { topic = "fandral", stance = "doubt" } },
-          text = "Tenaron tells the Council you'd follow neither the High Priestess nor the Archdruid. Keep thinking for yourself; the Council could use more of it." },
+          text = "Word is you'd follow neither the High Priestess nor the Archdruid. Keep thinking for yourself; the Council could use more of it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Council's orders are mostly for blades and bows, but there is always someone on the list who needs mending more than fighting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order is sworn to obey, they tell me, which makes you easier to give orders to than most of the adventurers I see." },
         { id = "h_default", key = true,

@@ -222,7 +222,7 @@ P:NPC {
         { id = "o_tyrande_distrust", tags = { "news" }, when = { opinion = { topic = "tyrande", stance = "distrust" } },
           text = "I am told you think I spend my Sentinels like copper. I have buried more of them than you have ever met, so think on that before you say it again." },
         { id = "o_tyrande_admire", tags = { "news" }, when = { opinion = { topic = "tyrande", stance = "admire" } },
-          text = "Tenaron writes that you would follow me before the Archdruid. I hope you never have to make that choice, but I will remember it." },
+          text = "I am told you would follow me before the Archdruid. I hope you never have to make that choice, but I will remember it." },
         { id = "o_alliance_distrust", tags = { "news" }, when = { gossip = { topic = "alliance", stance = "distrust" } },
           text = "I hear you agreed with the Archdruid that we should stand alone. Remember that outsiders stood with us at Hyjal, whatever he tells you now." },
         { id = "h_pt_tyrande", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },

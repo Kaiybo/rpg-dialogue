@@ -47,6 +47,38 @@ P:Pool {
 P:Pool {
   id = "citizen_alliance", role = "citizen", faction = "Alliance",
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_a_bolvar", priority = 150, when = { npcFlag = "op_a_bolvar" }, fx = { npcFlag = { clear = "op_a_bolvar" } },
+      text = "Lord Bolvar? I'd trust him with my own children, and he's never once sat that throne as if it were his. I only wish he'd shout at the nobles a little louder." },
+    { id = "g_op_a_nobles", priority = 150, when = { npcFlag = "op_a_nobles" }, fx = { npcFlag = { clear = "op_a_nobles" } },
+      text = "Hush, not so loud! You're not wrong, mind, and my brother says the same about the House of Nobles every night, but he says it with the shutters closed." },
+    { id = "g_op_a_peace", priority = 150, when = { npcFlag = "op_a_peace" }, fx = { npcFlag = { clear = "op_a_peace" } },
+      text = "Lady Jaina's a brave one, I'll give her that, and if she can keep the orcs quiet I'll light a candle for her. I only wish I could make myself trust it." },
+    { id = "g_op_a_war", priority = 150, when = { npcFlag = "op_a_war" }, fx = { npcFlag = { clear = "op_a_war" } },
+      text = "You and half the taverns in the kingdom, friend. I lost an uncle in the last war, so part of me agrees with you, but the rest of me is tired of burying people." },
+    { id = "g_op_a_defias", priority = 150, when = { npcFlag = "op_a_defias" }, fx = { npcFlag = { clear = "op_a_defias" } },
+      text = "There's plenty here would cheer to hear it, after what they've done to the farms. My neighbour's boy ran off to join them, though, so you'll forgive me if I don't cheer too loudly." },
+    { id = "g_op_a_watch", priority = 150, when = { npcFlag = "op_a_watch" }, fx = { npcFlag = { clear = "op_a_watch" } },
+      text = "Light bless you for saying it. Commander Ebonlock writes to Stormwind every week for more men, they say, and every week the answer is the same." },
+    { id = "g_op_a_ashen", priority = 150, when = { npcFlag = "op_a_ashen" }, fx = { npcFlag = { clear = "op_a_ashen" } },
+      text = "The Sentinels say the same, and they've been saying it with arrows. I hope it doesn't come to a proper war out there, though I'm afraid it already has." },
+    { id = "g_op_a_forsaken", priority = 150, when = { npcFlag = "op_a_forsaken" }, fx = { npcFlag = { clear = "op_a_forsaken" } },
+      text = "I've heard what they do in the hills, and I believe every word of it. Whatever they were before, they're something else entirely now." },
+    { id = "g_op_a_gnome", priority = 150, when = { npcFlag = "op_a_gnome" }, fx = { npcFlag = { clear = "op_a_gnome" } },
+      text = "Then I hope he's quick about it! Your folk have been lodging in Ironforge long enough, and every one I've met deserves a home of their own again." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_peace_for", once = true, priority = 70, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
+      text = "Folk say you stood up for Lady Jaina's peace with the orcs. There's some round here who'd call that soft, though not me." },
+    { id = "g_o_peace_against", once = true, priority = 70, when = { gossip = { topic = "peace", stance = { "against", "war" } } },
+      text = "I hear you'd have the Horde driven into the sea. Plenty here would raise a mug to that, after the last war." },
+    { id = "g_o_defias_soft", once = true, priority = 70, when = { gossip = { topic = "defias", stance = { "masons_wronged", "sympathetic", "mercy" } } },
+      text = "Word is you've a soft spot for the Defias masons. Mind who you say that to, because some folk round here have lost more than a harvest to them." },
+    { id = "g_o_nobles", once = true, priority = 70, when = { gossip = { topic = "stormwind", stance = "abandoned_its_own" } },
+      text = "Somebody told me you've no love for the nobles in Stormwind. You'll find plenty here who agree, though few will say so out loud." },
+    { id = "g_o_bolvar", once = true, priority = 70, when = { gossip = { topic = "bolvar", stance = { "trust", "respect" } } },
+      text = "I'm told you spoke up for Lord Bolvar. Good; the poor man gets little enough thanks for sitting a throne that isn't his." },
+    { id = "g_o_forsaken", once = true, priority = 70, when = { gossip = { topic = "forsaken", stance = { "trust", "useful", "deserving" } } },
+      text = "Is it true you said the Forsaken aren't so bad? I'd not repeat that here, if I were you, because there's folk in this town who've buried their kin twice." },
     { id = "g1", text = "Light keep you, friend. Something I can do for you?" },
     { id = "g2", when = { timesTalked = { min = 2 } }, text = "Back again? People will think we're old friends, and I suppose by now we nearly are." },
     { id = "g3", when = { timeOfDay = "night" }, text = "Evening. You'd do well to find a fire soon; the roads aren't kind after dark, these days." },
@@ -67,6 +99,7 @@ P:Pool {
       text = "Explorers' League, are you? My boy's read every one of Brann's stories twice over, and he'd give his front teeth to carry one of your packs." },
   },
   lines = {
+    { id = "l_ask", text = "Everyone's got a view on the regent and the war these days, and I've heard them all twice. What's yours, if you don't mind my asking?" },
     { id = "l1", text = "Everything costs more since the war. Bread, boots, lamp oil, the lot of it, and nobody's wages have kept up." },
     { id = "l2", text = "My uncle says the Alliance isn't what it was, with Gilneas walled off and Lordaeron gone to the dead. I tell him we've still got the dwarves, and he can't argue with that." },
     { id = "l3", text = "Night elves, now, on our side! Twenty years ago nobody'd heard of them, and now they're selling arrows in the market." },
@@ -74,7 +107,29 @@ P:Pool {
     { id = "l5", text = "Every family I know has someone out in the field: Westfall, Redridge, Ashenvale, somewhere. We light a candle and hope the letters keep coming." },
     { id = "l6", when = { band = { "Greenhorn", "Blooded" } }, text = "You're young for the road. Be careful out there, won't you? My sister's boy went off looking just like you." },
   },
-  choices = { { text = "Light keep you too.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "Lord Bolvar's a good man. Give the regent time.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { bolvar = "trust" }, align = { order = 1 }, npcFlag = { set = { "op_told", "op_a_bolvar" } } } },
+    { text = "The nobles care more for their gold than for folk like you.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { stormwind = "abandoned_its_own" }, align = { order = -1 }, npcFlag = { set = { "op_told", "op_a_nobles" } } } },
+    { text = "Lady Jaina's peace with the orcs is worth keeping.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { peace = "for", jaina = "trust" }, npcFlag = { set = { "op_told", "op_a_peace" } } } },
+    { text = "I'd sooner see the Horde driven back into the sea.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { peace = "against" }, trait = { stern = 1 }, npcFlag = { set = { "op_told", "op_a_war" } } } },
+    { text = "The Defias are bandits. Hang them and be done with it.", next = "BACK", when = { zone = { "Westfall", "Elwynn Forest", "Redridge Mountains" }, ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { defias = "hardline" }, npcFlag = { set = { "op_told", "op_a_defias" } } } },
+    { text = "The Night Watch can't hold Darkshire alone much longer.", next = "BACK", when = { zone = "Duskwood", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { night_watch = "needs_soldiers" }, npcFlag = { set = { "op_told", "op_a_watch" } } } },
+    { text = "The orcs have no business in Ashenvale's woods.", next = "BACK", when = { zone = { "Ashenvale", "Darkshore", "Stonetalon Mountains" }, ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { ashenvale = "war" }, npcFlag = { set = { "op_told", "op_a_ashen" } } } },
+    { text = "The Forsaken are no better than the Scourge they left.", next = "BACK", when = { zone = { "Hillsbrad Foothills", "Arathi Highlands", "Alterac Mountains", "Wetlands" }, ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { forsaken = "hate" }, npcFlag = { set = { "op_told", "op_a_forsaken" } } } },
+    { text = "Gnomeregan will be ours again. Mekkatorque will see to it.", next = "BACK", when = { race = "Gnome", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { mekkatorque = "trust", gnomeregan = "reclaim" }, npcFlag = { set = { "op_told", "op_a_gnome" } } } },
+    { text = "Light keep you too.", next = "END" },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "Word travels with the caravans, and the caravans stop here. Here's what I've heard from them." },
@@ -95,6 +150,34 @@ P:Pool {
 P:Pool {
   id = "citizen_horde", role = "citizen", faction = "Horde",
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_h_trust", priority = 150, when = { npcFlag = "op_h_trust" }, fx = { npcFlag = { clear = "op_h_trust" } },
+      text = "Throm-ka! My father would have liked you. He never stopped saying that Thrall walked into the camps alone and walked out with all of us behind him." },
+    { id = "g_op_h_soft", priority = 150, when = { npcFlag = "op_h_soft" }, fx = { npcFlag = { clear = "op_h_soft" } },
+      text = "Soft? He broke the camps and crossed an ocean, friend, and I'd like to see you do either. Still, you're not the only one I've heard say it, and that worries me more than your saying it." },
+    { id = "g_op_h_peace", priority = 150, when = { npcFlag = "op_h_peace" }, fx = { npcFlag = { clear = "op_h_peace" } },
+      text = "Quiet years are good years. My children have never seen a war, and I'd like to keep it that way for as long as the humans let me." },
+    { id = "g_op_h_war", priority = 150, when = { npcFlag = "op_h_war" }, fx = { npcFlag = { clear = "op_h_war" } },
+      text = "Maybe they won't, and maybe you're right, but I've seen what war costs and I'm in no hurry to pay it again. Let them strike first, and then we'll see." },
+    { id = "g_op_h_ashen", priority = 150, when = { npcFlag = "op_h_ashen" }, fx = { npcFlag = { clear = "op_h_ashen" } },
+      text = "The night elves would have your hide for saying so, but the Horde can't build homes out of good intentions. Somebody has to swing the axe." },
+    { id = "g_op_h_forsaken", priority = 150, when = { npcFlag = "op_h_forsaken" }, fx = { npcFlag = { clear = "op_h_forsaken" } },
+      text = "Maybe they have. They fight, I'll give them that, and they never complain about the cold, which is more than I can say for most grunts." },
+    { id = "g_op_h_cairne", priority = 150, when = { npcFlag = "op_h_cairne" }, fx = { npcFlag = { clear = "op_h_cairne" } },
+      text = "The old bull's the best of us, and I'd not argue that with anyone. When Cairne speaks, even the orcs go quiet." },
+    { id = "g_op_h_troll", priority = 150, when = { npcFlag = "op_h_troll" }, fx = { npcFlag = { clear = "op_h_troll" } },
+      text = "Spoken like a Darkspear! Your people sailed a long way for him, and from what I've seen, you've never once looked back." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_soft", once = true, priority = 70, when = { gossip = { topic = "warchief", stance = { "soft", "weak", "distrust" } } },
+      text = "Word is you've been saying the Warchief's gone soft. I'd be careful, because some of the old grunts take that sort of thing very personally." },
+    { id = "g_o_trust", once = true, priority = 70, when = { gossip = { topic = "warchief", stance = { "trust", "respect", "admire" } } },
+      text = "I'm told you spoke up for the Warchief. Good; the grumblers have had the fires to themselves for too long." },
+    { id = "g_o_peace_for", once = true, priority = 70, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
+      text = "They say you'd keep the peace with the humans. I don't love them any more than you do, but I've grown used to sleeping through the night." },
+    { id = "g_o_peace_against", once = true, priority = 70, when = { gossip = { topic = "peace", stance = { "against", "war" } } },
+      text = "Folk say you're itching for a war with the Alliance. You'll find company for that around any fire, but save it for the battlefield." },
+    { id = "g_o_forsaken", once = true, priority = 70, when = { gossip = { topic = "forsaken", stance = { "distrust", "hate", "dangerous" } } },
+      text = "Somebody heard you say the Forsaken can't be trusted. You're not the only one thinking it, but keep it quiet near the zeppelins." },
     { id = "g1", text = "Throm-ka. What do you want of me?" },
     { id = "g2", when = { timesTalked = { min = 2 } }, text = "You again. Good; I was starting to think nobody else in the Horde could hold a conversation." },
     { id = "g3", when = { timeOfDay = "night" }, text = "It's late, and the fires are banked. Speak quietly and I'll listen." },
@@ -115,6 +198,7 @@ P:Pool {
       text = "Frostwolf! My grandfather spoke of your clan the way other orcs speak of the days before the blood, so throm-ka, friend, and honor to the Frostwolves." },
   },
   lines = {
+    { id = "l_ask", text = "Half the Horde thinks the Warchief's too patient with the humans, and the other half thinks he's the only reason we're still standing. Which half are you?" },
     { id = "l1", text = "My father spent ten years in a human camp, and now I sleep under my own roof in a land the Warchief found for us. Some days I can hardly believe it." },
     { id = "l2", text = "The tauren taught us the land, the trolls taught us the coast, and the Forsaken are still teaching us patience. It's a strange family, but it's ours." },
     { id = "l3", text = "Everything here was built in a few short years, out of red rock and stubbornness. It isn't pretty, but it stands, and nobody gave it to us." },
@@ -122,7 +206,27 @@ P:Pool {
     { id = "l5", text = "Thrall says we're done with the old ways of blood and demons. I believe him, mostly because I've seen what the old ways did to my grandfather." },
     { id = "l6", when = { band = { "Greenhorn", "Blooded" } }, text = "You're young yet. Fight smart and come home; the Horde has enough heroes buried already." },
   },
-  choices = { { text = "Strength and honor.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "The Warchief built this Horde. He has my trust.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { warchief = "trust" }, align = { honor = 1 }, npcFlag = { set = { "op_told", "op_h_trust" } } } },
+    { text = "Thrall's gone soft on the humans.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { warchief = "soft" }, align = { honor = -1 }, npcFlag = { set = { "op_told", "op_h_soft" } } } },
+    { text = "The peace with Theramore keeps the Horde strong.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { peace = "for" }, npcFlag = { set = { "op_told", "op_h_peace" } } } },
+    { text = "The Alliance will never stop hating us. No peace with them.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { peace = "against", alliance = "hate" }, trait = { stern = 1 }, npcFlag = { set = { "op_told", "op_h_war" } } } },
+    { text = "The Warsong are right. The Horde needs that timber.", next = "BACK", when = { zone = { "Ashenvale", "Stonetalon Mountains", "The Barrens" }, ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { ashenvale = "necessary" }, npcFlag = { set = { "op_told", "op_h_ashen" } } } },
+    { text = "The Forsaken have earned their place in the Horde.", next = "BACK", when = { zone = { "Tirisfal Glades", "Silverpine Forest", "Hillsbrad Foothills", "Arathi Highlands", "Alterac Mountains" }, ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { forsaken = "trust" }, npcFlag = { set = { "op_told", "op_h_forsaken" } } } },
+    { text = "Cairne's wisdom holds this Horde together.", next = "BACK", when = { race = "Tauren", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { cairne = "admire" }, npcFlag = { set = { "op_told", "op_h_cairne" } } } },
+    { text = "The Darkspear owe Thrall everything.", next = "BACK", when = { race = "Troll", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { darkspear = "loyal", warchief = "trust" }, npcFlag = { set = { "op_told", "op_h_troll" } } } },
+    { text = "Strength and honor.", next = "END" },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "Talk comes in with the wolf-riders and the kodo trains, and I listen. Here is what I've heard." },
@@ -150,6 +254,24 @@ P:Pool {
     { id = "b_kid", text = "Has anyone seen a little boy in a blue cap? He was here a moment ago!" },
   },
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_sw_bolvar", priority = 100, when = { npcFlag = "op_sw_bolvar" }, fx = { npcFlag = { clear = "op_sw_bolvar" } },
+      text = "So do I, though I'll admit he looks older every time he rides out of the Keep. Holding a throne for another man's son can't be an easy thing." },
+    { id = "g_op_sw_masons", priority = 100, when = { npcFlag = "op_sw_masons" }, fx = { npcFlag = { clear = "op_sw_masons" } },
+      text = "Shh! You'll have the guards on us both. But you're right, and every mason's widow in the Trade District would tell you so if she dared." },
+    { id = "g_op_sw_varian", priority = 100, when = { npcFlag = "op_sw_varian" }, fx = { npcFlag = { clear = "op_sw_varian" } },
+      text = "Light grant it! The prince is a sweet boy, but a city needs its king, and the children have started asking whether he's dead." },
+    { id = "g_op_sw_prestor", priority = 100, when = { npcFlag = "op_sw_prestor" }, fx = { npcFlag = { clear = "op_sw_prestor" } },
+      text = "Oh, she's lovely at the festivals, everyone says so. Mind, my cousin scrubs floors at the Keep and says the servants won't go near her rooms after dark, which is a strange thing to say about a lady." },
+    { id = "g_op_sw_westfall", priority = 100, when = { npcFlag = "op_sw_westfall" }, fx = { npcFlag = { clear = "op_sw_westfall" } },
+      text = "They're trying, the Light knows, but the Cathedral can only stretch so far. My aunt in Westfall says the only help she's had all year came from Sentinel Hill." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_varian", once = true, priority = 40, when = { gossip = { topic = "varian", stance = "hope" } },
+      text = "Someone in the market said you're sure the king's coming home. I hope you're right, friend; I've a flag put by for the day he does." },
+    { id = "g_o_prestor", once = true, priority = 40, when = { gossip = { topic = "prestor", stance = "distrust" } },
+      text = "I hear you've been speaking against Lady Prestor. I'd not do that near the Keep, friend, because the walls have ears up there, and some of them are very well paid." },
+    { id = "g_o_westfall", once = true, priority = 40, when = { gossip = { topic = "westfall", stance = { "abandoned", "send_soldiers" } } },
+      text = "Folk say you've been telling anyone who'll listen that the city's abandoned Westfall. Plenty here agree, though they'd not say it to a guard." },
     { id = "g_day", text = "Good day to you. If you're after the Trade District, follow the canal and you can't miss it." },
     { id = "g_xnoble", when = { origin = "human_minor_noble" }, text = "You'll be from one of the old houses up by the Keep; you hold your chin the way they teach you to. Don't worry, I won't ask which, because half of them owe my uncle money." },
     { id = "g_xmason", when = { origin = "human_stonemason_child" }, text = "You're a mason's child, aren't you? I'd know that scowl anywhere, because my father wore it the whole time they were rebuilding the walls and waiting on wages that never came." },
@@ -219,6 +341,7 @@ P:Pool {
     { id = "r_stealth", on = "stealth", text = "Where did that one get to? Everybody check your pockets, quickly!" },
   },
   lines = {
+    { id = "l_ask_throne", text = "My husband says Lord Bolvar's the best regent we could ask for, and my mother says the king's coming home any day now. You look like you've a view of your own on it." },
     { id = "l_rebuilt", text = "The orcs burned this city to the ground when my parents were young, and every stone you see was laid again since. Each year it looks a little more like the city they used to tell me about." },
     { id = "l_prices", text = "Bread costs a copper more than it did in spring, and nobody can tell me why, except to blame Westfall. Everything gets blamed on Westfall these days." },
     { id = "l_bolvar", text = "Highlord Bolvar stands at the young king's side every day, teaching him to rule. He's a good man, the Highlord, but a boy of ten shouldn't have to wear a crown." },
@@ -245,7 +368,19 @@ P:Pool {
     { id = "l_winterveil", when = { holiday = "winterveil" }, text = "Winter Veil, and the whole city smells of pine and roasting nuts. The children have been at the windows of the toy sellers since dawn, and I can't say I blame them." },
     { id = "l_hallows", when = { holiday = "hallowsend" }, text = "The children are carving faces into gourds for Hallow's End again. The Forsaken started this feast, people say, and I try not to think about it while I'm handing out sweets." },
   },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
   choices = {
+    { text = "Lord Bolvar's holding the kingdom together. I trust him.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { bolvar = "trust" }, align = { order = 1 }, npcFlag = { set = { "op_told", "op_sw_bolvar" } } } },
+    { text = "The House of Nobles cheated the masons. It's shameful.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { defias = "masons_wronged", stormwind = "abandoned_its_own" }, align = { order = -1 }, npcFlag = { set = { "op_told", "op_sw_masons" } } } },
+    { text = "The king will come home. I'm sure of it.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { varian = "hope" }, npcFlag = { set = { "op_told", "op_sw_varian" } } } },
+    { text = "Lady Prestor has the regent's ear, and I don't like it.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { prestor = "distrust" }, trait = { skeptical = 1 }, npcFlag = { set = { "op_told", "op_sw_prestor" } } } },
+    { text = "The Cathedral should be sending more help to Westfall.", next = "BACK", when = { class = { "PALADIN", "PRIEST" }, ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { westfall = "abandoned" }, npcFlag = { set = { "op_told", "op_sw_westfall" } } } },
     { text = "Good day to you.", next = "END" },
     { text = "Light keep you.", next = "END", when = { class = "PRIEST" } },
   },
@@ -272,6 +407,22 @@ P:Pool {
     { id = "b_tram", text = "Tram's in! Mind the gap an' mind yer beard!" },
   },
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_if_magni", priority = 100, when = { npcFlag = "op_if_magni" }, fx = { npcFlag = { clear = "op_if_magni" } },
+      text = "Aye, an' ye'll get no argument here! He's a hard head and a big heart, an' he's never once forgotten a dwarf who served him." },
+    { id = "g_op_if_alliance", priority = 100, when = { npcFlag = "op_if_alliance" }, fx = { npcFlag = { clear = "op_if_alliance" } },
+      text = "Ye're not the first to say it, an' ye'll not be the last. But Magni gave his word to the Alliance, and a Bronzebeard's word is iron, whatever it costs us." },
+    { id = "g_op_if_dark", priority = 100, when = { npcFlag = "op_if_dark" }, fx = { npcFlag = { clear = "op_if_dark" } },
+      text = "Hah! Ye'll find a hundred dwarves in the Commons who'd buy ye a drink for that. Thaurissan's lot have been a curse on Khaz Modan since the War of the Three Hammers." },
+    { id = "g_op_if_gnome", priority = 100, when = { npcFlag = "op_if_gnome" }, fx = { npcFlag = { clear = "op_if_gnome" } },
+      text = "I hope so, I do, for the wee folk have been crowded into Tinker Town long enough. Mind, I'd not want to be the first one back down those tunnels." },
+    { id = "g_op_if_thanks", priority = 100, when = { npcFlag = "op_if_thanks" }, fx = { npcFlag = { clear = "op_if_thanks" } },
+      text = "Ach, there's no need for that. Ye'd have done the same for us, an' besides, Tinker Town's never been so lively." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_magni", once = true, priority = 40, when = { gossip = { topic = "magni", stance = { "admire", "trust", "respect" } } },
+      text = "Somebody in the Commons said ye'd a fine word for King Magni. Ye've friends in this city now, whether ye wanted them or not." },
+    { id = "g_o_dark", once = true, priority = 40, when = { gossip = { topic = "dark_iron", stance = { "hate", "war" } } },
+      text = "Word is ye'd see every Dark Iron put in the ground. Ye'll not find many here to argue with ye, {g:lad|lass}." },
     { id = "g_day", text = "Good day tae ye! Come warm yer hands; the Great Forge never goes out, an' nor does the welcome." },
     { id = "g_xward", when = { origin = "dwarf_military_ward" }, text = "Ye're a Military Ward shieldbearer, I can tell by the way ye carry yer shield arm. Stood the line against the Dark Irons, did ye? Then ye've a place at any table in the Commons." },
     { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "One o' the Silver Hand initiates! Ye took the oath here under the mountain, aye? Good, for the Order's no' broken while there's dwarves like ye about tae keep it." },
@@ -316,6 +467,7 @@ P:Pool {
       text = "A rifle on yer back and a beast at yer heel; that's a mountaineer's look. Mind yer animal round the Great Forge, for the heat makes them skittish." },
   },
   lines = {
+    { id = "l_ask_magni", text = "Some say the king spends too much of Ironforge's blood on Stormwind's troubles, an' some say that's what friends are for. Where d'ye stand on it?" },
     { id = "l_magni", text = "King Magni's a Bronzebeard through an' through: loud, generous an' stubborn as granite. We'd follow him intae a dragon's mouth, an' some of us already have." },
     { id = "l_gnomes", text = "The gnomes have been livin' wi' us since Gnomeregan fell, an' they've fixed every lift an' lantern in Tinker Town. They talk faster than I can drink, mind." },
     { id = "l_darkiron", text = "My granddad's granddad fought the Dark Iron in the War of the Three Hammers, an' we're still fightin' 'em now. Some grudges are older than the mountain's beards." },
@@ -326,7 +478,21 @@ P:Pool {
     { id = "l_military", when = { subzone = "The Military Ward" }, text = "The Military Ward's where the young ones go tae learn the axe an' the shield. Ye can hear 'em shoutin' from the Forge, which means they're doin' it right." },
     { id = "l_winterveil", when = { holiday = "winterveil" }, text = "Greatfather Winter's come tae the Commons again, an' the children are queued half round the mountain. I'll no' tell ye what I asked him for, but it came in a barrel." },
   },
-  choices = { { text = "Good day tae ye.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "King Magni's the finest king the Alliance has.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { magni = "admire" }, align = { order = 1 }, npcFlag = { set = { "op_told", "op_if_magni" } } } },
+    { text = "Ironforge bleeds for Stormwind's wars and gets little thanks.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { alliance = "burden" }, align = { order = -1 }, npcFlag = { set = { "op_told", "op_if_alliance" } } } },
+    { text = "The Dark Irons should be wiped out, every last one.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { dark_iron = "hate" }, trait = { stern = 1 }, npcFlag = { set = { "op_told", "op_if_dark" } } } },
+    { text = "Gnomeregan will be taken back. Mekkatorque will see to it.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { mekkatorque = "trust", gnomeregan = "reclaim" }, npcFlag = { set = { "op_told", "op_if_gnome" } } } },
+    { text = "Thank you for taking my people in. We won't forget it.", next = "BACK", when = { race = "Gnome", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { dwarves = "grateful" }, affinity = 1, npcFlag = { set = { "op_told", "op_if_thanks" } } } },
+    { text = "Good day tae ye.", next = "END" },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "Under the mountain, every word bounces about till somebody catches it, an' I catch a fair few. Here's what's been echoin'." },
@@ -345,6 +511,22 @@ P:Pool {
 P:Pool {
   id = "citizen_darnassus", role = "citizen", community = "darnassus",
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_dn_tyrande", priority = 100, when = { npcFlag = "op_dn_tyrande" }, fx = { npcFlag = { clear = "op_dn_tyrande" } },
+      text = "She does. The Sentinels would follow her into any darkness, and some of them have followed her since before your kingdoms had names." },
+    { id = "g_op_dn_ashen", priority = 100, when = { npcFlag = "op_dn_ashen" }, fx = { npcFlag = { clear = "op_dn_ashen" } },
+      text = "Many of my sisters would say the same, and some of them are saying it with arrows already. I only wish the forest did not have to bleed to be defended." },
+    { id = "g_op_dn_fandral", priority = 100, when = { npcFlag = "op_dn_fandral" }, fx = { npcFlag = { clear = "op_dn_fandral" } },
+      text = "Hush. That is not spoken lightly here, and the Arch Druid has many friends. Still, the woods of Darkshore have not felt right to me, and I have wondered." },
+    { id = "g_op_dn_world", priority = 100, when = { npcFlag = "op_dn_world" }, fx = { npcFlag = { clear = "op_dn_world" } },
+      text = "Perhaps we should. We hid for ten thousand years, and the world grew strange without us. My daughter says the same, and I have stopped arguing with her." },
+    { id = "g_op_dn_druid", priority = 100, when = { npcFlag = "op_dn_druid" }, fx = { npcFlag = { clear = "op_dn_druid" } },
+      text = "The Cenarion Circle would agree with you, and so would I, most days. He gave our people a home when we had lost one." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_ashen_war", once = true, priority = 40, when = { gossip = { topic = "ashenvale", stance = { "war", "drive_out" } } },
+      text = "The Sentinels say you would drive every orc from Ashenvale. Elune keep you, outsider; we do not hear that often from your kind." },
+    { id = "g_o_fandral", once = true, priority = 40, when = { gossip = { topic = "fandral", stance = "distrust" } },
+      text = "I am told you have doubts about the Arch Druid. Keep them close, traveler, because Teldrassil hears more than you would think." },
     { id = "g_day", text = "Ishnu-alah. Be welcome among the branches, traveler, and walk softly; the tree hears more than you would think." },
     { id = "g_again", when = { timesTalked = { min = 2 } }, text = "You have returned. Our people count time in centuries, but I confess I noticed that it has been a few days." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Elune's light is on the water tonight. This is the hour my people love best, so forgive me if I am in no hurry." },
@@ -375,6 +557,7 @@ P:Pool {
       text = "The Sentinels keep the blade for us now, and most of our people leave the fighting to them. You chose to carry steel anyway, and the Sentinels notice such things." },
   },
   lines = {
+    { id = "l_ask_ashen", text = "The Sentinels send word from Ashenvale every week, and every week the orcs have cut deeper. Tell me, outsider, what would you do about them?" },
     { id = "l_tree", text = "Teldrassil is young as trees go, and it was planted without the blessing the old World Tree had. The druids say that will not matter, and I pray they are right." },
     { id = "l_tyrande", text = "The High Priestess Tyrande leads us while Malfurion sleeps in the Dream. She has waited for him for thousands of years before, and she will wait again." },
     { id = "l_ashenvale", text = "My sister serves with the Sentinels in Ashenvale. The orcs keep cutting down the forest, and every tree they fell is one more grave we must mourn." },
@@ -382,7 +565,21 @@ P:Pool {
     { id = "l_craft", when = { subzone = "Craftsmen's Terrace" }, text = "We work with the wood and never against it. A bow from this terrace will outlast its archer, and the archer usually lives a very long time." },
     { id = "l_warrior", when = { subzone = "Warrior's Terrace" }, text = "The Sentinels train here at dawn and at dusk. If you watch them long enough, you'll see why the orcs speak of Ashenvale with fear." },
   },
-  choices = { { text = "Elune keep you.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "Tyrande guides your people well.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { tyrande = "trust" }, align = { light = 1 }, npcFlag = { set = { "op_told", "op_dn_tyrande" } } } },
+    { text = "The Sentinels should drive every orc out of Ashenvale.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { ashenvale = "war" }, align = { light = -1 }, npcFlag = { set = { "op_told", "op_dn_ashen" } } } },
+    { text = "Teldrassil was grown without the dragons' blessing. That troubles me.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { fandral = "distrust", druidism = "careful" }, npcFlag = { set = { "op_told", "op_dn_fandral" } } } },
+    { text = "Your people should leave the trees and see the world.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { night_elves = "isolated" }, npcFlag = { set = { "op_told", "op_dn_world" } } } },
+    { text = "Fandral leads the druids wisely.", next = "BACK", when = { class = "DRUID", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { fandral = "trust", druidism = "respect" }, npcFlag = { set = { "op_told", "op_dn_druid" } } } },
+    { text = "Elune keep you.", next = "END" },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "News reaches the tree on the boats from Auberdine and on the wings of the hippogryphs. I will tell you what has come to me." },
@@ -404,6 +601,22 @@ P:Pool {
     { id = "b_zep", text = "The zeppelin's in, so if you're going to Tirisfal, run!" },
   },
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_og_trust", priority = 100, when = { npcFlag = "op_og_trust" }, fx = { npcFlag = { clear = "op_og_trust" } },
+      text = "Lok'tar to that! I was a child in the camps when he came, and I still remember the guards running." },
+    { id = "g_op_og_soft", priority = 100, when = { npcFlag = "op_og_soft" }, fx = { npcFlag = { clear = "op_og_soft" } },
+      text = "Soft? He built this city out of red rock in a handful of years, friend. But I've heard the old grunts in the Drag say the same over their grog, so you're in loud company." },
+    { id = "g_op_og_dead", priority = 100, when = { npcFlag = "op_og_dead" }, fx = { npcFlag = { clear = "op_og_dead" } },
+      text = "That's the wisest thing I've heard about them all week. They fight hard and smell worse, and nobody knows what they do in those tunnels." },
+    { id = "g_op_og_grom", priority = 100, when = { npcFlag = "op_og_grom" }, fx = { npcFlag = { clear = "op_og_grom" } },
+      text = "Never. His monument stands in Ashenvale over the canyon where the demon fell, and every grunt who goes north stops there. I mean to go myself, before I'm too old." },
+    { id = "g_op_og_troll", priority = 100, when = { npcFlag = "op_og_troll" }, fx = { npcFlag = { clear = "op_og_troll" } },
+      text = "Ha! Spoken like one of Vol'jin's own. Your people sailed a long way for the Warchief, and you've earned your place here twice over." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_soft", once = true, priority = 40, when = { gossip = { topic = "warchief", stance = { "soft", "weak" } } },
+      text = "They're saying in the Drag that you think the Warchief's gone soft. Say it there and you'll get a cheer and a fight, usually in that order." },
+    { id = "g_o_peace_for", once = true, priority = 40, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
+      text = "I hear you'd keep the peace with the humans. The Warchief would thank you for it, and half of Orgrimmar would call you soft behind your back." },
     { id = "g_day", text = "Lok'tar, friend. You walk in the Warchief's city, so walk it proudly." },
     { id = "g_xfrostwolf", when = { origin = "orc_frostwolf" }, text = "A Frostwolf! You came south from the Alterac snows when the Warchief called, didn't you? Your clan never drank the blood, and there isn't an orc in this city who forgets it." },
     { id = "g_xshaman", when = { origin = "orc_thrall_shaman" }, text = "You're one of the young ones learning at the shamans' fires; I've seen you in the Valley of Wisdom with smoke in your eyes. The elements forgive slowly, so keep listening." },
@@ -439,6 +652,7 @@ P:Pool {
       text = "The Forsaken don't come down to the Drag much, and when they do the butchers hide the good cuts. Don't take it personally; nobody's sure what your people eat." },
   },
   lines = {
+    { id = "l_ask_chief", text = "The grunts in the Drag argue every night about whether the Warchief's too easy on the humans. You've seen more of the world than they have, so what's your view?" },
     { id = "l_thrall", text = "The Warchief led us out of the camps and across the sea, and he built this city out of red rock and promises. So far, he's kept every one of them." },
     { id = "l_name", text = "This city's named for Orgrim Doomhammer, who died breaking the camps open. When you walk under the gate, you walk under his name." },
     { id = "l_kultiras", text = "The Kul Tirans sit in their fortress down the coast, sulking about their dead admiral. One of these days they'll try us again, and we'll be waiting." },
@@ -448,7 +662,21 @@ P:Pool {
     { id = "l_strength", when = { subzone = "Valley of Strength" }, text = "Every caravan from the Barrens comes through the Valley of Strength, and half the city's bread and gossip comes with them." },
     { id = "l_winterveil", when = { holiday = "winterveil" }, text = "Goblins brought this Winter Veil to us, and now there's a tree in the Valley of Strength hung with little shiny things. The grunts pretend to scowl at it and then stand there looking at it for an hour." },
   },
-  choices = { { text = "Lok'tar ogar.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "Thrall broke the camps and built this city. I trust him.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { warchief = "trust" }, align = { honor = 1 }, npcFlag = { set = { "op_told", "op_og_trust" } } } },
+    { text = "The Warchief's gone soft on the humans.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { warchief = "soft" }, align = { honor = -1 }, npcFlag = { set = { "op_told", "op_og_soft" } } } },
+    { text = "The Forsaken are useful, but I'd not turn my back on them.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { forsaken = "useful" }, trait = { skeptical = 1 }, npcFlag = { set = { "op_told", "op_og_dead" } } } },
+    { text = "Grom Hellscream died to free us all. Never forget it.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { warsong = "admire" }, npcFlag = { set = { "op_told", "op_og_grom" } } } },
+    { text = "The Darkspear owe Thrall everything.", next = "BACK", when = { race = "Troll", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { darkspear = "loyal", warchief = "trust" }, npcFlag = { set = { "op_told", "op_og_troll" } } } },
+    { text = "Lok'tar ogar.", next = "END" },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "Everything that crosses Durotar passes through these gates in the end, and I sit by the gates. Here's what's come in." },
@@ -466,6 +694,22 @@ P:Pool {
 P:Pool {
   id = "citizen_thunderbluff", role = "citizen", community = "thunder_bluff",
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_tb_cairne", priority = 100, when = { npcFlag = "op_tb_cairne" }, fx = { npcFlag = { clear = "op_tb_cairne" } },
+      text = "He is, and he'd be the last to say so. He's old now, but when he speaks at the council fire, even the wind seems to listen." },
+    { id = "g_op_tb_grim1", priority = 100, when = { npcFlag = "op_tb_grim1" }, fx = { npcFlag = { clear = "op_tb_grim1" } },
+      text = "You have a kinder heart than most on these bluffs. Some of them may yet come back to us, but not while Magatha speaks for them." },
+    { id = "g_op_tb_grim2", priority = 100, when = { npcFlag = "op_tb_grim2" }, fx = { npcFlag = { clear = "op_tb_grim2" } },
+      text = "Many here would agree with you, though the High Chieftain would rather bring them home than drive them off. They are still our kin, however they behave." },
+    { id = "g_op_tb_orcs", priority = 100, when = { npcFlag = "op_tb_orcs" }, fx = { npcFlag = { clear = "op_tb_orcs" } },
+      text = "They are, and they've kept every promise they made us. Thrall's people helped us drive the centaur back when nobody else would." },
+    { id = "g_op_tb_peace", priority = 100, when = { npcFlag = "op_tb_peace" }, fx = { npcFlag = { clear = "op_tb_peace" } },
+      text = "The Earth Mother would be glad to hear it. Mulgore's grass has drunk enough blood for a hundred lifetimes." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_grim", once = true, priority = 40, when = { gossip = { topic = "grimtotem", stance = { "lost", "hate" } } },
+      text = "Word on the bluffs is that you'd drive the Grimtotem out. Speak softly near the Elder Rise, friend; Magatha's people listen." },
+    { id = "g_o_cairne", once = true, priority = 40, when = { gossip = { topic = "cairne", stance = { "admire", "trust", "respect" } } },
+      text = "I hear you've spoken well of the High Chieftain. The bluffs remember a kind word, and so do I." },
     { id = "g_day", text = "Walk with the Earth Mother, friend. The wind is kind on the bluffs today." },
     { id = "g_xgrimtotem", when = { origin = "tauren_grimtotem_born" }, text = "You left the Grimtotem to walk with Cairne; the bluffs know it, friend. Some of your kin still pass through here with hard eyes, so you'll find more welcome in my company than in theirs." },
     { id = "g_xhamuul", when = { origin = "tauren_hamuul_pupil" }, text = "You are one of Hamuul's pupils from the Elder Rise. Our people waited a very long time for druids again, so every one of you is watched with hope, and you should walk gently under it." },
@@ -497,13 +741,28 @@ P:Pool {
       text = "Darkspear, are you? The bluffs are a long climb from the sea, and your people always eye our lifts as though they might be a trick." },
   },
   lines = {
+    { id = "l_ask_grim", text = "The Grimtotem walk the bluffs with hard eyes, and Magatha smiles at the High Chieftain like a hungry wolf. What would you do about them, friend?" },
     { id = "l_cairne", text = "High Chieftain Cairne brought the tribes together and led us to these bluffs. Before him, we wandered the plains with the centaur at our backs, and now we have a home." },
     { id = "l_lifts", text = "The lifts are the only way up, and the only way down that doesn't end at the bottom in pieces. My father built the counterweights, so trust them." },
     { id = "l_venture", text = "The goblins of the Venture Company cut our trees and drill our earth, and they call it business. We call it something else, and Cairne has sent braves to tell them so." },
     { id = "l_grimtotem", when = { subzone = "Elder Rise" }, text = "Some of the Grimtotem keep their tents on the Elder Rise. They're polite enough to Cairne's face, but they've never liked the orcs, and they don't hide it well." },
     { id = "l_hunter", when = { subzone = "Hunter Rise" }, text = "On the Hunter Rise they teach the young to track and to wait, and the waiting is harder. I never had the patience myself; I weave baskets instead." },
   },
-  choices = { { text = "Earth Mother keep you.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "Cairne is the wisest leader in the Horde.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { cairne = "admire" }, affinity = 1, npcFlag = { set = { "op_told", "op_tb_cairne" } } } },
+    { text = "Magatha's Grimtotem still deserve a chance.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { grimtotem = "redeemable" }, align = { light = 1 }, npcFlag = { set = { "op_told", "op_tb_grim1" } } } },
+    { text = "The Grimtotem chose hatred. Drive them from the bluffs.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { grimtotem = "lost" }, align = { light = -1 }, npcFlag = { set = { "op_told", "op_tb_grim2" } } } },
+    { text = "The orcs are good allies, whatever their past.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { orcs = "trust" }, npcFlag = { set = { "op_told", "op_tb_orcs" } } } },
+    { text = "The Earth Mother wants healing, not war. I want peace.", next = "BACK", when = { race = "Tauren", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { peace = "for" }, npcFlag = { set = { "op_told", "op_tb_peace" } } } },
+    { text = "Earth Mother keep you.", next = "END" },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "News climbs the lifts slowly, but it reaches us in the end. Here is what the wind has brought up to the bluffs." },
@@ -521,6 +780,22 @@ P:Pool {
 P:Pool {
   id = "citizen_undercity", role = "citizen", community = "undercity",
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_uc_lady", priority = 100, when = { npcFlag = "op_uc_lady" }, fx = { npcFlag = { clear = "op_uc_lady" } },
+      text = "She did, and we remember it. She tore us out of the Lich King's grip by her own will, and there is little she could ask that we would not give." },
+    { id = "g_op_uc_doubt", priority = 100, when = { npcFlag = "op_uc_doubt" }, fx = { npcFlag = { clear = "op_uc_doubt" } },
+      text = "Careful. The Deathguard have very good hearing and very little patience. She answers to no one because no one ever answered for us." },
+    { id = "g_op_uc_plague", priority = 100, when = { npcFlag = "op_uc_plague" }, fx = { npcFlag = { clear = "op_uc_plague" } },
+      text = "The apothecaries brew a great many things, visitor, and most of them are meant for the Scourge. I'd not ask about the rest, and I'd not drink anything they offer you." },
+    { id = "g_op_uc_curse", priority = 100, when = { npcFlag = "op_uc_curse" }, fx = { npcFlag = { clear = "op_uc_curse" } },
+      text = "Is it? I wake without hunger or cold or fear, and I am my own. You may call that a curse, if it comforts you." },
+    { id = "g_op_uc_free", priority = 100, when = { npcFlag = "op_uc_free" }, fx = { npcFlag = { clear = "op_uc_free" } },
+      text = "Free. Yes, and I say the word every night to remind myself it's true. Don't let the living tell you otherwise." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_forsaken", once = true, priority = 40, when = { gossip = { topic = "forsaken", stance = { "distrust", "hate", "dangerous" } } },
+      text = "I hear you've told people the Forsaken can't be trusted. Bold of you, to say it up there and then walk down here." },
+    { id = "g_o_lady", once = true, priority = 40, when = { gossip = { topic = "sylvanas", stance = { "respect", "loyal", "trust" } } },
+      text = "Someone said you spoke well of the Dark Lady. Good; she has enough enemies among the living without her guests adding to them." },
     { id = "g_day", text = "Another visitor. Do try not to stare; we were all something else once." },
     { id = "g_xsoldier", when = { origin = "forsaken_lordaeron_soldier" }, text = "You wore Terenas's colors once; I can see it in how you stand by a door, as if you're still holding it. Plenty of us down here did the same, and we've stopped asking what it was for." },
     { id = "g_xdalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "You're one of the Dalaran ones; the Magic Quarter's full of you, and you all look up at the ceiling as if you expect it to be violet. It isn't, I'm afraid, though the green has its charms." },
@@ -553,6 +828,7 @@ P:Pool {
       text = "A tauren, below ground! You must stoop under every arch, and still the bats find you. Your people were kinder to us than we expected, and I don't forget it." },
   },
   lines = {
+    { id = "l_ask_lady", text = "Visitors always want to know what we think of the Dark Lady, and they never tell us what they think. So go on, living or dead: what do you make of her?" },
     { id = "l_sylvanas", text = "The Dark Lady freed us from the Lich King's voice. I remember the silence after it stopped, and I would do anything she asked to keep it." },
     { id = "l_above", text = "The palace above us was Lordaeron's, and some of us served in it. Now it's rubble, and we live in the old sewers and crypts, which says something about the world, I suppose." },
     { id = "l_plague", text = "The Royal Apothecary Society says they're brewing a new plague to use against the Scourge. I try not to wonder what they test it on." },
@@ -560,7 +836,21 @@ P:Pool {
     { id = "l_canals", text = "Don't touch the green in the canals. It doesn't kill us, quite, but it doesn't help either." },
     { id = "l_hallows", when = { holiday = "hallowsend" }, text = "Hallow's End is ours, whatever the living tell you. We burn the Wicker Man for the day we broke free of the Scourge, and the living hand out sweets and pretend it's about pumpkins." },
   },
-  choices = { { text = "Farewell.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "The Dark Lady freed your people. She has my respect.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { sylvanas = "respect" }, align = { order = 1 }, npcFlag = { set = { "op_told", "op_uc_lady" } } } },
+    { text = "Sylvanas answers to no one, and that worries me.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { sylvanas = "distrust" }, align = { order = -1 }, npcFlag = { set = { "op_told", "op_uc_doubt" } } } },
+    { text = "Your apothecaries are brewing something foul down here.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { new_plague = "dangerous" }, trait = { skeptical = 1 }, npcFlag = { set = { "op_told", "op_uc_plague" } } } },
+    { text = "Undeath is a curse, whatever the Forsaken make of it.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { undeath = "curse" }, npcFlag = { set = { "op_told", "op_uc_curse" } } } },
+    { text = "We're free now. That's all that matters.", next = "BACK", when = { race = "Scourge", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { undeath = "free", sylvanas = "loyal" }, npcFlag = { set = { "op_told", "op_uc_free" } } } },
+    { text = "Farewell.", next = "END" },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "The dead have nothing to do but listen, and the walls down here carry every whisper. Here is what has drifted my way." },

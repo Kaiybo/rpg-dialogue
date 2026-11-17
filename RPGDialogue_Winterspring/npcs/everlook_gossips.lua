@@ -37,8 +37,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Steamwheedle runs it, pal, and everybody pays the Cartel's prices with a smile because there's nowhere else to buy a blanket for a hundred miles. Between you an' me, what do you make of us goblins runnin' the place?" },
+      },
+      choices = {
+        { text = "A neutral town in a frozen wilderness. That's good work.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { steamwheedle = "respect" } } },
+        { text = "Thieves with a ledger. Everyone here pays too much.", next = "op_r2", fx = { affinity = -1, align = { order = -1 }, trait = { skeptical = 1 }, opinion = { steamwheedle = "distrust" } } },
+        { text = "Useful. Everyone needs somewhere both sides can trade.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { steamwheedle = "useful" } } },
+        { text = "I'll keep my thoughts and my coin.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Ha! I'm gonna quote you to Vizzie, and she's gonna pretend she don't care, and then she's gonna repeat it to everybody." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Too much compared to what, friend, freezin' to death or walkin' back to Felwood? Everything's got a price, and up here the price includes the walk you didn't take." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Now that's a businessman talkin'. Useful is what keeps the lights on, and the lights up here are very expensive." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_dark_iron_hate", tags = { "news" }, when = { gossip = { topic = "dark_iron", stance = "hate" } },
+          text = "Word round the inn is you told the Dark Iron smith what you think of his clan. Brave or daft, pal, I'm still decidin' which." },
         { id = "h_default", key = true, text = "Harlo Wigglesworth, pal, and I'm the one in Everlook who knows what's going on, mostly because I ask and partly because I never stop. I've just got back from a trip through Felwood, and I've got news that'd curl your toes and probably your boots too." },
         { id = "h_strange", tags = { "news" }, when = { questDone = TODO_QUEST("A Strange One") },
           text = "So you met Winna at Bloodvenom! Isn't she somethin'? I couldn't decide if I wanted to help her or run, so I did the sensible goblin thing and subcontracted the job to you." },
@@ -132,6 +158,7 @@ P:NPC {
         { id = "ev_default", text = "Umi's building something furry again, and Legacki's going to scream about it, which is the best news I've had all week, pal. And the furbolgs out at Winterfall have gone nasty, which Donova Snowden at the hot springs can tell you more about than me, and for once I mean that." },
       },
       choices = {
+        { text = "Who really runs Everlook, Harlo?", next = "op_ask" },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },
