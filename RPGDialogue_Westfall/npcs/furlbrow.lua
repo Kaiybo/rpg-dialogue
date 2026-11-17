@@ -65,6 +65,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every night, and Verna does it twice as often as I do. Nobody's answered with a wheelwright yet, but you came up the road, so maybe somebody's listening after all." } },
+      choices = {
+        { text = "Someone is listening, Theodore. Hold on to that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer won't mend a wagon wheel. Hands will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nobody, I expect. The thieves have the house, Stormwind has its own troubles, and I've a broken wagon and a tired horse, so if there's justice left in this kingdom, it hasn't come down the road to Westfall yet." } },
+      choices = {
+        { text = "The law will reach Westfall again. I'll see that it does.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the law, Theodore. Take your farm back by force.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Theodore.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -82,6 +100,8 @@ P:NPC {
         { id = "h_dream", when = { metBefore = true }, text = "I dreamt about the pumpkins again, every one of them as big as a wagon wheel. Then I woke up and remembered, but it was a good dream while it lasted." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you'd come a year ago, maybe I'd still be on my farm, and maybe not, but I'd have liked to see you try." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a dog once, a good dog, before the thieves came, and I miss him more than the pumpkins." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Verna will be glad of you, since she's been doing all the praying and I've not been much help with it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If the Light's finally come to Westfall, it'll find plenty of work waiting." },
       },
       again = {
         { id = "h_again", text = "Something else? I've time enough, since time's about all I've got." },
@@ -100,6 +120,8 @@ P:NPC {
         { text = "Couldn't magic mend your wagon, Theodore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could a warrior have saved your farm, Theodore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What happened to your dog, Theodore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have you prayed about the farm, Theodore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who'll answer for taking your farm, Theodore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Take care, Theodore.", next = "END" },
       },
     },

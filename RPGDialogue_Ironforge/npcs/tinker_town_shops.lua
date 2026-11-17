@@ -66,8 +66,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than I'd like, and almost always because they bought cheap flux somewhere else, which I tell them every time. The Mystic Ward's priests have patched up half of Tinker Town, and I've stopped counting the eyebrows." } },
+      choices = {
+        { text = "Then I'll help where I can. Carelessness shouldn't cost a life.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them learn the hard way. Buy cheap flux, pay the price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me see your parts.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "In Tinker Town? No, but in the Commons there's a trader who sells flux he hasn't tested, and he knows it, and I've told the guards, and they've done nothing. A paladin who'd have a word with him would do more good than I can." } },
+      choices = {
+        { text = "I'll have a word. Cheating buyers is a kind of theft.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the market punish him. Buyers should test their own parts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gearcutter.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've nothing tested for prayers, I'm afraid, but my bandage clamps are tested twice, and they've helped a few engineers who didn't test their own work." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'll tell you now my parts aren't rated for being hit with a hammer, so please don't." },
         { id = "h_default", key = true,
           text = "Gearcutter Cogspinner, engineering supplies, and every part in this shop is tested twice before it's sold. If something of mine blows up, it's because you meant it to, and that's the only kind of explosion I'll stand behind." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -90,6 +110,8 @@ P:NPC {
         { text = "Has fel energy melted your parts before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would blasting powder be any use to a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a scope really improve my aim, Gearcutter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do many engineers come to you hurt, Gearcutter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is honest work rarer than it should be, Gearcutter?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Gearcutter.", next = "END" },
       },
     },
@@ -198,8 +220,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every day, which is why I test them on myself first, and why I've lost a great deal of hair. A good engineer worries about the people at the other end of the invention, and a great one does something about it." } },
+      choices = {
+        { text = "Then you're a good engineer. Caring about others is what matters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Inventors who worry too much never invent anything great.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about the wheel instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Better in some ways, worse in others, for it'll never tire, but it'll never love you either, and I've heard paladins and their chargers are very close. I'll keep working on it, but I'll leave the loving to the real ones." } },
+      choices = {
+        { text = "A living charger is a companion. Nothing should replace that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A machine that never tires would serve better. Build it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Springspindle.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I don't suppose you could bless my prototype, because it's caught fire twice this week and I'm beginning to suspect it doesn't like me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Imagine a charger that never tires, without wheels, of course, and you've imagined my next prototype, which I'll describe if you've a minute." },
         { id = "h_default", key = true,
           text = "Springspindle Fizzlegear, engineer, inventor and future destroyer of the wheel. If my calculations hold, wheels will be completely out of date within a generation, and I'll be the reason." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -223,6 +265,8 @@ P:NPC {
         { text = "Did your last prototype really catch fire on its own?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would replace the wheel on a battlefield, Springspindle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What have hunters' beasts taught you, Springspindle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever worry your inventions might hurt someone, Springspindle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would a mechanical charger be as good as a living one?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -350,8 +394,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Very well, though some of the older priests think potions are cheating, which makes me laugh, because they'll drink one quick enough when the trolls are coming. I think a healer should use whatever saves a life, and I'll say so to anyone." } },
+      choices = {
+        { text = "Faith first, then potions. Prayer comes before anything brewed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever saves a life is right. Potions and prayers both.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Teach me alchemy, Tally.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oh, I've a potion that hardens the skin, very useful if you're standing in front of someone and something's trying to hit them. I'd give one to every paladin in Ironforge if they'd stand still long enough to drink it." } },
+      choices = {
+        { text = "Then I'll take one, to protect whoever stands behind me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep it for myself. A paladin can't protect anyone dead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Goodbye, Tally.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want healing potions, I expect, for when your prayers run low, and they will; I've seen it happen to the very best of them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want healing potions, I expect, though your sort heal yourselves, so maybe something for the troggs instead." },
         { id = "h_default", key = true,
           text = "Tally Berryfizz, alchemist! I teach anyone who wants to learn how to turn a handful of weeds into something that'll save their life, and I've never yet lost a student, or not for very long." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -376,6 +440,8 @@ P:NPC {
         { text = "What does your mana potion actually taste like?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which potions should a warrior always carry, Tally?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which herbs do hunters bring you, Tally?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do potions and prayer work well together, Tally?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever brew anything to protect others, Tally?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Tally.", next = "END" },
       },
     },

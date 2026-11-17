@@ -55,8 +55,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than I'd like and fewer than I feared, and every one of them was too young for it. The army's away and the gnolls know it, so I send farm boys to do soldiers' work, and then I write to their mothers." } },
+      choices = {
+        { text = "Let me help you write those letters, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Soldiers die, Marshal. That's what the uniform is for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Westbrook, if you ask me, where Rainer's holding the border with what's left after the kingdom sent its soldiers abroad. Or Hogger's camp, if you're feeling bold, though bold is how most of the names on my notices got there." } },
+      choices = {
+        { text = "I'll go where you send me, Marshal. That's the oath.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go where the Light leads me, not where you point.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because Josetta upstairs at the inn could use someone to share the wounded with, and my men keep finding new ways to get hurt." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in my office. If you've come to tell me the Light's on my side, I'll take it, but I'd sooner have your hammer on the west road." },
         { id = "h_default", text = "Marshal Dughan. If you've a complaint, take a number. If you've a sword, take a job." },
         { id = "h_from_mcbride", key = true, tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Goldshire"), days = 2 } },
           text = "McBride's papers, then. He speaks well of you, which is rare, so don't make a liar of him." },
@@ -126,6 +146,8 @@ P:NPC {
         { text = "Do dwarves turn up in Goldshire much, Marshal?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Where could a mage be of use to you, Marshal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you leave the cellar alone, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How many soldiers have you lost this season, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where would a paladin do the most good in Elwynn, Marshal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },

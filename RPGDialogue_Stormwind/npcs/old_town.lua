@@ -59,8 +59,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A chaplain out of Northshire, for six years, and he never lifted a sword but he never left a man behind either. I saw him walk across a field under orc arrows to reach a lad who was already gone, and I've never been that brave in my life." } },
+      choices = {
+        { text = "That's the work, Harry. Nobody should die alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Brave, but foolish. A dead priest helps nobody.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Loud, shining and very hard to kill, and the men fought better with one nearby. They never ran, and that was the trouble sometimes, because a soldier who won't run will stay when he ought to fall back." } },
+      choices = {
+        { text = "A paladin holds the line. That's what the oath means.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A wise paladin knows when to fall back and save his men.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down and have a pint, {class}, because the Pig and Whistle could use someone to bless the ale, and nobody else here will." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I fought beside your sort in the war, {class}, and I'll say this, they were the last ones off the field every time." },
         { id = "h_default", key = true,
           text = "Harry Burlguard. I carried a sword for the kingdom more years than you've been alive, and now I sit here and teach the young ones how to keep breathing. It's quieter, mostly." },
         { id = "h_training", tags = { "news" }, when = { questActive = TODO_QUEST("A Warrior's Training") },
@@ -95,6 +115,8 @@ P:NPC {
         { text = "Did you trust the rogues you fought beside?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What did soldiers think of mages in the war?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did hunters do for your company, Harry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did your company have a priest in the war, Harry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What were paladins like on the battlefield, Harry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Enjoy your pint.", next = "END" },
       },
     },
@@ -229,8 +251,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Pray for the mug, it's been through more than I have. No, go on, say one if you like, and I won't tell anyone, but don't expect me to stand up for it." } },
+      choices = {
+        { text = "Then I'll pray for you both, Bartleby, sitting or standing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No prayers for you while you're clutching that mug.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd fight the king for this mug, and I'd lose, and I'd shake his hand after, because that's how it's done. You lot fight fair, at least, which is more than I can say for the canal boys." } },
+      choices = {
+        { text = "I fight fair, Bartleby, but I won't fight a drunk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fair or not, I'd have that mug before you stood up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Come to tell me to put the mug down, have you? Well, you'll have to pray harder than that." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You want my mug? Come and take it, shiny, and we'll see whose Light's brighter." },
         { id = "h_default", key = true,
           text = "Bartleby's the name, and this is my mug, and this is my stool, and that's my end of the bar. Anybody who wants any of the three can try taking them." },
         { id = "h_drunk_q", tags = { "news" }, when = { questActive = TODO_QUEST("Bartleby the Drunk") },
@@ -261,6 +303,8 @@ P:NPC {
         { text = "Have you ever fought, Bartleby?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why keep beasts away from your end, Bartleby?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my imp bother you, Bartleby?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Shall I pray for you, Bartleby?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you really fight a paladin for that mug?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Enjoy your drink.", next = "END" },
       },
     },
@@ -386,8 +430,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only on the night before they march, love, and then it's every one of them, quiet as mice. I've poured a lot of last pints in this room, and I've learned to tell which ones they'll come back for." } },
+      choices = {
+        { text = "Then I'll sit with them that night, Elly, if they'll have me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A blessed pint won't stop an arrow, Elly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They want you to think well of them, I suppose, or they're afraid you'll tell their sergeants. Either way the stools stay on the floor while you're here, and that's all I ask of anyone." } },
+      choices = {
+        { text = "I'll keep the peace, Elly. That's part of my duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them brawl. A soldier needs to let off steam.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Mind the soldiers, because they'll ask you to bless their pints and then spill them on you." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The soldiers behave better with your lot in the room, love, so stay as long as you like." },
         { id = "h_default", text = "Elly Langston, and I run the drinks round the Pig and Whistle while Reese keeps the taps. Sit where you like, except Bartleby's stool, because he bites." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Busy tonight, love, the soldiers are in. Shout if you need me and duck if you hear a stool." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -409,6 +473,8 @@ P:NPC {
         { text = "Do many brawls start in the Pig and Whistle, Elly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters drink in the Pig and Whistle often, Elly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you mind serving the Lamb's crowd, Elly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the soldiers really want their pints blessed, Elly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why do soldiers behave better around a paladin, Elly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not tonight.", next = "END" },
       },
     },
@@ -504,8 +570,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I saw a few of them work three days without sleep, and I saw one fall in the mud and get up again without a word. I'm just a cook now, but I make sure the ones who come in here eat first." } },
+      choices = {
+        { text = "Then you're serving the wounded too, Stephen, in your way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healers should know their limits. Fainting helps nobody.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I said I'm just a cook, and I meant it, but I'll tell you this much: I learned to use a knife a long time before I learned to use it on onions. Leave it there, {class}." } },
+      choices = {
+        { text = "I'll leave it there. A man's past is his own business.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A man should own what he's done, Stephen, good or bad.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Eat something, {class}, because I've watched healers faint on an empty stomach, and it's no way to save anybody." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sit, eat, and don't tell me about your battles, because I've heard enough stories to last me." },
         { id = "h_default", text = "Stephen Ryback. I cook for the Pig and Whistle and teach anybody who wants to learn, which isn't many, because most folk would rather eat than learn to." },
         { id = "h_back", when = { metBefore = true }, text = "You're back. Did the last lesson take, or did you burn it?" },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -527,6 +613,8 @@ P:NPC {
         { text = "Can't I just conjure my food?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior eat before a fight, Stephen?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What game do you most like to cook, Stephen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did you see many healers in the war, Stephen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Were you a soldier before you were a cook, Stephen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -628,8 +716,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not the beasts, no, because every hide that's worked well is a death that wasn't wasted. It's the men I knew who went out hunting and didn't come back that I think about, and there's no craft for that." } },
+      choices = {
+        { text = "Then I'll pray for them, Simon, and for the beasts too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast is a beast. There's nothing holy in a hide.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The careful ones do, and they come back, and the ones who don't come in on their second visit with blisters and a much humbler manner. I'd rather fit you properly the first time." } },
+      choices = {
+        { text = "Then fit me well, Simon. Good preparation is part of duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little chafing never hurt anyone. I'll manage as I am.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Protective Hide! Don't mind the smell, {class}, because the beasts are past caring and we use every scrap of them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a good leather jerkin under that plate, {class}, or you'll chafe raw before you've crossed Elwynn." },
         { id = "h_default", text = "Simon Tanner. I teach leatherworking, Randal helps when he's not admiring himself, and Jillian sells the thread and the dye if you've a project of your own." },
         { id = "h_skin", when = { profession = "Skinning" }, text = "You skin, I can tell; there's always a little of the job left under a skinner's nails. Hides want working, and I can teach you how." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -651,6 +759,8 @@ P:NPC {
         { text = "Do warriors really wear leather under their armour, Simon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What makes a good hide for leatherworking, Simon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do warlocks come to you often, Simon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does working with the dead ever trouble you, Simon?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do many paladins buy leather from you, Simon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -744,8 +854,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than they'd admit, and they never go to the Cathedral for it, because the Cathedral asks questions. If you're the sort who heals and forgets, there'll always be work for you near this door." } },
+      choices = {
+        { text = "The Cathedral's rules exist for a reason. I'll follow them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll heal and forget. Questions can wait.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "SI:7 is the law, in the places the law can't reach, and the Highlord knows it even if he doesn't like it. You'd be surprised how many of your heroes owe their lives to someone you'd arrest on sight." } },
+      choices = {
+        { text = "Even in the shadows there must be honour, Osborne.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it keeps Stormwind safe, the shadows can have their way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at SI:7's door. Either you're lost or someone in here needs patching, and I'd guess the second." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at SI:7's door. I'll ask you to keep your voice down and your sense of justice in your pocket, {class}." },
         { id = "h_default", key = true,
           text = "They call me the Night Man, because I work late and I'm hard to see. I train the ones who come to SI:7's door, and I send away the ones who shouldn't have found it." },
         { id = "h_request", tags = { "news" }, when = { questActive = TODO_QUEST("A Simple Request") },
@@ -784,6 +914,8 @@ P:NPC {
         { text = "Has SI:7 ever trained a warrior, Osborne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are hunters and rogues much alike, Osborne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What understanding does SI:7 have with the Lamb?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do SI:7's agents ever need a priest's help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does SI:7 bend the law, Osborne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -979,8 +1111,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Poison's only a tool, the same as healing, and both get used on people who deserve it and some who don't. I don't sleep any worse than anyone else in Old Town." } },
+      choices = {
+        { text = "Healing and poison aren't the same, Jasper. You know it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A tool's a tool. It's the hand that matters.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Here and there, and mostly there, and the guard doesn't ask because the guard buys some of it. SI:7 knows exactly what I sell, {class}, and they're the ones who keep me in business." } },
+      choices = {
+        { text = "SI:7 or not, the law should know what you sell.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If SI:7 protects you, it isn't my place to interfere.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've nothing for you, unless you've come to bless a vial, and I'd rather you didn't." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at my stall. You'll be wanting to know where my stock comes from, and I'll be wanting you to leave." },
         { id = "h_default", key = true,
           text = "Jasper Fel. I sell the tools of a quiet trade to the people who practise it, and I don't ask what they're for, so long as nobody asks me where I got them." },
         { id = "h_detonator", tags = { "news" }, when = { questActive = TODO_QUEST("Detonation at a Distance") },
@@ -1012,6 +1164,8 @@ P:NPC {
         { text = "What could a warrior buy from your stall, Jasper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters use poison on their arrows, Jasper?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Lamb's people trade with you often?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does selling poison ever trouble you, Jasper?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where does your stock come from, Jasper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

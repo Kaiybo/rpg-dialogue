@@ -66,8 +66,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Most o' them, sooner or later, for the wolves an' the troggs don't care how new ye are. I sell them linen an' send them tae Belm's for a hot meal, an' I tell them tae go easy, though they never listen." } },
+      choices = {
+        { text = "I'll keep an eye on them. The young ones need guarding.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them learn the hard way. Dun Morogh teaches well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me see what you have, Kreg.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That the high snows aren't a game, an' the wendigos don't care how brave ye are. I've buried more than one bold lad who thought he could take on the whole mountain alone, an' I'd like tae bury fewer." } },
+      choices = {
+        { text = "Courage means knowing when to stand together. I'll tell them so.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some lessons can't be taught. They have to be lived.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Thanks, Kreg.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Kharanos! Ye'll want bandages, I'd guess, for yer prayers won't last the whole road tae Ironforge, an' I've seen priests try." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want rations an' a whetstone, an' maybe a stern word for the recruits, for they'll listen tae a paladin before they'll listen tae me." },
         { id = "h_default", key = true,
           text = "Kreg Bilmn, general supplies, an' I've kept this shop in Kharanos since before most o' the new recruits were born. Whatever ye forgot tae bring from Anvilmar, I've likely got it." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -92,6 +112,8 @@ P:NPC {
         { text = "Why are warlocks so rare out here in Kharanos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's the most useful thing a warrior can buy here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which beasts should a hunter watch for in Dun Morogh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do many of the young recruits come back hurt, Kreg?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the recruits need to hear, Kreg?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Kreg.", next = "END" },
       },
     },
@@ -200,8 +222,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I forge them honest, an' that's all the blessin' I know how tae give. If ye want a priest tae say somethin' over it after, I'll no' stop ye, but I'll tell ye now the steel's the same either way." } },
+      choices = {
+        { text = "A blessing adds something steel alone can't, Grawn.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Honest steel is enough. A mace doesn't need prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me see your weapons.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd want tae know what ye mean by unfair, for a troll stabbin' ye in the back is unfair, but it's no' the hammer's fault. If it broke because ye swung it at a stone wall, though, ye'll be buyin' another." } },
+      choices = {
+        { text = "A fair fight is the only kind worth having, Grawn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "There's no such thing as a fair fight. Only won ones.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Grawn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest buyin' a blade? I'll sell ye a mace, then, for that's what yer sort carry, an' I make a mace that won't break on a trogg's skull." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want a hammer, then, an' I've a few that'll do the Light proud, though I'd say they do Grawn Thromwyn proud first." },
         { id = "h_default", key = true,
           text = "Grawn Thromwyn, weaponsmith. Every blade in this shop was made tae be used, no' hung on a wall, an' I'll take back any that breaks in an honest fight." },
         { id = "h_warrior", when = { class = "WARRIOR" },
@@ -225,6 +267,8 @@ P:NPC {
         { text = "Do mages often buy weapons from you, Grawn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which of your blades would hold against a Frostmane troll?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What blade should a hunter carry, Grawn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever forge weapons blessed for the faithful, Grawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you take back a hammer broken in an unfair fight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Grawn.", next = "END" },
       },
     },
@@ -333,8 +377,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Aye, an' I'll argue it wi' anyone, though I'll admit a priest an' a good coat o' mail together are better than either alone. The recruits who come back are the ones who wore my mail an' had a healer behind them." } },
+      choices = {
+        { text = "Faith saves more than mail ever could, Boran.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. Good mail is a prayer answered.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me see your armour.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "If ye stand in front o' them, aye, an' that's what a paladin's for, I've heard. My armor will keep yer ribs whole, an' yer ribs will keep the troggs off the recruits behind ye, so we'll call it a partnership." } },
+      choices = {
+        { text = "Then I'll stand in front, every time. That's my duty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Armour keeps me alive. The recruits must look after themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Thanks, Boran.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want somethin' light, I'd guess, but I'll tell ye now my armor's kept more recruits alive than any prayer, an' I'll stand by that." },
         { id = "h_default", key = true,
           text = "Boran Ironclink, armorer, an' my armor's kept more recruits alive in Dun Morogh than any priest. Mail, shields, helms, the lot, an' all made tae keep the cold out as well as the claws." },
         { id = "h_paladin", when = { class = "PALADIN" },
@@ -359,6 +422,8 @@ P:NPC {
         { text = "Do you not make armor for warlocks, Boran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What armor would you give a warrior heading for the troggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What armor suits a hunter in Dun Morogh, Boran?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Has your armour really saved more lives than prayer, Boran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can heavy armour protect the weak as well as its wearer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Boran.", next = "END" },
       },
     },
@@ -458,8 +523,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every one o' them, an' I keep a list in my head, though I'll no' say it aloud. If ye're a priest, I'd take it kindly if ye said a word for them now an' then, for I never know what tae say myself." } },
+      choices = {
+        { text = "I'll pray for them, Durnan. Every name on your list.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Don't dwell on the dead. Dress the living warmly instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Show me what you have.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Troggs an' wolves, mostly, an' the Frostmane trolls in the hills, an' the young ones who think they can handle all three at once. Keep an eye on them for me, will ye? They listen tae paladins." } },
+      choices = {
+        { text = "I'll watch over the recruits. It's what a paladin does.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The recruits are soldiers. They can look after themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Durnan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, fresh out o' Anvilmar! Ye'll want somethin' warm under all that mail, an' I've a padded shirt that'll keep the cold out." },
         { id = "h_default", key = true,
           text = "Durnan Furcutter, cloth an' leather. Every recruit who comes through Anvilmar needs somethin' warmer than what they arrived in, an' I make sure they get it." },
         { id = "h_mage", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
@@ -481,6 +565,8 @@ P:NPC {
         { text = "Can leather really be made to stay quiet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a warrior need cloth under mail, Durnan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What leather would you recommend for a young hunter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you worry about the recruits who don't come back, Durnan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What's the danger here in Coldridge, Durnan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Durnan.", next = "END" },
       },
     },

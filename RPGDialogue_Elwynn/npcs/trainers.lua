@@ -82,8 +82,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "We mend and you defend, Sammuel would say, but the truth is that both of us do a little of each, and we'd be lost without the other. I've watched paladins kneel beside a wounded recruit with tears in their eyes, and I've watched priests stand in a doorway against kobolds." } },
+      choices = {
+        { text = "A paladin's duty is the shield, Priestess. Healing is yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We serve one Light. No rule of role binds it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Library Wing. Sammuel's down the hall, but if you've come to read, sit; the Light rewards a mind as well as an arm." },
         { id = "h_default", text = "Anetta. I keep the Library Wing, and I keep the recruits alive. Some days those are the same job." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hallowed Letter"), days = 1 } },
           text = "So McBride wrote to me about you. Then you're one of mine now. The first lesson is that the Light heals the people who annoy you too." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Do you resent tending La Salle's students, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do warriors ever come to you for healing, Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there anything in the library about the creatures of Elwynn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do paladins and priests serve the Light differently, Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -444,8 +455,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They know, and they pray about it, and they let me stay anyway, because a recruit who can hear a Defias coming is a recruit who lives. Anetta mends my students' cuts without a word of complaint, which is more charity than I'd show in her shoes." } },
+      choices = {
+        { text = "The Abbey is right to shelter you. Mercy is wise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A house of the Light shouldn't shelter knife-work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jorik.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Further than you'd like and closer than you'd admit, because we both stand between Stormwind and the people who'd ruin it. You do it in the open with a hammer, and I do it in the dark, with a letter nobody else has read." } },
+      choices = {
+        { text = "There's no honor in the dark. We're not the same.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then we're alike. The kingdom needs us both.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, behind the stables. You've come to tell me my trade is shameful, I expect, and I've heard it, so let's skip to the part where you leave." },
         { id = "h_default", text = "Jorik. I teach the quiet arts back here, where the Brothers don't have to watch, and they prefer it that way as much as I do." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Encrypted Letter"), days = 1 } },
           text = "You read the letter, or you couldn't have found me. Good. Lesson one: never trust anything you didn't decode yourself." },
@@ -483,6 +513,8 @@ P:NPC {
         { text = "Do you and La Salle ever trade lessons, Jorik?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What can a rogue teach a warrior, Jorik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How did you hear my beast before me?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Brothers know what you teach back here, Jorik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is your trade truly so far from mine, Jorik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -860,8 +892,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They need someone to tell them it's all right to be afraid, and I'm not the one to do it, because they'd never trust my orders again. Josetta comes down from the inn some evenings and sits with the ones who've had a bad day, and I pretend I haven't noticed." } },
+      choices = {
+        { text = "Fear is no shame. They need comfort as much as drills.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A coddled soldier breaks. Let them face their fear alone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Du Lac.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "About forty pounds of plate and an oath, and the oath's the heavier of the two. Wilhelm and I share this yard because his paladins and my soldiers end up on the same walls, and I'd rather they'd met before the fighting starts." } },
+      choices = {
+        { text = "An oath makes a soldier stronger, Du Lac.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "An oath is only words. The steel does the work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the practice yard. Stand by the wall, if you would, because somebody always needs you by noon." },
         { id = "h_default", text = "Du Lac. I make Stormwind's soldiers out of Elwynn's farm hands. The kingdom's strength isn't its walls. It's whoever's standing on them." },
         { id = "h_training", tags = { "news" }, when = { questActive = TODO_QUEST("A Warrior's Training") },
           text = "Your training's not finished. There's someone you need to see, and you'll have to go and find them. That's part of it." },
@@ -901,6 +952,8 @@ P:NPC {
         { text = "Do your warriors learn to fight beside mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would your recruits fight beside a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would a warrior trainer teach a hunter, Du Lac?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your recruits ever need more than bandages, Lyria?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What's the difference between a warrior and a paladin, Lyria?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1091,8 +1144,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every one of them, a little, though I try not to let it show. I'll ask a kindness of you: when you're far from here, bless someone who needs it and think of me, because I'll likely never get there myself." } },
+      choices = {
+        { text = "I will, Josetta. You'll be with me on the road.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then leave Goldshire yourself. Don't live through others.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Wilhelm's down the road, behind the smithy, but you're welcome here too, if you'd like a quiet word before the drills." },
         { id = "h_default", text = "Josetta. I teach the Light up here, above the noise of the common room, or mostly above it." },
         { id = "h_garments", when = { questActive = TODO_QUEST("Garments of the Light") },
           text = "There are folk on the road who need mending more than they'll admit. Find them and heal them, and don't wait to be asked." },
@@ -1128,6 +1191,7 @@ P:NPC {
         { text = "Does the chanting below trouble your prayers, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light have time for warriors, Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light heal beasts as well as people, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you envy the paladins who go out into the world, Josetta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -1239,8 +1303,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Someone to stand in front while I'm casting, mostly, and someone to tell me when I'm becoming too clever for my own good. Every mage in the Sanctum knows a story about one of us who went too far, and none of them had a paladin nearby to say so." } },
+      choices = {
+        { text = "I'll tell you when you've gone too far. That's my duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your power is your own business, Zaldimar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, upstairs at the Lion's Pride! Bremen would say your sort and mine have nothing to say to each other, and he'd be wrong, as usual." },
         { id = "h_default", text = "Wefhellt, of the Wizard's Sanctum, currently of the upstairs room at the Lion's Pride. The view is of a stable, but one makes do." },
         { id = "h_jennea", tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Jennea") },
           text = "Jennea in the city wants a word with you. She's sharper than I am. Don't tell her I said so; she'll have it engraved." },
@@ -1276,6 +1350,7 @@ P:NPC {
         { text = "What do you think of the warlocks below your room?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you make of warriors, Wefhellt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever studied a hunter's bond with its beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would a mage want with a paladin, Zaldimar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1430,8 +1505,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "You're very kind and very persistent, and no, there isn't, though I'll admit chapter nine has a death in it I wasn't ready for. If you must pray for someone, pray for the author, because his prose needs it more than my soul does." } },
+      choices = {
+        { text = "I'll pray for you both, whether you like it or not.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fine. Your soul's your own business, Sylvius.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "One or two, over the years, and I knew which ones before they did. I'd give you their names if it would help, but it won't, because by now they've new names and no reason to answer to the old ones." } },
+      choices = {
+        { text = "A teacher answers for what he teaches, Sylvius.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every road is chosen. You can't answer for theirs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in a reading room. If you've come to arrest someone, I'm sorry to disappoint you, because I'm only reading." },
         { id = "h_default", text = "Sylvius. I train the quiet ones in Goldshire and read a lot of books I don't need, and both are cover, and neither is your business." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("Seek out SI: 7") },
           text = "Old Town, in the city. Don't ask anyone for directions. If you can't find SI:7 without help, SI:7 doesn't need you." },
@@ -1467,6 +1561,8 @@ P:NPC {
         { text = "Why would Farley mind your students on the stairs?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why does a rogue care how loud a warrior walks?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter's beast be taught to move quietly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is there anything you'd like to talk about, Sylvius?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do your students ever join the Defias, Sylvius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Wrong room. Sorry.", next = "END" },
       },
     },

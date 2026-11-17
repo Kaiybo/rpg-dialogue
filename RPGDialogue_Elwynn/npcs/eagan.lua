@@ -74,8 +74,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "My grandfather did, every one, and I thought it was soft until the year I stopped and the wolves got bolder. Now I mutter something before I skin them, and I'll thank you not to tell Helene, because she'd laugh." } },
+      choices = {
+        { text = "Every creature deserves a word at the end, Eagan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A wolf's a wolf. Save your prayers for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Eagan.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not yet, but they're hungry, and hungry wolves get brave, so it's the recruits walking the vineyards at dusk that worry me. I'd rather thin them now, cleanly, than bury a novice come winter." } },
+      choices = {
+        { text = "Then I'll thin them quickly, and spare the pups.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Kill the lot, pups and all. The Abbey comes first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A healer, eh? Keep your linen handy, because the wolves on the ridge don't bite clean." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up here with the wolves. They'll smell you coming in all that plate, so don't expect them to sit still for a sermon." },
         { id = "h_default", key = true, text = "Wolves are pushing over the ridge, hungry ones, and they take whatever they can carry." },
         { id = "h_willem", when = { questRecent = { TODO_QUEST("Eagan Peltskinner"), days = 1 } },
           text = "Willem sent you? Then he thinks you can hold a knife, and we'll soon see if he's right." },
@@ -113,6 +133,8 @@ P:NPC {
         { text = "Do your wolves truly sense a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do wolves fight a warrior, Eagan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How would you have a hunter take these wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever say a word over the wolves you kill, Eagan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the wolves a danger to the Abbey itself, Eagan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

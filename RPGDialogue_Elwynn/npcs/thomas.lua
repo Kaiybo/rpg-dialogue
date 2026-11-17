@@ -59,8 +59,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every night, and more since I sent Rolf and Malakai north along the river, because a man can't sleep easy after a thing like that. Nothing's answered me yet, but I keep asking, which is all a guardsman knows how to do." } },
+      choices = {
+        { text = "Keep asking. Prayers for the lost are never wasted.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You did your duty, Thomas. Don't carry their fate as well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Thomas.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Find my men, if you can, or find what took them, because there's something in the water east of here that the Army doesn't want to hear about. And if it's murlocs, like Remy says, bring back enough proof that nobody in Goldshire laughs at me again." } },
+      choices = {
+        { text = "I'll find your men and bring them home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your men are likely gone. I'll look after the living.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Thomas.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because I've two men missing, and I've a feeling I'll need someone to say words before this is over." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at my bridge! Dughan said he'd send help, and I'd stopped believing him, so I'm glad to be wrong." },
         { id = "h_default", text = "Guard Thomas, of the Stormwind Army. I hold this bridge, and east of here the forest stops being friendly." },
         { id = "h_concerns", tags = { "news" }, when = { questActive = TODO_QUEST("Further Concerns") },
           text = "So Dughan sent you. I asked him for soldiers and got one adventurer, but I'll take what I'm given." },
@@ -103,6 +123,8 @@ P:NPC {
         { text = "What sort of trouble is there east of the bridge?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever fought beside a mage, guard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What tracks did you find near the lake, Guard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you pray for the men under your command, Thomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you have a paladin do at your bridge, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },

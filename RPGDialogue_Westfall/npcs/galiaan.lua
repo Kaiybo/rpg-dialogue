@@ -67,6 +67,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Whoever is nearest, which is usually me, and I am a far better scout than a healer. Elune knows the hill could use a priest of any faith, and I would mark your name on my map gladly." } },
+      choices = {
+        { text = "Then I'll tend them. Every wounded farmer deserves the care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healing farmers is wasted effort. Train real soldiers instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, scout.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Strike where my pins cluster thickest, and strike before dusk, because they scatter at night and gather again by dawn. Gryan prefers to wait until he is certain, and I respect that, but the front does not wait for certainty." } },
+      choices = {
+        { text = "Gryan commands here. We wait for his word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting loses ground. I'll strike now, without orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Back to the map, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -86,6 +104,8 @@ P:NPC {
           text = "A human who tracks with a beast at heel. Not many of your folk take to it. The ones who do make the best scouts I've seen." },
         { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye, though it hides everything under dust. I've stopped minding the dust." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Defias front moves, so I hope you move with it, rather than standing in one place to be found." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The militia lose more men to fever and wounds than to the Defias, so you are welcome on my side of the map." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You will want to charge the Defias front, I expect, so let me show you where it actually is first." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, since I lose the light at dusk." },
@@ -103,6 +123,8 @@ P:NPC {
         { text = "Your people distrust magic like mine, don't they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You look at me like you've seen my kind before.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How should a warrior fight a front that keeps moving?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Who tends the militia's wounded after your scouting runs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the militia strike the Defias front now, or wait?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good hunting, scout.", next = "END" },
       },
     },

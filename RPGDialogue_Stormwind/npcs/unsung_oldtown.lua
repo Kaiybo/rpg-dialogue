@@ -65,8 +65,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "If you like, though most of my customers would rather have them sharpened than blessed. Still, a blessing can't hurt, and a soldier going into Westfall needs all the help he can get." } },
+      choices = {
+        { text = "Every blade that protects the innocent deserves a blessing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A sharp edge does more than any blessing, Gerik.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Strength, mostly, and the sense to know when not to swing. I've sold greatswords to fools who cut down their own banners, and I'd rather sell to someone who thinks first." } },
+      choices = {
+        { text = "Strength without restraint is no strength at all.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "In battle there's no time to think. Swing hard and true.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my shop! You'll not lift anything here, I'd wager, but if you've come to bless the blades, I won't turn you away." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now here's someone who'll appreciate a proper two-hander, and I've a hammer in the back that's waited a long while for a worthy arm." },
         { id = "h_default", text = "Gerik Koen, of Heavy Handed Weapons. Greatswords, great axes, mauls and polearms, and nothing you can hold in one hand, because one-handed folk can shop at Weller's." },
         { id = "h_priest", when = { class = { "PRIEST", "MAGE", "WARLOCK" } }, text = "You've wandered into the wrong shop, I think, unless you're buying for a friend. A greatsword would only drag you over, but you're welcome to look." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! I've a fine staff or two at the back, heavy enough to put a bear to sleep, though I suppose you'd rather be the bear." },
@@ -87,6 +107,8 @@ P:NPC {
         { text = "Why choose a two-handed weapon, Gerik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters ever use polearms, Gerik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would a greatsword serve a warlock at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Shall I bless your greatswords, Gerik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What makes an arm worthy of your weapons, Gerik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Gerik.", next = "END" },
       },
     },
@@ -177,8 +199,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not the work, no, because the beast's already dead and wasting it would be worse. It's the hunters who kill for sport I can't abide, and I'll tell them so to their faces." } },
+      choices = {
+        { text = "Every life deserves respect, even a beast's.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast is meat and hide. There's no sin in sport.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the road doesn't care about your oath, and a knight who can't feed himself is a burden on everyone around him. Learn to skin, and you'll never have to beg a farmer for supper." } },
+      choices = {
+        { text = "Discipline means being ready for anything. I'll learn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll manage as I go. Skinning can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in a skinning shop. Don't faint, and don't preach, and we'll get along fine." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll not have much use for skinning, I'd guess, but since you're here, you might as well learn something useful." },
         { id = "h_default", text = "Maris Granger. Do I look like I have the time to coddle every tourist who wanders through that door? I teach skinning, and I don't get many skinners asking, so if you're serious, I'll teach you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue. You've a knife already, so you're halfway to a skinner, if you can stomach the rest of it." },
@@ -199,6 +241,8 @@ P:NPC {
         { text = "Why can't I skin something I've burned?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warrior learn skinning, Maris?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What makes a good skinner, Maris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does skinning ever trouble you, Maris?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why should a paladin learn skinning, Maris?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -287,8 +331,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I do give, I just don't do it at the counter, because then every customer wants a sad story and a lower price. The Cathedral gets a share of my profits every month, and nobody needs to know about it." } },
+      choices = {
+        { text = "Quiet charity is the truest kind, Jillian.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Charity's only worth doing if people see it done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Most are, and the ones who aren't stand out like a cracked hide. A knight tried to talk me down once, and I told him the Light was watching, and he paid in full." } },
+      choices = {
+        { text = "An honest price deserves an honest buyer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Haggling isn't dishonest, Jillian. It's just trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Prices are set, haggling is for goblins, and I'll not be shamed into charity, so we understand each other." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My prices are fair and fixed, {class}, so I'll trust you not to haggle, since your order's supposed to be honest." },
         { id = "h_default", text = "Jillian Tanner. Simon teaches the craft, Randal helps, and I sell the thread, the dye and the salt, at a price that's fair and doesn't move." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid in a leather shop. I've seen your sort wince at the pelts, so I'll say plainly that we waste nothing and kill nothing for sport." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -310,6 +374,8 @@ P:NPC {
         { text = "Do warriors use much leather, Jillian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How much salt does a hunter need, Jillian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do warlocks buy much from you, Jillian?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why won't you give charity at the counter, Jillian?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you think paladins are honest, Jillian?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Jillian.", next = "END" },
       },
     },
@@ -398,8 +464,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Clean water, extra linen and their own supper, because they're always thinking of everyone else first. I've sold a hundred bags to priests, and I've never seen one packed with anything for themselves." } },
+      choices = {
+        { text = "Caring for others first is part of the calling.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. A healer who starves heals no one.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Everything that isn't a weapon, usually, and then they're surprised when their armour rusts. The ones who pack well come back, and the ones who don't come back with stories about how they should have." } },
+      choices = {
+        { text = "Preparation is part of duty. I'll pack properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll travel light and trust the road. It's served me so far.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want a bag for bandages, I expect, because healers always run out of room before they run out of wounded." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a stout bag for plate oil and spare straps, because they always break at the worst moment." },
         { id = "h_default", text = "Alyssa Griffith. I sell bags, and I'll tell you for nothing that half of what goes wrong on the road goes wrong because somebody had to leave something behind." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll want a quiver as well as a bag, and you'll need both bigger than you think." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -420,6 +506,8 @@ P:NPC {
         { text = "Can't I carry everything with a spell?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does a warrior forget to carry, Alyssa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How big a quiver should a hunter carry, Alyssa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do healers forget to carry, Alyssa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a paladin forget to pack, Alyssa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -508,8 +596,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "There is, and they won't part with it, not for coin or for three of my best recipes. Brother Joshua says it's blessed, but I say it's the extra butter, and one day I'll prove it." } },
+      choices = {
+        { text = "Some things should stay sacred, Kendor, even bread.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Recipes should be shared. Blessings don't make bread better.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Plain stew, dark bread and whatever the local farmers gave them, which was usually more than they asked for. A good knight eats humbly, they say, though I've met a few who'd argue the point." } },
+      choices = {
+        { text = "A knight should eat humbly and leave the best for others.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A knight fights hard and should eat well for it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll know the Cathedral's famous bread, I expect, and I've been trying to get the recipe out of the brothers for years." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a good hearty stew for the march, and I've a recipe from the Silver Hand's old kitchens that's never failed." },
         { id = "h_default", text = "Kendor Kabonka. Stephen downstairs teaches the cooking, and I sell the recipes I've gathered from every farm kitchen and soldier's camp in the kingdom." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! I'd trade three of my best recipes for one of your people's ale-and-meat secrets, and nobody from Ironforge will ever take me up on it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -531,6 +639,8 @@ P:NPC {
         { text = "What recipes suit a warrior on the march, Kendor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which game makes the best dish, Kendor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why would you want to cook for a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there really a secret Cathedral bread recipe, Kendor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What did the Silver Hand eat in the old days, Kendor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Kendor.", next = "END" },
       },
     },

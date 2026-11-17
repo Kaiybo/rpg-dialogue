@@ -61,8 +61,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Worgen in the woods, the dead at Raven Hill, and a necromancer named Morbent Fel with more patience than the Night Watch has men. Commander Ebonlocke is a proud man, but he'd take your help, and he'd be wise to." } },
+      choices = {
+        { text = "Then I'll go to Darkshire and stand with the Night Watch.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Darkshire chose to stay in that cursed wood. Let it defend itself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Darkshire could use you more than this altar can, {class}, but I'll ask what's weighing on you first, as I ask everyone." },
         { id = "h_default", text = "I'm Bishop Farthing. People come to this altar with heavy things on their backs, and I've found it's kinder to ask about the burden before the business. What's yours?" },
         { id = "h_journal", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Wisdom") },
           text = "You've come from Darkshire; I can tell by the way you keep looking at the shadows. Give me Jitters' journal, and then tell me plainly what you mean to do about Morbent Fel." },
@@ -93,6 +103,7 @@ P:NPC {
         { text = "Would Darkshire welcome a mage, Bishop?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What burden do warriors bring to your altar, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there room for a hunter's prayers, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would a paladin find waiting in Duskwood, Bishop?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Nothing weighs on me today, Bishop.", next = "END" },
       },
     },
@@ -259,8 +270,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That impurity is beaten out, not prayed out, and that it takes the hammer and the fire both. The book says a blade quenched too fast will shatter, and I've decided that's true of novices as well, though I haven't yet worked out how to say it from the pulpit." } },
+      choices = {
+        { text = "Faith is forged slowly, under discipline. Your sermon's right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Faith isn't forged, Brother. It's either in you or it isn't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now here's someone who'll understand my sermon, because what is a paladin but iron that's been through the fire and come out stronger?" },
         { id = "h_default", text = "Brother Kristoff, of the Cathedral. I'm to give a sermon on the Fortitude of the Spirit, and I've decided, against the advice of everyone I've asked, to build it from a book on metallurgy." },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Speaking of Fortitude") },
           text = "The Stresses of Iron, that's the one. The Royal Library should have a copy, up in the Keep, and Milton Sheaf knows every shelf like his own family. Ask him kindly; he likes kindness, and he likes clean hands better." },
@@ -290,6 +311,7 @@ P:NPC {
         { text = "Would you really put a rogue in your sermon?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does your book say anything about the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does fletching fit into a sermon on fortitude, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What does iron teach about a paladin's faith, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the sermon.", next = "END" },
       },
     },
@@ -442,8 +464,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every morning, and they always nod to me, which is more than the nobles do. I like to think every one of them is going out to help someone, so I say a little prayer for each as they pass, even the grumpy ones." } },
+      choices = {
+        { text = "Your prayers matter, Brother. I'll gladly carry one with me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Save your prayers for the gnomes. Paladins can look after themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, welcome, welcome! Lord Shadowbreaker keeps his hall here in the Cathedral, though I expect you know the way better than I do." },
         { id = "h_default", text = "Brother Sarno, at your service! I keep the door, which mostly means I say hello to everyone in Stormwind at least once. Is this your first time in the Cathedral?" },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Tinkmaster Overspark") },
           text = "Tinkmaster Overspark is in Tinker Town, in Ironforge, and he's beside himself over Techbot. Do go and see him; I've been worrying about that little machine all week." },
@@ -476,6 +508,7 @@ P:NPC {
         { text = "Do many soldiers come to the Cathedral, Brother Sarno?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you like animals, Brother Sarno?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Am I really welcome here, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do many paladins pass through your doors, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Brother.", next = "END" },
       },
     },
@@ -778,8 +811,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Whether their parents can see them, mostly, and whether they're angry that the children lived. I tell them no, they aren't angry, and yes, they're watching, but I'd sleep easier if someone wiser than me said it." } },
+      choices = {
+        { text = "Their parents watch over them. I'll tell them so myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I can't tell them what I don't know, Matron. Better the truth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They'll go when they're of age, and some of them will die, which is the cost of war that people forget. I'd only ask that whoever trains them remembers they were children first, because nobody remembered it for their fathers." } },
+      choices = {
+        { text = "Every soldier was someone's child. I won't forget it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The kingdom needs soldiers, Matron. Sentiment won't hold the walls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The children will want a story with the Light in it, {class}, and I'll want you to make it one with a happy ending." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Some of my oldest boys would follow you into the Burning Steppes if you let them, {class}, so I'll thank you not to." },
         { id = "h_default", text = "There are costs to war, {class}, and the ones people forget are the children. Those with no one else come here, to us, and stay until they can fend for themselves. I'm Matron Nightingale, and this is their home." },
         { id = "h_letter", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Remember That I Love You") },
           text = "Heartweaver... oh, little Jeremy Heartweaver! He came to us years ago, after Lordaeron fell, with both his parents lost, and he hardly said a word the whole time he was here." },
@@ -811,6 +864,8 @@ P:NPC {
         { text = "Would any of your children make good mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do the soldiers' children need most, Matron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would a gentle beast be good for the children, Matron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do the orphans ask about when they pray, Matron?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the older boys train as soldiers, Matron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Matron.", next = "END" },
       },
     },
@@ -954,8 +1009,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They worship you, and they shouldn't, since the Light deserves that and you only borrow it. Still, a child needs someone to look up to, so mind your manners and your language while you're in the square." } },
+      choices = {
+        { text = "I'll set them a good example, Shellene. I promise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm a soldier, not a nursemaid. They'll learn what they learn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now stand up straight, the children are watching, and they'll copy everything you do, so I'd thank you to do it well." },
         { id = "h_default", text = "I'm Shellene, I help the Matron with the children, which is to say I chase them, feed them, and pray over them every night. All will be well with them, the Light shall see to that, and I'll see to the rest." },
         { id = "h_human", when = { race = "Human" },
           text = "You'll forgive the noise, I hope; some of them have never had a place to be loud before, so I let them be loud a little. Not too much, mind, children!" },
@@ -977,6 +1042,7 @@ P:NPC {
         { text = "Would a little light help them sleep, Shellene?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the children play at being soldiers, Shellene?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the children ever leave the city, Shellene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the children look up to paladins, Shellene?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

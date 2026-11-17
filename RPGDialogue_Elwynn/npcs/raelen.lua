@@ -67,8 +67,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I sent word to the deputy at Westbrook, and Rainer wrote back that I'd got the wrong end of the forest. Meanwhile my lads are getting chewed on and the order's due, and nobody in Stormwind cares about lumber until the beams don't come." } },
+      choices = {
+        { text = "Stormwind owes you protection. I'll see it given.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't wait on Stormwind. Arm your lads and fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Raelen.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Can you carry wood? No, never mind; I'd rather you scared the bears off, and you'd have the lads' thanks, which is all I've got to give." },
         { id = "h_default", text = "Supervisor Raelen. I make sure the wood gets cut, stacked and shipped on time. Everybody else makes sure it doesn't." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Bundle of Trouble") },
           text = "The wolves and bears up north ran my lads off the cut wood, and now it's lying there with nobody willing to fetch it. And the order's due." },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Would you rather have magic than honest lumberjacks?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you rather I cut wood or fight bears?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many bears are we talking about, Raelen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Has Stormwind sent you any protection, Raelen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

@@ -66,8 +66,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honest enough, and kind, which matters more to me than honest. Two young people in love and two old families at war, and if a little potion helps one of them cross a river unseen, I'll answer for it to whoever asks." } },
+      choices = {
+        { text = "Kindness doesn't excuse deceit, William.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then you've done right. Love deserves the help.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want nothing from my shelves, I expect, unless your order's taken up tinctures." },
         { id = "h_default", text = "Candles, tinctures, a few small mercies in bottles. What can I do for you?" },
         { id = "q_candles", when = { questActive = TODO_QUEST("Kobold Candles") },
           text = "Kobold candles burn longer than any wax in Stormwind. Don't ask me why; I stopped asking long ago." },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "What sort of things do you keep on the back shelf?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there a tincture for a warrior's aches, Pestle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you make anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is your private potion for an honest purpose, Pestle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Nothing for now.", next = "END" },
       },
     },

@@ -60,8 +60,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "On the Algaz road, between the Dragonmaw an' the folk who still try tae walk it, for that's where the Alliance is thinnest. Valstag will give ye the reports, an' ye'll no' like any o' them." } },
+      choices = {
+        { text = "Then I'll stand on that road, Captain, whatever comes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather strike their camp by night and be done.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good; I've sailors on the wall who need tae see what a holy hammer looks like comin' down on an orc." },
         { id = "h_default", key = true,
           text = "Captain Stoutfist. I hold Menethil for Ironforge an' the Alliance both. The Dragonmaw have come down out o' the hills into Dun Algaz, an' if they hold it, the road to Loch Modan's shut." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Report to Captain Stoutfist") },
@@ -113,6 +123,7 @@ P:NPC {
         { text = "The earth spirits here are angry, Captain.", next = "xshaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I could get close to the Dragonmaw and count their axes.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Menethil could use a mage on the walls, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Where would a paladin serve Menethil best, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -399,8 +410,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That's what the grumpy one up at the chapel says, Brother Glorin, and I believe him when I'm sober enough to. They're still at their posts out in the bay, you see, because nobody ever gave them the order to stand down." } },
+      choices = {
+        { text = "Then I'll give them that order and set them free.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some posts are better kept, even in death.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Fitzsimmons.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! We had a chaplain aboard the Wave Mistress, and he'd have liked you, though he never could hold his drink." },
         { id = "h_default", key = true,
           text = "Fitzsimmons, first mate of the Wave Mistress, Third Fleet of Kul Tiras... was first mate, I should say, since there's no ship left to be first mate of." },
         { id = "h_mead", tags = { "news" }, when = { questActive = TODO_QUEST("The Third Fleet") },
@@ -435,6 +456,7 @@ P:NPC {
         { text = "I could conjure you something to drink.", next = "xmage", when = { class = "MAGE" } },
         { text = "Did you have warriors aboard the Wave Mistress?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's worth hunting around Menethil, Fitzsimmons?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can your crew's spirits still be set free, Fitzsimmons?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -619,8 +641,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Lightforge iron, which the murlocs stole, an' patience, which the sailors stole. I can get by wi'out the patience, but Bishop Farthing's waitin' on that iron, an' I'll no' let him down." } },
+      choices = {
+        { text = "I'll wade in and take back every bar, Brother.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Murlocs sleep sometime. I'll take it back quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, thank the Light! A pair o' strong arms that know what they're blessin', so sit, an' I'll tell ye what's wrong wi' this harbour." },
         { id = "h_default", text = "Glorin Steelbrow, o' the Church. I tend Menethil's souls, an' nobody mentioned the souls come wi' mud, murlocs an' drowned sailors." },
         { id = "h_eye", tags = { "news" }, when = { questActive = TODO_QUEST("The Eye of Paleth") },
           text = "What's that ye've brought out o' the wreck? Don't hand it here, just put it down, gently now, for there's somethin' foul sleepin' in it." },
@@ -656,6 +688,7 @@ P:NPC {
         { text = "You're watching me like I've brought something with me, Brother.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Do the warriors here keep the Church busy, Brother?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts trouble Menethil most, Brother?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What does the Church here need most, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -898,8 +931,18 @@ P:NPC {
         { text = "Who's still holding out against them?", next = "longbraid" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Longbraid an' a handful o' lads, an' that's all, for the King's got the Dark Irons at his own door too. If there's a paladin goin' north, I'd count it a sign Ironforge hasnae forgotten us." } },
+      choices = {
+        { text = "Then I'll go north and bring them that sign.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Dun Modr's lost, Harlo. The living should fall back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Harlo.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! If ye've the Light in ye, ye might take a look at my back, for the healers have given up on it an' I've no'." },
         { id = "h_default", key = true,
           text = "I'm Harlo Barnaby. I was at Dun Modr when the Dark Irons came, an' I took an axe in the back runnin'; I woke up here, an' that's the whole bad story." },
         { id = "h_fall", tags = { "news" }, when = { questActive = TODO_QUEST("Fall of Dun Modr") },
@@ -928,6 +971,7 @@ P:NPC {
         { text = "The Dark Irons have fire magic. I've something colder.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What happened at Dun Modr, Harlo?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the roads north still run, Harlo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did Ironforge send anyone to retake Dun Modr, Harlo?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Rest easy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1097,8 +1141,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every boat from Auberdine has one or two, and the wrecks out in the bay had a good many more who never made it ashore at all. I send the living up to Brother Glorin, and the others I try not to think about." } },
+      choices = {
+        { text = "Send them to me as well. I'll help Glorin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sick men on a dock are bad for trade, Karl.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Karl.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The garrison, when the Captain can spare them, which isn't often with the Dragonmaw in Algaz. Most days it's me, a lantern and a lot of shouting, and the shouting does more good than you'd think." } },
+      choices = {
+        { text = "The Alliance's supply lines must hold. I'll help guard them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the merchants guard their own crates, Karl.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Karl.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ships come in with sick men aboard more often than you'd think, so I'm glad to see one of you on the docks." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Murlocs and marsh don't care about holy hammers, but my dockhands might, so stand where they can see you." },
         { id = "h_default", text = "Karl Boran, merchant marine. I keep cargo moving through this harbour, which is harder than it sounds with half the marsh trying to eat it." },
         { id = "h_crabs", when = { questActive = TODO_QUEST("Claws from the Deep") },
           text = "Claws, aye, from the deep water. Bring me what I asked for, and mind your fingers, since they're the only ten you get." },
@@ -1129,6 +1193,8 @@ P:NPC {
         { text = "Couldn't a mage keep your cargo dry?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the murlocs really raid the docks, Karl?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do Menethil's hunters ship out, Karl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the ships bring in many sick or wounded, Karl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who protects the cargo bound for Ironforge, Karl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the cargo.", next = "END" },
       },
     },
@@ -1292,8 +1358,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Me, mostly, an' Brother Glorin when the first mate lets him, which isnae often. The man drinks tae drown his crew, an' I've no' the heart tae tell him it doesnae work." } },
+      choices = {
+        { text = "Then I'll sit with him. He shouldn't grieve alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He chose the bottle, Helbrek. That's his own affair.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Helbrek.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only on payday, an' only the sailors, if I'm fair about it. The garrison lads drink quiet an' leave early, for the Captain has them on the walls before dawn." } },
+      choices = {
+        { text = "Good. A soldier keeps discipline, even off duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them carouse. They might not see another payday.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Helbrek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the stew if ye like, but it's been blessed by the cook already, an' that's mostly salt." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Deepwater! Mind yer hammer on the beams, for they're older than me an' about as steady." },
         { id = "h_default", text = "Helbrek. I keep the Deepwater. Sailors, soldiers, diggers, an' one first mate who's been sittin' outside my door since before I owned it." },
         { id = "h_fitz", when = { heardLine = "fitzsimmons.h_default" },
           text = "Fitz told ye who he was? Aye, he's told everyone. I keep his mead in the cellar, for someone has to, an' better me than the bay." },
@@ -1320,6 +1406,8 @@ P:NPC {
         { text = "I'll need a room with a sturdy lock.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many soldiers drink at the Deepwater, Helbrek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters stay at the Deepwater often, Helbrek?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who looks after Fitzsimmons when he's had too much, Helbrek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the soldiers bring trouble into the Deepwater, Helbrek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just drying off.", next = "END" },
       },
     },
@@ -1439,8 +1527,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "All the time, an' I'll no' pretend otherwise, though I put them back as gently as I can once the drawin's are done. Whelgar's diggin' at somethin' old an' big out east, an' I'd sooner a priest looked at it before it looks back." } },
+      choices = {
+        { text = "Study them if you must, but the dead deserve their rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't mind. The past belongs to the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Flagongut.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some of it hums, an' some of it smells, an' one piece made the barman's dog howl all night, so aye, I'd say so. The League says catalogue it an' ship it tae Ironforge, but the League isnae the one sleepin' next to it." } },
+      choices = {
+        { text = "Ship it to Ironforge, then. The League decided.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bury the worst of it here. Some things shouldn't travel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Flagongut.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for half the bones I dig up deserve a few words, an' the League never thinks tae send anybody who can say them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be no use wi' a trowel, but I'd let ye guard my maps, for they're the only good thing I've drawn all month." },
         { id = "h_default", text = "Flagongut, Explorers' League. I came here on my way to the dig at Whelgar's, an' then the raptors took the road. So I'm diggin' through a tavern, for now." },
         { id = "h_prospector", tags = { "news" }, when = { questActive = TODO_QUEST("The Absent Minded Prospector") },
           text = "Word from our man across the sea? About time. He'd lose his own beard if it weren't attached, but he finds things nobody else can." },
@@ -1468,6 +1576,8 @@ P:NPC {
         { text = "I could get to Whelgar's dig past the raptors.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's keeping you off the road to the dig?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How bold have the raptors grown on the dig road?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever disturb the dead with your digging, Flagongut?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is anything in your finds dangerous, Flagongut?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -1596,8 +1706,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Nothing they'd say twice, and nothing I'd repeat, which is why they keep saying it. You'd make a better confessor than me, though, because I only listen, and I never forgive anyone." } },
+      choices = {
+        { text = "Everyone deserves a chance at forgiveness, Mikhail.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Listening is more useful than forgiving, in your trade.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mikhail.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "For the town, let's say, and for some old friends in Stormwind who like to know who comes and goes. It's quiet work, and it isn't the kind a paladin would enjoy." } },
+      choices = {
+        { text = "Honest work should be done in the open, Mikhail.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet work keeps the kingdom safe. I understand.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else, Mikhail.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. People tell me things across this bar that they ought to be telling you, and I'd rather they didn't." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You're very loud to look at, friend, so sit where you won't frighten off my customers." },
         { id = "h_default", text = "The name's Mikhail. I used to work in Stormwind, and now I keep a bar I don't sell from, in a town where nothing happens. I like it that way, mostly." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "Elling's business? Then it's serious, and it's quiet. Lean in. And if things get lively in here, step back and give it a moment." },
@@ -1620,6 +1750,8 @@ P:NPC {
         { text = "You've the eyes of someone in my trade.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Did you know many warriors back in Stormwind, Mikhail?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why don't you go near the water, Mikhail?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What do people confess at your bar, Mikhail?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You watch everyone in here. Who are you working for, Mikhail?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

@@ -67,8 +67,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A fair few, an' some o' them I fitted twice, once goin' north an' once again when they came back thinner. Plate's no' just steel, {g:lad|lass}, it's a promise that someone'll walk home in it." } },
+      choices = {
+        { text = "Then I'll honour your work by coming home in it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Plate's only steel, Therum. Promises are the wearer's business.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a customer worth the coal, for I've fitted plate tae the Silver Hand since afore ye were born, an' I'll fit ye too." },
         { id = "h_default", text = "Therum Deepforge, armourer tae the House o' Wrynn, though these days that means fittin' guards more than kings. If ye want tae learn the hammer, I'll teach ye, an' if ye don't, mind the sparks." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest in the Dwarven District! We don't see many robes down here; they cannae abide the soot. Stay a moment, then, because the lads could use a kind word as much as a hot forge." },
@@ -96,6 +106,7 @@ P:NPC {
         { text = "Could a mage's fire help a forge, Therum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does a warrior's armour need most, Therum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do dwarven hunters prefer rifles or bows, Therum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have you armoured many of the Silver Hand, Therum?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll mind the sparks.", next = "END" },
       },
     },
@@ -202,8 +213,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "We pray tae the forge an' tae the Light both, an' in Ironforge nobody sees much difference between the two. Fire an' patience an' a steady hand, an' if that's no' holy, I don't know what is." } },
+      choices = {
+        { text = "Honest work is a kind of prayer. I believe that, Kaita.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Work is work and prayer is prayer. Don't confuse the two.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They charge twice what a thing's worth an' smile while they do it, an' then they tell ye dwarven goods are rough. I'd sooner deal honest an' plain, an' let the work speak for itself." } },
+      choices = {
+        { text = "Honest dealing is worth more than any smile. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Trade is trade, Kaita. They're only doing what merchants do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in a smithin' shop! If ye're lookin' for a blessin' on the forge, Therum's yer dwarf, but if ye're after coal, I'm yer lass." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be wantin' a good whetstone for that hammer, an' mine came straight down the tram from Ironforge." },
         { id = "h_default", text = "Kaita Deepforge, blacksmithin' supplies. Don't let the humans in the Bazaar fool ye, {g:lad|lass}; wi' that tram the gnomes built, it's easier than ye'd think tae bring goods down from Ironforge, an' I pass the savin' on." },
         { id = "h_human", when = { race = "Human" },
           text = "A Stormwind local in the Dwarven District! Most o' yer folk only come down here when somethin's broken. What's broken?" },
@@ -227,6 +258,8 @@ P:NPC {
         { text = "Which whetstone should a warrior carry, Kaita?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell anything for hunters, Kaita?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Lamb's warlocks buy from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the dwarves of the forge pray much, Kaita?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why do you dislike the Trade District's merchants, Kaita?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -330,8 +363,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Eleven times, by my count, though four of those were someone else's tests and I was only standing nearby. Engineering is a precise science, but people are not, and people keep wandering into my calculations." } },
+      choices = {
+        { text = "I'll stand by gladly. Everyone deserves a healer close.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If you keep blowing things up, you've earned the bruises.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not yet, but I'm working on it, and I've only been asked to leave the Cathedral twice. If the Light obeys rules, we can learn them, and if it doesn't, well, that's even more interesting." } },
+      choices = {
+        { text = "The Light isn't a mechanism. Some things should stay a wonder.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Measure away. If the Light has rules, we should know them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Wonderful, would you mind standing by while I test this? Nothing will explode, probably, but it's always nice to have a healer near." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've worked out that a hammer swung with the Light behind it hits roughly a third harder, though I can't measure the Light part." },
         { id = "h_default", text = "Lilliam Sparkspindle, engineering trainer, and nearly finished with a very interesting calculation about gear ratios. Do you build things, or are you only here to watch things explode?" },
         { id = "h_choice", key = true, when = { profession = { name = "Engineering", min = 200 } },
           text = "Expert engineering splits two ways: gnomish, which is about wonderful gadgets that make life better, and goblin, which is about making things go bang for money. If you want the first, take a manual to Tinkmaster Overspark in Ironforge." },
@@ -356,6 +409,8 @@ P:NPC {
         { text = "Is magic just mathematics in a robe, Lilliam?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could engineering help a warrior in battle, Lilliam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could you build a better scope, Lilliam?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have you ever needed a healer after a test, Lilliam?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can engineering ever measure the Light, Lilliam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -473,8 +528,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every miner prays, whether he admits it or no', because there's nothin' like a creakin' tunnel tae make a dwarf religious. I've lost friends tae the deep, an' I'd no' mind someone sayin' a word for them." } },
+      choices = {
+        { text = "I'll pray for your friends, Gelman, and for every miner below.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A sound tunnel prop does more than any prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the orcs flattened it an' the humans hadnae enough masons left who knew stone. Then the House o' Nobles stopped payin' the ones they had, an' now it's dwarves fixin' what humans broke, an' I'd like tae go home." } },
+      choices = {
+        { text = "Ironforge has kept faith with Stormwind. That debt should be honoured.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ironforge was paid for its help. The debt's settled, Gelman.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless ye're here tae pray for my knees, I've a lesson tae teach an' no' much time for company." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye've the shoulders for minin', I'll give ye that, though I doubt ye'll want tae swing a pick when ye could be swingin' a hammer at somethin' wicked." },
         { id = "h_default", text = "Gelman Stonehand. I came from Ironforge tae help with the rebuildin' here, an' if I can teach enough o' ye my skills, maybe I can leave it tae ye an' take myself back home." },
         { id = "h_human", when = { race = "Human" },
           text = "Yer folk built this city out o' stone they couldnae find, so they sent for dwarves who could. Most o' us stayed longer than we meant tae, me included." },
@@ -498,6 +573,8 @@ P:NPC {
         { text = "Is mining much like fighting, Gelman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do beasts ever trouble the mines, Gelman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What happened to the miner you knew?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do miners ever ask for prayers, Gelman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why does Stormwind still need Ironforge's help to rebuild?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Sorry to interrupt.", next = "END" },
       },
     },

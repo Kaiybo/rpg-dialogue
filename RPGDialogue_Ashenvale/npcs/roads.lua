@@ -57,6 +57,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Sickened some beasts, from what I hear, though we haven't yet learned what it does to the people who handle them. If you see the signs, burn what you can and pray, because I don't know what else to tell you." } },
+      choices = {
+        { text = "I'll pray, and watch for the signs everywhere.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burning is surer than prayer. I'll burn it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That's my instinct, though I'd rather learn what they're doing first, because a dead spy tells us nothing. If you find one, bring me something to read before you finish them." } },
+      choices = {
+        { text = "I'll learn what I can before I strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every one of them dies the moment I see them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and I'd very much like to know what they mean to do with them." },
@@ -67,6 +85,8 @@ P:NPC {
           text = "You're a mage this close to Felwood, and I hope your masters warned you what the demons left in that soil. Some nights it rises into the air, and it doesn't care whose lungs it fills." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forest Song could use another sword, because I've Forsaken on one side and demons on the other." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good, because the Forsaken in the eastern woods have been seen near the beasts, and I don't like what that means." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because if the Forsaken are carrying their plague into these woods, I'll want someone who knows what it looks like." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you know the dead, and you'll know what it means that the Forsaken are walking these woods." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
@@ -81,6 +101,8 @@ P:NPC {
         { text = "Could arcane magic cleanse the corruption in Felwood?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the greatest threat to Forest Song, Kayneth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have the Forsaken been poisoning Ashenvale's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What has the Forsaken plague done here, Kayneth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the Forsaken here be destroyed on sight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Keep the outpost safe.", next = "END" },
       },
     },
@@ -176,6 +198,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not often, but the woods have been louder lately, and I'd not mind a prayer for the trees the Warsong cut down by the river. A bow can't put them back, and neither can I." } },
+      choices = {
+        { text = "I'll say a prayer for the fallen trees.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trees don't need prayer. They need guarding.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the walls are only as good as the people behind them, and the woods have kept me alive longer. I'll not hide behind someone else's hammer, though I'll thank you for swinging it." } },
+      choices = {
+        { text = "Then I'll swing it for anyone who needs it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everyone fights their own battles out here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Bhaldaran, and I make bows, which is all most people need to know about me. I live out here because the wood's better and the company's quieter." },
@@ -185,6 +225,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, so you'll not need anything I make, I expect. Either you've come for the quiet or you've lost your way, and I can help with the second." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a bow for pulling, I suppose, and you'll hold it like a club." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want a bow, I suppose, but you're welcome to rest your feet while I work." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll hold a bow like a hammer, I expect, but I'll sell you one if you ask nicely." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -198,6 +240,8 @@ P:NPC {
         { text = "What's wrong with a short bow, Bhaldaran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a mage come out here for the quiet?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Will you make a bow for a warrior, Bhaldaran?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever wish for company out here, Bhaldaran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why trust the woods over Astranaar's walls, Bhaldaran?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

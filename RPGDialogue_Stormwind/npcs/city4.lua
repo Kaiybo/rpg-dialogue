@@ -45,8 +45,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Out in the provinces, frankly, where the army can't go because I'm ordered to keep it here. Lakeshire, Westfall and Duskwood are all crying for help, and every paladin who answers them is one less letter I have to write saying no." } },
+      choices = {
+        { text = "Then I'll go where the army can't. The provinces won't stand alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The city comes first, General. The provinces must hold themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I could use a dozen of you on the walls, and the Keep sends me letters about the budget instead." },
         { id = "h_default", key = true,
           text = "General Marcus Jonathan, High Commander of Stormwind's defence. I keep the city's walls and its army, such as the kingdom can spare of it." },
         { id = "h_messenger", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Stormwind") },
@@ -87,6 +97,7 @@ P:NPC {
         { text = "Ironforge's shamans could help guard your walls, General.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you trust SI:7, General?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why doesn't the army have more mages, General?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Where would a paladin serve Stormwind best, General?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, General.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -310,8 +321,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Sure, for the front door, when we need somebody loud and honest to walk in while Renzik's people go in the back. You'd be surprised how often a big shiny distraction gets the job done." } },
+      choices = {
+        { text = "I'll be no one's distraction. I go in honestly or not at all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it gets the job done, I'll walk in the front door.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Renzik don't usually get the shiny ones, but Renzik ain't complaining, so long as you don't preach at him." },
         { id = "h_default", key = true,
           text = "Renzik. People call me the Shiv. Second to the boss here at SI:7. I don't like people much, but I like being the guy they gotta be polite to." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
@@ -344,6 +365,7 @@ P:NPC {
         { text = "Has SI:7 ever worked with a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would SI:7 ever give work to a warrior, Renzik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever use hunters for SI:7 jobs, Renzik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does SI:7 have any use for a paladin, Renzik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -448,8 +470,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Before every change of the watch, though the men would never say so aloud. The king himself is missing, so if a prayer helps them stand a little straighter, I won't forbid it." } },
+      choices = {
+        { text = "Faith keeps a guard steady, Major. Let them pray.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Discipline keeps a guard steady. Prayer is for afterwards.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I guard the throne room, and the young king sits in it, so yes, near enough. Highlord Fordragon is a paladin like you, and I'll serve him to the end, but I sleep better knowing the Keep's doors are mine." } },
+      choices = {
+        { text = "Order in the Keep keeps the kingdom safe. Your work matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A paladin answers to the Light, Major, not to court rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Bishop DeLavey keeps his place near the throne, and I'll thank you to keep your voice low on the way to him." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll stand where you're told in the throne room, {class}, the same as anyone, Silver Hand or not." },
         { id = "h_default", key = true,
           text = "Major Samuelson, captain of the guard in the Keep. I keep the throne room orderly and the people in it safe. That's all you need to know." },
         { id = "h_farren", when = { heardLine = "farren.h_default" },
@@ -480,6 +522,8 @@ P:NPC {
         { text = "Do you worry about assassins in the throne room?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are spells forbidden in the throne room?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Keep guard ever need a hunter's eye, Major?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the Keep's guard ever ask for prayers, Major?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you guard the young king yourself, Major?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -607,8 +651,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every morning there's a basket for the orphans and another for the poor at the steps, and the Cathedral pays when it can. My foot says I shouldn't walk that far, but the children are always waiting, so the foot loses again." } },
+      choices = {
+        { text = "That's holy work, Thomas, and the children are lucky.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You'll ruin yourself giving it away. Charge them full price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than ever, and most of them heading out to Westfall or Redridge. I used to sell to the same faces every week, but now half of them buy once and I never see them again." } },
+      choices = {
+        { text = "Then I'll make sure some of them come home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "That's a soldier's lot. They knew it when they signed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Here, take a roll, because you look like you've been up with the sick, and the sick never let anyone eat." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Take a roll for your march, {class}, because a hero on an empty stomach is only a hungry man in armour." },
         { id = "h_default", text = "Thomas Miller, baker. I walk the Trade District from dawn to dusk with a basket, and my feet hate me but my customers love me, so it evens out." },
         { id = "h_foot", when = { metBefore = true }, text = "My left foot's been talking to me all morning, telling me to sit down, but my basket says keep walking, and the basket wins." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "These are the last loaves of the day, a bit squashed, but they taste the same, mostly." },
@@ -632,6 +696,8 @@ P:NPC {
         { text = "Does conjured bread hurt your trade, Thomas?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do soldiers buy much bread from you, Thomas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters ever trade with you, Thomas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever bake for the Cathedral, Thomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do many soldiers buy bread from you, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not hungry.", next = "END" },
       },
     },

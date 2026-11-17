@@ -74,6 +74,24 @@ P:NPC {
         { text = "How many guards does Lakeshire have?", next = "guards" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Over a drink they do, when I've got drink, and now that I don't, they mostly sit and stare at the wall. A barkeep hears confession whether he wants to or not, and lately it's been the kind that doesn't fit in a mug." } },
+      choices = {
+        { text = "Then I'll sit with them a while and listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Soldiers should keep their troubles to themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Daniels.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Mostly, though a dry bar makes for short tempers, and I've had two scuffles this week over the last of the milk. The Marshal's lads are good boys, but they've nowhere to put their fear except on each other." } },
+      choices = {
+        { text = "They need discipline. The Marshal should come down hard.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them brawl a little. It's better than breaking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Daniels.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -91,6 +109,8 @@ P:NPC {
         { id = "h_barrel", when = { metBefore = true }, text = "A whole barrel came in yesterday, full, and I almost cried. The regulars did cry; Lakeshire's had a hard year." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting a drink, and I'll be wanting to give you one, and the Blackrock have made sure neither of us gets what we want." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've no drink to sell, but I'd gladly buy some meat for the table, because the soldiers are sick of bread." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've nothing to pour you, but I've a few regulars who could do with a kind word more than a drink." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "One of the Silver Hand, in my bar. I'd pour you something proper if the Blackrock had let a single cask through." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stool's yours as long as you want it." },
@@ -110,6 +130,8 @@ P:NPC {
         { text = "Why haven't your shipments come through, Daniels?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What game would sell well at your bar, Daniels?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The Blackrock have warlocks, Daniels. I'm not one of theirs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the soldiers tell you what they've seen out there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the soldiers keep the peace in your bar, Daniels?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -249,6 +271,15 @@ P:NPC {
         { text = "How is the town holding up?", next = "town" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I keep the kettle on and count heads, and I keep my voice level, because everyone looks to the inn to see if they ought to panic. If Brianna's still pouring tea, the town reckons it's not the end of the world." } },
+      choices = {
+        { text = "I'll be first down those stairs when the bell rings.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "When that bell rings, I'll be looking after myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Brianna.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Brianna. I keep the rooms and Daniels keeps the bar, when he has anything to keep, and between us we keep Lakeshire from losing its mind." },
@@ -256,6 +287,7 @@ P:NPC {
           text = "You found Daniels his drink! He's been whistling ever since, and it's terrible, and I've never been happier to hear it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a room near the stairs, I expect, so you can be first down if the bell rings, and it rings more than I'd like." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep in the room with you, so long as it doesn't mind Daniels snoring through the wall." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin under my roof! You'll have the room by the stairs, if you don't mind being first down when the bell goes." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The kettle's on and Narnie's asleep." },
@@ -270,6 +302,7 @@ P:NPC {
         { text = "How often does the alarm bell ring in Lakeshire, Brianna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there good hunting near Lakeshire, Brianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need somewhere quiet to work, Brianna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How do you keep the town calm when the bell rings?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing through.", next = "END" },
       },
     },

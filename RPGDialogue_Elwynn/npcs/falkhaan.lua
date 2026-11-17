@@ -70,8 +70,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I try, and they never listen, and some of them come back down this road on a cart. A paladin who won't rest is a paladin who fails when it matters, and I'd tell Sammuel that to his face if he ever sat down long enough." } },
+      choices = {
+        { text = "Rest is a duty too. I'll take it when it's due.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll rest when the work is done, and not before.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Falkhaan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, down from the Abbey! Rest at the inn tonight, because I've seen Brother Sammuel's students, and they never know when to stop." },
         { id = "h_default", text = "Falkhaan Isenstrider, at your service. I stand by this road and tell tired people where to sleep, because somebody has to and it may as well be me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Rest and Relaxation") },
           text = "Kobolds since sunup, by the look of you. Rest when you're worn down. The Lion's Pride in Goldshire is the place for it." },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Is a little lost sleep so bad for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do warriors always look so tired on this road?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you see many hunters on this road?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever stop the tired from going on, Falkhaan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },

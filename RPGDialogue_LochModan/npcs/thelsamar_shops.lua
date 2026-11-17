@@ -68,12 +68,32 @@ P:NPC {
         { text = "How do you train the gryphons?", next = "train" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Aye, an' they fly gentler wi' a hurt rider, though nobody taught them that. I've carried mountaineers home that didnae make the landin', an' I sit wi' them after till someone comes." } },
+      choices = {
+        { text = "That's a holy duty, Thorgrum, whatever name you pray to.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are past caring who sits with them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Thorgrum.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Once, by a Dragonmaw whelp that came up out o' the Wetlands mist, an' my bird tore it out o' the sky afore I'd drawn my axe. Gryphons dinnae forgive, an' that bird still screams at anythin' red." } },
+      choices = {
+        { text = "Then I'll clear the skies of whelps for her.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fly safer routes, Thorgrum. A bird's not worth the risk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Thorgrum.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Thorgrum Borrelson, gryphon master o' Thelsamar. From here my birds fly tae Ironforge an' over the mountains tae Menethil Harbor, an' they fly it faster than any road." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? My birds like warriors, for ye sit heavy an' still, an' ye don't scream on the landin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand the birds better than most, for ye know what it is tae trust a beast." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? My birds dinnae mind priests, for ye sit quiet an' ye pray through the bumpy bits." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! My birds'll carry ye, plate an' all, though they'll grumble about the weight all the way tae Ironforge." },
       },
       again = {
         { id = "h_again", text = "What else? The birds are restless, so I'll keep one eye on the roost." },
@@ -88,6 +108,8 @@ P:NPC {
         { text = "I'll have a teleport to Ironforge soon, but I'd rather fly.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Did your gryphons ever carry warriors into battle, Thorgrum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How does a gryphon compare with a hunter's beast, Thorgrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your gryphons carry the wounded home to Ironforge?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have your gryphons ever been attacked on the Menethil route?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Thorgrum.", next = "END" },
       },
     },
@@ -199,12 +221,32 @@ P:NPC {
         { text = "Why do they call you Coppertongue?", next = "name" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Most do, an' the ones who dinnae, their mail comes back tae me, an' I mend it an' sell it on, for that's the trade. I'll tell ye, though, I keep every ring that broke in a jar on the shelf." } },
+      choices = {
+        { text = "Keep the jar, Morhan. Remembering them honours them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mend and sell, as you say. The dead don't need mail.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Morhan.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Never, an' I'll no' be insulted in my own shop, for a coat that fails a mountaineer fails Ironforge. I talk folk into heavier coats than they came in for, aye, but never into worse ones." } },
+      choices = {
+        { text = "Then you're an honest smith, Morhan. I respect that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A little gilding never hurt a sale, Morhan.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Morhan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Morhan Coppertongue, metalsmith, an' the mountaineers o' Thelsamar wear my mail when they go out after troggs. That's the best advertisement I could ask for, for none o' them has complained yet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's a customer who knows what mail's for, so come an' feel the weight o' this coat." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want somethin' lighter than my mountaineers wear, but ye'll still want somethin', for bears have claws." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want no mail, I'd guess, but ye'll know the lads who wear it, an' that's near as good." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a body that wears plate an' still fancies a coat o' mail underneath, I'd wager." },
       },
       again = {
         { id = "h_again", text = "What else can I talk ye intae, friend?" },
@@ -219,6 +261,8 @@ P:NPC {
         { text = "Could your forge use an extra hand with the fire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What mail would you put on a warrior facing troggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you sell a hunter who walks the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your mountaineers always come home in your mail, Morhan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever sell poor mail just to make a sale, Morhan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Morhan.", next = "END" },
       },
     },
@@ -329,6 +373,24 @@ P:NPC {
         { text = "Who are you baking for?", next = "who" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No' while I'm up before the sun, they don't. There's a basket by the back door every mornin', an' I never see who takes from it, which is just how I like it." } },
+      choices = {
+        { text = "That's a good basket, Honni. Keep it full.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Folk should pay for bread. Free bread breeds idlers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Honni.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No' a chance, for my ovens have stood longer than some o' the houses, an' a trogg's no' takin' them. I'd stand at the door wi' my peel an' let them try." } },
+      choices = {
+        { text = "Then I'll stand at the door with you, Honni.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Run, Honni. Ovens can be rebuilt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Honni.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -337,6 +399,8 @@ P:NPC {
           text = "Mornin'! Ye're up early, so ye get the first loaf, still too hot tae hold, so mind yer fingers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be wantin' bread, then, for ye cannae swing an axe on an empty stomach." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll be out in the hills for days, so ye'll want somethin' that keeps." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the loaves, if ye like, for they've tae feed the whole road from here tae the dam." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be wantin' a big loaf, an' maybe two, tae fill out that armour." },
       },
       again = {
         { id = "h_again", text = "Anythin' else, love?" },
@@ -351,6 +415,8 @@ P:NPC {
         { text = "My imp likes the warmth of your ovens.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the mountaineers take with them on patrol, Honni?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What bread keeps best out in the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does anyone in Thelsamar go without bread, Honni?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "If troggs came into Thelsamar, would you leave your ovens?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Honni.", next = "END" },
       },
     },
@@ -462,12 +528,32 @@ P:NPC {
         { text = "Is it safe out in the hills?", next = "safe" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Enough that I count my picks when they come back. Some come back wi'out their owners, carried by a friend, an' I give those back tae the families, free." } },
+      choices = {
+        { text = "That's a kind thing, Karm. They'll remember it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A pick is a pick, Karm. Sell it again.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Karm.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, if ye ask me, but nobody asks me, for Ironforge wants ore an' the miners want wages. So they go in, an' I sell them picks, an' I tell them which tunnels tae stay out of." } },
+      choices = {
+        { text = "Ironforge should order them closed. Lives before ore.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the miners choose. Their risk, their wage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Karm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Karm Ironquill, minin' supplies. If ye're goin' intae the hills tae dig, ye'll want a good pick an' a better reason, for it's no' safe out there these days." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; the mines need clearin' more than diggin' these days." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know the hills, then, an' ye'll want tae know which ones tae stay out o'." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll no' be needin' a pick, I'd say, but ye might say a word for those that do." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye'll no' be diggin', I'd guess, but ye might clear a mine or two for them that do." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -482,6 +568,8 @@ P:NPC {
         { text = "Do you stock anything for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which mines need clearing most, Karm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which hills should a hunter stay out of, Karm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have many miners been lost in these hills, Karm?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the mines be closed until the troggs are cleared?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Karm.", next = "END" },
       },
     },

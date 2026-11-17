@@ -67,6 +67,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "All the time, an' that's how ye know we both care about it! Rohan says the Light's a thing tae be understood, an' I say it's a thing tae be lived, an' we've been arguin' the point over ale for twenty years wi'out either o' us winnin'." } },
+      choices = {
+        { text = "Rohan's right. Faith must be understood before it's wielded.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You're right, Brandur. Faith is lived, not studied.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Brandur.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Brandur Ironhammer, an' I train the Light's young ones here in Ironforge. Dwarves I send on tae Tiza Battleforge an' humans tae Duthorian Rall, for the Light's no' fussy about beards." },
@@ -99,6 +108,7 @@ P:NPC {
         { text = "Can a warlock find any place in the Light's eyes?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What can a warrior learn from your paladins, Brandur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light have a place in the hunt, Brandur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do paladins and priests ever argue about faith, Brandur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -242,8 +252,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than you'd believe, because half of them lost their fathers in the wars and the other half never had one, and a paladin is something to look up to. I can't promise they'll behave, but I can promise they'll remember you." } },
+      choices = {
+        { text = "Then I'll visit them in Stormwind. Every child deserves someone to look up to.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'm no hero for children. They need parents, not paladins.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, John.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Church sends a few of your sort to the orphanage now and then, and the boys follow them about for weeks after, wanting to be just like them." },
         { id = "h_default", text = "John Turner, at your service. My wife Stephanie and I run the orphanage in Stormwind, and I come up to Ironforge every month to gather supplies. I'm usually here, mind; it's a long month." },
         { id = "h_stephanie", when = { heardLine = "stephanie.h_tome" },
           text = "You've met Stephanie! How is she, and is she tired? She's always tired, poor thing, so tell her I've nearly got the supplies together, as I always have." },
@@ -276,6 +296,7 @@ P:NPC {
         { text = "Do you think a warlock's coin would taint the orphans?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the orphans really want to become warriors, John?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would the orphans really want to hear hunting stories?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would the orphans really want a paladin to visit them?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck, John.", next = "END" },
       },
     },
@@ -425,6 +446,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every morning, before the fire's hot, for a hammer made without a prayer is just iron, and a paladin deserves better than iron. Bosch Verigan used to laugh at me for it, and then he'd stand quiet while I finished, and I miss that more than I can say." } },
+      choices = {
+        { text = "A prayer at the anvil is a good habit. Keep it, Jordan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good steel holds without prayer. The work speaks for itself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me see your wares, Jordan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil." },
@@ -455,6 +485,7 @@ P:NPC {
         { text = "Does the Church's smith not deal with rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can a warlock's presence harm blessed metal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you forge for hunters as well as the faithful?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you pray at your anvil, Jordan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Stay warm, Jordan.", next = "END" },
       },
     },

@@ -53,8 +53,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Mostly, though the Marshal says there are strangers on the road in red bandanas, and I've started sleeping with my kettle where I can reach it. I'm not much of a fighter, I'll admit, but nobody's ever robbed a man who offered them tea first." } },
+      choices = {
+        { text = "Then I'll keep watch tonight, so you can rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A man who can't defend himself shouldn't sleep on the road.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Sam.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin by my fire! That's the safest I've felt all week, so sit down and take your boots off, if plate has boots." },
         { id = "h_default", key = true,
           text = "Sam Sarsaparilla, adventurer, or trying to be. Mostly I walk a long way and then sit by a fire, which is the best part." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
@@ -84,6 +94,7 @@ P:NPC {
         { text = "Don't you worry about strangers who sneak up on you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why not just carry a spark-stone like everyone else?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think warriors rest enough, Sam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is it safe, camping out here alone, Sam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Enjoy the fire.", next = "END" },
       },
     },

@@ -70,8 +70,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not lie, exactly, only not say anything, if anyone asks. I know that's a lot to ask of a paladin, but it's not a crime to love someone, is it, only to get caught?" } },
+      choices = {
+        { text = "I won't lie for you, Maybell. I'm sorry.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your secret's safe with me. Love's no crime.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Maybell.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You won't tell Pa I've been at the river, will you? You've got an honest face, and that's the trouble with honest faces." },
         { id = "h_default", text = "Maclures and Stonefields don't speak. That's the rule, older than me. I've never been very good at rules." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Young Lovers") },
           text = "There's someone across the river I'm not allowed to see. If anyone asks, I'm out here counting grapes." },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Why would you need a letter carried in secret?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is somebody bothering you down by the river?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you want to know how to go unseen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would you want me to lie for you, Maybell?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Your secret's safe with me.", next = "END", fx = { affinity = 1, opinion = { maybell_tommy = "romantic" } } },
       },
     },

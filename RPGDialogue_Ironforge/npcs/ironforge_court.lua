@@ -42,8 +42,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Patience, mostly, which I know is a terrible thing to ask of someone in plate. When we go back into Gnomeregan, and we will, I want the sick ones down there brought out, not cut down, because they're still my people, whatever the radiation's done to them." } },
+      choices = {
+        { text = "Then I'll bring them out alive. Mercy first, always.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they attack, I'll defend myself. I can't promise more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, High Tinker.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, because I've a great many plans for Gnomeregan and every one of them has a little box marked 'someone very brave goes first'." },
         { id = "h_default", key = true,
           text = "Gelbin Mekkatorque, High Tinker of Gnomeregan, and elected, I'll have you know. Gnomeregan isn't fit to live in just now, so we tinker in Ironforge, by the King's kindness." },
         { id = "h_betrayal", tags = { "news" }, when = { questActive = TODO_QUEST("The Grand Betrayal") },
@@ -77,6 +87,7 @@ P:NPC {
         { text = "I've been back down into the city, High Tinker.", next = "rogue", when = { race = "Gnome", class = "ROGUE" } },
         { text = "I held the line when we ran.", next = "rear", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "Could a hunter be of any use to Gnomeregan, High Tinker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would you ask of a paladin, High Tinker?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -447,8 +458,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That they came late an' stayed long, for it took Lordaeron's priests a good while to convince a dwarf the Light was worth more than a good hammer. Once convinced, they were stubborn about it, which is the dwarven way, an' they stood with Uther's companies through the worst of the Second War." } },
+      choices = {
+        { text = "Then I'll be as stubborn in my oaths as they were.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stubbornness lost Lordaeron. A paladin should know when to bend.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tell me something else, Historian.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin; I can hear the plate, an' the way ye stand when ye stop. The Silver Hand has a chapter in my histories, an' it's not a short one." },
         { id = "h_default", text = "Archesonus, historian to the King. My eyes went long ago, but my memory didn't, so ask me anything about Ironforge and I'll tell ye more than ye wanted." },
         { id = "h_thaurissan", tags = { "news" }, when = { questActive = TODO_QUEST("The Smoldering Ruins of Thaurissan") },
           text = "Sit, and I'll tell ye of Thaurissan, the Dark Iron city that stood where the Burning Steppes are now. Mind, it's not a short story, and it doesn't end well for anyone." },
@@ -485,6 +506,7 @@ P:NPC {
         { text = "What does Thaurissan teach a mage, Historian?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which warriors does Ironforge's history remember best, Historian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the histories speak of dwarven hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do your histories say of the Silver Hand's dwarves?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -707,8 +729,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every night, though I'd never say so in front of the Prospectors, because they'd stop telling me things. Some of what comes out of Uldaman is older than Ironforge, and some of it doesn't like being moved, and I've had to send more than one box to the Mystic Ward with a polite note." } },
+      choices = {
+        { text = "Some things should stay buried. The League should know when to stop.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Knowledge is worth the risk. Dig, and let the priests clean up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about the League's work instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Uldaman, without question, for the Shadowforge are digging there too and they don't play by anyone's rules. Ironband's dig in Loch Modan has its troubles as well, but Uldaman is where the League's people are dying, and I'd like that to stop." } },
+      choices = {
+        { text = "Then I'll stand guard at Uldaman, as long as it takes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The League chose to dig there. They knew the risks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good luck with your work.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Hall of Explorers! Do mind the cases, and if you could tell me whether that relic on my desk is cursed, I'd sleep a great deal better." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Excellent, because my Prospectors keep running into Dark Irons and troggs at the dig sites, and they'd much rather run into you." },
         { id = "h_default", key = true,
           text = "Muninn Magellas, High Explorer of the Explorers' League. We map the world, catalogue what lives in it and dig up what used to, and while my Prospectors do the digging, I do the worrying." },
         { id = "h_discs", tags = { "news" }, when = { questActive = TODO_QUEST("The Platinum Discs") },
@@ -749,6 +791,8 @@ P:NPC {
         { text = "Have your Prospectors found many enchanted relics?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do relics really react to warlocks, High Explorer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your Prospectors need warriors out in the field?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you worry about what the League digs up, High Explorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Which dig needs protecting most, High Explorer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -964,8 +1008,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Holy? No. Old, aye, an' some of it with runes I'd rather no' read aloud, so I send those tae the Mystic Ward an' let them worry. The League digs for knowledge, an' I'll leave the prayin' tae those who've the time for it." } },
+      choices = {
+        { text = "Prayer and study both have their place. Neither should be scorned.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fair enough. Knowledge first. The prayers can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll leave you to your reading.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They need a great many things, an' protection's near the top, for Ironband's lads in Loch Modan are diggin' wi' one hand an' holdin' off troggs wi' the other. If ye're goin' that way, take his supplies an' a sharp hammer, an' I'll call it even." } },
+      choices = {
+        { text = "I'll guard them. Diggers shouldn't have to fight for their lives.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They chose the dig. A guard costs money; pay for one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Sorry to bother you.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll no' be wantin' tae bless my books, I hope, for I'm busy, an' they're fine as they are." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye'll be wantin' somethin', I expect, so say it quick, for I've three ciphers on my desk an' none o' them are readin' themselves." },
         { id = "h_default", key = true, text = "Stormpike, Prospector, of the Explorers' League. That's my name, my job an' my lodge, an' that's all the chat ye're gettin' today." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Report to Ironforge") },
           text = "A report, is it? About time; hand it here, an' don't read it tae me, for I can read." },
@@ -996,6 +1060,8 @@ P:NPC {
         { text = "What have you seen warlocks leave in the ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Have you seen much fighting on your digs, Prospector?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter be of use on a League dig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have you found anything holy in the old dig sites, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the League's diggers need protecting, Prospector?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Sorry to bother you.", next = "END" },
       },
     },
@@ -1174,8 +1240,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Three this season, an' I've written their names into my next speech, for the Senate should hear them read out at least once. I could use a healer more than I could use another letter, an' I've said so in writin', for all the good it's done." } },
+      choices = {
+        { text = "Then I'll stay a while and tend to the wounded.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Speeches won't save diggers. Send soldiers, not names.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Back to the troggs, Senator.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It should, an' it will, eventually, once it's debated the matter an' sent it tae a committee. In the meantime, I'd take one paladin who'll stay a week over a promise o' a company that'll come next spring." } },
+      choices = {
+        { text = "The Senate's way is slow but lawful. I'll stay till they act.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Committees won't stop troggs. I'll do what needs doing now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my quarry! Well, ye'll find plenty tae mend, for the troggs bite an' my diggers bleed, an' the Senate sends nothin' but letters." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's somethin' the Senate never sends me, though I've asked, in writin', three times." },
         { id = "h_default", text = "Senator Mehr Stonehallow, o' Ironforge's Senate, an' a League man besides. I could be debatin' in the warm, but instead I'm countin' heads in a quarry, because someone has to." },
         { id = "h_public", tags = { "news" }, when = { questActive = TODO_QUEST("The Public Servant") },
           text = "There's Rockjaw troggs all over Gol'Bolar, so thin the brutes out for me. The Senate'll thank ye eventually, in writin', for that's how the Senate does things." },
@@ -1213,6 +1299,8 @@ P:NPC {
         { text = "Why does Ironforge still train warlocks at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many troggs are in the quarry, Senator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter help you count the troggs, Senator?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have your diggers lost many to the troggs, Senator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the Senate send soldiers to Gol'Bolar, Senator?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck, Senator.", next = "END" },
       },
     },
@@ -1386,8 +1474,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than ye'd think, though they ask it wi' a mug in hand an' call it a story. Half the soldiers in here lost somebody at the Thandol Span or the Second War, an' a priest who'll sit an' listen does more good than one who preaches." } },
+      choices = {
+        { text = "Then I'll listen. Sometimes that's the best prayer there is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ale and stories won't heal grief. They need proper counsel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me a story instead, Firebrew.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Half true, as I said, for a paladin will never lie, but he'll leave out the bits where he was frightened. I like those best o' all, mind, the ones where somebody admits they were scared an' did it anyway." } },
+      choices = {
+        { text = "A true story should include the fear. That's honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A soldier's fear is nobody's business. Leave it out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Firebrew.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Stonefire! Ye'll forgive the noise, I hope, for my patrons sing louder than any choir, an' worse." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's somebody who'll add tae the noise, for yer sort always tell the best war stories, an' they're half true, which is better than most." },
         { id = "h_default", text = "Firebrew, an' I keep the Stonefire. The beer's strong an' the fire's stronger, an' the stories get taller as the kegs get lighter." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Well now, an elf from the clouds, in my tavern! Sit near the fire, for ye'll be cold up here, or down here, or under here, wherever this is tae you." },
@@ -1416,6 +1524,8 @@ P:NPC {
         { text = "Do mages often try to improve your hearth?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the tallest warrior's tale you've heard, Firebrew?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters tell the best stories in the Stonefire?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your patrons ever ask a priest for comfort, Firebrew?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you like paladins' stories, Firebrew? Are they ever true?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just a drink.", next = "END" },
       },
     },

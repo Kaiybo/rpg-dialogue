@@ -71,8 +71,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than the Captain admits an' fewer than the sailors say, which puts it somewhere I don't sleep well. Every name comes across my desk, an' I've started keepin' them in a separate book." } },
+      choices = {
+        { text = "Give me the book, Ironjaw. I'll pray over every name.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Names in a book won't hold the pass, Ironjaw.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ironjaw.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That they're in the pass in strength, an' they're no' just raidin', they're diggin' in, which orcs don't do without a reason. Somethin' to the east is pushin' them, or pullin' them, an' I'd give a year's pay tae know what." } },
+      choices = {
+        { text = "Report it all to the Captain. He'll decide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget orders. I'll scout east and find out myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Ironjaw.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The reports from Algaz come wi' casualty lists, an' I'd be glad o' someone tae read the names over properly." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If ye're bound for Algaz, the Captain'll want tae shake yer hand first, an' then he'll want tae send ye there." },
         { id = "h_default", key = true,
           text = "Valstag Ironjaw, of the keep. Reports come to me from Algaz an' the hills, an' I pass the bad ones to Captain Stoutfist, which lately is all o' them." },
         { id = "h_algaz_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Algaz Gauntlet"), days = 5 } },
@@ -100,6 +120,8 @@ P:NPC {
         { text = "I can carry your reports where the road's cut.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Dragonmaw are orcs. I know their old magic.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you need watched on the Algaz road, Ironjaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How many have the Dragonmaw killed at Algaz, Ironjaw?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the Algaz reports say about the Dragonmaw, Ironjaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -244,8 +266,28 @@ P:NPC {
         { text = "What's Merrin like?", next = "merrin" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Aye, if ye would, an' say it loud enough that the raptors hear it too. I've been prayin' myself every night, but I'm a miner, no' a priest, an' I'm no' sure anyone's listenin'." } },
+      choices = {
+        { text = "Someone's always listening, Tarrel. Keep praying.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't find her. Someone has to go east.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tarrel.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Word, that's all, just word o' who's still standin', an' whether Merrin's among them. I'll no' ask ye tae bring her home by the hand, though I'd no' say no if ye did." } },
+      choices = {
+        { text = "I'll bring you word, Tarrel, whatever it is.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go, if the dig pays for the escort.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Tarrel.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Would ye say a word for my Merrin out at the dig? She'd laugh at me for askin', but she's no' here tae laugh." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! If ye're goin' east, Merrin's at Whelgar's dig, an' I'd count it a mercy if ye looked in on her." },
         { id = "h_default", key = true,
           text = "Tarrel Rockweaver. My wife Merrin's with Prospector Whelgar's excavation team, east o' here. She's written every week for a month, an' now it's been near two weeks with nothin'." },
         { id = "h_scout", when = { questBefore = TODO_QUEST("In Search of The Excavation Team") },
@@ -272,6 +314,8 @@ P:NPC {
         { text = "If the raptors trouble the dig, they'll burn.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do you fear has happened at the dig, Tarrel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I look for on the road east, Tarrel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Shall I pray for Merrin's safe return, Tarrel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What should I bring back from the dig, Tarrel?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I hope she writes soon.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -383,8 +427,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every night, and I've no idea if I'm doing it right, because James was always the one who knew the words. I just ask that Theramore's walls hold and that he's still cooking." } },
+      choices = {
+        { text = "Then I'll pray with you, and we'll get the words right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He chose to leave. He'll manage without your prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Vincent.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Once, when the refugees came through with their carts and their dead, but I'm a tavern man, not a soldier. I poured for the ones who did fight, and I've told myself that was my part." } },
+      choices = {
+        { text = "Pouring for the weary is a duty too, Vincent.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Lordaeron needed every arm. You should have fought.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Vincent.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. James used to say grace over every pot he cooked, and I've not heard anyone say it since he sailed." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll have an opinion, I'm sure, on those of us who stayed behind when Lordaeron fell." },
         { id = "h_default", key = true,
           text = "Vincent Hyal. My brother James and I worked a tavern here in Menethil, until he caught the second wind of patriotism and went west with Lady Proudmoore. Half of Lordaeron did, the state it was in." },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("James Hyal") },
@@ -406,6 +470,8 @@ P:NPC {
         { text = "Lady Proudmoore was a student of Dalaran, like me.", next = "xmage", when = { class = "MAGE" } },
         { text = "Did your brother fight when he went west with Proudmoore?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's the hunting like across the sea, by Theramore?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you pray for James across the sea, Vincent?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did you ever think of taking up arms yourself, Vincent?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck to him.", next = "END" },
       },
     },
@@ -535,8 +601,28 @@ P:NPC {
         { text = "What's Kalimdor like?", next = "kalimdor" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Most find work and a roof, friend, and a few write back to tell me they found more than that. The rest I don't hear from, and I tell myself the post is slow." } },
+      choices = {
+        { text = "Then I'll pray the post is only slow, Jack.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some will fail out there. That's their choice.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jack.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe as anywhere with a wall, friend, and safer than Lordaeron, which is what most of them are running from. Lady Proudmoore keeps the peace with the orcs, and that's more than anyone ever managed here." } },
+      choices = {
+        { text = "Proudmoore's peace is worth keeping, Jack.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Peace with orcs? I'd sooner trust my hammer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jack.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Kalimdor's full of souls in need of comfort, friend, and the night elves have priestesses of their own, if you're curious." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Theramore could use a few of your sort, friend, with Lady Proudmoore holding the line against all comers." },
         { id = "h_default", key = true,
           text = "Red Jack Flint, at your service. It's my job to tell eager souls about Kalimdor, the land of opportunity across the sea, and oh, to be on the sea again myself, with the wind in my face." },
         { id = "h_done", when = { questDone = TODO_QUEST("Fiora Longears") },
@@ -558,6 +644,8 @@ P:NPC {
         { text = "Is it true the night elves despise magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is there real fighting in Kalimdor, Red Jack?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts would a hunter find in Kalimdor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the folk you send across ever find comfort there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is Theramore truly safe for the folk you send, Jack?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Maybe someday.", next = "END" },
       },
     },
@@ -675,8 +763,28 @@ P:NPC {
         { text = "Who's buried in the tomb?", next = "tomb_who" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The old words my gran taught me, an' a bit o' news from the harbour, for I reckon the dead get bored. The oozes have made a fair mess o' the place, an' I'd sooner it were tidy for them." } },
+      choices = {
+        { text = "Then I'll say the old words there too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't need news, Sida. Stay safe.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Sida.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, if anyone could manage it, but they keep comin' up out o' the bog no matter how many ye squash. I'd settle for my bag back an' a clear path tae the door." } },
+      choices = {
+        { text = "I'll clear the path to the tomb, Sida.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Find another tomb to visit. That one's lost.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sida.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Ironbeard's Tomb could do wi' one, for nobody's said a proper word there in years but me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The oozes out by the tomb are a disgrace tae the dead, an' I'd thank ye tae clear them." },
         { id = "h_default", key = true,
           text = "Sida. I go out to Ironbeard's Tomb every week, an' this time I was set on by great drippin' oozes. I threw my bag at one an' it swallowed the thing whole, an' I need what's in it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Digging Through the Ooze"), days = 5 } },
@@ -696,6 +804,8 @@ P:NPC {
         { text = "Oozes burn nicely, if you know the spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I could fish your bag out of the ooze. Quick fingers.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's waiting for me out by Ironbeard's Tomb?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do you say at the tomb, Sida?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the tomb be cleansed of the oozes for good, Sida?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -825,8 +935,28 @@ P:NPC {
         { text = "What's biting this season?", next = "catch" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They ask me where the fish are, which is the same thing to a sailor. I send the worried ones up to Brother Glorin, and the ones who aren't worried I worry about myself." } },
+      choices = {
+        { text = "Faith keeps a sailor steadier than any charm.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Luck and fish. Sailors need nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Riggs.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I fish the near water and they keep to the wrecks, and that's an arrangement I'd like to keep. Fitzsimmons says they're still on duty out there, and I believe him on the foggy mornings." } },
+      choices = {
+        { text = "They deserve rest. Someone should go out to them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them keep the wrecks. Fish the near water.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Riggs.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit by the water a while; you'll find fishing is a good deal like praying, mostly waiting and hoping." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Patience is a virtue, they tell me, so you'll make a fine angler if you ever put the hammer down." },
         { id = "h_default", text = "Harold Riggs. I teach fishing, and talk about it, and occasionally catch something. Menethil's a fine harbour for fish, if you can stomach the rain and the wrecks." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want to learn to fish, then, for a soldier who can feed himself is worth two who can't." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Fishing's just hunting with a longer arm and a good deal more waiting." },
@@ -844,6 +974,8 @@ P:NPC {
         { text = "I can conjure food. Why fish at all?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would a warrior bother with fishing, Riggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is fishing much like hunting, Riggs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the sailors ask you for luck before they sail, Riggs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the drowned sailors in the bay trouble your fishing, Riggs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good fishing.", next = "END" },
       },
     },
@@ -950,8 +1082,18 @@ P:NPC {
         { text = "Is there any truth in your songs?", next = "truth" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'm trying to, but the soldiers want songs about home and the sailors want songs about drinking, and nobody wants songs about Menethil. Still, someone ought to remember who held this harbour." } },
+      choices = {
+        { text = "Sing it true, Camerick, even if it's grim.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Give them songs of home. The truth can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Camerick.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Every good ballad has one, and I've never had a real one sit still long enough to tell me how they talk." },
         { id = "h_default", text = "Camerick Jongleur, wandering minstrel, though I've not wandered in a while. Raptors to the east, orcs to the north, Dark Irons on the bridges, so I'm wandering in a very small circle around Menethil." },
         { id = "h_nekrosh", when = { questDone = TODO_QUEST("Defeat Nek'rosh") },
           text = "You're the one who brought down Nek'rosh! Sit still; I'm writing a verse, and I need to know what colour his blood was." },
@@ -972,6 +1114,7 @@ P:NPC {
         { text = "I studied at Dalaran. There must be songs about it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you write a song about a warrior, Camerick?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need to see a raptor to write about one?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Will you sing of the soldiers at Menethil, Camerick?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -1094,8 +1237,28 @@ P:NPC {
         { text = "Is the trade fair, though?", next = "fair" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I say a word over every one, though I'm no priest and I don't know the proper words. If you've better ones, I'd be glad to hear them before the next foal comes." } },
+      choices = {
+        { text = "Every life is worth a blessing, Unger.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A strong foal needs good feed, not words.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Unger.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "My father's stock rode with the Alliance in the last war, and a few came back with scars and better manners than their riders. I breed for nerve now, because a horse that bolts at an orc's shout is worse than no horse at all." } },
+      choices = {
+        { text = "Nerve comes from training. Discipline makes the warhorse.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Nerve comes from spirit. Let them run a little wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Unger.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My horses are calm with your kind about, I find, and so am I." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. A horse in a paladin's hands is a horse well placed, I'd say, and I'd say it to Stormwind too." },
         { id = "h_default", text = "Unger Statforth, horse breeder. Years of careful breeding and plenty of care, and I've the privilege of showing you the results. A horse is a companion for life, friend, so don't choose in a hurry." },
         { id = "h_notrusted", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } },
           text = "I'm sorry, but I'll only sell to those Stormwind trusts completely. It's nothing against you; these steeds can't fall into an enemy's hands, so earn the kingdom's trust and come back." },
@@ -1115,6 +1278,8 @@ P:NPC {
         { text = "I'll have a mount of my own in time, I'm told.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would one of your horses carry a warrior into battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters make good horse owners, Unger?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you bless the foals when they're born, Unger?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have your horses carried knights into battle before, Unger?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },

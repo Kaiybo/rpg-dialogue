@@ -65,8 +65,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "To stay standing when the Light goes quiet, because one day it will, and you'll still have a gnoll in front of you. Sammuel teaches you to pray and I teach you to take a hit, and you'll need both before you're through." } },
+      choices = {
+        { text = "I'll learn both. Duty asks it of me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light won't go quiet for me. I'll trust it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my hall. You've a priest's heart and a warrior's arms, so let's see if you've a warrior's legs." },
         { id = "h_default", text = "Warriors are made, not born. Mostly by getting knocked down and standing back up." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Simple Letter"), days = 1 } },
           text = "So you can read. Good, now let's see if you can stand." },
@@ -104,6 +114,7 @@ P:NPC {
         { text = "Do your warriors respect the mages here at Northshire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have warlock pets damaged your dummies before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a warrior trainer think of hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What can a warrior teach a paladin, Llane?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Later.", next = "END" },
       },
     },

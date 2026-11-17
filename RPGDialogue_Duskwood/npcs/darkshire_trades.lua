@@ -38,8 +38,28 @@ P:NPC {
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now and then, wrapped and strapped, to families in Stormwind who'd rather bury their own. The birds go quiet on those flights, every one of them, and I've never had to tell them why." } },
+      choices = {
+        { text = "That's a kindness, Felicia. The dead deserve to go home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bury them here. The living need those birds more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Felicia.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Faster, yes, but Stormwind reads gryphon post just as slowly as the ordinary sort. Lord Ebonlocke has me fly his petitions north twice a week, and the birds come back with nothing but fewer feathers." } },
+      choices = {
+        { text = "Keep sending them. Stormwind must answer in time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop asking Stormwind. Darkshire must save itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Felicia.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Say something soothing near the roosts, would you? The gryphons have heard nothing but wolves for weeks." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The gryphons don't mind armour, but they do mind a rider who shouts, so keep your battle cries for the ground." },
         { id = "h_default", text = "Felicia Maline. I keep the gryphons of Darkshire, which mostly means keeping them calm when the wolves howl at night." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, and with a beast at your side! Keep it close at night, friend; the worgen like nothing better than a stray pet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The gryphons will carry you, but don't go waving that blade near them, because they're nervous enough with the wolves howling." },
@@ -55,6 +75,8 @@ P:NPC {
         { text = "Who flies out of Darkshire?", next = "b" },
         { text = "Do your gryphons ever carry warriors to the fight, Felicia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do the wolves frighten the gryphons, Felicia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your gryphons ever carry the dead home, Felicia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could your gryphons carry word to Stormwind faster than letters?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Felicia.", next = "END" },
       },
     },
@@ -120,8 +142,28 @@ P:NPC {
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The careful ones do, for sharpening, and the rest I hear about when Commander Ebonlocke reads out the names. I've stopped asking myself which blade each of them carried." } },
+      choices = {
+        { text = "I'll pray for the ones who don't come back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good blades can't save careless fighters, Gavin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gavin.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Something blunt and heavy, because a blade slips between old bones and the dead don't bleed. A good mace caves them in, and I'd put one in every watcher's hand if Stormwind ever paid for the iron." } },
+      choices = {
+        { text = "Arm the Watch first. I'll make do with what I carry.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell me your best one. My work matters more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gavin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've nothing for you but a knife to cut bread, though out here a knife's never the worst idea." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want a mace, then, for the dead, and I've a few with weight enough to break a skeleton's spine." },
         { id = "h_default", text = "Gavin Gnarltree. I make weapons for Darkshire, and in Darkshire nobody buys a blade for show." },
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior. Good. Commander Ebonlocke could use a dozen more of you, and I could use the custom." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because I sell blades to people who'll use them, and you look like you've used plenty." },
@@ -137,6 +179,8 @@ P:NPC {
         { text = "Are you kin to Clarise?", next = "b" },
         { text = "What blade would you carry into Duskwood, Gavin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell hunting knives, Gavin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the folk who buy your blades ever come back, Gavin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What weapon do you trust against the dead, Gavin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },

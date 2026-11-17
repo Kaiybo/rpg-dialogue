@@ -73,6 +73,15 @@ P:NPC {
         { text = "What's the hill like at night?", next = "hill" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Better than most soldiers I've poured for, though that's not saying much, since I've only poured for these. They square their bills, they mind my benches and they never draw steel indoors, because Gryan would skin them." } },
+      choices = {
+        { text = "Discipline keeps them alive. Gryan's right to be strict.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them be loud, Heather. They've earned a little freedom.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Heather.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Heather, and I keep the inn on the hill. Most of my guests are militia between watches, and most of them sleep in their boots." },
@@ -88,6 +97,7 @@ P:NPC {
           text = "Out after gnolls for Captain Danuvin? Wash your hands before you sit at my table. Gnoll paws are no kind of thing to bring to supper." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be sleeping in your boots, then, like the rest; I've given up asking anyone to take them off." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep by the fire, if it doesn't mind the militia snoring; most of them sound worse than a bear." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The militia will stand up straighter just seeing you, and then they'll ask you to bless their soup." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the dust on the bench; I've only just swept it." },
@@ -105,6 +115,7 @@ P:NPC {
         { text = "I'll need a room with thick walls, Heather.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why does the militia sleep in their boots, Heather?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the militia mind beasts in the inn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the militia keep good order at your inn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -217,6 +228,24 @@ P:NPC {
         { text = "What are all the forms for?", next = "forms" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bandages, yes, and never enough of them, but blessed water I'd have to write down as plain water, and then someone would ask why I paid for it. If you can bless what we've already got, though, I'll not tell a soul." } },
+      choices = {
+        { text = "Then I'll bless it all and tend whoever needs it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Water's water. Spend the coin on steel instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Whoever's in the worst shape, which is the fairest rule I've got, though it means the bravest get it last because they're too proud to ask. If it were up to me, the lads on the south road would get it first." } },
+      choices = {
+        { text = "Give mine to a farmer. I can stand without it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I fight hardest, so I should be armored first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lewis.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lewis, quartermaster. I keep Sentinel Hill fed, armed and patched, which is a lot to ask of one ledger and a wagon that keeps getting robbed." },
@@ -226,6 +255,8 @@ P:NPC {
           text = "Osric's crate? Armor at last, and it goes to whoever's in the worst shape first. Now you know the way by gryphon, so use it often; the roads are worse." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll put your name in the ledger, and you'll get what armor I can spare, which isn't much, and it's mostly dented." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are the first thing we run out of, after bread and patience, so I hope you brought your own." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Our bandages are mostly old shirts, so whatever you can do without them, please do." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's in better shape than anything in my ledger, so keep it that way, since I've nothing to mend it with." },
       },
       again = {
         { id = "h_again", text = "What's next? I've a ledger waiting on me." },
@@ -241,6 +272,8 @@ P:NPC {
         { text = "You'll want to log whatever my demon breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How short is Sentinel Hill on armor, Quartermaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Sentinel Hill need from its hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does your ledger have room for bandages and blessed water?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who gets the armor first when Osric's crate comes in?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -367,6 +400,24 @@ P:NPC {
         { text = "What are their names?", next = "names" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "When there's no other way, and they're gentler with a wounded rider than a whole one, which I've never understood. I'd sooner the hill had a priest than send a man on a long ride to the Cathedral, mind, because the ride kills some of them." } },
+      choices = {
+        { text = "Then I'll tend them here, so they needn't make the ride.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If a man can't survive the flight, he couldn't survive the war.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Thor.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They'd love to, the brutes, but I keep them out of it, since a gryphon's a flier and not a soldier. The Defias leave the birds alone, and I'd like it to stay that way." } },
+      choices = {
+        { text = "Wise. Everyone on this hill has their own duty to keep.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Use every weapon you have, Thor. Send the birds in.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Thor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Name's Thor, and I keep the gryphons. They're the fastest way out of Westfall, and the only one the Defias haven't managed to rob, so far." },
@@ -376,6 +427,8 @@ P:NPC {
           text = "You lot glide, I hear, off cliffs and the like. Gryphons don't glide, they haul, so strap in; it's not the same thing at all." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need to leave that shield on the ground while you ride, or my gryphon will think you're attacking it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast stays on the ground, I'm afraid; the gryphons don't share their backs with anything that might bite." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The birds don't mind your sort, since you smell of candles and not of blood." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Mind the plate, because it pinches the feathers, and the gryphons will let you know about it." },
       },
       again = {
         { id = "h_again", text = "Anything else? Make it quick, the birds are restless." },
@@ -393,6 +446,8 @@ P:NPC {
         { text = "A gryphon is slower than a teleport, you know.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the gryphons mind carrying warriors, Thor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has a hunter's beast ever ridden a gryphon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your gryphons ever carry the wounded back to Stormwind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do your gryphons ever fly against the Defias, Thor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -510,6 +565,24 @@ P:NPC {
         { text = "What lights did you see?", next = "see_lights" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I see every cart come up the road, and I count what's lying in the back before anyone else does. Gryan buries them on the east slope, and I'd be glad if someone said better words over them than he does." } },
+      choices = {
+        { text = "I'll say those words, Riell, and I'll say them properly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Words don't help the dead. Keep your eyes on the road.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, scout.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The camps along the Moonbrook road, because that's where they gather before they come at us. Gryan wants them pushed back, but I'd like them broken, and I'm told that's why I'm a scout and not a captain." } },
+      choices = {
+        { text = "Gryan's plan is sound. We push them back, steadily.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll break them, and I won't wait for Gryan.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Riell.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Riell, scout for the People's Militia. I watch from the tower and tell Gryan what's coming. Lately it's always the same answer: more." },
@@ -521,6 +594,8 @@ P:NPC {
           text = "Gryan told you how it was? He tells it like he was there because he was, and so were we all. That's why we stayed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The tower sees a lot, but it can't fight what it sees, so I'll tell you where to go and you'll go." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll see things on the ground the tower can't, and I'd like to know what you see." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Gryan will want you on the hill tonight, because we lose fewer men when someone's there to tend them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. From up here your armor shines like a beacon, and I mean that kindly, though the Defias will see it too." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm watching the road, not you, but talk anyway." },
@@ -537,6 +612,8 @@ P:NPC {
         { text = "I can see things in the dark that you can't.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where should a warrior go from Sentinel Hill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter watch for on the roads?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you watch the militia's dead come home from the tower?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What should a paladin strike first, from what you see up here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
@@ -664,6 +741,24 @@ P:NPC {
         { text = "Why is Westfall wood so poor?", next = "wood" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Once, for a young brother from the Cathedral who couldn't hit a barn door, and I bought it back from him for half the price. Your sort have your own weapons, I'm told, and I'd guess prayer doesn't need a string." } },
+      choices = {
+        { text = "My faith is my weapon, William, and it never misses.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith's well enough, but I'd rather carry a good bow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, William.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More often than Gina would like, and she'd tell you I'm a fool for it. A farmer with a bow is one more pair of eyes on the hill, and that's worth a few coppers to me." } },
+      choices = {
+        { text = "That's right and generous. The weak deserve a way to fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Charge them, William. Charity won't keep your bench open.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, William.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "MacGregor's the name. I make bows for the militia and sell what's left to whoever walks up; Westfall wood's poor, so I make it up with patience." },
@@ -673,6 +768,8 @@ P:NPC {
         { id = "h_deadmines", tags = { "news" }, when = { deed = "dungeon:The Deadmines" },
           text = "You went under Moonbrook and came back with your bowstring still whole. Either you're good, or you didn't let the hunters shoot. Either way, well done." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my bench. You'll want a bow for pulling, I suppose, and I'll sell you one, though it's not my best." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at a bowyer's bench. You'll not want a bow, I'd guess, but you're welcome to watch." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Hammers and maces for your lot, I know, so I've nothing for you but a fine bowstring to admire." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
@@ -687,6 +784,8 @@ P:NPC {
         { text = "A good bow is fine, but a knife is quieter.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a wand count as competition, William?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why won't you sell a warrior your best bow?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have you ever made a bow for a priest, William?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever give a bow to a farmer who can't pay?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just looking.", next = "END" },
       },
     },

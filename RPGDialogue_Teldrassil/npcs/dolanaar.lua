@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Guard them, perhaps, though I would not have you pour your Light into the water, for Elune's wells answer to her alone. Stand watch by the third well if you would serve, and if whatever fouls it comes by night, let it find a shield there." } },
+      choices = {
+        { text = "I'll stand guard as you ask, and leave the water be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the Light can cleanse the well, I won't wait for permission.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -69,6 +78,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Light, so far from your kingdoms? The moonwells are Elune's, but I will not turn away anyone who comes to guard them." },
         { id = "h_default", key = true,
           text = "Corithras Moonrage. I watch the moonwells of Teldrassil. Something is wrong with them, and I mean to learn what." },
         { id = "h_crown", tags = { "news" }, when = { questActive = TODO_QUEST("Crown of the Earth") },
@@ -88,6 +98,7 @@ P:NPC {
         { text = "Tell me the story Tenaron began.", next = "story" },
         { text = "Which wells do you watch?", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
+        { text = "Could the Light help guard your moonwells, Corithras?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll carry the vial.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If something fouls the wells, I'll cut it down.", next = "warrior_c", when = { class = "WARRIOR" } },
         { text = "I can watch the wells unseen and see who fouls them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -174,6 +185,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I have prayed over them, and so have the priestesses, but the fel moss is in their blood and prayer alone will not draw it out. If you must fight them, pray for them afterward, because they did not choose what they have become." } },
+      choices = {
+        { text = "I'll pray for every one I'm forced to fell.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pity won't stop a furbolg's club, so I'll save my prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Athridas.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Sick, though a sick bear will kill you as surely as a wicked one. Strike when they attack you and no more than that, and leave the judging to those of us who knew them before the fel moss came." } },
+      choices = {
+        { text = "I'll strike only those who strike at me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A furbolg raising a club is guilty enough for me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "If they come at you, you must, because they have stopped hearing reason and they will tear you open if you hesitate. But they were our friends once, warrior, so fight them as you would a friend who has lost his mind, and take no joy in it." } },
@@ -215,6 +244,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and welcome. The Gnarlpine were a gentle people once, and I would have you remember that before you raise a hand against them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order hunts the corrupted, I am told, but the Gnarlpine are sick rather than wicked, and I ask you to remember the difference." },
         { id = "h_default", key = true,
           text = "I am Athridas Bearmantle, a druid of Dolanaar, and the Gnarlpine furbolgs are my concern. They were never our enemies, but they are now." },
         { id = "h_corruption", tags = { "news" }, when = { questActive = TODO_QUEST("Gnarlpine Corruption") },
@@ -240,6 +271,8 @@ P:NPC {
         { text = "That fel moss. I know the stink of it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I could get close enough to the Gnarlpine to see what's turned them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Must I fight the Gnarlpine, Athridas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can prayer reach the Gnarlpine, Athridas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the Gnarlpine guilty, or only sick, Athridas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -321,6 +354,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The priestesses in Darnassus, when we can carry them that far, and whoever has steady hands when we can't. If you have a healing prayer to spare, there are Sentinels in the village who would thank you for it." } },
+      choices = {
+        { text = "I'll see to them before I go anywhere else.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I came to fight the Gnarlpine, not to nurse Sentinels.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Openly, I think, for they hold Starbreeze and my dreamcatcher besides, and they have grown bold because nobody stands against them. Show them a shield that does not break, and the rest of them may think twice about the road." } },
+      choices = {
+        { text = "I'll meet them in the open, shield first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd sooner take them unawares and spare myself the bruises.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I need their mystic Ferocitas to stop feeding on the dreams he stole from me, and I need the young ones guarding my groves to stop getting hurt. Go to the Gnarlpine camps if you will, and come back whole, because I am tired of mourning." } },
@@ -353,6 +404,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for Dolanaar has had wounded enough since the Gnarlpine grew bold, and the Sentinels bring me more of them every week." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in Dolanaar, in armor that rings like a temple bell! The Gnarlpine will hear you coming, but perhaps that's no bad thing." },
         { id = "h_default", key = true,
           text = "Tallonkai Swiftroot. The Gnarlpine have grown bold, and they hold something of mine. I'd like it back, and I'd like them to stop." },
         { id = "h_dreamcatcher", tags = { "news" }, when = { questActive = TODO_QUEST("The Emerald Dreamcatcher") },
@@ -373,6 +426,8 @@ P:NPC {
         { text = "What happened to Starbreeze Village?", next = "starbreeze" },
         { text = "Who is Lord Melenas?", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
         { text = "I could slip into Starbreeze and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
+        { text = "Who tends the wounded the Gnarlpine leave behind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How should a paladin face the Gnarlpine, Tallonkai?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } },
         { text = "Do you need a blade against the Gnarlpine, Tallonkai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How have the Gnarlpine changed the hunting in these woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -439,6 +494,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "None written down, but Denalan's work by Lake Al'Ameth leaves him scratched and stung more often than he admits, and Iverron lies sick near Shadowglen. The Council would never order it, so I will only say that a healer would be welcome at both." } },
+      choices = {
+        { text = "I'll see to them both, for healing needs no order.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I heal those who pay me, the same as any trade.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The Council trusts what it sees done, and an oath sworn in Stormwind means little in Dolanaar until it has been kept here. Take an order and carry it through, and they will remember your name better than any vow." } },
+      choices = {
+        { text = "Then give me an order, and I'll see it done.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My oath is to the Light, not to your Council.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -482,6 +555,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Council's orders are mostly for blades and bows, but there is always someone on the list who needs mending more than fighting." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order is sworn to obey, they tell me, which makes you easier to give orders to than most of the adventurers I see." },
         { id = "h_default", key = true,
           text = "Syral Bladeleaf. I carry the Council of the Forest's orders to those who'll follow them. There are always more orders than hands." },
         { id = "h_redemption", tags = { "news" }, when = { questActive = TODO_QUEST("Seek Redemption!") },
@@ -500,6 +575,8 @@ P:NPC {
         { text = "Who is Denalan?", next = "denalan" },
         { text = "Who is Zenn Foulhoof?", next = "zenn" },
         { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
+        { text = "Has the Council any orders for a priest?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the Council trust a paladin's oath, Syral?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Give me the orders nobody else will take.", next = "warrior_sy", when = { class = "WARRIOR" } },
         { text = "Have you any orders for someone discreet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -574,6 +651,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than they used to, since the Gnarlpine turned and the spiders grew bold in the Webwood. I give them a bed and a hot meal, and I would sleep easier if someone who knew a prayer looked in on them now and then." } },
+      choices = {
+        { text = "I'll look in on them before I sleep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm resting tonight, and the wounded can wait for morning.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Rarely, and when they do it's mostly a quarrel over the hearth, which I settle with soup. But a tired traveler sleeps better knowing someone armed is under the same roof, so stay as long as you like." } },
+      choices = {
+        { text = "I'll keep watch tonight so your guests can sleep.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm here to rest, not to stand guard for strangers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Just rest, then.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Most of them, fresh from Kyra Windblade's lessons and sure they're ready for Ashenvale already. I pour them tea and let them talk, and by the second cup they usually admit they'd like a bed before they go." } },
@@ -618,6 +713,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest under my roof! The road from Shadowglen is kind, mostly, but now and then someone comes in limping, and it helps to have a healer near." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and a long way from home! Leave your hammer by the door if you like, for nobody in Dolanaar will touch it, though they will certainly stare." },
         { id = "h_default", key = true,
           text = "Innkeeper Keldamyr. Travelers between Shadowglen and Darnassus all stop here, sooner or later. I like to think they leave lighter." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Dolanaar Delivery") },
@@ -639,6 +736,8 @@ P:NPC {
         { text = "Do many warriors stop here on the way to Darnassus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters stay at the inn, or sleep in the woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need a room away from the others.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the wounded often come to your inn, Keldamyr?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do your guests ever bring trouble to the inn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just rest, thank you.", next = "END" },
       },
     },
@@ -693,6 +792,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Pray, sleep, eat and think, all of it, because a roof only gets in the way of the moon. The priestesses say Elune hears you wherever you are, and I've always taken that to mean she'd rather you came outside." } },
+      choices = {
+        { text = "My faith goes wherever I go, roof or no roof.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd rather have a roof and a dry blanket than a sermon.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Anyone can learn, though you'll wake with bark printed on your back and dew in every joint. The trick is to stop fighting the ground and let it hold you, which I suspect is the hardest lesson there is for a paladin." } },
+      choices = {
+        { text = "Then I'll learn to bear it, as I bear everything else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take the armor off and trust the woods instead.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Easier than you'd think, once you take the armor off and stop listening for every snapped twig. Pick a spot with your back to a trunk, count the stars through the leaves, and let the forest keep watch for a while." } },
@@ -735,6 +852,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Have you ever prayed under the open sky, with no roof between you and whatever's listening? It's the only way I'd do it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "You're wearing more metal than I've carried in my whole life, {class}. Have you ever tried sleeping in it under a tree? I'd like to watch." },
         { id = "h_default", key = true,
           text = "Lyreena Duskblade. I'd rather sleep under the canopy than under a roof. If you want to learn how, I'll teach you." },
         { id = "h_outdoors", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Outdoors") },
@@ -754,6 +873,8 @@ P:NPC {
         { text = "I sleep light and move quietly. What else is there to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I can conjure water. Camping's simple for me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can a warrior learn to sleep outdoors as you do?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you really prefer to pray under the canopy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can a paladin learn to camp in full armor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not now.", next = "END" },
       },
     },

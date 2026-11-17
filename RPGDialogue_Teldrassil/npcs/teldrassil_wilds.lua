@@ -21,6 +21,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not by any prayer I know, because whatever twists them comes from the soil and the seeds rather than from a wound. But I've come to think all living things deserve some pity, even the ones that attack me, so a prayer for them would not be wasted." } },
+      choices = {
+        { text = "Every living thing deserves pity, so I'll pray for them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're walking trees, and I'll save my prayers for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Twisted, I'm almost certain, for they were born from Teldrassil like everything else here and something in the soil has gone wrong. Fight them if they come for you, but bring me their seeds as well, and perhaps one day we'll have fewer of them to fight." } },
+      choices = {
+        { text = "Then I'll fight them only when I must.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Twisted or not, they attack travelers, and I'll cut them down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They should be gentle growing things, but something in Teldrassil's soil has made them savage, and they attack anyone who comes near the lake. I need them thinned so that I can study their seeds, so please swing carefully, because I want what's left of them and not splinters." } },
@@ -64,6 +82,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The timberlings I study are sick in a way I don't yet understand, and I wonder whether a healer's eye might see what mine has missed." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, out by Lake Al'Ameth? You're welcome, though I hope you'll forgive me if I go on taking notes while we talk." },
         { id = "h_default", key = true,
           text = "I am Denalan, and I study how the life of Teldrassil grows. The great tree is young, and the creatures born of it are not always what we hoped." },
         { id = "h_earth", when = { questActive = TODO_QUEST("Denalan's Earth") },
@@ -88,6 +108,8 @@ P:NPC {
         { text = "Your timberlings never hear me. I could watch them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's wrong with the timberlings, Denalan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the timberlings stalk prey like true beasts now?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can a sickness like the timberlings' be healed, Denalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the timberlings truly evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Elune guide your work.", next = "END" },
       },
     },
@@ -147,6 +169,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd rather you didn't do it for my sake, because I was the one who wandered too near their cave. But the young ones of Shadowglen walk that way every day, so if you go, go for them, and I'll be grateful all the same." } },
+      choices = {
+        { text = "No one should face that cave alone, so I'll go.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Spiders are spiders, and I'll go when it suits me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Rest easy a moment.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Keep them off the path, if you can, because they've grown bolder every day since I was bitten. Dirania worries that they'll take the next fool who wanders by, and I'd hate to be proven only the first of many." } },
@@ -190,6 +221,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin? Forgive me if I don't rise, {class}, because the venom has made my legs heavy, though seeing you makes me feel a little braver." },
         { id = "h_default", key = true,
           text = "I am Iverron, and I was foolish enough to wander too near the spiders' cave. The venom works slowly, which is a mercy and a torment both." },
         { id = "h_antidote", when = { questActive = TODO_QUEST("Iverron's Antidote") },
@@ -212,6 +244,7 @@ P:NPC {
         { text = "Could a spell draw the venom out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can I do anything about the spiders, Iverron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does the antidote need from the Webwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Shall I deal with the spiders that poisoned you, Iverron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Rest easy, Iverron.", next = "END" },
       },
     },
@@ -270,6 +303,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Whenever the priestesses come down from Darnassus, and they always say the same blessing over the bread that my mother said. I like to think a meal shared with thanks is half a prayer already, whoever is listening." } },
+      choices = {
+        { text = "Then let me say the blessing over the bread.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bread's bread, and I'll eat it without the ceremony, thanks.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Something hot and slow-cooked, with the old herbs my mother taught me, because a meal eaten in a hurry gives back only half its strength. Sit down properly, take your gauntlets off and eat like someone who means to live a long while." } },
+      choices = {
+        { text = "Then I'll sit and eat properly, as your mother would want.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll eat on the road, because rules about meals are for the comfortable.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They did, my mother said, because some of these recipes fed the soldiers who marched against the Legion long ago, and they were meant to last long roads. Season it slowly and pack it tight, and it'll keep you standing in Ashenvale as it kept them standing then." } },
@@ -313,6 +364,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down and eat, because I've never met a healer who remembered to feed themselves while they were busy looking after everyone else." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You look as though you've lived on trail rations for a month, {class}, and I can't allow that while you're in Dolanaar." },
         { id = "h_default", key = true,
           text = "I am Zarrin, and I cook for Dolanaar as my mother did before me. The recipes of the kaldorei are older than Teldrassil, and I mean to keep them that way." },
         { id = "h_recipe", when = { questActive = TODO_QUEST("Recipe of the Kaldorei") },
@@ -333,6 +386,8 @@ P:NPC {
         { text = "Your spice cupboard is very poorly guarded.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did the old kaldorei warriors eat like this?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which of Teldrassil's beasts make the best meals, Zarrin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do priests often eat at your table, Zarrin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you feed someone who fights for a living?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Zarrin.", next = "END" },
       },
     },

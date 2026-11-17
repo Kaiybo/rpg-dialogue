@@ -78,8 +78,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not that I'd say out loud, though there are folk who come up from the cellar at odd hours, and I don't like the way they look at the kitchen. Farley says they're harmless, and Falkhaan says to keep my knife handy, and I believe Falkhaan." } },
+      choices = {
+        { text = "Then I'll watch them, and see the law kept.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they've done nothing, they're free to come and go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Melika.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit by the door, if you would, because Farley gets nervous when the cellar folk come up for supper." },
         { id = "h_default", text = "Melika. Farley talks to the guests, I feed them. What do you need?" },
         { id = "h_rest", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
           text = "Falkhaan sent you up the road? He sends all the tired ones. Farley gets the thanks and I get the dishes." },
@@ -120,6 +130,7 @@ P:NPC {
         { text = "Does Zaldimar never come down for his supper?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors cause you much trouble, Melika?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will you let my beast eat in the yard, at least?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is anyone in Goldshire in danger, Melika?", next = "xapala", when = { class = "PALADIN" } },
       },
     },
 

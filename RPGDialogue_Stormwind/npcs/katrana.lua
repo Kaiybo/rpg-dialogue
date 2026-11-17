@@ -60,8 +60,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The court values the Church's congregation, which is rather a different thing, and the Archbishop has been reminded of the distinction more than once. Faith is a fine thing for a kingdom, darling, in moderation, like wine." } },
+      choices = {
+        { text = "Faith isn't wine, my lady. The kingdom needs more of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Moderation is wise, my lady. Zeal does as much harm as good.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A noble order, darling, and noble orders are very expensive. The Silver Hand marched to Lordaeron and lost it all the same, and the kingdom still pays for its pride, so you'll forgive me if I ask what we're buying." } },
+      choices = {
+        { text = "Honour can't be priced, my lady. You'd do well to remember it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A fair question, my lady. Every order should prove its worth.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. How sweet, the Church sends its little lights to court as if the Regent might forget it exists." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and a polished one. The Regent does so love to be surrounded by his own reflection." },
         { id = "h_default", key = true, text = "Lady Prestor. I advise the Regent on the use of the kingdom's resources. Someone must, and the Regent is so very busy being noble." },
         { id = "h_westfall", when = { topicKnown = "westfall" },
           text = "Westfall, yes: farmers with pitchforks, writing letters. The crown cannot empty its purse every time a peasant is frightened." ,
@@ -96,6 +116,8 @@ P:NPC {
         { text = "Does the court have any use for mages, my lady?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the court value its warriors, my lady?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever hunted, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the court value the Church's counsel, my lady?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do you think of the Silver Hand, my lady?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Excuse me.", next = "END" },
       },
     },

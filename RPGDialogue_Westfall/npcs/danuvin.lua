@@ -61,6 +61,24 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They've got me, and I've a voice for drilling, not for praying. Bless them before they go out if you like, since they'll stand straighter for it, and standing straight is half of soldiering." } },
+      choices = {
+        { text = "I'll bless every patrol that leaves this hill, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Drilling keeps them alive. Prayer only comforts them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk of something else, Captain.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "We've no gaol out here, so we take their blades and their boots and send them off down the coast road. Half of them come back in new boots, which tells you somebody's supplying them, and I'd dearly like to know who." } },
+      choices = {
+        { text = "Send them to Stormwind for trial. The law has to mean something.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Turning them loose is foolish. Better to end it here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -79,6 +97,7 @@ P:NPC {
         { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN" } },
           text = "You've had real training, I can see, and good. Half my lot learned to fight last spring, from me, with hoes." },
         { id = "h_drill", when = { metBefore = true }, text = "I drilled the new ones till they dropped, let them sleep, then drilled them again. By harvest they'll be soldiers, or else very tired farmers." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! My recruits pray the way they fight, loudly and without much skill, so you'd be a help to them." },
       },
       again = {
         { id = "h_again", text = "Next question, and be quick about it." },
@@ -96,6 +115,8 @@ P:NPC {
         { text = "Your farmers fight in the open, Captain. I'd teach them to fight dirty.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A few fire spells would thin the gnolls quickly, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I bargain with darker things than gnolls, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your farmer soldiers have anyone to pray with before a patrol?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What becomes of the Defias your militia captures, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },

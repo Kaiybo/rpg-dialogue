@@ -67,8 +67,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not often, though I drew half its buttresses myself. Every stone in it was set by a man still waiting for his wages, and I find it hard to kneel on something that was never paid for." } },
+      choices = {
+        { text = "The faith in those stones is real, whoever paid for them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then it's a monument to a lie, and I won't pray there either.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Wages paid, and a word from the House admitting the masons were wronged, and neither will ever happen. Instead they took to the hills of Westfall, and now the crown calls them bandits and sends soldiers after them." } },
+      choices = {
+        { text = "The law must deal with the Defias, whatever the House owes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "When the law cheats men, they've a right to take what's theirs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The masons raised the Cathedral before the House refused to pay them, so you'll forgive me if I look at it differently than you do." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand speaks a great deal of justice, so I'd be curious to hear what you think is owed to the men who rebuilt this city." },
         { id = "h_default", text = "Baros Alexston, City Architect. Every street you walked to get here, someone drew first, and usually it was me." },
         { id = "h_letter", tags = { "news" }, when = { questActive = TODO_QUEST("The Unsent Letter") },
           text = "That's Edwin's hand; I'd know it in the dark. We drew half this city together, once, and he never sent it. Of course he never sent it." },
@@ -113,6 +133,8 @@ P:NPC {
         { text = "What's eating the Mage Quarter's mortar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which part of the city would you hold first, Architect?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the city have room left for a hunter's beasts, Architect?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever pray in the Cathedral you helped build?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would justice look like for the Stonemasons, Architect?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

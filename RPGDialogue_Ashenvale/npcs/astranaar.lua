@@ -90,6 +90,15 @@ P:NPC {
       },
       choices = { { text = "Something else, Raene.", next = "BACK" } },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Stand between the Warsong axes and the trees, because every grove they fell is gone for good. Delgren's people already hold Maestra's Post, and I'd be glad of one more hammer on the roads." } },
+      choices = {
+        { text = "Then I'll stand between the axes and the trees.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm here for my own reasons, not the trees'.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -112,6 +121,7 @@ P:NPC {
           text = "There's a mage in Astranaar, and the Sentinels are already watching you, I'd wager. My people learned what the arcane costs when the Well of Eternity swallowed half the world, so don't take the stares personally." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "So you're the warlock Korra has been growling at since you crossed the bridge. I've buried scouts the satyrs of Satyrnaar tore open, and I won't pretend your craft doesn't remind me of them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! I hope you came to fight, because Ashenvale has no use for anyone who came to watch." },
       },
       again = {
         { id = "h_again", text = "What else? Korra's getting restless, and so am I." },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "My people fought the orcs in our own fields.", next = "human_r", when = { race = "Human" } },
         { text = "Can a mage be of use to your scouts, Raene?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you judge me by what the satyrs did?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you have a paladin do in Ashenvale, Raene?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
       },
     },
@@ -314,6 +325,24 @@ P:NPC {
         { text = "It might. I'd try anything, as you have.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A little, for a night or two, and then the dreams come back worse than before. The priestesses say the sickness is not of the body, which is why I have pinned my hopes on Orendil's cure instead." } },
+      choices = {
+        { text = "I'll pray for her every night until she's well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If healers failed, prayer won't help her either.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Help me find a cure, because I am a father and not a warrior, and the things that guard what I need are past me. If you can spare the time, there is no deed in this forest I would thank you for more." } },
+      choices = {
+        { text = "I'll find her cure, whatever stands in the way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I've harder fights to finish first, Pelturas.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -334,6 +363,8 @@ P:NPC {
           text = "There's a coldness about you that I don't like near my daughter's room, and forgive me for saying so. Her dreams are dark enough already without anything darker standing at her door." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please lower your voice; Relara has only just fallen asleep, and every sound wakes her." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Speak softly, I beg you, because my daughter sleeps lightly and the dreams are bad." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive me, I don't mean to stare, but I have asked every healer who comes through Astranaar to look at Relara." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your order can lay hands on the sick, and I would beg it of you if I thought it would help her." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? Forgive me, I keep listening for her." },
@@ -349,6 +380,8 @@ P:NPC {
         { text = "Is there anything a warrior can do for Relara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the creatures of Ashenvale hold what Relara needs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think my craft could reach into her dreams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has nothing a healer tried helped Relara?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What can I do for your daughter, Pelturas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -468,6 +501,24 @@ P:NPC {
         { text = "It's a secret. Get well and I'll tell you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Yes please, but a short one, because I get sleepy. And can you ask Elune to make the dreams nicer, or the Light, or whoever's listening?" } },
+      choices = {
+        { text = "I'll pray for you tonight, and every night.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't fix this. Your papa will, though.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Is it like a Sentinel, but with a hammer? I think it means you're brave and you help sick people and fight bad things, and I'd like to be one, if I can't be a hippogryph." } },
+      choices = {
+        { text = "That's right. We protect people who can't protect themselves.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Mostly it means fighting. It's not for children.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Relara, and I'm sick, but Papa's fixing it. The dreams are bad, but you're not in them, so that's good." },
@@ -480,6 +531,8 @@ P:NPC {
           text = "Are you a real mage? Papa says magic is dangerous, but I think a tiny bit of light to keep the bad dreams away wouldn't hurt anybody." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You've got a sword! Papa says I can have one when I'm a Sentinel, but I think he's fibbing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Do you have a beast? Does it bite, or can I pet it, or will Papa get cross?" },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? Papa says priests make the bad dreams go away, but they always come back after." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "You've got so much armour! Are you a knight? Papa says knights help people, so you must help people too." },
       },
       again = {
         { id = "h_again", text = "Are you still here? Good, then tell me something." },
@@ -495,6 +548,8 @@ P:NPC {
         { text = "Would you like to see a little magic, Relara?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you want to be a warrior when you're well, Relara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you like to be a hunter when you're well, Relara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would you like me to say a prayer for you, Relara?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'm a paladin, Relara. Do you know what that means?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Get well soon.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -585,6 +640,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "For the second list, yes, though I keep hoping some of them are only late. If you pray over it, pray that I'm wrong about most of them." } },
+      choices = {
+        { text = "I'll pray for every name on it, the living and the lost.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Names on a list won't feel any prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The road south to Mystral Lake, where the orcs from Splintertree come out to cut and the furbolgs come out to kill. Walk it with your eyes open, and come back so I can cross your name off properly." } },
+      choices = {
+        { text = "I'll walk it, and see others home along it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll walk where I please, not where you send me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Faldreas. I keep track of who goes out on the roads and who ought to have come back by now, and the second list is longer than I'd like." },
@@ -598,6 +671,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, so I suppose you'll be stepping in and out of the world without ever passing my gate. The forest spirits find that very confusing, and so do I." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Write your name in my book before you go out on the roads, please, so I'll know where to look if you're late." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll know, then, why I keep a second list, the one of those who won't be coming back down the road." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walk the roads armoured, which gives me some hope I won't be adding your name to my second list." },
       },
       again = {
         { id = "h_again", text = "What else? I've a list to keep." },
@@ -612,6 +687,8 @@ P:NPC {
         { text = "Why does it matter if I slip out unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the forest spirits mind the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors make it back from the roads, Faldreas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you want a prayer said for the names on your list?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Which road needs a paladin's protection most?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -717,6 +794,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The Whitemoon girl, Relara, and her father almost as much, for he hasn't slept properly in weeks. I send them broth every night, but broth doesn't mend a heart, and you might." } },
+      choices = {
+        { text = "I'll visit them both before I leave Astranaar.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their troubles are their own, Kimlya.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe enough on the island, but the scouts come back fewer than they went out, and everyone here knows it. A paladin on the roads gives folk something to hope for, and that's worth more than you'd think." } },
+      choices = {
+        { text = "Then I'll be on the roads, keeping them safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hope won't stop the Warsong. Steel will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
@@ -730,6 +825,8 @@ P:NPC {
           text = "I'll give you a room like anyone else, but I'd ask you to leave your companion outside the door. The scouts sleeping upstairs have seen enough of demons out at Satyrnaar." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and hungry, I'd guess. Sit, and I'll bring broth before you go back out to the Warsong." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I'd guess your companion is hungrier than you are. Sit, the pair of you." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do sit down, and have some broth, because you'll be called to some sickbed or other before the night's out." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The scouts will be glad to see you, and so am I, though you'll leave mud on my floors like everyone else." },
       },
       again = {
         { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
@@ -744,6 +841,8 @@ P:NPC {
         { text = "Do the warriors from the front come here to rest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters bring meat for your kitchen, Kimlya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the scouts fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Who in Astranaar needs a priest most, Kimlya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Astranaar truly feel safe to its people, Kimlya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just resting.", next = "END" },
       },
     },

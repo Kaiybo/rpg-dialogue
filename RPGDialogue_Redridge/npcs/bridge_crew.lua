@@ -60,6 +60,24 @@ P:NPC {
         { text = "Who's on the crew?", next = "crew" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Two men when the Blackrock catapults hit, and a lad who went into the lake after a dropped chisel and never came up. Oslow cut their names into a stone in the first pier, and every time we lay a course above it, we stop for a moment." } },
+      choices = {
+        { text = "That's a fitting memorial. I'll bless that stone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Stones don't remember. Finish the bridge and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Dmitri.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every hour of every day, and we get a guard for about one hour in three. The orcs don't care that it's a bridge for everybody, which I suppose is the trouble with orcs." } },
+      choices = {
+        { text = "Then I'll stand guard while the crew works.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Builders should carry their own swords, Dmitri.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Dmitri.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dmitri, and I've built more bridges than anyone on this crew, the foreman included, though I'd not say so in front of him. This one is the hardest, because people keep trying to knock it down while we build it." },
@@ -68,6 +86,8 @@ P:NPC {
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! You'll be thinking of some machine to lift these stones, I expect, and I'll tell you now the foreman doesn't trust machines." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Now there's a pair of shoulders that'd carry a stone or two, though I'd guess you'd rather swing at the orcs who keep knocking our work down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know the hills, then, and you'll know there's more than orcs out there watching us work." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll bless the foundations, I hope, because I've done everything else I can think of to keep them standing." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll know about building things that last, I'd think, since your order's been standing longer than most bridges." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slowly; I like to think while I listen." },
@@ -82,6 +102,8 @@ P:NPC {
         { text = "Who keeps knocking down the Everstill Bridge, Dmitri?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What else watches the bridge crew, Dmitri?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Stone holds a curse well, you know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has the crew lost anyone building this bridge, Dmitri?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the crew need guarding while it works, Dmitri?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your stones.", next = "END" },
       },
     },
@@ -180,6 +202,24 @@ P:NPC {
         { text = "Why do you want adventure so badly?", next = "adventure" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only when the horns go off up in the hills, and then I'm frightened all at once and then not at all, because the foreman shouts and there's no time. Nights are worse, so I say the prayers my mother taught me, though I'm never sure I've got them right." } },
+      choices = {
+        { text = "Any prayer said honestly is said right, Jess.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't stop an orc, Jess. Learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jess.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I think so, I hope so, though Dmitri says the hoping is the part that matters and the standing comes after. I carried a stone right up the scaffold the last time the horns blew, and I didn't drop it, so that's something, isn't it?" } },
+      choices = {
+        { text = "That's courage, Jess. Stand by your crew and you'll do fine.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Run if they come. A dead hero builds no bridges.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Jess, and I carry stone for Foreman Oslow, which isn't very exciting, but it's for the bridge, and the bridge is important. Everyone says so, especially the foreman." },
@@ -187,6 +227,8 @@ P:NPC {
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Are you one of Lucius's lot from down on the docks? I'm not supposed to know about them, so please forget I asked." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! A real one, with real armour and everything! Is it heavy? It looks heavy, but I suppose you're used to it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! With a real beast and everything! Can it do tricks? I bet it can do tricks, and I bet it bites gnolls." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Are you here to bless the bridge? Somebody should, because Dmitri says it's cursed, though I think he's only joking." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! A real one! Is it true you can heal people just by touching them? Could you show me sometime?" },
       },
       again = {
         { id = "h_again", text = "What else? Dmitri's not looking, so I've a minute." },
@@ -200,6 +242,8 @@ P:NPC {
         { text = "Want to see my imp, Jess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want to be a warrior someday, Jess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you seen the beasts in the hills, Jess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the work frighten you, Jess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you stand your ground if the orcs came for the bridge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Back to work, Jess.", next = "END" },
       },
     },

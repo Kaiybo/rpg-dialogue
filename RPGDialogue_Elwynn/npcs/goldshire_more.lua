@@ -64,8 +64,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Sundays, when the inn's quiet, I make a pot of barley for the Westfall families camped behind the stable. Farley pretends not to notice, they pretend they were only passing, and nobody's pride gets hurt." } },
+      choices = {
+        { text = "That's holy work, Tomas, whatever you call it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Feed them once and they'll never leave the stable.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tomas.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Plain bread and whatever's in the pot, and he says grace so long the steam's gone off it. I made him a proper roast once, with gravy, and he gave it to a farmer's boy at the next table and ate the bread himself." } },
+      choices = {
+        { text = "Wilhelm's right. A paladin should take the least.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He should eat the roast. A paladin needs his strength.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my kitchen. If you're here to bless the stew, go ahead, because it could use all the help it can get." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll eat like three men after a day of Wilhelm's drills, I know, because he sends his students down to me hungry." },
         { id = "h_default", text = "I'm Tomas, and I cook for the Lion's Pride. Toddrick cuts the meat, Dobbins pours, and I'm the one who makes it all worth eating." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Cooking") },
           text = "Sam Sarsaparilla sent you from the road, didn't he? Good, because a camp starts with a fire, and a fire's no use to anyone who can't cook over it." },
@@ -97,6 +117,8 @@ P:NPC {
         { text = "What do you hear through your larder wall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What should a warrior eat before a long fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you cook from what I hunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever cook for those who can't pay, Tomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does Brother Wilhelm eat, Tomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just smelling the stew.", next = "END" },
       },
     },
@@ -211,8 +233,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The novices at Northshire, mostly, because the Abbey's bread is so hard you could build a wall with it. Brother Danil says I'm stealing his trade, but he eats two buns every time I visit, so I think he's forgiven me." } },
+      choices = {
+        { text = "A little sweetness for the novices is a kindness, Kira.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Novices should learn to live on hard bread.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kira.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Once, near the Brackwell patch, and the one in the bandana took a loaf and paid for it, which was the strangest robbery I've ever had. He said he'd been a mason in Stormwind before they stopped paying him, and I've thought about him ever since." } },
+      choices = {
+        { text = "He's still a thief, Kira. The law is the law.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The crown wronged him first. I can't blame him entirely.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You look as though you've forgotten your own supper, like every healer I meet on this road." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my road! I always feel safer when there's plate in sight, even if it's only passing." },
         { id = "h_default", text = "Kira Songshine, baker, and I bring the bakery to you! North to the city gates, east toward the tower, and southwest as far as the garrison, depending on my feet." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "I should be home by now, but there's always one more traveler on the road. Lucky for you it's this one." },
         { id = "h_hogger", when = { questActive = TODO_QUEST("WANTED: \"Hogger\"") },
@@ -239,6 +281,8 @@ P:NPC {
         { text = "Are you often frightened on the road, Kira?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do warriors eat more bread than anyone else?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will your bread keep for a long hunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who do you bake for, besides your customers, Kira?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have the Defias ever stopped you on the road, Kira?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Safe walking.", next = "END" },
       },
     },
@@ -328,6 +372,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because they help people, and they don't get scared, and they've got the shiniest armour of anybody. Joshua says I'd have to pray every single day, and I said I would, mostly." } },
+      choices = {
+        { text = "Start with helping people, Bo. The armour comes later.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Do it for the shiny armour. That's reason enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Bo.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Bo! Me and Joshua and Mark play by the smithy, because Argus lets us watch the sparks so long as we don't touch anything." },
@@ -351,6 +404,7 @@ P:NPC {
         { text = "What would you do if you could go invisible?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you want to be a warrior someday, Bo?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you like to be a hunter, Bo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why do you want to be a paladin, Bo?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -447,8 +501,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because of the guards who went to the lake and never came back, and because of the murlocs Remy talks about. I'm not scared, honest, but I said a prayer for the guards anyway, the way Ma does, in case it helps." } },
+      choices = {
+        { text = "It helps, Matt. Keep saying it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't bring them back, Matt. Best not to hope.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Matt.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No, a fisherman, a proper one, because paladins have to get up early and pray, and fishermen only have to get up early. But if a paladin cleared out the lake, I'd catch him the biggest fish in Elwynn, I promise." } },
+      choices = {
+        { text = "I'll clear the lake, then. A promise to a boy matters.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Stay by the pond, lad. The lake's not my problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? Can you bless my line so the fish bite? Ma says that's not what blessings are for, but I don't see why not." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Are you a paladin? Are you going to fight the murlocs? Bo says paladins aren't scared of anything, and for once he's not daft." },
         { id = "h_default", text = "I'm Matt, and I'm a fisherman. I haven't caught anything yet today, but that's because the fish in this pond are stupid and won't bite." },
         { id = "h_back", when = { metBefore = true }, text = "I caught one yesterday, a big one, only it got away, so you'll have to take my word for it." },
         { id = "h_guards", when = { questDone = TODO_QUEST("Find the Lost Guards") },
@@ -472,6 +546,8 @@ P:NPC {
         { text = "Wouldn't you rather catch them properly, Matt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have you ever seen a real fight, Matt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do any animals come down to the pond to fish?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why won't your ma let you past the bridge, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you like to be a paladin, Matt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck, Matt.", next = "END" },
       },
     },

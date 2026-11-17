@@ -57,8 +57,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Over every shield, before it leaves the forge, because every one of them goes on the arm of some lad who's never been hit. Brother Paxton says the Light doesn't care about iron, but I've seen what comes back, and I'll keep praying." } },
+      choices = {
+        { text = "Then your prayers are in every shield. Keep at it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good iron matters more than prayers, Godric.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Godric.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That it's heavy for a reason, and the reason's the lad behind you who isn't wearing any. Sammuel's students always want it polished, and I tell them polish is for parades, and parades are for kings." } },
+      choices = {
+        { text = "I'll wear it for the lad behind me, not for show.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A paladin should look the part. Polish matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll be in robes, I suppose, but come back when you've learned that robes don't stop a kobold's pick." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now that's a sight, because I made half the plate Sammuel's students wear, and I like to see it come back with honest dents." },
         { id = "h_default", text = "Godric Rothgar, armorer to the Abbey. Every recruit who walks out of Northshire walks out in something I've hammered, so mind you bring it back unbroken." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and a fresh one by the look of you. Llane will teach you to swing, but I'll teach you that a shield is worth more than any sword." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -79,6 +99,8 @@ P:NPC {
         { text = "Have you ever made a cage for a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why is a shield worth more than any sword, Godric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you make mail that lets me draw a bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever pray over your work, Godric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What should a paladin know about plate, Godric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -163,8 +185,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Faster than I can sew them, because Anetta sends them into the vineyards after wounded recruits, and the brambles take the hems. I don't mind the work, truly, because a torn robe means somebody went where they were needed." } },
+      choices = {
+        { text = "A torn hem is a mark of service, Dermot.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They should be more careful. Robes cost coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Dermot.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Most of Sammuel's students do for the first year, and then they stop, once they learn that a bright tabard is the first thing a Defias archer aims at. I sell more plain grey than white these days, which says something about the road." } },
+      choices = {
+        { text = "I'll wear the colors. Folk should see who stands for them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Plain grey, then. Pride gets paladins killed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've a bolt of white wool just up from Stormwind, and it's made for exactly your sort, if you keep it out of the brambles." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want a tabard over that plate, and I've a few in the Abbey's colors, if you're the sort who likes to be noticed." },
         { id = "h_default", text = "Dermot Johns. I sell robes to the priests and jerkins to the rest, and I spend my evenings mending both by candlelight." },
         { id = "h_caster", when = { any = { { class = "PRIEST" }, { class = "MAGE" } } }, text = "A robe-wearer, I see! Do keep it out of the brambles by the vineyards, will you? Silk doesn't forgive thorns." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -186,6 +228,8 @@ P:NPC {
         { text = "Do La Salle's students ruin your robes often?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do warriors need anything from a cloth merchant?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which leather is best for walking the Northshire woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Abbey's novices wear their robes out quickly, Dermot?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should a paladin wear the Abbey's colors, Dermot?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -269,8 +313,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "We pray before everythin', {g:lad|lass}, battle an' supper an' a long walk alike, though some of us pray tae the stone an' some tae the Light an' some tae the ale. I'll say a word before I hand a recruit a sword, an' I'll thank ye no' to tell the humans." } },
+      choices = {
+        { text = "A word before battle never hurt anyone. Good, Janos.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Steel wins battles, Janos, not words.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Janos.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, gladly, an' I'd forge it the Ironforge way, heavy in the head an' honest in the haft. But I'll ask ye first what ye mean to hit wi' it, because a hammer's a promise, an' I'll no' make one for a bully." } },
+      choices = {
+        { text = "Only those who prey on the weak. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whoever stands in my way. That's my business, smith.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've a mace that'd suit ye, if ye've the arm for it, though most o' yer lot prefer the staff." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a weapon worth makin', because yer lot actually look after what I sell ye." },
         { id = "h_default", text = "Janos Hammerknuckle. I sell steel to the Abbey's recruits, and I've given up counting how many of them grip a sword like a soup ladle." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well now, a proper dwarf! Ye've no idea how good it is to hear a sensible voice up here among all these tall folk." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -292,6 +356,8 @@ P:NPC {
         { text = "Do mages ever carry daggers at all?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How should a warrior hold a sword, Janos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you think a gun beats a bow, Janos?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do dwarves pray before battle, Janos?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you forge a hammer for a paladin, Janos?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -375,8 +441,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A recruit who'd been bitten by a kobold and wouldn't stop apologizing, because he thought he'd failed the Marshal. The bite healed by supper, but the shame took a month of walks, and I'm still not sure I mended all of it." } },
+      choices = {
+        { text = "The heart heals slowest. Walk with him as long as he needs.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Recruits need to toughen up. Shame makes them careful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More often lately, because the kobolds in the Echo Ridge Mine have started coming out at dusk, and they don't care whose robe they're cutting. I'd never ask, mind, but I'd not refuse a shield walking beside me." } },
+      choices = {
+        { text = "Then I'll walk your rounds with you, Brother.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A healer should learn to defend himself, Brother.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother Paxton.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sammuel's work, I'd guess, and either way you'll be the one standing over me while I mend somebody." },
         { id = "h_default", text = "I'm Brother Paxton. I walk the grounds from the vineyards to the gate, and I mend whatever the wolves and kobolds leave of our recruits." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A fellow servant of the Light! Walk with me a while, if you've the time, and you'll learn more healing on this path than in any book." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -397,6 +482,8 @@ P:NPC {
         { text = "Does the Light truly reject a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you mend many warriors, Brother Paxton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will the Light mend a hunter's beast, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What's the hardest wound you've mended on these grounds, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever need a paladin beside you on your rounds, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Brother.", next = "END" },
       },
     },

@@ -53,8 +53,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than they'll admit, because the bears up north have been bolder since spring, and a logger would rather bleed than walk to the Abbey. If you've any linen or prayers to spare, Raelen's crews could use both, and they'll pretend they didn't." } },
+      choices = {
+        { text = "Then I'll walk out to the crews myself. They needn't ask.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A man too proud to ask for help can bleed, then.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Rallic.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every time a bear comes out of the trees, and then never again once it's gone. My father carried a pike in the Second War and came home missing three fingers, so I learned to make bows instead, which keeps the fighting at a polite distance." } },
+      choices = {
+        { text = "An honest bowyer serves the kingdom as well as any soldier.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A man who won't fight lets others bleed for him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've no bows for you, I expect, but you're welcome to sit while I work, and you can tell me if my language offends." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my shop! You'll not want a bow, I know, but I'll show you anyway, because I'm proud of them." },
         { id = "h_default", text = "Rallic Finn, bowyer. The loggers bring me the straight-grained pieces they can't sell to Stormwind, and I turn them into bows and arrows for the camp and anyone passing through." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "One of the kaldorei, at my bench! Your people made bows before mine had learned to sharpen a stick, so I'll take any criticism you care to give and try not to sulk about it." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Most of your kin walk past my bows and ask where the guns are. Drake Lindgren next door sells shot, if that's what you're after." },
@@ -79,6 +99,8 @@ P:NPC {
         { text = "Would a rogue have any use for one of your bows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How does the wood tell you what it wants to be?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would a warrior bother with a bow?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have the loggers needed a healer much this season, Rallic?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever wish you'd taken up the sword, Rallic?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Rallic.", next = "END" },
       },
     },
@@ -198,8 +220,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I give, quietly, because if the loggers heard I'd given a family a sack of flour, I'd have a queue at the door by morning. There's a widow at the mill whose husband went under a falling oak in spring, and somehow her shelves never empty, though I'll swear I've no idea how." } },
+      choices = {
+        { text = "Quiet charity is the best kind. Bless you, Drake.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Charity makes beggars. You'd do better to let them work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Drake.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe enough by day, but two of my carts were stopped near the Brackwell patch in spring, and the drivers came home with nothing but a story about red bandanas. The Marshal says he's spread thin, and I believe him, though I'd believe him better with a few soldiers on my road." } },
+      choices = {
+        { text = "The law must reach the roads too. Dughan should hear of this.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The law won't help you. Hire swords and settle it yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Drake.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I carry candles and I carry linen, and I'll sell you both at a fair price, which is a high price, because of the road." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want oil for that plate, and I've plenty, counted, and I'll not ask what you've been smiting." },
         { id = "h_default", text = "Drake Lindgren, general and trade supplies. Everything in this house came up the road from Stormwind on a cart, so if you think the prices are high, blame the road." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! I've nothing clever in stock, I'm afraid, but there's plenty of plain flux and thread if you're building something that won't explode." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Throwing knives are on the left, and I've counted them, so you know. It's nothing personal; I count everything." },
@@ -223,6 +265,8 @@ P:NPC {
         { text = "Would you sell to a warlock if you did carry it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do warriors forget to buy before they leave Eastvale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever give to the needy, Drake, or only sell?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the road from Stormwind safe for your carts, Drake?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Drake.", next = "END" },
       },
     },
@@ -327,8 +371,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "My old ma used to, every spring, and she'd plant an acorn for every oak my father felled. I don't do it myself, but I leave the youngest trees standing, and if that's a prayer then I've been saying it for twenty years." } },
+      choices = {
+        { text = "That's a prayer, Terry, and a good one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trees are for cutting. Stormwind needs beams, not acorns.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Terry.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Real enough that the lads won't go back for the bundles, and I can't say I blame them, because I saw one open a man's arm to the bone last week. Raelen says it's the wolves pushing them down, and something's pushing the wolves, and I'd rather not know what." } },
+      choices = {
+        { text = "I'll go north myself, so your lads needn't.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The lads take wages for danger. Let them earn them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Say a word for my back, would you? It's past saving, but a word can't hurt." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You've the arms for an axe, friend, though I suppose you'd rather swing at something that swings back." },
         { id = "h_default", text = "Terry Palin, and before you ask, yes, I've been cutting trees since I could lift an axe. This mill turns Elwynn's oaks into beams for Stormwind, and I turn my back into knots doing it." },
         { id = "h_bundle", when = { questActive = TODO_QUEST("A Bundle of Trouble") }, text = "Out gathering the bundles we left in the woods? Bless you, because I'm not going back for them with the bears out there, and Raelen knows it." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "You've shoulders for this work, friend. If you ever tire of the sword, Raelen pays every week and the bears only bite now and then." },
@@ -352,6 +416,8 @@ P:NPC {
         { text = "Why keep a warlock away from the mill?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Have you ever had to fight off the bears yourself?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How bad are the bears around the mill?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does anyone pray for the woods you cut, Terry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are the bears up north a real danger, Terry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

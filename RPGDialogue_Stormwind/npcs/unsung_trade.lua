@@ -65,8 +65,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I couldn't possibly say, but I'll tell you it's very old and very carefully wrapped. Nothing's ever been stolen from the Bank of Stormwind, and I'd rather not test that with anything holy." } },
+      choices = {
+        { text = "Holy things belong in the Cathedral, not a vault.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A vault's safer than any altar. The Church chose well.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Tried, yes, and failed every time, though I'll not tell you how. Nothing's ever been stolen from the Bank of Stormwind, and I'd like to keep saying that until I retire." } },
+      choices = {
+        { text = "The law protects honest folk's savings. Good.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Any lock can be picked. You're trusting luck, Olivia.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The Cathedral keeps a few boxes with us, you know, and I promise you they're as safe as anything in the kingdom." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want to see your box, I expect, and your order's boxes are some of the best kept in the bank." },
         { id = "h_default", text = "Olivia Burnside, at your service. We keep accounts and safe deposit boxes, and no one has ever stolen a thing out of this bank, not in its whole history." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Ah, a dwarf! You'll want to see our vaults, I expect, and compare them with Ironforge's. I promise ours will stand the comparison." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -88,6 +108,8 @@ P:NPC {
         { text = "What does the Sanctum keep in your boxes?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What happens to a warrior's gold if they don't come back, Olivia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters store pelts in the bank, Olivia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What does the Cathedral keep in your vaults, Olivia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Has anyone ever tried to rob the bank, Olivia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Olivia.", next = "END" },
       },
     },
@@ -183,8 +205,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Letters from home, mostly, and keepsakes from people they couldn't save. I've seen priests open a box just to look at a ribbon, and then close it again without taking anything out." } },
+      choices = {
+        { text = "We carry the ones we lost. That's part of the calling.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keepsakes only weigh you down. Better to let them go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That the Silver Hand has been everywhere, and lost a great deal. I've seen boxes left untouched for years, and I keep them, because someone might come back." } },
+      choices = {
+        { text = "Keep them, Newton. Some of us will come home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If no one comes back, the boxes should go to the living.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your boxes are always the same, candles and letters and a spare robe, and I find that rather comforting." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your order's boxes tell me more about the kingdom than the crown's dispatches do, if you'll forgive me saying so." },
         { id = "h_default", text = "Newton Burnside. I keep boxes and accounts for half the Trade District, and I've learned that what people put away tells you more about them than anything they say across a counter." },
         { id = "h_lowlevel", when = { maxLevel = 15 }, text = "A new face, and a young one. Most of our new customers start with a few spare linen shirts and a sword they've outgrown, so don't be shy about what you bring." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -206,6 +248,8 @@ P:NPC {
         { text = "What do warriors keep in their boxes, Newton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do hunters keep in their boxes, Newton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone tried to store something alive?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do priests keep in their boxes, Newton?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do a paladin's things tell you about the kingdom?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Newton.", next = "END" },
       },
     },
@@ -304,8 +348,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some of them, about the sick they've healed and the dead they've buried, and some just stand there quietly, which tells its own story. I listen either way, because I think everyone should have somebody at the door." } },
+      choices = {
+        { text = "Listening is a kind of healing, John.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some stories are better left untold, John.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Near enough, from the mud on their boots and the look in their eye. Paladins come in tired and leave lighter, and I like to think the bank has something to do with that." } },
+      choices = {
+        { text = "A welcome at the door is worth more than gold, John.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's the gold that lightens us, John, not the welcome.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Welcome, welcome, and tell me where you've been, because the Cathedral's people always come back with the best stories." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Welcome, welcome, and you'll have been somewhere dangerous, I can see it in the way you're standing." },
         { id = "h_default", text = "John Burnside. I've the first window, so I see everyone before my kin do, and I like to think I give the city a friendly face when they've only come to count their coin." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! We've had a few of your people in since Gnomeregan, and every one of them has asked to see how the locks work. I'm not allowed to show you, I'm sorry to say." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -327,6 +391,8 @@ P:NPC {
         { text = "Do many warriors bank with you, John?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters ever bank their earnings, John?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do my companions bother your customers, John?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do priests really tell you their stories, John?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can you really tell where someone's been, John?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -422,8 +488,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Better at auction than in a back alley, where anyone might take them. I keep the bidding honest and the deposits fair, and I like to think the Light approves of a well-run sale." } },
+      choices = {
+        { text = "Holy things shouldn't be sold at all, Chilton.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A fair sale is fair, whatever's being sold.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Now and then, and the deposit helps, because a thief doesn't like to pay first. Fitch keeps the book, and between us we catch most of them." } },
+      choices = {
+        { text = "The guard should hear of every theft you catch.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they've paid the deposit, it's their business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The auction house sees a fair few holy relics, and I always make sure they go to a good home." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your order's old gear fetches a fine price, and I'll see it's sold honestly if you ever bring any in." },
         { id = "h_default", text = "Auctioneer Chilton, at the left podium. Leave your goods with me, set your price and your deposit, and every buyer in Stormwind will have the chance to fight over them." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Your people do run a fine auction in Ironforge, but I'll wager ours is warmer, and the bidders here haven't learned to haggle as hard." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -445,6 +531,8 @@ P:NPC {
         { text = "What arms sell best at the auction house, Chilton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sells best from a hunter's haul, Chilton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone consigned something that moved?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Should holy relics be sold at auction, Chilton?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do people try to sell stolen goods here, Chilton?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Chilton.", next = "END" },
       },
     },
@@ -539,8 +627,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'd like to think so, because mine has gaps, and I lose sleep over every one. If someone else is watching, then perhaps the frauds I miss aren't really missed." } },
+      choices = {
+        { text = "Nothing escapes the divine, Fitch. Rest easy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Don't count on heaven's ledger, Fitch. Keep your own sharp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I trust the book, and the book trusts no one. That's why it works, and why the Silver Hand's name goes in the same as a goblin's." } },
+      choices = {
+        { text = "The rules should be the same for everyone. Good.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A paladin's word should be enough, Fitch.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'll write your name down, if you don't mind, though I'm sure there's a better book than mine being kept somewhere above." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll still write your name down, {class}, because the book doesn't make exceptions, even for the Silver Hand." },
         { id = "h_default", text = "Auctioneer Fitch. Chilton calls the bids and Jaxon charms the buyers, and I write everything down, which is why nobody in this hall has ever been cheated on my watch." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "I'll note your name very carefully, if you don't mind. It isn't an accusation; it's simply that the book has a long memory and I'd like you to know that." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -562,6 +670,8 @@ P:NPC {
         { text = "Has anyone ever cheated at the auction house, Fitch?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters often have disputes at the auction house, Fitch?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why should your quill hesitate, Fitch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you believe a higher record is kept, Fitch?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you trust anyone at the auction house, Fitch?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Fitch.", next = "END" },
       },
     },
@@ -650,8 +760,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than you'd think, dear, and usually to pay for something they can't ask the Cathedral for. I don't pry, but I make sure they get a fair price." } },
+      choices = {
+        { text = "That's kind of you, Jaxon. Fairness is its own blessing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they're selling, they should haggle like anyone else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oh, a good deal, dear, because collectors like Count Ridgewell will pay handsomely for a bit of history. I always ask whether the seller has the right to part with it, though." } },
+      choices = {
+        { text = "The crest shouldn't be sold for profit, Jaxon.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If someone pays well, why not sell the crest?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Hello, dear, a priest! Do ask me before you price your robes, because the Cathedral's novices always ask too little." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Hello, dear, a paladin! Do price that old shield with me before you list it, because the Silver Hand's crest adds a fair bit." },
         { id = "h_default", text = "Auctioneer Jaxon. I have the right-hand podium, and I'll tell you honestly what your goods will fetch, which is more than Chilton will, bless him." },
         { id = "h_nightelf", when = { race = "NightElf" }, text = "Hello, dear. Your people bring the loveliest things in from Darnassus, and they never know what to charge for them, so do ask me before you list anything." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -673,6 +803,8 @@ P:NPC {
         { text = "Do you think I'd bid with conjured gold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What makes a warrior's gear valuable, Jaxon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What are hides worth right now, Jaxon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do priests often sell their things here, Jaxon?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the Silver Hand's crest really raise the price, Jaxon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Jaxon.", next = "END" },
       },
     },
@@ -764,8 +896,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Charitable ones, mostly, for the orphans or the sick, and they always sign properly, which I appreciate. A charter is a promise, and priests understand promises." } },
+      choices = {
+        { text = "A promise made in faith should never be broken.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A promise is only paper, Aldwin, until someone keeps it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That every knight shall protect the weak and serve the Light, and that the oath binds for life. It's a beautiful thing, and I've often wondered whether every guild should have such a clause." } },
+      choices = {
+        { text = "An oath for life is the only oath worth taking.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "An oath for life is too much to ask of anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The Church's guilds are the tidiest I register, and their crests are always lovely, though they do insist on so many suns." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Your order's oath is the oldest promise I can think of in this city, {class}, and I keep a copy of the words framed above my desk." },
         { id = "h_default", text = "Aldwin Laughlin, guild master of the Stormwind registry. I keep the charters of every guild that calls this city home, and I design their crests, which I'll admit is the part I enjoy." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "One of the Silver Hand! Your order is the oldest brotherhood I can think of, so you'll understand better than most why I insist that a charter be signed properly." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -787,6 +939,8 @@ P:NPC {
         { text = "What crest would you design for a warrior's guild, Aldwin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you enjoy designing hunters' crests, Aldwin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would the House refuse a warlocks' guild?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do many priests found guilds, Aldwin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does the Silver Hand's oath say, Aldwin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Aldwin.", next = "END" },
       },
     },
@@ -884,8 +1038,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A priest should learn to protect, which is not the same thing as fighting. Stand well and hold your weapon gently, and you will find that most battles end before they begin." } },
+      choices = {
+        { text = "I'll learn to protect, and fight only when I must.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If I must fight, I'll fight to win.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That you lean forward, as paladins do, and that you trust the Light more than your feet. Trust the Light, but stand well, because the Light will not catch you if you fall." } },
+      choices = {
+        { text = "Then I'll train my feet as well as my faith.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light has never let me fall yet.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Even a healer should know the staff and the mace, because the day will come when your prayers are not enough." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Show me your stance, and I'll tell you what your hammer has been doing." },
         { id = "h_default", text = "I am Woo Ping, and I teach the weapons this arsenal sells: swords, staves, daggers, polearms and the crossbow. Gunther sells the steel and I teach the hand, and between us we make soldiers out of shopkeepers." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior should know every weapon, because the one you favour will break at the worst moment. Learn the polearm from me, and learn it well." },
         { id = "h_mage", when = { class = "MAGE" }, text = "A mage at my door is rare, and welcome. I can teach you the sword or the staff, so that when your spells are spent, you are not yet helpless." },
@@ -908,6 +1082,8 @@ P:NPC {
         { text = "Which weapon should a warrior master first, Woo Ping?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should a hunter train with a melee weapon, Woo Ping?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why does it matter if I fight for myself?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Should a priest learn to fight, Woo Ping?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does my stance tell you, Woo Ping?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, master.", next = "END" },
       },
     },
@@ -1002,8 +1178,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than they used to, which tells you something about the roads. A priest who can't defend themselves gets taken first, and I'd rather sell a mace than hear about it." } },
+      choices = {
+        { text = "I'll carry one, but faith is my first defence.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A good mace has saved more priests than prayer.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A steady trade, and they're the only customers who never haggle. Gunther says it's because they're honourable, and I say it's because they don't know what things cost." } },
+      choices = {
+        { text = "A fair price deserves to be paid in full.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Perhaps I'll learn to haggle, then, Marda.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, I expect, and Gunther will want to lecture you about balance, so I'd buy quickly." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "You'll know your way to the back wall, {class}, since that's where every paladin goes first." },
         { id = "h_default", text = "Marda Weller. Gunther forges and fusses, Woo Ping teaches, and I keep the counter and the ledger, which is why this shop still has a roof." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, so it's a mace or a two-hander you're after. We've a few heavy pieces on the back wall, though Gerik Koen in Old Town has more if ours don't suit you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1025,6 +1221,8 @@ P:NPC {
         { text = "Does the Sanctum disapprove of weapons training?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does Gunther really talk about balance that much, Marda?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Weller's sell for hunters, Marda?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do many priests buy weapons, Marda?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you sell much to the Silver Hand, Marda?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it, Marda.", next = "END" },
       },
     },
@@ -1122,8 +1320,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The glass is clearer and the stopper's tighter, so yes, though the Cathedral says it's the blessing that matters. I'd say a blessing in a leaky vial is a blessing on the floor." } },
+      choices = {
+        { text = "The blessing matters more than the glass, Keldric.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Good glass is half the work.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Vials for holy water, mostly, and some for oils, and they always want them sturdy. A broken vial in the middle of a fight is no use to anyone, and I've made sure mine don't break." } },
+      choices = {
+        { text = "Good preparation saves lives. Your work matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "In a fight, I'd sooner trust my hammer than a vial.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want holy water vials, and I've the best in the city, though I'll grant the Cathedral thinks theirs are better." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll not need my vials, I expect, but if you ever need to carry holy water to the front, ask me first." },
         { id = "h_default", text = "Keldric Boucher. Morgan Pestle has the potions, Kyra has the reagents by the door, and I keep the vials and the finer arcane goods for alchemists and spellcasters who know what they're doing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll know your reagents, then, and you'll know that cheap vials crack under a heating charm, though mine don't." },
@@ -1144,6 +1362,8 @@ P:NPC {
         { text = "Why does the glass matter for a potion, Keldric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters brew their own remedies, Keldric?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What screamed in your vial, Keldric?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are your vials really better than the Cathedral's, Keldric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have you supplied the Silver Hand before, Keldric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Keldric.", next = "END" },
       },
     },
@@ -1241,8 +1461,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because you only need one when someone's died, and I've sold enough of them to know what that means. I wrap each one carefully, and I try not to think about where it's going." } },
+      choices = {
+        { text = "Every one I use brings someone back. That's a blessing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Death is part of war, Kyra. You can't wrap it away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Symbols of divinity, I expect, {class}, and I've a fresh crate, though I always hope your sort never has to use them." },
         { id = "h_default", text = "Kyra Boucher. Reagents for every kind of spellcaster, right by the door so nobody has to walk past Keldric's lectures on glass. Keldric is my kin, so I'm allowed to say that." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. You'll want symbols of divinity, I expect, though I hope you never need to use one. The Silver Hand's people always look so solemn when they buy them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -1265,6 +1495,7 @@ P:NPC {
         { text = "What's the difference between yours and Jasper's?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors ever buy reagents, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you get many hunters at your counter, Kyra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why hope paladins never use their symbols, Kyra?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Kyra.", next = "END" },
       },
     },

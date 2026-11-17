@@ -76,8 +76,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I don't know, and it keeps me up at night, which is very unscientific of me. Techbot helped everyone who asked, for years, and if that isn't something worth a prayer, then I don't know what prayers are for." } },
+      choices = {
+        { text = "Kindness is worth a prayer, wherever it comes from. I'll say one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A machine is a machine, Tinkmaster. Save your grief for the gnomes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about engineering instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Repaired, if I had my way, for he was good once and the fault's somewhere in his memory core. But the Assembly says he's dangerous, and they're not wrong, so I've asked for his brain and left the rest to whoever goes down there." } },
+      choices = {
+        { text = "If he can be saved, he should be. That's justice.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A dangerous machine is a dangerous machine. Shut it down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive my melodrama, but if you've a prayer for Techbot, I'd be grateful, even if he is only a machine, which he isn't, not to me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've always wanted to build a self-polishing breastplate for your sort, but the prototype polished the wearer as well, quite vigorously." },
         { id = "h_default", key = true,
           text = "Tinkmaster Overspark, master of gnomish engineering, the one true discipline. Forgive my melodrama, but our situation is dire, and dire situations deserve a bit of drama." },
         { id = "h_techbot", tags = { "news" }, when = { questActive = TODO_QUEST("Tinkmaster Overspark") },
@@ -113,6 +133,8 @@ P:NPC {
         { text = "Why shouldn't I mention Gnomeregan's warlocks too loudly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What happened when the troggs reached Gnomeregan, Tinkmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What became of your mechanical hound, Tinkmaster?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can a machine have something worth praying for, Tinkmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should Techbot be destroyed or repaired, Tinkmaster?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -279,8 +301,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Most of them, and some don't come back at all, which I write in the ledger beside the data they were sent to fetch. I know it's grim to keep the two together, but I think it's honest, and I'd like the Assembly to read it that way." } },
+      choices = {
+        { text = "No data is worth a life. I'll heal whoever comes back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The data matters. Gnomeregan's future depends on it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Explain the punch cards instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I have, and I've regretted it, for a team of engineers is very good at fixing terminals and very bad at being chased by troggs. A paladin at the front means the engineers can do their work, and I'd rather that than another name in my ledger." } },
+      choices = {
+        { text = "Then I'll lead the team. The engineers will come home.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Engineers should learn to fight. A paladin can't babysit everyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Castpipe.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, good, because my teams come back from Gnomeregan with burns and radiation sickness, and the punch cards don't heal anybody." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, because the procedure is complicated, but the hitting is very simple, and my teams could use someone who does the hitting." },
         { id = "h_default", key = true,
           text = "Castpipe, Master Mechanic. I'm sending teams back into Gnomeregan to recover our lost data, and if you've come to join one, listen closely, because the procedure is complicated." },
         { id = "h_task", tags = { "news" }, when = { questActive = TODO_QUEST("Castpipe's Task") },
@@ -313,6 +355,8 @@ P:NPC {
         { text = "What happens if a demon gets irradiated in Gnomeregan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do your recovery teams need a warrior, Castpipe?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would a hunter scout in Gnomeregan's tunnels?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How many of your teams come back hurt, Castpipe?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you send a team down without a paladin, Castpipe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -469,8 +513,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, I think so, though I'll admit I don't know quite what it is yet, which makes the searching very exciting. Some of the gnomes say I'm chasing a dream, and I tell them dreams are the only things worth chasing." } },
+      choices = {
+        { text = "Dreams are worth chasing, Klockmort. I'll pray you find yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Find out what it is first. Then chase it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about Furen Longbeard instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "On willing ones, yes, and with every precaution, though the last volunteer did end up with very shiny gauntlets that wouldn't come off for a week. I'd never test on anyone who didn't ask, and I'll put that in writing." } },
+      choices = {
+        { text = "Only with consent. Anything else is wrong, however good the cause.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Progress needs risks. Test it however it gets done fastest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good luck with your quest.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh my, you'll forgive the mess, I'm sure, because priests forgive everything, or so I've heard, and my workshop needs a great deal of forgiving." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your plate's lovely, but I'll wager I could make it lighter and stronger, if you've a few months and don't mind being a test subject." },
         { id = "h_default", key = true,
           text = "Klockmort Spannerspan, smith and seeker! I'm on a quest for new alloys and harder metals for the greatest invention of all, and every bit of metal you bring me gets me a little closer." },
         { id = "h_notes", tags = { "news" }, when = { questActive = TODO_QUEST("Klockmort Spannerspan") },
@@ -502,6 +566,8 @@ P:NPC {
         { text = "Could magic truly make an alloy stronger than mithril?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you want my broken blades, Klockmort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do your rifle barrels keep getting heavier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is the greatest invention worth all this searching, Klockmort?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should you test your alloys on living paladins, Klockmort?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },
@@ -649,8 +715,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Ozzie and Razzle are working on a cure in Kharanos, and I believe in them, though I'll admit some days are harder than others. A priest who'd sit with the sick ones would do more good than any plan of mine, and I don't say that lightly." } },
+      choices = {
+        { text = "Then I'll go to Kharanos and sit with them. They won't be alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers can't fix radiation. Help Ozzie find the cure instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "For Gnomeregan, then.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Discipline, courage, and someone at the front who won't run when the troggs come screaming out of the tunnels. I keep the plans, but plans don't swing hammers, and I'd sleep better if I knew you'd be there." } },
+      choices = {
+        { text = "I'll be there, at the front, when the march begins.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for gnomes, but I won't die for a lost city.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "For Gnomeregan!", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Our people need your sort more than anyone, for the radiation sickness hasn't left the ones who escaped, and some of them still cough at night." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! For Gnomeregan, if you'll have it, because we'll need every hammer we can get when we march back through those gates." },
         { id = "h_default", key = true,
           text = "Gnoarn, at your service and the service of Gnomeregan! Our families lost, our homes taken, our people scattered, and I'm the one who keeps the plans, so if you want to help, you've come to the right gnome." },
         { id = "h_day_after", tags = { "news" }, when = { questActive = TODO_QUEST("The Day After") },
@@ -681,6 +767,8 @@ P:NPC {
         { text = "What sort of plans need someone quiet in Gnomeregan?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What are your plans for retaking Gnomeregan, Gnoarn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where are the troggs coming up, Gnoarn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can anything be done for the gnomes still sick from the leak?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What will the march on Gnomeregan need most, Gnoarn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "For Gnomeregan!", next = "END" },
       },
     },

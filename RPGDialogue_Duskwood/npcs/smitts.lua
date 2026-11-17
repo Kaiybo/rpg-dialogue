@@ -67,8 +67,18 @@ P:NPC {
         { text = "What rumours are going round?", next = "rumors" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I want an answer, and I've stopped being sure that's the same thing. Haggard thought justice would let us both sleep, but the man's long gone, and I still don't sleep." } },
+      choices = {
+        { text = "Then I'll find you the truth and face whoever it names.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some truths are better left buried, Smitts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Smitts.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sit, and I'll tell you about the murders, because I've told everyone else and none of them carried a hammer." },
         { id = "h_default", text = "The name's Smitts. I pour, I listen, and I keep a record of what this town would rather forget, because somebody should." },
         { id = "h_haggard", key = true, when = { heardLine = "haggard.h_raven" },
           text = "Haggard asked after me, did he, the old goat? He and his lads used to fill that corner every night, so tell him I still keep his mug." },
@@ -111,6 +121,7 @@ P:NPC {
         { text = "What do the Watch talk about over a drink, Smitts?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters tell tall tales in your tavern, Smitts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you still want justice for those murdered nobles, Smitts?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just warming up.", next = "END" },
       },
     },

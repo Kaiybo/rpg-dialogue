@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because I have vision, and patience, and I listen to people, mostly, when they aren't talking nonsense. The Sisterhood says faith begins with humility, which I have always considered a very convenient rule for the people already in charge." } },
+      choices = {
+        { text = "Humility is where faith begins, Jenal, and they're right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You may have a point, for humility mostly serves the powerful.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "To guard the soil shipments, of course, and to impress visitors, and to make sure nobody overlooks a dreamer when the honors are handed out. You've done all that and more for your king, I expect, so you see the sense in it." } },
+      choices = {
+        { text = "A knight serves others, Jenal, not their own honors.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Honors are worth chasing, and I'd want my share too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Faster? You've missed the point entirely, because any brute can move dirt quickly and it takes a visionary to move it thoughtfully. Still, a warrior's back is a fine thing, and when I'm running the Enclave one day I'll have a dozen of you." } },
@@ -87,6 +105,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Now there's a calling, though I've always thought I'd make a fine priest myself, if the Temple ever stopped looking at me like that." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've always said the Circle should have knights of its own, and here you are, proving me right." },
         { id = "h_default", key = true,
           text = "Jenal, at your service, though not for long, I hope. I'm a dreamer, you see, a visionary, and until the world sees it I help the Cenarion Circle by moving these piles of dirt about." },
         { id = "h_soil", tags = { "news" }, when = { questActive = TODO_QUEST("Un'Goro Soil") },
@@ -114,6 +134,8 @@ P:NPC {
         { text = "Why would the druids object to a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Need someone to shift those piles faster, Jenal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has anything been digging through your piles at night?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why do you think you'd make a fine priest, Jenal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why would the Circle want knights of its own, Jenal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you dig.", next = "END" },
       },
     },
@@ -225,6 +247,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "You go where the dying are and I go where the guilty are, and neither of us is welcome until we're needed. The difference is that you're thanked afterward, and I prefer not to be." } },
+      choices = {
+        { text = "I'd rather heal than hunt, thanked or not.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some of the guilty deserve whatever comes to them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I doubt anyone's justice once it has to be done quickly and quietly, because an open court is a luxury. If you ever learn to hold to your oaths when nobody is watching, come back and tell me, and I'll be impressed." } },
+      choices = {
+        { text = "My oaths hold whether anyone is watching or not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sometimes justice has to be done quietly, and I know it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll leave you to the shadows.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That the loudest fighter is the easiest to find, and usually the first to die. The Gnarlpine went for the shouting camps first every time, so think on that before you bang your shield again." } },
@@ -289,6 +329,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You won't learn anything from me, but I'll grant that your trade and mine both work in the dark, after a fashion." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in my shade. Your kind make a great deal of noise about justice, and I'm always curious how much of it survives a dark alley." },
         { id = "h_default", text = "I'm Syurna, and I train rogues. If you aren't one, I can't teach you anything, and I rarely talk for the pleasure of it, so choose your questions well." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "We are darkness and shadow, rogue, and the forest needs both now more than it did. Ask what you came to ask." },
@@ -317,6 +359,8 @@ P:NPC {
         { text = "What could a rogue teach a warrior, Syurna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do rogues and hunters stalk the same way, Syurna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the kaldorei hate warlocks, or only fear them?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How do our trades both work in the dark, Syurna?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you doubt a paladin's justice, Syurna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to the shadows.", next = "END" },
       },
     },
@@ -407,6 +451,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every living thing has a place in it, and a healer's place is to mend what the hunt leaves behind. Don't heal the beast my hunters have rightly brought down, though, for that is not mercy, it is meddling." } },
+      choices = {
+        { text = "Mercy is never meddling, Jocaste, and I'll heal what suffers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll leave the hunt's dead to the balance.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "There is corruption, like the fel moss that has turned the Gnarlpine, and I would have you strike it wherever you find it. But a wolf that kills a deer is not evil, and I'd thank you not to judge it as if it were." } },
+      choices = {
+        { text = "The balance is yours to keep, so I'll strike only corruption.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Anything that preys on the helpless is evil, to my eyes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A warrior can, though most don't try, because steel teaches you to strike first and ask nothing. Learn the beasts of Teldrassil before you cut them down, and you'll find that fewer of them need cutting." } },
@@ -479,6 +541,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Respect the balance, as I tell my hunters, and you'll find the beasts of Teldrassil kinder to a healer than to a hunter." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order judges good and evil, I'm told, but in the wild there is only the balance, and the balance does not take sides." },
         { id = "h_default", text = "I am Jocaste, and I train the hunters of Darnassus. Always respect the balance and live in awe of the nature around you, because that's the first lesson, and the last." },
         { id = "h_path", tags = { "news" }, when = { questActive = TODO_QUEST("The Hunter's Path") },
           text = "Yes, it's time. You're skilled enough to keep a beast at your side, so go to Dazalar in Dolanaar; he'll set you on the path to earning one." },
@@ -506,6 +570,8 @@ P:NPC {
         { text = "What does a hunter think of a rogue's stealth?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can a warrior keep the balance as a hunter does?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is a demon really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does a priest have any place in the balance, Jocaste?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there no evil in the wild, Jocaste?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Jocaste.", next = "END" },
       },
     },
@@ -597,6 +663,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "That healing begins with the one being healed and not with the healer's power, which the young ones are slow to learn. A priest sits with the dying, and a druid too often rushes to save what was meant to go back to the earth." } },
+      choices = {
+        { text = "Every life is worth saving, whatever the earth wants.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some things should be let go, and the druids are right.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only when it's swung carelessly, and I suspect your order swings it less carelessly than most. Show my students that strength can be held back as well as used, and you'll teach them something I've struggled to." } },
+      choices = {
+        { text = "Strength held back is still strength, and I'll show them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Strength is for using, and holding back gets people killed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Most of my students think a bear's claws make a warrior unnecessary, until the first time they're knocked out of the shape and find themselves on the ground. I tell them to watch how you stand, because a warrior knows how to take a blow, and that is a lesson for any guardian." } },
@@ -659,6 +743,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The young druids think healing is all growing vines over wounds, so I'm always glad when a priest comes by to remind them there's more than one way." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Enclave. The young druids will stare at your armor, I'm afraid, because they think anything made of iron must be at war with the forest." },
         { id = "h_default", text = "I am Denatharion, one of those who teach the young druids of the Enclave. Most of them come to me knowing how to grow a vine and leave knowing why they shouldn't always." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "Mathrengyl Bearwalker has asked for you by name, young druid. He's on the second floor of the Arch Druid's tree, and you'll find no wiser teacher in all of Teldrassil." },
@@ -683,6 +769,8 @@ P:NPC {
         { text = "What do druids think of warriors, Denatharion?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your young druids envy a hunter's companion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there any healing for what the fel has done?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What can young druids learn from a priest, Denatharion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is iron really at war with the forest, Denatharion?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

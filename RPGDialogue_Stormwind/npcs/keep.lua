@@ -70,8 +70,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because every word said in this chamber is weighed by people hoping to find it light. The Church's voice here is small enough already, and a paladin who loses his temper with a noble makes it smaller." } },
+      choices = {
+        { text = "Then I'll keep my peace and let the Church speak for me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If a noble's wrong, I'll say so, whatever the chamber thinks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at court. The Highlord will be glad of it, and so am I, though I'd advise you to say very little and listen a great deal." },
         { id = "h_default", text = "I am Bishop DeLavey, and I represent the Church of the Holy Light at the King's court. Which is to say I sit in this chamber, I listen, and I remind the court now and then that the Light has opinions." },
         { id = "h_diplomat", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "If young Thomas sent you, he's done well again. I'll be blunt, because I haven't time to be anything else: a diplomat bound for Theramore never arrived, and I believe the Defias had a hand in it. Please keep this from becoming common knowledge." },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Does the Church speak for the soldiers at court, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why should a paladin keep quiet at court, Your Grace?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your petitions.", next = "END" },
       },
     },
@@ -285,8 +296,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, I should think the Cathedral has quite enough relics already, and mine is far better cared for. I keep it under glass and dust it personally, which is more than I can say for the Archbishop's vestry." } },
+      choices = {
+        { text = "Holy things belong to the faithful, Count, not a private case.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's yours by right, Count. Keep it as you see fit.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not yours, of course, but the old ones from Lordaeron surface now and then, and a collector has to be ready. Somebody must keep these things safe, and the Silver Hand seems to have mislaid a great deal of its history." } },
+      choices = {
+        { text = "Those badges belong with the order, Count. Return any you find.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better in your glass case than lost in the plaguelands, Count.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do you know, my family owns a reliquary that once belonged to a bishop of Lordaeron? Silver, with garnets, and quite exquisite." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your order's old badges fetch remarkable prices, you know, though I'd never dream of asking you for yours." },
         { id = "h_default", text = "Count Remington Ridgewell, at your service! My family boasts the finest collection of jewellery and fine art among all the nobles of Stormwind, and we are always, always looking to make it larger." },
         { id = "h_tiara", key = true, tags = { "news" }, when = { questBefore = TODO_QUEST("The Perenolde Tiara"), minLevel = 34 },
           text = "You look capable, and capable is exactly what I need. There's a certain tiara, an heirloom of the Perenoldes of Alterac, and I'm told an ogre has it up in the ruins. Imagine it under glass in our museum!" },
@@ -319,6 +350,8 @@ P:NPC {
         { text = "Would you like me to look over your collection?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you collect arms and armour too, Count?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What curiosities would a collector like you want, Count?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Shouldn't a holy relic be in the Cathedral, Count?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you truly buy a paladin's badge, Count?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Count.", next = "END" },
       },
     },
@@ -463,8 +496,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "March down those cellar stairs and turn the whole nest out into the street, of course! The Mage Quarter will say it's their business, but it's every honest man's business when there are demons under the alehouse." } },
+      choices = {
+        { text = "The House should rule on it first. We'll act within the law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Laws be hanged. If there are demons, I'll root them out now.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, just the sort of fellow I want behind me when I stand up in the House and say what's under the Lamb." },
         { id = "h_default", text = "Lord Baurles K. Wishock, of the House of Nobles, and I am about to cause a great deal of trouble for some very deserving people. There is a nest of dark practitioners in this city, and I mean to have it cleared out." },
         { id = "h_brew", key = true, when = { questActive = TODO_QUEST("A Noble Brew") },
           text = "The Lamb's lot have stopped serving me, can you believe it? Over a trifling bill! It hardly matters, because the House will have them shut by spring, and I'll toast it somewhere with better wine." },
@@ -492,6 +535,7 @@ P:NPC {
         { text = "Would you really send soldiers after the warlocks, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter track down warlocks, my lord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have the House do with my kind, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you have the Silver Hand do, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with your speech.", next = "END" },
       },
     },

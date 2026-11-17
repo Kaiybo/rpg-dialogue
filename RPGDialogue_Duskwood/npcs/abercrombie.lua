@@ -63,6 +63,15 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Protecting? Oh, how kind, dear, but nothing up here troubles me, and I trouble nothing back. Do save that hammer for the rude things at the mound, because they took my crate and they've no manners at all." } },
+      choices = {
+        { text = "Then I'll leave you in peace. It isn't my place to pry.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look through those crates of yours before I go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Abercrombie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -107,6 +116,7 @@ P:NPC {
         { text = "You've a lot of locked crates for a lonely old man.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "There's a strange smell of preservatives here, Abercrombie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the dead around Raven Hill trouble you, old man?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You live alone among the graves. Do you need protecting, old man?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Abercrombie.", next = "END" },
       },
     },

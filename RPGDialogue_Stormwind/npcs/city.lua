@@ -41,8 +41,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I trust their honesty, which is not the same thing as trusting their judgement. A paladin will tell me exactly what he saw, and then he'll want to arrest everyone in it, which is usually the moment my work ends." } },
+      choices = {
+        { text = "Justice should be done in the open, Master Shaw.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some work must stay in the shadows. I understand that.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand makes poor spies and honest witnesses, and I've a use for honest witnesses now and then." },
         { id = "h_default", key = true, text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
           text = "So you found the building, which is good, because finding things people would rather you didn't is the whole job. You'll be doing a great deal of it." },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "The Watchers taught me to move quietly, Master Shaw.", next = "watchers", when = { race = "NightElf", class = "ROGUE" } },
         { text = "Does SI:7 work with the Mage Quarter?", next = "magequarter", when = { class = "MAGE" } },
         { text = "Does SI:7 ever use warriors, Master Shaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does SI:7 trust paladins, Master Shaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -411,8 +422,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "We respect what works, and your healers work, which is more than I can say for some of my students. Where we part ways is whether power must be granted or can be earned by study, and that argument is older than this city." } },
+      choices = {
+        { text = "Power that's prayed for is humbler than power that's taken.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study earns more than kneeling ever has, Magus.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "To the Kirin Tor in principle, and to their own sense in practice, which is why I test my students so harshly. Untested power is a danger, and I would rather fail a student than bury one." } },
+      choices = {
+        { text = "Then magic should answer to law, like everything else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A mage's mind is their own. No council should rule it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Sanctum. The wards here are indifferent to faith, so I'll ask you to keep your hands to yourself the same as anyone else." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The wards in this hall don't care for plate, so please don't lean on the walls." },
         { id = "h_default", text = "Jennea Cannon, of the Wizard's Sanctum. I teach mages who've outgrown the provinces; some have, though most only think they have." },
         { id = "h_speak", tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Jennea") },
           text = "Wefhellt sent you. He'll have said something flattering about me. Ignore it and listen to what I actually say." },
@@ -450,6 +481,8 @@ P:NPC {
         { text = "Do thieves really try to rob the Sanctum?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Sanctum's wards really dislike iron, Magus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do mages and hunters ever work together, Magus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Sanctum's mages respect the Church, Magus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should mages answer to anyone, Magus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -619,8 +652,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I respect it the way a careful man respects fire, and I don't let it near my books. The Church calls what we do a sin, but the Church was glad enough of any weapon when the orcs came, and nobody writes that in their hymnals." } },
+      choices = {
+        { text = "What you bind will consume you. There's still time to turn back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. I won't judge where it comes from.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The crown knows what it chooses to know, and it chooses very carefully. We've been useful to Stormwind more than once, and a kingdom with so many enemies can't afford to throw away a useful weapon." } },
+      choices = {
+        { text = "The crown's law allows you, so I'll respect it, for now.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Laws that shelter demon-binders are no laws of mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, down here. Either you've lost your way or someone sent you, and in either case I'd suggest you keep your prayers inside your mouth." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my cellar. I'd ask whether this is a visit or a raid, but I doubt you'd give me an honest answer to either." },
         { id = "h_default", text = "Gakin. I teach those who bind what others fear to name. Discretion is the first lesson and the last, and I pay well for it." },
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Gakin's Summons") },
           text = "Marcot says you're ready for something from the Void. We'll see. The Void doesn't care what Marcot says." },
@@ -656,6 +709,8 @@ P:NPC {
         { text = "Why do the Quarter's mages look down on you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have warlocks any use for warriors, Gakin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is a hunter's bond anything like a warlock's binding?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you fear holy power, Gakin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the crown know what you teach down here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -839,8 +894,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Everyone who's just been to the auction house, love, and half of those who've been to the bank. Most only want a hot meal and someone to listen, and I do my best, but some of them want more than I've got to give." } },
+      choices = {
+        { text = "A kind ear is holy work, Allison, whatever you call it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Most troubles are self-made. A hot meal is plenty.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only the once, when a pair of hard men tried to settle a debt in my common room. The guard came eventually, but it was a big lad from the Silver Hand who stood up first, and I've had a soft spot for your lot ever since." } },
+      choices = {
+        { text = "Any of us would stand up for your guests, Allison.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "That's the guard's job. A paladin has greater work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit down, you look like you've been up with the sick all night, and I've a pot of something hot on." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love, in the Gilded Rose! Mind the doorframe with that hammer, and don't you go starting any fights with my regulars." },
         { id = "h_default", text = "Allison. The Gilded Rose, between the bank and the auction house, which means everyone who comes in has either just got rich or just got poor. I feed both." },
         { id = "h_new", when = { maxLevel = 12 },
           text = "First time in the city? It's loud, it's big, and the canals are deeper than they look. Stay here and you'll at least get a decent breakfast." },
@@ -869,6 +944,8 @@ P:NPC {
         { text = "Do many mages stay at the Gilded Rose?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do many soldiers stay at the Gilded Rose, Allison?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you cook up venison if a hunter brought it, Allison?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do people bring their troubles to the Gilded Rose, Allison?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Has the Gilded Rose ever needed a paladin, Allison?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing through.", next = "END" },
       },
     },

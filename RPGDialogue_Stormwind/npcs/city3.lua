@@ -68,8 +68,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It cares deeply in public, and very little in the cloakroom afterwards. The Archbishop spoke for the Stonemasons, and the House listened politely and then did exactly what it had already decided, which is the House's great talent." } },
+      choices = {
+        { text = "The masons were wronged, my lord, and the Church won't forget it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Church should keep out of the House's affairs, my lord.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A few old names who remember Lordaeron, and a great many more who remember what the paladins cost to keep. The House prefers its heroes in statues, I'm afraid, where they're very much cheaper." } },
+      choices = {
+        { text = "Honour isn't bought, my lord. The House would do well to remember it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Paladins should earn their keep like anyone else, my lord.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Church has opinions about the House of Nobles, I'm told, and I'm sure you've come to share them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. How reassuring, though I can't think what the Silver Hand would want with a quiet man reading in a library." },
         { id = "h_default", key = true,
           text = "Lord Gregor Lescovar, of the House of Nobles. I come here to think. The House is very loud, and very little of what's said there is worth hearing." },
         { id = "h_diplomat", when = { questActive = TODO_QUEST("The Missing Diplomat") },
@@ -106,6 +126,8 @@ P:NPC {
         { text = "Does the House of Nobles trust Dalaran, my lord?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the House of Nobles value its soldiers, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would the House want to know of the countryside, my lord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the House of Nobles care what the Church thinks, my lord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the Silver Hand have friends in the House, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },
@@ -252,8 +274,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only when I'm losin', an' I don't lose much. Me old mam used tae say a prayer for every brawl I came home from, an' I reckon she wore out three hymnals before I was grown." } },
+      choices = {
+        { text = "Then I'll say one for you tonight, whether you win or lose.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A brawler earns his bruises. He doesn't need prayers for them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oh, ye fight, I've seen it, but ye fight fair, an' fair's a hard habit tae keep in Old Town. Somebody'll swing a bottle at ye from behind sooner or later, an' I'd like tae see what the Light says about that." } },
+      choices = {
+        { text = "I'll fight fair, Fist, even if the other man won't.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If a man swings from behind, I'll answer him the same way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? Ye'll have come tae patch me up, then, because I've a fight planned for tonight an' I'll want tae be fresh for the next one." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's someone who looks like they could take a punch, though I'd wager ye're not allowed tae throw one back." },
         { id = "h_default", text = "Dashel. Folk call me Fist, on account o' the fists. I drink in Old Town and I settle arguments in Old Town. Usually the same evening." },
         { id = "h_diplomat", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "A diplomat? Never met one. Ask me again an' ye'll be askin' from the floor." },
@@ -282,6 +324,8 @@ P:NPC {
         { text = "Do you have trouble with the rogues in Old Town?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you really been polymorphed, Dashel?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have you ever hunted, Dashel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever ask anyone to pray for you, Fist?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why do you think paladins don't fight, Fist?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'm not looking for trouble.", next = "END" },
       },
     },
@@ -416,8 +460,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Ye should wear what ye can, an' a bit o' padding under the cloth never hurt anyone. Elmore says priests are too proud tae wear mail, but I think they're just too busy keepin' everyone else alive tae think about themselves." } },
+      choices = {
+        { text = "My faith is my armour, Furen, but I'll take the padding.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith won't stop a blade. I'll wear the thickest cloth you have.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Whether ye stood your ground or turned tae run, mostly. A dent on the front means ye faced it, an' a dent on the back means ye didnae, an' I've seen more o' the back kind than I'd like on some o' the young knights." } },
+      choices = {
+        { text = "I'll keep my dents on the front, Furen, always.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sometimes a retreat saves more lives than a stand.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? I've mended more robes than ye'd think, for armour won't stop a dagger if the priest inside it won't wear any." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a set o' plate I'd like a look at, because I can tell ye've been hit, an' I can tell ye didnae fall over." },
         { id = "h_default", text = "Furen Longbeard. Shields an' armour. I learned from Grimand Elmore, an' I'm still learning, which he tells me daily." },
         { id = "h_elmore", when = { heardLine = "elmore.h_default" },
           text = "Ye've met the master, then. Did he say anything about me? No? That means he's pleased, because when he's not pleased, he says a great deal." },
@@ -448,6 +512,8 @@ P:NPC {
         { text = "Would a rogue really want mail under leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage ever wear mail, Furen?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can a dwarf's armour be made quiet, Furen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a priest wear armour, Furen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What can you tell from a paladin's dents, Furen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -566,8 +632,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every night, for the crops I'll never see again and the neighbours who stayed when I left. I don't know that anyone's listening, but it's a habit, and an old man needs his habits." } },
+      choices = {
+        { text = "Someone is listening, Topper. Keep praying.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If no one answers, maybe it's time to stop asking.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Drive the Defias out of Moonbrook, give the farms back to the folk who worked them, and make the nobles pay what they owe. I know it's not so simple, but you did ask, and an old man's allowed his dreams." } },
+      choices = {
+        { text = "Westfall deserves justice. I'll go and fight for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The People's Militia can handle it. Westfall must save itself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, with a generous face if ever I saw one. Spare a blessing for an old farmer, {class}, because it costs you nothing and it warms me through." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I always did think the Silver Hand would come to Westfall one day and put things right, and I'm still sitting here waiting for it." },
         { id = "h_default", text = "Topper McNabb, at your service, and a farmer once. Now I sit here and let the city walk past, and it never stops, but it rarely tips." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Bless me, would you, holy one? Go on, because I've been told I need it, mostly by the guards." },
@@ -590,6 +676,8 @@ P:NPC {
         { text = "Would conjured bread really fill you up?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Did you ever carry a sword yourself, Topper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Did you hunt back on your farm, Topper?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you still pray, Topper, after losing the farm?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you have the Silver Hand do for Westfall?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -678,8 +766,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "As well as Stormwind can afford, which isn't well, and better than most of them deserve. Some are thieves who'll be out by spring, and some are Defias who'd cut my throat for the keys, and I can't always tell which is which." } },
+      choices = {
+        { text = "Even a prisoner deserves mercy, Warden.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Defias get what they gave. Keep them hard.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If you're here about the riot, it's been dealt with, and if you're here about the prisoners, they've been dealt with too." },
         { id = "h_default", text = "Warden Thelwater, of the Stockade. I keep Stormwind's worst under its canals most days, and the other days I'd thank you not to mention." },
         { id = "h_thredd", tags = { "news" }, when = { questActive = TODO_QUEST("Bazil Thredd") },
           text = "Thredd, the Defias' man inside, is behind all of it, I'm certain. Deal with him, and nobody has to write a report, please." },
@@ -717,6 +815,7 @@ P:NPC {
         { text = "Who was the warlock in your cells?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is the Stockade guard short of men, Warden?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have prisoners ever escaped the Stockade, Warden?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How are the Stockade's prisoners treated, Warden?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be discreet.", next = "END", fx = { affinity = 2 } },
       },
     },

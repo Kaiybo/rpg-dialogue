@@ -1155,6 +1155,15 @@ P:NPC {
         { text = "Very little. The winds here are strangers.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "To remember that crimes are done with hands, not banners, and to judge each one alone. The fires in the vale were set by some, and not by all, and justice must know the difference." } },
+      choices = {
+        { text = "I'll judge each deed by itself, not by its banner.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Those who stand with arsonists share their guilt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1173,6 +1182,7 @@ P:NPC {
           text = "Something dark walks a step behind you, little one, and the grove has gone very still to watch it. I won't turn you away, because what you do matters more to me than what you carry, but please keep it out of the trees." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, little one, with steel in your hands and a long road behind you. The grove will let you pass, so long as the steel stays sheathed among the trees." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, little one, and you'll know that the beasts of this forest belong to it as much as the trees do." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, little one, so far from your mountains and fields. The Silver Hand's vows are known even here, though the trees remember older ones." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, little one. The grove has time, and so do I." },
@@ -1185,6 +1195,7 @@ P:NPC {
         { text = "Faldreas in Astranaar sent me to you.", next = "faldreas", when = { any = { { questActive = TODO_QUEST("Journey to Stonetalon Peak") }, { questDone = TODO_QUEST("Journey to Stonetalon Peak") } } } },
         { text = "Have humans ever come up here before?", next = "human", when = { race = "Human" } },
         { text = "Can the Light heal burned land?", next = "priest", when = { class = "PRIEST" } },
+        { text = "What would you ask of a paladin, Keeper Albagorm?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help the grove.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Hamuul Runetotem sends his respects, Keeper.", next = "tauren_al", when = { race = "Tauren", class = "DRUID" } },
         { text = "My people's druids honour the Circle too.", next = "sky_al", when = { race = "Skyborne", class = "DRUID" } },
@@ -1359,6 +1370,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It is, with the harpies in the cliffs and worse on the lower road, and I've lost guests to it before. If you're going down tonight, I'd ask you to walk with anyone else who's leaving." } },
+      choices = {
+        { text = "I'll see the others down safely before myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They can walk down on their own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Faralia, and I keep a small inn for those who climb up to the grove. Not many do, and the ones who do usually need the bed." },
@@ -1370,6 +1390,7 @@ P:NPC {
           text = "You'd be the first mage I've seen up on the peak in a long while, and I'm glad of the company. The wind finds every crack in these walls, so sit close to the hearth." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you climbed the whole peak in that armour? Sit down by the hearth, then, before you fall down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The climb must have been easy for you, then, with a beast to scout the path ahead of you." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up here on the peak! The climb must have been hard in that armour, so sit and rest before you go anywhere." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak." },
@@ -1384,6 +1405,7 @@ P:NPC {
         { text = "Why are mages so rare on the peak?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is the peak safe for travellers, Faralia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts live up on the peak, Faralia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is the path down the peak dangerous after dark?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just resting.", next = "END" },
       },
     },

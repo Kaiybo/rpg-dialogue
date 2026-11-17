@@ -74,6 +74,24 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Gryan might, though he'd never admit it, and that's about the whole list. I've done things that wouldn't sit well in a sermon, priest, so if you're thinking of starting one, you'll find I've heard better." } },
+      choices = {
+        { text = "Then I'll pray for you anyway, Wiley. No one's beyond it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some men aren't worth the breath. I'll save mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Wiley.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It shouldn't, and that's why I only tell Gryan, who knows exactly how much to believe. What I know is true, but I don't tell all of it, and the parts I leave out are mine." } },
+      choices = {
+        { text = "Then tell the Magistrate too. The law deserves the whole truth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep your secrets, Wiley. Some things the law needn't hear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Wiley.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -92,6 +110,8 @@ P:NPC {
           text = "Canal rat, aren't you. I can tell by the way you came in, with your back to the wall and one eye on the purses, and I'll thank you to keep your hands where I can see them." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You walked in like you were looking for something to hit, so I'll save you the trouble: it's not me." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours is in my light as well, and it's bigger than you, so I'll let it stay." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you're here to save me, you're standing in my light, and I'm not for saving." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walked in like the law, and that's twice as bad as walking in like a warrior." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice down, the floor's thin." },
@@ -110,6 +130,8 @@ P:NPC {
         { text = "Do the Defias hire warriors, Wiley?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What do you know about the hills of Redridge, Wiley?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "You're in my light, Wiley.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does anyone pray for a man like you, Wiley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why should the law trust anything you tell it, Wiley?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Enjoy your corner.", next = "END" },
       },
     },

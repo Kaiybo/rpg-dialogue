@@ -74,6 +74,24 @@ P:NPC {
         { text = "Why build the bridge at all?", next = "why" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They ask for their wages, on time, and they get them, and that's the only blessing I can promise. But we cut the names of the lost into the first pier, and if you'd say something over that stone, I'd not stop you." } },
+      choices = {
+        { text = "I'll say the words over that stone, Foreman.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pay them and work them, Oslow. Prayer won't raise stone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Foreman.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every one, and I'd tell their mothers so to their faces, because without that bridge Lakeshire is an island the Blackrock can starve at leisure. I don't build bridges for the beauty of them; I build them so people can run." } },
+      choices = {
+        { text = "Then I'll guard it until the last stone is set.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bridges come and go, Oslow. I won't bleed for one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Oslow.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Oslow's the name. I'm rebuilding the Everstill Bridge on schedule and under budget, before the rains, or that was the plan until the orcs had opinions." },
@@ -96,6 +114,8 @@ P:NPC {
           text = "Your hands say you grew up around a mason's yard. Then you'll know I pay my crew every week, on time, because I've seen what happens in this kingdom when the masons don't get paid." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Unless you're carrying a hammer, keep walking, but if you're carrying a sword, stop, because I've a job for one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Keep that beast off my scaffolding, because the last dog that climbed it brought down a whole morning's work." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless you're carrying a hammer, keep walking, but if you're carrying a blessing, I'll take it for the crew." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Unless you're carrying a hammer, keep walking, though I'll make an exception for one who keeps orcs off my scaffolding." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask, by all means; the measuring line won't run off." },
@@ -114,6 +134,8 @@ P:NPC {
         { text = "What job do you have for a warrior, Foreman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do beasts trouble your building site, Foreman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I could put something in the water to frighten the orcs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does your crew ever ask for a blessing before work, Foreman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the bridge worth the lives it's cost, Foreman?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the rains.", next = "END" },
       },
     },

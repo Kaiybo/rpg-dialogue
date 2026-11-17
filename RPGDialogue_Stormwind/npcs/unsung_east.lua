@@ -64,8 +64,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because a plate that's been prayed over carries a little of the Light into the fight, and because my mother did it before me. The Cathedral says it's only superstition, but my customers come back alive, and that's all I need." } },
+      choices = {
+        { text = "Every prayer carries weight, Agustus. Keep blessing them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's the steel that saves them, Agustus, not the prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because armour is a promise that the wearer will stand where others can't, and a promise is a righteous thing. The paladins understand that better than anyone, which is why I keep my best pieces for them." } },
+      choices = {
+        { text = "A paladin's armour is a vow made in steel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's only steel, Agustus. The vow is in the wearer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll find nothing here to fit you, {class}, but stay a moment, because I bless every suit before it leaves the shop." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now here's a customer worthy of Righteous Plates, and I've a breastplate in the back that's been waiting for someone like you." },
         { id = "h_default", text = "Agustus Moulaine. Theresa sells the robes for the clergy, and I sell the plate and mail for those who stand in front of them. Between us, we dress the whole Cathedral." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, so you'll be wanting mail now and plate when you're seasoned enough to wear it. Come back when you're ready, and I'll have something waiting." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest, so it's Theresa you want, at the other counter. My plate would only weigh down your prayers." },
@@ -87,6 +107,8 @@ P:NPC {
         { text = "Which armour should a warrior buy first, Agustus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "When should a hunter start wearing mail, Agustus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the paladins give your customers trouble?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why do you bless the armour you sell, Agustus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why call your shop Righteous Plates, Agustus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Agustus.", next = "END" },
       },
     },
@@ -177,8 +199,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every one, quietly, as they pass, and most never notice. I've seen too many go out through that door and not come back, so I do what I can and leave the rest to the Light." } },
+      choices = {
+        { text = "Your blessings matter, Theresa, whether we notice or not.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Save your blessings for those who need them more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Agustus will be thrilled and he'll want to show you everything, so I'll only say the Light keep you, and step quickly." },
         { id = "h_default", text = "Theresa Moulaine. I sell robes for the clergy and the scholars, and Agustus sells the plate, so between us we dress the faithful from the altar to the front line." },
         { id = "h_dwarf_priest", when = { race = "Dwarf", class = "PRIEST" }, text = "A dwarf priest! We don't see many of you this far from Ironforge's temple. I'll find you something short enough not to trip over, if you'll forgive me saying so." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -201,6 +233,7 @@ P:NPC {
         { text = "Do warriors and priests travel together often, Theresa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell anything for hunters, Theresa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the clergy fret about black robes?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you bless the paladins who come here, Theresa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Light keep you, Theresa.", next = "END" },
       },
     },
@@ -281,8 +314,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Better than people do, and they never forget it. A beast that's been hurt will flinch for a year, and a beast that's been tended will follow you halfway to Ironforge." } },
+      choices = {
+        { text = "Kindness to beasts is part of any faith worth having.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts are beasts, Jenova. They know food, not kindness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not cruelly, but carelessly, and that's near as bad. They ride hard, stable late and forget the beast carried them home, and I'm the one who has to mend the hooves." } },
+      choices = {
+        { text = "A charger deserves the same care as any comrade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A charger is a tool of war. It's there to be used.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll have a gentle hand, I'd wager, and the beasts can always tell, so come and meet them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll have a charger somewhere, I expect, and I hope you treat it better than most knights treat theirs." },
         { id = "h_default", text = "Jenova Stoneshield, stable master. I keep the hunters' beasts when they've too many to take on the road, and I treat every one as if it were me own." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well met, kin! It's good to hear a proper voice in this district. I came down on the tram from Ironforge with the smiths, and I've kept the stables here ever since." },
         { id = "h_notHunter", when = { ["not"] = { class = "HUNTER" } }, text = "I keep beasts for hunters, so unless ye've taken up the bow, there's not much I can do for ye. But ye can stay and talk, if ye like." },
@@ -304,6 +357,8 @@ P:NPC {
         { text = "Can a rogue ever sneak past a beast?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors ever keep animals, Jenova?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your beasts fear my demons, Jenova?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the beasts know who's kind to them, Jenova?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do knights mistreat their chargers, Jenova?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Jenova.", next = "END" },
       },
     },
@@ -398,8 +453,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only the ones who don't read the instructions, and the ones who do and then ignore them. I keep a list, and I send everyone on it a card when they're healed, which I think is rather thoughtful." } },
+      choices = {
+        { text = "I'll heal them all, Billibub, however careless they were.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they ignore your warnings, they've earned the burns.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Of course! A well-made bomb has saved more lives than any sword, because it ends things quickly. Lilliam says I'm too cheerful about it, but she's never seen a troll camp go up." } },
+      choices = {
+        { text = "War should be fought with honour, not with bombs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever ends a battle quickest saves the most lives.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Perfect timing, because I've been meaning to ask someone whether prayer protects against blasting powder." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting something that goes bang, I expect, and I won't judge, because so does everyone else." },
         { id = "h_default", text = "Billibub Cogspinner! If you insert tab A into slot B, then of course it goes boom, so let me show you what I have, and then go and ask Lilliam how to put it together so it doesn't." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! You'll want blasting powder and a gun stock, I expect, because your people's idea of engineering is something that goes bang very loudly. I approve completely." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -421,6 +496,8 @@ P:NPC {
         { text = "Who usually buys your blasting powder?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a gnomish gadget really help a warrior, Billibub?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do gnomish traps really work on beasts, Billibub?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does anyone ever get hurt by your goods, Billibub?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should engineering be used in battle, Billibub?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Billibub.", next = "END" },
       },
     },

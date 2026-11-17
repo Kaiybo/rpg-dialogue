@@ -67,6 +67,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The druids in the Talon Den, likely, and whoever was caught in the fires of the vale. I can fly you to the edges, but I can't fly you into the smoke." } },
+      choices = {
+        { text = "Then I'll walk into it myself to find them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the smoke is that thick, I'll stay out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The smoke in the vale, and the Venture Company's saws at Windshear, because the mountain has not been quiet since they came. I watch and count, but someone has to go down and do something about it." } },
+      choices = {
+        { text = "I'll go down and put a stop to the burning.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The fires aren't my concern. I'm only passing through.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Teloren, and I keep the hippogryphs here on Stonetalon Peak. From here they'll carry you to Auberdine, to Astranaar or down to Nijel's Point in Desolace, which is a great deal quicker than the paths." },
@@ -78,6 +96,8 @@ P:NPC {
           text = "So you're a mage, and I've heard your kind can open doorways across the whole world. I hope you never teach that trick to too many people, or my hippogryphs and I will have nothing to do but watch the smoke." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My hippogryphs will carry you anywhere you need, though they'll want your blade stowed before they let you on their backs." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I can see by how your beast watches the hippogryphs that it knows what a flying predator is." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll see the smoke from up here too, I expect, and you'll know there are wounded somewhere beneath it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, though you'll want to hold on tight, because the mountain winds don't respect armour." },
       },
       again = {
         { id = "h_again", text = "What else? The wind's steady, so there's no hurry." },
@@ -92,6 +112,8 @@ P:NPC {
         { text = "Do you really think magic could replace your hippogryphs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your hippogryphs ever carry Sentinels into battle, Teloren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the hippogryphs fear predators up here, Teloren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is there anyone below who needs a healer, Teloren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you have a paladin watch for from up here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Teloren.", next = "END" },
       },
     },

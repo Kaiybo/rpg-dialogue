@@ -53,6 +53,24 @@ P:NPC {
         { text = "Why did you turn on them?", next = "why" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Peace? If VanCleef's lot catch me on that road, they won't wait while I make it. Say something over me if it pleases you, but say it walking." } },
+      choices = {
+        { text = "There's forgiveness for men who turn from wrong. Even you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Forgiveness is wasted on a turncoat. Just walk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Never mind. Let's go over the road again.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "You shouldn't, not all the way, and I'd think less of you if you did. I sold them out because they stopped being masons with a grudge and started being killers, and I'd sooner hang a turncoat than live a murderer." } },
+      choices = {
+        { text = "You turned from murder. I'll guard you with my life for that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A man who betrays once betrays twice. I'll be watching you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, before we go.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -63,6 +81,8 @@ P:NPC {
           text = "You've the look of someone who'd have done well with us, you know. Don't take that wrong, it's meant kindly, more or less." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior escorting me. Good, because the Brotherhood's lot fight dirty, and you look like you can take a knife in the back and keep walking." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours had better have a nose for an ambush, because the Brotherhood will have one waiting." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Save your prayers for the road, because if the Brotherhood catch us, we'll both be needing them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in all that shining plate. They'll see you coming a mile off, but maybe that'll make them think twice." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I don't like standing still." },
@@ -77,6 +97,8 @@ P:NPC {
         { text = "You fear your old crew more than you fear me.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do the Defias fight, if they fight dirty?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where would the Brotherhood set an ambush on our road?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you want to make your peace before we walk, friend?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why should I trust a man who betrayed his own crew?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Let's go.", next = "END" },
       },
     },

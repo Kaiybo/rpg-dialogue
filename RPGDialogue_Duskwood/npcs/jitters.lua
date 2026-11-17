@@ -69,8 +69,18 @@ P:NPC {
         { text = "Why are you hiding?", next = "hiding" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Run, probably, though I'm not a good runner anymore, and then I'd let them catch me, because I'm so tired. Sven would say I've earned whatever came, and some nights I think he's right." } },
+      choices = {
+        { text = "You've suffered enough. I won't be the one to judge you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You let a family die. Someone must answer for that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jitters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A p-paladin! You're not here to punish me, are you? I wore the red, I know, but I never hurt anybody, not with my own hands, not really." },
         { id = "h_default", text = "They call me Jitters, on account of the jitters, because I jump at things. You'd jump too, if you'd seen what I've seen in these woods." },
         { id = "h_ravenhill", tags = { "news" }, when = { questActive = TODO_QUEST("Raven Hill") },
           text = "A monster, in Raven Hill? N-no, that light in the window was only me, and I'm sorry about the light, I'll stop lighting it, I promise." },
@@ -110,6 +120,7 @@ P:NPC {
         { text = "What did you see in the woods, Jitters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the wolves follow you, Jitters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What you saw in the woods doesn't frighten me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you do if someone came to judge you, Jitters?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Stay safe, Jitters.", next = "END" },
       },
     },

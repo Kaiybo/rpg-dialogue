@@ -66,8 +66,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now an' again, when a hunter's companion comes back hurt an' the hunter cannae bear tae watch. I'll take any healin' I can get for them, for they didnae choose tae fight, an' they deserve mendin' as much as any dwarf." } },
+      choices = {
+        { text = "Every creature deserves healing. I'll help when I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts heal on their own. Save prayers for dwarves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Show me the stables, Ulbrek.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Gently, an' wi' respect, for a charger will carry ye intae battle wi'out askin' why, an' that's a trust ye should never break. I've seen paladins who forget it, an' I've seen what happens tae their mounts, an' I'd rather no' see it again." } },
+      choices = {
+        { text = "A charger's trust is sacred. I'll never break it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A charger is a tool of war. It must serve.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ulbrek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the stables! The beasts like a gentle voice, an' I'd wager yers is gentler than most, so come an' say hello tae them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at the stables! Ye'll be wantin' a charger one day, I'd guess, an' I'd like tae meet it when ye do, for chargers are fine beasts." },
         { id = "h_default", key = true,
           text = "Ulbrek Firehand, stable master. The hunters leave their companions wi' me when they've a new beast tae tame, an' I keep them fed an' brushed an' happy till they come back." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -90,6 +110,8 @@ P:NPC {
         { text = "Why do the beasts hate a warlock's creature so?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the beasts here take kindly to warriors, Ulbrek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you care for the beasts we leave, Ulbrek?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever need a priest for the beasts, Ulbrek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How should a paladin treat a charger, Ulbrek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Ulbrek.", next = "END" },
       },
     },
@@ -198,8 +220,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, I think so, because a priest who can't defend herself is a priest who'll be healing herself, and that's no good to anyone. But I'll admit the Mystic Ward's priests think differently, and they're very polite when they tell me so." } },
+      choices = {
+        { text = "A priest's strength is in faith. I'll keep my hands open.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. A healer who can't fight is a target.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Thanks, Bixi.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Is it honourable for an ogre to be three times your size? I think not, so I don't see why I should fight fair when he doesn't. But I'll admit a few paladins have told me otherwise, and very sternly." } },
+      choices = {
+        { text = "Honour doesn't depend on the foe's size. I'll fight fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right. Use every advantage. Fairness is for duels.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Thanks, Bixi.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'd be surprised how many priests want to learn daggers, and how many of them hold them like a candle." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a hammer, I expect, but I don't teach those, so I'll teach you to throw something instead." },
         { id = "h_default", key = true,
           text = "Bixi Wobblebonk, weapon master! I teach daggers, crossbows and throwing weapons, which are all the best weapons for someone my size, and quite good for someone yours." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -222,6 +264,8 @@ P:NPC {
         { text = "Should a warlock learn to fight with a dagger?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn the crossbow, Bixi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are crossbows really better than rifles, Bixi?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a priest carry a weapon at all, Bixi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is a thrown weapon an honourable way to fight, Bixi?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Bixi.", next = "END" },
       },
     },
@@ -322,8 +366,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now an' again, though they'd never admit it, for a rogue who admits he's hurt is a rogue who's been caught. If ye've a healin' word tae spare, I'll no' stop ye givin' it, but I'll no' ask ye for it either." } },
+      choices = {
+        { text = "Then I'll give it freely. Everyone deserves healing, rogue or not.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Rogues choose their dangers. Let them heal themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll be on my way.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the King knows, an' the guards know, an' they've decided they'd rather have us where they can see us. If ye report it, ye'll be tellin' them what they already know, an' I'll be wonderin' why ye bothered." } },
+      choices = {
+        { text = "The law knows. That's enough. I'll leave you be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowing isn't the same as approving. I'll keep an eye on you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be on my way.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, down here? I've nothin' tae teach ye, but I'll say the cavern could use a kind word now an' then, for it doesnae get many." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye're in the wrong cavern, an' I'd suggest ye find the right one before somebody mistakes ye for the guards." },
         { id = "h_default",
           text = "Ormyr Flinteye. I train rogues, an' only rogues, so unless ye are one, I've no' much to offer ye but advice, an' my advice is to keep yer purse close in this part o' the city." },
         { id = "h_rogue", key = true, when = { class = "ROGUE" },
@@ -349,6 +413,8 @@ P:NPC {
         { text = "Do the rogues and warlocks share the Forlorn Cavern peacefully?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a warrior keep his purse close down here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How does a hunter's beast give me away, Ormyr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your rogues ever need a priest's help, Ormyr?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why shouldn't a paladin report what you teach down here, Ormyr?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -473,8 +539,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some days, aye, when the line's still an' the water's quiet an' there's naught tae do but wait. I'll no' say the fish answer, but I've done a good deal o' thinkin' at the end o' a line, an' I've come home calmer than I left." } },
+      choices = {
+        { text = "Then it's prayer enough. Quiet waiting is holy work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fishing is fishing. Prayer is something else entirely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Teach me to fish, Grimnur.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Patience, an' how tae wait wi'out fidgetin', which most paladins I've met could use more of. A fish doesnae care how brave ye are, an' that's a good lesson for anyone who thinks bravery solves everythin'." } },
+      choices = {
+        { text = "Patience is a virtue. I'll learn it, line and all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Bravery solves more than patience. I'll stick to my hammer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good fishing, Grimnur.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest wantin' tae fish? Ye'll have the patience for it, I'd wager, for yer sort sit still better than most." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin wantin' tae fish? Ye'll laugh at a fishin' lesson, I expect, but ye'll thank me for it in the Wetlands when the rations run out." },
         { id = "h_default", key = true,
           text = "Grimnur Stonebrand, fisherman, an' I teach fishin' in a cave in the middle o' a mountain, which is a joke I've stopped noticin'. Ye don't need water tae learn the knots, only patience an' a good pair o' hands." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -500,6 +586,8 @@ P:NPC {
         { text = "Do warlocks really fish, Grimnur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would a warrior thank you for fishing lessons?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters really take to fishing easily, Grimnur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is fishing a kind of prayer, Grimnur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can a paladin learn anything from fishing, Grimnur?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good fishing, Grimnur.", next = "END" },
       },
     },
@@ -617,8 +705,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, I've wondered, but Grimnur says it'd be disrespectful, and I suppose he's right, though I still think the fish would like it. I'll stick to arcane glow, for now, and keep the holy sort for the priests." } },
+      choices = {
+        { text = "Grimnur's right. Some things shouldn't be used for sport.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If it works, why not? Holy things can be useful things.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Show me your supplies, Tansy.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Tied up, if it can be done, because even ogres have families, I suppose, though I've never met one. But Grimnur says I'm too soft, and maybe I am, and maybe that's no bad thing." } },
+      choices = {
+        { text = "Tie it up. Mercy, where it's possible, is always right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Put it down. Ogres don't show mercy, and neither should we.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Goodbye, Tansy.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've been working on a lure that glows softly, like a candle in a chapel, and I'd love to know if you think it's too much." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I don't sell hammers, but I sell a line that'll hold an ogre's weight, if you ever need to tie one up before the guards arrive." },
         { id = "h_default", key = true,
           text = "Tansy Puddlefizz, fishing supplies, and assistant to Grimnur, who teaches the fishing. I sell the rods and the lures, and I tinker with them when nobody's looking, which is most of the time down here." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -644,6 +752,8 @@ P:NPC {
         { text = "Why won't you make green-glowing lures for warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could your line really hold an ogre, Tansy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would a fishing lure work for hunting beasts, Tansy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you think holy light could ever be used for fishing, Tansy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you rather an ogre be tied up or put down, Tansy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Tansy.", next = "END" },
       },
     },

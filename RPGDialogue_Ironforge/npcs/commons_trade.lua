@@ -66,8 +66,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They try, an' I turn half o' them away, for every second chancer in the Wetlands swears his rusty amulet was blessed by Uther himself. If it's truly holy, it should go tae the Mystic Ward an' no' tae the highest bidder, an' I'll say so tae the seller's face." } },
+      choices = {
+        { text = "Holy things shouldn't have a price at all. You're right to refuse.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If someone wants to pay for a blessing, let the market decide.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about the market instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not twice, for I've seen a Silver Hand dwarf take a crooked seller tae the guards by his collar, an' the house backed him. A fair price is the only rule I hold tae as tight as the paladins hold their oaths." } },
+      choices = {
+        { text = "A fair price is a kind of honesty. I respect that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every trader bends the truth. I'd rather just haggle hard.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Back to the auctions, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll be sellin' cloth an' buyin' wands, I expect, for that's what yer sort always does, an' I'll tell ye now that wands are dear this week." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye'll be after plate, then, an' heavy plate at that, an' I'll warn ye it goes for a fortune when the Military Ward's recruitin'." },
         { id = "h_default", key = true,
           text = "Redmuse, auctioneer o' the Ironforge house. What ye list wi' me is seen in Stormwind an' Darnassus as well, so if somebody somewhere wants it, they'll find it." },
         { id = "h_evening", when = { timeOfDay = "night" },
@@ -93,6 +113,8 @@ P:NPC {
         { text = "Why won't the house sell anything that whispers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do warriors buy most at the auction house?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What pelts sell best at the auction house?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does anyone sell holy relics through the house, Redmuse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do sellers ever cheat paladins on plate, Redmuse?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good trading, Redmuse.", next = "END" },
       },
     },
@@ -227,8 +249,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh my, yes, burns and radiation sickness and the coughing that wouldn't stop, and the priests of the Mystic Ward worked through the nights for weeks. Half the gnomes in Tinker Town owe their lungs to some dwarf with a prayer, and I tallied the bandages, so I know." } },
+      choices = {
+        { text = "Then I'll help where I can. The work isn't over yet.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mending lungs won't take Gnomeregan back. That takes engineers and soldiers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about prices, Lympkin.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd think a whole company of them could, if the High Tinker would let anyone near the place before he's finished his plans, which he hasn't. Until then, the leper gnomes and the troggs keep Gnomeregan, and I keep a column of numbers I'd rather not add up." } },
+      choices = {
+        { text = "When the High Tinker calls, I'll answer. Gnomeregan deserves rescuing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Plans take too long. Someone should go in now, permission or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's enough of Gnomeregan for now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! You'll want healing potions, I suppose, though I always think your sort shouldn't need them, and then I remember you're the one healing everybody else." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a ledger column just for hammers and plate, and your sort fills it up faster than anybody." },
         { id = "h_default", key = true,
           text = "Lympkin, auctioneer, and the fastest pencil in the Commons, if I do say so, which I do. What can I tally for you today?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -252,6 +294,8 @@ P:NPC {
         { text = "Gnomeregan trained warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do warriors keep the arms market lively, Lympkin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What are a hunter's goods worth at auction these days?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did Gnomeregan's refugees need much healing when they came here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you think a paladin could help win Gnomeregan back?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Lympkin.", next = "END" },
       },
     },
@@ -381,8 +425,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Somebody wi' sense an' a full waterskin, which is usually me, for half the priests who come through here forget tae eat. The Light, or Elune, or whatever ye pray tae, will mend a broken arm, but it'll no' fill an empty belly, an' I'll stake my shop on that." } },
+      choices = {
+        { text = "A healer's duty is to others first. My belly can wait.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. A healer who starves heals nobody. I'll eat first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me see your wares, Bryllia.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than the warriors, I'd say, though they're more polite about it an' they always pay. One o' the Silver Hand lads from the Mystic Ward buys half my bread every week an' gives it away in the Forlorn Cavern, so I've stopped askin' why." } },
+      choices = {
+        { text = "Feeding the poor is a paladin's work. I'd do the same.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Charity's fine, but the Cavern folk should earn their bread.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Back to the shopping, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want water, plenty o' it, for I've seen yer sort pray yerselves dry out in Loch Modan an' fall over wi' nobody left tae heal the healer." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be needin' more food than ye think, for all that plate's heavy, an' I've never met one o' yer lot who could walk past my bread." },
         { id = "h_default", key = true,
           text = "Bryllia Ironbrand, general goods, an' I've everythin' an adventurer forgets tae pack. Ye'd be surprised how many brave souls march off tae Loch Modan wi'out a drop o' water." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -406,6 +470,8 @@ P:NPC {
         { text = "Can't a mage simply conjure what they need?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior carry that most forget, Bryllia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you stock shot for a hunter's rifle, Bryllia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who looks after the healers, Bryllia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do paladins really eat that much, Bryllia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "That's all, thank you.", next = "END" },
       },
     },
@@ -534,8 +600,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than ye'd think, for a band o' healers that goes tae Loch Modan or the Wetlands together brings back more soldiers than it buries. I'll write ye down if ye like, but pick a name wi' some spine in it, an' none o' this 'Gentle Hands' business." } },
+      choices = {
+        { text = "A gentle name for gentle work. I'll keep the soft names.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A guild of healers should sound like it could fight, too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else about guilds, Jondor.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Somethin' about protectin' the weak an' standin' by yer brothers, mostly, an' I write it on the page beside the name, for they get cross if I don't. I've seen two o' those guilds break up over who said the oath wrong, so I'd keep it short." } },
+      choices = {
+        { text = "An oath sworn together should be kept together, word for word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fight over words? The deeds matter. I'd keep it loose.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jondor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest wantin' a guild! Every guild needs a healer, an' I've written a few just for priests, though they're always too polite tae pick a proper name." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've written down more paladin guilds than I can count, an' every one o' them swears an oath at the founding, whether I ask for it or no'." },
         { id = "h_default", key = true,
           text = "Jondor Steelbrow, guild master for the Visitor's Center. Every guild that marches out o' Ironforge has its name written in my book first, an' I've written some grand ones." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -558,6 +644,8 @@ P:NPC {
         { text = "What happened with the last warlocks' guild?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do warriors make good guild leaders, Jondor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sort of guilds do hunters start, Jondor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do guilds of priests ever do any good out there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What oath do the paladin guilds swear, Jondor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Jondor.", next = "END" },
       },
     },
@@ -675,8 +763,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some think so, an' they come in wantin' plain grey wi' naught on it, which I'll make, though it breaks my heart a wee bit. Others want a sun or a moon or a hand, an' I'll stitch those too, for a crest that says what ye believe is no' pride, it's honesty." } },
+      choices = {
+        { text = "Plain grey suits a servant of the faith. Pride has no place.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the crest shine. Faith shouldn't be hidden.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Show me your tabards, Lyesa.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A few, for the dwarves who came home from Lordaeron an' wanted the old colours, though I had tae work from a sketch some old knight drew in the Stonefire Tavern. I got the hand wrong the first time, an' he made me unpick every stitch." } },
+      choices = {
+        { text = "He was right to. The colours deserve to be done properly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A crest is cloth. What matters is who wears it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lyesa.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've a lovely white an' gold for a priest's guild, though I'll warn ye it shows every speck o' mud from here tae Thelsamar." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'll stitch ye a hammer or a sun or a gauntlet, an' I'll stitch it so it'll still be there when the Dark Irons have finished hittin' it." },
         { id = "h_default", key = true,
           text = "Lyesa Steelbrow, tabards. Once Jondor's written yer guild in his book an' ye've chosen a crest, I make the tabards tae match, an' I make them tae last." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -699,6 +807,8 @@ P:NPC {
         { text = "What wouldn't you stitch for a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What crest would you stitch for a warrior's tabard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What colours would suit a hunter's tabard, Lyesa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a priest's tabard be plain, Lyesa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have you made tabards for the Silver Hand, Lyesa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Lyesa.", next = "END" },
       },
     },
@@ -807,8 +917,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Letters, mostly, an' books, an' now an' again a relic somebody's family wants kept safer than any chapel can keep it. I don't ask what they are, for the Stonemantles never ask, though one box hums at night, an' I'd take it kindly if its owner came back for it." } },
+      choices = {
+        { text = "A relic belongs in a chapel, where people can pray before it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better locked in the Vault than stolen from a chapel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about my vault instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Once, durin' the Second War, when the city feared the Horde might reach the gates, an' my grandmother kept the ledgers by candlelight wi' a Silver Hand dwarf at the door. Nobody came, but she said she never slept so sound in her life." } },
+      choices = {
+        { text = "Guarding what others trust you with is honourable work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Guarding gold is a guard's job. A paladin has better work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Soleil.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll be keepin' a holy book or two in the Vault, I expect, an' I'll keep them dry for ye, as the Stonemantles keep everythin'." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The guards at the door stand a wee bit straighter when one o' yer sort comes in, an' I can't say I mind." },
         { id = "h_default", key = true,
           text = "Soleil Stonemantle, at yer service. The Stonemantles have kept the Vault o' Ironforge longer than anyone can remember, an' we've never lost so much as a button." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -831,6 +961,8 @@ P:NPC {
         { text = "What wards does the Vault have?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors keep much in the Vault, Soleil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters really store pelts in the Vault?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do priests keep in the Vault, Soleil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have paladins ever defended the Vault, Soleil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Soleil.", next = "END" },
       },
     },

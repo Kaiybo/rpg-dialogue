@@ -71,6 +71,24 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "You can, if you think it'll reach them, though I'd sooner you prayed the gnolls choke. I named every foal until the third one went up the hill, and since then I just call them all lad." } },
+      choices = {
+        { text = "Every creature deserves a prayer. I'll say one for them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to pray the gnolls choke, as you say.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Verner.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "With a hammer, and a forge, and the good sense to stay behind the stable door. If the gnolls come down for the horses while I'm here, they'll find a smith's arm is as good as a guard's, and angrier." } },
+      choices = {
+        { text = "I'll drive Yowler's pack off your hill myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your horses, your trouble, Verner. Build a better fence.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Verner.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -94,6 +112,8 @@ P:NPC {
           text = "Argus told you never to let the apprentice near the quench? He learned that from me, though he'll never admit it." },
         { id = "h_horse", when = { metBefore = true }, text = "Shod a grey mare this morning, the best-tempered beast in Lakeshire and better company than most of its people. Don't tell Argus I said anything nice about anything." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast wouldn't need shoeing, I suppose, which is a mercy, because I've no iron to do it with." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've a blessing for horses, mine could use one, because I've stopped naming the foals." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll not ask whether your horse needs shoeing, because I've no iron to shoe it with." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and hammer at once, though I can't promise you'll hear the talk." },
@@ -112,6 +132,8 @@ P:NPC {
         { text = "I could heat your forge with a spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could hunters help you find iron, Verner?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Blackrock steel holds a curse well, they say.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Shall I pray for the horses you've lost, Verner?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can you keep your horses safe from the gnolls, Verner?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the horses.", next = "END" },
       },
     },

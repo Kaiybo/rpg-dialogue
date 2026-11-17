@@ -65,6 +65,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Better than ye'd think, for a dwarf takes a threat as a reason tae drink an' sing louder. But there's widows in town from the trogg raids, quieter than they let on, an' I'd take it kindly if ye looked in on them." } },
+      choices = {
+        { text = "I'll look in on every one of them, Kadrell.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Widows have family for that. I've a road to clear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Ironforge'll want him alive, tae find out what he knows about the dam an' who sent him. The lads at the Stoutlager would want somethin' else, an' I'll no' say I blame them." } },
+      choices = {
+        { text = "Take him alive to Ironforge. Justice should be done properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the lads have him. He'd do worse to them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -86,6 +104,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid on my road! Good. The bears in these hills have been in a foul temper all season, an' I'd wager ye could tell me why." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road! Grand, for the troggs are bold this season, an' I like a shield beside mine when they come." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Grand, for the lads at the bounty board come back wi' scrapes they'd never show the healer." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my road! The Light an' a good hammer, there's no better pair for troggs." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The road's quiet, for now." },
@@ -103,6 +123,8 @@ P:NPC {
         { text = "A spy, Mountaineer? Takes one to catch one.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has Thelsamar much need of a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Where's the fighting worst along the road, Mountaineer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How are Thelsamar's folk holding up, Kadrell, with all this?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What should be done with the Dark Iron spy once he's caught?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -271,6 +293,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Agmond, my best surveyor, caught alone in the hills by the troggs. We buried him by the dig, but no' properly, for there was no priest, an' it's sat on me ever since." } },
+      choices = {
+        { text = "Then I'll say the rites over him properly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He's buried, Prospector. The dig is his memorial now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, for if we stop every time somethin' digs up beside us, we'll never find a thing. The League's no' an army, but we're no' cowards either, an' I'll no' be run off my own dig." } },
+      choices = {
+        { text = "Then I'll guard the dig while you work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pack up when it's dangerous. Courage is for soldiers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ironband.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -289,6 +329,8 @@ P:NPC {
           text = "A druid, eh? I suppose ye'll be wantin' tae lecture me about my diggin' like the last one did. Well, go on, I've heard worse." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? The troggs keep diggin' up through my dig, an' I've more trowels than swords about the place." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll have a good eye, then, an' a good eye's worth more on a dig than ye'd think." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my dig. Bless it if ye like, for we need the luck, an' poor Agmond needs the words more." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll see the troggs off my dig, I hope, for trowels make poor weapons." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the ropes while ye ask." },
@@ -306,6 +348,8 @@ P:NPC {
         { text = "Your camp's easy to walk into, Prospector. I walked in.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the troggs trouble the dig much, Prospector?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter's eye be useful on a dig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Has anyone been lost on this dig, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the League keep digging while the troggs are so close?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the dig.", next = "END" },
       },
     },
@@ -481,6 +525,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Where else would they bring it? They sing about the dam an' the troggs an' the old days, an' when one o' their own doesnae come back, they sing his name an' I pour one for the empty stool." } },
+      choices = {
+        { text = "That's an honest kind of grieving. I'll sing with them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ale doesn't heal grief, Hearthstove. It only hides it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Hearthstove.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Once a week, regular as a mine bell, an' always over the same argument: whose clan dug the deepest. I let them go two rounds an' then I bring out the stool-leg, an' that's the end o' it." } },
+      choices = {
+        { text = "Two rounds is too many. Stop it before it starts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them settle it. A good brawl clears the air.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Hearthstove.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Hearthstove, an' I keep the Stoutlager. It's the best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise, after they've paid." },
@@ -490,6 +552,8 @@ P:NPC {
           text = "A druid at my inn! Loch Modan's a fair green place for dwarven country, an' I'd hope ye find a corner o' it that pleases ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want a strong ale an' a stronger stool, for the last warrior I served broke one o' each." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Vidra'll want a word wi' ye, for she's always short o' boar for her sausages." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'll pour ye somethin' gentle, an' if ye've a blessing for the cellar, I'll take that too." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at the Stoutlager! Ye'll no' be drinkin' much, I'd wager, but ye'll keep the peace better than my stool-leg." },
       },
       again = {
         { id = "h_again", text = "Another? Sit, sit, there's room." },
@@ -505,6 +569,8 @@ P:NPC {
         { text = "I'll need a quiet room. Some of my work is private.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many warriors drink at the Stoutlager, Hearthstove?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does your kitchen buy what hunters bring in?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the mountaineers bring their grief here, Hearthstove?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do brawls break out at the Stoutlager often, Hearthstove?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just a pint.", next = "END" },
       },
     },
@@ -604,6 +670,24 @@ P:NPC {
         { text = "Who eats your sausages, then?", next = "who" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every week, an' they get the good sausages, no' the burnt ones, for grief's hungry work. I dinnae make a fuss of it, an' I'll thank ye no' tae either." } },
+      choices = {
+        { text = "I won't say a word. That's real goodness, Vidra.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Charity's well enough, but you can't feed everyone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Vidra.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe as anywhere wi' troggs in the hills an' a spy in the bushes, which is tae say no' very. But I've a cleaver an' a temper, an' I'd like tae see a trogg get past either one." } },
+      choices = {
+        { text = "You'll not need either. I'll keep them from your door.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then you'll manage on your own, Vidra.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Vidra.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Vidra, an' I cook for the Stoutlager: Thelsamar blood sausages, famous from here tae Ironforge. Well, famous in Thelsamar, anyway." },
@@ -611,6 +695,8 @@ P:NPC {
           text = "Bring me what I asked for an' ye'll have the best sausages ye've ever eaten. Don't ask what's in 'em, for it's in the name." },
         { id = "h_secret", when = { metBefore = true }, text = "Folk keep askin' what's in the blood sausage, an' I tell them: blood, an' sausage, an' a secret. The secret's mostly more sausage." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be hungry, then, for I've never met one who wasnae." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my kitchen? Bless the pot if ye must, but dinnae stand where I'm choppin'." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be wantin' more than one sausage, by the size o' that armour." },
       },
       again = {
         { id = "h_again", text = "What is it now? I have a pot on the fire, so be quick." },
@@ -625,6 +711,8 @@ P:NPC {
         { text = "I could lift a few ingredients from the hills for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could I warm the sausages for you? It'd save the coal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors really eat as much as they say, Vidra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you feed the families who've lost their providers, Vidra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is Thelsamar safe enough for your kitchen, Vidra?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll pass on the details.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -764,6 +852,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Poorly, if you want the truth, though they'd never say so. They sleep in shifts beneath the statues, and some of them talk to the old kings at night, which I allow, because the kings don't answer back." } },
+      choices = {
+        { text = "Let me sit with them. Weary souls need tending too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Soldiers must be hard. Comfort only makes them soft.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They climb them, scratch at them and nest at their feet, and I don't think they know what they are. Ignorance is no excuse in my book, but I've stopped expecting troggs to read." } },
+      choices = {
+        { text = "Then I'll clear every trogg from the kings' feet.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Statues are only stone, Captain. Spend your soldiers elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Rugelfuss, holding the Valley of Kings for Ironforge. The troggs rise from under the hills faster than we can put them down." },
@@ -780,6 +886,8 @@ P:NPC {
           text = "A druid, is it? I've a district full o' bears, boars an' angry wolves, an' I'll take any help that can speak tae them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I've been holding this valley with tired soldiers, and a fresh arm is the best news I've had all week." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I could use one; the troggs come out of holes I didn't know were there, and somebody has to find them first." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I have soldiers who have fought the troggs too long, and it's not only their bodies that need mending." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The King's statues have seen your order before, and they'd be glad to see it again." },
       },
       again = {
         { id = "h_again", text = "Is there anything further?" },
@@ -798,6 +906,8 @@ P:NPC {
         { text = "Put me on your line, Captain.", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I can get behind the trogg lines for you, Captain.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Troggs fear fire. My demons could help hold the Valley.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How do your soldiers bear the endless fighting, Captain?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the troggs dishonour the statues, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The King's statues can guard themselves, Captain.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -986,6 +1096,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The loch would empty down the valley in an hour, and Thelsamar with it, and every farm between here and the Badlands. I dream of it most nights, so if you've a prayer for sleep, I'll take that too." } },
+      choices = {
+        { text = "Then I'll pray for the dam, and for your sleep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't hold water. Check your sluice gates.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Chief Engineer.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Scream, probably, and then hit him with a spanner, and then report him to Captain Rugelfuss in triplicate. I'm an engineer, not a soldier, though for the dam I'd learn." } },
+      choices = {
+        { text = "Report him in triplicate. The law will deal with him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the forms. Throw him off the dam.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Hinderweir.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -999,6 +1127,8 @@ P:NPC {
           text = "A druid at the dam! I'll have ye know the Stonewrought Dam is the finest piece o' engineering in Khaz Modan, an' the fish don't seem tae mind it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank goodness, for if the Dark Irons come for the dam, I'd much prefer you between them and the sluice gates." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? You'll have keen eyes, then, and I'd be ever so grateful if you'd turn them on the hills above the dam." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, could you bless the dam? I've tried everything else, and my grandfather swore by a good blessing." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Thank goodness, because if the Dark Irons come for the dam, you'll shine so brightly they'll know they're not welcome." },
       },
       again = {
         { id = "h_again", text = "Yes? Quickly, please; I've readings due." },
@@ -1017,6 +1147,8 @@ P:NPC {
         { text = "The Dark Irons wield fire. I know how to answer it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you fear the Dark Irons will attack the dam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I watch for in the hills above the dam?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would happen to the valley if the dam ever failed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "If you caught a Dark Iron at the dam, what would you do?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },

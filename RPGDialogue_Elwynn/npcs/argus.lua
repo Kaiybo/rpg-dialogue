@@ -70,8 +70,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honest work, the same as anyone's, only more of it, because you'll stand in front while the rest hide behind you. Brother Wilhelm trains your lot behind my forge, and I hear every blow he lands on their shields." } },
+      choices = {
+        { text = "Then I'll stand in front, and bring you the dents after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stand where it's safest. Plate is for surviving, not for show.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Argus.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate will want to look like it means what it promises, so let me see the dents before you say a word." },
         { id = "h_default", text = "Argus. I mend what's bent and make what's needed, but I don't do miracles." },
         { id = "q_elmore", when = { questActive = TODO_QUEST("Elmore's Task") },
           text = "Grimand Elmore, the dwarf in Stormwind's Dwarven District. Best weaponsmith in the city, and he knows it. Help him with his delivery. We need the dwarves." },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "Is there nothing at your forge for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does a smith wish warriors knew about their steel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you forge anything a hunter would want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What does a paladin's armor need from a smith, Argus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just looking.", next = "END" },
       },
     },

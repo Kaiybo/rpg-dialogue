@@ -77,8 +77,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Confess, confess? Remy has nothing to confess, nothing! Well, there was a chest in Westfall, and a fellow in Stormwind who paid for it twice, but that was business, business, and surely the heavens understand business." } },
+      choices = {
+        { text = "Make it right, Remy, and you'll sleep better for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Business is business. Your secret's safe with me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Remy.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Stolen, stolen? Remy deals in honest goods, honest! But if a paladin wanted to know, purely to know, he might watch who buys red linen at the edge of the road after dark, because it isn't Remy, never Remy." } },
+      choices = {
+        { text = "Then I'll watch the road, and see the law done.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep your secrets, Remy. I'm not the Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Remy.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, a priest! Bless me, then, bless me twice, because I've done nothing wrong, nothing at all, this week." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, a paladin! Remy's done nothing wrong, nothing at all, so you can keep that hammer where it is, where it is." },
         { id = "h_default", text = "Remy, at your service, at your service! Whatever you need, I know a fellow who knows a fellow." },
         { id = "q_dust_active", when = { questActive = TODO_QUEST("Gold Dust Exchange") },
           text = "The kobolds keep it in little pouches, little pouches! Bring me what you find and we'll both be happy." },
@@ -120,6 +140,8 @@ P:NPC {
         { text = "Why are you so worried about telling me, Remy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there anything you could get a warrior, Remy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you sell a hunter, Remy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is there anything you'd like to confess, Remy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who's been buying stolen goods in Goldshire, Remy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Remy.", next = "END" },
       },
     },

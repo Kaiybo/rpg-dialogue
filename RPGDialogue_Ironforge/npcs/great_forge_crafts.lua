@@ -66,8 +66,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some o' the old dwarves say the titans lit it, an' some say it's just a very good fire, an' I say it's never gone out, which is holy enough for me. The priests from the Mystic Ward come down tae bless the anvils now an' again, an' I'll no' tell them tae stop." } },
+      choices = {
+        { text = "Then the fire and the faith both deserve respect, Bengus.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A fire is a fire. The smiths deserve the credit, not the titans.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Teach me something about smithing instead.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Great Forge! Ye'll want tae stand back from the heat, for I've seen yer robes catch before, an' I'd rather no' see it again." },
         { id = "h_default", key = true,
           text = "Bengus Deepforge, an' this is the Great Forge, the fire at the heart o' Ironforge, which has never once gone out. If ye want tae learn tae work metal, there's no better place on this world tae learn it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -91,6 +101,7 @@ P:NPC {
         { text = "Does fel fire really harm the Great Forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn to work metal, Bengus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you forge gun barrels for hunters, Bengus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is there anything holy about the Great Forge, Bengus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -223,8 +234,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Aye, an' worse than hurt, for the troggs came up through the deep seams near Gnomeregan an' took two o' my best before we could seal the shaft. The lads still work, but they work wi' one eye on the dark, an' I'd give a lot for them tae sleep easy again." } },
+      choices = {
+        { text = "Then I'll pray for them, and the two you lost.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't seal a shaft. Send more guards down there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about mining instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some o' the lads say so, an' I'll no' send any dwarf where he doesnae want tae go. But that ore is Ironforge's, an' if we give it up tae the troggs, they'll only come up through the next seam, an' the one after." } },
+      choices = {
+        { text = "Hold the seams. Ironforge doesn't give ground to troggs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No ore is worth a miner's life. Let them leave it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good digging, Geofram.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, at Deepmountain Minin'? Ye'll want tae say a prayer for my lads in the tunnels, then, for the troggs are back an' the miners are scared." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'd be a welcome sight in the tunnels, for troggs fear a hammer more than a pick, an' my miners fear the troggs more than anythin'." },
         { id = "h_default", key = true,
           text = "Geofram Bouldertoe, o' Deepmountain Minin'. I teach folk how tae find a seam, how tae follow it, an' how tae come back out o' the tunnel afterwards, which is the part most forget." },
         { id = "h_miner", when = { profession = { "Mining" } },
@@ -249,6 +280,8 @@ P:NPC {
         { text = "Have your miners seen many troggs lately?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do miners need warriors with them these days, Geofram?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there anything worth hunting in the mines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Are your miners getting hurt in the tunnels, Geofram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the miners abandon the deep seams near Gnomeregan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good digging, Geofram.", next = "END" },
       },
     },
@@ -357,8 +390,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every week, for the Physician sends down orders for broth an' I make it the way my mother did, wi' bones an' barley an' nothin' fancy. Nissa says it does as much as her bandages, but she'll never say it in front o' her students." } },
+      choices = {
+        { text = "Feeding the sick is holy work, Daryl. Keep doing it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Broth is broth. Healing is the priests' work, not the cook's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Teach me a recipe instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Somethin' that sticks tae yer ribs, like boar an' barley stew, an' plenty o' it, for a paladin on an empty stomach is just a very heavy dwarf. I'll teach ye how tae make it, an' ye'll thank me in the Wetlands." } },
+      choices = {
+        { text = "I'd share it with the soldiers marching beside me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A paladin's strength comes first. I'll eat my fill before sharing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Daryl.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll eat before ye pray, I hope, for I've seen too many o' yer lot faint over a bowl o' soup they forgot tae finish." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be wantin' somethin' heavy, I'd wager, for that plate burns more than a forge does, an' I've a stew that'll carry ye through a day's march." },
         { id = "h_default", key = true,
           text = "Daryl Riknussun, cook, an' welcome tae the Bronze Kettle. I teach anyone who wants tae learn, from a fresh recruit wi' a boar haunch tae a grizzled mountaineer who's lived on hard biscuits too long." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -382,6 +435,8 @@ P:NPC {
         { text = "Why not let a mage conjure your ingredients?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior know how to cook, Daryl?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What meat do you most want hunters to bring you?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever cook for the sick, Daryl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What should a paladin eat before a long march, Daryl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll come back hungry.", next = "END" },
       },
     },
@@ -517,8 +572,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now an' again, when nobody's lookin', for if Daryl hears o' it he'll say I've gone soft. A pinch o' salt makes a poor man's supper bearable, an' I'll no' turn a hungry dwarf away, whatever my brother says about my prices." } },
+      choices = {
+        { text = "Charity like that is worth more than any prayer, Emrul.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You should charge them fairly. Charity makes beggars.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Show me your supplies, Emrul.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Fair as the Great Forge is hot, an' Daryl only says otherwise because he wants a discount for bein' my brother. The spices come from Stormwind an' further, an' the caravans cost what they cost, so ye can take it up wi' the road." } },
+      choices = {
+        { text = "I believe you. An honest trader deserves to be trusted.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every trader says that. I'll take your brother's word.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Emrul.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest wantin' spices! Ye'll be cookin' for the poor, I suppose, an' I'll no' charge ye extra for the salt, though I'll no' charge ye less either." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be needin' salt, for a soldier's supper wi'out salt is a sad thing, an' I'd hate tae see a paladin sad." },
         { id = "h_default", key = true,
           text = "Emrul Riknussun, cookin' supplies, an' the better-lookin' Riknussun, no matter what ye've heard. If Daryl's taught ye a recipe, I've the spices for it, an' a few recipes he hasnae thought o' yet." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -541,6 +616,8 @@ P:NPC {
         { text = "Do people really worry about warlocks' coin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a warrior care about spices, Emrul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What spice would you put on wild boar, Emrul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever give spices to the poor in the Forlorn Cavern?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Emrul.", next = "END" },
       },
     },
@@ -649,8 +726,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Resent ye? No, but I've seen too many soldiers die waitin' for a priest who was busy healin' somebody else. The Light, or Elune, or whatever ye pray tae, is a fine thing, but a bandage is always there, an' it doesnae get tired." } },
+      choices = {
+        { text = "Then we're both healers, Nissa. I'll learn the bandages too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer heals what bandages can't. My way is better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Teach me first aid, then.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Protect them, every time, for I'd rather never see a wound than mend a hundred. But ye'll no' stop every blade, paladin, so learn the bandages, an' when ye can't protect them, at least ye can keep them breathin'." } },
+      choices = {
+        { text = "Protect the weak first. That's what a paladin is for.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Healing wins wars. A shield only buys time.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Teach me first aid, Nissa.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll have the Light in yer hands, I suppose, but I'll still teach ye bandagin', for ye'll no' always have the strength tae use it." },
         { id = "h_default", key = true,
           text = "Nissa Firestone, physician. I teach bandagin' tae anyone wi' sense enough tae learn it, for ye'll no' always have a priest nearby when the trouble starts." },
         { id = "h_priest", when = { class = "PRIEST" },
@@ -675,6 +771,8 @@ P:NPC {
         { text = "Do warlocks really steal life to heal themselves?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn bandaging, Nissa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters get hurt more than most, Nissa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you resent priests, Nissa, for doing your work with prayers?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it better to heal the wounded or to protect them, Nissa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Nissa.", next = "END" },
       },
     },
@@ -786,8 +884,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, I've wondered that myself, because enchanting is just binding power into things, and isn't that what a blessing does? I've tried enchanting a holy symbol once, and it worked very well, though the priest who owned it was very cross with me." } },
+      choices = {
+        { text = "Faith isn't a formula, Gimble. It can't be bound into things.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If a blessing can be bound into steel, that's worth learning.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about enchanting instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Stronger, yes, and sharper and brighter, if you like that sort of thing, which most paladins do. But a hammer is only as good as the arm that swings it, and I can't enchant your arm, though I've thought about it." } },
+      choices = {
+        { text = "A paladin's strength is in his oath. Enchantments are just extras.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every advantage is worth having. Enchant my hammer, then.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gimble.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, good, you're not here to steal my formulas, are you? No, priests never steal formulas; they only bless them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, you'll want your hammer enchanted, I suppose, and I can do that, as long as you promise not to tell anyone how I did it." },
         { id = "h_default", key = true,
           text = "Gimble Thistlefuzz, enchanter, and you've found the Arcanery, which most people don't. I can teach you to bind magic into cloth and steel, if you promise not to tell anyone how I do it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -807,6 +925,8 @@ P:NPC {
         { text = "Why would anyone sneak into the Arcanery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can enchanting make a warrior's blade stronger, Gimble?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can enchanting help a hunter's aim, Gimble?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can enchanting and faith work together, Gimble?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would an enchanted hammer make a paladin stronger, Gimble?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
