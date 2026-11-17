@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+Adair Gilroy has something to say. **New file: restart the game fully (a /reload won't load it).**
+
+- **Adair Gilroy, the Mage Quarter's Librarian**, now talks: a scroll-seller who calls himself a librarian even though everything he sells crumbles when it's read. Ask him how scrolls work and which to buy for your class, about his years copying in Dalaran's Violet Citadel, his monthly supper-and-argument with Milton Sheaf of the Royal Library, his apprentice, the Slaughtered Lamb's cellar, and the Quarter's cat. Mages, warlocks, rogues, priests, Dalaran strays and Mage Quarter natives get lines of their own.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
