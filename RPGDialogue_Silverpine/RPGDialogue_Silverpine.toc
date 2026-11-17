@@ -19,3 +19,5 @@ npcs\faerleia.lua
 npcs\quinn.lua
 npcs\podrig.lua
 npcs\wallace.lua
+npcs\sepulcher_guests.lua
+npcs\sepulcher_market.lua

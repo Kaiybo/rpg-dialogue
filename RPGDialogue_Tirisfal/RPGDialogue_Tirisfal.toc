@@ -20,3 +20,7 @@ npcs\dillinger.lua
 npcs\gunther.lua
 npcs\gordo.lua
 npcs\austil.lua
+npcs\brill_watch.lua
+npcs\brill_trainers.lua
+npcs\brill_market.lua
+npcs\deathknell_trainers.lua
