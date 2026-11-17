@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_archive", when = { questActive = TODO_QUEST("The Archivist") }, text = "Galford and his archive, in Stratholme. Burn it all, and try not to read anything first; zealotry is catching." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I've deciphered precisely two more pages of that dreadful book in the meantime. Your news is bound to be better." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've become a good deal more formidable since we first spoke. The Dawn notices these things, and so do I." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone round here at the chapel. Well done; a mind changed is worth more than a skull split, in my experience." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone round here at the chapel. Well done; I've changed more minds with talk than with a mace, and buried fewer of them." },
   },
 
   notice = {
@@ -92,7 +92,7 @@ P:NPC {
     },
     crusade_fight = {
       big = true,
-      lines = { { id = "cf_default", text = "They do, and bravely, and I won't pretend otherwise. But a sword that cuts the Scourge and the farmer behind it is not a weapon I'd want in the Dawn's hands, however sharp it is." } },
+      lines = { { id = "cf_default", text = "They do, and bravely; I'll give them that much. But a sword that cuts the Scourge and the farmer behind it is not a weapon I'd want in the Dawn's hands, however sharp it is." } },
       choices = {
         { text = "Then the Crusade has to be stopped too.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "We need every sword. Work with them where we can.", next = "BACK", fx = { align = { order = 1 } } },

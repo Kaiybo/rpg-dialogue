@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.2.2 (2026-11-17)
+- The Magram and Gelkis now react to your standing with their clan, not only to how many of the other clan you've killed. Orgrul, Hagiak and Nerlokh have new greetings for anyone their clan hates.
+
 ## 1.2.1 (2026-11-17)
 - Fix: one of Orgrul's replies was a question carrying alignment; it's a statement now.
 

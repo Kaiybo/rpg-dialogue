@@ -73,7 +73,7 @@ P:NPC {
     },
     known_trouble = {
       lines = {
-        { id = "kt_default", text = "Every day, and I won't pretend otherwise, because a sergeant who stops caring about her soldiers is no sergeant at all. But they made their choice when they followed the Colonel, and I made mine." },
+        { id = "kt_default", text = "Every day, because a sergeant who stops caring about her soldiers is no sergeant at all. But they made their choice when they followed the Colonel, and I made mine." },
       },
       choices = {
         { text = "They followed orders. They deserve mercy if they yield.", next = "BACK", fx = { align = { light = 1 } } },

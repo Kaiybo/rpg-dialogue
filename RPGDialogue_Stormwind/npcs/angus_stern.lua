@@ -94,7 +94,7 @@ P:NPC {
       },
     },
     cook = {
-      lines = { { id = "c_default", text = "Salt early, taste often, and never trust a recipe you haven't burned once. And never serve a dish you wouldn't eat yourself; that one I learned the hard way." },
+      lines = { { id = "c_default", text = "Salt early, taste often, and never trust a recipe you haven't burned once. And never serve a dish you wouldn't eat yourself; that one cost me a week of the runs." },
       },
       choices = { { text = "Thank you, Chef.", next = "BACK", fx = { affinity = 2 } } },
     },

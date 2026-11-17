@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.1 (2026-11-17)
+- Warug and Uthek notice your standing with the Magram and Gelkis, not only your kill count.
+
 ## 1.25.0 (2026-11-17)
 - New people to talk to (see the main changelog for 0.74.0). New files: restart the game fully (a /reload won't load them).
 
