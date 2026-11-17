@@ -23,6 +23,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I'm afraid of being torn apart and still awake for it, which is a different thing, and the worgen don't seem to mind which bits they eat. The Dark Lady gave me a second life, and I'd like to keep it in one piece. A priest walking beside me makes the road to the Sepulcher feel a good deal shorter." } },
+      choices = {
+        { text = "Then I'll walk with you, Erland. Stay close.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your fear is your problem, Erland, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Want it? I'd beg for it, if deathstalkers were allowed to beg. Walk in front where the worgen can see you, and I'll stay behind where they can't, and between us we might reach Yorick with all our limbs." } },
@@ -43,8 +52,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here! Good, because I'd much rather the worgen were frightened of your lightning than hungry for my legs." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good. You'll smell them before I do, and you'll know a worgen's scent from a wolf's, which I never can." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Thank the Dark Lady, because a deathstalker's knife is a fine thing in the dark, but it's no good against a worgen twice my size." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Wonderful, because if a worgen takes a bite out of me on this road, I'd like someone close by who knows what to do about it." },
       },
       choices = {
+        { text = "Are you afraid of dying again, Erland?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the worgen fear the storm, Erland?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are the worgen beasts, Erland, or something worse?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I hunt worgen in these woods. Any advice?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -186,6 +197,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The villagers bar their doors at dusk, and by moonrise they're worgen, every one of them, howling down the south road. By morning they're farmers again and none the wiser, or so they pretend. I don't know what a priest could do for them, but I've never seen anyone try." } },
+      choices = {
+        { text = "They're cursed, not damned. Someone should try.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to burn the village and end it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -207,8 +227,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are bright enough to be seen from Pyrewood, so plant them somewhere other than under my window." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wondering about Pyrewood, I expect; everyone with fur does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen worgen tracks on the way in, if you were looking, and they get bigger the closer you come to Pyrewood." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You can pray for Pyrewood if you like, but I've watched that village for months, and nothing has answered it yet." },
       },
       choices = {
+        { text = "What happens in Pyrewood at night, Yorick?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the worgen fear anything, Yorick?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could the worgen curse be broken, Yorick?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You keep watch alone out here, Yorick?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -334,6 +356,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They sense everything, which is why I like them better than people. They grew used to the Forsaken quickly enough, though they still go quiet when a priest walks past the roost. Either they're showing respect, or they're waiting to see if you'll make a meal." } },
+      choices = {
+        { text = "Then I'll walk past gently and let them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them stay wary. Fear keeps a creature obedient.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They can, and they will, though they'll sulk about it for a day afterward, and a sulking bat is no fun to feed. Strap your shield down and keep still, and you'll be in Tarren Mill before the worgen notice you've gone." } },
@@ -350,8 +381,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats can smell a storm coming, and they're smelling one now, so keep your hands still." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You can outrun my bats on the flat, I'm told, but you'll not run across Lordamere Lake." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. My bats can carry your weight, but they'd rather you left some of that iron behind." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The bats don't need praying over, so if that's why you came, you can go back down the hill." },
       },
       choices = {
+        { text = "Do the bats sense what you are, Karos?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your bats trust the living, Karos?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you trade your bats for a living beast, Karos?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Will the bats carry a hunter's beast, Karos?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },

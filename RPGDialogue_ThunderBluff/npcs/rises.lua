@@ -23,6 +23,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They trust the Earth Mother's healing, and they tolerate ours because Cairne asks them to. A troll's prayer or a Forsaken's shadow both make them twitch, though they'll still bring you a fevered calf when the shaman are out on the plains. I find that rather sweet of them, in a bovine sort of way." } },
+      choices = {
+        { text = "Healing is healing, whoever does it. They'll learn that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them twitch. Their fear makes them easier to manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Deviate raptors, deviate crocolisks and a family of druids who have dreamed themselves quite mad. The blooms I need grow among all of them, so a warrior who keeps the beasts busy while someone else does the picking is worth his weight in silverleaf." } },
@@ -87,8 +96,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ah, a shaman. The elements are such fascinating subjects, and so very poor at holding still to be studied." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Splendid; the Wailing Caverns are full of things that bite, and I find warriors far more useful down there than poetry." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know a sick beast from a healthy one, which makes you more useful to the Society than most of the tauren I've asked." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, down here among the Pools of Vision. The tauren will assume you've come to bless the water, and I'd rather you didn't, because blessed water spoils my samples." },
       },
       choices = {
+        { text = "Do the tauren trust a priest's healing, Zamah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
         { text = "What do you want serpentbloom for?", next = "serpent" },
         { text = "How do the tauren treat you?", next = "tauren" },
@@ -163,6 +174,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "More often than their pride would let them say. A plainstrider's kick or a quilboar's spear in the thigh, and they limp up the lift hoping I won't notice. The shaman mend them well enough, but I've seen a troll priest close a wound in a single breath, and I won't pretend that didn't impress an old hunter." } },
+      choices = {
+        { text = "I'll mend any hunter who limps up that lift.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pain teaches them caution. Let them limp a while.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "To hunt your enemy as a hunter hunts a kodo, patiently and with respect, and to strike only when the moment is right. The centaur of the Barrens charge without thinking, and the warriors who wait for the charge to break are the ones who win the day." } },
@@ -213,8 +233,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise? You're welcome here, though my students will want to know if you can call the wind to steady an arrow." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Hunter Rise. Stay a while, because the Thunderhorns have taught more than hunters to read the plains." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine comes home. Tell me what you've tracked since we last spoke, and let me see how your companion carries itself." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up on Hunter Rise? You're far from the healers' fires, friend, but sit if you like, for my students come back bloodied often enough." },
       },
       choices = {
+        { text = "Do your hunters ever need a priest's mending, Holt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
         { text = "What does the Earth Mother ask of hunters?", next = "mother" },
         { text = "Can a shaman's wind really steady an arrow, Holt?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -270,6 +292,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Behind it, I would say, close enough to reach the wounded and far enough back that the first charge doesn't fall on you. A warrior who knows a healer stands at his back will hold a little longer, and a little longer is often the whole battle. Strength protects the herd, and so does whoever keeps the strong on their feet." } },
+      choices = {
+        { text = "I'll stand behind them and keep them standing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I fight where I choose, not where warriors need me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Carefully, as I tell every tauren who comes to me, because a tauren swing can break a centaur's back or a friend's shield. The braves who guard Thunder Bluff learn to measure every blow, so that the strength the Earth Mother gave them is only ever used to protect." } },
@@ -320,8 +351,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. Your strength comes from outside you, so you must learn to carry it even more carefully than a warrior does." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior comes back to Ragetotem's ring. Good, because strength without care only breaks things, and I've more care to teach." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the warriors' ring. Come in, then, because the braves of the bluffs could use a lesson in patience from you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, for my students learn to take a blow before they learn to give one, and someone must patch them up afterward." },
       },
       choices = {
+        { text = "Should a priest stand in the line beside your warriors, Ker?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who do the warriors fight?", next = "fight" },
         { text = "Why must strength be careful?", next = "careful" },
         { text = "Does a shaman need a warrior's training, Ker?", next = "xhsham", when = { class = "SHAMAN" } },
