@@ -502,7 +502,7 @@ P:NPC {
       lines = { { id = "xcl_mara_default", text = "Then Zaetar's spirit may rest a little easier. Zaetar was a son of Cenarius who loved Theradras, the daughter of Therazane the Stonemother, and their children were the first centaur, who murdered their own father. Theradras buried him in Maraudon, and her grief has poisoned those caves and half of Desolace ever since." } },
       choices = {
         { text = "The balance had to be restored, whatever she felt.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Who are we to judge an elemental's grief, Turak?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "An elemental's grief isn't ours to judge, Turak.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Why do the centaur honour Maraudon?", next = "xcl_mara2" },
       },
     },

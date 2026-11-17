@@ -31,7 +31,7 @@ P:NPC {
       lines = { { id = "xcl_zf_default", text = "Then you see what Zalazane be wantin' to make of the Echo Isles. The Sandfury witch doctors drag their dead back up to guard the walls and call it devotion, but a spirit pulled back into rotten flesh never be grateful for it. I teach my students that the dead deserve rest, and Zul'Farrak be a whole city that forget it." } },
       choices = {
         { text = "The dead deserve their rest, whoever raised them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If the dead can still fight, why waste them, Gadrin?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If the dead can still fight, it's a waste not to use them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Did you ever know the Sandfury witch doctors?", next = "xcl_zf2" },
       },
     },

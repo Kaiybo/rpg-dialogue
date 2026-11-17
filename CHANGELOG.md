@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.58.0 (2026-11-17)
+Packs: 41 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.58.0: /reload is enough if you have 0.39.0 or later.
+
+### Dungeons and raids remembered
+- **People know what you did down there.** About 130 people across Azeroth now react once you've fought through to the end of a dungeon or raid near them. Each has a greeting, a reply to bring it up, and a conversation about what it means to them, with stances to take. For example, Brother Crowley and High Priestess Laurena on the Scarlet Monastery, Magni on Blackrock Depths and the daughter he hasn't seen come home, Mekkatorque on Gnomeregan, the Explorers' League on Uldaman, Gadgetzan on Zul'Farrak, Keeper Remulos on the Sunken Temple, Tyrande on Blackfathom Deeps, Jaina and Bolvar on Onyxia, the Barov brothers on Scholomance, Thrall and Neeru on Ragefire, Cairne on the Razorfen.
+- **Guards, townsfolk and innkeepers hear about it too**, from the Stockade to Molten Core.
+- **The journal records it.** Killing a dungeon's last boss adds "Cleared <dungeon>" to your deeds and a line to your diary.
+- What counts: the dungeon's final boss falling to you or your party. Kills you made after 0.54.0 count already, so if you've been to the bottom of Uldaman since then, the people who care will say so.
+- For pack writers: condition `cleared = "Uldaman"` (or a list, or `{ name = ..., not = true }`); boss names in `World.DUNGEON_BOSSES`; deed `cleared:<place>`.
+
 ## 0.57.0 (2026-11-17)
 Packs: every zone pack except World has a new version (`python3 tools/version.py` lists them). No new files in 0.57.0: /reload is enough if you have 0.39.0 or later.
 

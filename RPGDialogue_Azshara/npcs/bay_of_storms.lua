@@ -370,7 +370,7 @@ P:NPC {
       lines = { { id = "xcl_dm_default", text = "I know Prince Tortheldrin, by name and by crime, and the pylons that keep a creature of the Nether chained in the city's heart so the Shen'dralar can drink from it. That is the sickness of the Highborne in one sentence: they would rather leash a horror than live without its power." } },
       choices = {
         { text = "Leashing a demon is still serving it. Their power must end.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If the leash holds, why not use the power?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If the leash holds, I'd use the power.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Are any of the Highborne in Dire Maul worth saving?", next = "xcl_dm2" },
       },
     },

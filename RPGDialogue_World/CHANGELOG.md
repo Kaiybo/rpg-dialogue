@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-17)
+- Guards, townsfolk and innkeepers notice the dungeons and raids you've cleared (the Stockade, Ragefire, the Scarlet Monastery, Uldaman, Zul'Farrak, Blackrock Depths, the Plaguelands' halls, Molten Core and more). An innkeeper line that promised a free drink now doesn't. Needs RPG Dialogue 0.58.0.
+
 ## 1.26.0 (2026-11-17)
 - Guards, townsfolk and innkeepers notice your honor rank, dishonorable kills, the creatures you've been killing, a dragon's head in your bags, and your guild. New night and dawn lines for innkeepers and townsfolk. Needs core 0.54.0.
 
