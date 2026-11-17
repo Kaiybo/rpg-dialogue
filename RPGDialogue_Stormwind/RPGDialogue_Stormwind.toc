@@ -40,3 +40,4 @@ npcs\unsung_east.lua
 npcs\brohann_caskbelly.lua
 npcs\collin_mauren.lua
 npcs\angus_stern.lua
+npcs\nikova.lua

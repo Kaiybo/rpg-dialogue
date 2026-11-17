@@ -29,6 +29,10 @@ The battleground emissaries in the capitals have something to say now. **New fil
 - **Alterac Valley:** the **Stormpike Emissary** (a dwarf with a bad knee from Stonehearth, recruiting instead) and the **Frostwolf Emissary** (Durotan's clan, Drek'Thar, Thrall). Who has the right to the valley is argued on both sides.
 - **Alliance Brigadier General** and **Horde Warbringer**, who want a mark from every field: is it a war or a sport, the honor ranks, and what they think of dishonorable kills.
 - They notice your marks of honor, your standing with their faction, your rank and your honor kills, and say different things in each city they stand in. Each has lines for the races and classes they'd react to.
+A new conversation in Stormwind's Old Town. **New file: restart the game fully (a /reload won't load it).**
+
+### New conversation (Stormwind, Old Town)
+- **Nikova Raskol**, grandmother of Mac, the fourteen-year-old Stockade guard the Defias prisoners killed. Before, during and after "The Color of Blood": who Mac was, how a boy ended up guarding the Stockade, what she does with the bandanas, the Defias, Warden Thelwater, and Old Town. Former city guards, Stonemasons' children, priests and anyone who has cleared the Stockade get their own replies.
 
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
