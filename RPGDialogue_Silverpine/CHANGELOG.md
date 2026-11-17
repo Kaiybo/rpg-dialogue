@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.19.0 (2026-11-17)
+- New people to talk to: Mura Runetotem, Astor Hadren, and the Sepulcher's Alexandre Lefevre, Nadia Vernon, Sebastian Meloche, Andrew Hilbert, Sarah Goode. New files: restart the game fully (a /reload won't load them).
+
 ## 1.18.0 (2026-11-17)
 - Wallace the Blind reacts to the new story "Arugal's children".
 

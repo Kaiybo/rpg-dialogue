@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.20.0 (2026-11-17)
+- New people to talk to: Gorn One Eye, Kernda, Meilosh, Impsy, Malygen, Mylini Frostmoon. New files: restart the game fully (a /reload won't load them).
+
 ## 1.19.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

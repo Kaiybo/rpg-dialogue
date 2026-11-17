@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+About 116 more people to talk to in fifteen zones that were thin on named characters. **New files: restart the game fully (a /reload won't load them).**
+
+- **Tirisfal and Silverpine (21):** Brill's Deathguards Simmer, Burgess and Linnea, a captured Scarlet zealot, Dark Cleric Beryl and the town's trainers and shopkeepers, Deathknell's trainers; at the Sepulcher, Mura Runetotem, the courier Astor Hadren and the market stalls.
+- **Stonetalon and Desolace (24):** Sun Rock's traders, wind rider master and hidden enchanter; Piznik at the Talon Den; Gurda Wildmane at Ghost Walker Post; Shadowprey's elders, Drulzegar's fishing crew and the inn; Corporal Melkins and Talendria at Nijel's Point; the dryad Cavindra by Maraudon.
+- **Loch Modan, Searing Gorge and the Badlands (20):** Brock Stoneseeker and the Healtouches in Thelsamar, the Stoutlager stalls, the Deepwaters and Mountaineer Pebblebitty; Master Smith Burninate, Taskmaster Scrange and Sarah Tanner; Lucien Tosselwrench, Garek and the Kargath garrison.
+- **Swamp of Sorrows and Burning Steppes (15):** Watcher Biggs, Magtoor at the Harborage, Infiltrator Marksen, Stonard's trainers and traders; three traders in the Steppes.
+- **Plaguelands and Hinterlands (20):** Augustus the Touched, Eris Havenfire, the Redpath and Lightfire spirits of Darrowshire, the Argent quartermasters, Flint Shadowmore at Chillwind; Aerie Peak's gryphon keepers and shops; Elder Torntusk and Renn'az of the Revantusk.
+- **Felwood, Un'Goro and Moonglade (16):** Gorn One Eye, Kernda and Meilosh at Timbermaw Hold, the imp Impsy; A-Me 01 and Marshal's Refuge's goblins; Tajarri, Fariel Starsong and Nighthaven's shops.
+- Each answers to your class, race and faction, with their quests before, during and after.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
