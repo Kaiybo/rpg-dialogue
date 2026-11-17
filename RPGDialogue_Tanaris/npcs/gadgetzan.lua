@@ -378,6 +378,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Cactus apples, mostly, and a little of what grows in the shade near the Gaping Chasm, though the bugs there make the picking interesting. Everything out here's bitter, so the trick is to get to it before the sun does." } },
+      choices = {
+        { text = "Share your recipes. Good food keeps people alive here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep your secrets. A cook's recipes are her living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, sweetie? Then you'll know fire's the most important spirit in any kitchen, and I've a stove back here that could use a stern word from you." },
@@ -398,9 +407,11 @@ P:NPC {
           text = "Oh, a warrior, sweetie, and you look half-starved! You can't hold off the Wastewanderers on an empty stomach, so tell me you've eaten something today that didn't come out of a tin." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now there's someone who brings dinner home, sweetie, and I'd love to see what you've caught out in those dunes." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Do you know which desert plants won't kill a person? Because Marin says all of them are fine, and Marin is a liar." },
       },
       again = { { id = "h_again", text = "Anything else, sweetie?" }, { id = "h_again2", text = "Go on, sweetie; I'm stirring, but I can listen." } },
       choices = {
+        { text = "Which desert plants do you cook with, Sprinkle?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What does the desert do to food, Sprinkle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Noggy?", next = "noggy" },
         { text = "What's the secret ingredient?", next = "secret" },
@@ -1127,6 +1138,15 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Scarabs, mostly, the ones carved in Zul'Farrak and the ones that crawl, and you'd be surprised what a collector pays for either. Herbs too, when the pickers come back alive, which isn't as often as I'd like." } },
+      choices = {
+        { text = "If someone pays, sell it. The dead don't need scarabs.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Leave the dead their scarabs. Some things aren't for sale.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, yes? I've sold to your kind before, totems and skins and a few odd stones. What you do with them is your business, and what I paid for them is mine." },
@@ -1147,9 +1167,11 @@ P:NPC {
           text = "A warrior. I like warriors, because you always come back with something heavy to sell, and you never haggle as hard as you swing." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Hides and claws, then, or maybe something rarer. I'm always buying, and I'm never telling who I'm selling to." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? I buy a lot of what grows in this desert, so maybe you can tell me where the good stuff hides." },
       },
       again = { { id = "h_again", text = "Still here asking questions? That's how I started, and look where it got me." } },
       choices = {
+        { text = "What do you buy from the desert?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What does the desert give up that's worth buying?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the shells sell for?", next = "shells" },
         { text = "What's it like being Krazek's cousin?", next = "krazek" },
@@ -1335,6 +1357,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only the once, and he paid for the mattress, I'll give him that. Mostly your kind sit in the corner, drink water, and complain the sand's too dry, which it is, but I can't do much about that." } },
+      choices = {
+        { text = "Fair's fair. A guest should pay for what they break.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A mattress is nothing. A bear needs room to sleep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in the Road Warrior! If you can call up a bit of rain, I'll stop calling the sand in the stew seasoning and start calling it soup." },
@@ -1355,12 +1386,14 @@ P:NPC {
           text = "A warrior! Leave the axe by the door if you're staying, would you? Not that anyone fights in Gadgetzan, but I've replaced three tables this year and only one of them was a fight." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and a beast with you! Animals sleep in the stables, friend, and Laziphus will tell you so, but I'll pretend I didn't see it if it's quiet." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the Road Warrior! Please stay in the shape you walked in with, because the last bear tore up a perfectly good mattress." },
       },
       again = {
         { id = "h_again", text = "Anything else? Have a drink while you think." },
         { id = "h_again2", text = "Ask away, friend; the stool's paid for and the gossip's free." },
       },
       choices = {
+        { text = "Have druids caused you much trouble, Fizzgrimble?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do travellers bring tales of the desert's spirits to your inn?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What's the news in town?", next = "news" },
@@ -1508,6 +1541,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because what I owe and what they say I owe are two very different sums, and the difference is mostly interest. I'll pay the honest part when I find out who's honest in Booty Bay, so not soon." } },
+      choices = {
+        { text = "Let them chase you. The Bay was never honest anyway.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Pay your debts. Running only makes it worse.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, huh? Don't suppose the spirits ever tell you who's looking for a fellow, do they, because that's a talent I'd pay for, if I could pay for things." },
@@ -1529,9 +1571,11 @@ P:NPC {
           text = "A warrior? You're not here from Booty Bay, are you? Only, you've got the look of someone who collects things, and I'd rather it wasn't me." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. You're tracking something, I can tell, and I'd feel a lot better if you told me it wasn't me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'd not happen to have a shape that lets a fellow disappear quickly, would you? I'm asking for a friend, and the friend is me." },
       },
       again = { { id = "h_again", text = "Anything else? Say it quietly, because ships have ears." } },
       choices = {
+        { text = "Why not just pay what you owe in Booty Bay?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The sea out there is restless. What's the port seen lately?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How much do you owe MacKinley?", next = "debt" },
         { text = "What's in the shipment?", next = "shipment" },
@@ -1684,6 +1728,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The desert's been scarred since long before me, friend, and a few holes in the hills won't make it worse. Still, I buy most of my ore off the boats from Booty Bay, so if you're looking for someone to blame, it isn't Krinkle." } },
+      choices = {
+        { text = "The desert's dead already. Dig all you like.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Every hole matters. Mine with care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Fire and earth are my trade too, near enough, only I bill for mine, so if your spirits fancy a job at the forge, I'm hiring." },
@@ -1706,12 +1759,14 @@ P:NPC {
           text = "A warrior! Now that's a blade that wants a better hilt, and I've got the mold for one, if you've got the coin to let me pour it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? I pour arrowheads by the thousand and shot by the barrel, and I'll bet you go through both faster than you'd like." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You don't wear much metal, so I'm guessing you're here for a friend, or you're lost." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them over the anvil, because the thorium cools while we chat." },
         { id = "h_again2", text = "Still here? Then you're either buying or haggling, and I filed a complaint against haggling years ago." },
       },
       choices = {
+        { text = "Does all this mining scar the desert?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the fire in your forge ever fight you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who else buys these molds?", next = "who" },
         { text = "Show me your stock.", next = "BUSINESS" },

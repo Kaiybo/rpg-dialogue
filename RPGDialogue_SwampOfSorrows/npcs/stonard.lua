@@ -366,6 +366,15 @@ P:NPC {
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The trolls sank that temple to bury what they worshipped, and I believe something green and ancient sleeps down there with it, and that the sleep is sick. Your elders speak of a dream that holds the world's living things, and if that dream has a wound, I think it is here." } },
+      choices = {
+        { text = "Then the temple must be cleansed, no matter what it costs us.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some dreams are best left sleeping. Watch it, but don't wake it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Good, because the temple needs someone who can get in and out without the Atal'ai noticing, and nobody I've sent has managed the second part." },
@@ -381,6 +390,7 @@ P:NPC {
         { id = "h_fetishes", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Temple of Atal'Hakkar"), days = 3 } },
           text = "Twenty fetishes, and every one of them hums like a hornet in a jar. They'll go to Orgrimmar under guard, and I'll sleep better once they're gone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Steel will not help much against what lies in that temple, but I would rather have you here than not." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Then you may feel what I feel at the Pool of Tears, something under the water dreaming a dream that is not its own." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly; the temple doesn't wait." },
@@ -398,6 +408,7 @@ P:NPC {
         { text = "Could a mage break the temple's wards?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How close can I get to the temple unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What lies in the Temple of Atal'Hakkar, Fel'zerul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do you feel under the Pool of Tears, Fel'zerul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },

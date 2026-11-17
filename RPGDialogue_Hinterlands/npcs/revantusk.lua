@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Both, mon, but rescue first, 'cause if I lose him, there be no punishin' enough in the world. The Vilebranch serve somethin' dark up there, and I want to burn their altars once he be safe." } },
+      choices = {
+        { text = "Rescue him, then burn their altars. They've earned it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Rescue him. Leave the burning; more blood helps no one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -64,6 +73,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move like a Revantusk scout, {class}, low and quiet and lookin' at the exits. Good, because Jintha'Alor be full of eyes, and the Vilebranch never see the quiet ones comin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Revantusk be a hunting people, mon, and we know a good tracker by how they walk, so walk with us, and the forest be kinder to you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My mate be caged at Jintha'Alor while you walk free, and I be wantin' to know if your claws be as sharp as they say." },
       },
       again = {
         { id = "h_again", text = "What else do you need, then? Say it quick." },
@@ -85,6 +95,7 @@ P:NPC {
         { text = "Do the Revantusk still hold that grudge against magic?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could someone quiet slip into Jintha'Alor unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What do the Revantusk hunt in the Hinterlands, Primal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Should we rescue your mate, or punish the Vilebranch first?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
       },
     },
@@ -274,6 +285,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only what you need, and you thank the beast after, 'cause the loa be watchin'. The Wildhammer hunt for sport sometimes, and the forest remembers it, even if they don't." } },
+      choices = {
+        { text = "A hunter takes only what he needs. That's the law.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The forest is generous. Take what the hunt gives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some do, if they willin' to learn, and most don't, because they think a big axe make up for a loud foot. My brother was a warrior, and he learned, but the Vilebranch came anyway, and the axe didn't save him." } },
@@ -327,6 +347,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You walk downwind of me like you know what you doin', {class}. My brother walked like that too, before the Vilebranch caught him in the dark." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. You walk like the forest owe you somethin', and the forest don't owe nobody nothin', so step lighter or the Vilebranch hear you comin'." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon! Then you know how to hunt with respect, which be the only way I teach it." },
       },
       again = {
         { id = "h_again", text = "What else you need, hunter?" },
@@ -345,6 +366,7 @@ P:NPC {
         { text = "Why do beasts fear what I carry?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you track the Vilebranch, or do they track you?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a warrior learn to move quietly in the forest, Markhor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How should a hunter take from the Hinterlands?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll hunt for Revantusk.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -638,6 +660,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I throw back the little ones and I thank the big ones, so yes, I be thinkin' so. The sea be patient with a troll who be patient with her, and I got more patience than anyone in Revantusk." } },
+      choices = {
+        { text = "Good. The sea rewards those who give back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Take the big ones and the small. The sea won't notice.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the sea teach you to wait, mon, and a warrior who learn to wait swing at the right time instead of the first time. The snapjaws know it already, which be why they steal my bait and I never catch them." } },
@@ -701,6 +732,7 @@ P:NPC {
           text = "Quiet feet, {class}, good, because loud feet scare the fish. Sit, sit, and don't steal my bait, because the turtles do that already." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and you got the look of somebody who never sit still. Sit anyway, for one breath, and watch the water with old Katoom." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You and Katoom be the same, mon, only you hunt on land and Katoom hunt in the water, and the water be much more relaxin'." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! You know about the fish, I be thinkin', so maybe you know why they don't bite on cloudy days." },
       },
       again = {
         { id = "h_again", text = "What else you need, mon? The fish be patient with us." },
@@ -718,6 +750,7 @@ P:NPC {
         { text = "Isn't sitting this still a lot like keeping watch?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why would a warrior sit and watch the water, Katoom?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Could your rod catch anything a hunter couldn't, Katoom?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you fish with respect for the waters, Katoom?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Not now, Katoom.", next = "END" },
       },
     },
@@ -809,6 +842,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Lard let in the cat, because the cat catch the rats. Lard not let in the bear, because the bear eat the stew. Lard think there be a lesson in that, but Lard not sure what it be." } },
+      choices = {
+        { text = "Feed the cat, keep out the bear. Sounds wise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the bear in, Lard. Share the stew.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A big orc warrior came in after fighting Vilebranch, and he was very angry, and he hit the table, and the table broke. Lard was not angry, Lard just sat on him a little bit until he was calm, and then we had fish." } },
@@ -855,6 +897,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Lard see you sneakin', little one, because Lard is tall and see over everything. No stealin' from the inn, or Lard sit on you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "You are a warrior! Lard can tell, because you are all metal and clanking. Please do not clank on the tables, because Lard just fixed them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "Lard see a tauren druid. Lard like tauren, because tauren big like Lard, and tauren not cause trouble in Lard's inn." },
       },
       again = {
         { id = "h_again", text = "What else little one want? Lard listenin'." },
@@ -873,6 +916,7 @@ P:NPC {
         { text = "Conjured bread fills you, but it doesn't taste of much.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you ever catch thieves in the inn, Lard?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Did a warrior break your tables, Lard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Does Lard ever let the wild animals in?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Goodbye, Lard.", next = "END" },
       },
     },
@@ -984,6 +1028,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The coal comes from the hills and the wood from the forest, and I'll not deny I've burned a good deal of both. But the village needs its blades, and the Vilebranch don't wait for a druid to give us permission." } },
+      choices = {
+        { text = "The village needs blades. The forest can spare it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn less, smith. The forest is all we have.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -1033,6 +1086,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Light fingers, {class}? The Vilebranch took my best tools up to Jintha'Alor, and nothing would please me more than a quiet pair of hands bringing them home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring that bow here and I'll restring it, because I can see it's been fighting the damp, and the damp in the Hinterlands always wins." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You don't need a shield, I'd wager, for a bear's hide is better than any I could forge." },
       },
       again = {
         { id = "h_again", text = "Speak, then, but these borrowed tools make me short of temper, so keep it plain." },
@@ -1050,6 +1104,7 @@ P:NPC {
         { text = "The Warchief tolerates warlocks now. Why don't you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What makes those tools worth the climb to Jintha'Alor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you work on bows as well as armor, Slagtree?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does the forge cost the forest much, Slagtree?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Later, smith.", next = "END" },
       },
     },
@@ -1140,6 +1195,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The gryphons carry the Wildhammer who kill my people, so I don't weep for them. But you, a druid, you be lookin' at me like I just said somethin' wicked, and maybe I did." } },
+      choices = {
+        { text = "Leave the gryphons out of it. They didn't choose.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Strike where it hurts them most. That's war.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not a whole war, mon, just a fright, because their riders fly over our village and throw hammers at anything with tusks. One warrior standin' at their gate would tell them the Revantusk got friends now, and Otho like that thought very much." } },
@@ -1203,6 +1267,7 @@ P:NPC {
           text = "You got the look of somebody who could walk into Aerie Peak and out again with no dwarf ever the wiser, mon, and Otho like that look very much." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon! You look like you could walk up to Aerie Peak and knock on the thane's door, and Otho would pay to see the dwarf's face when he open it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. You bring Otho meat and Otho cook it, and if you bring Otho a gryphon feather, Otho cook it twice for spite." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! You can call the beasts, I be thinkin', so maybe you can call a gryphon down from Aerie Peak and let Otho give it a message." },
       },
       again = {
         { id = "h_again", text = "What else you need, mon? Talk fast now." },
@@ -1220,6 +1285,7 @@ P:NPC {
         { text = "What would you want done at Aerie Peak, Otho?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you really send a warrior against Aerie Peak, Otho?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you really want me to hunt a gryphon, Otho?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Should the Wildhammer's gryphons be harmed for revenge?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Not today, Otho.", next = "END" },
       },
     },
@@ -1310,6 +1376,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Take it and mount it on my wall, aye, and then everyone in Revantusk will know who caught it. The sea has plenty of grouper, and she won't miss one, even a big one." } },
+      choices = {
+        { text = "Catch it. Pride is a fine reason to fish.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let it live. The old ones keep the sea strong.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Today, mon, maybe yes, because that fish been laughin' at Gorkas for three seasons. The wind riders don't mind waitin', and a warrior who wait a little arrive less angry and fight better, so everybody win." } },
@@ -1367,6 +1442,7 @@ P:NPC {
           text = "You sneak up on a troll fishin', you get a hook in the ear, {class}. Sit down, and keep your shadow off the water." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and you want to fly somewhere and hit somethin', I bet. Wait till Gorkas finish this cast, because the grouper be close today, Gorkas can feel it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! Maybe you know somethin' about grouper, because Gorkas been huntin' one for three seasons and it still be laughin' at him." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
       },
       again = {
         { id = "h_again", text = "Anything else? The line's twitching." },
@@ -1382,6 +1458,7 @@ P:NPC {
         { text = "Do the wind riders bring you any interesting news?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is the grouper more important than my flight, Gorkas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have you tried baiting your grouper, Gorkas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Should we take the biggest grouper on the coast?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Goodbye, Gorkas.", next = "END" },
       },
     },

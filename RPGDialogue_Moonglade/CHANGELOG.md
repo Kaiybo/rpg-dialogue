@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-17)
+- Druid replies for every named person here who had none: a greeting, a question and something to argue about. Night elf and tauren druids are both spoken to where it fits.
+- Keeper Remulos's warm greeting now shows to a traveller he thinks well of (it had been tucked inside another line).
+
 ## 1.10.0 (2026-11-17)
 - Warriors and hunters are noticed: 11 people greet a warrior or hunter as one, and have a question to ask and something to argue about; hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.49.0.
 

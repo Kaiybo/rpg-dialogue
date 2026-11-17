@@ -347,6 +347,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The raptors and the panthers see everything, and the Bloodscalp hunt them, so the beasts know where the trolls camp. If you can listen to them the way your elders listen to the Earth Mother, maybe we find the boy before the Bloodscalp decide what to do with him." } },
+      choices = {
+        { text = "Then I'll listen to the beasts, and we'll bring Yenniku home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The beasts owe us nothing. We find him with our own eyes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -369,6 +378,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You could slip into the Bloodscalp camps and look for Yenniku, maybe, where a warrior like me only start a war." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your power might frighten the Bloodscalp into giving up Yenniku, but I not risk the boy's life on a demon's temper." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. Your eyes be good in this jungle, and good eyes might find the tracks of Yenniku where mine see only mud." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren, in this jungle. You know the beasts, and the beasts here know where the Bloodscalp hide Yenniku, if only they could tell us." },
       },
       again = {
         { id = "h_again", text = "What else? Nimboya listening, but not for long." },
@@ -387,6 +397,7 @@ P:NPC {
         { text = "The spirits might know where Yenniku is.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "Where do you think the Bloodscalp hold Yenniku, Nimboya?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you use a demon to rescue Yenniku, Nimboya?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could the jungle's beasts really lead us to Yenniku, Nimboya?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Good hunting, but the chief's son is no business of mine.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -1089,6 +1100,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It grows over the walls, it creeps under the doors, and something big screams out there every other night. The orcs say a fire keeps it off, but I've seen your druids sit outside the walls in the dark and come back calm, so maybe you know better." } },
+      choices = {
+        { text = "The jungle isn't an enemy. Grom'gol should learn to live with it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep the fires lit, Thulbek. The jungle will take what it can.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Sit by the fire and tell me whether the elements have anything to say about the rain, because it hasn't stopped since I got here." },
@@ -1101,6 +1121,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Sit down and tell me a story, and make it a good one, since I trade beds for stories and you look like you've got a few." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could light the fire with a flick of your hand, I suppose, but I'd rather you told me a story instead, since I've plenty of wood." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit, eat, and tell me who you've fought this week, because a warrior always has the best stories and the worst table manners." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of Thunder Bluff, at my fire. Tell me a story of the plains, friend, because all I hear down here is the jungle trying to get in." },
       },
       again = { { id = "h_again", text = "Still here? Good, the stew's still hot, so what else?" } },
       choices = {
@@ -1116,6 +1137,7 @@ P:NPC {
         { text = "What sort of stories do you like best, Thulbek?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you rather a story than a spell, Thulbek?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What story would you want from a warrior, Thulbek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What does the jungle do to Grom'gol at night, Thulbek?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },

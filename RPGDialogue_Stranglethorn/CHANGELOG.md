@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- Druid replies for every named person here who had none: a greeting, a question and something to argue about. Night elf and tauren druids are both spoken to where it fits.
+
 ## 1.22.0 (2026-11-17)
 - Hemet Nesingwary and Kebok are rivals: siding with one cools the other, and each greets you accordingly. No new files. Needs RPG Dialogue 0.55.0.
 

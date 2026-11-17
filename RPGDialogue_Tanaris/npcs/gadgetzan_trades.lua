@@ -92,6 +92,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Pelts from beasts that had no business being hunted, eggs from nests that should have hatched, that sort of thing. I don't hunt them, I only sell them, and if I didn't, someone in Booty Bay would." } },
+      choices = {
+        { text = "Trade's trade. You didn't kill anything yourself.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "If no one bought them, no one would hunt them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Carved totems sell well, by the way, and if your spirits ever want to put anything up for auction, I'll take the usual cut and ask no questions." },
@@ -110,12 +119,14 @@ P:NPC {
           text = "A warrior! Selling or buying? Plate goes fast in this house, because every adventurer in Kalimdor thinks the next suit will be the one that stops the Sandfury." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! I've got rifles, bows, quivers, and once, very briefly, a basilisk egg, until the Bruisers made me take it down." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the auction house. I sell a lot of herbs here, and a few things you'd likely call cruel, so let's keep to the herbs, shall we?" },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The ledger's open." },
         { id = "h_again2", text = "Still with me? Good, because talking is free, and that makes it the only thing in here that is." },
       },
       choices = {
+        { text = "What do you sell that a druid would call cruel?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does anything from the land itself pass through your auction?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what's up for auction.", next = "BUSINESS" },
         { text = "How is this house different from the city ones?", next = "neutral" },
@@ -410,6 +421,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Probably, but the desert's creatures trouble me back, so I'd call it even. I blast at the southern end where there's nothing but sand and scorpids, and the scorpids have made their views very clear." } },
+      choices = {
+        { text = "Progress is noisy. The scorpids will adapt.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Even scorpids deserve some peace. Blast less.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call down lightning for free and I spend a fortune trying to bottle it, so I'd say that makes us colleagues, or rivals, or something in between." },
@@ -424,12 +444,14 @@ P:NPC {
           text = "A warrior! Don't touch anything on the bench, please, because you've got the hands of someone who hits first and reads the label later." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter? I've got a scope that'll make your rifle see further than your beast can smell, and it only exploded the once." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You're probably here to complain about the noise, so get in line behind the vultures, because they were here first." },
       },
       again = {
         { id = "h_again", text = "What else? I've got a fuse burning somewhere, I'm sure of it." },
         { id = "h_again2", text = "Go on, ask, but stand behind the crate while you do." },
       },
       choices = {
+        { text = "Do your explosions trouble the desert's creatures?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does all your blasting shake the earth spirits loose?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Goblin or gnomish engineering: which is better?", next = "schools" },
@@ -557,6 +579,15 @@ P:NPC {
         { text = "Something else, Pikkle.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not much lives in the hills where the ore is, just a few lizards and the odd basilisk, and they move along when I come. I fill the holes back in, mostly, because a rich vein is no good if the next fellow falls into it." } },
+      choices = {
+        { text = "Fill every hole. Leave the land as you found it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ore is ore. The land can mend itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? You'll be telling me the earth has feelings, and I'll be telling you it has thorium, and we'll both be right, but only one of us gets paid." },
@@ -571,12 +602,14 @@ P:NPC {
           text = "A warrior? You've got the shoulders for a pick, I'll give you that, and the patience of someone who hits things for fun." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and you're looking at the hills instead of at me, which means you've already spotted something worth digging up or worth shooting." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I know your kind don't love a pick in the ground, but I only dig where nothing grows, and out here that's nearly everywhere." },
       },
       again = {
         { id = "h_again", text = "Anything else you want to know, or shall I get back to my ore samples?" },
         { id = "h_again2", text = "Ask, then. My time's not free, but my opinions very nearly are." },
       },
       choices = {
+        { text = "Does mining here harm anything still living?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Where's the good ore in Tanaris, and what guards it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "Where's the good ore around Tanaris?", next = "ore" },

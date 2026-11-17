@@ -194,6 +194,15 @@ P:NPC {
         { text = "Interesting theory.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Something that was old when your people's first forests were seedlings, and it is not dead, only waiting. I have heard it in the deep hours, {class}, and I tell everyone, though few of them thank me for it." } },
+      choices = {
+        { text = "I believe you. The Circle must be warned.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You've been in the sun too long, old man.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You hear the earth, so you must hear it too: the sand groans, the stones weep, and the swarm below gnaws at the roots of the world." },
@@ -207,9 +216,11 @@ P:NPC {
           text = "A warrior comes to the edge of the end! Sharpen your blade, then, for there will be more of them than you have strokes left in your arm." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You track the beasts, but who tracks the hunter? The swarm does, from beneath, and it is very patient." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You hear the earth, so surely you hear it too, the slow heartbeat under the sand. Tell me I'm not the only one." },
       },
       again = { { id = "h_again", text = "Ask while there's still time to ask, for the end draws nearer with every grain of sand!" }, { id = "h_again2", text = "Ask, while there is still time!" } },
       choices = {
+        { text = "What do you think lies beneath the sands, Revelator?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What do you hear beneath these sands, Revelator?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What lies beneath the sands?", next = "b1_1" },
         { text = "Why should I believe you?", next = "b2_1" },
@@ -317,6 +328,15 @@ P:NPC {
         { text = "I'll do my part.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "We fight beside whoever kills silithids, druid, and the Circle kills its share. Thrall sent us to guard Kalimdor, and I won't let pride with the night elves at the Hold cost us a single warrior." } },
+      choices = {
+        { text = "Stand with the Circle. The swarm is the real enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Trust no night elf, even here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Good, that is the Warchief's own path, and we need your lightning at this front more than we need anyone's prayers." },
@@ -329,9 +349,11 @@ P:NPC {
         { id = "h_c0", when = { faction = "Horde" }, text = "A child of the Horde, here at the front! The Warchief's eyes are on Silithus, and your service will be remembered." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter of the Horde. Your arrows will not stop a swarm, but your eyes might see one coming, and that is worth more." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
+        { text = "Will the Horde fight beside the Circle here?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "The earth here is sick with hives. How does the Horde fight it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is the Horde doing here?", next = "b1_1" },
         { text = "What of the Alliance?", next = "b2_1" },
@@ -429,6 +451,15 @@ P:NPC {
         { text = "I'll see where I'm needed.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That they don't break, for one. Men break, orcs break, even the Scourge can be scattered, but kill a hundred silithids and the hundred behind them just keep coming, and I've had to rewrite every plan I brought from Stormwind." } },
+      choices = {
+        { text = "Then we hold the line and never give ground.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then we strike their hives and stop fighting fair.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -441,9 +472,11 @@ P:NPC {
           text = "A warrior of the Alliance. Good, there are more Horde blades in this courtyard than ours, and I'd like that balance to change." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance! The Circle's scouts are good, but I'd trust one of our own to tell me plainly what's moving out by the hives." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Darnassus at the Hold. Good; Tyrande's people know this foe better than Stormwind's generals do, and I could use the counsel." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Ask, friend." } },
       choices = {
+        { text = "What don't the generals understand about the silithids?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What is the Alliance doing here?", next = "b1_1" },
         { text = "How do you feel about the Horde here?", next = "b2_1" },
         { text = "How can I help?", next = "b3_1" },

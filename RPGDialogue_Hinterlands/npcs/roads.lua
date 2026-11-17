@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Rin'ji was just walkin' through their woods, mon, walkin' very quietly and lookin' at nothin' in particular. Maybe Rin'ji was lookin' at their arrows a bit, but that be no reason to cage a troll." } },
+      choices = {
+        { text = "Then they had no right to cage you. You're free.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A spy in someone's woods earns a cage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The guards, mon, because the bars don't shoot arrows. The elves of Quel'Danil be fine archers and poor fighters up close, so get in close quick, and Rin'ji will run while you be busy." } },
@@ -56,6 +65,7 @@ P:NPC {
           text = "A promise be a promise, even to a stranger. Take what I told you and go find it before somebody else does." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, mon! You got arms like a bear, so maybe you bend these bars, and maybe you bend an elf or two on the way out." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, mon. Rin'ji was huntin' too, before the elves caught him, so you know how it feel to hold the bow, and how bad it feel when somebody else got it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, mon? You talk to the trees, so maybe you tell 'em to open this cage, 'cause Rin'ji's been askin' nicely and nothin' be happenin'." },
       },
       choices = {
         { text = "Elves caged my people too, once. I'll get you out.", next = "troll", when = { race = "Troll" } },
@@ -64,6 +74,7 @@ P:NPC {
         { text = "Why should I trust a troll?", next = "trust" },
         { text = "Should I break the bars or the guards first, Rin'ji?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What were you hunting when the elves caught you, Rin'ji?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why did the elves of Quel'Danil cage you, Rin'ji?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good luck, Rin'ji.", next = "END" },
       },
       again = { { id = "h_again", text = "Talk faster, mon. The elves be changin' the guard soon." } },

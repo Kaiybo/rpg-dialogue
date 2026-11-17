@@ -264,6 +264,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I take ore and scrap and the odd yeti hide, and I pay for it all, mostly. Machines don't grow on trees, druid, and Tinkee needs her order, but I'll admit Winterspring's quiet makes even a gnome think twice before he starts up a furnace." } },
+      choices = {
+        { text = "Take only what you need. Winterspring won't forgive greed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Build what you like. The snow has plenty to spare.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Felnok.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -288,6 +297,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Good, you'll have steady hands, because everyone who prays a lot seems to, and steady hands are just what I need near this bench." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Keep your hands to yourself if they glow, because I'm working with chillwind horns and they don't take kindly to blessings." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, all the way up here in the snow? I build machines for a living, so I expect you'll disapprove of me, but I'll answer anything you like while I work." },
       },
       again = {
         { id = "h_again", text = "What else? I've a coil to wind and it won't wind itself." },
@@ -306,6 +316,7 @@ P:NPC {
         { text = "What does a tinker make of a priest's work, Felnok?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have you any use for a warrior, Felnok?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why would a hunter bring you better horns, Felnok?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you take what you need from the land, Felnok?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -452,6 +463,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only whether anything grows there again. I can't go back, and I don't know if my family's alive, but if a druid told me the fields around Darrowshire had turned green, I think I could stop dreaming about them burning." } },
+      choices = {
+        { text = "I'll ask the Circle for you. You deserve to know.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to let Darrowshire go, Jessica. Look forward now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -476,6 +496,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. My father used to say the Silver Hand would never let Lordaeron fall, and I wanted so much to believe him, and now look at us." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. If you're one of the Forsaken, I'll ask you plainly whether you ever walked near Darrowshire, and I'll try to bear whatever answer you give." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I've heard your kind can make dead ground grow again, and I can't stop wondering whether that could ever reach the fields around Darrowshire." },
       },
       again = {
         { id = "h_again", text = "Is there something else? I don't mind talking; it passes the time." },
@@ -495,6 +516,7 @@ P:NPC {
         { text = "What would you have a priest pray for, Jessica?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Did the defenders of Darrowshire fight well, Jessica?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you think a hunter could follow your family's trail?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is there any news you'd want me to bring you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -649,6 +671,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I feel its absence, ant, which is worse. My people still bow to the fire under Blackrock, and the Brotherhood walked away from it with nothing but our hammers. Your kind speak of balance with the land; a Dark Iron who's left the mountain learns what balance costs, and I paid it." } },
+      choices = {
+        { text = "Breaking that chain took courage. You chose rightly, Malyfous.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A smith with no fire is still a smith. Stop brooding.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Malyfous.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -671,6 +702,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clanking like a cart of scrap. The Light means little to a Dark Iron, ant, but your armour is decent work, so I will grant you a minute." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here in the cold. Pray all you like, ant, but no god ever tempered a blade, and I've no time for anything that can't." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, the sort that sleeps in trees. You'll find nothing here for you, ant, unless you've learned to bend a forge to your will the way you bend your shape." },
       },
       again = {
         { id = "h_again", text = "Still here? Then say what you want." },
@@ -689,6 +721,7 @@ P:NPC {
         { text = "Does a Dark Iron smith put faith in anything, Malyfous?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What's wrong with my armour, Malyfous?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What hides would the Brotherhood want from a hunter?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you feel the mountain's fire up here, Malyfous?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },

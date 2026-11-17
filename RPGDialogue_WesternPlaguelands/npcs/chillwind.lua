@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Burned, if I had my way, for every field the Scourge holds feeds their plague. But a priestess and a night elf both tell me there's still life under the rot, and I suppose I'd rather be wrong than burn it all." } },
+      choices = {
+        { text = "Burn it. Nothing living there can be saved.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Reclaim it. There's still life under the rot.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -58,6 +67,7 @@ P:NPC {
           text = "A mage, good, {class}, for the last time I asked Stormwind for spellcasters they sent me a priestess and an alchemist and told me to make do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I've a report from Stormwind on my desk that I never asked for, {class}, and the agent who brought it walked a good deal like you. Sit down, and tell me who sent you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Cenarion Circle at Chillwind. Andorhal is no place for growing things, but I'll take any help you offer against the dead." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, the dead don't wait on our conversations." },
@@ -77,6 +87,7 @@ P:NPC {
         { text = "Will your soldiers fight beside a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Wouldn't Dalaran send help against Andorhal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does SI:7 really operate this far north, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Should the Scourge's farms be burned, or reclaimed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Point me at the dead.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, trait = { brave = 1 } } },
       },
     },
@@ -301,6 +312,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I believe so, though it will take years and more than prayer. Arbington's counter agent breaks the cauldrons, but the ground they've soaked will need tending like a sickbed, and that's work your people know better than mine." } },
+      choices = {
+        { text = "Then let's tend it together, Light and Moon alike.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Break the cauldrons first. Cleansing can come after.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Each one has a cauldron lord standing over it and a crowd of the dead around it, and the lords carry the keys. You knock them down and I'll see to the dosing, and between your shield and my prayers we'll make a proper mess of their brewing." } },
@@ -348,6 +368,7 @@ P:NPC {
           text = "A warrior! The cauldrons are well guarded, {class}, and I've been praying for someone with a shield to stand in front of me while I work." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Keep that bow handy, {class}, because the wildlife near the cauldrons drinks from the same wells as the farms, and none of it is fit to eat any more." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! I've been praying to the Light for a cure for this land, and perhaps the Light sent me one with antlers." },
       },
       again = {
         { id = "h_again", text = "Something else on your mind? Ask away, I've a jar or two to label while you talk." },
@@ -363,6 +384,7 @@ P:NPC {
         { text = "Does the Light judge what's done in shadow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What guards the cauldrons, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is any of the wildlife here still clean?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can the cauldrons' plague be cleansed from the soil?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -506,6 +528,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd like to say no, but the counter agent is strong, and I've seen grass die where it's spilled. I tell myself the plague would have killed it anyway, though I'm not certain that's true." } },
+      choices = {
+        { text = "Weaken the brew, then. Spare what can be spared.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Use it at full strength. Half a cure is no cure.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "One of the commander's soldiers turned round to wave goodbye and swept a month's work off the bench with his pauldron. I don't blame him, not really, but I keep the delicate things on the top shelf now, and I flinch whenever anyone shrugs." } },
@@ -560,6 +591,7 @@ P:NPC {
           text = "Oh, you're wearing a great deal of metal, {class}, so please turn very slowly, because my glassware is on both sides of you and there's no more coming from Stormwind." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! I don't suppose you've ever tracked anything onto Caer Darrow, {class}? I've read that the beasts won't go near the island, and I'd love to know if it's true." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've read about your people's herbalism, though only in very old books, and I'd love to compare notes with you." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I don't mind, really, it's nice to talk to someone who isn't a bone." },
@@ -578,6 +610,7 @@ P:NPC {
         { text = "What have you read about the Scholomance that frightens you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do warriors break much of your glassware, Arbington?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why wouldn't the beasts go near Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your brews harm the land as well as the Scourge?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
     xrogue = {
@@ -704,6 +737,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Left on their own? They'd go to weeds and wolves, druid, and then who would pay the rents? No, Caer Darrow needs a Barov to run it, and it'll have one, once my brother stops being so tiresome about being dead." } },
+      choices = {
+        { text = "The land needs healing, not a landlord.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A lord who rebuilds is better than wild ruin.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Barov.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I'd hire a dozen if Valorfist would let me keep them in camp, but the commander says his soldiers aren't for private use. So I keep my own sword under the blanket and sleep very lightly indeed." } },
@@ -768,6 +810,7 @@ P:NPC {
           text = "A warrior! Splendid, for you're exactly the sort I'd want about if my dead brother came calling, {class}, though I'd want you at the door, not by the bed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. We kept a fine kennel at Caer Darrow, {class}, and I'm told the hounds still prowl the island, though whose hounds they are now I'd rather not guess." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. I suppose you'll be wanting to plant trees on my family's lands once this is over, but I'll be wanting my rents first." },
       },
       again = {
         { id = "h_again", text = "Well? You're still here, so you must want something else." },
@@ -788,6 +831,7 @@ P:NPC {
         { text = "What did your family's bargain cost Lordaeron, Weldon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you really hire a sword against Alexi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your family's hounds still roam Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should Caer Darrow's lands be left to heal on their own?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
     xmage = {
@@ -943,6 +987,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "There is, though you have to dig to find it. I've seen seeds sprout by the camp's well, tiny and pale, and I've stood watch over them like they were my own children. Don't laugh; it's the only thing growing here." } },
+      choices = {
+        { text = "I won't laugh. Every sprout is a victory.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Seedlings won't stop the Scourge. Watch the gate instead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because an Alliance blade and a Horde blade look the same to me but not to each other, and one quick hand on a hilt can undo a month of trust. At the door steel is only steel, and at the table we're only people who fight the dead." } },
@@ -986,6 +1039,7 @@ P:NPC {
           text = "A warrior. Lay your weapon by the door if you'll sit at my table, {class}, and you'll have it back the moment you stand." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and your beast is welcome at my table too, {class}, so long as it doesn't take a side either." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The Argent Dawn has need of anyone who can coax life back into this ground, and I've seen your kind do it." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The Dawn has no secrets worth keeping from a friend." },
@@ -1004,6 +1058,7 @@ P:NPC {
         { text = "Does the Dawn ever need something done quietly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why must a soldier's weapon stay by the door?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do Horde and Alliance hunters really work together here?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is there life left under the Plaguelands' rot?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },
@@ -1339,6 +1394,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Hate it! They fly high and fast and they don't land unless they absolutely must. I can't blame them, but I've got to keep them flying, because the camp needs supplies and Ironforge needs its letters." } },
+      choices = {
+        { text = "Keep them flying. The camp needs those supplies.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Give them rest between runs. They've earned it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They mind it terribly, and they tell me so all the way to Aerie Peak, but they've never once dropped anyone. I give the big grey one an extra fish whenever he carries a knight, and I think he's started to look forward to it." } },
@@ -1396,6 +1460,7 @@ P:NPC {
           text = "A warrior! Oh, the gryphons do grumble about the weight of plate, {class}, but they're very brave birds, and they'd carry an anvil if you asked them nicely." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
       choices = {
@@ -1409,6 +1474,7 @@ P:NPC {
         { text = "Is it safe to fly over Uther's tomb, Bibilfaz?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your gryphons mind carrying heavy armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons get along with hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the gryphons hate flying over the Plaguelands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
     xrogue = {

@@ -551,6 +551,15 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because one moment they're carrying a tauren and the next they're carrying a bear, and the weight's all wrong, and a wind rider remembers that sort of thing. They're proud beasts, and they don't like surprises any more than I do." } },
+      choices = {
+        { text = "Respect the riders. They're not pack animals.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A beast does what it's told, proud or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Don't try stowing away on a rider; they know every weight on their backs, and they've thrown off better sneaks than you." },
@@ -569,12 +578,14 @@ P:NPC {
           text = "A warrior. Your armour weighs as much as you do, so the riders will grumble, and so will I, and then we'll fly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Mind your beasts don't wander into the riders' shade, because the riders are hot and cross, and they bite." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Don't change shape on my riders' backs, because the last one who did nearly lost a claw, and I nearly lost my temper." },
       },
       again = {
         { id = "h_again", text = "Anything else? The riders are waiting." },
         { id = "h_again2", text = "Ask fast, before that rider bites somebody." },
       },
       choices = {
+        { text = "Why do your riders dislike a druid's changes?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Shall I ask the air spirits for a cooler wind, Gorrik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your riders mind carrying spellcasters, Gorrik?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders take the heat?", next = "heat" },
@@ -692,6 +703,15 @@ P:NPC {
         { text = "Another question, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "There's water under Kargath if you dig far enough, and the stubborn little shrubs on the north ridges come back every spring no matter what, so I'd say yes, a little. I don't tell the soldiers, because they'd only trample them." } },
+      choices = {
+        { text = "Protect those shrubs. Hope starts small.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shrubs don't win wars. Watch the Dark Irons instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I count every waterskin on that shelf twice, so if one goes missing I'll know, and I'll know who was standing here." },
@@ -706,12 +726,14 @@ P:NPC {
           text = "Grawl, general goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, so I don't waste it, and I'd rather you didn't either." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You'll want arrows, and I've a crate, but the next one won't come over the Gorge road for weeks, so don't waste them on buzzards." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and probably here to tell me the land's suffering. I know it's suffering, I live in it, so either buy something or tell me something I don't know." },
       },
       again = {
         { id = "h_again", text = "What else? I've got stock to count." },
         { id = "h_again2", text = "Still here? Then buy something, or ask something." },
       },
       choices = {
+        { text = "Is there any good left in this land?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I need gear that holds up against Dark Iron hammers.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Could a shaman find water in these Badlands, Grawl?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do spellcasters buy from you out here, Grawl?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },

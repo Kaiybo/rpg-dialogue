@@ -91,6 +91,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Cartel doesn't ask where things come from, druid, that's how we keep the peace. If a hunter brings me pelts, I sell 'em, and if your Circle wants fewer pelts on the market, it can come and outbid the buyers. That's not cruelty, it's business, and business is the only law in Everlook." } },
+      choices = {
+        { text = "Business without conscience is still cruelty, Grizzlin.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. The Cartel keeps the peace, and that's no small thing.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Never mind the pelts.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -109,6 +118,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You lot hardly ever sell anything, you just buy linen for bandages, which honestly makes you my favourite customers, because you never haggle." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Bless the auction house if you like; it couldn't hurt the bidding, and Steamwheedle doesn't charge for prayers, yet." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Do you know how many Winterspring frostsabre pelts go across this counter every week? You'd better not, because you'd want to lecture me about it." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, the brazier's going out." },
@@ -125,6 +135,7 @@ P:NPC {
         { text = "What do you make of priests who sell their services, Grizzlin?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Where does all that armour come from, Grizzlin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why wouldn't anyone ask where a frostsaber pelt came from?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you ever turn away goods taken cruelly?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -247,6 +258,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Sure do, and to the hunters who chase the hunters, too. The frostsabres up by Starfall have gotten bold, chasing travelers right down to the road, and I've sold more shot this winter than any I can remember. Your kind would say the cats are hungry, and I'd say so's everybody." } },
+      choices = {
+        { text = "Thin the frostsabres if you must, but don't wipe them out.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they hunt travelers, they're fair game. Keep selling shot.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Wixxrak.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -263,6 +283,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Now there's a customer who appreciates a good hammer, and I've got maces that won't go brittle in the cold, which you'd be surprised how many smiths can't say." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Most of your kind buy a mace and nothing else, but I'll sell you a rifle too, if your prayers ever need a little extra reach." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've got claws, so you don't need a sword, but do your friends need a rifle? Because I've got rifles, and Winterspring's full of things that bite back." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you about, before I go back to telling you what to buy?" },
@@ -279,6 +300,7 @@ P:NPC {
         { text = "Do priests ever buy your guns, Wixxrak?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a sword go brittle in the cold, Wixxrak?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's so special about your gun oil?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you sell to the hunters who chase the frostsabres?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -396,6 +418,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Gadgetzan, Ratchet and Booty Bay, mostly, on the goblin caravans, and a few furs from the hunters who winter up here. I don't buy from anyone who skins frostsabre cubs, because there are lines even a goblin won't cross, and the Cartel's happy enough to let me draw them." } },
+      choices = {
+        { text = "Good on you, Qia. More merchants should draw that line.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Lines are bad for business. Someone else will just sell cubs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Qia.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -410,6 +441,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Qia, trade supplies, right here beside the bank and the auction house. Every crafter in Everlook buys from me sooner or later, because the next shop with thread is a long, cold walk away." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll be after thread for your robes, I expect, because nothing tears a robe faster than a Winterspring wind." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll find plenty of furs and threads in my shop, though I suspect you'd rather see the furs still on the animals, wouldn't you?" },
       },
       again = {
         { id = "h_again", text = "Anything else, or have I sold you enough thread for one day?" },
@@ -425,6 +457,7 @@ P:NPC {
         { text = "Do priests often come to you for robe cloth, Qia?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the cold really rot the padding under armour?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What hides sell best in Everlook, Qia?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Where do your trade goods come from, Qia?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -523,6 +556,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Better than the guests at the inn, I'd say. I keep them in straw, I feed them before I feed myself and I talk to them more than I talk to people, which suits us all. A druid might hear what's really bothering them, but my guess is they just miss the sun, same as me." } },
+      choices = {
+        { text = "They're lucky to have you. Keep them warm, Azzleby.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A tamed beast loses something. They'd be happier in the wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Azzleby.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -535,6 +577,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Azzleby, stable master, right by the gate so the hunters don't have to drag their beasts all the way through town. I board pets for anyone who's tamed one, and I keep them warmer than the inn keeps its guests." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I don't get many of you at the stables unless a pet's ailing, so if you've a blessing to spare, the beasts in the back need it more than the folk in the inn." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've got a stable full of animals that'd love a word with you, if you can talk to them, because some of them haven't stopped complaining since the snow came." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a bear back there that wants its dinner." },
@@ -549,6 +592,7 @@ P:NPC {
         { text = "Would a polymorphed sheep be welcome in your stables?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the beasts in your stable suffer the cold, Azzleby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why keep my voice down near the stalls?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Are the animals well cared for in this cold?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -669,6 +713,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Hardly anywhere, which is why they're dear. A few of the herbalists bring up what grows by Timbermaw Hold and the Moonglade road, but I've noticed the plants near the Frostwhisper Gorge come in strange and pale, and I've stopped buying them, just to be safe." } },
+      choices = {
+        { text = "Trust your instincts and keep refusing them. Something's wrong there.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pale or not, they're herbs. Test them before you throw them out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Never mind the herbs.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -685,6 +738,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! You won't want healing potions, will you, not with the real thing in your hands, and here's me with all my bottles packed in straw." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've always wondered whether a potion and a prayer are cousins, because icecap from these hills feels half holy when you cut it fresh." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I keep some herbs from the Moonglade road on my shelves, and you'll know better than me whether they're worth what I paid for them." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a pot on the boil." },
@@ -701,6 +755,7 @@ P:NPC {
         { text = "Do you really think icecap is half holy, Evie?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors really drink that many potions, Evie?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Would you buy herbs a hunter finds in the wild?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Where do you find herbs in all this snow?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },

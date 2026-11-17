@@ -252,6 +252,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Crab and crocolisk, mostly, and tubers from the wet ground north of the city that taste like dirt until you boil them twice. When the boats are late, it's the marsh that feeds this island, and I don't let anyone forget it." } },
+      choices = {
+        { text = "Take only what you need. The marsh must last.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Feed the city first. The marsh has plenty.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -269,12 +278,14 @@ P:NPC {
           text = "The soup went down a treat! The Captain had two bowls and said nothing, which from Captain Vimes is a speech." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You smell of nothing at all, which in my kitchen is suspicious, because everyone else smells of tortoise and onions. Rogues and cooks both like to go unnoticed, I suppose." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I'll make you a deal: you don't conjure any of that tasteless bread near my kitchen, and I won't sneer at your tea." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The marsh gives us plenty, if you know where to look, and I imagine you know better than I do." },
       },
       again = {
         { id = "h_again", text = "What else, while it simmers?" },
         { id = "h_again2", text = "Go on, I can stir and listen both." },
       },
       choices = {
+        { text = "What does the marsh give that feeds Theramore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why tortoise soup?", next = "soup" },
         { text = "Who eats your cooking?", next = "eaters" },
         { text = "What's the marsh like for a cook?", next = "marsh" },

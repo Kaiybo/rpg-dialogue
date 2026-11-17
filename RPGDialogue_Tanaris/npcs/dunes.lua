@@ -90,6 +90,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Bones, mostly, an' some of them far too big for any beast I know. There's petrified wood down there as well, whole trunks of it, so there was a forest here once, an' I'd give a lot to know what killed it." } },
+      choices = {
+        { text = "Dig it up. The past should be known.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let the dead forest rest. Not every secret needs digging.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? I've no great love for the Horde, but out here the sand's the enemy of us all, so say yer piece and mind the dig." },
@@ -108,9 +117,11 @@ P:NPC {
           text = "A warrior with a proper shield, eh? Good, because the Wastewanderers don't respect a surveyor's flag, but they do respect a dwarf with an axe standing next to it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Ye'll have seen the hyenas trailing ye in from the road, then; they've learned that diggers drop their lunch when they run." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Tanaris! Ye'll not find much growing out here, but I've found a root or two buried deep that'd interest ye." },
       },
       again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
+        { text = "What lies buried under these dunes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "The earth here is dry and old. What have your digs disturbed?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's buried out here?", next = "b1_1" },
         { text = "Why Steamwheedle Port?", next = "b2_1" },
@@ -482,6 +493,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Here and there, mostly there, which is to say I don't ask the pickers too many questions. Some of it comes up from Un'Goro in crates, and anything that still bites when it arrives goes in the back." } },
+      choices = {
+        { text = "Trade is trade. Don't ask, don't worry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Ask questions. Stolen herbs are still stolen.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll be wanting ankhs, and I keep a few under the counter for your sort, priced like everything else here: fair, more or less." },
@@ -499,9 +519,11 @@ P:NPC {
           text = "A warrior, and a thirsty one by the look of you! Jabbey's got whetstones, bandages and a tonic that'll put the fight back in your arms, all at a very reasonable markup." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now, Jabbey doesn't sell meat, but if your beast's hungry I know a fellow named Dirge who asks very few questions about where his comes from." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've got seeds, herbs, and something in a jar I'm told used to be a cactus, so you'll find something here, I promise." },
       },
       again = { { id = "h_again", text = "What else? Jabbey's always open." }, { id = "h_again2", text = "More? Jabbey loves questions that end in sales." } },
       choices = {
+        { text = "Where do you get your herbs, Jabbey?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What do travellers say about the desert spirits out there?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What sells best here?", next = "b1_1" },
         { text = "Where do you get your goods?", next = "b2_1" },
@@ -615,6 +637,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I've asked three druids that question and got three different answers, and none of them made sense to a tailor. My theory is the robe goes somewhere nice and waits for you, which is more than I can say for most of my customers." } },
+      choices = {
+        { text = "Study it, Vizzklick. Magic clothing could make you rich.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some mysteries are sacred. A tailor shouldn't pry.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, with totems clattering off your belt and a hem the wind's been chewing on. I'd ask the spirits for better tailoring, if I were you." },
@@ -630,9 +661,11 @@ P:NPC {
           text = "A warrior, and wearing a padded gambeson under all that in Tanaris, by the look of the sweat! I could line that armor with something that breathes, and you'd stop cooking inside it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! I can always tell, because you're the only folk who walk in with fur on your sleeves that isn't part of the design." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You wear fur half the time and robes the other half, so I'm guessing you're hard on clothes, and I can help with that." },
       },
       again = { { id = "h_again", text = "What else, dearie?" }, { id = "h_again2", text = "Anything more? I've got a needle waiting." } },
       choices = {
+        { text = "What happens to your robes when we take bear form?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The wind here never rests. How does cloth hold up against it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's good cloth for the desert?", next = "b1_1" },
         { text = "Do you sew yourself?", next = "b2_1" },

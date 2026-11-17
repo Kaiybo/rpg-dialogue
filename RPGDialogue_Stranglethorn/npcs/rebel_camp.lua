@@ -620,6 +620,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "To clear firing lines and make the trolls keep their distance, or so they said, but I watched them do it and some of them liked it too much. The jungle's growing back already, faster than I'd believe if I hadn't seen it, though it's growing back thorny." } },
+      choices = {
+        { text = "Kurzen must answer for that fire. It was done for cruelty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burning ground in a war is no worse than burning a farm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, though keep your voice down, because I spent too long among Kurzen's men to talk loud anymore, and some of what I saw in there I'd sooner confess to someone than carry." },
@@ -633,6 +642,7 @@ P:NPC {
           text = "I still wake up reaching for their uniform, and then I remember which side I'm on. It takes a moment longer than I'd like." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Kurzen's men feared magic more than anything, and I'll admit I still flinch a little when I see a spell cast." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I spent months pretending to be one of Kurzen's men, and I'll tell you that his officers would've killed you on sight." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Kurzen's men burned a stretch of the jungle north of here to clear a camp, and I'd wager you can still smell it." },
       },
       again = {
         { id = "h_again", text = "Something more? Speak softly; the jungle listens." },
@@ -649,6 +659,7 @@ P:NPC {
         { text = "I'm a soldier, Private. What did they do to you?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Why did Kurzen's men fear magic so much, Thorsen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would Kurzen's officers really have killed me on sight, Thorsen?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why did Kurzen's men burn the jungle, Thorsen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },
     },

@@ -93,6 +93,15 @@ P:NPC {
         { text = "Something else, Heming.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That it's too old and too smelly, same as me, and still better than whatever the youngsters are throwing. I've fished this bay since before the goblins came, friend, and the fish have changed less than the town, which tells you something." } },
+      choices = {
+        { text = "Take only what you need, Heming. The bay feeds everyone that way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A good fisherman takes what bites. The sea's big enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, by the tides! Sit down and hold this rod a moment, because I've always thought the Light must favor fishermen, seeing how much patience we need and how little we're paid for it." },
@@ -107,6 +116,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't you go freezing my fish in the water, now, because I've been fishing these docks for years and I've never once needed magic to fill my bucket." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, out on my docks. Sit a while if you like, because a fishing line teaches the patience a sword never will." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You'll understand fishing, then, since it's only hunting with a longer leash and wetter boots." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Ever turned into a fish? I've always wondered what they think of my bait, and I'd guess it isn't much." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? The fish aren't biting anyhow." },
@@ -124,6 +134,7 @@ P:NPC {
         { text = "Does the sea teach patience the way prayer does?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What could a warrior learn from fishing, Heming?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is fishing much like hunting to you, Heming?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What would a fish say about your bait, old man?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -273,6 +284,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because claws don't reach the far side of a river, friend, and a raptor pack doesn't wait for you to finish changing. I've sold rifles to tauren and night elves both, and every one of them swore they'd never use it until the day they did." } },
+      choices = {
+        { text = "I'll keep to claw and root. Your guns only frighten the wild.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A sensible druid uses whatever works. Show me the rifles.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, but it never lands quite where you point it, and that's why I sell guns." },
@@ -284,6 +304,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's something I've never sold a gun to, pal, though I'd bet a demon would look mighty fine with a blunderbuss on its shoulder." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Swords are lovely, pal, really, but a warrior with a good rifle on his back can start the argument from forty yards off and finish it up close." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now, I know some of you are bow people, but believe me, pal, nothing introduces you to a tiger like a nice loud gun." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, I know your kind doesn't care for guns, but hear me out: a rifle never once turned into a bear and ate its owner." },
       },
       again = {
         { id = "h_again", text = "What else can I sell you, pal? I mean, help you with?" },
@@ -299,6 +320,7 @@ P:NPC {
         { text = "Would you really sell a gun to a demon, Mazk?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What use is a gun to a warrior, Mazk?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why should a hunter carry a gun over a bow, Mazk?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why would a druid ever buy a gun from you, Mazk?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Not today.", next = "END" },
       },
     },

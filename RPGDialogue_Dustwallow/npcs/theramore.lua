@@ -69,9 +69,9 @@ P:NPC {
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "Whatever Tervosh has you chasing, see it through. Someone has been working against us from the shadows, and I mean to learn who." },
         { id = "h_night", when = { timeOfDay = "night" },
+          text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "I'm glad you came back. Sit, if you like; Tervosh says I don't sit nearly enough, and he's usually right." },
-          text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Cenarion Circle in Theramore. I stood beside your people on Mount Hyjal, and I haven't forgotten what the forest gave to stop the Legion there." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the light step of someone who prefers not to be noticed, and I won't ask whom you've been reporting to. Theramore has nothing to hide from friends." },
@@ -718,6 +718,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Very little, which is the trouble. Two of your Circle came to study the marsh in the city's first year, wrote a great deal in a script none of us read, and left without signing out, so they're still on my books as on patrol." } },
+      choices = {
+        { text = "Keep their names on the rolls. They may return.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Strike them off. Whoever leaves is gone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -733,9 +742,11 @@ P:NPC {
         { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage, and his ink glows. My records glow now, and nobody will take them seriously." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't have a ledger for you, since the Kirin Tor keep their own records, but I'll note your arrival anyway, because I note everything." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll need your name for the ledger, and I'll need it twice, once for you and once for whatever you've got following you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Theramore. I'll have to add you to the record, since only a handful of your kind have come through the gates since the city was founded." },
       },
       again = { { id = "h_again", text = "Anything else? I'll note it either way." } },
       choices = {
+        { text = "What does the record say about Theramore's druids?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the records say about the Guard?", next = "records" },
         { text = "The ones who walked away?", next = "deserters" },
         { text = "How do you keep track of it all?", next = "system" },

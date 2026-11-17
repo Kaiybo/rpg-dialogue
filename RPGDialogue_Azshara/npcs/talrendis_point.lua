@@ -81,6 +81,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That it is not one wound but many. The Highborne cut into the land with their magic long ago, and the satyrs keep the cut open, and the naga drink from it along the shore. A druid of either people could tend it for a lifetime and only slow it, but slowing it is still a good thing to do." } },
+      choices = {
+        { text = "Then I'll tend it, even if I only slow it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to burn out the satyrs first. Tending can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Loh'atu.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -102,6 +111,7 @@ P:NPC {
         { id = "h_cool", when = { disposition = { max = 34 } },
           text = "I keep my promises to the Sentinels, and I would ask you to keep yours to me. Say what you need, and then let us both go about our work." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, here at Talrendis Point. Walk softly, friend, for the Sentinels let me stay on a promise of no trouble, and I would like that promise to hold." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I have walked these woods for a long while, trying to hear what is wrong with them, and perhaps you will hear it more clearly than I can." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time; the land does not hurry, and neither do I." },
@@ -122,6 +132,7 @@ P:NPC {
         { text = "How do the Sentinels treat a Horde guest, Loh'atu?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How do I show the Sentinels I mean no trouble?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts here feel the restless spirits?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What have you learned about this land's sickness?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll keep the peace here, Loh'atu.", next = "END", fx = { affinity = 1, standing = { talrendis_point = 1 } } },
       },
     },
@@ -419,6 +430,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Poorly, if I'm honest. They will not eat the grass past the ridge, and one of them sickened after drinking from the stream below the Legashi camp. I keep them on water carried up from the sea, and I ask Elune each night to make the Sentinels' work go quicker." } },
+      choices = {
+        { text = "Drive the satyrs back and the land will mend. That's our work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Move the roost somewhere safer. The beasts come first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -437,6 +457,7 @@ P:NPC {
           text = "A priest. The Sentinels pray to Elune before every watch here, and the bay gives them reason to, so you'll find Talrendis Point no stranger to prayer." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin of the Alliance. My hippogryphs have never carried so much steel, so forgive them if they grumble when you climb aboard." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, at Talrendis Point. My hippogryphs know your scent, and they settle when you come near, which is more than they do for the Sentinels." },
       },
       again = { { id = "h_again", text = "Is there more, or shall I call a hippogryph for the flight back to Ashenvale?" } },
       choices = {
@@ -449,6 +470,7 @@ P:NPC {
         { text = "Is the quarrel with Valormok as bitter as they say?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the Haldarr satyrs so dangerous, Jarrodenus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do your hippogryphs dislike other beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How do the hippogryphs fare so near the satyrs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

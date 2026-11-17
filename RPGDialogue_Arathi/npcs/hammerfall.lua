@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some of them, maybe. I've seen orcs who forgot how to hold an axe, and who sit and wait for a guard to tell them when to eat. The Earth Mother heals, your people say, but I'd like to see her try it on them." } },
+      choices = {
+        { text = "Bring them home and give them time. They'll heal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Those who forgot how to fight should learn again, hard.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -81,6 +90,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move like the grunt who slipped his chains the night the Warchief came, {class}, and vanished into the dark before the guards ever saw him go." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Doomhammer fell not far from here, and the beasts in the hills watched it, I think, though nobody asks a raptor what it saw." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Your people were hunted by centaur before Thrall found you, I've heard, so you know what it is to be chained to fear." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask, then, for all the good it will do." },
@@ -99,6 +109,7 @@ P:NPC {
         { text = "The Warchief freed you from chains, not from fire.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you wish you had run that night too?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you think the beasts remember that night, Gor'mul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is there hope for the orcs still in the camps?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Leave him be.", next = "END" },
       },
     },
@@ -549,6 +560,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They're fierce beasts, and they'd fight if we asked, but they're also the only way word reaches Hammerfall in time. I'd rather they carried messages than died in a Stromgarde volley, and they agree with me." } },
+      choices = {
+        { text = "Keep them on messages. They're worth more alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A Horde beast fights for the Horde. Ride them in.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Thrown, no, but I've watched a grunt in full plate try to fight the wind with his shoulders and lose, and the beast had to dive halfway to the Witherbark camps to catch him. He walked back to Hammerfall, and he's flown with his helmet off ever since." } },
@@ -593,6 +613,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Sneak up on a wind rider and you'll lose a hand, {class}. They smell fear and mischief equally well, and you've a whiff of both." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Climb on with your armour if you must, but the winds off Thoradin's Wall don't care how brave you are, and they've tipped heavier riders than you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You could fly yourself if you wanted, I've heard, but I'll take your coin all the same." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wind's turning." },
@@ -607,6 +628,7 @@ P:NPC {
         { text = "Do the Highlands' winds trouble your beasts?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could I fly out without the guards knowing?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Has a wind rider ever thrown a warrior, Urda?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Should the wind riders be ridden into battle?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Aye, they suit it well, for an ogre's skull doesn't care much for a sword. The League means to take the whole of Arathor back, every hill, and they'll need every mace I can make to do it." } },
+      choices = {
+        { text = "Take it all back. The Highlands should be Arathor's.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take back the towns, and leave the hills wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A heavy mace, for trolls heal faster than any beast I've known, an' a blade's cut closes near as fast as ye made it. Crack the bone, though, an' even a troll has tae stop an' think about it." } },
@@ -79,6 +88,7 @@ P:NPC {
           text = "They tell me a rogue's no use wi' a mace, {class}, but I've seen a quiet {g:lad|lass} wi' a cudgel do more damage behind a Syndicate camp than a whole squad." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who knows the worth o' a good mace. I forge 'em for every soldier at Refuge Pointe, an' they come back dented, which is how I know they're bein' used." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I've a few arrowheads coolin' by the forge, an' I'll tell ye now, a dwarf's arrowhead weighs twice what a human's does an' flies twice as true." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Refuge Pointe! I doubt ye'll need a mace, but ye're welcome to admire one." },
       },
       again = {
         { id = "h_again", text = "What else d'ye want to know about the Pointe?" },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "What do the soldiers of Refuge Pointe carry into battle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's the best weapon against the Witherbark, Jannos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you forge arrowheads as well as maces, Jannos?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do maces suit the work of taking back the Highlands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

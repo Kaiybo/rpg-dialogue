@@ -65,6 +65,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not the ones who know you, and most of mine have carried druids since they were young. It's when someone shifts into a bear on the landing platform that they get skittish, so please wait until you're down off the mesa." } },
+      choices = {
+        { text = "Respect the wind riders. They carry us freely.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're beasts of burden. They'll carry what they're told.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -80,12 +89,14 @@ P:NPC {
           text = "You'd make a good rider, quiet as you are. The wind riders don't like noise, and they don't like sudden moves, and you seem to know both." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! You could teleport to Orgrimmar or Undercity, but you'll still need my wind riders to reach anywhere out here, because no mage I know has a spell for the Needles." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! The wind riders know your scent from Thunder Bluff, and they fly calmer for it, I've always found." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is changing." },
         { id = "h_again2", text = "Speak, friend. The riders can wait a little longer." },
       },
       choices = {
+        { text = "Do the wind riders mind carrying a druid?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the air spirits watch over the wind riders, Nyse?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do spellcasters make the wind riders uneasy?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
@@ -353,6 +364,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The flats were dead long before the first engine came, friend, all salt and sun and nothing growing. We spill a little oil now and then, but the sun bakes it off by noon, and nobody's complained except the gnomes." } },
+      choices = {
+        { text = "Dead land is fair use. Race on.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Clean up your spills. Dead land still deserves care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -367,12 +387,14 @@ P:NPC {
           text = "A rogue! Are you working for the goblins or the gnomes? Because I've noticed the parts go missing whenever someone like you visits the track." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say a little prayer over the racers if you've got one spare, because they fly off that track at speeds the Light never had in mind." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid on the Flats! You're the first one I've seen who didn't stare at the cars like they killed somebody's grandmother." },
       },
       again = {
         { id = "h_again", text = "Anything else? The next race starts soon!" },
         { id = "h_again2", text = "Ask away! I can talk and count gears at the same time." },
       },
       choices = {
+        { text = "Do the races harm the salt flats?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You sell to both teams?", next = "both" },
         { text = "Which team will win?", next = "winner" },
