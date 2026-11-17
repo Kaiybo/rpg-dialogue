@@ -57,7 +57,7 @@ P:NPC {
       lines = { { id = "ve_default", text = "Me? With those cut-throats? No, no, no, I worked for 'em once, and they docked my wages for every explosion that wasn't on the schedule, and that was most of 'em. Now I live above their mine and watch 'em dig, and it's cheaper than paying for a show." } },
       choices = {
         { text = "Good. They're ruining Mulgore.", next = "ve_more", fx = { align = { honor = 1 } } },
-        { text = "Business is business. They pay well, don't they?", next = "ve_more", fx = { align = { honor = -1 } } },
+        { text = "Business is business. They pay well, and that's what counts.", next = "ve_more", fx = { align = { honor = -1 } } },
         { text = "Why did you leave?", next = "ve_more" },
       },
     },

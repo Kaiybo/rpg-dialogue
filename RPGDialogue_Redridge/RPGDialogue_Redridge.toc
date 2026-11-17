@@ -24,7 +24,9 @@ npcs\lakeshire_folk.lua
 npcs\lakeshire_more.lua
 npcs\lakeshire_trades.lua
 npcs\lakeshire_market.lua
+npcs\lakeshire_services.lua
 npcs\bridge_crew.lua
+npcs\lakeshire_docks.lua
 npcs\guard_berton.lua
 npcs\guard_howe.lua
 npcs\dorin_songblade.lua

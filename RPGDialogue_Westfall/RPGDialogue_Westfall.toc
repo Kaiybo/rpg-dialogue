@@ -26,3 +26,4 @@ npcs\sentinel_folk.lua
 npcs\sentinel_more.lua
 npcs\defias_traitor.lua
 npcs\hills_and_shore.lua
+npcs\odd_child.lua
