@@ -138,8 +138,8 @@ P:NPC {
           text = "Your order wants to master this realm and bend it, as your Highborne forebears wanted to master theirs. That path drove us out of Kalimdor once, and I fear your elders' confidence has long since outrun their competence." },
       },
       choices = {
-        { text = "You're right. Mastery is what drove us from Kalimdor.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
-        { text = "Waiting for absent spirits is worse than any arrogance.", next = "BACK", fx = { affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "You're right. Mastery is what drove us from Kalimdor.", next = "BACK", fx = { opinion = { zep_high_order = "arrogant", zep_windshapers = "trust" }, affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Waiting for absent spirits is worse than any arrogance.", next = "BACK", fx = { opinion = { zep_windshapers = "foolish" }, affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -351,8 +351,8 @@ P:NPC {
         { id = "ws_default", text = "That we're reckless and arrogant, which is rich, because they'll entertain no idea about this crisis but their own. Frankly, kneeling to uncaring spirits isn't so very different from what the Al'Aketh do, so tell me, which of us is the arrogant one?" },
       },
       choices = {
-        { text = "Fair point. Self-reliance beats waiting on spirits.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, learn = { "two_orders" } } },
-        { text = "Comparing them to the Al'Aketh is beneath you.", next = "BACK", fx = { affinity = -2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Fair point. Self-reliance beats waiting on spirits.", next = "BACK", fx = { opinion = { zep_high_order = "trust", zep_windshapers = "foolish" }, affinity = 2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "Comparing them to the Al'Aketh is beneath you.", next = "BACK", fx = { opinion = { zep_windshapers = "respect" }, affinity = -2, align = { order = -1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },

@@ -18,6 +18,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Many outsiders kill furbolgs and do not ask which tribe, Deadwood or Timbermaw, all the same to their swords. Tell Grazle, then: what do you think of furbolgs?" },
+      },
+      choices = {
+        { text = "The corrupted ones must die, but the Timbermaw are friends.", next = "op_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { furbolgs = "friend" } } },
+        { text = "A furbolg's a furbolg. I trust none of you.", next = "op_r2", fx = { affinity = -2, align = { honor = -1 }, opinion = { furbolgs = "distrust" } } },
+        { text = "The corruption isn't your fault. It can be cured.", next = "op_r3", fx = { affinity = 1, trait = { kind = 1 }, opinion = { furbolgs = "pity" } } },
+        { text = "I've no quarrel with furbolgs.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Good. You are thinking, which is more than most do, and Timbermaw remember those who think." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Then Grazle will watch you very closely, and Grazle's spear will stay pointed at you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Timbermaw shamans try to cure it, and they bury what they cannot cure. Grazle hopes you are right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Some come only to look at us, as the Highborne once looked at everything. The Timbermaw remember the old elves, and Grazle tests every outsider before they are let near his people, so if you wish to help, prove it against the Deadwood, not with spells over our tunnels." } },
@@ -174,6 +198,7 @@ P:NPC {
         { id = "outsiders_default", text = "Because the elves call furbolgs beasts and the orcs call us targets, and few come to Felwood to make friends. Grazle judges by deeds, so show Grazle yours." },
       },
       choices = {
+        { text = "What do outsiders get wrong about furbolgs?", next = "op_ask" },
         { text = "All right. I'll not argue with a furbolg.", next = "BACK" },
       },
     },
@@ -304,6 +329,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_furbolgs_distrust", tags = { "news" }, when = { gossip = { topic = "furbolgs", stance = "distrust" } },
+          text = "Grazle says you trust no furbolg. Nafien says you will learn, or you will leave." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Deadwood", min = 40 } },
           text = "Nafien has counted the Deadwood who no longer walk, and the count is high. He takes no joy in it, and he hopes you take none either, but he is grateful." },
         { id = "h_lockcl", when = { class = "WARLOCK" },

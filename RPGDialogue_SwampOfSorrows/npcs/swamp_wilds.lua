@@ -28,6 +28,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_goblins = {
+      lines = {
+        { id = "opg_default", text = "Especially goblins, friend, because they've got the coin and the roads, from here to Booty Bay. Some of my old partners say they're crooks with nice ledgers, and some say they're the only honest traders left. What do you say?" },
+      },
+      choices = {
+        { text = "Crooks with better ledgers, every one of them.", next = "op_goblins_crooks", fx = { align = { honor = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "They keep trade moving. Good for them.", next = "op_goblins_useful", fx = { affinity = 1, align = { honor = -1 }, opinion = { goblins = "useful" } } },
+        { text = "Gnomes and goblins both tinker. Only one of us cheats.", next = "op_goblins_crooks", fx = { trait = { witty = 1 }, opinion = { goblins = "rivals" } }, when = { race = "Gnome" } },
+        { text = "Let's get you out of that cage first.", next = "BACK" },
+      },
+    },
+    op_goblins_crooks = {
+      lines = {
+        { id = "opgc_default", text = "Ha, you sound like my late partner, who said the same thing right up until a goblin bought his debts. Me, I'd rather be cheated by a goblin than robbed by a murloc, and I've now tried both." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_goblins_useful = {
+      lines = {
+        { id = "opgu_default", text = "See, a sensible sort, I knew it! Gold's gold, friend, and a goblin's gold spends just as well as a dwarf's, and I'm not proud about where it's been." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because I'm a trader, friend, not a soldier, and there were about twenty of them and one of me, and they had nets. A warrior like you would have scattered them in a heartbeat, which is exactly why you should be the one to get me out." } },
@@ -179,7 +202,10 @@ P:NPC {
       lines = {
         { id = "cl_default", text = "This and that, whatever sells, friend, and I'll trade with anybody who pays honest coin. Next time I'll hire a guard, I swear it, though I said the same last time too." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Even goblins?", next = "op_goblins" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     box = {
       lines = {

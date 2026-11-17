@@ -770,6 +770,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Folk at home either love him or curse him, and there's precious little in between. What do you make of King Magni, then?" },
+      },
+      choices = {
+        { text = "A fine king. He's kept Ironforge strong through two wars.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { magni = "admire" } } },
+        { text = "He cares more for titan relics than for his own people.", next = "op_r2", fx = { affinity = -1, trait = { skeptical = 1 }, opinion = { magni = "distrust" } } },
+        { text = "The Wildhammer had the right of it when they left.", next = "op_r3", fx = { align = { honor = -1 }, opinion = { wildhammer = "admire", magni = "distrust" } } },
+        { text = "My clan's sworn to him, Elisa, and that's the end of it.", next = "op_r4", fx = { affinity = 1, opinion = { magni = "loyal" } }, when = { race = "Dwarf" } },
+        { text = "I've no opinion on kings.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Aye, he has, and he's kept the beer flowing through both of them. You'll get no complaint from me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Careful, there's a Bronzebeard banner over my forge. Though I'll admit the League's coffers are fuller than the miners' ever were." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Don't say that in Ironforge. The Wildhammer are fine folk with fine gryphons and terrible taste in neighbours, the Hinterlands being full of trolls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Spoken like a proper Ironforge {g:lad|lass}. My da said much the same, then went and argued with the King's tax collectors for forty years." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss it every day, but I like being the loudest voice on the docks. A shaman's spirits would fit right in here." } },
@@ -860,6 +889,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_alliance_distrust", tags = { "news" }, when = { gossip = { topic = "alliance", stance = "distrust" } },
+          text = "Thundris tells me you think we came for the ruins, not the people. I came for the coal and the pay, friend, and I've never lied about it." },
         { id = "h_default", text = "I'm Elisa Steelhand, and I sell blacksmithing supplies here in Auberdine. The elves don't do much smithing themselves, so somebody has to keep the forges fed, and a dwarf's the natural choice." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Blacksmithing") },
           text = "Somebody told you a smith has a place at a camp, did they? Right enough, there's always a blade to sharpen by the fire, and I'll show you how to rig it." },
@@ -878,6 +909,7 @@ P:NPC {
         { id = "h_again2", text = "What else? I've time for a chat." },
       },
       choices = {
+        { text = "What do folk back home make of King Magni?", next = "op_ask" },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What brings a dwarf to Auberdine?", next = "why" },
         { text = "I'd guess the night elves treat you well enough.", next = "elves" },

@@ -21,6 +21,8 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown into your weapons since we last spoke. I remember when I did the same, and I remember what I used them for, so choose better than I did." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "The hall talks, and it says you were caught in a lie. I served liars once, {class}, and I left the Horde over it, so think on that." },
     { id = "g_word_helped", when = { word = "helped" }, text = "They say in the Valley of Strength that you've been helping where you could. That is what the Warchief built this city for." },
+    { id = "g_op_soft", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The hall tells me you think the Warchief soft. Come and say it to my face, {class}, and I'll tell you what soft looked like in the internment camps." },
+    { id = "g_op_jaina", when = { gossip = { topic = "jaina", stance = "distrust" } }, text = "I hear you still think the Lady of Theramore will betray us. Perhaps she will, but orcs said the same of me once, and they were wrong." },
   },
 
   notice = {
@@ -182,8 +184,9 @@ P:NPC {
     soft = {
       lines = { { id = "so_default", text = "Some said that of me in Hearthglen, and I was the one who carried a man out of a fallen tower. Peace with the Alliance is not softness, it is the hardest thing the Warchief has ever tried, and it may fail, but it is worth the trying." } },
       choices = {
-        { text = "Peace is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The Alliance only understands strength.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Peace is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
+        { text = "The Alliance only understands strength.", next = "BACK", fx = { align = { order = -1 }, opinion = { peace = "against" } } },
+        { text = "And Jaina Proudmoore? Does the Warchief trust her too far?", next = "jaina_op" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -209,6 +212,35 @@ P:NPC {
         { text = "I'll keep it in front, then.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Winning matters more than how it looks.", next = "BACK", fx = { align = { honor = -1 } } },
       },
+    },
+    jaina_op = {
+      lines = {
+        { id = "jo_default", text = "He trusts her, and she earned it when she chose us over her own father at Theramore. I have never met the woman, so tell me, {class}, since the young ones always have a view: what do you make of her?" },
+        { id = "jo_undead", when = { race = "Scourge" }, text = "You may have heard her name before you died, when she was a student in Dalaran. The Warchief trusts her, and she earned it at Theramore, but I would hear what one of the Dark Lady's people makes of her." },
+      },
+      choices = {
+        { text = "She chose honor over her own blood. I respect that.", next = "jaina_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { jaina = "respect" } } },
+        { text = "A woman who'd let her father die will betray anyone.", next = "jaina_distrust", fx = { align = { honor = -1 }, opinion = { jaina = "distrust" } } },
+        { text = "She's useful while she keeps Theramore's soldiers at home.", next = "jaina_useful", fx = { trait = { skeptical = 1 }, opinion = { jaina = "useful" } } },
+        { text = "She sailed west and left Lordaeron to the plague.", next = "jaina_hate", when = { race = "Scourge" }, fx = { opinion = { jaina = "hate" } } },
+        { text = "I've no view on her yet, Eitrigg.", next = "BACK" },
+      },
+    },
+    jaina_respect = {
+      lines = { { id = "jr_default", text = "So do I, and so does the Warchief. Honor that costs you your own family is the only kind I fully believe in, because I know what mine cost me." } },
+      choices = { { text = "Something else, Eitrigg.", next = "BACK" } },
+    },
+    jaina_distrust = {
+      lines = { { id = "jd_default", text = "Tirion's own people turned on him for my sake, and I call that honor, not betrayal. Think on why you would judge her differently, and whether the reason does you credit." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
+    jaina_useful = {
+      lines = { { id = "ju_default", text = "That's a quartermaster's answer, and it isn't wrong. Only don't let the Warchief hear you weigh his friends like sacks of grain, because he never weighs his." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    jaina_hate = {
+      lines = { { id = "jh_default", text = "Many of your people say the same, and I won't argue with the dead about what they lost. Only remember that she and the Warchief stood together at Hyjal when the whole world might have burned." } },
+      choices = { { text = "I'll remember. Something else.", next = "BACK" } },
     },
     forsaken = {
       lines = { { id = "fo_default", text = "No. Humans and orcs both did terrible things, and your people are paying a price neither of ours ever paid. Serve the Horde well, and you'll find this old orc on your side when the others mutter." } },

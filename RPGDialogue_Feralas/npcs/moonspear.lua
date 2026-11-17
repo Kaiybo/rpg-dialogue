@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_tyr_admire", when = { gossip = { topic = "tyrande", stance = "admire" } }, text = "The General says you spoke well of the High Priestess. That will earn you some patience from me, and I have very little to spare." },
     { id = "g_default", text = "State your business. The naga don't stop for pleasantries, so neither do I, and my boots have been full of seawater since dawn." },
     { id = "g_scales", when = { questActive = TODO_QUEST("Against the Hatecrest") }, text = "Ten Hatecrest scales, in good condition. You know how to get them." },
     { id = "g_shalzaru", when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "Ah, the one who put Shalzaru down. You're welcome on this island any time, and I mean that." },
@@ -31,6 +32,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "The Horde's tauren sit at Camp Mojache across the Twin Colossals, and they fight the same ogres we do. My Sentinels ask me whether we should leave them be. What would you say?" },
+      },
+      choices = {
+        { text = "Leave them be. Fight the naga, not the tauren.", next = "op_horde_r1", fx = { align = { light = 1 }, opinion = { horde = "tolerate" } } },
+        { text = "Drive them out. Feralas is kaldorei land.", next = "op_horde_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { horde = "war" } } },
+        { text = "The Horde has kept its word at Theramore. Let them keep it here.", next = "op_horde_r3", fx = { opinion = { peace = "peace" } }, when = { faction = "Alliance" } },
+        { text = "Mojache means you no harm, Moonspear. You have my word.", next = "op_horde_r4", fx = { affinity = 1, opinion = { horde = "kin" } }, when = { faction = "Horde" } },
+        { text = "That's not mine to say, Moonspear.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "That is the sensible answer, and the one the General has chosen. I would only add that I count their sentries all the same." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "Many of my Sentinels agree with you, and so might I on a worse day. But the naga come first, and I will not fight two wars to please my temper." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "Theramore is a long way from Feralas, but perhaps you're right. I'll leave the question to the General, which is where it belongs." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "Your word, from a stranger of the Horde, at Feathermoon. I'll write that down, and I'll hold you to it." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Latronicus Moonspear, and I serve General Feathermoon and this Stronghold. If you're here to fight the naga, you're welcome, and if you're here for chit-chat, I'm afraid I'm unavailable." },
@@ -73,7 +118,10 @@ P:NPC {
     },
     naga_lead = {
       lines = { { id = "nl_default", text = "A handful of their lords and ladies, each crueler than the last. Bring one of them down and you set their plans back weeks, if not months, and I'll take months gladly." } },
-      choices = { { text = "Let me ask something else.", next = "BACK" } },
+      choices = {
+        { text = "Should Feathermoon fight the Horde as well?", next = "op_horde" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
     },
     shandris = {
       lines = { { id = "sh_default", text = "Does she now? Then she's been sleeping more than she lets on, which I'll take up with her. The General and I have kept this island watched since the day we landed, and neither of us has slept well since." } },
@@ -133,6 +181,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_horde_war", when = { gossip = { topic = "horde", stance = "war" } }, text = "My husband says you'd drive the Horde out of Feralas. Please don't say so in front of him again, because he's already fighting one war and sleeping too little for it." },
     { id = "g_default", text = "Ishnu-alah! Yes, may I help you? Forgive the books; they multiply when I'm not looking, like moonmoths." },
     { id = "g_relic", when = { questDone = TODO_QUEST("Delivering the Relic") }, text = "Still working on that relic of yours, I'm afraid. It's being very stubborn, much like the man who sent it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've filled another notebook in that time. Come and tell me where you've been." },
@@ -148,6 +197,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_arcane = {
+      lines = {
+        { id = "opa_q", text = "That's the question I ask myself every time Latronicus brings me another relic, and I'd like an outsider's answer for once. What do you think of arcane magic?" },
+        { id = "opa_q_mage", when = { class = "MAGE" }, text = "You're a mage, so you'll have thought about this more than most. Tell me honestly what you think of the arcane, now that you've seen what it did to the highborne." },
+      },
+      choices = {
+        { text = "It's a tool. In careful hands it does great good.", next = "op_arcane_r1", fx = { align = { order = 1 }, opinion = { arcane_magic = "useful" } } },
+        { text = "It's a disease, as you said. Every mage is a risk.", next = "op_arcane_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "It burned the Well of Eternity. Your people were right to forbid it.", next = "op_arcane_r3", fx = { affinity = 2, opinion = { arcane_magic = "wrong" } }, when = { race = "NightElf" } },
+        { text = "It's power, and power is worth the risk.", next = "op_arcane_r4", fx = { affinity = -2, trait = { ambitious = 1 }, opinion = { arcane_magic = "power" } } },
+        { text = "I'll leave magic to the scholars, Vestia.", next = "BACK" },
+      },
+    },
+    op_arcane_r1 = {
+      lines = {
+        { id = "op_arcane_r1", text = "Careful hands, yes, and I've seen how rare those are. I'll hope yours are among them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_arcane_r2 = {
+      lines = {
+        { id = "op_arcane_r2", text = "I said I study it like a disease, and I meant only that I am careful. I'd not call every mage a risk, though I understand why you would." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_arcane_r3 = {
+      lines = {
+        { id = "op_arcane_r3", text = "We were, and the Sisterhood still teaches it to every novice. Remember it whenever a relic whispers to you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_arcane_r4 = {
+      lines = {
+        { id = "op_arcane_r4", text = "That is exactly what Queen Azshara believed, and you've seen what her people became in the water. Be careful, please." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Vestia, a priestess of this community, and a scholar when the community lets me be one. My husband says I'd read the naga's shopping lists if he brought them home, and he isn't wrong." },
@@ -204,7 +298,10 @@ P:NPC {
     },
     study_high = {
       lines = { { id = "sh_default", text = "It is, and I study it the way one studies a disease, carefully and without falling in love with it. The highborne's magic nearly ended our people once, and remembering that is half of why I read." } },
-      choices = { { text = "A wise way to put it.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What do you think of the arcane yourself?", next = "op_arcane" },
+        { text = "A wise way to put it.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     latro = {
       lines = { { id = "l_default", text = "He's brusque and tired and very good at what he does, and he's kinder than he lets anyone see. He brings me puzzles the way other husbands bring flowers, and I like puzzles better." } },

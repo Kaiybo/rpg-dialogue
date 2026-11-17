@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_ashenvale", when = { gossip = { topic = "ashenvale", stance = "wrong" } }, text = "My brother says you think the elves have the right of it in Ashenvale. He didn't shout, which means he's been thinking the same thing, so thank you for giving him something to frown about besides me." },
     { id = "g_default", text = "Lok'tar, friend! Sit, if you can find a rock that isn't wet." },
     { id = "g_betrayed", when = { questActive = TODO_QUEST("Betrayed") }, text = "My brother's sent you after the elf, hasn't he? Good. Bring her down, and I'll smile twice as wide." },
     { id = "g_done", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who settled our debt with the elf! My brother sleeps now, and so do I." },

@@ -314,6 +314,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_mekkatorque_blame", tags = { "news" }, when = { opinion = { topic = "mekkatorque", stance = "blame" } },
+          text = "I hear you've been saying the High Tinker poisoned his own city. Mekkatorque made a hard choice to save who he could, and I'll hear no different in my workshop." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, is it? Gloves on, please, and keep whatever you've summoned well back, because a chillwind horn cracks if you so much as breathe on it wrong, let alone burn it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -549,6 +551,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_scarlet_crusade_useful", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "useful" } },
+          text = "Gregor says you'd forgive the Crusade a lot for killing Scourge. I've heard what they do to the villages they cleanse, so forgive me if I can't." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. I've heard what the Cult of the Damned did with the dark arts back home, so forgive me if I stand a little further off, though I'll still ask you whether you've been east." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -691,6 +695,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Most ants who see a soot-black face reach for their axe first and ask my business after. I'll ask you plainly, then: what do you think of the Dark Iron clan?" },
+      },
+      choices = {
+        { text = "Your clan started the War of the Three Hammers. Never forget.", next = "op_r1", fx = { affinity = -1, align = { honor = -1 }, opinion = { dark_iron = "hate" } } },
+        { text = "The Brotherhood broke from Ragnaros. That earns respect.", next = "op_r2", fx = { affinity = 2, align = { honor = 1 }, opinion = { dark_iron = "respect" } } },
+        { text = "Your clan's work is the finest in the world.", next = "op_r3", fx = { affinity = 1, trait = { witty = 1 }, opinion = { dark_iron = "admire" } } },
+        { text = "A Bronzebeard trusts no Dark Iron, smith. Not yet.", next = "op_r4", fx = { trait = { cautious = 1 }, opinion = { dark_iron = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "I've no quarrel with you, smith.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "The Sorcerer-Thane is two hundred years dead, and plenty of my clan curse his name as hard as you do. The Brotherhood bends no knee to Ragnaros, and you'd do well to remember it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "It does, and it costs plenty as well. There's not a Brotherhood smith alive who hasn't been spat at in Ironforge." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Flattery, but accurate flattery, which I'll allow. Bring me the hide and I'll show you how accurate." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Not yet is better than never, {g:lad|lass}, and I'll take not yet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_malyfous = {
       big = true,
       lines = { { id = "xpt_malyfous_default", text = "Most of them do, and I can hardly blame them, given what Thaurissan's people have done since the War of the Three Hammers. But the Brotherhood left the Emperor's halls to work for ourselves, and I'll not apologize for the blood of a clan I walked away from." } },
@@ -855,6 +888,7 @@ P:NPC {
     brotherhood = {
       lines = { { id = "b_default", text = "Smiths of my clan who were slaves to the Firelord in the depths of Blackrock, and who broke their chains and walked out. We trade with anyone who pays, and we bow to no one, least of all fire." } },
       choices = {
+        { text = "What do people make of your clan, out here?", next = "op_ask" },
         { text = "Escaping Ragnaros can't have been easy.", next = "brotherhood_escape" },
         { text = "Something else.", next = "BACK" },
       },
@@ -935,6 +969,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "My chieftain Cairne gave the tauren a home in the Horde, and some of our elders still grumble that we traded the old ways for orc friendship. What do you think of Cairne's choice?" },
+      },
+      choices = {
+        { text = "Cairne chose wisely. Thrall helped save your people.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { cairne = "respect" } } },
+        { text = "The tauren were stronger before the orcs came.", next = "op_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { cairne = "doubt" } } },
+        { text = "Any alliance that holds through hard winters is worth keeping.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { horde = "useful" } } },
+        { text = "Cairne is wise. The Earth Mother guided him to Thrall.", next = "op_r4", fx = { affinity = 1, opinion = { cairne = "admire" } }, when = { race = "Tauren" } },
+        { text = "That's for the tauren to say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "He did, and the centaur learned what an orc's axe and a tauren's totem can do together. I would make the same choice." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Stronger? We were running from the centaur, stranger, and the orcs ran with us. I will not hear the old days spoken of so kindly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Spoken like someone who has seen a hard winter. This one is long, so I hope the Horde holds." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "She did, and she walks with you so far north, which I am glad to see." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I might, if the warlock did not send the demon in to do the killing. A beast of Winterspring deserves to die facing the one who hunts it, and there is no honour in a death dealt by something that never lived at all." } },
@@ -1051,6 +1114,7 @@ P:NPC {
         { id = "h_again2", text = "Speak on, but quietly; sound carries over snow." },
       },
       choices = {
+        { text = "How do the tauren feel about the Horde?", next = "op_ask" },
         { text = "Do the spirits favour the great beasts of Winterspring?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You must hunt the greatest beasts in Winterspring, Storm.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Which beasts do you hunt?", next = "beasts" },
@@ -1219,6 +1283,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_cairne_doubt", tags = { "news" }, when = { gossip = { topic = "cairne", stance = "doubt" } },
+          text = "Storm tells me you think the tauren were better off without us orcs. Tell that to the centaur; they'd agree with you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. You'll want a seat in the back where nobody sees you come and go, I suppose, and my riders don't care who climbs on, so long as you don't steal their blankets." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },

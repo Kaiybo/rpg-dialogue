@@ -47,6 +47,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Fandral would answer the Warsong with more groves and more druids, and I would answer them with more Sentinels; we agree on the enemy and on very little else. You have walked through the Enclave, so tell me honestly what you make of the Archdruid." },
+      },
+      choices = {
+        { text = "He grew a world tree. That took vision and courage.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { fandral = "admire" } } },
+        { text = "He's proud, and pride burned your people once before.", next = "op_r2", fx = { affinity = 1, align = { order = -1 }, trait = { skeptical = 1 }, opinion = { fandral = "distrust" } } },
+        { text = "You need each other. Kalimdor needs you both.", next = "op_r3", fx = { affinity = 1, trait = { kind = 1 }, opinion = { fandral = "mixed" } } },
+        { text = "He leads my Circle, High Priestess, and I follow him.", next = "op_r4", fx = { trait = { stern = 1 }, opinion = { fandral = "loyal" } }, when = { class = "DRUID" } },
+        { text = "I'd rather not take sides between you.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Vision, yes, and he did not ask Nordrassil's guardians before he planted it. Courage that asks no one's leave is often only pride wearing a finer cloak." } },
+      choices = { { text = "Back to Ashenvale, then.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "I did not say that, and I will not say it in this temple. But I will remember that you did." } },
+      choices = { { text = "Back to Ashenvale, then.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Malfurion would tell me the same, and he would be right, which is why I miss him most on the days I must sit across a table from Fandral." } },
+      choices = { { text = "Back to Ashenvale, then.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then follow him with your eyes open, {class}. Malfurion never asked anyone to follow him blindly, and Fandral should not ask it either." } },
+      choices = { { text = "Back to Ashenvale, then.", next = "BACK" } },
+    },
     xpt_tyrande = {
       big = true,
       lines = { { id = "xpt_tyrande_default", text = "Some do, and some remember that the outsiders who stood beside us at Hyjal came only because their own lands had fallen. I choose to remember that they stood, whatever the reason, and I would ask the same of you." } },
@@ -203,6 +232,12 @@ P:NPC {
           text = "Elune's light falls on you as it fell on {alt}, a {altrace} who came to this temple not long ago, and I would have sworn you shared a mother. Come closer, child, and tell me whether my eyes deceive me." },
         { id = "h_alt_other", when = { alt = { notKin = true }, metBefore = false },
           text = "The Sentinels told me of a {altrace} called {alt} who came into the temple with the same careful steps you take now. Strangers who walk softly in Elune's house are rare, and I find that I remember them." },
+        { id = "o_tyrande_distrust", tags = { "news" }, when = { opinion = { topic = "tyrande", stance = "distrust" } },
+          text = "I am told you think I spend my Sentinels like copper. I have buried more of them than you have ever met, so think on that before you say it again." },
+        { id = "o_tyrande_admire", tags = { "news" }, when = { opinion = { topic = "tyrande", stance = "admire" } },
+          text = "I am told you would follow me before the Archdruid. I hope you never have to make that choice, but I will remember it." },
+        { id = "o_alliance_distrust", tags = { "news" }, when = { gossip = { topic = "alliance", stance = "distrust" } },
+          text = "I hear you agreed with the Archdruid that we should stand alone. Remember that outsiders stood with us at Hyjal, whatever he tells you now." },
         { id = "h_pt_tyrande", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
           text = "You bring {companion} with you into Darnassus, and the sentinels at the gate tell me they were courteous. Elune smiles on friendships between our peoples, though I know not every one of my kin agrees." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "The Sentinels on the Zoram Strand tell me someone went down into Blackfathom and came back up again. That was a temple of Elune once, before the sea took it, and I am grateful to whoever reminded its new tenants of that." },
@@ -378,6 +413,7 @@ P:NPC {
     ashenvale = {
       lines = { { id = "as_default", text = "At Hyjal, orcs bled beside us against Archimonde. That pact did not outlast the peace. Now the Warsong cut Ashenvale for lumber, and my Sentinels answer them." } },
       choices = {
+        { text = "Does the Archdruid stand with you on Ashenvale?", next = "op_ask" },
         { text = "I'll help hold Ashenvale.", next = "BACK", fx = { affinity = 2, standing = { darnassus = 1 } } },
         { text = "The orcs need wood to live.", next = "ashenvale_orcs", fx = { trait = { skeptical = 1 } } },
         { text = "Where would I be most use?", next = "ashenvale_where" },
@@ -598,6 +634,40 @@ P:NPC {
       lines = { { id = "prej_calm_default", text = "Hunger, first, and then the belief that you alone can hold it. If you ever feel both at once, stop what you're doing, go to a moonwell, and sit until it passes." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Alone? I would lead with the Circle, and with allies who have earned the name. Tyrande opened our gates to the humans and their Alliance, and now dwarves dig through our ruins and call it scholarship. Tell me, what is the Alliance to you?" },
+      },
+      choices = {
+        { text = "The Alliance is the best hope this world has.", next = "op_r1", fx = { affinity = -1, align = { honor = 1 }, opinion = { alliance = "trust" } } },
+        { text = "A convenience. The kaldorei should stand on their own roots.", next = "op_r2", fx = { affinity = 2, align = { honor = -1 }, trait = { proud = 1 }, opinion = { alliance = "distrust" } } },
+        { text = "Useful, so long as we remember who owes whom.", next = "op_r3", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { alliance = "useful" } } },
+        { text = "My people bled at Hyjal beside yours, Archdruid.", next = "op_r4", fx = { affinity = -1, align = { honor = 1 }, opinion = { alliance = "loyal" } }, when = { race = "Human" } },
+        { text = "We dig because your ruins are crumbling, Archdruid.", next = "op_r5", fx = { affinity = -1, trait = { brave = 1 }, opinion = { explorers_league = "defend" } }, when = { race = "Dwarf" } },
+        { text = "I'd rather not argue politics with an Archdruid.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Hope? The humans have lost their own king and cannot find him, and the dwarves dig wherever they please. If that is the world's best hope, the world is poorer than I thought." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "At last, someone who understands. We held this land for ten thousand years without a human banner, and we will hold it long after theirs have faded." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A sensible answer. Useful allies are worth feeding, as long as no one mistakes the feeding for friendship." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Some of them did, and I do not forget it. I also do not forget that they came to Kalimdor fleeing the plague in their own lands, not to save us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r5 = {
+      lines = { { id = "op_r5_default", text = "Crumbling, he says. Those ruins rest as we left them, dwarf, and a ruin at rest is not the same thing as a ruin waiting for a shovel." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_fandral = {
       big = true,
       lines = { { id = "xpt_fandral_default", text = "Because every race that has ever come to Kalimdor has wanted something from its forests, and few of them have asked. The humans fell trees to build walls, the dwarves dig until the mountains bleed, and I am expected to call them friends because a war made us share a hill." } },
@@ -737,6 +807,14 @@ P:NPC {
           text = "You have the look of {alt}, a young {altclass} who sat in the Enclave and actually heeded what I said about the forest. If you are of that one's house, I shall expect the same patience from you." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
           text = "{alt} was at the Enclave this past month, asking after the Cenarion Circle's work in Moonglade. I will tell you what I told that one: the Circle needs more hands and fewer questions." },
+        { id = "o_teldrassil_tree_wrong", tags = { "news" }, when = { opinion = { topic = "teldrassil_tree", stance = "wrong" } },
+          text = "You've been telling people Teldrassil should never have been grown. It stands, and you stand on it, so mind your tongue." },
+        { id = "o_alliance_distrust", tags = { "news" }, when = { opinion = { topic = "alliance", stance = "distrust" } },
+          text = "Ah, one who knows the kaldorei need no foreign banners. Speak, then; I have time for you." },
+        { id = "o_fandral_admire", tags = { "news" }, when = { gossip = { topic = "fandral", stance = "admire" } },
+          text = "I hear you've been speaking up for me in this city. Good; few have the spine to do it where the priestesses can hear." },
+        { id = "o_fandral_distrust", tags = { "news" }, when = { gossip = { topic = "fandral", stance = "distrust" } },
+          text = "Someone tells me you think my pride a danger to our people. Say it to my face next time, outsider, and we'll see whose pride is the larger." },
         { id = "h_pt_fandral", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
           text = "You've brought outsiders into Teldrassil's boughs, I see. {companion} is welcome as a guest, but I hope you've told them that the World Tree is no human orchard for them to climb about in." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Alliance" }, text = "So you went into the Wailing Caverns and dragged Naralex out of his nightmare, I am told. He was always a dreamer with more ambition than sense, and I am glad someone with a blade cleaned up after him." },
@@ -848,6 +926,7 @@ P:NPC {
     priestess = {
       lines = { { id = "pr_default", text = "She leads the Sentinels and the Temple, and she prays. Prayer is not a plan. Our people need someone who can see past the next moon." } },
       choices = {
+        { text = "You speak as though you'd rather lead alone.", next = "op_ask" },
         { text = "And you can?", next = "vision" },
         { text = "Something else.", next = "BACK" },
       },
@@ -980,6 +1059,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "I would do as the Archdruid tells me, and he counsels patience while the Warsong axes ring. You have seen that forest yourself, I think, so tell me what should be done about those orcs." },
+      },
+      choices = {
+        { text = "Drive them out, every camp and every axe.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { ashenvale = "war" } } },
+        { text = "Let them take deadwood. Orgrimmar has to burn something.", next = "op_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { ashenvale = "compromise" } } },
+        { text = "Talk to Thrall. The Warchief is no Hellscream.", next = "op_r3", fx = { trait = { curious = 1 }, opinion = { ashenvale = "talk", warchief = "trust" } } },
+        { text = "Wake the forest against them. The Ancients still answer.", next = "op_r4", fx = { affinity = 1, opinion = { ashenvale = "awaken" } }, when = { class = "DRUID" } },
+        { text = "I don't know Ashenvale well enough to say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Many of my Sentinel friends would cheer that. I only wonder how many kaldorei we can spare to buy back each tree." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "A druid of the old ways might agree with you. The Warsong have never once been content with deadwood, though." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Perhaps the orc who leads them is wiser than the ones who cut for him. I have no road to his door, and the High Priestess has no wish to find one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "The Ancients answer slowly and they answer whole, {class}, and an awakened forest does not stop at the orcs. Remember that before you call on it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_mathrengyl = {
       big = true,
       lines = { { id = "xpt_mathrengyl_default", text = "Everything you'd want and none of it at once: a healer in one breath and a bear in the next, and a cat when you need someone to scout ahead. The difficulty is that a druid can be all of those things, so the company forgets they are one person who also gets tired." } },
@@ -1120,6 +1228,7 @@ P:NPC {
         { id = "h_again2", text = "What else? Take your time, as the Enclave does." },
       },
       choices = {
+        { text = "What would you do about the logging in Ashenvale?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What is a Druid of the Claw?", next = "claw" },
         { text = "You serve the Archdruid?", next = "second" },
@@ -1373,6 +1482,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_arcane_magic_hate", tags = { "news" }, when = { gossip = { topic = "arcane_magic", stance = "hate" } },
+          text = "Sister Alathea says you would burn Dalaran's books. Elune asks us to fear the arcane, child, not to hate those who were born to it." },
         { id = "h_pt_amoora", tags = { "news" }, when = { party = true },
           text = "Little star, you've brought friends to the Temple pool! Let them rest a while; I can see the road on all your faces, and Elune doesn't mind how many of you sit by the water." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Welcome, priest. Come and sit by the pool a while, for those who heal others are the last to rest, and Elune knows it." },
@@ -1769,6 +1880,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The humans, if I'm honest, because they climb the tree tired and somehow leave it hungrier. They talk of their missing king and their boy-king and the lady at his court, and I never know what to say. What do you think of Stormwind's people?" },
+      },
+      choices = {
+        { text = "Stout hearts. They rebuilt a whole city from ashes.", next = "op_r1", fx = { affinity = 1, trait = { kind = 1 }, opinion = { humans = "admire" } } },
+        { text = "Short-lived and quarrelsome. They'll squabble the Alliance away.", next = "op_r2", fx = { trait = { skeptical = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Their court worries me. Ask who really advises the boy-king.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "We're stubborn, I'll grant you, but we keep our word.", next = "op_r4", fx = { affinity = 1, opinion = { humans = "proud" } }, when = { race = "Human" } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "That's how they tell it too, and with that many stonemasons among them I believe it. I'll put another blanket on the next one's bed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Oh, they quarrel, and loudly. But the ones who stay here say thank you more often than my own kin do, so I can't hold it against them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "You sound like a dwarf I served last spring, who said the same thing and then drank until he forgot it. I'll keep your worry and leave his ale bill where it was." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you're welcome to keep it in my common room, {class}. Stubborn guests always pay their way." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_saelienne = {
       big = true,
       lines = { { id = "xpt_saelienne_default", text = "More every season, now that the boats run from Auberdine, and most of them are terrified of the height for their first night and charmed by it by their third. I like having them; a tree this tall gets lonely when only the Kaldorei sleep in it." } },
@@ -1874,6 +2014,8 @@ P:NPC {
           text = "Welcome to the Terrace! The last guest I had with your look was a {altclass} called {alt}, who came up from the boats just as lost as you and left a good deal better rested." },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
           text = "You've only just missed {alt}, who slept beneath the east branch two nights running and asked me to keep the bed aired. I didn't think to ask whether you two knew one another, but I suspect you do." },
+        { id = "o_orcs_respect", tags = { "news" }, when = { gossip = { topic = "orcs", stance = "respect" } },
+          text = "Someone on the Terrace says you've a kind word for the orcs. I'd keep it quieter near the Sentinels' tables, if I were you." },
         { id = "h_pt_saelienne", tags = { "news" }, when = { party = { race = "Dwarf" } },
           text = "You've a dwarf with you! Tell {companion} the beds don't fold into the walls and the branches don't fall, because the last dwarf who stayed here slept on the floor with his boots on." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The travelers who come up from the boats are often more tired than they'll admit, and a kind word from a healer does them good." },
@@ -1895,6 +2037,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? There's moonberry juice, if you're staying." },
       },
       choices = {
+        { text = "Who are your strangest guests?", next = "op_ask" },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How do outsiders find Darnassus?", next = "outsiders" },
         { text = "You must hear all the Terrace's talk from here.", next = "talk" },

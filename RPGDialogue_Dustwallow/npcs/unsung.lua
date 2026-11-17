@@ -428,6 +428,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_horde_war", when = { gossip = { topic = "horde", stance = "war" } }, text = "The Captain says you think the peace is a lie. I hope you're wrong, friend, because I've sold more swords this month than I'd like." },
     { id = "g_forge", text = "Swords, axes, maces, and a spear or two for the long-armed. Have a look, friend." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. My work must be holding up." },
   },

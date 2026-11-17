@@ -31,8 +31,38 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_necromancy = {
+      big = true,
+      lines = {
+        { id = "opnc_default", text = "Dalaran said so, and then Kel'Thuzad went and proved them right in the worst way imaginable. You've walked past my servants on the shore, though, so you tell me: is raising the dead a crime, or only a tool that fell into the wrong hands?" },
+      },
+      choices = {
+        { text = "It's a crime. The dead should be allowed to rest.", next = "op_necromancy_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { necromancy = "wrong" } } },
+        { text = "A tool. Kel'Thuzad was the crime, not the craft.", next = "op_necromancy_r2", fx = { affinity = 1, align = { light = -1 }, trait = { practical = 1 }, opinion = { necromancy = "tool" } } },
+        { text = "I was raised against my will. I'm not fond of the craft.", next = "op_necromancy_r3", fx = { trait = { stern = 1 }, opinion = { necromancy = "hate" } }, when = { race = "Scourge" } },
+        { text = "Power is power. I'd not lecture a necromancer.", next = "op_necromancy_r4", fx = { affinity = 1, opinion = { necromancy = "tool" } }, when = { class = "WARLOCK" } },
+        { text = "I'll not judge it, Gunther.", next = "BACK" },
+      },
+    },
+    op_necromancy_r1 = {
+      lines = { { id = "opnc_r1", text = "Rest is a fine thing, I'm told, though I never got much of it myself. I'll take it under consideration, which is what I always told my tutors too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necromancy_r2 = {
+      lines = { { id = "opnc_r2", text = "Thank you! I've waited years for someone to say that without a Kirin Tor hood on, and of course it's a stranger on my beach." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necromancy_r3 = {
+      lines = { { id = "opnc_r3", text = "Fair, and I'll not argue with a man about his own grave. My servants were raised by me and not by him, and I like to think that's a difference, though they can't tell me so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necromancy_r4 = {
+      lines = { { id = "opnc_r4", text = "Says a warlock, and I mean that kindly. You and I both bargain with things Dalaran pretends aren't there, so we'd best not throw stones at each other's cellars." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = "blame" } }, text = "Bethor writes that you blame Dalaran for Kel'Thuzad. So do I, on my better days, and on my worse ones I blame myself for not seeing it first." },
         { id = "h_default", key = true, text = "I am Gunther Arcanus, and this island is mine. If the Lich King sent you, you may tell him I'm not coming back, and I have a great many corpses to prove it." },
         { id = "h_book", tags = { "news" }, when = { questActive = TODO_QUEST("Return the Book") },
           text = "My book! So you're the thief who took it. But there's a new enchantment on the pages, and I know the hand that wove it... Bethor? Bethor is free?" },
@@ -120,6 +150,7 @@ P:NPC {
       lines = { { id = "ne_default", text = "It is, which is why I studied it in a cellar, by candlelight, like every other interesting thing in Dalaran. The irony is not lost on me that it's the forbidden work that's kept me alive, in a manner of speaking." } },
       choices = {
         { text = "And the servants on the shore?", next = "necro_servants" },
+        { text = "Is it wrong, what you do with the dead?", next = "op_necromancy" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -29,6 +29,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_goblins = {
+      lines = {
+        { id = "opn_goblins_q", text = "Trust one? I'd sooner trust a steam boiler with no valve, and at least the boiler doesn't send you an invoice afterwards. But you've been out among them, I expect, in Booty Bay and Ratchet. What do you think of the little profiteers?" },
+      },
+      choices = {
+        { text = "They sell to both sides. That's all you need to know.", next = "opn_goblins_r_distrust", fx = { affinity = 1, align = { order = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "Their gear works, and they don't ask permission. I like that.", next = "opn_goblins_r_admire", fx = { affinity = -1, align = { order = -1 }, opinion = { goblins = "admire" } } },
+        { text = "A goblin's useful as long as you read the contract twice.", next = "opn_goblins_r_useful", fx = { trait = { practical = 1 }, opinion = { goblins = "useful" } } },
+        { text = "Goblin engineering is noise and fire. Gnomes do it properly.", next = "opn_goblins_r_contempt", when = { race = "Gnome" }, fx = { affinity = 2, opinion = { goblins = "contempt" } } },
+        { text = "I've never met one, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r = {
+      lines = {
+        { id = "opn_goblins_r_default", text = "Well, you'll meet one soon enough, and when you do, count your fingers after the handshake." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_distrust = {
+      lines = {
+        { id = "opn_goblins_r_distrust", text = "Exactly so! I've said the same to the council for years, and now I can say a well-travelled adventurer agrees with me, which sounds much better in the minutes." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_admire = {
+      lines = {
+        { id = "opn_goblins_r_admire", text = "Permission is what keeps the roof on, my friend! Well, I suppose a goblin's roof comes off rather often, and they seem to like it that way, but I'll not have that talk in my workshop." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_useful = {
+      lines = {
+        { id = "opn_goblins_r_useful", text = "Twice? I read them three times and then have a dwarf read them aloud, and I still find a clause about my eyebrows. But yes, I suppose they have their uses." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_contempt = {
+      lines = {
+        { id = "opn_goblins_r_contempt", text = "Ha! That's the spirit, and that's the pledge, and I'll hear no more about Booty Bay's clever little rockets in this room." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Whether it's angry with us. We dug deep and we dug fast, and then the troggs came up out of the depths. I've always blamed the troggs, but sometimes, late at night, I wonder whether we woke something we oughtn't to have, and whether your elements would say we deserved it." } },
@@ -131,6 +183,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_gnomeregan_abandon", tags = { "news" }, when = { gossip = { topic = "gnomeregan", stance = { "abandon", "seal" } } },
+          text = "Ah, you're the one who told the High Tinker to give up on Gnomeregan. Bold of you, and wrong, but bold, and Tinker Town's been talking about nothing else." },
+        { id = "o_gnomeregan_retake2", tags = { "news" }, when = { gossip = { topic = "gnomeregan", stance = "retake" } },
+          text = "Word is you told the High Tinker we should go home! Splendid, splendid. You'll need a suit, of course, and I've a design with only three known flaws." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive my melodrama, but if you've a prayer for Techbot, I'd be grateful, even if he is only a machine, which he isn't, not to me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've always wanted to build a self-polishing breastplate for your sort, but the prototype polished the wearer as well, quite vigorously." },
         { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
@@ -227,6 +283,7 @@ P:NPC {
         { id = "di_default", text = "Gnomish engineering is about wonderful devices that make life better, while goblin engineering is about bigger explosions and getting paid. Membership is permanent, mind, so choose with your head and not your eyebrows." },
       },
       choices = {
+        { text = "Would you ever trust a goblin engineer?", next = "opn_goblins" },
         { text = "Making life better is the nobler aim.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "A good explosion solves a lot of problems.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
         { text = "Why must the choice be permanent?", next = "pledge" },

@@ -33,6 +33,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_orcs = {
+      lines = {
+        { id = "opn_orcs_q", text = "Change? Ye've been listenin' tae the folk in Theramore, I see. I fought orcs in the Second War, an' these Frostwolves never fought in it at all, which some say makes 'em different an' I say makes 'em lucky. What's yer view, soldier?" },
+      },
+      choices = {
+        { text = "An orc is an orc. They'll burn the world again.", next = "opn_orcs_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "These ones never served the Horde of old. They might be different.", next = "opn_orcs_r_respect", fx = { affinity = -1, align = { light = 1 }, opinion = { orcs = "respect" } } },
+        { text = "Changed or not, they're in our valley. That's what matters.", next = "opn_orcs_r_wary", fx = { trait = { practical = 1 }, opinion = { orcs = "wary" } } },
+        { text = "I'm Horde, dwarf. Watch your mouth.", next = "opn_orcs_r_proud", when = { faction = "Horde" }, fx = { affinity = -2, opinion = { orcs = "proud" } } },
+        { text = "I'd rather fight than talk, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r = {
+      lines = {
+        { id = "opn_orcs_r_default", text = "Good. Ye'll get plenty o' both in the valley." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_hate = {
+      lines = {
+        { id = "opn_orcs_r_hate", text = "Aye, they might, an' that's why we're here. Respect 'em, mind, as I said, but ye don't have tae like 'em." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_respect = {
+      lines = {
+        { id = "opn_orcs_r_respect", text = "Different, maybe. Still in my valley, still on wolves, still shootin' at my lads. Different doesnae mean friendly, soldier." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_wary = {
+      lines = {
+        { id = "opn_orcs_r_wary", text = "That's the General's answer, an' it's the right one. Leave the philosophy tae the mages in their city." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_proud = {
+      lines = {
+        { id = "opn_orcs_r_proud", text = "An' ye watch yer back in the valley, then. I'll grant ye the courage, an' that's all I'll grant." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -114,7 +166,10 @@ P:NPC {
       lines = {
         { id = "fr_default", text = "Respect an enemy, soldier, or he'll kill ye while ye're busy despisin' him. That's no' the same as likin' him, an' I'll no' be likin' any Frostwolf in this lifetime." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Do you think the orcs can ever change, Lieutenant?", next = "opn_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     insignia = {
@@ -203,6 +258,58 @@ P:NPC {
       lines = { { id = "prej_calm_default", text = "Stand in the line when the Stormpike charge, and don't run when the frost bites. That is all I ask of any orc, and I'll ask no more of you." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
+    opn_dwarves = {
+      lines = {
+        { id = "opn_dwarves_q", text = "The Stormpike? Diggers with guns who think every mountain is theirs because their grandfathers dug in one. But I have watched them hold Dun Baldar through a winter that killed wolves, and that is not nothing. You have walked among their kind. Speak." },
+      },
+      choices = {
+        { text = "Thieves in a stolen valley. Drive them out.", next = "opn_dwarves_r_hate", fx = { affinity = 2, align = { honor = -1 }, opinion = { dwarves = "hate" } } },
+        { text = "Stubborn and brave. A worthy enemy deserves respect.", next = "opn_dwarves_r_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "Greedy for iron. Make them pay for every ounce.", next = "opn_dwarves_r_greedy", fx = { trait = { practical = 1 }, opinion = { dwarves = "greedy" } } },
+        { text = "Some of them are decent. The Stormpike aren't all dwarves.", next = "opn_dwarves_r_mixed", when = { faction = "Alliance" }, fx = { affinity = -1, opinion = { dwarves = "mixed" } } },
+        { text = "I'd rather fight than talk, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r = {
+      lines = {
+        { id = "opn_dwarves_r_default", text = "Good. The drums do not wait for talk either." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_hate = {
+      lines = {
+        { id = "opn_dwarves_r_hate", text = "Then the valley will welcome you. Hate keeps you warm in the snow, but it burns out; take something else with you when you go in." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_respect = {
+      lines = {
+        { id = "opn_dwarves_r_respect", text = "Durotan would have said the same. Respect them, and kill them, and do neither with your eyes closed." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_greedy = {
+      lines = {
+        { id = "opn_dwarves_r_greedy", text = "Every ounce, and the valley takes its share in blood. That is a trader's answer, but I will take it." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_mixed = {
+      lines = {
+        { id = "opn_dwarves_r_mixed", text = "Perhaps, in their own halls. In my valley they are only Stormpike, and that is enough." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -276,6 +383,7 @@ P:NPC {
         { id = "sp_default", text = "When they leave, there will be peace. Until then there is the valley, and the valley is cold, and it buries the dead of both sides without caring which." },
       },
       choices = {
+        { text = "What do you make of the dwarves, Warmaster?", next = "opn_dwarves" },
         { text = "Drive them out. No terms until they go.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Talk is cheaper than war. Offer terms.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },

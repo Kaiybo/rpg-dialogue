@@ -59,6 +59,30 @@ P:NPC {
         { text = "Something else, Duke.", next = "BACK" },
       },
     },
+    op_scarlet_crusade = {
+      big = true,
+      lines = {
+        { id = "opsc_default", text = "I have colleagues who think the Crusade can be reasoned with, given time and the right letters, and colleagues who think it ought to be broken like any other enemy. Which are you, friend?" },
+      },
+      choices = {
+        { text = "Reason with them. Most are only frightened men.", next = "op_scarlet_crusade_r1", fx = { align = { light = 1 }, opinion = { scarlet_crusade = "mercy" } } },
+        { text = "Break them. They've murdered too many refugees.", next = "op_scarlet_crusade_r2", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { scarlet_crusade = "hardline" } } },
+        { text = "They burn my kind on sight. I'm unpersuaded, Duke.", next = "op_scarlet_crusade_r3", fx = { opinion = { scarlet_crusade = "hate" } }, when = { race = "Scourge" } },
+        { text = "I'll leave the Crusade to the Dawn, Duke.", next = "BACK" },
+      },
+    },
+    op_scarlet_crusade_r1 = {
+      lines = { { id = "opsc_r1", text = "That's my hope as well, and I keep writing my letters. They're rarely answered, but now and then a squire slips away from Hearthglen and comes to us." } },
+      choices = { { text = "Something else, Duke.", next = "BACK" } },
+    },
+    op_scarlet_crusade_r2 = {
+      lines = { { id = "opsc_r2", text = "I can't argue with the graves, and I won't try. Bring proof of what you do to them, though, so the Dawn knows where the line was crossed." } },
+      choices = { { text = "Something else, Duke.", next = "BACK" } },
+    },
+    op_scarlet_crusade_r3 = {
+      lines = { { id = "opsc_r3", text = "I'd be unpersuaded too, in your place. The Dawn won't ask you to love them, only to remember that some of them might still be saved." } },
+      choices = { { text = "Something else, Duke.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Duke Nicholas Zverenhoff of the Argent Dawn. I help Lord Tyrosus keep this chapel standing, and I'm the one who pays out valor tokens when people bring us proof of what they've slain." },
@@ -128,6 +152,7 @@ P:NPC {
       choices = {
         { text = "Then the Crusade has to be stopped too.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "We need every sword. Work with them where we can.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Can the Crusade be brought back to its senses?", next = "op_scarlet_crusade" },
         { text = "Something else.", next = "BACK" },
       },
     },

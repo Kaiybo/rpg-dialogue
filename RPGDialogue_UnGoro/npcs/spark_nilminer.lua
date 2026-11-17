@@ -31,6 +31,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ungoro = {
+      lines = {
+        { id = "opu_q", text = "Everybody up here keeps tellin' me what a wonder this crater is, and I'd like one person to agree with me for once. What do you think of Un'Goro, pal?" },
+      },
+      choices = {
+        { text = "It's a wonder. There's nowhere else like it in the world.", next = "op_ungoro_r1", fx = { affinity = -2, align = { light = 1 }, opinion = { ungoro = "wonder" } } },
+        { text = "It's a death trap with nice flowers. You're right to hate it.", next = "op_ungoro_r2", fx = { affinity = 3, align = { light = -1 }, opinion = { ungoro = "dangerous" } } },
+        { text = "It's a fortune in crystals, if you're brave enough to dig.", next = "op_ungoro_r3", fx = { trait = { greedy = 1 }, opinion = { ungoro = "profit" } } },
+        { text = "I'm still making my mind up about it.", next = "BACK" },
+      },
+    },
+    op_ungoro_r1 = {
+      lines = {
+        { id = "op_ungoro_r1", text = "A wonder, you say, like the dinosaurs are gonna sign autographs. Fine, enjoy your wonder, and I'll be over here not gettin' eaten." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_ungoro_r2 = {
+      lines = {
+        { id = "op_ungoro_r2", text = "Finally! Somebody with sense, and a pulse! I'd shake your hand, but I'm keepin' both mine ready for runnin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_ungoro_r3 = {
+      lines = {
+        { id = "op_ungoro_r3", text = "Brave enough, sure, and fast enough, and lucky enough. I'm one out of three, pal, and it ain't the first one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "For the love of all that's holy, pal, tell me you've come to deliver us from this forsaken land. I'm with Marshal Expeditions, but I'd give you the gold teeth from my mouth to climb inside your backpack and leave." },
@@ -70,7 +105,10 @@ P:NPC {
     },
     why_leave = {
       lines = { { id = "wl_default", text = "Alone? Through that jungle? I'd be a snack before I made the first ridge, pal, and a cheap one. No, I wait for an escort, or a miracle, or a really big bird." } },
-      choices = { { text = "I'll keep an eye out for the bird.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = {
+        { text = "What do people think of Un'Goro?", next = "op_ungoro" },
+        { text = "I'll keep an eye out for the bird.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
     terror = {
       lines = { { id = "t_default", text = "Terror Run, which is a FANTASTIC name, by the way, really sells it. Stegodons, diemetradons and all their bones, pal, and most of the bones are still walking around inside them." } },

@@ -84,6 +84,13 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, this far from your own forests. The glades round Sunnyglade are sick with the Hammer's filth, and I'm told your kind takes that personally." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } }, text = "The patrols say the Twilight camps on the ridge are thinner this month, and the bodies they find have your work on them. Keep at it, and my riders might see the Sunnyglade road again before I'm grey." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Stormwind left us nothing, and now Ironforge sends me a shaman, so I'll not argue with what comes." },
+        -- Opinion pass: word of what the player said to someone else at Farholde.
+        { id = "h_o_patience", once = true, when = { gossip = { topic = "stormwind", stance = { "patience", "trust_crown" } } },
+          text = "Word in the keep is you think Stormwind had its reasons for leaving us. You and Ashe can share a bench, then, and the dead in the courtyard can decide which of us is right." },
+        { id = "h_o_common", once = true, when = { gossip = { topic = "horde", stance = { "common_cause", "useful" } } },
+          text = "I hear you've been telling my riders the orcs across the river are some kind of ally. They burned Sunnyglade, and I'll thank you not to say it again inside these walls." },
+        { id = "h_o_never", once = true, when = { gossip = { topic = "horde", stance = { "never", "hate" } } },
+          text = "Riftan says you've no more love for the Horde than he has. Good; the Riverglades could use a few more who remember." },
       },
       again = {
         { id = "h_again", text = "What else? The day's short and the Riverglades are long." },
@@ -569,6 +576,7 @@ P:NPC {
       choices = {
         { text = "But you stayed.", next = "farholde_stayed" },
         { text = "Demar calls that cowardice.", next = "farholde_demar", when = { heardLine = "demar.s_default" } },
+        { text = "So what should Farholde do now?", next = "fa_ask" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -593,6 +601,37 @@ P:NPC {
         { text = "He's right. Stormwind failed you.", next = "BACK", fx = { align = { order = -1 }, opinion = { stormwind = "abandoned_its_own" } } },
         { text = "You're right. It was the sensible choice.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
       },
+    },
+    -- Opinion pass: Ashe asks what the player would have Farholde do about the crown.
+    fa_ask = {
+      big = true,
+      lines = {
+        { id = "fq_default", text = "That's the question, isn't it, and I've been asking it of everyone who comes through the gate. You've walked Stormwind's streets more recently than I have, so tell me honestly: do we keep writing to the crown, or stop waiting for it?" },
+        { id = "fq_mage", when = { class = "MAGE" }, text = "That's the question, and I've been asking it of everyone. You'll know how Dalaran thinks better than most, so tell me honestly: do we keep writing to the crown, or try someone who still reads letters?" },
+      },
+      choices = {
+        { text = "Keep writing. Lord Bolvar would help if the nobles let him.", next = "fa_ask_bolvar", fx = { opinion = { bolvar = "trust", stormwind = "patience" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Stop waiting. Stormwind forgot you twenty years ago.", next = "fa_ask_forgot", fx = { opinion = { stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "Write to the Kirin Tor instead. They answer their letters.", next = "fa_ask_kt", when = { class = "MAGE" }, fx = { opinion = { kirin_tor = "trust" }, trait = { curious = 1 } } },
+        { text = "The Riverglades are yours. Hold them yourselves.", next = "fa_ask_hold", fx = { opinion = { rg_farholde = "self_reliant" }, trait = { brave = 1 } } },
+        { text = "I'd rather not stand between you and Demar.", next = "BACK" },
+      },
+    },
+    fa_ask_bolvar = {
+      lines = { { id = "fqb_default", text = "That's what I tell Demar, and he looks at me as though I'd suggested we surrender the keep. You may be right about the regent, mind; it's the nobles I'd never trust with a pen." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_ask_forgot = {
+      lines = { { id = "fqf_default", text = "You sound like Demar, which I suppose means he'll like you. Twenty years is a long time to wait, I know, and I've been waiting less of it than he has." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_ask_kt = {
+      lines = { { id = "fqk_default", text = "My father would have said the same, and Dalaran was his home before this was. I may write to them after all; at worst they'll send a letter back explaining at length why they can't help." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_ask_hold = {
+      lines = { { id = "fqh_default", text = "We have been, for twenty years, and it's cost us half the names on those memorials. But you're right that nobody will hold them for us, and I'd sooner hear that than another promise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
 
     father = {
@@ -895,6 +934,7 @@ P:NPC {
         { text = "You look like you've been out here a long while.", next = "long" },
         { text = "What are these trinkets?", next = "trinkets" },
         { text = "Ashe seems an odd sort.", next = "ashe" },
+        { text = "What do the lads make of the Horde across the river?", next = "rf_horde" },
         { text = "Need another sword on the line?", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Ashe worries about you.", next = "worried", when = { heardLine = "ashe.rh_default" } },
         { text = "What's coming down off that ridge?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -942,6 +982,32 @@ P:NPC {
     line = {
       lines = { { id = "ln_default", text = "Always. Stand there, face the ridge, and don't move when they start chanting, because the chanting's the worst part, until it isn't." } },
       choices = { { text = "Understood.", next = "BACK", fx = { affinity = 2, standing = { farholde = 1 } } } },
+    },
+    -- Opinion pass: Riftan asks whether the orcs of Rog'mar are enemies.
+    rf_horde = {
+      big = true,
+      lines = {
+        { id = "rh2_default", text = "Most of the lads would as soon shoot an orc as a cultist, and the old ones remember Sunnyglade. Thing is, Krom'rosh's lot kill Twilight on the far bank the same as we do on this one. You've seen them, so tell me: enemies or not?" },
+      },
+      choices = {
+        { text = "They kill the same cultists. Leave them be.", next = "rf_horde_leave", fx = { opinion = { horde = "common_cause" }, align = { honor = 1 } } },
+        { text = "An orc is an orc. Shoot first, Sergeant.", next = "rf_horde_shoot", fx = { opinion = { horde = "never" }, align = { honor = -1 } } },
+        { text = "Let the orcs bleed on the ridge first. Then we'll see.", next = "rf_horde_use", fx = { opinion = { horde = "useful" }, trait = { practical = 1 } } },
+        { text = "They're cutting down Ashenvale too. Never trust them.", next = "rf_horde_shoot", when = { race = "NightElf" }, fx = { opinion = { horde = "never", ashenvale = "war" } } },
+        { text = "That's the Commander's call, not mine.", next = "BACK" },
+      },
+    },
+    rf_horde_leave = {
+      lines = { { id = "rhl_default", text = "Maybe. I've watched them from the ridge, and they fight like they mean it, which is more than I can say for some of our recruits. I'll not say that to the Commander, and neither will you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rf_horde_shoot = {
+      lines = { { id = "rhs_default", text = "That's how the old hands see it, and I'll not argue with men who were at the siege. Just don't go starting a second war out here while we're still losing the first one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rf_horde_use = {
+      lines = { { id = "rhu_default", text = "Cold, but sensible. Every cultist they put down is one less coming over my wall, and I'm too old to be choosy about who does the killing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     worried = {
       lines = { { id = "w_default", text = "She worries. Tell her I'm fine, and tell her I said it twice; she'll believe it more." } },
@@ -1325,12 +1391,41 @@ P:NPC {
       lines = { { id = "e_default", text = "Rangers go where they're needed, and I was needed here. The Brotherhood didn't ask for my family tree, and I didn't ask for theirs." } },
       choices = {
         { text = "And Quel'Thalas?", next = "elf_quel" },
+        { text = "What do you make of the Alliance, then?", next = "elf_alliance" },
         { text = "Something else.", next = "BACK" },
       },
     },
     elf_quel = {
       lines = { { id = "eq_default", text = "I don't talk about Quel'Thalas with strangers. Ask me again when we aren't." } },
       choices = { { text = "I understand.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    -- Opinion pass: Cady turns the question back on the player.
+    elf_alliance = {
+      big = true,
+      lines = { { id = "ea_default", text = "You first. My king took Quel'Thalas out of the Alliance after the Second War, and the Alliance let him. Which of them was wrong?" } },
+      choices = {
+        { text = "Anasterian. He walked away from his allies.", next = "elf_alliance_king", fx = { opinion = { high_elves = "stubborn", alliance = "united" }, align = { order = 1 } } },
+        { text = "The Alliance. It owed your people more than it gave.", next = "elf_alliance_fail", fx = { opinion = { alliance = "failed", high_elves = "respect" }, align = { order = -1 } } },
+        { text = "The elves who stayed and fought are the wise ones.", next = "elf_alliance_stay", fx = { opinion = { high_elves = "respect" }, affinity = 1 } },
+        { text = "Your Highborne cousins chose exile. Don't expect pity from us.", next = "elf_alliance_kal", when = { race = "NightElf" }, fx = { opinion = { high_elves = "distrust" }, affinity = -1 } },
+        { text = "I don't know enough to judge.", next = "BACK" },
+      },
+    },
+    elf_alliance_king = {
+      lines = { { id = "eak_default", text = "Most humans say that. Some of them even say it kindly, and you did. He had his reasons, and I had mine for coming south anyway." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elf_alliance_fail = {
+      lines = { { id = "eaf_default", text = "Careful. People here would call that ungrateful, and they'd be half right. Still, I've heard it said less often than I've thought it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elf_alliance_stay = {
+      lines = { { id = "eas_default", text = "Or the stubborn ones. Either way, I'm still here, and so is the wall." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elf_alliance_kal = {
+      lines = { { id = "eal_default", text = "I don't want your pity, kaldorei. I want you to keep your arrows pointed the same way as mine while we're both on this wall." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     walls = {
       lines = { { id = "w_default", text = "The river fog, mostly, and the things that come out of it: cultists sometimes, pirates from up the coast sometimes, and once a very confused cow." } },

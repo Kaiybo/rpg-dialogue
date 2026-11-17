@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "hate" } }, text = "Fel'zerul says you told him you don't trust anyone who deals with demons, him included. He wasn't offended, which tells you something about Fel'zerul." },
+    { id = "g_op_horde", when = { opinion = { topic = "horde", stance = "distrust" } }, text = "There's talk you think the tauren pay for the orcs' wars. Thrall's Grasp was mostly tauren, so I can't tell you you're wrong, and I wish I could." },
     { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps, but the Horde has never been short of the brave." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish, so report." },
     { id = "g_portal_resolved", when = { thread = { id = "portal_watch", state = "resolved" } }, text = "Cold stones again this week, my scouts say, and I wrote it down under the names. Now tell me what the swamp's done since you left." },
@@ -33,6 +35,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_peace = {
+      lines = {
+        { id = "opp_default", text = "That's the question every grunt in Stonard argues over the fire, and it's never once been settled by the time the fire goes out. Some say the Warchief's peace with Theramore is wisdom and some say it's a debt the humans will never pay. Which side of the fire do you sit on?" },
+      },
+      choices = {
+        { text = "The peace is worth keeping. We've all bled enough.", next = "op_peace_for", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
+        { text = "The humans will break it first, so we should strike first.", next = "op_peace_war", fx = { align = { order = -1 }, trait = { stern = 1 }, opinion = { peace = "war" } } },
+        { text = "Lady Proudmoore keeps faith. I'd not trust the rest of them.", next = "op_peace_mixed", fx = { opinion = { jaina = "trust", peace = "mixed" } } },
+        { text = "Peace with the living means nothing to the Forsaken.", next = "op_peace_war", fx = { opinion = { peace = "war", humans = "hate" } }, when = { race = "Scourge" } },
+        { text = "I'll leave that for the fire, Commander.", next = "BACK" },
+      },
+    },
+    op_peace_for = {
+      lines = {
+        { id = "oppf_default", text = "Then you'd get on with my cartographers, who'd rather map a swamp than burn one. I've no objection to a quiet year, so long as the ogres agree to it too." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_peace_war = {
+      lines = {
+        { id = "oppw_default", text = "I'll write that down as one vote for war, which makes it about even tonight. Stonard was built for a war, so it'll be ready if one comes, and I'd rather it didn't." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_peace_mixed = {
+      lines = {
+        { id = "oppm_default", text = "Proudmoore's word has held so far, I'll give her that, and Theramore's ships leave our coast alone. It's her neighbours I'd keep a map of." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then you'll find plenty to fight, because the swamp breeds trouble faster than we can kill it, and Nethergarde's humans think the Horde has no business this side of the mountains. Stonard was built by orcs who stayed when the rest were rounded up into camps, and we don't intend to leave now." } },
@@ -282,6 +314,7 @@ P:NPC {
         { id = "oh_default", text = "Our fathers built it when they first came through the Portal, for war and nothing else. We use it to send maps and caravans now, which is the best answer I know to what they made it for." },
       },
       choices = {
+        { text = "Will the peace with the humans hold, Commander?", next = "op_peace" },
         { text = "That's a good answer.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Stonard was built for war, and it should stay ready for one.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -396,6 +429,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "opd_default", text = "You ask a warlock that, standing in front of him? Good, I prefer the honest ones. The shamans say we should be burned, and the young grunts think we're useful, so tell me plainly where you stand." },
+      },
+      choices = {
+        { text = "A warlock who serves the Horde is a weapon. I'll use it.", next = "op_demons_useful", fx = { affinity = 1, align = { light = -1 }, opinion = { demons = "necessary" } } },
+        { text = "I trust no one who deals with demons, you included.", next = "op_demons_hate", fx = { align = { light = 1 }, opinion = { demons = "hate" } } },
+        { text = "We hold the leash. That's the difference between us and Gul'dan.", next = "op_demons_useful", fx = { affinity = 1, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "My grandfather drank the demon's blood. I'll not forget it.", next = "op_demons_hate", fx = { opinion = { demons = "dangerous" } }, when = { race = "Orc" } },
+        { text = "I'll make up my mind when I've seen more.", next = "BACK" },
+      },
+    },
+    op_demons_useful = {
+      lines = {
+        { id = "opdu_default", text = "A weapon, yes, and a weapon turns in the hand if you grip it wrong. Remember that the next time you stand behind one of us in a fight." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_demons_hate = {
+      lines = {
+        { id = "opdh_default", text = "Good, and keep it that way. The day you stop watching a warlock is the day he stops watching himself, and I've seen where that road ends, down in that temple." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "Silent for now, and I'll take silent over singing. The Atal'ai who drowned in that temple were exiles even among their own people, driven out of Zul'Gurub for worshipping the Soulflayer, and exiles make the most stubborn believers." } },
@@ -547,7 +604,10 @@ P:NPC {
       lines = {
         { id = "ws_default", text = "Thrall freed us from the camps and from the demons both, and I'd not hand myself back to either. A warlock who serves the Horde has to be stronger than his own hunger, every single day." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "burning_blade" } } } },
+      choices = {
+        { text = "Should the Horde trust its warlocks at all?", next = "op_demons" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "burning_blade" } } },
+      },
     },
 
     prophecy = {
@@ -1022,6 +1082,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_peace", when = { gossip = { topic = "peace", stance = "war" } }, text = "Ruag says you'd march on Theramore tomorrow if the Warchief gave the word. Half my customers would follow you there, and the other half would drink to your funeral." },
     { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to. That goes for every orc, troll and grunt in Stonard." },
     { id = "g_home", when = { homeInn = { "Stonard" } }, text = "Back in Stonard, then. Your bed's dry, and that's the best thing anyone can say in this swamp." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away} away, then. Boots off by the door, and your bed's still dry, which I can't say for anything else here." },

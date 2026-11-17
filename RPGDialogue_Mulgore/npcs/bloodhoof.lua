@@ -13,6 +13,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_dw_shame", when = { gossip = { topic = "dwarves", stance = "shame" } }, text = "Morin tells me a dwarf apologised to him for Bael'dun, and I believe it was you. That's a word spoken well, friend, and I'll remember it." },
     { id = "g_tent", text = "Be welcome in Bloodhoof Village. My father keeps the bluffs; I keep the plains below them." },
     { id = "g_back", when = { metBefore = true }, text = "Friend, sit with me a moment; the village can spare me, and the grass will grow without my watching it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the plains {away}, friend, and the village asked after you more than once. Sit with me a moment and tell me where the road took you." },
@@ -42,6 +43,50 @@ P:NPC {
       choices = {
         { text = "Talk first. Most fights never need to happen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some only listen once they're bleeding, Baine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace = {
+      lines = {
+        { id = "opp_q", text = "Lady Proudmoore and the Warchief keep a peace across the water at Theramore, and some of our braves call it weakness. I've my own thoughts, but I'd like yours first: should the Horde keep that peace?" },
+      },
+      choices = {
+        { text = "Yes. A peace kept is worth more than any battle won.", next = "op_peace_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { peace = "peace" } } },
+        { text = "Keep it until the Horde is strong enough to break it.", next = "op_peace_r2", fx = { affinity = -1, align = { honor = -1 }, trait = { practical = 1 }, opinion = { peace = "necessary" } } },
+        { text = "The humans penned the orcs in camps. No peace with them.", next = "op_peace_r3", fx = { affinity = -1, trait = { stern = 1 }, opinion = { peace = "war" } }, when = { faction = "Horde" } },
+        { text = "Most of the Alliance wants that peace too, Baine.", next = "op_peace_r4", fx = { affinity = 2, opinion = { peace = "peace" } }, when = { faction = "Alliance" } },
+        { text = "I'm not wise enough to answer that, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r1 = {
+      lines = {
+        { id = "op_peace_r1", text = "My father would say the same, and he'd say it slower. I'm glad to hear it from someone who's walked further than Mulgore." },
+      },
+      choices = {
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r2 = {
+      lines = {
+        { id = "op_peace_r2", text = "A peace kept with one hand on the axe isn't much of a peace, friend. I hope you'll think on that before you say it to my father." },
+      },
+      choices = {
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r3 = {
+      lines = {
+        { id = "op_peace_r3", text = "I've heard Mull say the same, and I understand the anger in it. But the humans of Theramore aren't the ones who built those camps." },
+      },
+      choices = {
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r4 = {
+      lines = {
+        { id = "op_peace_r4", text = "Then I'm glad you came to Bloodhoof to tell me so, because it's a thing my braves need to hear more often than they do." },
+      },
+      choices = {
         { text = "Something else, Baine.", next = "BACK" },
       },
     },
@@ -281,7 +326,10 @@ P:NPC {
       lines = {
         { id = "tk_default", text = "Because sometimes they do. A spear settles one quarrel, but a word, spoken well, can settle a hundred." },
       },
-      choices = { { text = "Wise words.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+      choices = {
+        { text = "Could words settle things with the Alliance, too?", next = "op_peace" },
+        { text = "Wise words.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
     },
     coming = {
       lines = {
@@ -867,6 +915,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_peace_peace", when = { gossip = { topic = "peace", stance = "peace" } }, text = "I hear you told young Baine the peace is worth keeping. Peace is a fine thing until the wells run dry, traveller, so keep your spear sharp anyway." },
     { id = "g_wells", text = "Forgive me, my mind is on the wells. It's always on the wells lately, for the Earth Mother's water is sick." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Tell me the water runs clean somewhere, please." },
   },
@@ -1184,6 +1233,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_orcs_useful", when = { gossip = { topic = "orcs", stance = "useful" } }, text = "Krang's been growling about you all week, something about calling the orcs useful. He growls about everyone, so have some stew and don't let it spoil your appetite." },
+    { id = "o_peace_war", when = { gossip = { topic = "peace", stance = "war" } }, text = "Baine's been quiet since you left, and word is you told him there'll be no peace with the humans. Eat something, at least, before you go off looking for a war." },
     { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on, and the hide only smells a little of kodo." },
     { id = "g_home", when = { homeInn = { "Bloodhoof Village" } }, text = "Your sleeping hide is aired and ready. The wind is kind tonight." },
     { id = "g_away", when = { away = 14 }, text = "You've been out on the grass {away}, and I kept a pot on for you most nights anyway. Come in from the wind and eat." },

@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_goretooth", when = { gossip = { topic = "goretooth", stance = "wrong" } }, text = "Thal'trak tells me you think I'm wrong to keep him at his post. Maybe I am, but if every soldier ran off after his wife, Kargath would be guarded by Lexlort's lizards." },
     { id = "g_prej1", when = { prejudiced = true }, text = "A warlock, climbing my tower. The last time I trusted one of your trade, Gul'dan's lot were handing round a cup of something red, and I've had the taste in my mouth ever since." },
     { id = "g_prej2", when = { prejudiced = true }, text = "Keep your imp at the foot of the stairs, warlock. The vultures don't like it, and neither do I." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, warlock! I've heard what you did on the road, and I don't care what whispers in your ear any more. You fight like an orc, and that's the end of it." },
@@ -61,6 +62,36 @@ P:NPC {
       choices = {
         { text = "Something else, Warlord.", next = "BACK" },
       },
+    },
+    op_warchief = {
+      lines = {
+        { id = "opw_default", text = "A few of the old ones grumble that Rend remembers what the Horde was for, and I knock their heads together when I hear it. But you've climbed my tower, so I'll hear you out. What makes a true Warchief?" },
+      },
+      choices = {
+        { text = "Thrall is the only Warchief. Rend's a pretender with a dragon.", next = "op_wc_thrall", fx = { affinity = 2, align = { order = 1 }, opinion = { warchief = "trust" } } },
+        { text = "Rend at least remembers the Horde was made for war.", next = "op_wc_rend", fx = { affinity = -2, align = { order = -1 }, opinion = { warchief = "soft", peace = "war" } } },
+        { text = "Vol'jin's Darkspear follow Thrall, and that settles it for me.", next = "op_wc_thrall", fx = { affinity = 1, opinion = { warchief = "respect" } }, when = { race = "Troll" } },
+        { text = "Warchiefs come and go. The Dark Lady is my queen.", next = "op_wc_queen", fx = { opinion = { warchief = "mixed", sylvanas = "trust" } }, when = { race = "Scourge" } },
+        { text = "I'd rather fight Rend than argue about him.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    op_wc_thrall = {
+      lines = {
+        { id = "opwt_default", text = "Ha! That's the answer, and you said it like you meant it, which is the only way to say it on this tower. Rend can keep his dragon; we've got the Warchief and a great many axes." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_rend = {
+      lines = {
+        { id = "opwr_default", text = "Rend remembers the war because he never stopped fighting it, and he'd sell every orc in Kargath to the Dark Irons to win it. Say that again in front of the 109th's widows, if you dare, because I won't stop them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_queen = {
+      lines = {
+        { id = "opwq_default", text = "Ha! Theodora says the same, with more words and a lot more darlings. Your queen fights the Scourge and the Warchief fights Rend, so as far as I'm concerned you're both on my side." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     xfpala = {
       big = true,
@@ -253,7 +284,10 @@ P:NPC {
       lines = {
         { id = "wr_default", text = "Son of Blackhand, and he sits in the Spire calling himself Warchief of a Horde that died at the end of the Second War. There is one Warchief, and I would very much like to explain that to Rend in person." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
+      choices = {
+        { text = "Does any grunt here think Rend has the right of it?", next = "op_warchief" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } },
+      },
     },
     why_dark = {
       lines = {
@@ -408,6 +442,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_necro", when = { gossip = { topic = "necromancy", stance = "hate" } }, text = "Vivian says you'd burn every necromancer in Lordaeron, darling. She's been reading by candlelight ever since, purely out of spite." },
     { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust, and the dead do get so bored." },
     { id = "g_away", when = { away = 14 }, text = "Darling, you've been gone {away}, and it's been simply the dullest stretch of dust imaginable. Sit down and tell me everything dreadful." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Everyone's been saying the loveliest things about you, darling, and I adore being the last to hear gossip almost as much as being the first. Do sit." },
@@ -421,6 +456,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      lines = {
+        { id = "opf_default", text = "Oh, the orcs are polite, darling, the way one is polite to a cousin who's been ill for a very long time. What I'd much rather know is what you make of us, honestly, since nobody in Kargath ever says it to my face." },
+      },
+      choices = {
+        { text = "The Forsaken are Horde, and the Horde's word should be kept.", next = "op_fs_trust", fx = { affinity = 2, align = { order = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "Allies of convenience. I'd not turn my back on you.", next = "op_fs_distrust", fx = { affinity = -1, align = { order = -1 }, trait = { cautious = 1 }, opinion = { forsaken = "distrust" } } },
+        { text = "We're the only ones in the Horde honest about being dead.", next = "op_fs_proud", fx = { affinity = 2, trait = { witty = 1 }, opinion = { forsaken = "admire" } }, when = { race = "Scourge" } },
+        { text = "Cairne spoke for your people. That's enough for me.", next = "op_fs_trust", fx = { affinity = 1, opinion = { forsaken = "trust", cairne = "respect" } }, when = { race = "Tauren" } },
+        { text = "I'll keep my thoughts to myself, Hierophant.", next = "BACK" },
+      },
+    },
+    op_fs_trust = {
+      lines = {
+        { id = "opft_default", text = "Darling, how sweet, and how rare! I'll have it written down and framed, and I'll hang it in the Warlord's tent where he'll have to look at it every morning." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_fs_distrust = {
+      lines = {
+        { id = "opfd_default", text = "Wise, darling, very wise, and terribly rude, which I find I don't mind at all. Do keep watching; it's flattering to be thought dangerous at my age." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_fs_proud = {
+      lines = {
+        { id = "opfp_default", text = "Oh, I like you enormously. The living spend so much effort pretending they won't end up like us, and we've simply skipped to the end, darling, and found it rather roomy." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -588,7 +653,10 @@ P:NPC {
       lines = {
         { id = "fo_default", text = "Beautifully, darling, as long as you remember that they mean well and smell of it. Lunk saves me the warmest seat by the fire, as if I could feel it, and that's sweeter than anything the Undercity ever did for me." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "And what do the orcs really make of you, Hierophant?", next = "op_forsaken" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     paladin = {
       lines = {
@@ -655,6 +723,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_forsaken", when = { gossip = { topic = "forsaken", stance = "distrust" } }, text = "Theodora tells me you'd not turn your back on us. Very wise, my dear, though it does make conversation awkward." },
     { id = "g_fire", text = "Oh! You startled me, not that I'm easily startled, of course; I'm a Shadowmage of the Undercity, and the dead are very composed." },
   },
 
@@ -665,6 +734,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_necro = {
+      lines = {
+        { id = "opn_default", text = "Troubling? My dear, I'm one of the raised, so I can hardly be squeamish about it. But plenty in the Horde whisper about the Apothecarium's work, and I'm curious, so what's your view of necromancy?" },
+      },
+      choices = {
+        { text = "Necromancy made the Scourge. It should be burned out.", next = "op_necro_hate", fx = { affinity = -1, align = { light = 1 }, opinion = { necromancy = "hate" } } },
+        { text = "A weapon is a weapon. Raise whatever serves the Horde.", next = "op_necro_useful", fx = { affinity = 1, align = { light = -1 }, opinion = { necromancy = "useful" } } },
+        { text = "It gave me a second life. I'll not curse it.", next = "op_necro_grateful", fx = { affinity = 1, opinion = { necromancy = "mixed", undeath = "accept" } }, when = { race = "Scourge" } },
+        { text = "I don't know enough to judge it.", next = "BACK" },
+      },
+    },
+    op_necro_hate = {
+      lines = {
+        { id = "opnh_default", text = "Burned out! Well, that's honest, and I suppose the Scourge would agree with you about our side of it. Do remember that my abominations are holding the line you're standing behind." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necro_useful = {
+      lines = {
+        { id = "opnu_default", text = "Oh, practical! I knew I liked you. The Kirin Tor would faint to hear it, but the Kirin Tor never had to hold Kargath with a handful of grunts." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necro_grateful = {
+      lines = {
+        { id = "opng_default", text = "Nor will I, my dear, though I curse the one who did it to us every evening, quite methodically. One may be grateful for the gift and still loathe the giver." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Interest me? It fascinates me, and it frightens me a little, which is the same thing in my line of work. Shadow and Light are meant to keep to their own sides of the room, and you seem to have moved the furniture." } },
@@ -813,7 +911,10 @@ P:NPC {
       lines = {
         { id = "sa_default", text = "Stitched, strong and very loyal, though not very bright, and they'd be so much stronger with a proper heart of elemental fire. Every essence you bring goes to the Undercity by the next courier." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "Do you find raising the dead troubling?", next = "op_necro" },
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
     },
     study_grim = {
       lines = {
@@ -1176,6 +1277,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Warlord says you think Rend's got the right of it. Keep that away from my tables, friend, because the 109th's widows drink here, and they're quicker with a knife than the Warlord." },
     { id = "g_inn", text = "Come in out of the dust and sit, {class}. There's water, there's grog, and there's a bunk nobody's bled on recently, which in an orc camp counts as luxury." },
     { id = "g_home", when = { homeInn = { "Kargath" } }, text = "Back from the badlands! Tell me what you killed, because the grunts like a good story with their supper, and my cooking needs the help." },
     { id = "g_away", when = { away = 14 }, text = "Back from the badlands after {away} away! Sit down and tell me what you killed while you were gone, because the grunts are bored of my stories." },

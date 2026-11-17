@@ -369,6 +369,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "I miss being sure of tomorrow, because there was always another one. Now I cook for people who will grow old, and I find I season things more carefully. Do you think we were better off immortal?" },
+      },
+      choices = {
+        { text = "Yes. Nordrassil's gift was worth any price.", next = "op_r1", fx = { align = { light = -1 }, opinion = { kaldorei_immortality = "loss" } } },
+        { text = "No. A people who can die learn to care.", next = "op_r2", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 }, opinion = { kaldorei_immortality = "freed" } } },
+        { text = "Whoever finds a way to get it back will be dangerous.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { kaldorei_immortality = "dangerous" } } },
+        { text = "Try living a short life. You stop missing forever.", next = "op_r4", fx = { affinity = 1, trait = { witty = 1 }, opinion = { kaldorei_immortality = "freed" } }, when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "I'd rather not say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Spoken like someone who never saw what the Legion would have taken in payment. Still, I understand the ache, because I feel it every morning." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That is what I tell my stews, and they seem to agree. Things that won't last should be done well." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "There are kaldorei who would call that a plan rather than a danger, and I don't share my kitchen with them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Ha! A hundred years or so and done, and you still find time to cook badly. I salute you, my short-lived friend." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They are, for they keep our history alive. A shaman's spirits might remember older tastes than mine." } },
@@ -476,6 +505,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away, friend; I can talk and cook at once." },
       },
       choices = {
+        { text = "Do you miss the old days, before Teldrassil?", next = "op_ask" },
         { text = "What is the kaldorei recipe?", next = "recipe" },
         { text = "You must cook for a good many hungry folk.", next = "guests" },
         { text = "You must remember life before Teldrassil.", next = "before" },

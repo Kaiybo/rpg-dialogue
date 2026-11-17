@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_crusade", when = { opinion = { topic = "scarlet_crusade", stance = "hardline" } }, text = "I hear you've a taste for the Crusade's way of doing things. Sit with me a while before you ride north, and let me tell you what Hearthglen was before the red." },
     { id = "g_test", text = "Ready? No one ever is, so come anyway." },
     { id = "g_wilhelm", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tome of Divinity"), days = 2 } }, text = "Wilhelm sent you, and he thinks well of you. Let us see if he's right." },
     { id = "g_tome", when = { questActive = TODO_QUEST("The Tome of Divinity") }, text = "Still at your task? Good, because haste is not a virtue in this work." },
@@ -29,6 +30,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_silverhand = {
+      lines = {
+        { id = "op_silverhand_a", text = "No. Uther is dead, Lordaeron is a grave, and the knights who are left have gone three ways: some to Hearthglen in red, some to Light's Hope with the Argent Dawn, and some here, teaching recruits. I ask every paladin I test where they'd stand, so where would you?" },
+      },
+      choices = {
+        { text = "With the Argent Dawn. They fight the Scourge without hating the living.", next = "op_silverhand_1", fx = { opinion = { argent_dawn = "admire", silver_hand = "respect" }, align = { light = 1 }, affinity = 2 } },
+        { text = "With the Crusade. The Scourge is evil, and mercy won't burn it.", next = "op_silverhand_2", fx = { opinion = { scarlet_crusade = "hardline", silver_hand = "weak" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Here, with Stormwind. Our own lands need us first.", next = "op_silverhand_3", fx = { opinion = { silver_hand = "respect", westfall = "send_soldiers" }, align = { order = 1 } } },
+        { text = "The order died with Uther. I serve the Light on my own.", next = "op_silverhand_4", when = { class = "PALADIN" }, fx = { opinion = { silver_hand = "dead" }, align = { order = -1 } } },
+        { text = "I haven't chosen yet, Lord Rall.", next = "BACK" },
+      },
+    },
+    op_silverhand_1 = {
+      lines = { { id = "op_silverhand_r1", text = "That's where I'd send my best, if I could spare them. Mercy and a blade together; Uther would have recognised it." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_silverhand_2 = {
+      lines = { { id = "op_silverhand_r2", text = "I hear that from good recruits more often than I'd like. Go to Hearthglen if you must, but watch what they do to the living, because that's where they stopped being knights." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_silverhand_3 = {
+      lines = { { id = "op_silverhand_r3", text = "Westfall, Redridge, Duskwood; there's more work south of this city than the order has hands. Stay, then, and I'll keep you busy." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_silverhand_4 = {
+      lines = { { id = "op_silverhand_r4", text = "Then you'll serve it alone, and alone is how good paladins become strange ones. I hope you prove me wrong, and I'll pray on it." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
     xpt_rall = {
       big = true,
       lines = { { id = "xpt_rall_default", text = "Because pride tells you to stand in front of every blow, and the Light has no need of your pride. A company where one person insists on bearing everything loses that person first, and then everyone else after." } },
@@ -205,6 +234,7 @@ P:NPC {
     why_self = {
       lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left. I keep count, and it's a short list, but I'd like it shorter." } },
       choices = {
+        { text = "Is the Silver Hand still what it was?", next = "op_silverhand" },
         { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The field changes everyone, so I won't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
       },

@@ -34,6 +34,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "opo_q", text = "I've spent years learning to see the orcs as people rather than as the monsters my father fought, and I'm still learning. You've travelled among them, so I'd value your honest answer: what do you think of the orcs?" },
+        { id = "opo_q_h", when = { faction = "Horde" }, text = "You're of the Horde, so you'll know them far better than I ever can from this side of the marsh. Tell me honestly, what are the orcs like now, under Thrall?" },
+      },
+      choices = {
+        { text = "They've changed under Thrall. They deserve the chance you've given them.", next = "op_orcs_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { orcs = "redeemable" } } },
+        { text = "An orc is an orc. The demon blood doesn't wash out.", next = "op_orcs_r2", fx = { affinity = -2, align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "Some have changed, some haven't. I judge them one at a time.", next = "op_orcs_r3", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { orcs = "mixed" } } },
+        { text = "They're my people, my lady, and they keep their word.", next = "op_orcs_r4", fx = { affinity = 2, opinion = { peace = "peace" } }, when = { race = "Orc" } },
+        { text = "I'd rather not answer that, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r1 = {
+      lines = {
+        { id = "op_orcs_r1", text = "I think so too, and it helps more than you'd guess to hear it from someone else. Theramore is built on that chance." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r2 = {
+      lines = {
+        { id = "op_orcs_r2", text = "My father believed that, and it cost him his life and nearly cost us Kalimdor. I hope you'll find it harder to believe as you travel further." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r3 = {
+      lines = {
+        { id = "op_orcs_r3", text = "That's all I ask of anyone, on either side of the line. It's slower than hating them all, but it's honest." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r4 = {
+      lines = {
+        { id = "op_orcs_r4", text = "Then help them keep it, please. Every orc who keeps faith at Brackenwall makes my arguments in Stormwind easier." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
     xpt_jaina = {
       big = true,
       lines = { { id = "xpt_jaina_default", text = "That's the Alliance as it should be, and I wish Stormwind's lords could see it more often. When Lordaeron fell, it was elves who held the forests and dwarves who held the mountains, and we only lost ground when we stopped trusting each other." } },
@@ -294,6 +339,7 @@ P:NPC {
     thrall = {
       lines = { { id = "th_default", text = "Then he's still keeping our word, or you'd have said otherwise by now. Tell me: how did he seem?" } },
       choices = {
+        { text = "What do you think of the orcs, my lady?", next = "op_orcs" },
         { text = "Tired, but steady.", next = "BACK", fx = { affinity = 2 } },
         { text = "Watchful. Like you.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
@@ -695,6 +741,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirin_tor = {
+      lines = {
+        { id = "opk_q", text = "The Lady could have stayed in Dalaran's good graces, you know, and the Kirin Tor have never quite forgiven her for leaving. You strike me as someone with views, so what do you make of the Kirin Tor?" },
+      },
+      choices = {
+        { text = "They're wise, and the Lady should have kept closer ties with them.", next = "op_kirin_tor_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { kirin_tor = "respect" } } },
+        { text = "Committees and towers. The Lady does more good on her own.", next = "op_kirin_tor_r2", fx = { affinity = 2, align = { order = -1 }, opinion = { kirin_tor = "wrong" } } },
+        { text = "Dalaran fell while they argued. I'd not trust them again.", next = "op_kirin_tor_r3", fx = { trait = { skeptical = 1 }, opinion = { kirin_tor = "distrust" } } },
+        { text = "I studied their ways, Archmage, and they're worth keeping.", next = "op_kirin_tor_r4", fx = { affinity = 1, opinion = { kirin_tor = "admire" } }, when = { class = "MAGE" } },
+        { text = "I'll leave Dalaran's politics to you, Archmage.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r1 = {
+      lines = {
+        { id = "op_kirin_tor_r1", text = "Wise, certainly, and slow, and fond of committees, which you'll remember I am not. The Lady chose to be useful instead, and I chose to follow her." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r2 = {
+      lines = {
+        { id = "op_kirin_tor_r2", text = "Spoken like someone who's sat through one of their meetings! Theramore gets things done, and Dalaran can read about it afterwards." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r3 = {
+      lines = {
+        { id = "op_kirin_tor_r3", text = "That's harsh, though I'll not say it's wrong. Some of us lost a great deal in that city, so do say it gently." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r4 = {
+      lines = {
+        { id = "op_kirin_tor_r4", text = "Good, good, then keep them, and add something of your own, which is what the Lady did. That's the part they never taught." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_tervosh = {
       big = true,
       lines = { { id = "xpt_tervosh_default", text = "I think it's the best schooling there is, though the Kirin Tor would never admit it. A mage who has only ever cast at practice dummies learns caution late, and usually at someone else's expense." } },
@@ -866,7 +956,10 @@ P:NPC {
     },
     independent = {
       lines = { { id = "i_default", text = "I prefer to be useful without asking six people first. The Lady asks, I answer, things get done. Committees can read about it afterwards." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think of the Kirin Tor?", next = "op_kirin_tor" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     jaina = {
       lines = { { id = "j_default", text = "Brilliant, stubborn, and far too willing to carry everything herself. Don't tell her I said stubborn, but do tell her to sleep." } },
@@ -947,6 +1040,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "Every soldier in this keep has an opinion about the Horde, and most of them were formed before the evidence was in. So, what's yours?" },
+      },
+      choices = {
+        { text = "They've kept the peace so far. Judge them by that.", next = "op_horde_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { horde = "tolerate" } } },
+        { text = "They're killers, all of them. The peace is a lie.", next = "op_horde_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { horde = "war" } } },
+        { text = "Some of them are honest. Some aren't. Same as us.", next = "op_horde_r3", fx = { trait = { honest = 1 }, opinion = { horde = "mixed" } } },
+        { text = "I'm Horde, Captain. We didn't burn that inn.", next = "op_horde_r4", fx = { opinion = { horde = "kin" } }, when = { faction = "Horde" } },
+        { text = "I'd rather keep my thoughts to myself, Captain.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "That's the evidence, and I'll stand on it until I see something better. Thank you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "Maybe, but a man who's decided the verdict before the trial makes a poor witness. Bring me proof and I'll listen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "That's the first thing they teach you on the watch, or they should. I'll take it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "Maybe you didn't, and maybe nobody you know did. I'll still want proof, but I'll write down that you came to say it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_vimes = {
       big = true,
       lines = { { id = "xpt_vimes_default", text = "Companies are useful, and I've borrowed a few in my time for work the garrison couldn't spare men for. The trouble is the ones who answer to nobody, because the deserters out past the Shady Rest started as a company too, before they decided Theramore's peace wasn't theirs to keep." } },
@@ -1084,6 +1221,7 @@ P:NPC {
     why_horde = {
       lines = { { id = "wh_default", text = "Maybe, and then I'll say so, and I'll hang whoever did it whatever colour he wears. But I'll have proof first; that's the difference between a guard and a mob." } },
       choices = {
+        { text = "What do you make of the Horde yourself?", next = "op_horde" },
         { text = "Fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Proof takes too long, so hang the likely ones.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
       },
@@ -1167,6 +1305,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_horde_tol", when = { gossip = { topic = "horde", stance = "tolerate" } }, text = "Captain Vimes noted that you'd judge the Horde by the peace they've kept. I've added it to your file, which I'd remind you is not a punishment." },
     { id = "g_records", text = "Name, unit, business? Sorry, that's habit; I keep the Guard's records, and everyone's a form to me." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? I'd file you as returned if there were a form for it, and I'm half tempted to write one." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word reached the records office that you helped the city, and I've already noted it, because good deeds deserve paperwork as much as bad ones do." },
@@ -1376,6 +1515,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_ther_stifle", when = { gossip = { topic = "theramore", stance = "stifling" } }, text = "I hear you told old Nat that Theramore's all soldiers and rules. Well, there's no rule against seconds in my kitchen, so you might want to rethink that." },
+    { id = "o_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "The Lady was quiet over her supper, and I gather it was something you said about the orcs. We don't hold with that sort of talk in this kitchen, love, but sit down and eat anyway." },
     { id = "g_inn", text = "Come in out of the damp. Dustwallow gets into your bones; a hot meal gets it out again." },
     { id = "g_home", when = { homeInn = { "Theramore Isle", "Theramore" } }, text = "Back home on the isle! Your room's dry, and in Dustwallow, that's a promise worth making." },
     { id = "g_away", when = { away = 14 }, text = "There you are, after {away} away, and I kept your stool by the fire in case you came back hungry, which I can see from here that you did." },

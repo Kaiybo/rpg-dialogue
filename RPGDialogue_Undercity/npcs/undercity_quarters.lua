@@ -82,6 +82,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_peacepc", tags = { "news" }, when = { gossip = { topic = "peace", stance = "peace" } }, text = "Norman says you're for peace with the humans. My bats won't carry you to Southshore all the same, so don't get your hopes up." },
         { id = "h_default", key = true,
           text = "Michael Garrett, bat handler to the Dark Lady's city. The bats carry riders to Tarren Mill and the Sepulcher and wherever else the Forsaken have planted a flag, and they don't mind the dead on their backs, which is more than horses can say." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats don't like the smell of lightning, so mind what you're carrying before you climb on." },
@@ -392,6 +393,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_new_plague = {
+      big = true,
+      lines = {
+        { id = "opnp_default", text = "Object? Everyone objects, and then they ask for a vial to throw at the Scourge. You've seen what we brew down here, so be honest: should the Society be making the new plague at all?" },
+      },
+      choices = {
+        { text = "Something that strong will get loose one day.", next = "op_new_plague_r1", fx = { affinity = -1, align = { light = 1 }, trait = { cautious = 1 }, opinion = { new_plague = "dangerous" } } },
+        { text = "Make it. The Scourge deserves every drop.", next = "op_new_plague_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { new_plague = "necessary" } } },
+        { text = "The Horde didn't take you in to brew plagues, Zinge.", next = "op_new_plague_r3", fx = { trait = { stern = 1 }, opinion = { new_plague = "wrong" } }, when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "It's a tool. Point it the right way and I won't complain.", next = "op_new_plague_r4", fx = { trait = { practical = 1 }, opinion = { new_plague = "useful" } }, when = { race = "Scourge" } },
+        { text = "I'd rather not say, Zinge.", next = "BACK" },
+      },
+    },
+    op_new_plague_r1 = {
+      lines = { { id = "opnp_r1", text = "You sound like Master Faranell after a bad week. Things do get loose, which is exactly why we keep them in very good jars." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_new_plague_r2 = {
+      lines = { { id = "opnp_r2", text = "That's the spirit! Well, it's the spirit the Society likes, anyway, and I'll tell the Master we've a believer in the field." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_new_plague_r3 = {
+      lines = { { id = "opnp_r3", text = "The Horde took us in to fight the Scourge, and this is how we fight it. Your Warchief doesn't ask what's in the jars, and I'd advise you not to either." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_new_plague_r4 = {
+      lines = { { id = "opnp_r4", text = "A tool, yes! I'll write that on the label, just under the skull." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Not on purpose, and the Master Apothecary would very much like to, so don't let him hear you ask. My own guess is that it hurts you because it's trying to finish what the plague started, and you're too stubborn to let it." } },
@@ -435,6 +465,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_udimprove", tags = { "news" }, when = { gossip = { topic = "undeath", stance = "improvement" } }, text = "Master Faranell tells everyone you called undeath an improvement. He's been unbearable about it all week, so thank you very much." },
         { id = "h_default", key = true,
           text = "Apothecary Zinge, of the Royal Apothecary Society. We work for the Dark Lady, and the Master Apothecary oversees all of it, so if you've business here, it's his business first." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call anything up in here, please, because I've three mixtures reducing and I'd rather not explain lightning in my notes." },
@@ -469,6 +500,7 @@ P:NPC {
       },
       choices = {
         { text = "That sounds dangerous.", next = "work_danger" },
+        { text = "Does anyone object to your work, Zinge?", next = "op_new_plague" },
         { text = "Something else.", next = "BACK" },
       },
     },

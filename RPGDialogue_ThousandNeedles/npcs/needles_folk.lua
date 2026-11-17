@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_cent_war", when = { gossip = { topic = "centaur", stance = "war" } }, text = "I hear you've no mercy left for the Galak. From up here you can see their fires every night, so I can't say I blame you." },
     { id = "g_default", text = "The wind is good today, and the riders are eager to be off the mesa. Where are you bound?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "My wind riders don't carry the Alliance, stranger. You'll have to find your way down the lift and out of the canyons on foot." },
   },
@@ -332,6 +333,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_gn_admire", when = { gossip = { topic = "gnomes", stance = "admire" } }, text = "Pozzik's sulking because somebody called gnomes brilliant engineers, and I hear it was you! That's three bolts on the gnome tally, my treat." },
     { id = "g_default", text = "Bolts, tubes, blasting powder and gears! Both teams buy from me, and both teams think the other one's cheating." },
   },
 

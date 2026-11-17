@@ -29,6 +29,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_hammer = {
+      lines = {
+        { id = "oph_default", text = "I ask myself that every night they chant outside this cage. I was as lost as they are once, and Elune found me anyway, too late to save my life. What do you believe, traveller?" },
+      },
+      choices = {
+        { text = "If Elune found you, she might find them too.", next = "op_th_redeem", fx = { affinity = 2, align = { light = 1 }, opinion = { twilights_hammer = "redeemable" } } },
+        { text = "No. The Hammer should be put to the sword, every one.", next = "op_th_sword", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { twilights_hammer = "hate" } } },
+        { text = "Every soul can find the Light again, if it looks.", next = "op_th_redeem", fx = { affinity = 1, opinion = { twilights_hammer = "redeemable", the_light = "faith" } }, when = { class = "PRIEST" } },
+        { text = "I think you've judged yourself enough, Zamael.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_th_redeem = {
+      lines = {
+        { id = "opthr_default", text = "You're kinder than I was at your age, and kinder than I deserve to hear. If even one of them looks up at the Moon and wonders, then perhaps my tablet was worth the dying." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_th_sword = {
+      lines = {
+        { id = "opths_default", text = "I cannot argue, for I know what they do in the dark, and I did some of it once. But I hope, for your sake, that you never need the mercy you would deny them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -132,6 +155,7 @@ P:NPC {
         { id = "ha_default", text = "The Twilight's Hammer, whose idolaters hold this ridge and worship things that ought never to be worshipped. They speak of an end to the world as though it were a gift they could hand to everyone." },
       },
       choices = {
+        { text = "Could any of them be turned back, as you were?", next = "op_hammer" },
         { text = "The cult seems to have come to the Gorge for a reason.", next = "hammer_gorge" },
         { text = "Something else.", next = "BACK" },
       },

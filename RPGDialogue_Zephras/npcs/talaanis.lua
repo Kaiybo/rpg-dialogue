@@ -56,8 +56,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "I gave Ayessa Dawnsinger my blessing, and I meant it, though I'll admit it pains me to watch our people split between two banners. The two orders quarrel enough on this isle without the Horde and the Alliance quarrelling over them as well, and I'd ask you to remember that when you meet the High Order's people." } },
       choices = {
-        { text = "I'll treat the High Order's people with respect, Elder.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The Alliance chose its side. The Horde owes them nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll treat the High Order's people with respect, Elder.", next = "BACK", fx = { opinion = { zep_high_order = "respect" }, affinity = 1, align = { honor = 1 } } },
+        { text = "The Alliance chose its side. The Horde owes them nothing.", next = "BACK", fx = { opinion = { alliance = "distrust" }, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -86,8 +86,8 @@ P:NPC {
           text = "A recruit of the Empyrean Blades. They guarded the Shal'nan once, and they've guarded nobody so important since; don't let them tell you that makes the work smaller." },
       },
       choices = {
-        { text = "I'll keep the orders apart, then. Both of them.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
-        { text = "I'll pick a side. Standing between gets you cut.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep the orders apart, then. Both of them.", next = "BACK", fx = { opinion = { zep_orders = "neutral" }, align = { order = 1 }, affinity = 2 } },
+        { text = "I'll pick a side. Standing between gets you cut.", next = "BACK", fx = { opinion = { zep_orders = "take_side" }, align = { order = -1 } } },
         { text = "Tell me about the Peacekeepers.", next = "peacekeepers" },
       },
     },
@@ -261,8 +261,8 @@ P:NPC {
         { id = "o_default", text = "The High Order wants back what the magisters knew, and the Windshapers feel they owe the spirits everything, and both are right. There have been deaths over sacred places, and both remember them." },
       },
       choices = {
-        { text = "Someone has to make peace.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "Then let them settle it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Someone has to make peace.", next = "BACK", fx = { opinion = { zep_orders = "reconcile" }, affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Then let them settle it.", next = "BACK", fx = { opinion = { zep_orders = "let_settle" }, align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Who leads each order?", next = "leaders" },
         { text = "What frightens you, Elder?", tag = "Persuade", next = "orders_fear",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Skyborne" }, { trait = "kind" } } } },
@@ -318,8 +318,8 @@ P:NPC {
         { id = "m_default", text = "Good; learn everything they'll teach you, and remember what Prince Tortheldrin did with power like that. He drew it from the Twisting Nether, child, and our people are what came of refusing him." },
       },
       choices = {
-        { text = "I'll remember where we came from.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Power is power, and I'll take whatever the magisters can teach.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll remember where we came from.", next = "BACK", fx = { opinion = { arcane_magic = "careful" }, affinity = 2, align = { light = 1 } } },
+        { text = "Power is power, and I'll take whatever the magisters can teach.", next = "BACK", fx = { opinion = { arcane_magic = "useful" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -350,8 +350,8 @@ P:NPC {
       },
       choices = {
         { text = "I'd guess she's dead by now.", next = "lorthuna2" },
-        { text = "She earned that fall.", next = "BACK", fx = { align = { light = -1 }, learn = { "al_aketh" } } },
-        { text = "Even she deserved better than that.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, learn = { "al_aketh" } } },
+        { text = "She earned that fall.", next = "BACK", fx = { opinion = { zep_lorthuna = "deserved" }, align = { light = -1 }, learn = { "al_aketh" } } },
+        { text = "Even she deserved better than that.", next = "BACK", fx = { opinion = { zep_lorthuna = "pity" }, affinity = 1, align = { light = 1 }, learn = { "al_aketh" } } },
       },
     },
     lorthuna2 = {
@@ -378,8 +378,8 @@ P:NPC {
         { id = "rf2_default", text = "The Peacekeepers hold one now who killed one of their own for windstones, a man whose whole family died after they fled Shen'dramar. The law says he hangs, and the law isn't wrong, and I still haven't signed it." },
       },
       choices = {
-        { text = "Spare him. Grief made him what he is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Sign it. Mercy for him is cruelty to the Peacekeepers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Spare him. Grief made him what he is.", next = "BACK", fx = { opinion = { zep_bandit = "mercy" }, affinity = 1, align = { light = 1 } } },
+        { text = "Sign it. Mercy for him is cruelty to the Peacekeepers.", next = "BACK", fx = { opinion = { zep_bandit = "hang" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -409,8 +409,8 @@ P:NPC {
           text = "You most of all, kaldorei, confuse them. You speak our tongue and wear our ancestors' faces, and half of Valanaar wants to embrace you while the other half remembers that Eldre'Thalas once sent ships after us." },
       },
       choices = {
-        { text = "Your people were right to open their doors.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Be careful. Not every mainlander means you well.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your people were right to open their doors.", next = "BACK", fx = { opinion = { zep_outsiders = "welcome" }, affinity = 1, align = { order = -1 } } },
+        { text = "Be careful. Not every mainlander means you well.", next = "BACK", fx = { opinion = { zep_outsiders = "wary" }, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "useful" } }, text = "Mok'thardin tells me you think demons can be bound and put to work. The last orcs who believed that are why my grandfather died with green skin, so keep that thinking out of my camp." },
     { id = "g_camp", text = "This is Grom'gol, and every orc, troll and tauren behind these walls works for the Horde. Are you here to work, {class}?" },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good, because the last grunt I sent to the river came back without his boots, and I need hands." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Grom'gol bled and sweated your share while you were away. Now you're back, so earn it." },
@@ -31,6 +32,43 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_warchief = {
+      lines = {
+        { id = "opw_default", text = "He sent me here, so he remembers. The old grunts in Stonard say Thrall made peace with the humans too cheaply, and they say it louder every year. You've walked his city, so tell me what you say." },
+      },
+      choices = {
+        { text = "He freed our people. His word is good enough for me.", next = "op_wc_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { warchief = "trust" } } },
+        { text = "The old grunts are right. He made peace too cheaply.", next = "op_wc_soft", fx = { align = { order = -1 }, trait = { stern = 1 }, opinion = { warchief = "soft", peace = "war" } } },
+        { text = "Vol'jin follows him, and the Darkspear follow Vol'jin.", next = "op_wc_respect", fx = { affinity = 1, opinion = { warchief = "respect" } }, when = { race = "Troll" } },
+        { text = "He gave the Forsaken a place. That's more than anyone else did.", next = "op_wc_respect", fx = { opinion = { warchief = "respect" } }, when = { race = "Scourge" } },
+        { text = "I'll judge him by whether this road stays open.", next = "op_wc_mixed", fx = { affinity = 1, opinion = { warchief = "mixed" } } },
+        { text = "That's a matter for the Warchief, not for me.", next = "BACK" },
+      },
+    },
+    op_wc_trust = {
+      lines = {
+        { id = "opwt_default", text = "Good. Then do what he sent us here to do, and leave the arguing to the grunts with nothing better to fill their mouths with." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_soft = {
+      lines = {
+        { id = "opws_default", text = "Say that quietly in my camp. I've heard it before, and I've half thought it on bad nights, but Thrall was in the camps and I wasn't, so I'll trust that he knows what a cage costs." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_respect = {
+      lines = {
+        { id = "opwr_default", text = "Then you understand him better than half my grunts do. The Horde is more than orcs now, and some of the old ones still haven't learned that." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_mixed = {
+      lines = {
+        { id = "opwm_default", text = "That's how I judge every orc in Azeroth, Warchief or grunt. The road's open today, so today he's a good Warchief." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "If you can hold a line against the Bloodscalp and patch up whoever falls on it, you can serve anywhere I command. The Light's a strange thing to see on one of the dead, but the ogres won't stop to wonder about it, and neither will I." } },
@@ -164,7 +202,10 @@ P:NPC {
       lines = {
         { id = "rs_default", text = "Stonard is one of the oldest orc towns in Azeroth, built when the Dark Portal first opened, and it's the Horde's eyes on the swamp and the Blasted Lands. Eyes don't see far on an empty stomach, so we feed them." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Does the Warchief still remember Stonard, Commander?", next = "op_warchief" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     need = {
@@ -916,6 +957,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Aggro'gosh tells me you stand behind the Warchief without a doubt in you. The spirits favour a steady heart, so come and sit, steady one." },
     { id = "g_fire", text = "The camp is loud with grunts and drums, but here by the fire the spirits are quieter. Speak, and I'll listen." },
     { id = "g_back", when = { metBefore = true }, text = "The fire kept your place for you, and the ancestors watched it burn. Sit." },
     { id = "g_away", when = { away = 14 }, text = "The fire kept your place for {away}, and now you're back to sit in it. Sit, then." },
@@ -930,6 +972,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "opd_default", text = "They do say it, and the Warchief allows the warlocks their school in the Cleft of Shadow, for now. I am an old shaman and my answer is easy to guess, but I would hear yours, because the young ones will decide this, not me." },
+      },
+      choices = {
+        { text = "Demons poisoned the orcs once. Never again.", next = "op_demons_hate", fx = { affinity = 1, align = { light = 1 }, opinion = { demons = "hate" } } },
+        { text = "A tool is a tool. Bind the demon and make it work.", next = "op_demons_useful", fx = { affinity = -1, align = { light = -1 }, opinion = { demons = "useful" } } },
+        { text = "I command my demons, Far Seer. They don't command me.", next = "op_demons_useful", fx = { affinity = -1, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "Let the warlocks serve, but watch them closely.", next = "op_demons_mixed", fx = { opinion = { demons = "dangerous" } } },
+        { text = "I don't know enough to say.", next = "BACK" },
+      },
+    },
+    op_demons_hate = {
+      lines = {
+        { id = "opdh_default", text = "The elements thank you, and so do I. Never again is a promise every orc should make, though it is a hard one to keep when the enemy is stronger and the demons offer so much." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_demons_useful = {
+      lines = {
+        { id = "opdu_default", text = "So said Gul'dan, and so said every orc who drank from Mannoroth's cup. I do not call you a fool, but I will pray to the spirits that you never learn what I mean the hard way." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_demons_mixed = {
+      lines = {
+        { id = "opdm_default", text = "Watching is the hard part, because a demon is patient and an orc is not. Still, that is a wiser answer than most I hear in Orgrimmar." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_mokthardin = {
       big = true,
       lines = { { id = "xpt_mokthardin_default", text = "Because the trolls here have bled this land for their gods for longer than any orc has lived, and the earth remembers every drop. Ask your shaman to listen closely while you hunt, because a war band that ignores the spirits in this jungle tends not to come home." } },
@@ -1117,7 +1189,10 @@ P:NPC {
       lines = {
         { id = "w_default", text = "The jungle's magic should be understood and harnessed for the Horde before someone else harnesses it against us. My rituals have worked so far, and the Warchief's defenders wear the proof." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Some in Orgrimmar say warlocks have their uses again.", next = "op_demons" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     trolls = {
@@ -1193,6 +1268,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Commander says you think the Warchief went soft on the humans. Say that by my fire and the old grunts will buy you a drink, while the young ones start a fight, so sit on the end." },
     { id = "g_inn", text = "Come in and sit by the fire, {class}! Out here a fire keeps things away, not cold, and an orc's stew keeps the rest away." },
     { id = "g_home", when = { homeInn = { "Grom'gol Base Camp" } }, text = "Home again, and with all your limbs. Your bed's dry, which in Stranglethorn counts as a luxury." },
   },

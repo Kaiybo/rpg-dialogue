@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_peace_against", when = { gossip = { topic = "peace", stance = "against" } }, text = "Farley tells me you'd never make peace with the orcs. Good, keep that, but keep it for the real ones, and not the Defias who wear scarves." },
+    { id = "g_op_varian_dead", when = { opinion = { topic = "varian", stance = "dead" } }, text = "Ah, it's you. I'll ask you again not to tell my farmers the king is dead; they've enough to frighten them with the gnolls." },
     { id = "g_desk", text = "Make it quick, friend; I've half of Elwynn on this desk." },
     { id = "g_liked", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Good to see you, and I mean it. Don't let it go to your head." },
     { id = "g_distrust", when = { townStanding = { town = "goldshire", max = -20 } }, text = "Keep your hands where my guards can see them, and we'll get along." },
@@ -34,6 +36,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_varian = {
+      lines = {
+        { id = "op_varian_a", text = "Officially, the crown expects His Majesty's return any day, and I've said so to every frightened farmer who's asked. Unofficially, I'm a sergeant at heart, and sergeants want to know what the man beside them believes. So what do you believe?" },
+      },
+      choices = {
+        { text = "He's alive. A king like Varian doesn't simply vanish.", next = "op_varian_1", fx = { opinion = { varian = "alive" }, align = { light = 1 }, affinity = 1 } },
+        { text = "He's dead, Marshal, and the court is lying to keep order.", next = "op_varian_2", fx = { opinion = { varian = "dead", stormwind = "abandoned_its_own" }, align = { light = -1 }, trait = { blunt = 1 } } },
+        { text = "Alive or not, the boy needs good men around him now.", next = "op_varian_3", fx = { opinion = { varian = "unknown", bolvar = "trusted" }, align = { order = 1 }, trait = { practical = 1 } } },
+        { text = "Someone at court wanted him gone. I'd look there first.", next = "op_varian_4", fx = { opinion = { varian = "betrayed", prestor = "distrust" }, trait = { skeptical = 1 } } },
+        { text = "That's above my station, Marshal.", next = "BACK" },
+      },
+    },
+    op_varian_1 = {
+      lines = { { id = "op_varian_r1", text = "I'd like to think so, and I'd like it in writing from someone who knows. Until then I'll keep his peace for him, the same as if he were coming home tomorrow." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_varian_2 = {
+      lines = { { id = "op_varian_r2", text = "Keep your voice down in my office. You may be right, and that's exactly why it shouldn't be said where Remy can hear it and sell it by supper." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_varian_3 = {
+      lines = { { id = "op_varian_r3", text = "That's a soldier's answer, and the one I'd have given. Highlord Bolvar's a good man, and Goldshire will hold for the boy whether his father comes home or not." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_varian_4 = {
+      lines = { { id = "op_varian_r4", text = "That's the kind of thought that gets a marshal posted to the Burning Steppes. I didn't hear it, and you didn't say it, and we'll both sleep better." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
     xpt_dughan = {
       big = true,
       lines = { { id = "xpt_dughan_default", text = "Because Stormwind's soldiers are guarding Stormwind, and the rest are in Redridge or on the road to Lakeshire, or watching the Stockade. So I've a handful of guards and whatever good-hearted adventurers wander through, and you'd be surprised how far that goes." } },
@@ -371,6 +401,7 @@ P:NPC {
         { id = "ar_default", text = "That's because the army's abroad, doing who knows what, for who knows which noble. I keep the order here with whoever's left, and whoever walks through that door." },
       },
       choices = {
+        { text = "Do you think King Varian's coming back, Marshal?", next = "op_varian" },
         { text = "That sounds like a complaint, Marshal.", next = "army_politics" },
         { text = "Then I'll walk through it more often.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The nobles' wars aren't my concern, Marshal.", next = "BACK", fx = { align = { order = -1 } } },

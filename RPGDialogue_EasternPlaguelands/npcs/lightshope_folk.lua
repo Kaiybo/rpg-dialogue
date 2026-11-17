@@ -483,6 +483,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_fktrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Lord Tyrosus mentioned you'd have the Forsaken fight beside us. Leonid will be glad of it, if nobody's told him already." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, at my inn! You'll want a window that faces the hills, I expect, though I'll warn you the view hasn't been green in a long while." },
         { id = "h_default", key = true,

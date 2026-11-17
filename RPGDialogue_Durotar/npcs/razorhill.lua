@@ -185,11 +185,38 @@ P:NPC {
       lines = { { id = "tr_default", text = "They do, and they keep better watch at night than my orcs, which I'll deny if you repeat it. The Darkspear hold Sen'jin and I hold Razor Hill, and between us the coast stays ours." } },
       choices = { { text = "Your secret's safe, commander.", next = "BACK", fx = { affinity = 2 } } },
     },
+    keep_op = {
+      lines = { { id = "ko_default", text = "There's a Kul Tiran keep on my coast full of marines who never heard of any peace, and the Warchief tells me to hold Razor Hill and not march on Theramore over it. Report, {class}: if Tiragarde were yours to decide, what would you do?" } },
+      choices = {
+        { text = "Burn Tiragarde to the sand, and Theramore after it.", next = "ko_war", fx = { affinity = 1, align = { order = -1 }, opinion = { peace = "against", theramore = "war" } } },
+        { text = "Clear the keep, but leave Theramore to Lady Proudmoore.", next = "ko_hold", fx = { affinity = 2, align = { order = 1 }, opinion = { peace = "for", tiragarde = "strike" } } },
+        { text = "Hold the walls. One raid could start the whole war again.", next = "ko_wait", fx = { trait = { cautious = 1 }, opinion = { peace = "for" } } },
+        { text = "The humans kept me in a camp. I'd see them all gone.", next = "ko_camps", when = { race = "Orc" }, fx = { opinion = { humans = "hate" } } },
+        { text = "That's for the Warchief to say, commander.", next = "BACK" },
+      },
+    },
+    ko_war = {
+      lines = { { id = "kow_default", text = "That's what half my grunts say at the fire, and it's why they're grunts and not commanders. Theramore has walls and ships and Lady Proudmoore, and Razor Hill has me." } },
+      choices = { { text = "Something else, commander.", next = "BACK" } },
+    },
+    ko_hold = {
+      lines = { { id = "koh_default", text = "Good report. The marines at Tiragarde are Admiral Proudmoore's leftovers, not Theramore's, and I'll pull them out one at a time without the Warchief losing any sleep over it." } },
+      choices = { { text = "Something else, commander.", next = "BACK" } },
+    },
+    ko_wait = {
+      lines = { { id = "kowt_default", text = "Nazgrel would have liked you. Still, a wall that never sends anyone out gets climbed sooner or later, so don't sit on it too long." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_camps = {
+      lines = { { id = "koc_default", text = "So would half of Razor Hill, and I don't blame them. But the Warchief was in those camps longer than any of us, and if he can keep his axe sheathed, so can you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     why = {
       lines = { { id = "w_default", text = "Roads to Orgrimmar, to Sen'jin and to the Barrens all run through here. Hold Razor Hill and you hold Durotar, and lose it and the Horde bleeds for it." } },
       choices = {
         { text = "Then we won't lose it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A good ambush on those roads would do more than any wall.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "And the Kul Tirans? Will the Warchief's peace hold here?", next = "keep_op" },
       },
     },
   },
@@ -552,6 +579,12 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my inn. The beds are clean, and the ale isn't holy, but it'll do." },
         { id = "h_default", key = true,
           text = "I'm Grosk, the innkeeper. I've a bed, ale and a roof against the sun, which is more than any of us had in the camps, and everything outside is rocks and scorpids." },
+        { id = "h_op_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "against" } },
+          text = "Gar'Thok's grunts say you'd burn Tiragarde and Theramore with it. They've been buying rounds in your name all week, so sit, you might as well drink some of them." },
+        { id = "h_op_hold", tags = { "news" }, when = { gossip = { topic = "tiragarde", stance = "strike" } },
+          text = "Word from the barracks is the commander liked your report about the Kul Tirans. He doesn't like anybody's reports, so you'll want to remember the day." },
+        { id = "h_op_jaina", tags = { "news" }, when = { gossip = { topic = "jaina", stance = "distrust" } },
+          text = "I hear you don't trust the Proudmoore woman. Neither does anyone who drinks here, but say it outside, because Gar'Thok's under orders and he hates being reminded." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
           text = "That bundle is for the right hands only. Get it there, and don't let a peon sit on it." },
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },

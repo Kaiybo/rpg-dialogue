@@ -33,6 +33,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_elements = {
+      lines = {
+        { id = "opn_elements_q", text = "Dat be de question I been askin' de river for many seasons, and de river only answer with more water. De old orc warlocks commanded, and look what dey become. But de wind lord be a danger to everyone if nobody hold him. What you think, young one?" },
+      },
+      choices = {
+        { text = "Ask, never command. That's the shaman's way.", next = "opn_elements_r_respect", fx = { affinity = 1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "If a power threatens the land, bind it and use it.", next = "opn_elements_r_power", fx = { align = { light = -1 }, opinion = { the_elements = "power" } } },
+        { text = "I'd leave the wind lord sleeping. Some things are too dangerous.", next = "opn_elements_r_dangerous", fx = { trait = { careful = 1 }, opinion = { the_elements = "dangerous" } } },
+        { text = "The spirits turned from you, Bath'rah. Listen to them.", next = "opn_elements_r_respect", when = { class = "SHAMAN" }, fx = { affinity = -1, opinion = { the_elements = "respect" } } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    opn_elements_r = {
+      lines = {
+        { id = "opn_elements_r_default", text = "Den you be like me. De wind don't mind; it never answer neither." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
+    opn_elements_r_respect = {
+      lines = {
+        { id = "opn_elements_r_respect", text = "Yes, dat be de way, and I know it, and still I sit here with de wind lord's heart in my mind. Maybe one day I walk away from dis place. Not today." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
+    opn_elements_r_power = {
+      lines = {
+        { id = "opn_elements_r_power", text = "Careful, young one. Dat be how it start, every time, wit' a good reason and a bit of binding." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
+    opn_elements_r_dangerous = {
+      lines = {
+        { id = "opn_elements_r_dangerous", text = "Sleepin' be de best thing for him, maybe. But a sleepin' storm be still a storm, and somebody got to watch it." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -118,6 +162,7 @@ P:NPC {
         { id = "sf_default", text = "Maybe, young one, and maybe not. A shaman be askin' de elements for help, not orderin' dem around, and I wonder sometimes if I forgot de difference." },
       },
       choices = {
+        { text = "Should a shaman ever command the elements?", next = "opn_elements" },
         { text = "Then make peace with them. Ask their forgiveness.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Spirits that turn on you deserve to be bound.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

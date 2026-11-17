@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_grim_lost", when = { opinion = { grimtotem = "lost" } }, text = "Word at Freewind is you've no time for the Grimtotem at all. Good, because the looks they've been giving us at the lift lately aren't friendly ones." },
     { id = "g_lift", text = "You came up the lift? Good, then you've seen the drop. Stay away from the edge, traveler; the Earth Mother made the canyon deep for a reason." },
     { id = "g_active", when = { questActive = TODO_QUEST("Message to Freewind Post") }, text = "Freewind Post, to the southeast. Give the message to Cliffwatcher Longhorn, and no one else." },
     { id = "g_done", when = { questDone = TODO_QUEST("Message to Freewind Post") }, text = "Longhorn has my message, then. Good. I can watch the lift without worrying about the road." },

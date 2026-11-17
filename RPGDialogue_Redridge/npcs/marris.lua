@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_demons_forbid", when = { opinion = { topic = "demons", stance = "forbid" } }, text = "You again, the one who'd close the Slaughtered Lamb. My fourth report went off with your opinion in it; I said a sensible traveller agreed." },
+    { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "Keeshan says you've no time for any orc, Thrall's or otherwise. Good, because my walls have no time for them either, so take a post." },
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
     { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley already? Good, now tell me how many." },
     { id = "g_keeshan", when = { questDone = TODO_QUEST("Missing In Action") }, text = "You're the one who brought Keeshan home, and I won't forget it." },
@@ -35,6 +37,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "op_demons_a", text = "Sit right? There's a cellar under the Slaughtered Lamb where they teach demon-calling to anyone with the coin, and the same orbs are killing my men up on that ridge. The Keep says it's better to know the enemy's tricks. What do you say?" },
+      },
+      choices = {
+        { text = "Demons are demons. Stormwind should shut that cellar down.", next = "op_demons_1", fx = { opinion = { demons = "forbid" }, align = { light = 1 }, trait = { pious = 1 }, affinity = 2 } },
+        { text = "A weapon's a weapon. Better ours than only the orcs'.", next = "op_demons_2", fx = { opinion = { demons = "useful" }, align = { light = -1 }, trait = { practical = 1 }, affinity = -1 } },
+        { text = "Train them, and watch them. Closely.", next = "op_demons_3", fx = { opinion = { demons = "dangerous" }, trait = { cautious = 1 } } },
+        { text = "I command demons myself, Marshal, and I'm on your wall.", next = "op_demons_4", when = { class = "WARLOCK" }, fx = { opinion = { demons = "useful" }, affinity = -2 } },
+        { text = "That's the Keep's business, not mine.", next = "BACK" },
+      },
+    },
+    op_demons_1 = {
+      lines = { { id = "op_demons_r1", text = "That's what I've written in three reports, and I'll write it in a fourth with your name under mine. The Light help any city that keeps a demon in its basement." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_demons_2 = {
+      lines = { { id = "op_demons_r2", text = "You sound like the clerks at the Keep. Come stand on my wall at night and watch one of those orbs light up the dark, and then tell me again." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_demons_3 = {
+      lines = { { id = "op_demons_r3", text = "Watch them with what? I can't spare a guard to watch my own bridge. Still, I'll grant that a leash is better than nothing." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_demons_4 = {
+      lines = { { id = "op_demons_r4", text = "So you are, and I'll take the help, because I'd take a gnoll's help this month. Keep that thing behind you and away from my men, or we'll have words." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
     xcl_lbrs = {
       big = true,
       lines = { { id = "xcl_lbrs_default", text = "Bleeding isn't beaten, and they've more warriors in that mountain than Lakeshire has people, so I'll keep my guard on the bridge all the same. Still, every orc who dies at home is one who never comes down the Burning Steppes road, and that's a thing I can put in my report." } },
@@ -209,6 +239,7 @@ P:NPC {
         { id = "o_default", text = "Midnight orbs, demon-tainted every one. The orbs in their hands have struck my men down from across a field, and I want them out of this war." },
       },
       choices = {
+        { text = "Stormwind trains its own warlocks, Marshal. Does that sit right with you?", next = "op_demons" },
         { text = "I'll bring you the orbs.", next = "BACK", fx = { affinity = 1 } },
         { text = "Smashing them may not be enough. Let me see them first.", next = "orbs_priest", when = { class = "PRIEST" } },
         { text = "Something else.", next = "BACK" },

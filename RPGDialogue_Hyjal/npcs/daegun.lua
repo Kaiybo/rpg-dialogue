@@ -46,8 +46,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The songs say the Legion fell at Hyjal, and the songs are wrong, because I have killed three of its servants on this mountain since the last moon. Do you think the Legion is finished?" },
+      },
+      choices = {
+        { text = "Archimonde is dead. What's left is scraps.", next = "op_r1", fx = { align = { order = -1 }, trait = { brave = 1 }, opinion = { burning_legion = "beaten" } } },
+        { text = "No. It's waiting, and it will come back.", next = "op_r2", fx = { affinity = 1, align = { order = 1 }, trait = { cautious = 1 }, opinion = { burning_legion = "dangerous" } } },
+        { text = "Our people drank its blood once, and never again.", next = "op_r3", fx = { affinity = 1, opinion = { burning_legion = "hate" } }, when = { race = "Orc" } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Scraps that burn villages are still fire. I would not tell a widow her husband was killed by scraps." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Then we agree, and that is a lonely thing to agree on in a world so busy with its own wars." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Never again. Grom paid for our freedom when he killed Mannoroth, and I will not let that debt be run up a second time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_demon_hunters_distrust", tags = { "news" }, when = { gossip = { topic = "demon_hunters", stance = "distrust" } },
+          text = "You told the elf demon hunter you do not trust him. I do not trust him either, though I notice he is always on the ridge when I need someone there." },
         { id = "h_default", key = true,
           text = "I am Yashiro, a blademaster, and I have come to finish a war that ended too soon. The demons who fled when Archimonde fell are still on this mountain, hiding in Dae'gun, and I mean to show them that hiding was a mistake." },
         { id = "h_bonfire", tags = { "news" }, when = { questActive = TODO_QUEST("Blademaster's Bonfires") },
@@ -72,6 +98,7 @@ P:NPC {
         { id = "h_again2", text = "There is more you want to know. Speak plainly; I prefer it." },
       },
       choices = {
+        { text = "Do you think the Legion is finished?", next = "op_ask" },
         { text = "Why do you hunt these demons?", next = "why" },
         { text = "Those bonfires are no cooking fires.", next = "bonfires" },
         { text = "I don't know this Dae'gun you speak of.", next = "daegun" },

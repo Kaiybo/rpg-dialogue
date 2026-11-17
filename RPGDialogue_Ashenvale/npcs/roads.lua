@@ -18,6 +18,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Forsaken have dug in to the east, and the Horde lets them do as they please. You've met them, likely, so tell me what you make of the Forsaken." },
+      },
+      choices = {
+        { text = "Corpses that walk. They should be put back in the ground.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { forsaken = "hate" } } },
+        { text = "They were people once. Some still are, inside.", next = "op_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { forsaken = "pity" } } },
+        { text = "Sylvanas is the danger. Watch her, not her soldiers.", next = "op_r3", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { sylvanas = "distrust" } } },
+        { text = "I am Forsaken, elf. Judge me by my deeds.", next = "op_r4", fx = { trait = { proud = 1 }, opinion = { forsaken = "proud" } }, when = { race = "Scourge" } },
+        { text = "I'd rather not judge.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Many of my sisters would agree with you, and quickly. I only wish the Forsaken were the worst thing walking in the east." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Perhaps, though I've smelled what they brew in their camps, and pity is hard to hold onto with that in the air." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A sharp eye. A banshee who leads the dead does not want peace, whatever she tells Thrall." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then do your good deeds where my archers can see them, and you may find Forest Song fairer than you expect." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If we have enough arrows and enough hands. Your spirits are welcome on the walls." } },
@@ -127,6 +156,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The watch changes soon." },
       },
       choices = {
+        { text = "What do you make of the Forsaken to the east?", next = "op_ask" },
         { text = "What are the Forsaken doing here?", next = "forsaken" },
         { text = "Something must lie east of Forest Song.", next = "east" },
         { text = "How do you keep the outpost supplied?", next = "post" },

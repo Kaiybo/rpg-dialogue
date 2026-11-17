@@ -34,6 +34,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_argent_dawn = {
+      big = true,
+      lines = {
+        { id = "opad_default", text = "Garush answers to the Dawn, and the Dawn answers to Light's Hope, and I answer to the Dark Lady, so we're all very polite. His order is full of paladins who once marched with Uther, and they hand out commissions to Forsaken now. What do you make of the Argent Dawn?" },
+      },
+      choices = {
+        { text = "They fight the Scourge beside us. That's good enough.", next = "op_argent_dawn_r1", fx = { align = { honor = 1 }, opinion = { argent_dawn = "trust" } } },
+        { text = "They're the Crusade in kinder colours. Watch them.", next = "op_argent_dawn_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { argent_dawn = "distrust" } } },
+        { text = "My people honour anyone who heals the land.", next = "op_argent_dawn_r3", fx = { trait = { kind = 1 }, opinion = { argent_dawn = "respect" } }, when = { race = "Tauren" } },
+        { text = "I'll leave the Dawn to you, High Executor.", next = "BACK" },
+      },
+    },
+    op_argent_dawn_r1 = {
+      lines = { { id = "opad_r1", text = "It's good enough for the Bulwark, at least while the Scourge is at the wall. I'll grant that Garush has never once flinched when my deathguards walk past." } },
+      choices = { { text = "Something else, High Executor.", next = "BACK" } },
+    },
+    op_argent_dawn_r2 = {
+      lines = { { id = "opad_r2", text = "I do watch them, every day, and I've yet to catch them at anything. That only makes me watch harder." } },
+      choices = { { text = "Something else, High Executor.", next = "BACK" } },
+    },
+    op_argent_dawn_r3 = {
+      lines = { { id = "opad_r3", text = "Then you'll like them, and I'll not argue with you. Healing the land is slow work, though, and the Bulwark needs fast work this season." } },
+      choices = { { text = "Something else, High Executor.", next = "BACK" } },
+    },
     xpt_forsaken = {
       big = true,
       lines = { { id = "xpt_forsaken_default", text = "We fight it without any hope of going home, which makes us patient, and we know its tricks because we were its tricks. Your friend will tell you that every ghoul at these gates was somebody's neighbour once, and that is why we never miss." } },
@@ -108,6 +132,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_pcwar", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } }, text = "Dithers says you'd sooner fight Chillwind than share a word with it. Hold that thought until Andorhal falls, and then we'll talk." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" }, faction = "Horde" },
           text = "You travel with {companion}, one of the Dark Lady's own, and that pleases me. The living fight the Scourge out of fear, but we fight it because we remember exactly what it did to us." },
         { id = "h_default", key = true,
@@ -198,6 +223,7 @@ P:NPC {
       choices = {
         { text = "Uther's camp?", next = "wall_uther" },
         { text = "Then I'll help hold it.", next = "BACK", fx = { affinity = 2, standing = { bulwark = 1 } } },
+        { text = "Does the Argent officer here answer to you?", next = "op_argent_dawn" },
       },
     },
     wall_uther = {
@@ -557,6 +583,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_peace = {
+      big = true,
+      lines = {
+        { id = "oppc_default", text = "Notes? With Arbington? Ha! He'd faint if I sent him so much as a postcard, though I'll confess his counter-agent's not half bad. Should the Forsaken and the Alliance work together out here against the Scourge, do you think?" },
+      },
+      choices = {
+        { text = "The Scourge is everyone's enemy. Work with them.", next = "op_peace_r1", fx = { align = { honor = 1 }, opinion = { peace = "peace" } } },
+        { text = "Never. They'd stab us the moment Andorhal falls.", next = "op_peace_r2", fx = { align = { honor = -1 }, trait = { stern = 1 }, opinion = { peace = "war" } } },
+        { text = "They'll never work with us, so why bother asking?", next = "op_peace_r3", fx = { trait = { skeptical = 1 }, opinion = { peace = "hopeless" } }, when = { race = "Scourge" } },
+        { text = "I'll stay out of that, Apothecary.", next = "BACK" },
+      },
+    },
+    op_peace_r1 = {
+      lines = { { id = "oppc_r1", text = "That's my view too, though I'd never say it near the High Executor. One sensible cauldron agent between us and Andorhal would be a lovely thing." } },
+      choices = { { text = "Something else, Apothecary.", next = "BACK" } },
+    },
+    op_peace_r2 = {
+      lines = { { id = "oppc_r2", text = "Oh, very likely, but they'd stab us more politely with a better counter-agent. I'll keep my notes to myself, then." } },
+      choices = { { text = "Something else, Apothecary.", next = "BACK" } },
+    },
+    op_peace_r3 = {
+      lines = { { id = "oppc_r3", text = "Because one day one of them might say yes, and I'd like to be there to see the look on Arbington's face." } },
+      choices = { { text = "Something else, Apothecary.", next = "BACK" } },
+    },
     xcl_scholo = {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Splendid, splendid, and do tell Arbington if you're ever on the Alliance side of the road, because he'll faint and I'd like to hear about it. The Society sent me out here to break the cauldrons, but between you and me, half the recipes in those cauldrons were first written down in Gandling's classrooms." } },
@@ -716,6 +766,7 @@ P:NPC {
       choices = {
         { text = "Why does it spoil so fast?", next = "agent_quick" },
         { text = "Fascinating.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Do you ever trade notes with Chillwind Camp?", next = "op_peace" },
       },
     },
     agent_quick = {
@@ -881,6 +932,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_bvforfeit", tags = { "news" }, when = { opinion = { topic = "barov", stance = "forfeit" } }, text = "Word is you think House Barov forfeited everything. Clever of you, and I agree, which is precisely why my brother's share should come to me." },
         { id = "h_default", key = true,
           text = "Alexi Barov. My family sold its soul to Kel'Thuzad and I'm the one who got free of him, while my brother Weldon kept his breath and now imagines he gets the money too.",
           fx = { hear = "barov_heir" } },
@@ -1128,6 +1180,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_addistrust", tags = { "news" }, when = { gossip = { topic = "argent_dawn", stance = "distrust" } }, text = "The High Executor tells me you think the Dawn wants watching. Watch, then; we have nothing here we'd mind you seeing." },
         { id = "h_default", key = true,
           text = "Argent Officer Garush, orc, Horde-born, and a soldier of the Argent Dawn, where every race faces one enemy. I fought for the Horde all my life, and now I fight for everybody." },
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },

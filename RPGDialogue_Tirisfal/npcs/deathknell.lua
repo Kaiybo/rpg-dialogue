@@ -66,6 +66,7 @@ P:NPC {
           text = "A {altrace} came through Deathknell a while ago, {alt} by name, and asked me what it felt like to dig up the dead for a living. I told them it pays about as well as you'd expect, but the company's quieter than most." },
         { id = "h_alt_risen", tags = { "news" }, when = { alt = { race = "Scourge", notKin = true } },
           text = "You've a look of {alt}, one of the risen I dug out of this churchyard myself. If you're kin of theirs from before, go gently, because most of mine don't remember the families they had." },
+        { id = "o_tlaband", tags = { "news" }, when = { gossip = { topic = "the_light", stance = "abandoned" } }, text = "Sarvis says you've given up on the Light already. Quick work, for someone I stitched together so recently." },
         { id = "h_default", key = true,
           text = "I'm Undertaker Mordo. I tend the graves here, and sometimes the graves tend to stir, as you did. Welcome back." },
         { id = "h_rude", tags = { "news" }, when = { questActive = TODO_QUEST("Rude Awakening") },
@@ -216,6 +217,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_the_light = {
+      big = true,
+      lines = {
+        { id = "optl_default", text = "Every one of them, sooner or later, usually while they're still picking grave dirt out of their teeth. So I'll ask you what they ask me: did the Light abandon us, or did we never matter to it?" },
+      },
+      choices = {
+        { text = "It never left. Some of us can still feel it.", next = "op_the_light_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "It abandoned us. The shadow asks less and gives more.", next = "op_the_light_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { the_light = "abandoned" } } },
+        { text = "I don't know. I keep praying and waiting for an answer.", next = "op_the_light_r3", fx = { trait = { pious = 1 }, opinion = { the_light = "doubt" } }, when = { class = "PRIEST" } },
+        { text = "I'll keep my faith to myself, Sarvis.", next = "BACK" },
+      },
+    },
+    op_the_light_r1 = {
+      lines = { { id = "optl_r1", text = "Then hold it close, and see whether it holds you back. I've watched a great many hands reach for it, and very few come back warm." } },
+      choices = { { text = "Something else, Sarvis.", next = "BACK" } },
+    },
+    op_the_light_r2 = {
+      lines = { { id = "optl_r2", text = "Good. You'll learn faster than most, and you'll waste less of your second life on your knees." } },
+      choices = { { text = "Something else, Sarvis.", next = "BACK" } },
+    },
+    op_the_light_r3 = {
+      lines = { { id = "optl_r3", text = "That's an honest answer, and honesty is where the Forgotten Shadow begins. Come back to me when the waiting tires you." } },
+      choices = { { text = "Something else, Sarvis.", next = "BACK" } },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Will, more than anything, because the shadow isn't a god and it won't carry you the way the Light pretended to. Learn to make your own faith out of what you've got, and you'll find it's harder to lose than the old kind." } },
@@ -320,6 +345,7 @@ P:NPC {
         { text = "For the Dark Lady.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I serve myself now, not the Dark Lady.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "And what do we want?", next = "want" },
+        { text = "Do the new risen ask you about the Light?", next = "op_the_light" },
       },
     },
     want = {

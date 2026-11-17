@@ -17,6 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "Soft hands and a straight back, and I'd wager a name with 'of' in it. Westfall's been bled white by people like your family, so say what you want and mind the chickens." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. I took you for another lord's child come to gawp at the poor, and you rolled your sleeves up and proved me wrong, which my Salma won't let me forget." },
+    { id = "g_op_leave_stay", when = { gossip = { topic = "westfall_leave", stance = "stay" } }, text = "Salma tells me you think we ought to stay and see it through. Took a stranger to say it, but you're right, and you can tell Theodore I said so." },
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },
     { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Still standing out there, aren't they. I can see them from the porch." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Killing Fields") }, text = "I walked my own field this morning, for the first time since spring." },
@@ -55,6 +56,29 @@ P:NPC {
     prej_calm = {
       lines = { { id = "prej_calm_default", text = "Pick up a hoe or a sword, either will do. Westfall's had enough of people who only come to look at it." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_tithe = {
+      lines = {
+        { id = "op_tithe_a", text = "Every season, what little there is, and Salma calls me a fool for it. The city's sent us nothing back, not a soldier nor a sack of seed, but my father paid it and his father before him. Tell me straight, should I keep paying?" },
+      },
+      choices = {
+        { text = "Keep paying. The kingdom is still your kingdom.", next = "op_tithe_1", fx = { opinion = { westfall_tithe = "pay", stormwind = "patience" }, align = { order = 1 } } },
+        { text = "Stop. Not another copper until Stormwind sends soldiers.", next = "op_tithe_2", fx = { opinion = { westfall_tithe = "withhold", stormwind = "abandoned_its_own" }, align = { order = -1 }, affinity = 1 } },
+        { text = "Give it to Sentinel Hill instead. Gryan's actually defending you.", next = "op_tithe_3", fx = { opinion = { westfall_tithe = "militia", westfall = "send_soldiers" }, trait = { practical = 1 }, affinity = 2 } },
+        { text = "I can't tell a man what to do with his harvest.", next = "BACK" },
+      },
+    },
+    op_tithe_1 = {
+      lines = { { id = "op_tithe_r1", text = "That's what my father would have said, and he's long in the ground, so I'll take it as his vote. The tithe goes up the road next week, light as it is." } },
+      choices = { { text = "Something else, then.", next = "BACK" } },
+    },
+    op_tithe_2 = {
+      lines = { { id = "op_tithe_r2", text = "Ha! Salma will kiss you, and Gryan will scowl at you, and I'll lie awake a night or two. You might be right, which is the worst part." } },
+      choices = { { text = "Something else, then.", next = "BACK" } },
+    },
+    op_tithe_3 = {
+      lines = { { id = "op_tithe_r3", text = "Now that's a thought I hadn't had, and I've had most of them, sitting here. The Militia eat what they're given and say thank you, which is more than the Keep ever did." } },
+      choices = { { text = "Something else, then.", next = "BACK" } },
     },
     xdsham = {
       big = true,
@@ -201,7 +225,8 @@ P:NPC {
     },
     pride = {
       lines = { { id = "p_default", text = "No. But it gets me up in the morning, and that's something a knife can't take." } },
-      choices = { { text = "Right. Something else, then.", next = "BACK" } },
+      choices = {
+        { text = "Do you still send the city its tithe?", next = "op_tithe" }, { text = "Right. Something else, then.", next = "BACK" } },
     },
     fool = {
       lines = { { id = "fo_default", text = "Theodore Furlbrow told me to get out while I could and called me a fool for staying. I call him a fool for going, and one of us is right, but it's his wagon that's broken." } },

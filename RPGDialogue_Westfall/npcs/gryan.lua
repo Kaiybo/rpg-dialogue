@@ -15,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_militia_admire", when = { opinion = { topic = "peoples_militia", stance = "admire" } }, text = "Word comes up the road that you've been speaking well of the Militia, even as far as Lakeshire. The farmers stand straighter for it, and so do I." },
+    { id = "g_op_tithe", when = { gossip = { topic = "westfall_tithe", stance = "militia" } }, text = "Saldean sent a cart of turnips up the hill this week instead of the city tithe, and he says it was your idea. I'll not refuse turnips, but you'll answer to the tax clerks." },
+    { id = "g_op_bolvar_trust", when = { opinion = { topic = "bolvar", stance = "trusted" } }, text = "Here's the one who still trusts the Regent. I hope you're right, and I'd ask you to write and tell him so, because he'll not hear it from me." },
     { id = "g_hill", text = "Sentinel Hill, such as it is. Find a spot out of the wind." },
     { id = "g_sent", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") }, text = "Another one from Elwynn, and glad I am of it. Come up out of the wind; I'll not keep you standing." },
     { id = "g_militia", when = { questDone = TODO_QUEST("The People's Militia") }, text = "There's one of my own militia. Report, then, and tell me how the roads look." },
@@ -36,6 +39,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_bolvar = {
+      lines = {
+        { id = "op_bolvar_a", text = "By sight and by reputation, and he was a better knight than I'll ever be. Now he sits in the Keep while Westfall burns, and I can't tell whether that's his doing or the court's. You may have stood in that throne room, so what do you make of him?" },
+      },
+      choices = {
+        { text = "He's a good man, Gryan. The court ties his hands.", next = "op_bolvar_1", fx = { opinion = { bolvar = "trusted", stormwind = "patience" }, align = { order = 1 } } },
+        { text = "He's forgotten his oath. Uther would never have abandoned Westfall.", next = "op_bolvar_2", fx = { opinion = { bolvar = "soft", westfall = "abandoned" }, align = { order = -1 }, affinity = 1 } },
+        { text = "He's a regent for a boy. He can't be everywhere at once.", next = "op_bolvar_3", fx = { opinion = { bolvar = "tired" }, trait = { practical = 1 } } },
+        { text = "The Order taught us both. I'd trust him with my life.", next = "op_bolvar_4", when = { class = "PALADIN" }, fx = { opinion = { bolvar = "trusted", silver_hand = "respect" }, affinity = 2 } },
+        { text = "I've never met the man, Commander.", next = "BACK" },
+      },
+    },
+    op_bolvar_1 = {
+      lines = { { id = "op_bolvar_r1", text = "I've told myself the same on bad nights, and it helps a little. If you see him again, tell him the hill still holds, and that we'd hold better with fifty spears." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_bolvar_2 = {
+      lines = { { id = "op_bolvar_r2", text = "Careful, now; I said that once in Stormwind and they've not asked me back since. You're not wrong, mind, and that's the part that stings." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_bolvar_3 = {
+      lines = { { id = "op_bolvar_r3", text = "No, and I can't either, and that's why I've a captain and a scout and a hill full of farmers. I'll give him that much, and grudge him the rest." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_bolvar_4 = {
+      lines = { { id = "op_bolvar_r4", text = "Then I'll trust your judgement, since it's the Order's judgement too. Light keep him honest in that chair, because it's a heavier one than any armour." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
     xcl_stocks = {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Good, though I'll tell you plainly that Westfall won't feel it. The men in that prison have been out of the fight for years, and the ones burning our farms are still out there, so a quiet Stockade means a quiet city and nothing more for us." } },
@@ -575,6 +606,7 @@ P:NPC {
         { id = "gxu_paladin", when = { class = "PALADIN" }, text = "You'll know he's dead and the Order scattered after him. I don't hold that the oath died with the Order, and I don't think you do either, or you'd not be wearing it on my hill." },
       },
       choices = {
+        { text = "Did you know Bolvar Fordragon in the Order?", next = "op_bolvar" },
         { text = "The people in front of you. That's a good creed.", next = "gr_uther2" },
         { text = "Something else.", next = "BACK" },
       },

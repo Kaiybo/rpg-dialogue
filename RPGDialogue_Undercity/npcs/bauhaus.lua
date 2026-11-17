@@ -51,8 +51,33 @@ P:NPC {
       lines = { { id = "prej_bauhaus_calm_default", text = "Now there's a question nobody asks. Most of the missing are from Andorhal and Stratholme, and I'll want them in triplicate, but the thought is very nearly touching." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    op_forsaken = {
+      big = true,
+      lines = {
+        { id = "opfk_default", text = "My records sort the dead into those who serve the Dark Lady and those who serve the Lich King, and the living sort us all into one pile. You've walked among both, so tell me: are the Forsaken still Lordaeron's people, or something new?" },
+      },
+      choices = {
+        { text = "Still Lordaeron's people. The plague didn't erase who they were.", next = "op_forsaken_r1", fx = { align = { light = 1 }, opinion = { forsaken = "people" } } },
+        { text = "Something new. Lordaeron died, and good riddance to it.", next = "op_forsaken_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { forsaken = "new" } } },
+        { text = "They're the Horde's allies. That's all I need to know.", next = "op_forsaken_r3", fx = { trait = { practical = 1 }, opinion = { forsaken = "allies" } }, when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "I'll leave that to your ledgers, Overseer.", next = "BACK" },
+      },
+    },
+    op_forsaken_r1 = {
+      lines = { { id = "opfk_r1", text = "That is the view my ledgers take as well, since I keep the old names beside the new ones. Not everyone in the Royal Quarter thanks me for it." } },
+      choices = { { text = "Something else, Overseer.", next = "BACK" } },
+    },
+    op_forsaken_r2 = {
+      lines = { { id = "opfk_r2", text = "A clean break makes for tidy records, I'll allow, and the Dark Lady would agree with you. I still keep the old names, though, in case anyone comes asking." } },
+      choices = { { text = "Something else, Overseer.", next = "BACK" } },
+    },
+    op_forsaken_r3 = {
+      lines = { { id = "opfk_r3", text = "Then you'll find yourself on the right side of the census, which is where everyone ought to want to be." } },
+      choices = { { text = "Something else, Overseer.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_fknew", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "people" } }, text = "Someone in the Royal Quarter mentioned you think we're still Lordaeron's people. I've made a note of it, in the margin, where I keep the kind remarks." },
         { id = "h_default", key = true, text = "Royal Overseer Bauhaus, of the Undercity census. Since our liberation from the Scourge, we have tried to keep an accurate account of the city's populace, and through a certain arcane discipline, I can reach those records." },
         { id = "h_parcel", tags = { "news" }, when = { questActive = TODO_QUEST("Better Late Than Never") },
           text = "A parcel for one Jeremiah Felstone of Lordaeron, posted more than four years ago? Are you here for the census, or to ask me if someone you knew is dead? I get asked that a great deal." },
@@ -107,6 +132,7 @@ P:NPC {
       lines = { { id = "na_default", text = "Often. Some can't bear to answer to the name their mothers used, and some would rather their old debts not find them. The census records both names and judges neither." } },
       choices = {
         { text = "Did you change yours?", next = "names_own" },
+        { text = "Do you count the Forsaken as Lordaeron's people, Overseer?", next = "op_forsaken" },
         { text = "Something else.", next = "BACK" },
       },
     },

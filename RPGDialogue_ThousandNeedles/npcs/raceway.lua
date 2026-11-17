@@ -20,6 +20,7 @@ P:NPC {
     { id = "g_pj_gnome", when = { prejudiced = true }, text = "Whoa, whoa, a gnome in my pit! Keep your hands where I can see 'em, pal, because the last gnome who wandered in here just to look walked off with my fuel ratios in his hat." },
     { id = "g_pj_gnome2", when = { prejudiced = true, metBefore = true }, text = "Back again, huh? I had the boys count the spanners after your last visit and they're all here, which is either honest or very, very clever, and I'm still decidin' which." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Listen, I'll say this once and deny it at the next heat: you're the only gnome I'd let near my engine, kid, and that's worth more than a sponsorship, so don't spend it all at once." },
+    { id = "o_gb_distrust", when = { gossip = { topic = "goblins", stance = "distrust" } }, text = "Hey, hey, I heard you told Fizzle goblins are reckless and greedy. Greedy, fine, that's just business, but reckless? I resent that, kid, from a very safe distance." },
     { id = "g_race", text = "Hey hey, kid, here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat, and the betting window's open now." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, kid, so bet again, and bet bigger." },
     { id = "g_away", when = { away = 14 }, text = "My favorite spectator, back after {away}! You missed a dozen races, and we won most of them, so bet on us again." },
@@ -50,6 +51,51 @@ P:NPC {
       choices = {
         { text = "That's petty, but it's funny. I'm not with them.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_gnomes = {
+      lines = {
+        { id = "opg_q", text = "Look, look, you've seen both crews now, so I want an honest opinion from a neutral party, and I'll know if you're lyin'. What do you really think of gnomes?" },
+        { id = "opg_q_gn", when = { race = "Gnome" }, text = "Okay, so you're a gnome, which makes this awkward, but I've paid for awkward before. Be honest with me, what do you think of your own people's engineerin'?" },
+      },
+      choices = {
+        { text = "Brilliant engineers. They lost Gnomeregan, not their wits.", next = "op_gnomes_r1", fx = { affinity = -2, align = { honor = 1 }, opinion = { gnomes = "admire" } } },
+        { text = "All theory and no nerve. Goblins actually finish things.", next = "op_gnomes_r2", fx = { affinity = 3, align = { honor = -1 }, opinion = { gnomes = "soft" } } },
+        { text = "Both crews are mad. You deserve each other.", next = "op_gnomes_r3", fx = { affinity = 1, trait = { witty = 1 }, opinion = { mirage_raceway = "madness" } } },
+        { text = "Gnomeregan's fall wasn't our fault, and we'll take it back.", next = "op_gnomes_r4", fx = { affinity = -1, opinion = { gnomeregan = "reclaim" } }, when = { race = "Gnome" } },
+        { text = "I'm not getting between you two, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r1 = {
+      lines = {
+        { id = "op_gnomes_r1", text = "Brilliant, you say! Brilliant engineers don't flood their own city with radiation, pal. I'll overlook it, because you've got honest eyes, but write that one off as a loss." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r2 = {
+      lines = {
+        { id = "op_gnomes_r2", text = "Finally, somebody who gets it! Go tell Fizzle that, would ya, and stand well back, because he's got a temper and a wrench." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r3 = {
+      lines = {
+        { id = "op_gnomes_r3", text = "Ha! Okay, fair hit, and I'm puttin' that on a sign. Madness is great for ticket sales, kid." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r4 = {
+      lines = {
+        { id = "op_gnomes_r4", text = "Sure, sure, and when you do, I've got a cousin who'll sell ya cleaning supplies on very fair terms. I mean it, kid, good luck." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
       },
     },
     xpt_pozzik = {
@@ -194,7 +240,10 @@ P:NPC {
     why = {
       big = true,
       lines = { { id = "y_default", text = "Because some arguments you can't win talking, kid. You need a mile of salt, two rockets and a crowd, plus wagers, mostly wagers." } },
-      choices = { { text = "Makes a strange kind of sense.", next = "BACK", fx = { affinity = 2, learn = { "mirage_raceway" } } } },
+      choices = {
+        { text = "So what does everyone else think of gnomes?", next = "op_gnomes" },
+        { text = "Makes a strange kind of sense.", next = "BACK", fx = { affinity = 2, learn = { "mirage_raceway" } } },
+      },
     },
     faster = {
       lines = { { id = "f_default", text = "Every bit counts, kid: tension coils, power output, weight. We use vulture bones for the small frame work, because they're light and strong and cost nothin', and the sky here rains vultures." } },
@@ -288,6 +337,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_gn_soft", when = { gossip = { topic = "gnomes", stance = "soft" } }, text = "Pozzik has been telling everyone at the track that you think gnomes have no nerve. I have plenty of nerve! Stand still and I'll show you." },
     { id = "g_track", text = "Mind the track, and the fuel lines, and the nitro... actually, just stand very still!" },
     { id = "g_back", when = { metBefore = true }, text = "You, excellent! I've recalibrated everything since you were here, twice." },
   },
@@ -301,6 +351,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_goblins = {
+      lines = {
+        { id = "opgb_q", text = "Pozzik says goblins are better engineers, and Pozzik is wrong, but I like to collect data before I say so again. What do you think of goblins?" },
+      },
+      choices = {
+        { text = "Reckless and greedy. Their machines work by accident.", next = "op_goblins_r1", fx = { affinity = 3, align = { order = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "They get results while gnomes are still drawing plans.", next = "op_goblins_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { goblins = "useful" } } },
+        { text = "Gazlowe built Ratchet out of nothing. I respect that.", next = "op_goblins_r3", fx = { opinion = { goblins = "respect" } } },
+        { text = "I'd rather stay well out of this, Fizzle.", next = "BACK" },
+      },
+    },
+    op_goblins_r1 = {
+      lines = {
+        { id = "op_goblins_r1", text = "By accident! I'm writing that down in the margin of the Indurium notes, and I'll read it out at the next race." },
+      },
+      choices = {
+        { text = "Something else, Fizzle.", next = "BACK" },
+      },
+    },
+    op_goblins_r2 = {
+      lines = {
+        { id = "op_goblins_r2", text = "Results that explode, and the explosions aren't on purpose, which is the important difference! Very well, I'll take your data under advisement." },
+      },
+      choices = {
+        { text = "Something else, Fizzle.", next = "BACK" },
+      },
+    },
+    op_goblins_r3 = {
+      lines = {
+        { id = "op_goblins_r3", text = "Ratchet, yes, and it's very nicely built, and I have absolutely no comment on it." },
+      },
+      choices = {
+        { text = "Something else, Fizzle.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very like, really, because both involve careful preparation followed by a loud noise and somebody shouting. The difference is that when my work goes wrong I lose a piston, and when yours goes wrong you lose rather more than that." } },
@@ -454,7 +539,10 @@ P:NPC {
     },
     why = {
       lines = { { id = "y_default", text = "Because they're there, and because they're wrong. Mostly the second." } },
-      choices = { { text = "Good to know. I'll keep clear of the salt.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } } },
+      choices = {
+        { text = "What do you make of goblins, Fizzle?", next = "op_goblins" },
+        { text = "Good to know. I'll keep clear of the salt.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } },
+      },
     },
     engine = {
       big = true,

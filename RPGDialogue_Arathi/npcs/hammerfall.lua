@@ -54,6 +54,58 @@ P:NPC {
         { text = "Something else, Gor'mul.", next = "BACK" },
       },
     },
+    opn_thrall = {
+      lines = {
+        { id = "opn_thrall_q", text = "Go on, then, and don't dress it up for an old orc with one bad leg. I've heard enough songs about him at Drum's fire to fill a camp." },
+      },
+      choices = {
+        { text = "He's the best thing that's happened to our people.", next = "opn_thrall_r_trust", fx = { affinity = -1, align = { light = 1 }, opinion = { warchief = "trust" } } },
+        { text = "He's a good chieftain. He's no Doomhammer.", next = "opn_thrall_r_lesser", fx = { affinity = 1, align = { light = -1 }, opinion = { warchief = "lesser" } } },
+        { text = "He keeps faith with his people. That's all I ask.", next = "opn_thrall_r_respect", fx = { trait = { practical = 1 }, opinion = { warchief = "respect" } } },
+        { text = "He was a slave in a camp too. He knows, Gor'mul.", next = "opn_thrall_r_kin", when = { faction = "Horde" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { warchief = "kin" } } },
+        { text = "On second thought, I'll keep it to myself.", next = "BACK" },
+      },
+    },
+    opn_thrall_r = {
+      lines = {
+        { id = "opn_thrall_r_default", text = "Wise. Words about a warchief have a way of finding their way back to him." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_trust = {
+      lines = {
+        { id = "opn_thrall_r_trust", text = "The best thing. Doomhammer was the best thing, too, until a knight came out of the dark behind him. I hope your Warchief watches his back." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_lesser = {
+      lines = {
+        { id = "opn_thrall_r_lesser", text = "No, he isn't. Nobody is, and I'd be a liar to say I'd follow anyone the way I followed him. Thank you for not singing at me." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_respect = {
+      lines = {
+        { id = "opn_thrall_r_respect", text = "That is all anyone should ask, and more than most chieftains give. Perhaps I'll believe in him a little, then, on the days my leg doesn't ache." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_kin = {
+      lines = {
+        { id = "opn_thrall_r_kin", text = "He was, they say, in Durnholde. Then he knows the smell. That is worth more to me than any song Drum's fire can sing." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Hate takes strength, and I left mine in these chains. The humans who killed the Warchief prayed to that Light, and now you stand here holding it for the Horde, and I do not know what to feel." } },
@@ -213,7 +265,10 @@ P:NPC {
     },
     thrall = {
       lines = { { id = "th_default", text = "So they tell me, a young one raised by humans who freed the camps and leads us across the sea. I would like to believe in him, but I believed in Doomhammer, and I saw what believing is worth." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Let me tell you what I think of Thrall.", next = "opn_thrall" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhwar = {
       big = true,

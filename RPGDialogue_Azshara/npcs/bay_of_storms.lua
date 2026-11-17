@@ -32,6 +32,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_darkiron = {
+      lines = {
+        { id = "opd_default", text = "Forgiven? Water does not forgive or condemn, mortal; it only wears away what is in its path. But your kind trades in such words, so tell me how you would judge them." },
+      },
+      choices = {
+        { text = "Their grandsires did it. The living can still choose better.", next = "op_di_forgive", fx = { align = { light = 1 }, opinion = { dark_iron = "redeemable" } } },
+        { text = "They woke a god of fire. Every one must answer for it.", next = "op_di_answer", fx = { affinity = 1, align = { light = -1 }, opinion = { dark_iron = "hate" } } },
+        { text = "They're our kin, Duke, and they're our shame.", next = "op_di_kin", fx = { opinion = { dark_iron = "mixed", dwarves = "ashamed" } }, when = { race = "Dwarf" } },
+        { text = "I'll leave judgment to the tides.", next = "BACK" },
+      },
+    },
+    op_di_forgive = {
+      lines = {
+        { id = "opdf_default", text = "You say they can choose better, and yet they kneel to Ragnaros still, and stoke his fires, and call it worship. Choose as you like, mortal, but bring me his lieutenants all the same." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_answer = {
+      lines = {
+        { id = "opda_default", text = "Then we are agreed, though not for your reasons. Their choices do not interest me, only the fire they feed, and I would see it quenched." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_kin = {
+      lines = {
+        { id = "opdk_default", text = "Shame is a thing for those who stay dry. Use it as you will, little dwarf, and use it against the fire if you can." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_mc = {
       big = true,
       lines = { { id = "xcl_mc_default", text = "Won? You have smothered one flame, the greatest of them, but fire does not die, it waits. The Firelord will gather himself again in time, and when he does I want the Waterlords standing over the place he returns to." } },
@@ -230,6 +259,7 @@ P:NPC {
           text = "The Firelord. The dwarves of the Dark Iron called him up out of the deep places, and now he burns beneath their mountain and they serve him. They fear us, I am told, those Dark Irons who drink in his halls, and they are right to." },
       },
       choices = {
+        { text = "Should the Dark Iron be forgiven for waking him?", next = "op_darkiron" },
         { text = "Then I'll fight fire for you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "I'll fight fire when it pays, Duke.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -371,6 +401,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "opd_default", text = "That is the question my own people answered for me, by sending me away. They decided the price was too high. I would hear what a mortal decides, since you will live with the consequences longer than they will." },
+      },
+      choices = {
+        { text = "To beat a demon, you must know one. You chose rightly.", next = "op_dem_right", fx = { affinity = 1, align = { light = -1 }, opinion = { demons = "necessary" } } },
+        { text = "Some power is too tainted to touch, whatever the cause.", next = "op_dem_wrong", fx = { affinity = -1, align = { light = 1 }, opinion = { demons = "hate" } } },
+        { text = "Our people cast you out. They were wrong to.", next = "op_dem_right", fx = { affinity = 2, opinion = { demon_hunters = "respect" } }, when = { race = "NightElf" } },
+        { text = "I'm not the one to judge that.", next = "BACK" },
+      },
+    },
+    op_dem_right = {
+      lines = {
+        { id = "opdr_default", text = "Rightly, perhaps, and I have paid for being right every day since. Do not envy it, {race}; there are easier truths to carry." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dem_wrong = {
+      lines = {
+        { id = "opdw_default", text = "Then you sound like the priestesses, and they at least had the courage to say it to my face. Keep your clean hands, mortal, while there are still people like me to dirty theirs for you." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_loramus = {
       big = true,
       lines = { { id = "xpt_loramus_default", text = "Dangerous to everyone but the demons, who are the only ones who always profit from the bargain. I have hunted demons since before your kingdoms had names, and I've never met a warlock who believed they'd be the one to slip, so watch yours closely." } },
@@ -564,7 +617,10 @@ P:NPC {
     },
     who_alone = {
       lines = { { id = "wa_default", text = "Because my own people look at me as if I were the thing I hunt, and other peoples look at me as if I were mad. My hounds look at me as if I were their master, which is restful, and almost true." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Was it worth it, using the enemy's power against him?", next = "op_demons" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     see = {

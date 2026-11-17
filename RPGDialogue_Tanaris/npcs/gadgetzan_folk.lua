@@ -28,6 +28,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_venture = {
+      lines = {
+        { id = "opv_q", text = "Now, the one outfit I'd never let past the vault door is the Venture Company, and I'd like to know if you see it the same way. What do you think of them, pal?" },
+      },
+      choices = {
+        { text = "Butchers and strip-miners. They'd sell the world for scrap.", next = "op_venture_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { venture_company = "hate" } } },
+        { text = "They get rich, don't they? Can't argue with results.", next = "op_venture_r2", fx = { affinity = -2, align = { light = -1 }, trait = { greedy = 1 }, opinion = { venture_company = "admire" } } },
+        { text = "They're goblins like you. The difference is the contract.", next = "op_venture_r3", fx = { trait = { witty = 1 }, opinion = { goblins = "contract" } } },
+        { text = "I've no dealings with them, Gimblethorn.", next = "BACK" },
+      },
+    },
+    op_venture_r1 = {
+      lines = {
+        { id = "op_venture_r1", text = "That's the spirit, and that's the right answer for anybody who wants an account here. Venture gold smells of burnt forest, and it never counts right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_venture_r2 = {
+      lines = {
+        { id = "op_venture_r2", text = "Results, sure, and so does a rockslide. I'll be countin' your deposits twice, kid, nothing personal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_venture_r3 = {
+      lines = {
+        { id = "op_venture_r3", text = "Ouch! Okay, fair, the difference is about forty percent and a conscience, but I'll give you the rest." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I trust a warrior exactly as far as the Bruisers can throw one, and they're very strong. It's nothing personal, but a sword is a key that fits every lock, and I've spent my life, and a good deal of the Cartel's money, keeping keys away from the vault." } },
@@ -202,6 +237,7 @@ P:NPC {
         { id = "bs_default", text = "Side by side, in the same vault, and they've never once started a war down there. If the factions behaved half as well as their gold does, I'd be out of a job guarding it." },
       },
       choices = {
+        { text = "Who would you never let into the vault?", next = "op_venture" },
         { text = "Neutral ground is good for everyone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd sooner not share a roof with them.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -243,6 +279,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "I'll not lie to you, there are dwarves in Ironforge who'd box my ears for nodding at an orc. You've seen more of the Horde than I have from this yard, so what do you make of them?" },
+        { id = "oph_q_h", when = { faction = "Horde" }, text = "You're of the Horde yourself, so you'll know them better than any dwarf. Tell me straight what I should make of your lot." },
+      },
+      choices = {
+        { text = "Most of them want what we want: a roof, a meal, no war.", next = "op_horde_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { horde = "mixed" } } },
+        { text = "They're the enemy. Gadgetzan's peace is only goblin coin.", next = "op_horde_r2", fx = { affinity = -1, align = { light = -1 }, opinion = { horde = "war" } } },
+        { text = "Your clan would box your ears, Bera. Mine too.", next = "op_horde_r3", fx = { trait = { witty = 1 }, opinion = { horde = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "We keep our word, Bera, and Bulkrek keeps his.", next = "op_horde_r4", fx = { affinity = 1, opinion = { dwarves = "respect" } }, when = { faction = "Horde" } },
+        { text = "I'll leave that to you and Bulkrek.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "Aye, that's what I see in Bulkrek, though he'd never say it in so many words. Maybe I'll tell him you said so." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "The enemy, maybe, back home. Out here the enemy's the sand and the bandits, and I'll fight those first, thank you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "Ha! Aye, they would, and then they'd want to know how his wyverns stay so glossy. Ironforge is a very curious place." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "Then the two of us will keep nodding in the mornings, and the Bruisers can have a quiet life. That suits me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_bera = {
       big = true,
       lines = { { id = "xpt_bera_default", text = "Every day, and twice when the sandstorms come, because there's no wind under the mountain and no sand in your ale. But the gryphons need someone who knows them, and a dwarf goes where the work is and complains about it later." } },
@@ -401,7 +482,10 @@ P:NPC {
         { id = "bk_default", text = "We share a well and a wall, and we nod in the mornings. The Bruisers make sure that's all we do, though truth be told, he keeps his beasts better than half the gryphon masters I trained with." },
         { id = "bk_dwarf", when = { race = "Dwarf" }, text = "Aye, I know what Ironforge would say about it, and Ironforge isn't here sweating with me. He keeps his beasts well, and that's the measure I use." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "What do you make of the Horde, Bera?", next = "op_horde" },
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
     },
   },
 
@@ -431,6 +515,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_horde_mixed", when = { gossip = { topic = "horde", stance = "mixed" } }, text = "The dwarf says you told her the Horde wants a roof and a meal like anyone. She nodded at me twice this morning, so I suppose I owe you for it." },
     { id = "g_default", text = "You need a wind rider, or you need shade? Both are here; only one is free." },
   },
 
@@ -441,6 +526,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dwarves = {
+      lines = {
+        { id = "opd_q", text = "You've seen me nod at the dwarf. Tell me, traveller: what do you think of the dwarves?" },
+      },
+      choices = {
+        { text = "Stubborn but honest. You could do worse for a neighbour.", next = "op_dwarves_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They fought the Horde in every war. Don't forget it.", next = "op_dwarves_r2", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { dwarves = "distrust" } } },
+        { text = "I'm a dwarf, orc. We remember the Horde too.", next = "op_dwarves_r3", fx = { opinion = { horde = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "I've nothing to say about dwarves.", next = "BACK" },
+      },
+    },
+    op_dwarves_r1 = {
+      lines = {
+        { id = "op_dwarves_r1", text = "Stubborn, yes, and her gryphons are as stubborn as she is. I can work with that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r2 = {
+      lines = {
+        { id = "op_dwarves_r2", text = "I don't forget it. I nod anyway, because the Bruisers are watching, and because she keeps her beasts well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r3 = {
+      lines = {
+        { id = "op_dwarves_r3", text = "Good. Then we remember together, and we keep the wall standing. That's enough for Gadgetzan." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "He'll know by tomorrow, because he knows everything that happens in this yard, and so do I. We nod at each other every morning, and I think he'll nod a little longer when he sees you, since his paladins never smelled like that." } },
@@ -582,6 +702,7 @@ P:NPC {
         { id = "g_orc", when = { race = "Orc" }, text = "Every orc remembers the camps, or the stories of them, so you know what it means to nod at a dwarf each morning and not reach for an axe. I've done it for a year now, and some days I even mean the nod." },
       },
       choices = {
+        { text = "What do you think of dwarves?", next = "op_dwarves" },
         { text = "Peace with the Alliance is worth keeping.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A truce bought by goblins won't last.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

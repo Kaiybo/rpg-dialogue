@@ -49,6 +49,41 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    op_theramore = {
+      lines = {
+        { id = "opt_q", text = "Well now, everybody who comes past here's either goin' to Theramore or comin' from it, and they all got an opinion. What do you make of the place?" },
+      },
+      choices = {
+        { text = "A good town, and the Lady's doing right by everyone.", next = "op_theramore_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { theramore = "admire" } } },
+        { text = "Too many soldiers, too many rules. I'd rather your island.", next = "op_theramore_r2", fx = { affinity = 2, align = { order = -1 }, opinion = { theramore = "stifling" } } },
+        { text = "It's a target. One bad day and the Horde burns it.", next = "op_theramore_r3", fx = { trait = { cautious = 1 }, opinion = { theramore = "doomed" } } },
+        { text = "Haven't made my mind up yet, Nat.", next = "BACK" },
+      },
+    },
+    op_theramore_r1 = {
+      lines = {
+        { id = "op_theramore_r1", text = "Can't argue, and I won't, 'cause arguin' is work. Their docks are fine for fishin', mind, when the guards ain't marchin' up and down 'em." },
+      },
+      choices = {
+        { text = "Something else, Nat.", next = "BACK" },
+      },
+    },
+    op_theramore_r2 = {
+      lines = {
+        { id = "op_theramore_r2", text = "Ha! Now you're talkin' sense. Pull up a stump and sit a while, 'cause the fish don't salute anybody." },
+      },
+      choices = {
+        { text = "Something else, Nat.", next = "BACK" },
+      },
+    },
+    op_theramore_r3 = {
+      lines = {
+        { id = "op_theramore_r3", text = "Maybe so, but I been hearin' that for years and it ain't happened yet. I'll worry about it when the smoke's close enough to spoil the bait." },
+      },
+      choices = {
+        { text = "Something else, Nat.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Nat Pagle. Folks come a long way to find me, and I've never understood it, since all I do is sit on a dock and wait for somethin' to happen." },
@@ -122,7 +157,10 @@ P:NPC {
     },
     theramore_horde = {
       lines = { { id = "th_default", text = "The ogres don't come down this far, and the orcs leave me be. A fella with a fishin' pole ain't much of a threat to anybody but the fish, and the fish don't belong to the Horde or the Alliance." } },
-      choices = { { text = "Something else, Nat.", next = "BACK" } },
+      choices = {
+        { text = "What do you make of Theramore yourself?", next = "op_theramore" },
+        { text = "Something else, Nat.", next = "BACK" },
+      },
     },
     drink = {
       lines = { { id = "d_default", text = "It might be, and it might be empty, which is a worse question. Fishin' is a fine excuse to drink, and I take my excuses seriously." } },

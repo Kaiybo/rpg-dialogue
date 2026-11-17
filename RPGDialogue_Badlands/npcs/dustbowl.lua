@@ -24,6 +24,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_league = {
+      lines = {
+        { id = "opl_default", text = "There's folk in Ironforge who say we dig where we shouldnae, that the titans sealed their vaults for a reason. Hammertoe used tae laugh at them, an' now he's buried under one. So what say ye, friend?" },
+      },
+      choices = {
+        { text = "Dig it all up. The past belongs to whoever finds it.", next = "op_league_dig", fx = { affinity = 1, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Some vaults were sealed for a reason. Leave them be.", next = "op_league_seal", fx = { align = { order = 1 }, trait = { cautious = 1 }, opinion = { explorers_league = "distrust" } } },
+        { text = "The League's looking for where we came from. That matters.", next = "op_league_dig", fx = { affinity = 2, opinion = { explorers_league = "respect", dwarves = "proud" } }, when = { race = "Dwarf" } },
+        { text = "I'd ask Hammertoe, if I could.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_league_dig = {
+      lines = {
+        { id = "opld_default", text = "Aye, that's the League talkin', an' that's what Hammertoe would've said, rest his bones. I'll go back in, when I've the stomach, an' I'll bring out whatever he died lookin' for." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_league_seal = {
+      lines = {
+        { id = "opls_default", text = "Maybe ye're right, an' maybe that's the sense I should've had a month ago. Still, a dwarf who leaves a door shut is no' much of a dwarf, an' I'll go back in all the same." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_gnome = {
       big = true,
       lines = { { id = "xpt_gnome_default", text = "Always, but what it needs most is clever hands and quiet feet, because the troggs come up out of Uldaman whenever we make too much noise. A gnome or two with sense and a few fighters to keep the troggs off them would set the dig forward a month." } },
@@ -159,6 +182,7 @@ P:NPC {
         { id = "u_default", text = "Old, older than Ironforge, a vault the titans may have built, if ye believe the scholars. Hammertoe believed, an' look where it got him." },
       },
       choices = {
+        { text = "Should vaults like that be opened at all?", next = "op_league" },
         { text = "I'm sorry about your partner.", next = "BACK", fx = { affinity = 3, learn = { "uldaman" } } },
         { text = "Is it worth it?", next = "uldaman_worth" },
       },
@@ -245,6 +269,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_league", when = { opinion = { topic = "explorers_league", stance = "distrust" } }, text = "I heard you think some old vaults are best left shut! Nonsense, friend; nothing is ever best left shut, though I say that as someone missing two eyebrows." },
     { id = "g_camp", text = "Hm? Oh, a visitor! Mind Servo, he's harmless, roughly ninety percent of the time, and don't touch anything glowing, or humming, or warm." },
   },
 
@@ -259,6 +284,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_elements = {
+      lines = {
+        { id = "ope_default", text = "Cruel to a rock? The shamans do say so, very loudly, and one of them threw a sandal at Lucien once. I've never had an elemental complain, but I'd like an outside opinion: is it cruel?" },
+      },
+      choices = {
+        { text = "Elementals aren't toys. Let them go.", next = "op_el_free", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "A rock is a rock. Bind it and learn something.", next = "op_el_bind", fx = { affinity = 1, align = { light = -1 }, opinion = { the_elements = "useful" } } },
+        { text = "The spirits remember every chain, Lotwil.", next = "op_el_free", fx = { affinity = -1, opinion = { the_elements = "respect" } }, when = { class = "SHAMAN" } },
+        { text = "I'll leave that to you and the shamans.", next = "BACK" },
+      },
+    },
+    op_el_free = {
+      lines = {
+        { id = "opef_default", text = "Let them go? But they'd only go back to being rocks with opinions! I'll consider it, I promise, right after this experiment, and maybe the one after that." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_el_bind = {
+      lines = {
+        { id = "opeb_default", text = "Exactly what I said to the sandal-thrower! Knowledge doesn't come from asking politely, it comes from shackles, measurements and a very good pair of goggles." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone has to stand near the rock elementals while I take readings, and they agitate rather easily. The last time I tried it myself I spent an afternoon flattened under a boulder, and the readings were dreadful." } },
@@ -416,7 +464,10 @@ P:NPC {
     },
     rock = {
       lines = { { id = "r_default", text = "Because it's honest! Fire lies about how hot it is, water won't hold still and air's never where you left it, but rock just sits there being exactly what it is." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "The shamans say binding elementals is cruel. Is it?", next = "op_elements" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     engineer = {
       lines = { { id = "e_default", text = "It's a device to read what an elemental was thinking when it fell apart, and it doesn't work yet, though the third prototype only smoked a little. When it does work, it'll be the most interesting failure since Gnomeregan, and I mean that kindly." } },

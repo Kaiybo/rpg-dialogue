@@ -441,6 +441,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The High Priestess leads, and the Archdruid would like to, and the rest of us look from one to the other like children at supper. You will stand before both of them before long, so tell me whom you would follow." },
+      },
+      choices = {
+        { text = "Tyrande. She led at Hyjal and she held the line.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { tyrande = "admire" } } },
+        { text = "Fandral. He grew this tree, and he thinks ahead.", next = "op_r2", fx = { align = { order = -1 }, opinion = { fandral = "admire" } } },
+        { text = "Neither of them. I'll follow my own sense.", next = "op_r3", fx = { trait = { brave = 1 }, opinion = { tyrande = "doubt", fandral = "doubt" } } },
+        { text = "Malfurion. I'll wait for him to wake.", next = "op_r4", fx = { affinity = 1, trait = { patient = 1 }, opinion = { malfurion = "faith" } }, when = { race = "NightElf" } },
+        { text = "I haven't met either of them yet.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "So would I, and so did I. Her arrows did more at Hyjal than any speech I heard there." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "He thinks ahead, I'll give him that, and he thinks loudly. Mind that he doesn't think ahead of you." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A young one's answer, and not a bad one, though in Darnassus you'll find that choosing nobody is a choice as well." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you'll wait a long while, and kindly. I hope he wakes to find that we kept his house in order." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I hope for every one, though not all return. I hope they climb back up one day. A shaman's spirits might watch over them." } },
@@ -562,6 +591,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've been up here a long while; I can listen a while longer." },
       },
       choices = {
+        { text = "Who leads your people, now that Malfurion sleeps?", next = "op_ask" },
         { text = "What lies beyond the glade?", next = "beyond" },
         { text = "Filling a phial seems a small errand for a first lesson.", next = "crown" },
         { text = "What happened at Hyjal?", next = "hyjal" },

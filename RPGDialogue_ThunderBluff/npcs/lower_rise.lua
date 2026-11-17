@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_cairne_soft", when = { opinion = { cairne = "soft" } }, text = "I hear you've been telling people the Chieftain has grown soft. I write down who says that, you know, and I write down who they say it to." },
+    { id = "o_sylv_trust", when = { gossip = { topic = "sylvanas", stance = "trust" } }, text = "They tell me you'd trust the Dark Lady with the Horde. I'd very much like to know what you've seen of her that I haven't." },
     { id = "g_hi", text = "Sit if you like, but keep your voice low. Half the mesa listens for a living." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good, I had a question I meant to ask someone who travels." },
     { id = "g_comp", when = { questActive = TODO_QUEST("Compendium of the Fallen") }, text = "The Compendium is in the monastery's library wing, if the Scarlet zealots haven't burned it for being too honest." },
@@ -36,6 +38,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_magatha = {
+      lines = {
+        { id = "opm_q", text = "Since you're here, let me ask you something I ask everyone who's been up to Elder Rise. What do you make of Magatha Grimtotem?" },
+      },
+      choices = {
+        { text = "She's a viper, and Cairne should send her back to Stonetalon.", next = "op_magatha_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { magatha = "distrust" } } },
+        { text = "She's clever, and she says what others only whisper. I respect that.", next = "op_magatha_r2", fx = { affinity = -2, align = { honor = -1 }, opinion = { magatha = "respect" } } },
+        { text = "She's harmless while Cairne lives. After that, I'd worry.", next = "op_magatha_r3", fx = { trait = { cautious = 1 }, opinion = { magatha = "dangerous" } } },
+        { text = "Her tribe threw mine out of my own grazing lands.", next = "op_magatha_r4", fx = { affinity = 1, opinion = { magatha = "hate" } }, when = { race = "Tauren" } },
+        { text = "I've barely spoken with her, sage.", next = "BACK" },
+      },
+    },
+    op_magatha_r1 = {
+      lines = {
+        { id = "op_magatha_r1", text = "I've said much the same to the council, though less politely. The Chieftain keeps her close for his own reasons, and I keep my notes for mine." },
+      },
+      choices = {
+        { text = "Something else, sage.", next = "BACK" },
+      },
+    },
+    op_magatha_r2 = {
+      lines = {
+        { id = "op_magatha_r2", text = "Clever, yes, and she lets you think she's being honest with you. That's the oldest trick on Elder Rise, and I'd rather you didn't fall for it." },
+      },
+      choices = {
+        { text = "Something else, sage.", next = "BACK" },
+      },
+    },
+    op_magatha_r3 = {
+      lines = {
+        { id = "op_magatha_r3", text = "That's the part that keeps me awake, traveller. The High Chieftain won't live forever, and she knows it better than any of us." },
+      },
+      choices = {
+        { text = "Something else, sage.", next = "BACK" },
+      },
+    },
+    op_magatha_r4 = {
+      lines = {
+        { id = "op_magatha_r4", text = "Then you know more than any outsider could tell you. Write it down somewhere, calf, because one day the council may want to hear it." },
+      },
+      choices = {
+        { text = "Something else, sage.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am called Truthseeker, which my grandmother meant as a blessing and the Elder Council treats as a warning. I gather what can be known, so that when the High Chieftain asks a question, someone in this city has an honest answer for him." },
@@ -181,7 +227,10 @@ P:NPC {
     },
     sage_council = {
       lines = { { id = "sc_default", text = "The council distrusts anything it didn't think of first, and I think of a great deal. I don't mind, because the High Chieftain still sends for me, and the day he stops I'll know I've grown careless." } },
-      choices = { { text = "Something else, sage.", next = "BACK" } },
+      choices = {
+        { text = "Who does the council worry you about most?", next = "op_magatha" },
+        { text = "Something else, sage.", next = "BACK" },
+      },
     },
 
     f_ask = {

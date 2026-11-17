@@ -29,6 +29,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_warchief = {
+      lines = {
+        { id = "opw_q", text = "The Warchief brought us out of those camps, and every orc I know has a different thing to say about him now. What do you think of Thrall?" },
+      },
+      choices = {
+        { text = "He gave the orcs a future. He's the best of them.", next = "op_warchief_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { warchief = "trust" } } },
+        { text = "He's gone soft. Orcs were made for war, not kodo-herding.", next = "op_warchief_r2", fx = { affinity = -2, align = { light = -1 }, opinion = { warchief = "soft" } } },
+        { text = "He's a good leader, but one orc can't fix everything.", next = "op_warchief_r3", fx = { trait = { practical = 1 }, opinion = { warchief = "mixed" } } },
+        { text = "An honourable foe. The Alliance could use more like him.", next = "op_warchief_r4", fx = { affinity = 1, opinion = { warchief = "respect" } }, when = { faction = "Alliance" } },
+        { text = "I'd rather not say, Petra.", next = "BACK" },
+      },
+    },
+    op_warchief_r1 = {
+      lines = {
+        { id = "op_warchief_r1", text = "That's what I tell Dadanga on the long roads, and she's never once disagreed. Thank you for saying it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_warchief_r2 = {
+      lines = {
+        { id = "op_warchief_r2", text = "Then I'm soft too, and I'll not apologise for it. War made me a prisoner, and kodo-herding made me free." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_warchief_r3 = {
+      lines = {
+        { id = "op_warchief_r3", text = "No, he can't, and he'd tell you so himself. The rest is up to us, one kodo at a time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_warchief_r4 = {
+      lines = {
+        { id = "op_warchief_r4", text = "You're kind to say it here, where nobody's watching. I'll take that with me on the road to Gadgetzan." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "My name's Petra, and to my right is my kodo, Dadanga. We've been with Marshal Expeditions a few years now, ever since Dadanga was a babe, and I've had more honor from that beast's trust than I ever had from an axe." },
@@ -80,6 +124,7 @@ P:NPC {
       big = true,
       lines = { { id = "of_default", text = "I've done my share, in the camps and after, and I found I'd rather raise something than cut it down. Dadanga taught me that, more than any shaman did." } },
       choices = {
+        { text = "What do you think of the Warchief, Petra?", next = "op_warchief" },
         { text = "That's a strength, Petra, not a weakness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "An orc should keep her axe close, all the same.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

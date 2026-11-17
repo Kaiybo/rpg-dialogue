@@ -926,6 +926,50 @@ P:NPC {
       lines = { { id = "prej_calm_default", text = "Would you? Ah, you're a good sort. If you find it, pull it gently, because the last gnome who pulled it hard is still picking malt out of his ears." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
     },
+    opn_darkiron = {
+      lines = {
+        { id = "opn_darkiron_q", text = "Thieves an' fire-worshippers, an' they cannae brew tae save their lives, which is why they steal ours. Mind ye, my pappy used tae say they were Bronzebeards once, near enough. What's yer view o' the soot-beards?" },
+      },
+      choices = {
+        { text = "Thieves and murderers. Ironforge should root them out.", next = "opn_darkiron_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { dark_iron = "hate" } } },
+        { text = "They were kin once. Some might be again.", next = "opn_darkiron_r_kin", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { dark_iron = "kin" } } },
+        { text = "I'd fear Ragnaros more than any dwarf down there.", next = "opn_darkiron_r_enslaved", fx = { trait = { careful = 1 }, opinion = { dark_iron = "enslaved" } } },
+        { text = "Stealing a dwarf's ale is the worst thing they've done.", next = "opn_darkiron_r_hate", when = { race = "Dwarf" }, fx = { affinity = 2, trait = { witty = 1 }, opinion = { dark_iron = "hate" } } },
+        { text = "I'd rather talk about ale.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r = {
+      lines = {
+        { id = "opn_darkiron_r_default", text = "Then have a pint an' think on it, an' if ye decide ye hate 'em, have another." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_hate = {
+      lines = {
+        { id = "opn_darkiron_r_hate", text = "Ha! That's the spirit, an' if ye bring back my recipe while ye're rootin', there's a barrel in it for yer name on the wall." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_kin = {
+      lines = {
+        { id = "opn_darkiron_r_kin", text = "Kin? Hmph. Ye've a softer heart than a Thunderbrew, an' I'll no' say that tae anyone in Kharanos who lost a cousin at the Loch." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_enslaved = {
+      lines = {
+        { id = "opn_darkiron_r_enslaved", text = "The fire lord, aye. I've heard the tales an' I don't like 'em, so I'll stick tae hatin' the dwarves, if it's all the same tae ye." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Help? Brewin's already half fire an' half water, an' the rest is patience. If ye could ask the fire tae keep an even temper, I'd stop losin' a batch a month tae a sulkin' flame. My cousins say it's no' proper, mixin' spirits wi' spirits, but they're no' the ones scrapin' out the still." } },
@@ -1124,7 +1168,10 @@ P:NPC {
       lines = {
         { id = "th_default", text = "Thunderbrew Lager, our own recipe! A Dark Iron called Hurley Blackbreath has it down in Blackrock, brewin' it for his own lot, an' it turns my stomach." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
+      choices = {
+        { text = "What do you make of the Dark Iron, Ragnar?", next = "opn_darkiron" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
+      },
     },
     cookrecipe = {
       lines = {
@@ -1283,6 +1330,8 @@ P:NPC {
           text = "Another {altrace}, an' ye've the look o' {alt}, who slept upstairs one cold night an' left the bed made, which nobody does. Kin o' yers, I'd wager, so ye're welcome by the fire." },
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
           text = "There was a {altclass} called {alt} who came through Kharanos as green as ye, an' now I hear that name spoken in Ironforge wi' some respect. Mind ye do as well, for the valley likes tae boast about its own." },
+        { id = "o_darkiron_kin", tags = { "news" }, when = { gossip = { topic = "dark_iron", stance = "kin" } },
+          text = "Ragnar's been tellin' the whole bar ye called the Dark Iron kin. I'd keep that tae yerself in Kharanos, friend; there's folk here who buried sons at the Loch." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want a room near the stair, I think, fer that plate makes a racket, an' the brewers sleep light." },
         { id = "h_default", key = true,
           text = "Innkeeper Belm, at yer service. There's beds upstairs, ale downstairs, an' Rhapsody Malt fer anyone brewin' the Thunderbrew way." },

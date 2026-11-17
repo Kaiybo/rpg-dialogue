@@ -174,8 +174,8 @@ P:NPC {
         { id = "cw_default", text = "Because they are shen'dorei, child, the same as you and I, and many of them only joined because they were frightened. It's a hard thing to draw a blade on your own cousins, and I'd hoped the fear would pass before the blades were needed." },
       },
       choices = {
-        { text = "They're still our people. Turn them back where you can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They chose the grey robes. Cut them down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're still our people. Turn them back where you can.", next = "BACK", fx = { opinion = { zep_alaketh = "redeemable" }, affinity = 1, align = { light = 1 } } },
+        { text = "They chose the grey robes. Cut them down.", next = "BACK", fx = { opinion = { zep_alaketh = "hate" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -416,8 +416,8 @@ P:NPC {
         { id = "sg_default", text = "Nobody knows, and I've no patience for anyone who claims otherwise. He spent his last years among us tending our bond with the wind spirits, and now he is gone and so are they, and the Council must manage without either." },
       },
       choices = {
-        { text = "A council of many is safer than one ruler.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "shal_nan" } } },
-        { text = "In a crisis, one strong leader would serve better.", next = "BACK", fx = { align = { order = -1 }, learn = { "shal_nan" } } },
+        { text = "A council of many is safer than one ruler.", next = "BACK", fx = { opinion = { zep_council = "trust" }, affinity = 1, align = { order = 1 }, learn = { "shal_nan" } } },
+        { text = "In a crisis, one strong leader would serve better.", next = "BACK", fx = { opinion = { zep_council = "weak" }, align = { order = -1 }, learn = { "shal_nan" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "shal_nan" } } },
       },
     },
@@ -426,8 +426,32 @@ P:NPC {
         { id = "ta_default", text = "Careful, patient and honest to a fault, which is why the Council keeps choosing her. She'd tell you herself that she never wanted the seat, and she'd be telling the truth." },
       },
       choices = {
+        { text = "Does she rule well, though?", next = "ta_ask" },
         { text = "Something else, Elder.", next = "BACK" },
       },
+    },
+    -- Opinion pass: Aetheen turns the question into one of her trials.
+    ta_ask = {
+      big = true,
+      lines = { { id = "tq_default", text = "Everything here is a trial, child, and so is that question, so I'll hand it back to you. Does the High Elder rule well, holding two quarrelling orders together, or does she keep the peace only by deciding nothing?" } },
+      choices = {
+        { text = "Holding them together is ruling well.", next = "ta_ask_well", fx = { opinion = { zep_talaanis = "trust" }, align = { order = 1 } } },
+        { text = "She waits too long. Someone has to decide.", next = "ta_ask_slow", fx = { opinion = { zep_talaanis = "slow" }, align = { order = -1 } } },
+        { text = "The Shal'nan would have done better.", next = "ta_ask_shalnan", fx = { opinion = { zep_shalnan = "missed" }, learn = { "shal_nan" } } },
+        { text = "I'm too new here to judge an elder.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    ta_ask_well = {
+      lines = { { id = "tqw_default", text = "A fair answer, and one the Council would like to hear. I'll add only that a rope that holds two weights is not the same as a bridge, and leave you to think on it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ta_ask_slow = {
+      lines = { { id = "tqs_default", text = "You sound like half the young Peacekeepers, and like me on my worse days. Be careful, though; a quick decision is how our people came to be living in the sky." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ta_ask_shalnan = {
+      lines = { { id = "tqh_default", text = "Perhaps he would, and perhaps that is why he left; a man that sure of himself may have grown tired of being right alone. We'll not see him again to ask, I think." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     winds = {
       lines = {

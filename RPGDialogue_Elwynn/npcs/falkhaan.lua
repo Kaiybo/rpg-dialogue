@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_refugees_welcome", when = { opinion = { topic = "westfall_refugees", stance = "welcome" } }, text = "Ah, you're back! Two more carts came up from Westfall this week, and I told them a friend of the road had spoken up for them." },
     { id = "g_road", text = "The road south's the best road in Elwynn, friend, because it ends at a warm fire and a soft bed." },
     { id = "g_back", when = { questDone = TODO_QUEST("Rest and Relaxation") }, text = "Well? Is the Lion's Pride everything I said?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be walking. The inn's lamps are lit; follow them." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_refugees = {
+      lines = {
+        { id = "op_refugees_a", text = "Depends who you ask, and when. Farley feeds them, the farmers hire them, and a few people at the bar say every Westfall cart brings a Defias in the bottom of it. You've walked the road, so what do you say?" },
+      },
+      choices = {
+        { text = "They're our own people. Goldshire should take in every one.", next = "op_refugees_1", fx = { opinion = { westfall_refugees = "welcome", westfall = "abandoned" }, align = { light = 1 }, affinity = 2 } },
+        { text = "Some of them are thieves. Goldshire's right to watch them close.", next = "op_refugees_2", fx = { opinion = { westfall_refugees = "trouble", defias = "hardline" }, align = { light = -1 } } },
+        { text = "Feed them, yes, but somebody has to take Westfall back for them.", next = "op_refugees_3", fx = { opinion = { westfall_refugees = "welcome", westfall = "send_soldiers" }, trait = { brave = 1 } } },
+        { text = "I came up that road myself. Most of us only want work.", next = "op_refugees_4", when = { origin = "human_westfall_farmhand" }, fx = { opinion = { westfall_refugees = "welcome" }, affinity = 3 } },
+        { text = "I've no strong view on it.", next = "BACK" },
+      },
+    },
+    op_refugees_1 = {
+      lines = { { id = "op_refugees_r1", text = "That's what Farley says, and he's got the empty pantry to prove it. I'll keep pointing them his way, then, and tell them a stranger spoke up for them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_refugees_2 = {
+      lines = { { id = "op_refugees_r2", text = "Some, maybe, but I've watched a hundred of those carts go by and I've seen more children in them than knives. Watch close if you like; just watch fair." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_refugees_3 = {
+      lines = { { id = "op_refugees_r3", text = "Gryan Stoutmantle's trying, up on Sentinel Hill, with farmers and pitchforks. Tell him I sent you, and that the road misses its harvest." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_refugees_4 = {
+      lines = { { id = "op_refugees_r4", text = "Did you, now? Then I'll stop talking about it as if I knew, and you can tell the next cart where the work is. They'll listen to you before me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_falkhaan = {
       big = true,
       lines = { { id = "xpt_falkhaan_default", text = "More than anyone gives you credit for, because every gnoll you put down on your way to Goldshire is one that won't trouble a farmer's cart next week. Mind you, a company that rides through too fast doesn't see the trouble at all, so slow down now and then." } },
@@ -236,6 +265,7 @@ P:NPC {
         { id = "rx_default", text = "The Eastvale camp always wants hands, and Farley always wants a dishwasher. It's not much. It's what this end of the road has." },
       },
       choices = {
+        { text = "How does Goldshire feel about the Westfall folk?", next = "op_refugees" },
         { text = "It's more than the city gives them.", next = "BACK", fx = { opinion = { westfall = "abandoned" }, learn = { "westfall" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "eastvale" } } },
       },

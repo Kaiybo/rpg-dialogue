@@ -35,6 +35,49 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_dragonmaw = {
+      lines = {
+        { id = "opn_dragonmaw_q", text = "Have ye, now? Then ye'd be the third this week, an' the other two were sailors who've never held a pike. Go on, I'll write it down, for the Captain likes tae know what the town's sayin'. March or hold?" },
+      },
+      choices = {
+        { text = "March on Grim Batol. Break them before they rebuild.", next = "opn_dragonmaw_r_march", fx = { affinity = 1, align = { order = -1 }, trait = { brave = 1 }, opinion = { wl_dragonmaw = "march" } } },
+        { text = "Hold the walls. The harbour matters more than the hills.", next = "opn_dragonmaw_r_hold", fx = { align = { order = 1 }, trait = { careful = 1 }, opinion = { wl_dragonmaw = "hold" } } },
+        { text = "Neither. Send adventurers and save your soldiers.", next = "opn_dragonmaw_r_adventurers", fx = { trait = { practical = 1 }, opinion = { wl_dragonmaw = "adventurers" } } },
+        { text = "Never mind, Valstag. I'd rather not be in the report.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r = {
+      lines = {
+        { id = "opn_dragonmaw_r_default", text = "Fair, an' I'll leave ye out, though the Captain'll ask." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r_march = {
+      lines = {
+        { id = "opn_dragonmaw_r_march", text = "Noted, an' underlined, for ye've the look o' someone who'd go first. I'd march beside ye, off the record, but we'd want three times what we've got." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r_hold = {
+      lines = {
+        { id = "opn_dragonmaw_r_hold", text = "That's the Captain's own mind most mornings, an' mine on the days I've read the casualty lists. I'll put ye down wi' the sensible ones." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r_adventurers = {
+      lines = {
+        { id = "opn_dragonmaw_r_adventurers", text = "Ha! That's what we've been doin' all along, only nobody's said it out loud. I'll write it more politely than ye said it." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd take it, an' I'd mark it 'unconfirmed', same as any scout's rumour. Captain Stoutfist wants facts, an' the earth's no' known for givin' those. But I've had scouts come back wi' less, an' some o' them didnae come back at all." } },
@@ -198,7 +241,10 @@ P:NPC {
       lines = {
         { id = "dy_default", text = "I think I write reports, an' the Captain decides. Off the record, I'd march, but I'd want a lot more than we've got to do it." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "March on the Dragonmaw, or hold? I have a view.", next = "opn_dragonmaw" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     through = {

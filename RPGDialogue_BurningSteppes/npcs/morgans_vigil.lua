@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons", when = { opinion = { topic = "black_dragonflight", stance = "respect" } }, text = "Word's come down the road that you've spoken well of the black dragonflight, deputy. I'll assume it was a joke, and I'll expect you not to repeat it inside my walls." },
     { id = "g_default", text = "Another Alliance face this far north? That's the best news I've had all week." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the mountain in one piece, I see. Pull up a crate; it's the only furniture we have." },
     { id = "g_deputy", when = { questDone = TODO_QUEST("The True Masters") }, text = "Deputy. Sit down and tell me what the Steppes did to you today." },
@@ -40,6 +41,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_regent = {
+      lines = {
+        { id = "opr_default", text = "That's not a question a marshal answers in a report, deputy. The Highlord asks for proof, and Lady Prestor at his side asks for more, and Windsor is in chains while they ask. You've stood in that throne room, so you tell me." },
+      },
+      choices = {
+        { text = "Bolvar's a good man in an impossible seat.", next = "op_reg_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { bolvar = "trust" } } },
+        { text = "The Regent dithers while soldiers die. He's failing us.", next = "op_reg_weak", fx = { align = { order = -1 }, opinion = { bolvar = "distrust" } } },
+        { text = "It's Lady Prestor who stalls, Marshal. Watch her.", next = "op_reg_prestor", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "Bolvar is a knight of the Silver Hand. I trust him.", next = "op_reg_trust", fx = { affinity = 1, opinion = { bolvar = "trust", silver_hand = "respect" } }, when = { class = "PALADIN" } },
+        { text = "That's above my rank, Marshal.", next = "BACK" },
+      },
+    },
+    op_reg_trust = {
+      lines = {
+        { id = "oprt_default", text = "I'd have said the same a year ago, and I'd like to say it again. He held the city when the king vanished, and that's no small thing, but holding isn't the same as acting." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_reg_weak = {
+      lines = {
+        { id = "oprw_default", text = "Careful, deputy. I'll not hear the Highlord called a coward in my camp, though I'll admit I've written him three letters this month and torn up two of them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_reg_prestor = {
+      lines = {
+        { id = "oprp_default", text = "You're not the first to say it, and you won't be the last, and every one of them ends up posted somewhere very far from Stormwind. Keep it out of your reports and keep your eyes open." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then you'll fight them on their ground, which is ash and fire and slopes that favour whoever stands highest, and they always stand highest. I'd ask you to hold the road to Redridge before you go hunting glory at the Spire, because if the Vigil falls, Lakeshire is next." } },
@@ -249,6 +280,7 @@ P:NPC {
     stormwind_court = {
       lines = { { id = "sc_default", text = "I'm sure it does, and I'm sure they're excellent reasons when you hear them in a warm room. Fight on two fronts, Windsor used to say: the orcs in front of you and the fools behind you." } },
       choices = {
+        { text = "What do you make of the Regent, Marshal?", next = "op_regent" },
         { text = "Careful, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "He wasn't wrong.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
       },
@@ -432,6 +464,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_prestor", when = { gossip = { topic = "prestor", stance = "distrust" } }, text = "The Marshal tells me you share his doubts about Lady Prestor. I've never met her, but I notice that everyone who has grows very quiet when her name comes up." },
     { id = "g_default", text = "Ishnu-alah. Mind the edge of the ridge; the ground is softer than it looks." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; I have been reading the smoke over the mountain, and I'd welcome another pair of eyes." },
     { id = "g_proved", when = { questDone = TODO_QUEST("Dragonkin Menace") }, text = "The dragonkin below the ridge remember you now. So do I." },
@@ -452,6 +485,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kaldorei = {
+      lines = {
+        { id = "opk_default", text = "Some of my elders think so. We hid behind our trees for ten thousand years, and it took the Legion at Hyjal to bring us out. The young races have opinions about that, so tell me yours." },
+      },
+      choices = {
+        { text = "The world needs the kaldorei. I'm glad you came out.", next = "op_ne_glad", fx = { affinity = 1, align = { honor = 1 }, opinion = { night_elves = "admire" } } },
+        { text = "Stay in your forests. This isn't your fight.", next = "op_ne_stay", fx = { affinity = -1, align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Tyrande was right to stand with the others at Hyjal.", next = "op_ne_glad", fx = { affinity = 2, opinion = { tyrande = "trust", night_elves = "admire" } }, when = { race = "NightElf" } },
+        { text = "Ironforge always wondered what the elves were hiding.", next = "op_ne_mixed", fx = { trait = { witty = 1 }, opinion = { night_elves = "mixed" } }, when = { race = "Dwarf" } },
+        { text = "That's for the kaldorei to decide.", next = "BACK" },
+      },
+    },
+    op_ne_glad = {
+      lines = {
+        { id = "opng_default", text = "Then I'll take that gladness north with me, when I go. The black flight learned its tricks here on people who had no one to warn them, and I mean to be the warning." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_ne_stay = {
+      lines = {
+        { id = "opns_default", text = "You may be right that it isn't my fight. But the dragon that burns the Steppes today will reach for Ashenvale tomorrow, and I would rather meet it here, on borrowed ground." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_ne_mixed = {
+      lines = {
+        { id = "opnm_default", text = "Old secrets, mostly, and old shame. Your people dug too deep and woke a fire, and mine drank too deep and woke a Legion, so perhaps we should compare notes." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_kaldorei = {
       big = true,
       lines = { { id = "xpt_kaldorei_default", text = "Because the black dragonflight is old, older than the humans can easily imagine, and my people remember what its master did in the War of the Ancients. Someone who remembers ought to be watching from this ridge." } },
@@ -657,7 +720,10 @@ P:NPC {
     },
     why_old = {
       lines = { { id = "yo_default", text = "Tore it open, ten thousand years ago, or so our oldest tell it. I'm not so old as that, but I was raised on the story, and I don't like seeing black wings over any land." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "Should your people have stayed in their forests?", next = "op_kaldorei" },
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
     },
 
     kaldorei = {
@@ -1450,6 +1516,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kaldorei", when = { gossip = { topic = "night_elves", stance = "distrust" } }, text = "Helendis says ye told him tae go back tae his forests. He took it well, for an elf, which means he's said nothin' tae anyone for two days." },
     { id = "g_default", text = "Need a bird? Mind the ash; they hate it on their feathers." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. The birds remember ye, which is more than they do for most." },
   },

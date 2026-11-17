@@ -36,6 +36,59 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_horde = {
+      lines = {
+        { id = "opn_horde_q", text = "The Regent's envoys tell me the orcs have a new warchief, this Thrall, who talks o' peace an' keeps tae his own corner o' Kalimdor. I fought his people when they burned Khaz Modan, so I'm no' the one tae ask. What d'ye make o' him?" },
+      },
+      choices = {
+        { text = "He's kept his word so far. I'd give him the chance.", next = "opn_horde_r_trust", fx = { align = { light = 1 }, opinion = { warchief = "trust" } } },
+        { text = "An orc's word lasts until he's hungry, Your Majesty.", next = "opn_horde_r_distrust", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { warchief = "distrust" } } },
+        { text = "Watch him and keep the axes sharp. Both can be true.", next = "opn_horde_r_wary", fx = { trait = { practical = 1 }, opinion = { warchief = "wary" } } },
+        { text = "They burned Khaz Modan. No treaty buys that back.", next = "opn_horde_r_hate", when = { race = "Dwarf" }, fx = { affinity = 1, align = { light = -1 }, opinion = { horde = "hate" } } },
+        { text = "I came out of Lordaeron. I've worse enemies than orcs now.", next = "opn_horde_r", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { horde = "lesser_evil", scourge = "hate" } } },
+        { text = "That's for kings to judge, not me.", next = "BACK" },
+      },
+    },
+    opn_horde_r = {
+      lines = {
+        { id = "opn_horde_r_default", text = "Aye, the Plague's taught us all new arithmetic. I'll still count the orcs, mind, but I'll count the dead first." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_trust = {
+      lines = {
+        { id = "opn_horde_r_trust", text = "Then I hope ye're right, an' I hope ye're there tae tell me so if ye're wrong. I've buried enough friends who trusted an orc's smile." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_distrust = {
+      lines = {
+        { id = "opn_horde_r_distrust", text = "Ha! Ye'd do well in my Senate, though ye'd frighten half o' them. I'll no' argue wi' ye, for I've seen what hungry orcs do." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_wary = {
+      lines = {
+        { id = "opn_horde_r_wary", text = "That's a soldier's answer, an' it's near enough the one I give the Regent. Peace is a fine thing tae have on the table, so long as the axe stays under it." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_hate = {
+      lines = {
+        { id = "opn_horde_r_hate", text = "No, it doesnae, an' I'll no' insult the dead by pretendin' otherwise. But mind ye don't let the grudge do yer thinkin', or ye'll end up like the Dark Iron." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
     xpt_magni = {
       big = true,
       lines = { { id = "xpt_magni_default", text = "We think the same as we always have: a company's a clan ye choose, an' ye owe it what ye'd owe yer kin. My brothers an' I fought back tae back long before any o' us wore a crown, an' I'd still trust a band o' honest travellers over half the Senate." } },
@@ -122,6 +175,10 @@ P:NPC {
           text = "Ye're no' a dwarf, but ye walk intae my hall the way {alt} did, an' that one's as stout a {altclass} as Khaz Modan ever sent out. Ye wouldnae happen tae know each other?" },
         { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
           text = "{alt} was here no' long ago, drinkin' my health an' tellin' tales o' the road, an' I'll wager half o' them were about ye. Sit down, an' tell me which half were true." },
+        { id = "o_warchief_trust", tags = { "news" }, when = { opinion = { topic = "warchief", stance = "trust" }, faction = "Alliance" },
+          text = "Here's the one who'd give the orc warchief a fair hearin'. I've been chewin' on that since, an' I've still no' decided if ye're wise or soft." },
+        { id = "o_senate_useless", tags = { "news" }, when = { gossip = { topic = "ironforge_senate", stance = "useless" } },
+          text = "My senators tell me ye called them a room full o' talkers. I'll no' say ye're wrong, but I'll no' say it where they can hear me either." },
         { id = "h_pt_magni", tags = { "news" }, when = { party = { race = "Dwarf" }, race = { "Human", "NightElf", "Gnome" } },
           text = "Ye've one o' my own folk at yer side, I see, an' {companion} looks like they've kept ye out o' trouble more than once. That's how it should be; there's no' a road in Azeroth a dwarf cannae make shorter for a friend." },
         { id = "h_pt_magnikin", tags = { "news" }, when = { party = { kin = true }, race = "Dwarf" },
@@ -189,6 +246,7 @@ P:NPC {
         { id = "t_default", text = "The Dark Iron, festerin' in the mountain, an' troll raids in Dun Morogh. An' on top o' that, the Alliance is askin' for more axes than I've got hands tae swing." },
       },
       choices = {
+        { text = "And the Horde, Your Majesty? What of the orcs?", next = "opn_horde" },
         { text = "Tell me about the Dark Iron.", next = "dark" },
         { text = "The Alliance seems to have most of your axes already.", next = "reserve" },
         { text = "I'll lend mine.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },

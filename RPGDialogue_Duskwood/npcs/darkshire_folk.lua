@@ -1037,6 +1037,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_red_hard", when = { gossip = { topic = "defias", stance = "hardline" } }, text = "Word round the Raven is you've no mercy for anyone who wore the Defias red. Fair warning, then: the lad who eats my crab cakes behind the inn wore it once, and he's harmless." },
     { id = "g_kitchen", text = "Come in, come in, the kitchen's warm and the pot's on! Mind the cleaver, though, because it's got a mind of its own." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer! Don't tell the others, because I say that to all of them." },
   },
@@ -1268,6 +1269,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_watch_holding", when = { gossip = { topic = "night_watch", stance = "holding" } }, text = "The Lord Mayor tells me you think the Watch is enough, and he told me in that voice he uses when he's lost an argument. I've been enjoying it all week." },
     { id = "g_council", text = "If you're from Stormwind, I have a list for you, and if you're from anywhere else, a shorter one." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, good, which is more than the last three Stormwind envoys managed." },
   },
@@ -1534,6 +1536,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dead_burn", when = { gossip = { topic = "duskwood_dead", stance = "burn" } }, text = "The Commander says you'd burn our dead rather than bury them. Keep your voice down in here, friend; half the room has someone up at Raven Hill." },
     { id = "g_beds", text = "Beds are upstairs and blankets are in the chest, and the shutters stay closed. If something scratches at them in the night, it's the wind, and you're not to check." },
     { id = "g_home", when = { homeInn = { "Darkshire", "Scarlet Raven Tavern" } }, text = "Your room's just as you left it, and I checked the shutters twice, out of habit." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "In you come, quickly, and don't stand in the doorway with the light behind you, because they notice that." },

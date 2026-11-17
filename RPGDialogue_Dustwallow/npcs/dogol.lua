@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_jaina_dist", when = { gossip = { topic = "jaina", stance = "distrust" } }, text = "Krog say you no trust the human lady. Do'gol no trust her either, but Do'gol trust a good shield, so you buy one, yes?" },
     { id = "g_default", text = "Do'gol is busy hitting metal, so you talk loud." },
     { id = "g_active", when = { questActive = TODO_QUEST("The Black Shield") }, text = "You have the spider sacs? Do'gol is waiting, and the shield is waiting, and nobody likes waiting." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Black Shield") }, text = "Ah, the shield one. Did Krog find out who Mosarn is? Nobody tells Do'gol anything." },

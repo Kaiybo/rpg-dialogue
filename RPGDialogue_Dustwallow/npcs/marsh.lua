@@ -723,6 +723,8 @@ P:NPC {
   greetings = {
     { id = "g_pj_orc", when = { prejudiced = true }, text = "Another orc come to tell Mok'Morokk what to do. Orcs always little bosses, always pointing, and they think ogres not see them laugh behind their hands, but Mok'Morokk see everything." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "You! You the orc who never laugh at Mok'Morokk. Mok'Morokk tell the Stonemaul you a good small boss, and they say Mok'Morokk must be sick, but Mok'Morokk say it anyway." },
+    { id = "o_drag_fear", when = { opinion = { black_dragonflight = "fear" } }, text = "Tharg say you think the dragons too strong to fight. Mok'Morokk agree! See, you smart, not like that old ogre." },
+    { id = "o_drag_hate", when = { opinion = { black_dragonflight = "hate" } }, text = "Old Tharg say you want to kill the black dragons. You go first, little one. Mok'Morokk will watch from a long way off." },
     { id = "g_main", text = "You stand before Mok'Morokk, so bow, little one! Maybe Mok'Morokk not squash you today." },
     { id = "g_back", when = { metBefore = true }, text = "You come back? Mok'Morokk has more work for strong ones." },
   },

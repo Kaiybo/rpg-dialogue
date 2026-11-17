@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_th_pity", when = { opinion = { twilights_hammer = "pity" } }, text = "Ha, somebody says you feel sorry for the crazies! I don't, but I'll let you read their papers to me, if you like, since I can't make out a word of them." },
+    { id = "o_fan_distrust", when = { gossip = { topic = "fandral", stance = "distrust" } }, text = "Ha, Mar'alith says you think Staghelm's proud and cold! That makes two of us, or three if you count Huum, though he'd never say it out loud." },
     { id = "g_default", text = "Ho there! Come to help keep an eye on the crazies? Pull up a bit of sand; it's no Mulgore grass, but it'll do." },
     { id = "g_back", when = { metBefore = true }, text = "There they are! I keep hearing your name from the western camps, and never in a happy voice." },
     { id = "g_council", when = { questDone = TODO_QUEST("Dukes of the Council") }, text = "I hear about your fights with the Abyssal Council all the time, {name}. Keep it up!" },

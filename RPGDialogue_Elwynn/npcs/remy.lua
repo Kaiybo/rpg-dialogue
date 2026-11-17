@@ -20,6 +20,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_goblins", when = { opinion = { topic = "goblins", stance = "fair" } }, text = "Friend, friend! You're the one who likes goblins! I've been thinking about Booty Bay ever since, thinking very hard, thinking about prices." },
     { id = "g_dust", text = "Gold dust? Got any gold dust, friend, any at all, any at all?" },
     { id = "g_friend", when = { affinity = { min = 3 } }, text = "My friend, my good friend! What news have you got for Remy, what news?" },
     { id = "g_cold", when = { affinity = { max = -3 } }, text = "Oh, it's you. You again, is it, you again." },
@@ -38,6 +39,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_goblins = {
+      lines = {
+        { id = "op_goblins_a", text = "Undercut me, undercut me! The Steamwheedle goblins sell anything to anyone, Alliance or Horde, it's all the same coin to them, and they still make more than an honest man. What's your view, friend? Are goblins good for trade or bad for it?" },
+      },
+      choices = {
+        { text = "Good for trade. They'll sell to anyone, and that keeps prices honest.", next = "op_goblins_1", fx = { opinion = { goblins = "fair", steamwheedle = "useful" }, align = { honor = -1 } } },
+        { text = "Selling to the Horde is treason. They should be barred from our ports.", next = "op_goblins_2", fx = { opinion = { goblins = "distrust", steamwheedle = "traitors" }, align = { honor = 1 } } },
+        { text = "Goblins are only merchants with fewer scruples. Like you, Remy.", next = "op_goblins_3", fx = { opinion = { goblins = "contract" }, trait = { witty = 1 }, affinity = -1 } },
+        { text = "Gnomes build better and sell cheaper. Goblins just shout louder.", next = "op_goblins_4", when = { race = "Gnome" }, fx = { opinion = { goblins = "distrust", gnomes = "admire" }, affinity = 1 } },
+        { text = "I don't care who sells what, Remy.", next = "BACK" },
+      },
+    },
+    op_goblins_1 = {
+      lines = { { id = "op_goblins_r1", text = "Honest, he says, honest! Well, perhaps, perhaps, and perhaps I'll go to Booty Bay and learn their tricks, if I can find a cart that won't explode." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
+    op_goblins_2 = {
+      lines = { { id = "op_goblins_r2", text = "Barred! Yes, yes, barred, and then who'll buy my dust, I ask you? Nobody, that's who. Still, you've a fine stern face for a magistrate." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
+    op_goblins_3 = {
+      lines = { { id = "op_goblins_r3", text = "Like me, like me? I have scruples, friend, a great many of them, and I keep them in a little box at home, very safe. Very safe." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
+    op_goblins_4 = {
+      lines = { { id = "op_goblins_r4", text = "Cheaper! Is that so, is that so? Then I'll be wanting a gnome supplier, friend, and you'll tell me where to find one, and I'll tell nobody else." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Something special! Something special, I promise! Totem polish? Spirit charms? Count your coins first. Count them!" } },
@@ -213,6 +242,7 @@ P:NPC {
         { id = "hw_default", text = "Why does anybody leave anywhere? Better prices, better prices! Don't ask me about Redridge, friend; ask me about dust, because I like dust." },
       },
       choices = {
+        { text = "Better prices? Do the goblins undercut you, then?", next = "op_goblins" },
         { text = "All right. Tell me about the dust.", next = "dust" },
         { text = "Something else.", next = "BACK" },
       },

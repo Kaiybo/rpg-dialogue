@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_defias_hard", when = { gossip = { topic = "defias", stance = "hardline" } }, text = "Danuvin tells me you'd hang the Defias lads off the tower. Some of those lads drank at my tables once, so forgive me if I pour a little slower for you." },
+    { id = "g_op_bolvar_soft", when = { gossip = { topic = "bolvar", stance = "soft" } }, text = "The Commander says you told him the Regent's forgotten his oath. Say it again by my fire, love, and the whole room will stand you a drink." },
     { id = "g_inn", text = "In off the road with you. Dust on the mat, please, not on my floor. It's the one clean thing in Westfall." },
     { id = "g_home", when = { homeInn = { "Sentinel Hill" } }, text = "Your bed's made, and I've shaken the grit out of the blankets, though it'll be back by morning. It always is." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's late for the road. Sit down before the militia mistakes you for a bandit; it happens more than they'd admit." },

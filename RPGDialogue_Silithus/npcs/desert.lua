@@ -30,6 +30,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_undeath = {
+      lines = {
+        { id = "opu_q", text = "I've spent my life easing the dead to rest, and now the Forsaken walk the world and say they want no rest at all. You've seen them, and you've seen my sentinels in the Southwind ruins. What do you think the dead are owed?" },
+        { id = "opu_q_sc", when = { race = "Scourge" }, text = "You're one of the Forsaken, and I'll ask you gently, because I've never had the chance before. What do you think the dead are owed?" },
+      },
+      choices = {
+        { text = "Rest. Nobody should be dragged back into the world.", next = "op_undeath_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { undeath = "wrong" } } },
+        { text = "Nothing. If the dead can be useful, use them.", next = "op_undeath_r2", fx = { affinity = -2, align = { light = -1 }, opinion = { necromancy = "useful" } } },
+        { text = "Whatever they choose. The Forsaken chose to keep going.", next = "op_undeath_r3", fx = { trait = { kind = 1 }, opinion = { forsaken = "redeemable" } } },
+        { text = "We're owed the same as the living, Layo, a chance.", next = "op_undeath_r4", fx = { affinity = 1, opinion = { forsaken = "redeemable" } }, when = { race = "Scourge" } },
+        { text = "I don't know, Layo. I've no answer.", next = "BACK" },
+      },
+    },
+    op_undeath_r1 = {
+      lines = {
+        { id = "op_undeath_r1", text = "That is what I believe, and it is why I tend these stones. Thank you for saying it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_undeath_r2 = {
+      lines = {
+        { id = "op_undeath_r2", text = "I've heard that said in the Twilight's camps, and I did not like it there either. Please don't say it near the graves." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_undeath_r3 = {
+      lines = {
+        { id = "op_undeath_r3", text = "A choice, yes, I hadn't thought of it as a choice. I'll sit with that a while, by the stones." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_undeath_r4 = {
+      lines = {
+        { id = "op_undeath_r4", text = "Then you have it here, at least. Valor's Rest has room for every kind of grief." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Kaldorei, a thousand years ago, who stood against the Qiraji while the great wall was raised behind them. Some lie here and some were never found, and now others come to rest beside them, travellers and soldiers who fall in the wastes, and I tend them all the same." } },
@@ -181,6 +226,7 @@ P:NPC {
     southwind_spirits = {
       lines = { { id = "ss_default", text = "Druids and sentinels, tortured and wandering, unable to leave the place where they fell. Alliance or Horde, it makes no difference: no one deserves to be trapped in the world like that." } },
       choices = {
+        { text = "What do you think the dead are owed?", next = "op_undeath" },
         { text = "Is there something you're not telling me?", tag = "Persuade", next = "layo_fear",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "DRUID" } }, { questDone = TODO_QUEST("The Spirits of Southwind") } } } },
           fail = { next = "southwind_wait", fx = { affinity = -1 } } },
@@ -332,6 +378,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_cult = {
+      lines = {
+        { id = "opc_q", text = "You know what I left behind me. Now I'll tell you what keeps me up at night, which is everyone else: what do you think of the Twilight's Hammer?" },
+      },
+      choices = {
+        { text = "Madmen. Every one of them should be put down.", next = "op_cult_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { twilights_hammer = "hate" } } },
+        { text = "Some of them are lost fools. They could leave, like you did.", next = "op_cult_r2", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 }, opinion = { twilights_hammer = "pity" } } },
+        { text = "They frighten me more than the bugs do.", next = "op_cult_r3", fx = { trait = { cautious = 1 }, opinion = { twilights_hammer = "fear" } } },
+        { text = "I'd rather not talk about them here.", next = "BACK" },
+      },
+    },
+    op_cult_r1 = {
+      lines = {
+        { id = "op_cult_r1", text = "Every one of them? Even the ones who left, like me? No, no, I'm sure you meant the ones who stayed, yes, of course you did." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_cult_r2 = {
+      lines = {
+        { id = "op_cult_r2", text = "They could, they could! It's easy, really, you only have to be clever and lie about Westfall, which most of them aren't, and can't." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_cult_r3 = {
+      lines = {
+        { id = "op_cult_r3", text = "Good! Fear is very healthy, I've found, and it's kept me alive in this cave for a good long while." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Drag me back to the camp and hand me to their big brutes, the ones who swing before they ask, a bit like you, no offence. I told them I was going to Westfall, and with any luck they're searching every farm from Sentinel Hill to the coast." } },
@@ -489,7 +570,10 @@ P:NPC {
         { id = "ce_purpose", when = { questDone = TODO_QUEST("A Terrible Purpose") },
           text = "You've read what was on that tablet, or the Commander has, so you know more than most of the cult does. I'd sleep with a candle lit, if I were you." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think of the cult now?", next = "op_cult" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     code = {
       lines = { { id = "co_default", text = "The Twilight Lexicon: the book their scribes use to hide their messages, split in three chapters so no one keeper can read everything. You swap words from one chapter with words from another in a pattern, and out comes sense." } },
@@ -577,6 +661,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_mag_distant", when = { gossip = { topic = "magni", stance = "distant" } }, text = "Larksbane tells me ye think the king forgets his dwarves out here. Aye, well, I'd not say it in Ironforge, but I'll not argue with ye in this desert." },
     { id = "g_default", text = "Bronzebeard's gone missing again, if you're looking for him. If ye're not, welcome." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Grab a crate, mind the monkey." },
   },
@@ -590,6 +675,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_explorers = {
+      lines = {
+        { id = "ope_q", text = "Brann's out there somewhere making the League famous, and I'm in here doing the sorting. What do ye think of the Explorers' League, while I've got ye?" },
+      },
+      choices = {
+        { text = "The finest scholars Ironforge has. Brann's a legend.", next = "op_explorers_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Treasure-hunters with a royal charter, nothing more.", next = "op_explorers_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { explorers_league = "distrust" } } },
+        { text = "Useful work, if Ironforge would only fund it.", next = "op_explorers_r3", fx = { affinity = 1, opinion = { explorers_league = "useful" } } },
+        { text = "I've no view on it, Rutgar.", next = "BACK" },
+      },
+    },
+    op_explorers_r1 = {
+      lines = {
+        { id = "op_explorers_r1", text = "A legend who never leaves a forwarding address, but aye, he is. I'll tell him ye said so, if he ever turns up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r2 = {
+      lines = {
+        { id = "op_explorers_r2", text = "Treasure-hunters! Ye'll be telling me Brann's in it for the gold next. Get out of my tent before I set the monkey on ye." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r3 = {
+      lines = {
+        { id = "op_explorers_r3", text = "Now ye're speaking my language, which is mostly complaints about funding." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Glyphs, mostly, an' stonework that runs deeper than any shaft we've sunk. If the stone remembers who built it, ask it, because Ironforge won't send an army on my say-so." } },
@@ -782,6 +902,7 @@ P:NPC {
     ironforge = {
       lines = { { id = "i_default", text = "Because we're stretched too thin protecting the realm, or some such nonsense, according to the last three letters. A camp of explorers in a desert full of bugs isn't anybody's idea of a front line, until it is." } },
       choices = {
+        { text = "What do you think of the Explorers' League?", next = "op_explorers" },
         { text = "Ironforge has wars of its own. Be patient.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget Ironforge. Find your own army.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -840,6 +961,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_el_distrust", when = { gossip = { topic = "explorers_league", stance = "distrust" } }, text = "Rutgar says ye called us treasure-hunters, friend! Well, we are, a bit, but don't tell him I said so, because he's awful touchy about it." },
     { id = "g_default", text = "Look up there, friend, higher than that, over the dunes! Ah, ye've gone and missed it." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. Sit down, then, before I start shouting at the sky." },
   },

@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_war_trust", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Rok Orhan tells me you think well of the Warchief. So do I, young one. Thrall's orcs stood with us when the centaur hunted us across the plains." },
     { id = "g_default", text = "Sit, young one. An elder's stories are long, but they are rarely wasted." },
     { id = "g_north", when = { questActive = TODO_QUEST("Vengeance on the Northspring") }, text = "Their wings are black as night, so do not take your eyes from them, or they vanish into the dark." },
     { id = "g_heart", when = { questDone = TODO_QUEST("Dark Heart") }, text = "I keep her heart beside my bedroll, and I sleep better for it. That is your doing." },

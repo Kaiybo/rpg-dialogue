@@ -33,6 +33,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_grimtotem = {
+      lines = {
+        { id = "opg_q", text = "My braves argue about them at the fire every night now, and I let them, because a chief should know what his young think. What do you think of the Grimtotem, traveller?" },
+      },
+      choices = {
+        { text = "They're traitors to Cairne and to every tauren. They should be broken.", next = "op_grimtotem_r1", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { grimtotem = "lost" } } },
+        { text = "Some of them could still come home, if we gave them the chance.", next = "op_grimtotem_r2", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 }, opinion = { grimtotem = "redeemable" } } },
+        { text = "They want what's ours. That's all I need to know.", next = "op_grimtotem_r3", fx = { trait = { practical = 1 }, opinion = { grimtotem = "distrust" } } },
+        { text = "I'm Grimtotem-born, Chief, and I'd rather they changed than burned.", next = "op_grimtotem_r4", fx = { affinity = 2, opinion = { grimtotem = "redeemable" } }, when = { origin = "tauren_grimtotem_born" } },
+        { text = "I don't know enough of them to judge.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r1 = {
+      lines = {
+        { id = "op_grimtotem_r1", text = "Strong words, and I'll not punish a brave for saying them. But remember they are still tauren, and the Earth Mother counts their dead as she counts ours." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r2 = {
+      lines = {
+        { id = "op_grimtotem_r2", text = "The Greatmother believed that, and she'd have been glad to hear you say it. I'm less sure, but I'll keep the fire lit for any who try." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r3 = {
+      lines = {
+        { id = "op_grimtotem_r3", text = "That's how a hunter thinks, and it'll keep you alive on Red Cloud Mesa. A chief has to think further, but it'll do for now." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r4 = {
+      lines = {
+        { id = "op_grimtotem_r4", text = "Then you'll be the proof of it, young one, and my braves will watch you closer than they'd ever admit." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "She would have been curious, and not afraid. She taught that every creature walks the path the Earth Mother gave it, even those whose path was broken. Yours was broken by death, and still you walk it, straighter than some of the living." } },
@@ -181,6 +225,7 @@ P:NPC {
         { id = "gm_default", text = "The Bristleback came into our lands, and she fell before them. Every brave who trains at this camp honors her, and so will you, by doing well." },
       },
       choices = {
+        { text = "What do your braves say about the Grimtotem?", next = "op_grimtotem" },
         { text = "She sounds brave.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then let's make them pay.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },

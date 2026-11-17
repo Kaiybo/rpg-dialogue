@@ -31,6 +31,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_quilboar = {
+      lines = {
+        { id = "opq_q", text = "Some of the elders say the quilboar were here first, and that we should treat with them. I say look at Red Cloud Mesa and tell me how. What do you say?" },
+      },
+      choices = {
+        { text = "They kill our young. There's nothing to talk about.", next = "op_quilboar_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { quilboar = "war" } } },
+        { text = "They were here first. We should try to make peace.", next = "op_quilboar_r2", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { quilboar = "peace" } } },
+        { text = "Drive them off Mulgore and let them have the Barrens.", next = "op_quilboar_r3", fx = { trait = { practical = 1 }, opinion = { quilboar = "drive_out" } } },
+        { text = "I'll leave that to the elders, Windfeather.", next = "BACK" },
+      },
+    },
+    op_quilboar_r1 = {
+      lines = {
+        { id = "op_quilboar_r1", text = "That's what I tell the elders, and they tell me I'm young and angry. I'm both, and I'm still right about Sharptusk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_quilboar_r2 = {
+      lines = {
+        { id = "op_quilboar_r2", text = "Try it, then, and take a spear with you when you go. If Sharptusk sits down to talk, I'll eat my own feathers." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_quilboar_r3 = {
+      lines = {
+        { id = "op_quilboar_r3", text = "The Barrens already have more quilboar than grass, so they'd hardly notice. I'll take that, if the elders will." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brave Windfeather. I walk the road between Camp Narache and Grull's hunting camp, because the Bristleback like to ambush anyone who walks it alone." },
@@ -79,6 +114,7 @@ P:NPC {
     cost = {
       lines = { { id = "c_default", text = "We wandered for generations, chased by the centaur, until the Warchief helped us drive them from Mulgore. Then we built Thunder Bluff and Bloodhoof and Narache, and every one of them was paid for with someone's life." } },
       choices = {
+        { text = "What do you think should be done about the quilboar?", next = "op_quilboar" },
         { text = "Then the land is yours by right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The quilboar have a claim to this land too.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

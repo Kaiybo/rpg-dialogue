@@ -52,6 +52,30 @@ P:NPC {
       lines = { { id = "prej_hadrec_calm_default", text = "Good. Shadowfang Keep is to the south, and Arugal is in it, and if a mage finishes what a mage started, there's a kind of tidiness in that I can appreciate." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    op_hillsbrad = {
+      big = true,
+      lines = {
+        { id = "ophb_default", text = "Hillsbrad's farmers are Alliance subjects, and the Dark Lady means to have that land back for Lordaeron's rightful dead. Some of my deathguards grumble that they're only farmers, so tell me what you say." },
+      },
+      choices = {
+        { text = "They're farmers, High Executor. Leave them be.", next = "op_hillsbrad_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { hillsbrad_war = "mercy", alliance = "mercy" } } },
+        { text = "That land was Lordaeron's. Take it back.", next = "op_hillsbrad_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { hillsbrad_war = "war", alliance = "war" } } },
+        { text = "My family farmed those fields once. I want them back.", next = "op_hillsbrad_r3", fx = { affinity = 1, trait = { stern = 1 }, opinion = { hillsbrad_war = "war" } }, when = { race = "Scourge" } },
+        { text = "I'll leave Hillsbrad to the Dark Lady.", next = "BACK" },
+      },
+    },
+    op_hillsbrad_r1 = {
+      lines = { { id = "ophb_r1", text = "Farmers who feed Southshore's garrison, which feeds the Alliance. I'll note your view and file it with all the others I don't act on." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_hillsbrad_r2 = {
+      lines = { { id = "ophb_r2", text = "That is very nearly how the Dark Lady put it, and she put it to me first. You'll find plenty of work on the road south to Hillsbrad." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_hillsbrad_r3 = {
+      lines = { { id = "ophb_r3", text = "Then you've more right to them than any farmer from Stormwind. Remember the boundary stones, and bring me back the names on the deeds." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_sfk = {
       big = true,
       lines = { { id = "xcl_sfk_default", text = "Then the Sepulcher has one front fewer, and I'll gladly take it. Arugal was a mage of Dalaran who loosed those beasts on this forest and let them have the Baron's house, and I've never understood why a man who feared the Scourge so much would make something worse to fight it." } },
@@ -87,6 +111,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_wgpity", tags = { "news" }, when = { gossip = { topic = "worgen", stance = "pity" } }, text = "Renferrel tells me you pity the worgen. Pity them from a distance, then, and with your blade drawn." },
         { id = "h_default", key = true,
           text = "High Executor Hadrec. I hold Silverpine for the Dark Lady, and whatever stands against the Forsaken here, we push back, and then we push again." },
         { id = "h_deathstalkers", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Deathstalkers' Report") }, { questActive = TODO_QUEST("Lost Deathstalkers") } } },
@@ -169,7 +194,10 @@ P:NPC {
       lines = {
         { id = "t_default", text = "The worgen of the south, Arugal's beasts, and the Scourge to the east, and Dalaran's mages poking about Ambermill. And the gnolls, who don't know when to stop." },
       },
-      choices = { { text = "I'll help hold the line.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+      choices = {
+        { text = "Is the Alliance a threat out here, High Executor?", next = "op_hillsbrad" },
+        { text = "I'll help hold the line.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+      },
     },
     xhsham = {
       big = true,
@@ -249,6 +277,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_worgen = {
+      big = true,
+      lines = {
+        { id = "opwg_default", text = "Some of them were men, before Arugal called them into these woods, and some of them never were. I'm asked to study them, but I'd like to hear it from someone who's been bitten at: do you pity them, or would you burn the lot?" },
+      },
+      choices = {
+        { text = "Pity them. They never asked for the curse.", next = "op_worgen_r1", fx = { align = { light = 1 }, opinion = { worgen = "pity" } } },
+        { text = "Burn them. Whatever they were, they're beasts now.", next = "op_worgen_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { worgen = "hunt" } } },
+        { text = "The wild in them was twisted. That isn't their fault.", next = "op_worgen_r3", fx = { trait = { kind = 1 }, opinion = { worgen = "pity" } }, when = { class = "DRUID" } },
+        { text = "I'd rather not think about them.", next = "BACK" },
+      },
+    },
+    op_worgen_r1 = {
+      lines = { { id = "opwg_r1", text = "Pity is a luxury in Silverpine, but I'll grant they didn't ask, any more than we did. I'd still like one alive for my tables, mind." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_worgen_r2 = {
+      lines = { { id = "opwg_r2", text = "Practical. Bring me what's left after the burning, if you would, because even ash tells me something." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_worgen_r3 = {
+      lines = { { id = "opwg_r3", text = "A druid's answer, and probably a wiser one than mine. If your Circle ever learns how to untwist it, I'd very much like to read the notes." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "It might, or it might improve it, and I've no way of knowing without testing, which is the real tragedy of working out here. If you ever feel inclined to lend a drop of holy power to the Society's recipe, I'd be very interested in the results." } },
@@ -278,6 +330,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_udimprove", tags = { "news" }, when = { opinion = { topic = "undeath", stance = "improvement" } }, text = "Faranell's letters say you think undeath an improvement on the alternative. He's thrilled, and I'm inclined to agree, though I'd never tell him so." },
         { id = "h_default", key = true,
           text = "Apothecary Renferrel, of the Royal Apothecary Society. Our work goes on here, far from the Undercity's eyes and nose." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Delivery to Silverpine Forest") },
@@ -325,7 +378,10 @@ P:NPC {
     },
     rothide = {
       lines = { { id = "rh_default", text = "That's what I mean to find out. It isn't natural to gnolls, it smells of the Scourge's cauldrons, and it's been made to spread. Somebody brewed it, and I want their notes." } },
-      choices = { { text = "Then I'll find who brewed it.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+      choices = {
+        { text = "What do you make of the worgen, Apothecary?", next = "op_worgen" },
+        { text = "Then I'll find who brewed it.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+      },
     },
     warlock = {
       lines = {
@@ -405,6 +461,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirin_tor = {
+      big = true,
+      lines = {
+        { id = "opkt_default", text = "Less every season, and more than I'd like. The wizards at Ambermill would kill me on sight, and yet I still read their handwriting with a certain fondness, so tell me, {class}, what do you make of the Kirin Tor?" },
+      },
+      choices = {
+        { text = "They're our enemy now. Ambermill proves it.", next = "op_kirin_tor_r1", fx = { affinity = 1, align = { honor = -1 }, opinion = { kirin_tor = "enemy" } } },
+        { text = "They made mistakes, but they're scholars, not monsters.", next = "op_kirin_tor_r2", fx = { align = { honor = 1 }, opinion = { kirin_tor = "respect" } } },
+        { text = "I'd learn from them still, if they'd teach me.", next = "op_kirin_tor_r3", fx = { opinion = { kirin_tor = "admire" } }, when = { class = "MAGE" } },
+        { text = "Dalaran is your business, Archmage.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r1 = {
+      lines = { { id = "opkt_r1", text = "It does, and I've stopped pretending otherwise, though I'd still rather outwit them than burn them. You may not have the luxury of choosing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kirin_tor_r2 = {
+      lines = { { id = "opkt_r2", text = "Scholars, yes, and frightened ones, which is the most dangerous kind. I warned them once, and I'd warn them again if they'd let me through the door." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kirin_tor_r3 = {
+      lines = { { id = "opkt_r3", text = "So would I, and that's the cruelty of it. Learn what you can from their books, then, and leave their towers well alone." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_sfk = {
       big = true,
       lines = { { id = "xcl_sfk_default", text = "Ah, you called me Archmage, how very kind. Arugal was the cleverest student of his year and the worst listener, and when the Scourge came he reached for the worgen because nobody would stop him, and nobody would stop him because the council was too busy arguing over whose fault the plague was." } },
@@ -452,6 +532,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = { "blame", "hate" } } }, text = "You've no love for the Kirin Tor, from what I hear, and I can't honestly say you're wrong. Sit, and I'll tell you what they did right, so you've the whole account." },
         { id = "h_default", key = true,
           text = "Dalar Dawnweaver. I was an archmage of the Kirin Tor until the Scourge took Dalaran and me with it, and I warned them, but nobody listened." },
         { id = "h_prove", when = { questActive = TODO_QUEST("Prove Your Worth") },
@@ -528,7 +609,10 @@ P:NPC {
       lines = {
         { id = "w_default", text = "Many things, and Dalaran preferred not to hear any of them. I was there when Kel'Thuzad called the demon down; I'd have liked to be wrong." },
       },
-      choices = { { text = "And now?", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
+      choices = {
+        { text = "Do you still feel any loyalty to Dalaran?", next = "op_kirin_tor" },
+        { text = "And now?", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+      },
     },
     xhsham = {
       big = true,
@@ -639,6 +723,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_vmdistrust", tags = { "news" }, when = { gossip = { topic = "varimathras", stance = "distrust" } }, text = "Erland says you don't trust the dreadlord. Neither do I, but the shadow teaches patience, and so should you." },
         { id = "h_default", key = true,
           text = "Shadow Priest Allister. I keep watchers in every corner of Lordaeron, and what moves in Silverpine, I learn of first." },
         { id = "h_border", tags = { "news" }, when = { questActive = TODO_QUEST("Border Crossings") },
@@ -772,6 +857,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_tauren = {
+      big = true,
+      lines = {
+        { id = "optr_default", text = "We get one now and again, come to see the dead with their own eyes and always terribly polite about the smell. I'd rather hear yours, friend, since it was the tauren who spoke for us before the Horde." },
+      },
+      choices = {
+        { text = "Good people. They didn't have to stand up for us.", next = "op_tauren_r1", fx = { align = { honor = 1 }, opinion = { tauren = "respect" } } },
+        { text = "They pity us. I'd rather be feared than pitied.", next = "op_tauren_r2", fx = { align = { honor = -1 }, trait = { proud = 1 }, opinion = { tauren = "resent" } } },
+        { text = "We spoke for you because the Earth Mother wants balance.", next = "op_tauren_r3", fx = { affinity = 1, opinion = { tauren = "kin" } }, when = { race = "Tauren" } },
+        { text = "I've no opinion on them, Bates.", next = "BACK" },
+      },
+    },
+    op_tauren_r1 = {
+      lines = { { id = "optr_r1", text = "That's how I see it too, and I keep the best chair for them when they come. It's a bit small, mind, but they never complain." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_tauren_r2 = {
+      lines = { { id = "optr_r2", text = "Fear doesn't buy you a room for the night, friend, and pity sometimes does. Still, I'll not tell you what to want." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_tauren_r3 = {
+      lines = { { id = "optr_r3", text = "Then thank her for me, will you? I've not got the knack of talking to mothers, earth or otherwise, since I died." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They mind everything, but they mind the Light most of all, and I've an arrangement with them that I'd rather not break. Still, I sleep easier with a paladin under the roof, worgen being what they are, so I'll not complain too loudly." } },
@@ -803,6 +912,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_hbmercy", tags = { "news" }, when = { gossip = { topic = "hillsbrad_war", stance = "mercy" } }, text = "The High Executor's been muttering that you've a soft spot for Hillsbrad's farmers. You'll not hear it from me, and you'll not hear it from him twice." },
         { id = "h_default", key = true,
           text = "I'm Bates, the innkeeper, though it's not much of an inn, being a crypt and all. But the roof keeps the worgen out, and that's what counts in Silverpine." },
         { id = "h_cobwebs", when = { metBefore = true }, text = "I swept the cobwebs out of the east crypt this morning, and the spiders were back by noon. We've come to an arrangement." },
@@ -843,7 +953,10 @@ P:NPC {
     },
     living = {
       lines = { { id = "lv_default", text = "One or two a season, and I keep a cask of water and some hard bread for them. You'd be surprised how much the living need: food, sleep, blankets. Exhausting, I'd imagine, but I do envy the bread." } },
-      choices = { { text = "The bread's not that good.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "What do you make of the tauren, Bates?", next = "op_tauren" },
+        { text = "The bread's not that good.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
     xhwar = {
       big = true,

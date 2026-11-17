@@ -33,6 +33,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_hand = {
+      lines = {
+        { id = "opn_hand_q", text = "Raised by whom? The best of them died with Uther, the angriest went off to the Crusade, and the rest drink quietly in Anderson's taproom and don't wear the tabard. I hear talk of it, though, every time a paladin rides through. What do you think?" },
+      },
+      choices = {
+        { text = "Yes. Lordaeron needs the Hand more than ever.", next = "opn_hand_r_restore", fx = { affinity = 1, align = { order = 1 }, opinion = { silver_hand = "restore" } } },
+        { text = "Let it rest. Orders like that turn into crusades.", next = "opn_hand_r_let_rest", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { silver_hand = "let_rest" } } },
+        { text = "The Argent Dawn does the Hand's work now, without the pride.", next = "opn_hand_r_replaced", fx = { opinion = { silver_hand = "replaced", argent_dawn = "trust" } } },
+        { text = "I carry its oaths still, Marshal. The Hand isn't gone.", next = "opn_hand_r_keep", when = { class = "PALADIN" }, fx = { affinity = 2, trait = { pious = 1 }, opinion = { silver_hand = "keep" } } },
+        { text = "I don't know enough of it to say.", next = "BACK" },
+      },
+    },
+    opn_hand_r = {
+      lines = {
+        { id = "opn_hand_r_default", text = "Then ask the old knights in the taproom. They'll tell you more than you want and less than they know." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_restore = {
+      lines = {
+        { id = "opn_hand_r_restore", text = "More than ever, yes, and fewer to do it than ever. If you find a man fit to lead it, send him to Southshore first; we'll feed him." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_let_rest = {
+      lines = {
+        { id = "opn_hand_r_rest", text = "That's Raleigh's view, more or less, and he'd know better than either of us. I'd still rather have the Hand than the Crusade, given the choice." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_replaced = {
+      lines = {
+        { id = "opn_hand_r_replaced", text = "The Argent Dawn. I've heard of them, out at the Plaguelands' edge. If they're half what the Hand was, I'll take them, and gladly." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_keep = {
+      lines = {
+        { id = "opn_hand_r_keep", text = "Then it isn't, not while there's someone saying so out loud. The old knights in the taproom will want to buy you a drink; let them." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "I'd send the lot of you at the Mill tomorrow if the Magistrate would sign for it, but Maleb counts coin before he counts graves. Still, a company that holds together does more good on the Hillsbrad road than any order I could write, and the farmers notice." } },
@@ -302,6 +354,7 @@ P:NPC {
         { id = "pa_default", text = "Some still live here, quieter than they were. When Uther fell, the Hand came apart, and some of the men in it came apart too. Be kind to them." },
       },
       choices = {
+        { text = "Should the Silver Hand be raised again?", next = "opn_hand" },
         { text = "I will.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Men who ran when Uther fell don't deserve much kindness.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -451,6 +504,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_bolvar = {
+      lines = {
+        { id = "opn_bolvar_q", text = "Stormwind sends magistrates and forms, and very few soldiers. Highlord Bolvar is a good man with a missing king and a court full of opinions, and Lady Prestor has more of those than most. I'd value an outside view, off the record, if you have one." },
+      },
+      choices = {
+        { text = "Bolvar holds a kingdom together alone. Give him time.", next = "opn_bolvar_r_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { bolvar = "trust" } } },
+        { text = "Stormwind forgot the north the day the plague came.", next = "opn_bolvar_r_neglect", fx = { align = { order = -1 }, opinion = { stormwind = "abandoned", bolvar = "neglect" } } },
+        { text = "I'd look harder at who has the Regent's ear.", next = "opn_bolvar_r_distrust", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "Lady Prestor seems to keep the court steady.", next = "opn_bolvar_r_prestor_trust", when = { origin = "human_minor_noble" }, fx = { opinion = { prestor = "trust" } } },
+        { text = "I'd rather not, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r = {
+      lines = {
+        { id = "opn_bolvar_r_default", text = "Wise. I've a form for opinions, but it's never once been filled in." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_trust = {
+      lines = {
+        { id = "opn_bolvar_r_trust", text = "Time is the one thing I can't requisition, but I take your point. He answered my last letter himself, which is more than his predecessors did." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_neglect = {
+      lines = {
+        { id = "opn_bolvar_r_neglect", text = "I couldn't possibly agree with that in writing. Out loud, in this office, with the shutters closed, I'll only say the last shipment of soldiers was three men and a cook." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_distrust = {
+      lines = {
+        { id = "opn_bolvar_r_prestor", text = "That's a dangerous thing to say about a noblewoman, and I'll pretend I didn't hear it. I'll also pretend I haven't thought it myself, reading her letters." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_prestor_trust = {
+      lines = {
+        { id = "opn_bolvar_r_prestortrust", text = "Steady is a word for it. The court hasn't been so quiet in years, which I'd find more reassuring if Southshore's requests didn't keep vanishing into that quiet." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     xpt_rogue = {
       big = true,
       lines = { { id = "xpt_rogue_default", text = "There's no such creature in my experience, though I'll grant there are useful ones, and Southshore has needed a few of those since Ravenholdt started sending its people down the hill. Keep yours on a short leash, and I'll pretend I didn't see them standing by the strongbox." } },
@@ -642,6 +747,7 @@ P:NPC {
     stormwind = {
       lines = { { id = "st_default", text = "Because someone has to keep the law here, and everyone else who could has already gone. That's how most magistrates are made, I suspect." } },
       choices = {
+        { text = "Is Stormwind doing right by Lordaeron's survivors?", next = "opn_bolvar" },
         { text = "Do you regret coming?", next = "regret" },
         { text = "Something else.", next = "BACK" },
       },
@@ -736,6 +842,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_varian = {
+      lines = {
+        { id = "opn_varian_q", text = "The King? He sailed for Theramore and never arrived, and everyone in the Keep says 'missing' in the voice they use for 'dead'. I say he's alive, because I'm a Stormwind man and that's our job, but you've been further than I have. Well?" },
+      },
+      choices = {
+        { text = "He's alive somewhere, and he'll come home.", next = "opn_varian_r_alive", fx = { affinity = 2, align = { light = 1 }, opinion = { varian = "alive" } } },
+        { text = "He's gone, Lieutenant. Stormwind needs to accept it.", next = "opn_varian_r_dead", fx = { affinity = -1, align = { light = -1 }, opinion = { varian = "dead" } } },
+        { text = "Someone wanted him gone. I'd ask who.", next = "opn_varian_r_betrayed", fx = { trait = { skeptical = 1 }, opinion = { varian = "betrayed" } } },
+        { text = "Prince Anduin needs his father. I hope he's found.", next = "opn_varian_r_alive", when = { race = "Human" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { varian = "alive" } } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    opn_varian_r = {
+      lines = {
+        { id = "opn_varian_r_default", text = "Nobody can, which is the worst part. Go and kill murlocs; at least that's simple." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_varian_r_alive = {
+      lines = {
+        { id = "opn_varian_r_alive", text = "Ha! There, finally, someone who isn't from the Keep and still says it. I'll write that to Samuelson tonight, along with my transfer request." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_varian_r_dead = {
+      lines = {
+        { id = "opn_varian_r_dead", text = "Well, you sound exactly like the Keep, then. I'll thank you not to say it again in here; I've enough reasons to be miserable in Southshore without that one." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_varian_r_betrayed = {
+      lines = {
+        { id = "opn_varian_r_betrayed", text = "Who? Oh, no, I'm not touching that, not with a stranded lieutenant's career. Keep your voice down, and don't say it near the Magistrate's forms." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
     xpt_pair = {
       big = true,
       lines = { { id = "xpt_pair_default", text = "Maybe it is, if you're quick and you keep off the roads, because the Syndicate fight like cutpurses and they scatter when the odds turn. Just don't go chasing them up into Strahnbrad, for that's where they want you, and that's where my last patrol went quiet." } },
@@ -876,6 +1026,7 @@ P:NPC {
         { id = "h2_default", text = "It smells of fish, it rains sideways, and the most exciting thing that happens is the Forsaken trying to kill us. In Stormwind I had a uniform people respected. Here I have gulls." },
       },
       choices = {
+        { text = "Do you think King Varian is still alive?", next = "opn_varian" },
         { text = "The people here need you.", next = "need", fx = { trait = { kind = 1 } } },
         { text = "Sounds rough.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -1505,6 +1656,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_hand_keep", tags = { "news" }, when = { gossip = { topic = "silver_hand", stance = { "keep", "restore" } } },
+      text = "The Marshal says you'd see the Silver Hand raised again. The old knights in the corner heard it too, and two of them have polished their gauntlets since, which they haven't done in years." },
+    { id = "o_varian_dead", tags = { "news" }, when = { gossip = { topic = "varian", stance = "dead" } },
+      text = "Orinelle's been sulking worse than usual since you told him King Varian's dead and gone. I'd go easy on him for a day or two; he's a Stormwind lad, after all." },
     { id = "g_inn", text = "Shut the door, the rain gets in. Is it a bed, food or both? Both, by the look of you." },
     { id = "g_home", when = { homeInn = { "Southshore" } }, text = "Your room's dry, mostly, though the corner leaks. All the corners leak, and the ceiling's starting to think about it." },
     { id = "g_away", when = { away = 14 }, text = "Come in and shut the door, because it's been {away} and the rain hasn't stopped once in all that time. Your room's still there, and so is the leak." },

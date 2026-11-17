@@ -80,6 +80,7 @@ P:NPC {
       lines = { { id = "se_default", text = "Night elves with glaives and owls, most of them women, and they're as hard as any grunt I've trained beside. They think every tree in Ashenvale is a cousin, so when the Outriders cut one, the Sentinels come for the woodcutters." } },
       choices = {
         { text = "Do they spare the woodcutters?", next = "sentinels_mercy" },
+        { text = "You sound like you respect them.", next = "elves_op" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -92,12 +93,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    elves_op = {
+      lines = { { id = "eo_default", text = "I respect anything that fights that well, but I've trained grunts who think they're demons with pointed ears and grunts who'd rather trade with them than fight. You've met them in the gulch or you will, so where do you stand on the night elves?" } },
+      choices = {
+        { text = "They're proud, but they fight for home. I respect that.", next = "eo_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "They murder woodcutters. They deserve what they get.", next = "eo_hate", fx = { align = { honor = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "The forest is theirs. We shouldn't be in Ashenvale.", next = "eo_wrong", fx = { affinity = -1, opinion = { ashenvale = "wrong" } } },
+        { text = "My people called them friends once. I mourn that.", next = "eo_tauren", when = { race = "Tauren" }, fx = { opinion = { night_elves = "mixed" } } },
+        { text = "Something else, Brakgul.", next = "BACK" },
+      },
+    },
+    eo_respect = {
+      lines = { { id = "eor_default", text = "Good, because a grunt who respects his enemy watches her hands, and the ones who don't come home pinned to stumps." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_hate = {
+      lines = { { id = "eoh_default", text = "Then come to the gulch and spend it there. Hate's a fine fuel for a short fight and a poor one for a long war, so don't let it burn out on you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_wrong = {
+      lines = { { id = "eow_default", text = "Tell that to the carpenters building this city. The Warchief tried to trade, and the elves answered with arrows, so the Outriders cut where they must." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_tauren = {
+      lines = { { id = "eot_default", text = "Your elders say the same. Perhaps one day the forest will remember it, but today the Sentinels have their glaives out, and they don't ask which tribe you're from." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     trees = {
       big = true,
       lines = { { id = "tr_default", text = "Because Orgrimmar is built of timber as much as stone, and Durotar doesn't grow any worth cutting. The Warchief would rather trade for it than take it, but the night elves don't trade with orcs, so the Outriders take it and the gulch decides who keeps it." } },
       choices = {
-        { text = "The city needs wood. That's reason enough.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "We should find another way than more war.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The city needs wood. That's reason enough.", next = "BACK", fx = { align = { order = 1 }, opinion = { ashenvale = "necessary" } } },
+        { text = "We should find another way than more war.", next = "BACK", fx = { align = { order = -1 }, opinion = { ashenvale = "wrong" } } },
         { text = "Who are the Warsong Outriders?", next = "outriders" },
       },
     },
@@ -720,6 +747,35 @@ P:NPC {
     },
     orcs = {
       lines = { { id = "or_default", text = "They like axes, and they like hitting things up close, which is very honorable and very bad for my business. But the trolls love a good rifle, the Forsaken love anything that kills from far away, and the hunters buy everything I've got." } },
+      choices = {
+        { text = "Do you like it here, among the Horde?", next = "goblins_op" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goblins_op = {
+      lines = { { id = "go_default", text = "Like it? Pal, the Horde pays in gold and doesn't haggle, which is my favorite kind of customer. But I hear what the grunts mutter when I walk by, so go on, honest opinion, free of charge: what do you think of us goblins?" } },
+      choices = {
+        { text = "You make the best machines in Kalimdor. I respect that.", next = "go_respect", fx = { affinity = 2, opinion = { goblins = "respect" } } },
+        { text = "You'd sell the Horde's guns to the Alliance tomorrow.", next = "go_distrust", fx = { affinity = -1, opinion = { goblins = "distrust" } } },
+        { text = "Useful, as long as the coin flows our way.", next = "go_useful", fx = { opinion = { goblins = "useful" } } },
+        { text = "You keep my quiver full, Kaja. I like goblins fine.", next = "go_fond", when = { class = "HUNTER" }, fx = { affinity = 2, opinion = { goblins = "fond" } } },
+        { text = "Just browsing, Kaja.", next = "BACK" },
+      },
+    },
+    go_respect = {
+      lines = { { id = "gor_default", text = "Whoa, a compliment, and from a customer! Sparks and sprockets, I'm gonna write that down and hang it behind the counter where the grunts can read it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    go_distrust = {
+      lines = { { id = "god_default", text = "Tomorrow? Pal, please, the Alliance pays slow and haggles hard, so it'd be next week at the earliest. I'm kidding, I'm kidding, mostly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    go_useful = {
+      lines = { { id = "gou_default", text = "Useful! Now that's a word I can put on a sign, and it flows both ways, friend, because your gold is very useful to me too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    go_fond = {
+      lines = { { id = "gof_default", text = "You hear that, everybody? A loyal customer! Next crate of shot's got your name on it, at full price, because I've got principles." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarves = {

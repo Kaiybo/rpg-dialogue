@@ -197,6 +197,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The League says the titans shaped the dwarves out of stone, and the elves say Elune watches over theirs. Digging around their old cities like this, I've started to wonder. What do you believe?" },
+      },
+      choices = {
+        { text = "Titans. Uldaman proves it, or soon will.", next = "op_r1", fx = { affinity = 1, trait = { curious = 1 }, opinion = { titans = "believe" } } },
+        { text = "Elune made the kaldorei, and the kaldorei know best.", next = "op_r2", fx = { align = { light = 1 }, opinion = { titans = "elune" } } },
+        { text = "Gods and titans are excuses for grave-robbing.", next = "op_r3", fx = { affinity = -1, align = { light = -1 }, opinion = { explorers_league = "wrong" } } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "There's a {race} after my own heart! Ironforge is sitting on a tomb full of answers, and I mean to be the one who reads them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Well, I'll not argue with a goddess in her own country, especially not out here alone at night. Still, the stone says what it says." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Grave-robbing! We catalogue, we sketch and we label everything in triplicate, and robbers never label anything." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "We're fascinated, laddie! The old stone talks to us through runes, and maybe your spirits hear what the runes don't say. Come dig with me sometime!" } },
@@ -288,6 +312,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_explorers_league_wrong", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "wrong" } },
+          text = "You're the one who thinks the League should leave the ruins be, aren't you? You're welcome to the opinion, so long as you keep it out of my trenches." },
         { id = "h_default", text = "Remtravel's the name, prospector for the Explorers' League, and these old elven ruins are the finest dig I've had in years. If only I could remember where I left the bloody fossil." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf, out here! Tell me you're from Ironforge and you've brought a proper pickaxe, because the elves don't make a tool worth swinging." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand, because the murlocs keep chasin' me off my own dig, an' I've had enough o' runnin'." },
@@ -303,6 +329,7 @@ P:NPC {
         { id = "h_again2", text = "Carry on, carry on, I'm listening with at least one ear, which is more than Gorbold gets." },
       },
       choices = {
+        { text = "Who do you think built these ruins, really?", next = "op_ask" },
         { text = "What are you digging for?", next = "dig" },
         { text = "The Explorers' League has come a long way to dig here.", next = "league" },
         { text = "It seems dangerous out here alone.", next = "danger" },

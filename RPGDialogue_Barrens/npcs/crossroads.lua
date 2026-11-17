@@ -237,7 +237,36 @@ P:NPC {
     },
     lot = {
       lines = { { id = "l_default", text = "It is, though they hate each other too, and most days that's what keeps us alive." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "Which of them worries you most?", next = "northwatch_op" },
+        { text = "...", next = "END" },
+      },
+    },
+    northwatch_op = {
+      lines = { { id = "nw_default", text = "The humans at Northwatch Hold, building a fort on our side of the water and pointing its guns at our road. The Warchief calls it peace, and he's the Warchief, but you've walked that road, so what do you call it?" } },
+      choices = {
+        { text = "A broken promise. Theramore is getting ready for war.", next = "nw_war", fx = { affinity = 1, align = { order = -1 }, opinion = { theramore = "distrust", peace = "against" } } },
+        { text = "They watch us, we watch them. That's what peace looks like.", next = "nw_peace", fx = { align = { order = 1 }, opinion = { peace = "for" } } },
+        { text = "Lady Proudmoore keeps her word. Northwatch is only caution.", next = "nw_jaina", fx = { opinion = { jaina = "trust" } } },
+        { text = "My people want quiet. Leave Northwatch be, if they leave us be.", next = "nw_tauren", when = { race = "Tauren" }, fx = { affinity = 1, opinion = { peace = "for" } } },
+        { text = "I'll leave that to you, Thork.", next = "BACK" },
+      },
+    },
+    nw_war = {
+      lines = { { id = "nww_default", text = "I've said the same in my own reports, and Orgrimmar tells me to hold the road and wait. So I hold the road, and I wait, and I keep my grunts' axes sharp." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nw_peace = {
+      lines = { { id = "nwp_default", text = "Maybe. It's a nervous sort of peace, though, and nervous men with cannons make mistakes, so keep your head down when you pass their walls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nw_jaina = {
+      lines = { { id = "nwj_default", text = "Her word, maybe, but her soldiers are another matter. Half the marines in that fort sailed with her father, and they don't take orders kindly from his daughter." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nw_tauren = {
+      lines = { { id = "nwt_default", text = "Your people have more patience than mine, and I envy it some days. If Northwatch keeps its guns pointed at the sea, I'll keep my axe on my back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     hardest = {
       lines = {
@@ -900,9 +929,38 @@ P:NPC {
         { text = "I'll go when there's coin in it, and not before.", next = "END", fx = { align = { light = -1 } } },
       },
     },
+    circle_op = {
+      lines = { { id = "cc_default", text = "The Circle taught Hamuul, and Hamuul taught us, so I owe it a great deal. But its night elves are the same people the Warsong fight in Ashenvale, and folk at the Crossroads ask me whose side a druid is on. What do you think, friend?" } },
+      choices = {
+        { text = "The Circle stands above Horde and Alliance. That's its worth.", next = "cc_trust", fx = { affinity = 2, align = { order = 1 }, opinion = { cenarion_circle = "trust" } } },
+        { text = "A night elf is a night elf. The Circle serves Darnassus.", next = "cc_distrust", fx = { affinity = -1, align = { order = -1 }, opinion = { cenarion_circle = "distrust", night_elves = "distrust" } } },
+        { text = "The Warsong are wrong to cut Ashenvale.", next = "cc_ashen", fx = { affinity = 1, opinion = { ashenvale = "wrong" } } },
+        { text = "The Circle gave us back the old ways. I honor it.", next = "cc_druid", when = { class = "DRUID" }, fx = { affinity = 2, opinion = { cenarion_circle = "admire", druidism = "respect" } } },
+        { text = "I don't know enough to say.", next = "BACK" },
+      },
+    },
+    cc_trust = {
+      lines = { { id = "cct_default", text = "I hope so, and in Moonglade it's true. Out here, with the Outriders and the Sentinels killing each other a day's ride north, it's harder to believe, but I keep trying." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cc_distrust = {
+      lines = { { id = "ccd_default", text = "Some of the elves would say the same about us, that a tauren druid is only a Horde spy in antlers. I'd rather prove both of you wrong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cc_ashen = {
+      lines = { { id = "cca_default", text = "Say that gently near Kadrak's runners, because they bury friends in that forest. I think you're right, but being right won't build Orgrimmar's walls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cc_druid = {
+      lines = { { id = "ccr_default", text = "Then you walk the same path I do, between two peoples who don't trust either of us. Mind the Dream, friend, and mind the forest's anger too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     druids = {
       lines = { { id = "d_default", text = "Druids meant well. That's the most frightening part, friend. Anyone can mean well and still go wrong in the dark, where An'she's light doesn't reach." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "Do you trust the Cenarion Circle?", next = "circle_op" },
+        { text = "...", next = "END" },
+      },
     },
   },
 
@@ -1149,9 +1207,41 @@ P:NPC {
         { text = "Mostly remedies?", next = "mostly" },
       },
     },
+    plague_op = {
+      lines = {
+        { id = "pl_default", text = "Hypothetically, then. Suppose the Society were brewing a plague of its own, something to rot the Scourge the way the Scourge rotted us. Would you call that a weapon, or a crime?" },
+        { id = "pl_undead", when = { race = "Scourge" }, text = "You know what the Society does, or you've heard the whispers in the Undercity. Suppose we were brewing a plague of our own, for the Scourge alone. Weapon, or crime?" },
+      },
+      choices = {
+        { text = "A weapon against the Scourge is a weapon worth having.", next = "pl_weapon", fx = { affinity = 2, align = { light = -1 }, opinion = { new_plague = "necessary" } } },
+        { text = "Plague is plague. That road ends with all of us dead.", next = "pl_crime", fx = { affinity = -1, align = { light = 1 }, opinion = { new_plague = "wrong" } } },
+        { text = "The tauren would never forgive it. Nor would Thrall.", next = "pl_danger", fx = { trait = { cautious = 1 }, opinion = { new_plague = "dangerous" } } },
+        { text = "Whatever the Dark Lady wills, I support.", next = "pl_loyal", when = { race = "Scourge" }, fx = { affinity = 1, opinion = { sylvanas = "loyal", new_plague = "necessary" } } },
+        { text = "I'd rather not know, Helbrim.", next = "BACK" },
+      },
+    },
+    pl_weapon = {
+      lines = { { id = "plw_default", text = "A practical answer, and a rarer one than you'd think. I'll mention it in my next letter to Master Faranell, without your name, of course." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pl_crime = {
+      lines = { { id = "plc_default", text = "Spoken like someone who still has a pulse. It's only a hypothesis, my friend, and I'd thank you not to repeat it to the tauren." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pl_danger = {
+      lines = { { id = "pld_default", text = "Forgiveness is a living sort of concern, but you're right that it matters out here. That is precisely why I said hypothetically." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pl_loyal = {
+      lines = { { id = "pll_default", text = "As do I, and as does every bottle in this tent. Still, keep your voice down, because Thork counts the bottles and he is not a fool." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     mostly = {
       lines = { { id = "m_default", text = "You listen closely. Mostly remedies, yes, but science is science, and what people do with it is their own affair." } },
-      choices = { { text = "...", next = "END" } },
+      choices = {
+        { text = "And what does the Society do with it?", next = "plague_op" },
+        { text = "...", next = "END" },
+      },
     },
   },
 
@@ -1641,6 +1731,14 @@ P:NPC {
           text = "That's a lot of dusty boots on my floor, but the Crossroads has seen worse. Find a corner for all of you, and if one of you snores, I'd ask you to put them nearest the wind rider roost." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! The odd Forsaken sleeps here often enough, but never one who glows. Come in, the roof leaks, but the stars are fine." },
         { id = "h_default", text = "Boorand Plainswind is my name, and I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough, like a herd in the long grass." },
+        { id = "h_op_northwatch", tags = { "news" }, when = { gossip = { topic = "theramore", stance = "distrust" } },
+          text = "Thork says you see war coming from Northwatch. Rest while you can, then, because if you're right, none of us will sleep much later." },
+        { id = "h_op_plague", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "wrong" } },
+          text = "Helbrim's been sour all week, and the grunts say it's because you told him something he didn't care to hear. Whatever it was, the Earth Mother thanks you, and so do I." },
+        { id = "h_op_circle", tags = { "news" }, when = { gossip = { topic = "cenarion_circle", stance = "trust" } },
+          text = "Tonga's been smiling since your talk about the Circle. He doesn't smile often, so I thought you should know." },
+        { id = "h_op_forsaken", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "distrust" } },
+          text = "Word at the Crossroads is you don't trust the Forsaken. Keep it to yourself in my inn, because Helbrim sleeps under this roof too, when he sleeps at all." },
         { id = "h_mankrik", when = { heardLine = "mankrik.h_default" },
           text = "Mankrik's been on that wall since before I got here. He eats when someone puts food in his hands, so I put food in his hands." },
         { id = "h_roof", when = { metBefore = true }, text = "A goblin from Ratchet stayed three nights and tried to sell me a better roof. This roof is fine; it has holes, and that's how the stars get in." },

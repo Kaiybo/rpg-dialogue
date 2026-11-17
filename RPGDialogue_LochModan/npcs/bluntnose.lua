@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_orcs_pity", tags = { "news" }, when = { gossip = { topic = "orcs", stance = "pity" } },
+      text = "Kadrell tells me ye've a soft word for the orcs in the camps. I'll thank ye no' tae repeat it at the Stoutlager, for I've enough fights on my ledger." },
     { id = "g_default", text = "Magistrate Bluntnose. If ye've a complaint, take a number, an' if ye've an axe, come straight in." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. I've more trouble than hands, as usual." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' still no soldiers from Ironforge in all that time. Ye're a welcome sight, for ye at least came back." },
@@ -32,6 +34,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_alliance = {
+      lines = {
+        { id = "opn_alliance_q", text = "Ye'd have me answer that wi' a Mountaineer in earshot? The King gave his word after the Second War, an' half our Reserve's off at the front keepin' it while my farmers count ogres. I've a ledger for everythin' but that, so ye tell me, is it worth it?" },
+      },
+      choices = {
+        { text = "The Alliance took this mountain back for you. It's a debt.", next = "opn_alliance_r_loyal", fx = { align = { honor = 1 }, opinion = { alliance = "loyal" } } },
+        { text = "Not while your own valleys bleed, Magistrate.", next = "opn_alliance_r_burden", fx = { affinity = 1, align = { honor = -1 }, opinion = { alliance = "burden" } } },
+        { text = "Alone, Ironforge falls. Together, it only bleeds.", next = "opn_alliance_r_necessary", fx = { trait = { practical = 1 }, opinion = { alliance = "necessary" } } },
+        { text = "Stormwind's never paid back a single debt to Lordaeron's people.", next = "opn_alliance_r_broken", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { alliance = "broken", stormwind = "distrust" } } },
+        { text = "I'll leave the ledger to you, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r = {
+      lines = {
+        { id = "opn_alliance_r_default", text = "Wise. Folk who settle that question tend tae end up on my desk as a complaint." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_loyal = {
+      lines = {
+        { id = "opn_alliance_r_loyal", text = "A debt, aye, an' we're payin' it in sons. I'll write ye down as a loyal sort, which is a fine thing tae be in Ironforge, an' a lonelier thing in Thelsamar." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_burden = {
+      lines = {
+        { id = "opn_alliance_r_burden", text = "Ye've said in one breath what I've been tryin' tae say tae Ironforge in three letters. Don't say it near Rugelfuss, mind; he's a captain, an' captains say 'Yes, my king.'" },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_necessary = {
+      lines = {
+        { id = "opn_alliance_r_necessary", text = "Hmph. That's the answer o' someone who's never had tae pay for a funeral out o' a town fund. Still, I cannae say it's wrong." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_broken = {
+      lines = {
+        { id = "opn_alliance_r_broken", text = "Then ye've more cause tae grumble than me, an' I'll stop my grumblin' while ye're at the counter. Sit, if ye like; I've a chair for folk wi' worse ledgers." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
@@ -88,6 +142,7 @@ P:NPC {
           text = "Between us, aye, it feels that way some days. Captain Rugelfuss does his best wi' what he's given, an' I'd no' say a word against him, but his best is out in the valley an' my door's right here." },
       },
       choices = {
+        { text = "Is the Alliance worth what it costs Ironforge?", next = "opn_alliance" },
         { text = "Who's Captain Rugelfuss?", next = "rugelfuss" },
         { text = "Something else, Magistrate.", next = "BACK" },
       },

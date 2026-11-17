@@ -28,6 +28,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_arcane = {
+      lines = {
+        { id = "opa_default", text = "Now that is the question my flight has argued over since before your kingdoms had names. I have my answer, little one, and I'm curious whether yours is foolish in an interesting way." },
+      },
+      choices = {
+        { text = "Some power should be guarded, the way you guard it.", next = "op_arc_guard", fx = { affinity = 1, align = { order = 1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "Magic belongs to whoever has the will to master it.", next = "op_arc_will", fx = { affinity = -1, align = { order = -1 }, trait = { proud = 1 }, opinion = { arcane_magic = "useful" } } },
+        { text = "We'll learn, mistakes and all, the same as you did.", next = "op_arc_will", fx = { trait = { witty = 1 }, opinion = { arcane_magic = "admire" } }, when = { class = "MAGE" } },
+        { text = "I think I'll keep my answer, great one.", next = "BACK" },
+      },
+    },
+    op_arc_guard = {
+      lines = {
+        { id = "opag_default", text = "A sensible mortal! I shall have to sit down. Don't let it go to your head, though; sensible mortals are still mortals, and they still poke at things." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_arc_will = {
+      lines = {
+        { id = "opaw_default", text = "Will, is it? The Highborne had a great deal of will, and you can see where it put them, under several fathoms of very cold water. Do try to be more original than they were." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "You seek Azuregos, guardian of these ruins and the only creature in Azshara with any sense? Well, you've found him. Do try not to do anything heroic." },
@@ -125,6 +148,7 @@ P:NPC {
       big = true,
       lines = { { id = "m_default", text = "Mortals and magic are like children and knives: occasionally useful, mostly bloody, and someone always has to clean up afterwards. Usually that someone is a dragon." } },
       choices = {
+        { text = "Should mortals have magic at all, then?", next = "op_arcane" },
         { text = "Magic belongs to whoever is bold enough to learn it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Then guard it well. Some power needs keepers.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },

@@ -60,6 +60,59 @@ P:NPC {
         { text = "Something else, High Executor.", next = "BACK" },
       },
     },
+    opn_sylvanas = {
+      lines = {
+        { id = "opn_sylvanas_q", text = "I think she freed us from the Lich King's voice, and I would follow her into the sea for it. I am more curious what you think, since you walk under the Horde's banner beside us, and the Horde's opinions of her are seldom said to our faces." },
+      },
+      choices = {
+        { text = "She broke the Lich King's hold. She has my loyalty.", next = "opn_sylvanas_r_loyal", fx = { affinity = 2, align = { order = 1 }, opinion = { sylvanas = "loyal" } } },
+        { text = "She serves herself first. I'd watch her.", next = "opn_sylvanas_r_distrust", fx = { affinity = -2, align = { order = -1 }, opinion = { sylvanas = "distrust" } } },
+        { text = "She's useful to the Horde. That's enough for me.", next = "opn_sylvanas_r_useful", fx = { trait = { practical = 1 }, opinion = { sylvanas = "useful" } } },
+        { text = "She gave us back our minds. I owe her everything.", next = "opn_sylvanas_r_loyal", when = { race = "Scourge" }, fx = { affinity = 2, opinion = { sylvanas = "loyal" } } },
+        { text = "And a demon at her side? I don't like it.", next = "opn_sylvanas_r_dangerous", when = { faction = "Horde" }, fx = { affinity = -1, opinion = { sylvanas = "dangerous", demons = "distrust" } } },
+        { text = "I'll keep my opinions, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r = {
+      lines = {
+        { id = "opn_sylvanas_r_default", text = "Keep them, then. The dead are patient, and opinions surface eventually." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_loyal = {
+      lines = {
+        { id = "opn_sylvanas_r_loyal", text = "Good. Loyalty is rare among the living and rarer among their allies. I will remember it when the reports are written." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_distrust = {
+      lines = {
+        { id = "opn_sylvanas_r_distrust", text = "Watch her, then, from very far away. Tarren Mill is close enough for her to hear it, and I am close enough to tell her." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_useful = {
+      lines = {
+        { id = "opn_sylvanas_r_useful", text = "Useful. That is how the orcs speak of us all. It is honest, at least, and honesty I can use." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_dangerous = {
+      lines = {
+        { id = "opn_sylvanas_r_dangerous", text = "My opinion of Lord Varimathras was not requested, and yours is noted. Do not say it in the Undercity." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "Good, because every crusader who dies in Tirisfal is one fewer to stiffen Southshore's flank. The Crusade likes to think it stands apart from the Alliance, but a human with a torch is a human with a torch, and my deathguards don't stop to ask which banner it marches under." } },
@@ -291,6 +344,7 @@ P:NPC {
         { id = "va_default", text = "He serves the Dark Lady, and he serves well. My opinion of what he is was not requested. Neither, I notice, was yours." },
       },
       choices = {
+        { text = "What do you think of the Dark Lady, then?", next = "opn_sylvanas" },
         { text = "Understood, High Executor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Someone should be asking.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { skeptical = 1 } } },
       },
@@ -414,6 +468,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_plague = {
+      lines = {
+        { id = "opn_plague_q", text = "Right? Nobody's asked me that since I died. The Society says it's justice, the orcs pretend it's medicine, and Umpi says nothing because she's dead again. You seem to have a view, so go on, it might be interesting." },
+      },
+      choices = {
+        { text = "The Scourge must be stopped, by any means. It's necessary.", next = "opn_plague_r_necessary", fx = { align = { light = -1 }, opinion = { new_plague = "necessary" } } },
+        { text = "It's an abomination. Thrall would never allow it.", next = "opn_plague_r_wrong", fx = { align = { light = 1 }, opinion = { new_plague = "wrong" } } },
+        { text = "It's dangerous. Poisons don't care who they kill.", next = "opn_plague_r_dangerous", fx = { trait = { careful = 1 }, opinion = { new_plague = "dangerous" } } },
+        { text = "The living drove us out. Let them choke on it.", next = "opn_plague_r_justice", when = { race = "Scourge" }, fx = { affinity = 1, opinion = { new_plague = "justice" } } },
+        { text = "I don't want to know, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r = {
+      lines = {
+        { id = "opn_plague_r_default", text = "Nobody does. That's why they keep me out here with the birds." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_necessary = {
+      lines = {
+        { id = "opn_plague_r_necessary", text = "Necessary. That's the Society's word too, and they say it so often it's lost all its flavour. Not that I'd taste it anyway." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_wrong = {
+      lines = {
+        { id = "opn_plague_r_wrong", text = "An abomination! Oh, that's good, say it again more slowly. No, don't; the Executor's listening, and I'd rather not test what the Society does with traitors on Umpi." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_dangerous = {
+      lines = {
+        { id = "opn_plague_r_dangerous", text = "Yes, that's rather the point of it. I've noticed it doesn't care, and I've noticed I don't either, which is the more worrying of the two." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_justice = {
+      lines = {
+        { id = "opn_plague_r_justice", text = "Choke on it. Faranell would hug you, if he hugged, which he doesn't, because things fall off." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Anything is worth feeling, when you've felt nothing for long enough. I stand over these cauldrons hoping for a flicker of anything, and you get a fire every time you pray, so I think you should be grateful, even if it hurts." } },
@@ -561,7 +667,10 @@ P:NPC {
       lines = {
         { id = "pq_default", text = "For the humans, and for the Scourge too. If it were up to me, I'd let them kill each other and save the reagents, but it isn't up to me." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Do you think the plague is right, Lydon?", next = "opn_plague" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     misery = {
       lines = {
@@ -657,6 +766,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_sylvanas_distrust", tags = { "news" }, when = { gossip = { topic = "sylvanas", stance = { "distrust", "dangerous" } } },
+      text = "The High Executor mentioned your views on the Dark Lady. Rest here if you like, but I would not sleep too soundly, and I would not sleep near the window." },
+    { id = "o_plague_wrong", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "wrong" } },
+      text = "Lydon tells everyone you think his plague is an abomination. He sounded almost pleased about it; you may be the first thing that's interested him in a year." },
     { id = "g_inn", text = "Rest here, if you rest. Some of my guests don't need to, but they like the chairs." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You look out at the fields the way a farmer does, Brill-born, I'd guess. The farms below the Mill grew much the same before the plague, and now the living fight us for every furrow." },
     { id = "g_home", when = { homeInn = { "Tarren Mill" } }, text = "Back at the Mill, then. Your bed's where you left it, and nobody's slept in it, since nobody here sleeps." },

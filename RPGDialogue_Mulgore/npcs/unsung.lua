@@ -18,6 +18,7 @@ P:NPC {
     third = "{name} met Harutt Thunderhorn, the warrior trainer of Camp Narache.",
   },
   greetings = {
+    { id = "o_grim_redeem", when = { gossip = { topic = "grimtotem", stance = "redeemable" } }, text = "The Chief told me you think the Grimtotem could still come home. I hope you're right, though I'd keep my spear close while you wait." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "Come, young brave, and plant your hooves. Let us see what the plains have taught you since you last stood here." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Walk with the Earth Mother, friend. You are not one of my braves, but you are welcome at my fire." },
   },
@@ -192,6 +193,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_elements = {
+      lines = {
+        { id = "ope_q", text = "Every people I've met treats the elements differently, and I've learned not to call any of them wrong too quickly. What do you think the elements are owed, young one?" },
+      },
+      choices = {
+        { text = "Respect, the way you'd treat an elder. They're not ours to use.", next = "op_elements_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "Nothing. They're a force like any other, to be bent to need.", next = "op_elements_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { the_elements = "useful" } } },
+        { text = "Thanks, and sometimes a bargain. The orcs' way works too.", next = "op_elements_r3", fx = { trait = { practical = 1 }, opinion = { the_elements = "mixed" } } },
+        { text = "I hear them, Meela. They're owed listening.", next = "op_elements_r4", fx = { affinity = 2, opinion = { the_elements = "respect" } }, when = { class = "SHAMAN" } },
+        { text = "I've never thought about it, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r1 = {
+      lines = {
+        { id = "op_elements_r1", text = "That's the tauren way, and I couldn't have put it better. Go and listen to the wind for a while, and it'll thank you for it." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r2 = {
+      lines = {
+        { id = "op_elements_r2", text = "The orc warlocks thought that way about other powers, once, and you've seen what became of their land. Be careful, young one." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r3 = {
+      lines = {
+        { id = "op_elements_r3", text = "Thrall would say much the same, I think, and I'll not argue with the Warchief about the spirits. Only remember to thank them first." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r4 = {
+      lines = {
+        { id = "op_elements_r4", text = "Then you've learned the hardest lesson already, and everything after is only practice." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They do not resent it; they do not know it. The first lesson I teach is to listen before you ask, and you, I think, had to learn to listen in a very dark place. If the Light is how you listen, I'll not argue with it." } },
@@ -317,7 +362,10 @@ P:NPC {
     },
     tradition = {
       lines = { { id = "t_default", text = "No one taught us; the tauren have always spoken with the spirits of the earth, as long as there have been tauren. Our elders say the Earth Mother gave us her ears so we would never be lonely on the plains." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think the spirits are owed?", next = "op_elements" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     orc = {
       lines = { { id = "o_default", text = "The orcs lost the elements for a time and found them again through Thrall, so your way is younger and fiercer than ours. The spirits are the same spirits, though, and they were glad to have your people back." } },
@@ -352,6 +400,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_druidism = {
+      lines = {
+        { id = "opdr_q", text = "I've told you how we learned the old ways from the kaldorei. Now I'd like to hear you: do you think a druid should stand apart from the wars of their people?" },
+      },
+      choices = {
+        { text = "Yes. The wild has no side, and neither should a druid.", next = "op_druidism_r1", fx = { affinity = 2, align = { order = -1 }, opinion = { druidism = "neutral" } } },
+        { text = "No. A druid who won't defend their people isn't worth much.", next = "op_druidism_r2", fx = { affinity = -1, align = { order = 1 }, opinion = { druidism = "duty" } } },
+        { text = "I'm a druid, and I'd guard Mulgore before any grove.", next = "op_druidism_r3", fx = { opinion = { druidism = "duty" } }, when = { class = "DRUID" } },
+        { text = "I don't know enough of druids to say.", next = "BACK" },
+      },
+    },
+    op_druidism_r1 = {
+      lines = {
+        { id = "op_druidism_r1", text = "That's what they teach in Moonglade, and it's what I try to live by here. It's harder than it sounds, when your people are bleeding." },
+      },
+      choices = {
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
+    op_druidism_r2 = {
+      lines = {
+        { id = "op_druidism_r2", text = "Hamuul's heard that from many of our braves, and he answers it better than I can. I only know the forest doesn't care whose banner's on the axe." },
+      },
+      choices = {
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
+    op_druidism_r3 = {
+      lines = {
+        { id = "op_druidism_r3", text = "Then guard it well, and don't let anyone in Moonglade tell you that's a lesser thing." },
+      },
+      choices = {
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Not fear, I think, only uncertainty. They know life and they know death, and you are both and neither. The night elves taught us to see the balance in things, and you are a balance I have not seen before." } },
@@ -463,6 +546,7 @@ P:NPC {
     history_elves = {
       lines = { { id = "he_default", text = "Some do, because we stand with the Horde and the orcs cut down their forests in Ashenvale. But a druid is a druid first, and in Moonglade we try to remember that, whatever our peoples do outside it." } },
       choices = {
+        { text = "Should druids stand apart from war, Gart?", next = "op_druidism" },
         { text = "Nature matters more than any war.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "The Horde comes first, even for druids.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -510,6 +594,7 @@ P:NPC {
     third = "{name} met Krang Stonehoof, the warrior trainer of Bloodhoof Village.",
   },
   greetings = {
+    { id = "o_dw_distrust", when = { gossip = { topic = "dwarves", stance = "distrust" } }, text = "I hear you think the dwarves would dig up the whole world. Good, because then you'll understand why my braves keep their axes sharp near Bael'dun." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior comes down from the mesa! Come here, and let us see whether Harutt taught you anything." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Welcome to Bloodhoof, stranger. Keep your weapon sheathed in the village, as the bull keeps his horns low in the herd, and we will get along." },
   },
@@ -519,6 +604,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "opo_q", text = "That's why I fight. But you've walked with the orcs more than some, so tell me what you think of them, and don't dress it up." },
+      },
+      choices = {
+        { text = "Brothers in arms. The tauren owe them everything.", next = "op_orcs_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { orcs = "kin" } } },
+        { text = "Useful allies. But they started this war with the Alliance.", next = "op_orcs_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { orcs = "useful" } } },
+        { text = "Too hot-blooded. The tauren should lead with calm, not fury.", next = "op_orcs_r3", fx = { trait = { patient = 1 }, opinion = { orcs = "rash" } } },
+        { text = "Lok'tar, Krang. My people won't forget what yours gave.", next = "op_orcs_r4", fx = { affinity = 3, opinion = { tauren = "kin" } }, when = { race = "Orc" } },
+        { text = "I'll let my axe speak for me, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r1 = {
+      lines = {
+        { id = "op_orcs_r1", text = "Spoken like a warrior of Bloodhoof! Come and tell my students that, because some of them think the debt's already paid." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r2 = {
+      lines = {
+        { id = "op_orcs_r2", text = "Useful, he says! The orcs bled for us at the centaur camps before you were born, so mind how you weigh it." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r3 = {
+      lines = {
+        { id = "op_orcs_r3", text = "Hmph. Cairne would agree with you, and he's earned the right to say it. I'm not sure you have yet." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r4 = {
+      lines = {
+        { id = "op_orcs_r4", text = "Lok'tar! Sit at my fire any night you like, orc, because the tauren don't forget either." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They'll fight beside anyone who stands with Mulgore. The orcs told us stories of the Silver Hand and the camps, and some braves will be wary. Fight beside them well, and the stories will change." } },
@@ -631,7 +760,10 @@ P:NPC {
     },
     horde = {
       lines = { { id = "h2_default", text = "The orcs saved us from the centaur when we were wandering and dying, and Thrall asked nothing for it but friendship. That's a debt I will pay with my axe until the day I die." } },
-      choices = { { text = "That's a good reason to fight.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "What do you make of the orcs, then?", next = "op_orcs" },
+        { text = "That's a good reason to fight.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
     xhsham = {
       big = true,

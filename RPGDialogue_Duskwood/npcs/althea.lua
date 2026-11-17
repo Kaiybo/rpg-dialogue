@@ -19,6 +19,7 @@ P:NPC {
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "A rogue in Darkshire. My watchmen already jump at shadows, {class}, so keep to the lamplight while you're in town and we'll get along." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and in the lamplight, as I asked. I don't care much for your trade, but I've come to trust the one practising it." },
+    { id = "g_op_dead_fel", when = { opinion = { topic = "duskwood_dead", stance = "kill_fel" } }, text = "There's the one who wants Fel dead before we argue about funerals. Have you been up Forlorn Rowe yet, or are you still sharpening?" },
     { id = "g_watch", text = "Night Watch. State your business, {class}, and then make yourself useful." },
     { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You're one of mine now, or near enough, so report." },
     { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "There's the reason half my watchers are still alive. Sit down, if only for a moment." },
@@ -59,6 +60,34 @@ P:NPC {
     prej_calm = {
       lines = { { id = "prej_calm_default", text = "A man came to us two winters ago with a fine tongue and a rogue's hands, and he sold the payroll and a patrol route to bandits on the Westfall road in the same night. Three of my watchmen died on that road." } },
       choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_dead = {
+      lines = {
+        { id = "op_dead_a", text = "Now you've found the argument that splits this town down the middle. Half the council wants every body burned before it's cold, and the other half says we're Darkshire, not the Scourge, and we bury our own with the proper words. You've seen what walks out of Raven Hill, so you tell me which half is right." },
+      },
+      choices = {
+        { text = "Burn them. A pyre is kinder than waking up in Fel's army.", next = "op_dead_1", fx = { opinion = { duskwood_dead = "burn", necromancy = "fight_hard" }, align = { light = -1 }, trait = { practical = 1 }, affinity = 1 } },
+        { text = "Bury them with the rites. Fel doesn't get to take that too.", next = "op_dead_2", fx = { opinion = { duskwood_dead = "bury", the_light = "faith" }, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Neither works while Fel lives. Kill the necromancer first.", next = "op_dead_3", fx = { opinion = { duskwood_dead = "kill_fel", necromancy = "fight_hard" }, trait = { brave = 1 }, affinity = 2 } },
+        { text = "I saw Lordaeron's dead rise. Burn them, every one.", next = "op_dead_4", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { duskwood_dead = "burn", scourge = "hate" }, affinity = 1 } },
+        { text = "That's for the families to decide, Commander.", next = "BACK" },
+      },
+    },
+    op_dead_1 = {
+      lines = { { id = "op_dead_r1", text = "That's my vote, though I'd not say so in front of the widows. I've put down too many watchers who used to be watchers, and I'll not do it to the same man twice." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_dead_2 = {
+      lines = { { id = "op_dead_r2", text = "That's the other half's answer, and I can't say it's wrong, only that it's harder on my watchers. Go and say it at Raven Hill, then, and see if the graves agree." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_dead_3 = {
+      lines = { { id = "op_dead_r3", text = "Now that's an answer I can act on. Sven Yorgen's been saying the same for years; go and find him, and then go up Forlorn Rowe with a good blade." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_dead_4 = {
+      lines = { { id = "op_dead_r4", text = "Then you know better than any of us what Fel is building up there. I'll tell the council a northerner said it, and for once they might listen." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
     },
     xcl_scholo = {
       big = true,
@@ -220,6 +249,7 @@ P:NPC {
           fx = { learn = { "morbent_fel" } } },
       },
       choices = {
+        { text = "Could Darkshire burn its dead, so Fel can't raise them?", next = "op_dead" },
         { text = "Why hasn't the Watch gone after him?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

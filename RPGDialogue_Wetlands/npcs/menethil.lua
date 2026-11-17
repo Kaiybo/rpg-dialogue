@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_magni_failed", tags = { "news" }, when = { gossip = { topic = "magni", stance = "failed" } },
+      text = "Longbraid tells me ye think the King left Dun Modr tae burn. Say that in my keep again an' I'll have ye on the wall wi' a bucket, for we've no time for that talk." },
     { id = "g_wall", text = "Quickly now. I've a wall to keep an' a hill full o' orcs to keep it from." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' good timin' too. I've more work than hands, an' ye've brought a pair." },
     { id = "g_nekrosh", when = { questDone = TODO_QUEST("Defeat Nek'rosh") }, text = "Here's the one who brought me Nek'rosh's head. Stand up straight; the lads are watchin'." },
@@ -35,6 +37,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_jaina = {
+      lines = {
+        { id = "opn_jaina_q", text = "The Admiral's daughter. She stood wi' the orcs against her own father, an' now she keeps a peace wi' them across the water that the sailors swear by an' the old soldiers swear at. My boats run tae her harbour, so I've a stake in it. What's yer view?" },
+      },
+      choices = {
+        { text = "She keeps the peace. That's worth more than a grudge.", next = "opn_jaina_r_admire", fx = { align = { light = 1 }, opinion = { jaina = "admire", peace = "peace" } } },
+        { text = "She turned on her own father for orcs. I'd not trust her.", next = "opn_jaina_r_traitor", fx = { affinity = 1, align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "Brave, but young. Peace with orcs won't outlast her.", next = "opn_jaina_r_naive", fx = { trait = { skeptical = 1 }, opinion = { jaina = "naive" } } },
+        { text = "She's a mage of the Kirin Tor. She knows her mind.", next = "opn_jaina_r_respect", when = { class = "MAGE" }, fx = { opinion = { jaina = "respect" } } },
+        { text = "I've never met her, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r = {
+      lines = {
+        { id = "opn_jaina_r_default", text = "Nor have I, an' I'd like tae keep it that way, for the last Proudmoore I met shouted at me for an hour about the harbour." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_admire = {
+      lines = {
+        { id = "opn_jaina_r_admire", text = "Maybe so, an' my sailors would kiss ye for sayin' it. I'll keep my walls manned all the same, for a peace across the water doesnae reach Grim Batol." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_traitor = {
+      lines = {
+        { id = "opn_jaina_r_traitor", text = "Hard words for a lass who saved more lives than I've got men. I'll no' say ye're wrong, mind, for the Admiral's sailors still drink in my tavern, an' they don't toast her." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_naive = {
+      lines = {
+        { id = "opn_jaina_r_naive", text = "Aye, that's my fear too, put neater than I'd put it. Peace is a fine thing until the one who made it is gone, an' then it's just a wall wi' no guards." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_respect = {
+      lines = {
+        { id = "opn_jaina_r_respect", text = "Ye'd know better than an old soldier. I only know her ships pay their dues an' her captains don't lie about cargo, an' that's more than I can say for Booty Bay." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xpt_dwarf = {
       big = true,
       lines = { { id = "xpt_dwarf_default", text = "Well enough, for the humans built the harbour and we hold the road, and between us the Dragonmaw stay up at Grim Batol where they belong. But Menethil's a human town at heart, and a dwarf here learns to like fish whether he wants to or not." } },
@@ -245,6 +299,7 @@ P:NPC {
         { id = "hr_default", text = "Boats to Theramore an' Auberdine, gryphons to Ironforge an' Southshore. Shut Dun Algaz an' the Thandol Span both, an' this harbour's all that joins Khaz Modan to the rest." },
       },
       choices = {
+        { text = "What do you make of Lady Proudmoore in Theramore?", next = "opn_jaina" },
         { text = "Menethil looks like human work, not dwarven.", next = "harbour_name" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1507,6 +1562,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_jaina_traitor", tags = { "news" }, when = { gossip = { topic = "jaina", stance = "traitor" } },
+      text = "Careful what ye say about Lady Proudmoore in here; the Theramore sailors heard ye called her a turncoat, an' they've been glarin' at yer stool all week." },
+    { id = "o_dragonmaw_march", tags = { "news" }, when = { gossip = { topic = "wl_dragonmaw", stance = "march" } },
+      text = "Valstag's been tellin' the bar ye'd march straight up tae Grim Batol. The lads drank tae ye, an' then they drank tae yer funeral, just in case." },
     { id = "g_tavern", text = "In ye come, out o' the wet! The Deepwater's dry, warm, an' only leaks over the bar, which is where ye want it." },
     { id = "g_home", when = { homeInn = { "Menethil Harbor", "Deepwater Tavern" } }, text = "Hang yer cloak by the fire an' it'll steam like a kettle; they all do." },
     { id = "g_away", when = { away = 14 }, text = "In ye come after {away} away, an' soaked as ever by the look o' ye! Hang that cloak by the fire an' have a drink." },

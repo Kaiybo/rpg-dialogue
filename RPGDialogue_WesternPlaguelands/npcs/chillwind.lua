@@ -34,6 +34,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_stormwind = {
+      big = true,
+      lines = {
+        { id = "opsw_default", text = "The court, which these days means Highlord Bolvar's seal and Lady Prestor's advice on nearly every letter. I'm a soldier and I don't trade in gossip, but you've been to Stormwind more recently than I have, so what do you make of the court?" },
+      },
+      choices = {
+        { text = "Bolvar's a good man holding a hard throne.", next = "op_stormwind_r1", fx = { align = { order = 1 }, opinion = { stormwind = "trust", bolvar = "trust" } } },
+        { text = "Something's wrong in that court. I don't trust Lady Prestor.", next = "op_stormwind_r2", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { stormwind = "distrust", prestor = "distrust" } } },
+        { text = "Ironforge would send you men, Commander, if you asked Magni.", next = "op_stormwind_r3", fx = { affinity = 1, opinion = { stormwind = "mixed", magni = "trust" } }, when = { race = "Dwarf" } },
+        { text = "I'll leave the court to you, Commander.", next = "BACK" },
+      },
+    },
+    op_stormwind_r1 = {
+      lines = { { id = "opsw_r1", text = "That's what I tell my soldiers, and most days I believe it. A good man can only send what he has, and I'll make do with it." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_stormwind_r2 = {
+      lines = { { id = "opsw_r2", text = "Careful, now. I've thought much the same reading her letters, but a commander who says so aloud gets posted somewhere even colder than this." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_stormwind_r3 = {
+      lines = { { id = "opsw_r3", text = "I've asked, and the King sends what he can, which is more than most. Ironforge has its own troubles with the Dark Iron, and I'll not begrudge it." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then I'll tell you what I tell every company: stay together north of the river, don't split to chase a straggler, and burn what you kill, because what you leave lying in the Plaguelands gets up again by morning. The Scourge would sooner take one of you than kill all five, since one of you is a new soldier for them." } },
@@ -85,6 +109,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_fkhate", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "The High Priestess says you'd put every Forsaken back in the ground. Do it on the far side of the field, if you must, and don't start a war I can't afford." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "Five of you, and every one looking like they can hold a line, which is more than I can say for half the volunteers Stormwind sends me. The Scourge come at Chillwind in numbers, so I think in numbers too, and you've just made my count a good deal kinder." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've a handful of soldiers to break Andorhal with, {class}, so I'll not be choosy about where my help comes from, and I suspect the earth here could do with someone listening." },
@@ -191,6 +216,7 @@ P:NPC {
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Clear the Way") }, { trait = "brave" } } } },
           fail = { next = "need_shut", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Who decides what Stormwind sends you, Commander?", next = "op_stormwind" },
       },
     },
     why = {
@@ -379,6 +405,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      big = true,
+      lines = {
+        { id = "opfk_default", text = "They dose them from the other side of the field, with brews I'd not touch with tongs. They say they're free of the Lich King, and some of them even pray, so tell me, do you believe them?" },
+      },
+      choices = {
+        { text = "They deserve a chance, if the Light can forgive them.", next = "op_forsaken_r1", fx = { align = { light = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "They're dead, Priestess. They belong in the ground.", next = "op_forsaken_r2", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { forsaken = "hate" } } },
+        { text = "Some of them still hold the Light. I've heard it.", next = "op_forsaken_r3", fx = { trait = { pious = 1 }, opinion = { forsaken = "pity" } }, when = { class = "PALADIN" } },
+        { text = "I'll keep my view to myself, Priestess.", next = "BACK" },
+      },
+    },
+    op_forsaken_r1 = {
+      lines = { { id = "opfk_r1", text = "If, you say, and you say it gently. I'll pray on that, though I warn you my prayers tend to come out with a sword in them." } },
+      choices = { { text = "Something else, Priestess.", next = "BACK" } },
+    },
+    op_forsaken_r2 = {
+      lines = { { id = "opfk_r2", text = "That's my instinct too, and I'm not proud of how quickly it comes. Still, they burn cauldrons, so I'll leave them be until the cauldrons are gone." } },
+      choices = { { text = "Something else, Priestess.", next = "BACK" } },
+    },
+    op_forsaken_r3 = {
+      lines = { { id = "opfk_r3", text = "So I've heard as well, and it troubles me more than any ghoul. If the Light answers the dead, then I have a great many sermons to unwrite." } },
+      choices = { { text = "Something else, Priestess.", next = "BACK" } },
+    },
     xpt_pala = {
       big = true,
       lines = { { id = "xpt_pala_default", text = "The Silver Hand was broken when Uther fell, and what's left of it is scattered among the Argent Dawn and the Crusade and a few stubborn souls who keep the old oaths alone. I pray every night that someone gathers them again before the Crusade finishes twisting what's left." } },
@@ -444,6 +494,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_swdistrust", tags = { "news" }, when = { gossip = { topic = "prestor", stance = "distrust" } }, text = "The Commander says you've doubts about Lady Prestor. Pray on them, by all means, but keep them out of his letters home." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" }, faction = "Alliance" },
           text = "You've brought {companion} to Chillwind, and I'd know a paladin's bearing anywhere, for I've buried enough of them. It does me good to see the Light still carried in armour after everything Lordaeron has seen." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and an Ironforge dwarf! The Light burns the Scourge out of the land, {class}, and I'm told your elements burn it too, so I'll not quibble over which fire does the work." },
@@ -540,6 +591,7 @@ P:NPC {
       },
       choices = {
         { text = "Which is the worst?", next = "worst" },
+        { text = "Do the Forsaken work the cauldrons too?", next = "op_forsaken" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -889,6 +941,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_barov = {
+      big = true,
+      lines = {
+        { id = "opbv_default", text = "Deserve them? I'm the only Barov left with a pulse, which ought to settle it. But you seem the judging sort, so go on and tell me: does House Barov deserve its lands back, after everything?" },
+      },
+      choices = {
+        { text = "Your parents sold Lordaeron to Kel'Thuzad. You forfeited everything.", next = "op_barov_r1", fx = { affinity = -2, align = { honor = 1 }, opinion = { barov = "forfeit" } } },
+        { text = "A deed's a deed. If the paper's good, the land's yours.", next = "op_barov_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { greedy = 1 }, opinion = { barov = "deserve" } } },
+        { text = "Stormwind should decide who holds Lordaeron's lands now.", next = "op_barov_r3", fx = { trait = { practical = 1 }, opinion = { barov = "crown" } }, when = { race = "Human" } },
+        { text = "I'll not judge your family, Weldon.", next = "BACK" },
+      },
+    },
+    op_barov_r1 = {
+      lines = { { id = "opbv_r1", text = "Forfeited! My parents did the selling, not me, and I'll thank you not to say that word anywhere near the Commander." } },
+      choices = { { text = "Something else, Barov.", next = "BACK" } },
+    },
+    op_barov_r2 = {
+      lines = { { id = "opbv_r2", text = "Exactly! A sensible person at last. Bring me my brother's half of the paper, and you'll see how grateful a Barov can be." } },
+      choices = { { text = "Something else, Barov.", next = "BACK" } },
+    },
+    op_barov_r3 = {
+      lines = { { id = "opbv_r3", text = "Stormwind can barely decide who holds Westfall. I'd rather trust a good lawyer and a better deed, thank you." } },
+      choices = { { text = "Something else, Barov.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Anyone with land in Lordaeron and the deeds to prove it, which these days means me, my brother Alexi, and a few desperate barons hiding in Southshore. Caer Darrow was ours before Kel'Thuzad's lot took it, and the family that clears it will keep it." } },
@@ -1092,6 +1168,7 @@ P:NPC {
       },
       choices = {
         { text = "Southshore's people may disagree.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Do you think you deserve those lands, Weldon?", next = "op_barov" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1185,6 +1262,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_silver_hand = {
+      big = true,
+      lines = {
+        { id = "opsh_default", text = "I ask myself that most mornings. The Crusade wears the order's tabards and the Dawn tries to keep its vows, and the name belongs to neither of us now. You've heard the stories, so what do you think: can the Silver Hand rise again?" },
+      },
+      choices = {
+        { text = "Yes, if men like you keep its vows.", next = "op_silver_hand_r1", fx = { align = { order = 1 }, opinion = { silver_hand = "hope" } } },
+        { text = "It died with Uther. Let the name go.", next = "op_silver_hand_r2", fx = { align = { order = -1 }, opinion = { silver_hand = "dead" } } },
+        { text = "I carry its teachings, whatever the order calls itself.", next = "op_silver_hand_r3", fx = { affinity = 1, trait = { pious = 1 }, opinion = { silver_hand = "faith" } }, when = { class = "PALADIN" } },
+        { text = "I'll leave that to paladins, officer.", next = "BACK" },
+      },
+    },
+    op_silver_hand_r1 = {
+      lines = { { id = "opsh_r1", text = "That's kind of you, and heavier than you'd think. I'll try to be worth it, though some days the vows are all I have left of it." } },
+      choices = { { text = "Something else, officer.", next = "BACK" } },
+    },
+    op_silver_hand_r2 = {
+      lines = { { id = "opsh_r2", text = "Maybe it did, and maybe that's why the Crusade fights so hard over its corpse. The work goes on whatever we call it." } },
+      choices = { { text = "Something else, officer.", next = "BACK" } },
+    },
+    op_silver_hand_r3 = {
+      lines = { { id = "opsh_r3", text = "Then the Silver Hand isn't dead while you're standing, and I'm glad to hear it said. Uther taught that the order was its people, not its banner." } },
+      choices = { { text = "Something else, officer.", next = "BACK" } },
+    },
     xpt_priest = {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Rarer than it should be, because half the bold young things who come north think a sharp blade is all they need, and the plague teaches them otherwise within a day or two. The Dawn will take any soul willing to fight the Scourge, but I'll always think a little better of the ones who plan on coming back." } },
@@ -1326,6 +1427,7 @@ P:NPC {
         { text = "You chose rightly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Hate or not, the Crusade gets results against the dead.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "The Crusade still fights the Scourge.", next = "crusade" },
+        { text = "Can the Silver Hand ever be what it was?", next = "op_silver_hand" },
       },
     },
     crusade = {

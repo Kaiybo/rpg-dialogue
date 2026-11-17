@@ -29,6 +29,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_gnolls = {
+      lines = {
+        { id = "op_gnolls_a", text = "Depends who's asking and how many horses they've lost. The guards say wipe out every gnoll on the ridge, and old Martie says the orcs have pushed them down off the mountains and they're as frightened as we are. What do you reckon?" },
+      },
+      choices = {
+        { text = "Clear the ridge. They chose to raid, so they chose the sword.", next = "op_gnolls_1", fx = { opinion = { redridge_gnolls = "clear_them" }, align = { light = -1 }, affinity = 1 } },
+        { text = "They're starving refugees. Push the orcs back and they'll go home.", next = "op_gnolls_2", fx = { opinion = { redridge_gnolls = "driven" }, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Kill the leaders and the rest will scatter.", next = "op_gnolls_3", fx = { opinion = { redridge_gnolls = "leaders" }, trait = { practical = 1 } } },
+        { text = "I don't know enough about gnolls to say.", next = "BACK" },
+      },
+    },
+    op_gnolls_1 = {
+      lines = { { id = "op_gnolls_r1", text = "That'll please the Guard, and the horses, and me, to be honest about it. Bring me a few of their blades, and I'll melt them into shoes." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_gnolls_2 = {
+      lines = { { id = "op_gnolls_r2", text = "Martie'll like you, then. I'd like you better if the gnolls would like you too, and leave my paddock be while you're arguing their case." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_gnolls_3 = {
+      lines = { { id = "op_gnolls_r3", text = "That's Yowler, then, and I'll say good riddance. Every gnoll that can howl louder than the rest thinks he's a king." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They take every scrap. I've a hot forge and no iron. At least my horses listen to my grumbling." } },
@@ -189,6 +212,7 @@ P:NPC {
           fx = { learn = { "redridge_gnolls" } } },
       },
       choices = {
+        { text = "Are the gnolls just hungry, or something worse?", next = "op_gnolls" },
         { text = "Someone must be leading them.", next = "yowler" },
         { text = "Something else.", next = "BACK" },
       },

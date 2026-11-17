@@ -51,6 +51,50 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    op_pirates = {
+      lines = {
+        { id = "opp_q", text = "Look, look, I've got to file a report to the Cartel on public sentiment, which is a thing they make me do now, on top of everythin' else. What's your take on the Southsea pirates, pal?" },
+      },
+      choices = {
+        { text = "Hang every one of them from the port cranes.", next = "op_pirates_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { pirates = "hate" } } },
+        { text = "Some are just sailors out of work. Offer them honest jobs.", next = "op_pirates_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { pirates = "pity" } } },
+        { text = "Pay them less and hire more Bruisers.", next = "op_pirates_r3", fx = { trait = { practical = 1 }, opinion = { pirates = "contain" } } },
+        { text = "A pirate's life sounds better than guarding a dock.", next = "op_pirates_r4", fx = { affinity = -1, trait = { witty = 1 }, opinion = { pirates = "admire" } }, when = { class = "ROGUE" } },
+        { text = "I'd rather stay out of your report, chief.", next = "BACK" },
+      },
+    },
+    op_pirates_r1 = {
+      lines = {
+        { id = "op_pirates_r1", text = "Okay, wow, I'll write 'strongly opposed' in the box, and I'll leave out the cranes, because the crane guy is my cousin." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_pirates_r2 = {
+      lines = {
+        { id = "op_pirates_r2", text = "Honest jobs! I'll pitch it to the Cartel, and they'll laugh, and then they'll ask what it costs. Still, I like you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_pirates_r3 = {
+      lines = {
+        { id = "op_pirates_r3", text = "Now that's a line item I can get behind, pal! I'll put it in the report and take the credit, if it's all the same to you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_pirates_r4 = {
+      lines = {
+        { id = "op_pirates_r4", text = "I'm gonna pretend I didn't hear that, and I'm also gonna keep an eye on you, because that's my actual job." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Security Chief Bilgewhizzle, Water Company security, and the only thing between this port and every thief on the coast, on a budget you wouldn't believe. The Cartel wants the impossible from me, and they want it by Tuesday." },
@@ -84,6 +128,7 @@ P:NPC {
     protection = {
       lines = { { id = "p_default", text = "Because it's cheaper to pay a pirate to stay home than to lose a cargo, and goblins can count, pal. Only now the Southsea are taking the money and the cargo, which is frankly unprofessional and a clear breach of terms." } },
       choices = {
+        { text = "What do people say about the pirates?", next = "op_pirates" },
         { text = "Paying pirates only feeds them.", next = "protection_stance" },
         { text = "So what happens now?", next = "protection_stance" },
       },

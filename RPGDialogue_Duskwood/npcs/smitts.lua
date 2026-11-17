@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_worgen_cursed", when = { opinion = { topic = "worgen", stance = "cursed" } }, text = "You're the one who thinks the worgen are cursed men. A watcher sat there last night and said the same, sober as a judge, and the whole room went quiet." },
     { id = "g_raven", text = "Welcome to the Scarlet Raven, friend, the warmest room in Duskwood, which isn't saying much." },
     { id = "g_back", when = { metBefore = true }, text = "Back in out of the fog, are you? Your stool's free." },
     { id = "g_home", when = { homeInn = { "Darkshire", "Scarlet Raven Tavern" } }, text = "Home from the woods! Put your boots by the fire and they'll be dry by midnight." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_worgen = {
+      lines = {
+        { id = "op_worgen_a", text = "Depends how much they've had. Sober, they say wolves, big ones, out of the east woods. Drunk, they say the worgen were men once, cursed by something old, and that's why they howl like they're grieving. You've met them in the trees, so what are they to you?" },
+      },
+      choices = {
+        { text = "Beasts. Whatever they were, kill them before they kill you.", next = "op_worgen_1", fx = { opinion = { worgen = "beasts" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Cursed men. Somebody should be trying to cure them.", next = "op_worgen_2", fx = { opinion = { worgen = "cursed" }, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Cursed or not, they're a threat. Pity them from behind a wall.", next = "op_worgen_3", fx = { opinion = { worgen = "cursed" }, trait = { cautious = 1 }, affinity = 1 } },
+        { text = "My people woke something in those woods. The Scythe was ours.", next = "op_worgen_4", when = { race = "NightElf" }, fx = { opinion = { worgen = "cursed", night_elves = "responsible" }, affinity = 2 } },
+        { text = "I'd rather not think about them, Smitts.", next = "BACK" },
+      },
+    },
+    op_worgen_1 = {
+      lines = { { id = "op_worgen_r1", text = "That's the sober answer, and it's kept a lot of watchers alive. Have a drink anyway; you'll need one if you ever hear them up close." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
+    op_worgen_2 = {
+      lines = { { id = "op_worgen_r2", text = "That's what the drunk ones say, and I've always liked the drunk ones better. If anybody ever finds a cure, I'll pour for them free until the barrel's dry." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
+    op_worgen_3 = {
+      lines = { { id = "op_worgen_r3", text = "Behind a wall and a stout door, and a lamp in the window. You'd make a fine Darkshire citizen; you've already got the habits." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
+    op_worgen_4 = {
+      lines = { { id = "op_worgen_r4", text = "Was it, now? Then you're the first to stand at my bar and own a piece of it. Sit down; that one's worth a whole evening, and I'll not charge you for the listening." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It wants to forget the dead, the worgen and the missing. I keep the warmest room in Duskwood, which isn't saying much." } },
@@ -202,6 +231,7 @@ P:NPC {
         { id = "r_default", text = "There are lights at Manor Mistmantle again, the mayor's written another letter, and somebody's been buying a great deal of thread up at Raven Hill." },
       },
       choices = {
+        { text = "And the worgen? What do the regulars say about them?", next = "op_worgen" },
         { text = "Thread?", next = "rumors_thread", fx = { trait = { curious = 1 } } },
         { text = "Lights at the manor?", next = "rumors_manor" },
         { text = "Something else.", next = "BACK" },

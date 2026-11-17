@@ -93,6 +93,32 @@ P:NPC {
       lines = {
         { id = "hh_default", text = "Humans on horses do not like ogres, and Clugfist does not blame them, because the Twilight ogres burned their towns. Bolder'ok stays on this side of the river, and they stay on that side, and nobody gets hit." },
       },
+      choices = {
+        { text = "Do you trust the orcs, Clugfist?", next = "ho_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Clugfist asks the player whether the Horde will keep faith with Bolder'ok.
+    ho_trust = {
+      big = true,
+      lines = { { id = "ht_default", text = "Clugfist trusts axes, and orcs give axes. But you walk with the Horde, so tell Clugfist true: are orcs real friends, or only friends while the Twilight lives?" } },
+      choices = {
+        { text = "Real friends. The Horde keeps its word.", next = "ho_trust_yes", fx = { opinion = { horde = "loyal" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "Only while it suits them. Watch your back.", next = "ho_trust_no", fx = { opinion = { horde = "distrust" }, align = { honor = -1 } } },
+        { text = "Leaving the Hammer took more courage than any war.", next = "ho_trust_brave", fx = { opinion = { rg_bolderok = "respect" }, affinity = 1 } },
+        { text = "Clugfist should ask the orcs, not me.", next = "BACK" },
+      },
+    },
+    ho_trust_yes = {
+      lines = { { id = "hty_default", text = "Good! Clugfist thinks so too, but Clugfist likes hearing it from someone small and clever. Clugfist will tell the others." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ho_trust_no = {
+      lines = { { id = "htn_default", text = "Hrm. Clugfist watches his back already, because the Twilight taught Clugfist that. But Clugfist will watch it harder now, and Clugfist will remember who said it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ho_trust_brave = {
+      lines = { { id = "htb_default", text = "Nobody says that to Clugfist before. The prophets called us cowards when we left, and Clugfist almost believed them. Clugfist does not believe them now." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     jomjom = {

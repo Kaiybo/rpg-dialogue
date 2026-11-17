@@ -119,6 +119,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_night_elves_distrust", tags = { "news" }, when = { gossip = { topic = "night_elves", stance = "distrust" } },
+          text = "Kyra tells me you think we keep secrets better than friends. Here's one for nothing, then: my bows are better than the ones in Darnassus." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You won't need a bow, I suppose, but come and look anyway, because half the Sentinels I sell to say a prayer before they loose their first arrow of the day." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, with a hammer instead of a bow, I'll wager! I won't try to sell you anything, {class}, but I'm curious how you fight without ever loosing from a distance." },
         { id = "h_default", text = "I'm Jeena Featherbow, and I sell bows and arrows here in Dolanaar. Every young hunter on Teldrassil buys their first quiver from me, and most of them come back to tell me what they shot with it." },
@@ -222,6 +224,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_kin", when = { race = "NightElf" }, text = "You were born under these branches, so tell me straight: are we as strong as we like to think we are?" },
+        { id = "op_ask_default", text = "Most outsiders think the kaldorei are all moonlight and soft words until a Sentinel puts an arrow past their ear. What do you make of my people, now that you've seen us up close?" },
+      },
+      choices = {
+        { text = "Proud and strong. The Sentinels are the finest soldiers I've met.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { night_elves = "admire" } } },
+        { text = "Too proud. You still think it's ten thousand years ago.", next = "op_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Your people keep secrets better than they keep friends.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { night_elves = "distrust" } } },
+        { text = "I'm still making up my mind.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Then you haven't met many soldiers, but I'll take it gladly. Tell the dwarves, because they never believe us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "You're not the first to say so, and the ones who did were usually right, which is far more irritating than being wrong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "We had ten thousand years to practise keeping secrets and only a few to practise keeping friends. Give us time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It does, if you rise again. Your spirits will not catch you every time. Learn to stand." } },
@@ -320,6 +347,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The next student can wait." },
       },
       choices = {
+        { text = "What do outsiders get wrong about the kaldorei?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS" },
         { text = "A warrior must outgrow Dolanaar soon enough.", next = "after" },
         { text = "You must see young warriors make the same mistakes.", next = "mistake" },

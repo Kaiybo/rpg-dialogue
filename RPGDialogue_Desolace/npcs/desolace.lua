@@ -199,6 +199,35 @@ P:NPC {
     },
     stakes_help = {
       lines = { { id = "sh_default", text = "Stormwind sends orders. Supplies come when the road's clear and the sea's calm, which is rarely both, so we make do, and making do is most of soldiering." } },
+      choices = {
+        { text = "Whose orders, these days? The Regent's, or the court's?", next = "court_op" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    court_op = {
+      lines = { { id = "ct_default", text = "Officially Lord Fordragon's, and he's a good soldier. But word from home says Lady Prestor has the court's ear these days, and orders come back stranger than they went out, so you tell me, since you've seen Stormwind more recently than I have: what do you make of it?" } },
+      choices = {
+        { text = "Bolvar's a soldier's soldier. I'd follow him anywhere.", next = "ct_bolvar", fx = { affinity = 1, align = { order = 1 }, opinion = { bolvar = "trust" } } },
+        { text = "Lady Prestor has too much sway over the boy king.", next = "ct_prestor", fx = { affinity = 2, align = { order = -1 }, opinion = { prestor = "distrust" } } },
+        { text = "Stormwind needs King Varian back, not regents.", next = "ct_varian", fx = { opinion = { varian = "return" } } },
+        { text = "The nobles cheated the masons. The court's rotten.", next = "ct_rotten", when = { race = "Human" }, fx = { opinion = { stormwind = "corrupt" } } },
+        { text = "I keep out of court business, Captain.", next = "BACK" },
+      },
+    },
+    ct_bolvar = {
+      lines = { { id = "ctb_default", text = "So would I, and so would every man on this ridge. I only wish his orders reached us the way he wrote them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ct_prestor = {
+      lines = { { id = "ctp_default", text = "Careful, that's a noble you're talking about, and nobles have long ears. But I'll admit I've thought it on a cold night or two." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ct_varian = {
+      lines = { { id = "ctv_default", text = "Wherever he is. A king who vanishes on the way to a peace parley leaves a hole that regents can't fill, however hard they try." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ct_rotten = {
+      lines = { { id = "ctr_default", text = "The masons' business is ugly, and I've a few of their cousins under my command who'd agree with you. Say it quietly, though, because I have to keep taking those orders." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     point = {
@@ -841,6 +870,35 @@ P:NPC {
     },
     valley = {
       lines = { { id = "v_default", text = "Bones, more than you can count, and things that won't stay down. The Crusade's sworn to put them down, every one. It's honest work, whatever else you've heard." } },
+      choices = {
+        { text = "Every one? Even those who think for themselves?", next = "undead_op" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    undead_op = {
+      lines = { { id = "un_default", text = "I hear the Horde has taken in a whole kingdom of the walking dead and calls them allies, and some say they're not Scourge at all. Tell me plainly, friend: can any of the risen be saved, or must all of them be put down?" } },
+      choices = {
+        { text = "All of them. The Crusade has the right of it.", next = "un_all", fx = { affinity = 2, align = { order = 1 }, opinion = { undeath = "hate", scarlet_crusade = "admire" } } },
+        { text = "The Forsaken broke free of the Lich King. They're different.", next = "un_free", fx = { affinity = -1, opinion = { forsaken = "pity" } } },
+        { text = "I hear the Crusade burns the living too. That's no cure.", next = "un_crusade", fx = { affinity = -2, align = { order = -1 }, opinion = { scarlet_crusade = "distrust" } } },
+        { text = "The Light can redeem anyone, Brother, even the risen.", next = "un_light", when = { class = "PALADIN" }, fx = { opinion = { undeath = "redeemable", the_light = "mercy" } } },
+        { text = "I'll leave that to the Light.", next = "BACK" },
+      },
+    },
+    un_all = {
+      lines = { { id = "una_default", text = "Then you'd be welcome in Hearthglen, friend, and I'll write Brother Crowley about you myself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    un_free = {
+      lines = { { id = "unf_default", text = "Free of one master and sworn to another, in a city built on Lordaeron's bones. Forgive me if I don't call that saved." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    un_crusade = {
+      lines = { { id = "unc_default", text = "Rumors again. I told you, I've been out here a long while, and I'll not hear the Crusade slandered at my own fire." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    un_light = {
+      lines = { { id = "unl_default", text = "A merciful thought, and the Light is merciful. I have never once seen it work on the dead, though, and I've prayed over a great many of them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     crowley = {
@@ -1027,6 +1085,10 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, here at the edge of the dust. Sit by the hearth a while, because the people who come up from Desolace often carry more than dust home with them, and I think you would know what to say to them." },
         { id = "h_default", key = true,
           text = "Innkeeper Lyshaerya. I keep the only warm hearth between Stonetalon and Feralas, and travelers find their way to it eventually." },
+        { id = "h_op_prestor", tags = { "news" }, when = { gossip = { topic = "prestor", stance = "distrust" } },
+          text = "The Captain said you'd a sharp word for Lady Prestor. He's been repeating it to himself all week, so whatever it was, it stuck." },
+        { id = "h_op_crusade", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "distrust" } },
+          text = "Brother Anton's been sitting alone by the fire since you spoke with him. Don't take it to heart; he needed to hear it from someone." },
         { id = "h_dust", when = { metBefore = true }, text = "Desolace dust gets into everything: the bread, the beds, my hair. I've stopped fighting it, and now I just sweep while I talk." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The centaur drums carry a long way at night. You stop hearing them after a week, though I haven't stopped yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -1191,6 +1253,10 @@ P:NPC {
           text = "A hunter. Can you track a satyr through broken ground, or only deer through grass? I need the first." },
         { id = "h_default", key = true,
           text = "Takata Steelblade. Keldran sent me from Orgrimmar to hunt the Burning Blade here, the last orcs who still drink the demons' poison. They hide among the satyrs, so the satyrs die too." },
+        { id = "h_op_necro", when = { gossip = { topic = "necromancy", stance = "wrong" } },
+          text = "Maurin says you called his work rot. I'd not say it twice near his tent, but I'll not argue with you either." },
+        { id = "h_op_centaur", when = { gossip = { topic = "centaur", stance = "hate" } },
+          text = "Felgur likes you, which is rare. He says you called the centaur beasts, and he's been grinning about it at the fire." },
         { id = "h_satyr", tags = { "news" }, when = { questActive = TODO_QUEST("Befouled by Satyr") },
           text = "The satyrs foul everything they touch, so thin them. The Blade loses its friends one horn at a time." },
         { id = "h_corrupter", when = { questActive = TODO_QUEST("The Corrupter") },

@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_light", when = { gossip = { topic = "the_light", stance = "doubt" } }, text = "Nimetz says you don't put much stock in prayer. I don't either, some days, but don't tell him I agreed with you; he takes it hard." },
     { id = "g_halt", text = "Stop there and state your business. If you're one of the Colonel's, you won't be walking out of this camp." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. We've few enough friends this far from Stormwind." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd wondered if Kurzen had you. We've few enough friends out here, so I'm glad to be wrong." },
@@ -31,6 +32,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_stormwind = {
+      lines = {
+        { id = "ops_default", text = "I used to be sure of it. Highlord Bolvar holds the Keep with Lady Prestor at his elbow, the king's been missing a year, and nobody's come for us. You've been there more lately than I have, so is it still the city I left?" },
+      },
+      choices = {
+        { text = "Bolvar holds it together. Stormwind hasn't forgotten you.", next = "op_sw_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { stormwind = "trust", bolvar = "trust" } } },
+        { text = "The nobles care for coin and nothing else now.", next = "op_sw_distrust", fx = { align = { order = -1 }, opinion = { stormwind = "distrust" } } },
+        { text = "Lady Prestor whispers and the court nods. Something's wrong there.", next = "op_sw_prestor", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "It's my city, Lieutenant, and lately I'm ashamed of it.", next = "op_sw_distrust", fx = { affinity = 1, opinion = { stormwind = "ashamed" } }, when = { race = "Human" } },
+        { text = "I can't answer for Stormwind.", next = "BACK" },
+      },
+    },
+    op_sw_trust = {
+      lines = {
+        { id = "opst_default", text = "I'd like to believe that, and coming from someone who's walked the Trade District lately, I almost do. When this is done, I'll go and ask the Highlord myself." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_sw_distrust = {
+      lines = {
+        { id = "opsd_default", text = "That's what the men say around the fire, and I tell them to hold their tongues. I don't tell them they're wrong, and I've noticed they've stopped asking me to." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_sw_prestor = {
+      lines = {
+        { id = "opsp_default", text = "Careful saying that aloud, even out here. She came from nowhere and has the whole court eating from her hand, and I don't know what that means, only that I don't like it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_doren = {
       big = true,
       lines = { { id = "xpt_doren_default", text = "Kurzen happened, or whatever got into his head out here; one day he was our commander and the next he was something else, and most of the men followed him. A company is only as good as the one leading it, so remember that before you follow anyone into this jungle." } },
@@ -184,6 +215,7 @@ P:NPC {
           text = "Your sort might know better than I do. Somebody in the Keep signed for this expedition. I'd like to hear they still remember it." },
       },
       choices = {
+        { text = "Does Stormwind even care what happens out here?", next = "op_stormwind" },
         { text = "I could carry word myself.", next = "left_word", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -397,6 +429,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_stormwind", when = { gossip = { topic = "stormwind", stance = "distrust" } }, text = "Doren says you think the nobles have forgotten us. He didn't argue with you, which worried me more than if he had." },
     { id = "g_glass", text = "The Light keep you. Mind your step; I've glassware drying on every flat surface in this camp." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. Any news is welcome here, even bad news." },
   },
@@ -412,6 +445,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_light = {
+      lines = {
+        { id = "opl_default", text = "I believe it does, though some nights the jungle's louder than any prayer I know. Tell me honestly, since nobody in this camp will: what does the Light mean to you out here?" },
+      },
+      choices = {
+        { text = "It's the only thing that keeps us whole.", next = "op_light_faith", fx = { affinity = 1, align = { light = 1 }, trait = { pious = 1 }, opinion = { the_light = "faith" } } },
+        { text = "Prayers don't stop troll spears. Steel does.", next = "op_light_doubt", fx = { affinity = -1, align = { light = -1 }, opinion = { the_light = "doubt" } } },
+        { text = "It's my calling, Brother. I'd not walk without it.", next = "op_light_faith", fx = { affinity = 2, opinion = { the_light = "faith" } }, when = { class = "PALADIN" } },
+        { text = "Ironforge prays less and builds more, but we believe.", next = "op_light_respect", fx = { affinity = 1, opinion = { the_light = "respect" } }, when = { race = "Dwarf" } },
+        { text = "I'd rather not say, Brother.", next = "BACK" },
+      },
+    },
+    op_light_faith = {
+      lines = {
+        { id = "oplf_default", text = "Then you'll understand why I keep praying for Kurzen, even now. Thank you; it's a lonely thing to believe in a camp full of tired men." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_light_doubt = {
+      lines = {
+        { id = "opld_default", text = "Steel stops spears, I grant you, but it hasn't stopped one nightmare in this camp. I'll pray for you anyway, and you needn't thank me for it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_light_respect = {
+      lines = {
+        { id = "oplr_default", text = "Building is a kind of prayer, if you ask me, and the Ironforge chapels are the finest I've ever knelt in. I'll take your quiet belief over a loud one any day." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_nimetz = {
       big = true,
       lines = { { id = "xpt_nimetz_default", text = "It might ease it, but I'm a man of glassware as well as faith, and I want to know what causes it before I start praying at it. Faith without study gave Stormwind half its quack cures, and study without faith gave us Kel'Thuzad." } },
@@ -630,7 +693,10 @@ P:NPC {
     },
     pray_kurzen = {
       lines = { { id = "pk_default", text = "Yes, yes, him too, and thank you. Doren would call that soft, and he'd be wrong." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "Does the Light reach this far, Brother?", next = "op_light" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
 
     residue = {

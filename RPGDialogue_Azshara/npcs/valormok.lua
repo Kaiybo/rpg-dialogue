@@ -32,6 +32,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ashenvale = {
+      lines = {
+        { id = "opa_default", text = "The Warsong cut the forest in Ashenvale because Orgrimmar needs timber, and the Sentinels bleed us for every tree. My grunts argue it every night by the fire, so you may as well join them. Is it worth it?" },
+      },
+      choices = {
+        { text = "We're cutting their forest. They have every right to fight.", next = "op_ash_wrong", fx = { align = { honor = 1 }, opinion = { ashenvale = "wrong" } } },
+        { text = "The Horde needs that wood. The elves can learn to share.", next = "op_ash_need", fx = { affinity = 1, align = { honor = -1 }, opinion = { ashenvale = "necessary", warsong = "admire" } } },
+        { text = "The Earth Mother weeps for every tree that falls.", next = "op_ash_wrong", fx = { opinion = { ashenvale = "wrong" } }, when = { race = "Tauren" } },
+        { text = "I'll fight where the Warchief sends me.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    op_ash_wrong = {
+      lines = {
+        { id = "opaw_default", text = "Maybe they do, and maybe I'd fight too if someone came for my trees. But Orgrimmar's walls need timber, and I'm a soldier, so I'll leave the right of it to wiser heads than mine." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_ash_need = {
+      lines = {
+        { id = "opan_default", text = "That's what the Warsong say, and they say it with axes. I won't argue with you, but I've noticed that the elves never seem to run short of arrows." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Maybe, maybe not, for the elf's magic killed them fast. But I'll take you now, and the Horde will win here because someone has to, and I'd rather that someone glowed a little." } },
@@ -201,6 +224,7 @@ P:NPC {
       lines = { { id = "c_default", fx = { learn = { "satyrs" } },
         text = "Badly, and stubbornly. The satyr of Haldarr are just south of us, the elves' Sentinels watch from their point to the southwest, and the mountains behind us are full of furbolgs who'd sooner kill us than trade." } },
       choices = {
+        { text = "Is the war with the elves worth what it costs?", next = "op_ashenvale" },
         { text = "Why not pull back to Orgrimmar?", next = "camp_why" },
         { text = "Something else.", next = "BACK" },
       },

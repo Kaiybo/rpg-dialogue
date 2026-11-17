@@ -116,6 +116,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_forsaken_pity", tags = { "news" }, when = { opinion = { topic = "forsaken", stance = "pity" } },
+          text = "I hear you think the Forsaken are still people inside. How touching! Do hold this flask while you're feeling sympathetic." },
         { id = "h_pt_winna", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you! Oh, that's wonderful, because I need a great many samples from the Bloodvenom and nobody ever volunteers twice." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -289,6 +291,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Orgrimmar tells me to keep an eye on Winna Hazzard, her kitten and her poisons, and to say nothing to her about it. You've seen her work, so you tell me: what do you make of the Forsaken in the Horde?" },
+      },
+      choices = {
+        { text = "They're Horde. They bled in the Barrens like anyone else.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "They're using us, and one day they'll turn on us.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { forsaken = "distrust" } } },
+        { text = "Their alchemists frighten me more than their soldiers.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { forsaken = "dangerous", new_plague = "fear" } } },
+        { text = "We're the only ones who know what the Scourge really is.", next = "op_r4", fx = { trait = { proud = 1 }, opinion = { forsaken = "proud" } }, when = { race = "Scourge" } },
+        { text = "I'll keep my eyes open, same as you.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Some of them did. Some of them bled green, and that's what worries me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Say that quietly, and say it to me, not to the Warchief's envoys. I've a feeling you're not wrong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Same here, and I've met their soldiers. Ask Winna what's in the green barrels and watch how she smiles." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "That's the one argument I can't answer, so I'll keep watching you while I think about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Maybe nothing, but folk say every Forsaken paladin keeps an old Silver Hand oath somewhere behind the new one. I'll not ask which you keep, but I'll be watching, the same way I watch the alchemist." } },
@@ -456,6 +487,7 @@ P:NPC {
         { id = "wi_default", text = "Bottling corrupted water and feeding it to her cat, as far as I can tell. I don't ask, because she laughs, and I don't like the laugh." },
       },
       choices = {
+        { text = "What do you make of the Forsaken in the Horde?", next = "op_ask" },
         { text = "Do you report on her?", next = "winna_report" },
         { text = "Something else.", next = "BACK" },
       },

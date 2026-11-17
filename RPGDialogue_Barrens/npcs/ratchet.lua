@@ -224,7 +224,36 @@ P:NPC {
     },
     pirates = {
       lines = { { id = "p_default", text = "The Southsea Freebooters think anything floating off my coast belongs to them, pal. They've cost me cargo, crews and two very nice boats, and I've run out of patience, polite words and insurance, in that order." } },
-      choices = { { text = "I'll handle them.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "I'll handle them.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Why not just pay them off?", next = "pirates_op" },
+      },
+    },
+    pirates_op = {
+      lines = { { id = "po_default", text = "Pay 'em? Pal, Revilgaz pays the Bloodsail off down in Booty Bay, and they come back every season asking for more, with interest. Some folks say a pirate's just a goblin without a license, so what's your take on the whole business?" } },
+      choices = {
+        { text = "Pirates are thieves. Hang every one of them.", next = "po_hang", fx = { affinity = 1, align = { order = 1 }, opinion = { pirates = "hate" } } },
+        { text = "A free captain owes nobody. I almost admire them.", next = "po_admire", fx = { affinity = -2, align = { order = -1 }, opinion = { pirates = "admire" } } },
+        { text = "Pay them. It's cheaper than a war at sea.", next = "po_pay", fx = { opinion = { pirates = "pay" } } },
+        { text = "I've sailed with worse than the Southsea, Gazlowe.", next = "po_rogue", when = { class = "ROGUE" }, fx = { affinity = -1, opinion = { pirates = "mixed" } } },
+        { text = "I'll leave the bookkeeping to you.", next = "BACK" },
+      },
+    },
+    po_hang = {
+      lines = { { id = "poh_default", text = "Now you're talkin' my language, pal! Rope's cheap in Ratchet, and I'll throw in the gallows wood at cost." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_admire = {
+      lines = { { id = "poa_default", text = "Admire 'em? They sank two of my boats, pal! Admire 'em from somewhere other than my docks, if you don't mind." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_pay = {
+      lines = { { id = "pop_default", text = "Cheaper this quarter, sure, and then they double the rate, because a pirate who gets paid is a pirate who's just found a business model. Trust me, I know a business model when I see one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_rogue = {
+      lines = { { id = "por_default", text = "I figured, pal, from the way you're eyeing my strongbox. Sail with whoever you like, just don't sail off with anything of mine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     town = {
       lines = { { id = "t_default", text = "Wharfmaster Dizzywig keeps the docks and counts every crate twice, Mebok Mizzyrix is always cooking up some deal, and Sputtervalve, well, he lost a very important gizmo and won't shut up about it. Good people, pal, and every one of 'em pays rent on time." } },
@@ -233,8 +262,8 @@ P:NPC {
     neutral = {
       lines = { { id = "n_default", text = "Easy, pal: the bruisers on the docks hit anybody who starts trouble, Horde or Alliance, and nobody wants to lose the only decent harbor on this coast. Business keeps the peace better than any treaty, because a treaty doesn't send you a bill when you break it." } },
       choices = {
-        { text = "Peace bought with gold is still peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Peace that's for sale can be bought out from under you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Peace bought with gold is still peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, opinion = { steamwheedle = "trust" } } },
+        { text = "Peace that's for sale can be bought out from under you.", next = "BACK", fx = { align = { order = -1 }, opinion = { steamwheedle = "distrust" } } },
       },
     },
     -- 0.71.0 depth: the Cartel, the big bosses, and the people who wash up in Ratchet.
@@ -345,6 +374,7 @@ P:NPC {
       lines = { { id = "bc_default", text = "The big bull up on Thunder Bluff is polite as anything, but the Venture Company fouled his wells, so every goblin who walks into Mulgore gets looked at like a weasel in a henhouse. I'm working on it, pal, one honest deal at a time." } },
       choices = {
         { text = "Good luck with that, Gazlowe.", next = "BACK" },
+        { text = "The Venture Company should answer for those wells.", next = "BACK", fx = { affinity = 1, opinion = { venture_company = "hate" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

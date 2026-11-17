@@ -35,6 +35,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kadrak, of the Warsong. I hold the Mor'shan Rampart and send our scouts north into Ashenvale, and every one I send, the night elves try to make sure doesn't come back." },
+        { id = "h_op_grom", when = { opinion = { topic = "grom", stance = "blame" } },
+          text = "You're the one who blames Grom. I let it pass once, and I'm still letting it pass, but my grunts heard it too, so watch your back on the rampart." },
+        { id = "h_op_ashen", when = { opinion = { topic = "ashenvale", stance = "wrong" } },
+          text = "I'm told you think the Horde has no business in Ashenvale. Then you can tell my dead scouts so yourself, because I'm tired of carrying their names." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Kadrak") },
           text = "Thork sent you up here? Good, because I've more work than runners. Catch your breath, and then listen." },
         { id = "h_reports_before", when = { questBefore = TODO_QUEST("The Warsong Reports") },
@@ -85,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "m_default", text = "Mannoroth, the pit lord whose blood bound us to the Legion. Grom drank that blood first, and Grom killed him in the canyon there, and died doing it, and the curse broke with his last breath." } },
       choices = {
-        { text = "Then the Horde has earned its place in Ashenvale.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "warsong" } } },
-        { text = "Grom freed us. That doesn't make the forest ours.", next = "BACK", fx = { align = { order = 1 }, learn = { "warsong" } } },
+        { text = "Then the Horde has earned its place in Ashenvale.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "warsong" }, opinion = { ashenvale = "necessary" } } },
+        { text = "Grom freed us. That doesn't make the forest ours.", next = "BACK", fx = { align = { order = 1 }, learn = { "warsong" }, opinion = { ashenvale = "wrong" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } },
       },
     },
@@ -94,8 +98,35 @@ P:NPC {
       lines = { { id = "w_default", text = "Grom Hellscream's clan, the first to drink the blood and the first to be free of it. We hold the front lines because nobody else would hold them as well, and because Grom would have wanted his clan nowhere else." } },
       choices = {
         { text = "Who leads the Warsong now?", next = "leads" },
+        { text = "Some say Grom doomed the orcs before he saved them.", next = "grom_op" },
         { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } },
       },
+    },
+    grom_op = {
+      lines = { { id = "go_default", text = "Some say it, and they're not wrong about who drank first. But he drank last too, in a manner of speaking, and paid for all of us with his own life, so you tell me, {class}: what do you make of Grom Hellscream?" } },
+      choices = {
+        { text = "He died breaking the curse. He's our greatest hero.", next = "go_hero", fx = { affinity = 2, align = { honor = 1 }, opinion = { grom = "hero", warsong = "admire" } } },
+        { text = "He doomed us first. Dying doesn't wash that away.", next = "go_blame", fx = { affinity = -2, align = { honor = -1 }, opinion = { grom = "blame" } } },
+        { text = "Both. He drank first, and he paid it back.", next = "go_both", fx = { affinity = 1, opinion = { grom = "mixed" } } },
+        { text = "My father drank too. Grom's death set him free.", next = "go_orc", when = { race = "Orc" }, fx = { affinity = 2, opinion = { grom = "debt" } } },
+        { text = "Something else, Kadrak.", next = "BACK" },
+      },
+    },
+    go_hero = {
+      lines = { { id = "goh_default", text = "Then you'd fit at the rampart, {class}. We sing his name every night at the fire, and you're welcome to sing it with us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    go_blame = {
+      lines = { { id = "gob_default", text = "Say that at Splintertree and you'll be walking home without your teeth. I'll let it pass once, because you've the right to your own mind, but only once." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    go_both = {
+      lines = { { id = "gobo_default", text = "Fair, and Grom would've said the same, in fewer words and louder. The Warsong don't hide what he did, because the end means nothing without the beginning." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    go_orc = {
+      lines = { { id = "goo_default", text = "Then you know it better than most. Every orc walking free owes him that, and the Warsong collect it in timber and blood." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     leads = {
       lines = { { id = "ld_default", text = "The Warchief leads all of us, and the Warsong answer to him first. Out here the captains at Splintertree and the rampart keep the clan's fire lit, and we argue less than you'd think." } },

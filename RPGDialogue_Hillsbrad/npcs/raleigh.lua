@@ -62,6 +62,50 @@ P:NPC {
         { text = "Something else, Raleigh.", next = "BACK" },
       },
     },
+    opn_crusade = {
+      lines = {
+        { id = "opn_crusade_q", text = "I ask myself that every night, and I get a different answer depending on whose face I remember first. There are men like Anton in it still, good men who think they're fighting the plague. You've seen them in red; what do you think should be done with them?" },
+      },
+      choices = {
+        { text = "Break the Crusade. The good ones will find their way out.", next = "opn_crusade_r_hate", fx = { align = { light = -1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "Reach the good ones first, the way you're doing.", next = "opn_crusade_r_pity", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They hold back the Scourge. That counts for something.", next = "opn_crusade_r_necessary", fx = { affinity = -1, opinion = { scarlet_crusade = "necessary" } } },
+        { text = "They'd burn me for what I am. I can't forgive that.", next = "opn_crusade_r_hate", when = { class = { "SHAMAN", "WARLOCK", "DRUID" } }, fx = { opinion = { scarlet_crusade = "hate" } } },
+        { text = "I can't judge them, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r = {
+      lines = {
+        { id = "opn_crusade_r_default", text = "Nor can I, most days, and I was one of them." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_hate = {
+      lines = {
+        { id = "opn_crusade_r_hate", text = "Some will. Some will die in the breaking, and those are the ones I'd have to name in my prayers. I don't say you're wrong; I say it'll cost." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_pity = {
+      lines = {
+        { id = "opn_crusade_r_pity", text = "Slowly, one Anton at a time. It's not much, but it's what one deserter with a confession can do, and it helps to hear someone call it worth doing." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_necessary = {
+      lines = {
+        { id = "opn_crusade_r_necessary", text = "It counts, the way a wall counts even when it's built of bones. I said that once, too, and then I watched what they did in the Monastery's cellars." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
     xpt_priest = {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Tell them to sleep when they can and eat before they pray, because a healer who falls in the road heals nobody, and I've watched good priests burn out in a single season at Hillsbrad. And tell them that the ones they couldn't save were never theirs to save; I wish someone had told me that sooner." } },
@@ -260,6 +304,7 @@ P:NPC {
     anton_tell = {
       lines = { { id = "at_default", text = "Then you tell him. He'll believe it from someone who's walked the path he sent them down. From me it would only sound like a deserter's excuse." } },
       choices = {
+        { text = "Is anything in the Crusade still worth saving?", next = "opn_crusade" },
         { text = "I'll tell him.", next = "BACK", fx = { affinity = 2, flag = { set = "scarlet_tell_anton" } } },
         { text = "Something else.", next = "BACK" },
       },

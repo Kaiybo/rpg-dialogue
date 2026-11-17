@@ -109,11 +109,35 @@ P:NPC {
       lines = { { id = "wc_default", text = "The Cartel says I owe 'em a cut, and I do, pal: a small one, a very carefully calculated small one, by my last copper.",
         fx = { learn = { "steamwheedle" } } } },
       choices = {
+        { text = "Is the Cartel worth paying at all?", next = "wc_ask" },
         { text = "Something else.", next = "BACK" },
         { text = "The Cartel sent me to audit that small cut.", tag = "Deceive", next = "audit",
           check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { disposition = { min = 60 } } } } },
           fail = { next = "audit_no", fx = { affinity = -1 } } },
       },
+    },
+    -- Opinion pass: Melbin wants the player's view on the Cartel (and is selling it back).
+    wc_ask = {
+      big = true,
+      lines = { { id = "wq_default", text = "Worth it? Pal, that's the question every goblin asks himself at night, right after counting the till. You've seen Booty Bay and Ratchet, so tell me straight: is the Cartel the best friend a port could have, or just the most expensive?" } },
+      choices = {
+        { text = "The Cartel keeps the peace. That's worth every copper.", next = "wc_ask_pay", fx = { opinion = { steamwheedle = "trust" }, align = { order = 1 } } },
+        { text = "Cut them loose. Powderfuse can stand on its own.", next = "wc_ask_cut", fx = { opinion = { steamwheedle = "distrust" }, align = { order = -1 }, affinity = 1 } },
+        { text = "The Venture Company would treat you far worse.", next = "wc_ask_venture", fx = { opinion = { venture_company = "hate" }, trait = { practical = 1 } } },
+        { text = "Goblins pay goblins. I'll stay out of it.", next = "BACK" },
+      },
+    },
+    wc_ask_pay = {
+      lines = { { id = "wqp_default", text = "Every copper, he says! You sound like the Cartel's own collector, kid, and he's the only goblin I know with a smile I'd pay to wipe off. Fine, fine, peace is good for business, I'll give you that one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    wc_ask_cut = {
+      lines = { { id = "wqc_default", text = "Now that's what I like to hear! Melbin Powderfuse, independent port, no cut, no collector, no nothin'. I'll never do it, of course, because the Cartel's got very long arms, but I like hearing it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    wc_ask_venture = {
+      lines = { { id = "wqv_default", text = "Don't say that name in my port, pal! The Venture Company would strip these rivers bare in a season and call it a quarterly report. Okay, okay, the Cartel's not so bad, put like that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     neighbors = {
       lines = {
@@ -353,7 +377,16 @@ P:NPC {
       },
     },
     gossip = {
-      lines = { { id = "gs_default", text = "Plenty, honey! Most of it's Argo's, so half of it's sea monsters, but sit a while, have a bowl, and the other half comes round eventually." } },
+      lines = {
+        { id = "gs_default", text = "Plenty, honey! Most of it's Argo's, so half of it's sea monsters, but sit a while, have a bowl, and the other half comes round eventually." },
+        -- Opinion pass: what the port has heard the player say.
+        { id = "gs_o_cartel_cut", once = true, when = { gossip = { topic = "steamwheedle", stance = "distrust" } },
+          text = "Well, explorer, the whole port's heard you told Melbin to cut the Cartel loose! He's been strutting about all week, and the Cartel's man has been writing things down in a very small book." },
+        { id = "gs_o_cartel_pay", once = true, when = { gossip = { topic = "steamwheedle", stance = "trust" } },
+          text = "Word is you told Melbin the Cartel's worth every copper. He's been sulking over his ledger ever since, honey, so I'd keep out of his way for a day or two." },
+        { id = "gs_o_demar", once = true, when = { gossip = { topic = "rg_demar", stance = "bitter" } },
+          text = "Gray says you think the Knight Commander's grief has got the better of him. He's not wrong to tell me, and you're not wrong to think it, but I'd not say it up at the keep." },
+      },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gray = {
@@ -576,6 +609,32 @@ P:NPC {
     },
     keep_demar = {
       lines = { { id = "kd_default", text = "Demar would call breathing desertion if you did it facing Stormwind. I'll go back; I always go back." } },
+      choices = {
+        { text = "Is he right about Stormwind?", next = "kd_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Gray asks the player about Stormwind, and about Demar.
+    kd_ask = {
+      big = true,
+      lines = { { id = "kq_default", text = "You tell me. You've been to the capital, I'd wager, and I haven't in years; is it full of cowards, the way the Commander says, or just folk with troubles of their own?" } },
+      choices = {
+        { text = "Cowards. They left you all here to die.", next = "kd_ask_cowards", fx = { opinion = { stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "Just people. Stormwind had its own wars to fight.", next = "kd_ask_people", fx = { opinion = { stormwind = "patience" }, align = { order = 1 } } },
+        { text = "Demar's grief talks louder than his sense.", next = "kd_ask_grief", fx = { opinion = { rg_demar = "bitter" }, trait = { kind = 1 } } },
+        { text = "I'd rather not drink to either answer.", next = "BACK" },
+      },
+    },
+    kd_ask_cowards = {
+      lines = { { id = "kqc_default", text = "There, you see, you'd fit right in up at the keep. Say it to the Commander and he'll pour you a drink himself, which he's never once done for me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kd_ask_people = {
+      lines = { { id = "kqp_default", text = "That's what I tell myself, on the nights I miss home. Then I go back up to the keep, look at those memorials, and stop believing it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kd_ask_grief = {
+      lines = { { id = "kqg_default", text = "Careful. He's earned his grief, every name of it, and I'll not hear him run down in a goblin's tavern. You're not wrong, mind, but you're not allowed to be right about it down here." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     brotherhood = {

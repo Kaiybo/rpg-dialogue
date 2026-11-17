@@ -268,7 +268,33 @@ P:NPC {
     },
     brotherhood = {
       lines = { { id = "b_default", text = "They pay in silver when they have it and in promises when they don't, and I've had more promises than silver this year. Brant keeps his, eventually." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } } },
+      choices = {
+        { text = "Is their protection worth the silver?", next = "bh_ask", fx = { learn = { "brotherhood_horse" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } },
+      },
+    },
+    -- Opinion pass: Halligan asks the player how he should deal with the raids.
+    bh_ask = {
+      big = true,
+      lines = { { id = "bq_default", text = "Ask me that when the Horde stops raiding my woodpiles. You've seen both banks of the river, so you tell me: do I keep paying the Brotherhood, or make my own peace with the orcs and save the silver?" } },
+      choices = {
+        { text = "Pay the Brotherhood. They're all that stands between you and Rog'mar.", next = "bh_ask_pay", fx = { opinion = { brotherhood_horse = "trust" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Make your own peace. A woodpile isn't worth a life.", next = "bh_ask_peace", fx = { opinion = { peace = "for" }, align = { order = -1 } } },
+        { text = "Arm your loggers and teach the raiders a lesson.", next = "bh_ask_fight", fx = { opinion = { peace = "against", horde = "hate" }, trait = { brave = 1 } } },
+        { text = "That's your business, Turner.", next = "BACK" },
+      },
+    },
+    bh_ask_pay = {
+      lines = { { id = "bqp_default", text = "That's what my head says, and my purse says otherwise, every month. Fine; Brant gets his silver, and I get to complain about it, which is half the pleasure." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bh_ask_peace = {
+      lines = { { id = "bqn_default", text = "Peace with orcs? Brant would have me hanged off my own sawhorse. But I'll own I've thought it, on the nights I'm counting what's missing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bh_ask_fight = {
+      lines = { { id = "bqf_default", text = "My loggers can swing an axe, I'll give them that, but they swing it at trees. I'll not send Curly against a war party, and neither would you if you'd met him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     curly = {
       lines = { { id = "c_default", text = "Hard? I'm keeping him alive, and if that's hard, so be it." } },

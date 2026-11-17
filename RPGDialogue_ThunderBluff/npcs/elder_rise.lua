@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_mag_distrust", when = { gossip = { topic = "magatha", stance = "distrust" } }, text = "I hear you told the sage on the lower rise that the Elder Crone is a viper. She hears these things too, outsider, and she has a long memory." },
+    { id = "o_cairne_admire", when = { gossip = { topic = "cairne", stance = "admire" } }, text = "The Elder Crone tells me you sang Bloodhoof's praises at her own fire. That was bold of you, and not very wise." },
     { id = "g_hi", text = "The Elder Crone is occupied, but I speak for her in small matters. Is yours a small matter, or merely a Bloodhoof one?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Magatha remembers those who are useful, and so do I." },
     { id = "g_troggs", when = { questActive = TODO_QUEST("Testing an Enemy's Strength") }, text = "The troggs are in Ragefire Chasm, beneath Orgrimmar itself. The orcs built their capital on top of a nest and never thought to look down." },
@@ -155,6 +157,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_ne_hate", when = { gossip = { topic = "night_elves", stance = "hate" } }, text = "Father says you've no love for the kaldorei. I'd keep that quiet in Moonglade, if I were you, because they remember everything for ten thousand years." },
     { id = "g_hi", text = "If you're here for my father, he's thinking, which could take until An'she sets. If you're here for seeds, I'm faster." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good. Did anything you planted come up, or did the Earth Mother have other ideas?" },
     { id = "g_morrow", when = { questActive = TODO_QUEST("Morrowgrain Research") }, text = "The Tharlendris seeds want soil from Un'Goro Crater and a great deal of patience. I can give you the first, and the second is your affair." },
@@ -263,6 +266,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_ne_admire", when = { gossip = { topic = "night_elves", stance = "admire" } }, text = "The Arch Druid says you think well of the kaldorei. Sit with that a while, and you'll find it makes a druid's lessons easier." },
     { id = "g_hi", text = "Sit, and breathe, and let the Earth Mother settle you. Then tell me what you've come to learn." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. The Great Bear Spirit has been patient with you, I hope." },
   },

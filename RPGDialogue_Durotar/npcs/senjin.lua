@@ -126,6 +126,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one I didn't teach. That be good, because the last few I taught don't make me proud." },
         { id = "h_default", key = true,
           text = "I be Master Gadrin, and I teach the Darkspear witch doctors. I teach Vol'jin once, and Zalazane, and one of them I be proud of." },
+        { id = "h_op_sylv", when = { opinion = { topic = "sylvanas", stance = "distrust" } },
+          text = "Vol'jin tell me you watch the Dark Lady the way he do. Good, child, because the dead that walk on their own make old Gadrin's bones itch." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Minshina's Skull") },
           text = "Minshina's skull sit on the isles in bad hands. Bring it to me, because she deserve better." },
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak", faction = "Horde" }, text = "You been to Zul'Farrak and back, eh? The Sandfury be cousins of a sort, mon, but cousins who raise their own dead to guard the gates, so Gadrin won't weep for them." },
@@ -228,10 +230,37 @@ P:NPC {
       },
       choices = {
         { text = "He chose well.", next = "END", fx = { affinity = 2 } },
+        { text = "Do the Darkspear truly belong in the orcs' Horde?", next = "horde_op" },
         { text = "And the student you aren't proud of?", tag = "Persuade", next = "zalazane_blame",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Troll" }, { trait = "kind" } } } },
           fail = { next = "zalazane_shame", fx = { affinity = -1 } } },
       },
+    },
+    horde_op = {
+      lines = { { id = "ho_default", text = "That be the question the old ones chew on around the fire every night, child. The orcs save us from the sea witch and give us this shore, and some say that make us family, and some say it make us servants, so you tell Gadrin what you think." } },
+      choices = {
+        { text = "The Horde saved your people. That debt is worth honoring.", next = "ho_loyal", fx = { affinity = 1, align = { honor = 1 }, opinion = { horde = "loyal", darkspear = "ally" } } },
+        { text = "The Darkspear should look to themselves, not to orcs.", next = "ho_alone", fx = { align = { honor = -1 }, opinion = { orcs = "distrust" } } },
+        { text = "The orcs are good allies, but the isles come first.", next = "ho_isles", fx = { affinity = 2, opinion = { darkspear = "first" } } },
+        { text = "Thrall stood with us. I'd stand with him anywhere.", next = "ho_thrall", when = { race = "Troll" }, fx = { affinity = 1, opinion = { warchief = "trust" } } },
+        { text = "I'm still learning, Master.", next = "BACK" },
+      },
+    },
+    ho_loyal = {
+      lines = { { id = "hol_default", text = "Vol'jin say the same, and he say it with his father's blood on that beach, so Gadrin don't argue. A debt paid proper make you family in the end, mon." } },
+      choices = { { text = "Something else, Master.", next = "BACK" } },
+    },
+    ho_alone = {
+      lines = { { id = "hoa_default", text = "Zalazane say that too, child, right before he go looking for power of his own. Be careful whose words come out of your mouth." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ho_isles = {
+      lines = { { id = "hoi_default", text = "Ha! Now that be a Darkspear answer, whoever you are. The orcs be good friends, but friends don't bury our ancestors for us." } },
+      choices = { { text = "Something else, Master.", next = "BACK" } },
+    },
+    ho_thrall = {
+      lines = { { id = "hot_default", text = "Then you be your chief's student more than mine, and that make this old man proud twice over." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     zalazane_blame = {
       lines = {

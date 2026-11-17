@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_el_distrust", when = { gossip = { topic = "explorers_league", stance = "distrust" } }, text = "Williden tells me you called the League glory-hunters. I'm a dwarf, so mind your tongue around my counter, friend, but I'll not say you're entirely wrong." },
     { id = "g_default", text = "Food, drink and shot, all hauled up from Gadgetzan by a goblin who charges by the step, so don't ask why it costs what it costs." },
     { id = "g_back", when = { metBefore = true }, text = "Back up the hill in one piece, are ye? Good, I hate losing a customer to a lizard." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye're still walkin', which is more than I'd have wagered. I'd started tae wonder whether a devilsaur had made a meal o' ye." },
@@ -218,6 +219,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_peace = {
+      lines = {
+        { id = "opp_q", text = "Here's a question I ask all my customers, purely for business reasons, chum. Is this peace between Horde and Alliance gonna hold, and do you want it to?" },
+      },
+      choices = {
+        { text = "I hope so. Neutral ground like this proves it can work.", next = "op_peace_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { peace = "peace" } } },
+        { text = "It won't last, and I'll be ready when it breaks.", next = "op_peace_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { peace = "war" } } },
+        { text = "I don't care, so long as the birds still fly.", next = "op_peace_r3", fx = { trait = { witty = 1 }, opinion = { peace = "indifferent" } } },
+        { text = "Ask me after the next battle, Gryfe.", next = "BACK" },
+      },
+    },
+    op_peace_r1 = {
+      lines = {
+        { id = "op_peace_r1", text = "That's what I like to hear, because a war's terrible for the flight business. Everybody wants to fly away from one and nobody pays." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_peace_r2 = {
+      lines = {
+        { id = "op_peace_r2", text = "Ready, sure, but a war's bad for my margins, pal, so don't go startin' one on my landing field." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_peace_r3 = {
+      lines = {
+        { id = "op_peace_r3", text = "Now that's a customer after my own heart! The birds fly for everybody, so long as the coin's good." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Not yet, chum, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
@@ -344,6 +380,7 @@ P:NPC {
     neutral = {
       lines = { { id = "n_default", text = "Because the Cartel keeps this place running, chum, and the Cartel doesn't take sides, it takes percentages. The Bruisers keep everybody civil, I keep everybody moving, and it's a fine arrangement for all of us." } },
       choices = {
+        { text = "Do you think the peace will hold?", next = "op_peace" },
         { text = "More places should work like that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't trust anyone who'd fly my enemies.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

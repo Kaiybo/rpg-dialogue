@@ -36,6 +36,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The blue dragons keep to Mazthoril and watch us with eyes older than Kel'Theril, and my people have fought both beside and against dragons in our time. What do you make of the dragonflights?" },
+      },
+      choices = {
+        { text = "Dangerous and proud. Best left alone.", next = "op_r1", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { dragons = "dangerous" } } },
+        { text = "Wise guardians. The world would fall without them.", next = "op_r2", fx = { affinity = 1, align = { order = 1 }, opinion = { dragons = "admire" } } },
+        { text = "The black flight is the danger. The rest can watch.", next = "op_r3", fx = { trait = { stern = 1 }, opinion = { black_dragonflight = "hate" } } },
+        { text = "Malygos's flight guards magic. I respect that.", next = "op_r4", fx = { affinity = 1, opinion = { dragons = "respect" } }, when = { class = "MAGE" } },
+        { text = "I've never met a dragon.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Most of my people would agree, and the blues seem to prefer it that way. Haleh does not come down from her caves to make friends." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Some of them, perhaps. I have read that the Aspects stood with us once, at the Well, and that not all of them kept standing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The black flight burned more than one kaldorei village in the old days. The blues have only ever burned what came for their books." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "They guard it from you as much as for you, {class}, so keep your respect at a careful distance." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Wynd Nightchaser, and I've spent more years at Starfall than I'd care to count, even by kaldorei reckoning. Winterspring is a harsh land, but it holds a great many old elven ruins, and most of them hold Highborne secrets that someone would rather were forgotten." },
@@ -55,6 +84,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've little to do but talk, between the storms." },
       },
       choices = {
+        { text = "What do the kaldorei make of the blue dragons?", next = "op_ask" },
         { text = "What happened at Kel'Theril?", next = "kel" },
         { text = "Tell me about Starfall Village.", next = "village" },
         { text = "There must be other ruins up here.", next = "ruins" },
@@ -196,8 +226,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The kaldorei tell me Kel'Theril belonged to the Highborne, the ones who went east and became the high elves of Quel'Thalas. You've met high elves, maybe. What do you make of them?" },
+      },
+      choices = {
+        { text = "Brave allies. Quel'Thalas bled against the Horde and the Scourge.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { high_elves = "respect" } } },
+        { text = "Arrogant. They left the Alliance the moment it suited them.", next = "op_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { high_elves = "distrust" } } },
+        { text = "Magic-mad, like their ancestors. Same as here.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "They are our lost kin, and they chose wrongly.", next = "op_r4", fx = { affinity = 1, opinion = { high_elves = "pity" } }, when = { race = "NightElf" } },
+        { text = "I've not met enough of them to say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Aye, they did, and Silvermoon's still licking its wounds. I'll put that in my notes, and the elves here will scold me for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Anasterian did pull out after the Second War, and I'll not defend it. They paid for it when the Scourge came through, though." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "You'd get along with the priestesses of the Moon, then. I just dig up the pots and let the scholars argue." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Lost kin, aye. You say it gently, for someone talking about an exile ten thousand years old." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_explorers_league_admire", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "admire" } },
+          text = "Word is you think history belongs to everyone. The League could use a few more like you." },
+        { id = "o_titans_believe", tags = { "news" }, when = { opinion = { topic = "titans", stance = "believe" } },
+          text = "I hear you're a believer in the titans' work. Then you'll forgive a dwarf for digging in the snow for more of it." },
         { id = "h_default", key = true, text = "Jaron Stoneshaper, Explorers' League, at yer service. I've been hunting artifacts in Winterspring, because they say it's full of very magical things, though most of 'em are guarded by something that wants to kill ye." },
         { id = "h_harlo", tags = { "news" }, when = { questActive = TODO_QUEST("Enraged Wildkin") },
           text = "Harlo sent ye, did he? Aye, I'm the survivor he's been gossiping about. I was chased clean out of my camp in the south by a pack of bloodthirsty wildkin, and I'm lucky I've still got all my beard." },
@@ -266,6 +329,7 @@ P:NPC {
         { id = "k_default", text = "Ghosts of the Highborne, wandering the lake, all moaning and looking for the bits of the relic they broke. They're still searching for pieces of the very thing that cursed them there, and that's a hard sort of punishment." },
       },
       choices = {
+        { text = "Who were the elves who built Kel'Theril?", next = "op_ask" },
         { text = "Could the pieces be found?", next = "kel_pieces" },
         { text = "Something else.", next = "BACK" },
       },

@@ -30,6 +30,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Some druids say Felwood is lost and we should let it burn itself out. I don't believe it, but I want to know what a stranger sees, so tell me: can Felwood be saved?" },
+      },
+      choices = {
+        { text = "Yes. Your seeds will take root, given time.", next = "op_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { felwood_hope = "hope" } } },
+        { text = "No. Burn it all and plant fresh.", next = "op_r2", fx = { affinity = -1, align = { light = -1 }, opinion = { felwood_hope = "lost" } } },
+        { text = "Kill the satyrs first. The trees can wait.", next = "op_r3", fx = { trait = { stern = 1 }, opinion = { felwood_hope = "war_first" } } },
+        { text = "I can feel the land still breathing under the fel.", next = "op_r4", fx = { affinity = 1, opinion = { felwood_hope = "hope" } }, when = { class = "DRUID" } },
+        { text = "I couldn't say yet.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Time is something my people used to have in abundance. I'll make do with what's left, and keep planting." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Burning is what the Legion did here. I'll not finish their work for them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Shadow Council would agree that the trees can wait, which is part of why I don't." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "So you feel it too. Then it's not only my hope talking, and that matters more than you know." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_eridan = {
       big = true,
       lines = { { id = "xpt_eridan_default", text = "I think it has to be, because if a forest this old can be poisoned past saving, then nothing is safe anywhere. The demons left their filth in the water and the roots, and every seed I plant that comes up green is one small argument against despair." } },
@@ -168,6 +197,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Softly, please; the sanctuary listens, and so does Elune." } },
       choices = {
+        { text = "Can Felwood really be saved?", next = "op_ask" },
         { text = "What happened to Felwood?", next = "what" },
         { text = "I've heard of the Emerald Circle.", next = "circle" },
         { text = "Why plant seeds that won't grow?", next = "seeds" },
@@ -587,6 +617,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_felwood_hope_lost", tags = { "news" }, when = { gossip = { topic = "felwood_hope", stance = "lost" } },
+          text = "Eridan says you'd burn Felwood to the ground. I'd ask you not to say it while I'm in the middle of mending it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! I hope you came to mend, friend, because Felwood's had enough magic thrown at it, and I'd much rather see you use yours to make something grow." },
         { id = "h_apaladin", when = { class = "PALADIN" },

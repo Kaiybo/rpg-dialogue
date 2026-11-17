@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_prestor", when = { opinion = { topic = "prestor", stance = "distrust" } }, text = "Ah, the one who thinks the Regent listens to me too much. Do come closer, darling; I've been longing to know what else you think." },
+    { id = "g_op_jaina", when = { gossip = { topic = "jaina", stance = "trust" } }, text = "I hear you've taken Lady Proudmoore's side, little hero. How sweet. Her father never trusted an orc in his life, and she let them kill him; such a devoted daughter." },
     { id = "g_cool", text = "Yes?" },
     { id = "g_low", when = { maxLevel = 20 }, text = "Someone let you in, I see. How very generous of them." },
     { id = "g_hero", when = { minLevel = 50 }, text = "Ah, one of our celebrated heroes. Do come closer; I so rarely get to see one up close." },
@@ -31,6 +33,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_bolvar = {
+      lines = {
+        { id = "op_bolvar_a", text = "The court thinks whatever it's told to think, darling, but I'm curious what you think. Is our dear Highlord a rock the kingdom stands on, or merely a very large stone in the road?" },
+      },
+      choices = {
+        { text = "He's a good man holding a hard post. I'd follow him.", next = "op_bolvar_1", fx = { opinion = { bolvar = "trusted" }, align = { order = 1 }, affinity = -1 } },
+        { text = "He's too soft. Westfall burns while he holds councils.", next = "op_bolvar_2", fx = { opinion = { bolvar = "soft", westfall = "abandoned" }, align = { order = -1 }, affinity = 2 } },
+        { text = "He's tired, my lady. That's the only fault I can see.", next = "op_bolvar_3", fx = { opinion = { bolvar = "tired" }, trait = { kind = 1 } } },
+        { text = "The Silver Hand made him. That's good enough for me.", next = "op_bolvar_4", when = { class = "PALADIN" }, fx = { opinion = { bolvar = "trusted", silver_hand = "respect" }, affinity = -2 } },
+        { text = "He listens to you too much, my lady.", next = "op_bolvar_5", fx = { opinion = { bolvar = "led", prestor = "distrust" }, trait = { skeptical = 1 }, affinity = -3 } },
+        { text = "I'd rather not gossip about the Regent, my lady.", next = "BACK" },
+      },
+    },
+    op_bolvar_1 = {
+      lines = { { id = "op_bolvar_r1", text = "How loyal. He collects loyal people the way some men collect hounds, and he feeds them about as well. Do enjoy it while it lasts." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_2 = {
+      lines = { { id = "op_bolvar_r2", text = "Now that is refreshing, and you'd be surprised how many lords agree with you once the doors are shut. Do keep saying it, little hero; somebody ought to." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_3 = {
+      lines = { { id = "op_bolvar_r3", text = "Tired, is he? Then he ought to rest, and leave the weight to those of us better built for it. I'll tell him you were worried; he'll be ever so touched." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_4 = {
+      lines = { { id = "op_bolvar_r4", text = "The Silver Hand, yes, that admirable little club that lost Lordaeron. I'm sure it made him exactly what he is." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_5 = {
+      lines = { { id = "op_bolvar_r5", text = "Does he? Then he listens to someone sensible, which is more than can be said for most of this city. Run along now, before you say something you can't take back." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
     xpt_katrana = {
       big = true,
       lines = { { id = "xpt_katrana_default", text = "The court is grateful, of course, in the way one is grateful for rain: it's useful, and nobody wants to see it indoors. Some lords would rather the Crown paid soldiers, and some would rather it paid nothing at all, but they all agree that armed wanderers make them nervous." } },
@@ -204,7 +239,8 @@ P:NPC {
     },
     king = {
       lines = { { id = "k_default", text = "A dear boy, who asks the most charming questions at council. We answer them, and then we decide things, and it's an arrangement that suits everyone." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "And the Regent? What does the court think of him?", next = "op_bolvar" }, { text = "Something else.", next = "BACK" } },
     },
     defias = {
       lines = { { id = "d2_default", text = "Thieves with a grievance and a red scarf. Hang the loud ones and the quiet ones go home. It's always worked before." } },

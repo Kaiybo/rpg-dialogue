@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_pir_admire", when = { gossip = { topic = "pirates", stance = "admire" } }, text = "I hear you fancy the pirate life, sweetie. Do try to steal something with a little taste, because the Southsea dress like a bilge on fire." },
     { id = "g_default", text = "Yes? If you're buying, sweetie, come in, and if you're browsing, browse quickly, because my time is billed by the minute and you can't afford many." },
     { id = "g_hats", when = { questActive = TODO_QUEST("Pirate Hats Ahoy!") }, text = "Do you have all twenty hats, sweetie? I don't believe you, so let me see them, and let me count them, twice." },
     { id = "g_hats_done", when = { questDone = TODO_QUEST("Pirate Hats Ahoy!") }, text = "Ah, my hat courier! You look almost presentable today, sweetie. Almost." },

@@ -296,6 +296,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_demons_useful", tags = { "news" }, when = { gossip = { topic = "demons", stance = "useful" } },
+          text = "Dreka's been grumbling that you'd use demons and break them after. Don't do it near my wind riders, because they spook." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. Keep that fire away from my riders' feathers, and don't call down anything green near the post, because the beasts have seen enough of that colour to last them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },

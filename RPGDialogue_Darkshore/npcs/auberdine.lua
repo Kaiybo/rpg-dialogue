@@ -38,6 +38,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Auberdine has a paladin of the Silver Hand passing through, a dwarf digging in the hills and a gnome captain on the beach who calls himself a pirate. The Alliance has reached our shore whether we invited it or not, so tell me, is that a good thing?" },
+      },
+      choices = {
+        { text = "It is. Darkshore needs every sword it can get.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { alliance = "trust" } } },
+        { text = "They came for your ruins and your timber, not for you.", next = "op_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { alliance = "distrust" } } },
+        { text = "It's good, so long as they remember whose shore it is.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { alliance = "useful" } } },
+        { text = "The Light's servants are welcome wherever there's darkness.", next = "op_r4", fx = { affinity = 1, opinion = { silver_hand = "admire", the_light = "trust" } }, when = { class = "PALADIN" } },
+        { text = "I'm not sure yet.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "That's the practical answer, and on a bad night I agree with it. I only wish the swords came with a little less noise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Some did. Remtravel came for the ruins and would tell you so cheerfully, but Delgren came for the furbolgs, and I've seen him bleed for them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "And as long as we remember who came when we called. Both sides have short memories for that sort of thing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Delgren says much the same, though he says it while doing the work, which I respect more than the saying." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The sea, which casts up the dead, and the forest, where the furbolgs have gone mad. I listen to every fear, and I have few answers. If your spirits have one, I will hear it." } },
@@ -141,6 +170,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_peace_peace", tags = { "news" }, when = { gossip = { topic = "peace", stance = "peace" } },
+          text = "Glynda tells me you still believe in peace with the Horde. I hope you're right, though I'd like to see it before I believe it." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "Sentinels came up the shore road with word that someone had been to the bottom of Blackfathom Deeps and come back. Auberdine sleeps a little easier for it, and so, I confess, do I." },
         { id = "h_default", key = true,
           text = "I am Thundris Windweaver, elder of Auberdine. I see to the village's daily needs, which lately means seeing to its fears, for the land is sickening and I mean to learn why." },
@@ -170,6 +201,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. An elder's work is mostly listening, and my people have had ten thousand years to practise it." },
       },
       choices = {
+        { text = "How does Auberdine feel about its new allies?", next = "op_ask" },
         { text = "The land here looks sick.", next = "sick" },
         { text = "Why trust the Silver Hand?", next = "silverhand" },
         { text = "There are old ruins all along this coast, I've noticed.", next = "ruins" },
@@ -778,6 +810,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "My sisters in Ashenvale write that the Horde talks of peace in Orgrimmar and cuts our trees at the same time. You've seen more of the world than I have lately, so tell me, is there any peace to be had with them?" },
+      },
+      choices = {
+        { text = "Yes. Thrall is honest; it's the Warsong doing the cutting.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { peace = "peace", warchief = "trust" } } },
+        { text = "No. Orcs understand strength and nothing else.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { stern = 1 }, opinion = { peace = "war" } } },
+        { text = "Not while they need wood and you need forest.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { peace = "doubt" } } },
+        { text = "I'm Horde, Sentinel, and I'm not cutting your trees.", next = "op_r4", fx = { affinity = 1, opinion = { peace = "peace" } }, when = { faction = "Horde" } },
+        { text = "I'd rather not guess.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Then I hope Thrall leashes his wolves soon, because my sisters cannot tell an honest orc from the other kind at fifty paces." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "You'd find friends in Astranaar with that view. Here we have murlocs and maddened moonkin to deal with first, so the war will have to wait its turn." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "That is the whole war in one sentence, and I've heard druids talk all night and say less." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you may walk Auberdine's docks, slowly, and with your hands where my archers can see them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I count murloc sign, mostly, and it grows. Your water spirits might tell me where they come from before my Sentinels find out by stepping on one." } },
@@ -900,6 +961,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, but keep it short; the tide is turning." },
       },
       choices = {
+        { text = "Is there any peace to be had with the Horde?", next = "op_ask" },
         { text = "What happened to the moonkin?", next = "moonkin" },
         { text = "Who is Murkdeep?", next = "murkdeep" },
         { text = "Your Sentinels look stretched thin.", next = "thin" },
@@ -1275,6 +1337,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
+          text = "Glynda says you've no patience for talk of peace with the orcs. I've no patience for brawls in my inn, so let's both keep our tempers." },
         { id = "h_default", text = "I am Shaussiy, and I keep the inn by the docks of Auberdine. My guests come off the boats from Teldrassil and Menethil, mostly, and every one of them arrives seasick, though my people have sailed these waters since before the Sundering." },
         { id = "h_cerellean", when = { heardLine = "cerellean.h_default" },
           text = "So you've spoken with Cerellean. He stands on that dock every day, and I bring him tea, and he forgets to drink it, and I bring him more." },

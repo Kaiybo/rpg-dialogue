@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "fear" } }, text = "The boss says you told him you're scared of his little friends. Smart, pal, real smart, because I'm scared of 'em too, and I get paid to be." },
     { id = "g_default", text = "Got any spiders or beetles on you, pal? They scurry fast, but if you're faster, they're a treat, and the best part is they don't cost a copper!" },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did you bring bugs this time? No? Well, I'll forgive you, chum, just this once, and I'll put it on your account." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, pal, and I ate every beetle on this hill while you were away, so now I have to walk further for lunch. I'm billing that to you somehow, I just haven't worked out the paperwork yet." },

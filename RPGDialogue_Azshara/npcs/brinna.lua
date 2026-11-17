@@ -29,6 +29,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "opo_default", text = "Some of the younger Sentinels say so, when they think I can't hear them. I've seen what orc axes do to a forest, but I've also seen that camp bury its dead with care. What do you make of the orcs?" },
+      },
+      choices = {
+        { text = "They've their own honor. Peace with them might be possible.", next = "op_orc_peace", fx = { align = { honor = 1 }, opinion = { orcs = "respect", peace = "for" } } },
+        { text = "Orcs burned Ashenvale once. Drive them out before they do it again.", next = "op_orc_drive", fx = { affinity = 1, align = { honor = -1 }, opinion = { orcs = "hate" } } },
+        { text = "They're cutting our forest. That's all I need to know.", next = "op_orc_drive", fx = { affinity = 1, opinion = { orcs = "hate", ashenvale = "wrong" } }, when = { race = "NightElf" } },
+        { text = "I'd rather talk about bows.", next = "BACK" },
+      },
+    },
+    op_orc_peace = {
+      lines = {
+        { id = "opop_default", text = "Possible, perhaps. I'll keep my arrows fletched while we find out, and I'll tell the young ones you agree with them, which they'll enjoy far too much." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_orc_drive = {
+      lines = {
+        { id = "opod_default", text = "That's the Sentinel's answer, and it's the one I give when the Captain asks. Keep it, but don't let it make you careless; the orcs can hate us back just as well." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Brinna Valanaar. I keep the Sentinels at Talrendis armed, which means a great many bows and a great many broken strings, because the satyrs and the naga keep them busy on what was once the edge of Zin-Azshari." },
@@ -72,7 +95,10 @@ P:NPC {
     },
     border_orcs = {
       lines = { { id = "bo_default", text = "They lost warriors to an elf mage of their own choosing, I hear, and they've been quiet since. I'd almost pity them, if they weren't cutting down Ashenvale on the other side of the river." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Should the Sentinels make peace with that camp?", next = "op_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     bow = {
       lines = { { id = "bw_default", text = "The wood matters, the string matters more, and the archer matters most. A good bow is one you've stopped noticing, the way you stop noticing your own arm." } },

@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} was served at the Lion's Pride by Barkeep Dobbins, who hears everything and claims to forget it all.",
   },
   greetings = {
+    { id = "g_op_refugees", when = { gossip = { topic = "westfall_refugees", stance = "trouble" } }, text = "Falkhaan says you reckon the Westfall folk bring trouble. Well, the trouble last night was a Goldshire man, so keep your eye on the bar as well as the road." },
+    { id = "g_op_varian", when = { gossip = { topic = "varian", stance = "alive" } }, text = "The Marshal says you reckon the king's alive. I'll pour to that, and so will half the room, if you'll say it loud enough." },
     { id = "g_pour", text = "What'll it be? The ale's good, and the ale's always good, but don't ask about the wine." },
     { id = "g_regular", when = { timesTalked = { min = 5 } }, text = "The usual? I'll pretend I remember what that is." },
   },

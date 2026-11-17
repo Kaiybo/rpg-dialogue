@@ -127,6 +127,30 @@ P:Pool {
 P:Pool {
   id = "innkeeper", role = "innkeeper",
   greetings = {
+    -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
+    { id = "g_op_in_peace", priority = 60, when = { npcFlag = "op_in_peace" }, fx = { npcFlag = { clear = "op_in_peace" } },
+      text = "Spoken like a regular! Soldiers on leave drink, but soldiers at war don't come back to pay their tab, so I'll drink to peace any night you like." },
+    { id = "g_op_in_war", priority = 60, when = { npcFlag = "op_in_war" }, fx = { npcFlag = { clear = "op_in_war" } },
+      text = "Not in my common room, it wouldn't. The last time two of my regulars agreed with you, I lost a table, three mugs and most of the window." },
+    { id = "g_op_in_varian", priority = 60, when = { npcFlag = "op_in_varian" }, fx = { npcFlag = { clear = "op_in_varian" } },
+      text = "From your lips to the Light's ear. I've kept a bottle of the good stuff under the bar since the day he went missing, and I mean to open it when he's home." },
+    { id = "g_op_in_bolvar", priority = 60, when = { npcFlag = "op_in_bolvar" }, fx = { npcFlag = { clear = "op_in_bolvar" } },
+      text = "Gentle's one word for it. My supplier says the nobles' tolls went up again and the regent signed it, so somebody's having a quiet word in his ear." },
+    { id = "g_op_in_chief", priority = 60, when = { npcFlag = "op_in_chief" }, fx = { npcFlag = { clear = "op_in_chief" } },
+      text = "So do I, and so does every soldier who drinks under this roof. They grumble about him all night and they'd die for him in the morning." },
+    { id = "g_op_in_soft", priority = 60, when = { npcFlag = "op_in_soft" }, fx = { npcFlag = { clear = "op_in_soft" } },
+      text = "Not so loud, friend; I've grunts at the corner table who'd take that personally. Mind you, half of them say the same thing after their third mug." },
+    -- Opinion pass: word of what the player said to someone else in this community.
+    { id = "g_o_peace_for", once = true, priority = 40, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
+      text = "My regulars tell me you're all for keeping the peace. One of them called you wise and another called you soft, and I had to separate them." },
+    { id = "g_o_peace_against", once = true, priority = 40, when = { gossip = { topic = "peace", stance = { "against", "war" } } },
+      text = "Word over the bar is you're spoiling for a war. Drink first and fight later, friend, and do both somewhere other than my common room." },
+    { id = "g_o_soft", once = true, priority = 40, when = { gossip = { topic = "warchief", stance = { "soft", "weak" } } },
+      text = "Someone at the bar told me you think the Warchief's gone soft. Keep it down in here; I've only just had the tables mended." },
+    { id = "g_o_varian", once = true, priority = 40, when = { gossip = { topic = "varian", stance = "hope" } },
+      text = "I hear you're certain the king's coming home. I've a bottle put by for the day, and you'll have the first glass if you're right." },
+    { id = "g_o_defias", once = true, priority = 40, when = { gossip = { topic = "defias", stance = { "masons_wronged", "sympathetic", "mercy" } } },
+      text = "Folk at the bar say you've a kind word for the Defias. Say it quietly; I've farmers drinking here who've lost a harvest to them." },
     { id = "g_room", text = "Room, meal, or both?" },
     { id = "g_home", when = { homeInn = true }, text = "Welcome home. Your bed's as you left it." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back after {away}, are you? Your room's been let twice since, but there's always another." },
@@ -159,11 +183,29 @@ P:Pool {
       text = "A dwarf, good. You'll know a decent ale when you taste one, and I'll want your honest opinion of mine." },
   },
   lines = {
+    { id = "l_ask", text = "Everyone at my bar has a view on the war these days, and they argue about it louder every night. What's yours, while you're standing there?" },
     { id = "l_default", text = "Warm fire, cold drink, soft bed: pick any two." },
     { id = "l_warlock", when = { class = "WARLOCK" }, text = "Your sort keep odd hours and odder company. Pay up front, and keep the candles away from the curtains." },
     { id = "l_paladin", when = { class = "PALADIN" }, text = "A paladin under my roof! The drunks behave better when one of you is sitting by the fire." },
   },
-  choices = { { text = "A room, please.", next = "BUSINESS" }, { text = "Just passing through.", next = "END" } },
+  -- Opinion pass: the player can say what they think. Each reply sets a flag that the
+  -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
+  choices = {
+    { text = "Peace is good for trade. Long may it last.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { peace = "for" }, align = { light = 1 }, npcFlag = { set = { "op_told", "op_in_peace" } } } },
+    { text = "A war would clear the air, if you ask me.", next = "BACK", when = { ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { peace = "against" }, align = { light = -1 }, npcFlag = { set = { "op_told", "op_in_war" } } } },
+    { text = "The king will come home, and things will mend.", next = "BACK", when = { faction = "Alliance", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { varian = "hope" }, npcFlag = { set = { "op_told", "op_in_varian" } } } },
+    { text = "The regent's too gentle with the nobles.", next = "BACK", when = { faction = "Alliance", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { bolvar = "soft" }, npcFlag = { set = { "op_told", "op_in_bolvar" } } } },
+    { text = "The Warchief keeps us strong. I trust him.", next = "BACK", when = { faction = "Horde", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { warchief = "trust" }, npcFlag = { set = { "op_told", "op_in_chief" } } } },
+    { text = "Thrall should let the grunts off the leash.", next = "BACK", when = { faction = "Horde", ["not"] = { npcFlag = "op_told" } },
+      fx = { opinion = { warchief = "soft" }, npcFlag = { set = { "op_told", "op_in_soft" } } } },
+    { text = "A room, please.", next = "BUSINESS" },
+    { text = "Just passing through.", next = "END" },
+  },
   topics = { _none = { { id = "t_none", text = "Never heard of it, and I hear most things." } } },
 }
 
@@ -175,6 +217,13 @@ P:Pool {
     { id = "g_rich", when = { money = { min = 1000000 } }, text = "Ah, a customer with weight in their purse." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? The stock's changed a little since, so have a look." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Word is you've a pleasant way of talking. Good; I like a customer with manners." },
+    -- Opinion pass: word of what the player said to someone else in this town.
+    { id = "g_o_fragile", once = true, when = { gossip = { topic = "peace", stance = { "fragile", "against", "war" } } },
+      text = "My suppliers say you reckon the peace won't last. If you're right, I'd like to hear it before my competitors do." },
+    { id = "g_o_soft", once = true, when = { gossip = { topic = "warchief", stance = { "soft", "weak" } } },
+      text = "I hear you've been telling folk the Warchief's gone soft. Say what you like, friend, but say it after you've paid." },
+    { id = "g_o_bolvar", once = true, when = { gossip = { topic = "bolvar", stance = { "weak", "soft" } } },
+      text = "Folk tell me you think the regent bows to the nobles. Half my customers say the same, and the other half are nobles, so keep your voice down." },
   },
   -- 0.71.0: a conversation tree (stock and prices, the roads, haggling, town talk,
   -- what you've been up to, and who a merchant ought to sell to).
@@ -279,8 +328,51 @@ P:Pool {
       },
       choices = {
         { text = "And what have you been up to, then?", next = "player" },
+        { text = "And what do you make of it all?", next = "gossip_you" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    -- Opinion pass: the merchant turns the question back on the player.
+    gossip_you = {
+      big = true,
+      lines = {
+        { id = "gy_default", text = "Me? I sell to whoever's buying, so I keep my views behind the counter where they can't cost me custom. You're the one who's been out past the walls, though, so you tell me: is the world getting better out there, or worse?" },
+        { id = "gy_alliance", when = { faction = "Alliance" }, text = "Me? I keep my views behind the counter, where they can't cost me custom. But you've been out on the roads, so you tell me: is the regent doing right by folk like us?" },
+        { id = "gy_horde", when = { faction = "Horde" }, text = "Me? I keep my views behind the counter, where they can't cost me custom. But you've walked the roads, so you tell me: is the Warchief's way the right one?" },
+      },
+      choices = {
+        { text = "The regent's doing his best. That's enough for me.", next = "gy_bolvar", when = { faction = "Alliance" }, fx = { opinion = { bolvar = "trust" }, align = { order = 1 } } },
+        { text = "The regent bows to the nobles. Nothing will change.", next = "gy_nobles", when = { faction = "Alliance" }, fx = { opinion = { bolvar = "weak" }, align = { order = -1 } } },
+        { text = "Thrall's peace is good for trade and good for the Horde.", next = "gy_chief", when = { faction = "Horde" }, fx = { opinion = { warchief = "trust" }, align = { order = 1 } } },
+        { text = "Thrall's peace makes the Horde look weak.", next = "gy_soft", when = { faction = "Horde" }, fx = { opinion = { warchief = "soft" }, align = { order = -1 } } },
+        { text = "Better. Folk are trading with strangers instead of killing them.", next = "gy_peace", fx = { opinion = { peace = "for" }, trait = { kind = 1 } } },
+        { text = "The peace won't last. Stock up on arrows.", next = "gy_fragile", fx = { opinion = { peace = "fragile" }, trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gy_bolvar = {
+      lines = { { id = "gyb_default", text = "It's enough for me too, most days. He's kept the bread coming in and the Defias out of the Trade District, and a merchant can't ask much more of a regent than that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gy_nobles = {
+      lines = { { id = "gyn_default", text = "Between you and me, that's what my suppliers say too, and they pay the nobles' tolls every time they cross a bridge. I'll thank you not to repeat that I agreed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gy_chief = {
+      lines = { { id = "gyc_default", text = "That's my thinking exactly. Since the fighting stopped, the caravans come in full and leave empty, which is the way a merchant likes it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gy_soft = {
+      lines = { { id = "gys_default", text = "Weak, maybe, but my customers are alive to buy things, and dead grunts don't. I'll take a weak-looking Horde with full purses, thank you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gy_peace = {
+      lines = { { id = "gyp_default", text = "A good sign for my ledger, anyway. I sold a dwarf's pick to a night elf last week and neither of them tried to kill the other, so the world must be improving." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gy_fragile = {
+      lines = { { id = "gyf_default", text = "Then I'd best order more arrows, hadn't I? You're not the first to say it this month, and that worries me more than any one customer's guess." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     player = {
       lines = {

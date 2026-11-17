@@ -31,6 +31,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_stromgarde = {
+      lines = {
+        { id = "opn_stromgarde_q", text = "Worth it? I'd say aye, but then I'm holdin' the edge o' a fortress that's already lost, so ye'd expect me tae. The Highlands are full o' ogres an' worse, an' Stromgarde's half rubble. Ye've walked further than me; what d'ye think o' it?" },
+      },
+      choices = {
+        { text = "A kingdom's worth fighting for, even in rubble.", next = "opn_stromgarde_r_retake", fx = { affinity = 1, align = { honor = 1 }, opinion = { stromgarde = "retake" } } },
+        { text = "It's gone. They should save the living instead.", next = "opn_stromgarde_r_lost", fx = { align = { honor = -1 }, trait = { practical = 1 }, opinion = { stromgarde = "lost" } } },
+        { text = "Pride got Stromgarde out of the Alliance. Pride won't save it.", next = "opn_stromgarde_r_proud", fx = { trait = { skeptical = 1 }, opinion = { stromgarde = "proud" } } },
+        { text = "I fled the north myself. Every kingdom left standing matters.", next = "opn_stromgarde_r_retake", when = { race = "Human", origin = "human_lordaeron_refugee" }, fx = { affinity = 2, opinion = { stromgarde = "retake" } } },
+        { text = "I haven't been to the Highlands.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r = {
+      lines = {
+        { id = "opn_stromgarde_r_default", text = "Nor have I, an' at this rate I never will, so I'll take yer silence for a kindness." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r_retake = {
+      lines = {
+        { id = "opn_stromgarde_r_retake", text = "Aye, an' I'll drink tae it, if I ever get leave tae drink. Tell Nials that if ye pass Refuge Pointe; he'll like hearin' it from someone who isnae under his command." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r_lost = {
+      lines = {
+        { id = "opn_stromgarde_r_lost", text = "Ye might be right, an' that's a hard thing tae hear on a wall like this one, for they'd say the same about us. Don't say it tae Longbraid, I beg ye." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r_proud = {
+      lines = {
+        { id = "opn_stromgarde_r_proud", text = "They did leave, aye, after the Second War, an' we never understood it. But a proud man still bleeds the same as a humble one, an' they've bled plenty." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -154,7 +198,10 @@ P:NPC {
       lines = {
         { id = "hn_default", text = "That Stromgarde's fallen, an' they'll no' leave the Highlands till its banner flies again. I understand him, for I'd say the same o' Dun Modr, but it doesnae put a single axe on our wall." },
       },
-      choices = { { text = "Something else, Rhag.", next = "BACK", fx = { learn = { "thandol_span" } } } },
+      choices = {
+        { text = "Is Stromgarde worth Nials's stubbornness?", next = "opn_stromgarde" },
+        { text = "Something else, Rhag.", next = "BACK", fx = { learn = { "thandol_span" } } },
+      },
     },
 
     king_word = {

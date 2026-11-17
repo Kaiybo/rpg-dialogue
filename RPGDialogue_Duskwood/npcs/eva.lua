@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_light_doubt", when = { opinion = { topic = "the_light", stance = "doubt" } }, text = "The sceptic returns. Sit, sit; the Blade has been turning up all week, and I suspected it was waiting for you." },
+    { id = "g_op_necro_eva", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "The cards turned up the Needle when you walked in, and the Lovers reversed beside it. Somewhere, you told someone you'd bring back the dead. Be careful who heard you." },
     { id = "g_expected", text = "Ah, there you are, {name}. The stars said you would come; they did not say you would be so late." },
     { id = "g_back", when = { metBefore = true }, text = "Sit, please. The cards have been restless since you left." },
     { id = "g_comb", when = { questActive = TODO_QUEST("Return the Comb") }, text = "You have seen Blind Mary; it is written on your face. Give me the comb, child." },
@@ -36,6 +38,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_light = {
+      lines = {
+        { id = "op_light_a", text = "Ah, the question every visitor comes to ask and nobody asks plainly. The priests say the Light guards the faithful, and the graveyards of Duskwood are full of faithful people. So I put it back to you: what do you believe watches over you here?" },
+      },
+      choices = {
+        { text = "The Light. Faith isn't a promise you won't die.", next = "op_light_1", fx = { opinion = { the_light = "faith" }, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Nothing watches over anyone. A sharp blade and good sense.", next = "op_light_2", fx = { opinion = { the_light = "doubt" }, align = { light = -1 }, trait = { skeptical = 1 } } },
+        { text = "Fate, maybe. Your cards seem sure of it.", next = "op_light_3", fx = { opinion = { the_light = "fate" }, trait = { curious = 1 }, affinity = 2 } },
+        { text = "Elune watches this wood still, whatever has happened here.", next = "op_light_4", when = { race = "NightElf" }, fx = { opinion = { the_light = "elune" }, affinity = 1 } },
+        { text = "I'd rather not tempt fate, Madame.", next = "BACK" },
+      },
+    },
+    op_light_1 = {
+      lines = { { id = "op_light_r1", text = "A good answer, and an honest one, which the Church rarely manages. The cards like you better for it; they turned the Lamp just now, see?" } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
+    op_light_2 = {
+      lines = { { id = "op_light_r2", text = "Then the cards will bore you, and you'll come back anyway, because the sceptics always do. The Blade turns up for people like you, and it cuts both ways." } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
+    op_light_3 = {
+      lines = { { id = "op_light_r3", text = "My cards are sure of nothing, child; they only see further than you do. Still, I'm flattered, and you may sit a little longer for free." } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
+    op_light_4 = {
+      lines = { { id = "op_light_r4", text = "Does she? Then she watches very quietly. The cards turn up the Moon for your people, and it's always half in shadow." } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A blade raised against a thing with many faces, and a choice about whether to strike or to wait. The cards don't say which is right, only that you'll have to make it, and soon." } },
@@ -206,6 +236,7 @@ P:NPC {
         { id = "n_default", text = "The dead walking and the worgen howling, and men who choose to be monsters, who are worse than either, because they could have chosen otherwise." },
       },
       choices = {
+        { text = "What guards a person in a wood like this, Madame?", next = "op_light" },
         { text = "I'll remember.", next = "BACK", fx = { learn = { "stalvan" } } },
         { text = "Which men?", next = "night_men" },
         { text = "The dead must be restless here.", next = "night_spirits" },

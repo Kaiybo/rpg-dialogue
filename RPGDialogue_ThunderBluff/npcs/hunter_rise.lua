@@ -119,6 +119,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_dw_hate", when = { gossip = { topic = "dwarves", stance = "hate" } }, text = "Taim says you want the dwarves out of Alterac! Good! Then train harder, because they hit like falling rocks!" },
     { id = "g_hi", text = "Shoulders back, like a bull facing the wind! Now, what do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing. Good, that's the first lesson." },
   },
@@ -460,6 +461,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dwarves = {
+      lines = {
+        { id = "opd_q", text = "The Frostwolves have held that valley since before the dwarves came digging, and now the Stormpike want it all. You've seen the dwarves in your travels, so what do you make of them?" },
+      },
+      choices = {
+        { text = "They're hard workers and fierce fighters. I'd rather them as friends.", next = "op_dwarves_r1", fx = { align = { light = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They dig up anything that isn't nailed down. Drive them out of Alterac.", next = "op_dwarves_r2", fx = { affinity = 2, align = { light = -1 }, opinion = { dwarves = "hate" } } },
+        { text = "I'm a dwarf, and the Stormpike have every right to that valley.", next = "op_dwarves_r3", fx = { affinity = -2, trait = { stubborn = 1 }, opinion = { stormpike = "support" } }, when = { race = "Dwarf" } },
+        { text = "It's a valley full of snow. Neither side should bleed for it.", next = "op_dwarves_r4", fx = { trait = { practical = 1 }, opinion = { alterac = "waste" } } },
+        { text = "I'd rather not take sides in Alterac.", next = "BACK" },
+      },
+    },
+    op_dwarves_r1 = {
+      lines = {
+        { id = "op_dwarves_r1", text = "Fierce, yes, I'll grant you that much, and I'd rather fight them than drink with them, because the drinking's worse. Still, you're not wrong." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r2 = {
+      lines = {
+        { id = "op_dwarves_r2", text = "Now that's the spirit I need up north! Go and tell Drek'Thar you said so, and bring your warmest cloak." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r3 = {
+      lines = {
+        { id = "op_dwarves_r3", text = "Ha! At least you say it to my face, which is more than the snow does. We'll see whose right holds up when the thaw comes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r4 = {
+      lines = {
+        { id = "op_dwarves_r4", text = "I've said the same thing a hundred times on the way home, and then I go back, every time. Don't ask me to explain it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Taim Ragetotem, and I muster fighters for the Frostwolf clan in Alterac Valley, where the dwarves of the Stormpike have come digging into Frostwolf land. It's cold, it's bloody, and Thrall's own people need us there." },
@@ -493,7 +538,10 @@ P:NPC {
     },
     valley = {
       lines = { { id = "v_default", text = "Snow up to your knees, wolves who are friendlier than the dwarves, and the cold gets into your horns so you hear it ringing for days. Every tauren who comes back says they'll never go again, and half of them are back within the month." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you make of the dwarves up there?", next = "op_dwarves" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

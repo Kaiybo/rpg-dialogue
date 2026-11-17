@@ -18,6 +18,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_pirates", when = { gossip = { topic = "pirates", stance = "hate" } }, text = "Seahorn says you told him pirates are pirates, code or no code. He laughed it off, but he's been very quiet at the rail since, so I hope you meant it." },
     { id = "g_tavern", text = "Pull up a stool if you're staying, and mind the third one, because it bites." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Sit down, then, and tell me something more interesting than the tide tables." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in one piece, which is better than most who leave this tavern on business. Sit, and tell me where you've been." },
@@ -38,6 +39,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirintor = {
+      lines = {
+        { id = "opk_default", text = "My father thinks the Kirin Tor are the last sane people in Lordaeron, sitting under their dome and calling it wisdom. I've my own view, but you look like you've got one too, so go on: are they wise, or only frightened?" },
+      },
+      choices = {
+        { text = "Wise. Somebody has to guard that much power.", next = "op_kt_trust", fx = { affinity = -1, align = { order = 1 }, opinion = { kirin_tor = "trust" } } },
+        { text = "Frightened old men under a glass bowl.", next = "op_kt_contempt", fx = { affinity = 1, align = { order = -1 }, trait = { witty = 1 }, opinion = { kirin_tor = "contempt" } } },
+        { text = "I've read their books. They're both, and they know it.", next = "op_kt_mixed", fx = { affinity = 1, opinion = { kirin_tor = "mixed" } }, when = { class = "MAGE" } },
+        { text = "Dalaran burned once already. I'd hide too.", next = "op_kt_pity", fx = { trait = { kind = 1 }, opinion = { kirin_tor = "pity" } } },
+        { text = "That's between you and your father.", next = "BACK" },
+      },
+    },
+    op_kt_trust = {
+      lines = {
+        { id = "opkt_default", text = "You sound exactly like him, and I mean that as gently as I can. Power's safest in a lot of hands, if you ask me, and the Kirin Tor have only ever trusted their own." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_contempt = {
+      lines = {
+        { id = "opkc_default", text = "Ha! I'm stealing that, and if it ever reaches Dalaran, I'll swear I heard it from a sailor. Which, I suppose, I did." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_mixed = {
+      lines = {
+        { id = "opkm_default", text = "Both, and they know it, and they'd rather die than say so. You'd have done well under the dome, I think, and I hope you never have to." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_pity = {
+      lines = {
+        { id = "opkp_default", text = "Hm. I hadn't thought of it as fear for the city, only fear for themselves. Don't tell my father you made me think kindly of him; he'd be unbearable." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -125,6 +162,7 @@ P:NPC {
     family_left = {
       lines = { { id = "fl_default", text = "Because the city drew a violet dome over itself to keep Alterac's troubles out, and I found I'd rather face the troubles than live under glass. The sea has no walls and no curfews, and it's never once asked me to recite the schools of magic in order." } },
       choices = {
+        { text = "What do you make of the Kirin Tor, then?", next = "op_kirintor" },
         { text = "A daughter's place is with her family and her duty.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You chose your own course. That's worth any title.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },

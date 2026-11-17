@@ -42,6 +42,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "They trouble every priestess who remembers the Well. Their children in Quel'Thalas wield the same magic, the humans built Dalaran upon it, and none of them seem to have learned a thing. Tell me, what do you think of the arcane?" },
+      },
+      choices = {
+        { text = "It's a tool, Priestess, and the Kirin Tor keep it in hand.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { arcane_magic = "useful", kirin_tor = "trust" } } },
+        { text = "It's a hunger, and the high elves never stopped feeding it.", next = "op_r2", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { arcane_magic = "dangerous", high_elves = "distrust" } } },
+        { text = "Every tome should burn, and Dalaran's towers with them.", next = "op_r3", fx = { affinity = -1, align = { order = -1 }, trait = { stern = 1 }, opinion = { arcane_magic = "hate" } } },
+        { text = "I study it, Priestess, and I know its price.", next = "op_r4", fx = { align = { order = 1 }, opinion = { arcane_magic = "respect" } }, when = { class = "MAGE" } },
+        { text = "I'll leave magic to the magi.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "So the Highborne told us in Zin-Azshari, the night before the sky opened. I pray your Kirin Tor have steadier hands than Azshara's court had." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "You speak like a priestess of the old Temple. Be careful saying it near the dwarves, because they've grown fond of their gnome friends and their Dalaran mages." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Burning is the Legion's answer to everything, {class}. I distrust the arcane, but I will not set a torch to Dalaran's students for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you know more than Azshara ever did. Pay that price yourself, and never let anyone else pay it for you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I trust any who heal. Only arcane magic troubles me; spirits are a gentler thing, I hope." } },
@@ -167,6 +196,7 @@ P:NPC {
         { id = "h_again3", when = { class = "PRIEST" }, text = "Ask, young priest. A teacher who tires of questions should stop teaching." },
       },
       choices = {
+        { text = "Do the Highborne still trouble the Sisterhood?", next = "op_ask" },
         { text = "I'm ready for my training.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why would you teach a priest of the Light?", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "What gifts does Elune give her own priests?", next = "gifts", when = { class = "PRIEST", race = "NightElf" } },
