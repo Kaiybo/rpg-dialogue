@@ -64,8 +64,35 @@ P:NPC {
       },
       choices = {
         { text = "And if Theradras is real?", next = "gelkis_real" },
+        { text = "So who is stronger, then?", next = "strong_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    strong_op = {
+      lines = { { id = "so_default", text = "You ask Warug? No, you fight beside the Magram, so you tell Warug! Who is stronger, the Magram or the Gelkis with all their praying?" } },
+      choices = {
+        { text = "The Magram. Prayer never won a fight.", next = "so_magram", fx = { affinity = 2, align = { order = -1 }, opinion = { theradras = "doubt", magram = "strong" } } },
+        { text = "The Gelkis. Faith holds when strength breaks.", next = "so_gelkis", fx = { affinity = -2, align = { order = 1 }, opinion = { gelkis = "respect" } } },
+        { text = "Neither. The Kolkar will laugh at both your corpses.", next = "so_neither", fx = { affinity = -1, trait = { blunt = 1 }, opinion = { centaur = "divide" } } },
+        { text = "Gnomes are strongest. We build your favorite gadgets.", next = "so_gnome", when = { race = "Gnome" }, fx = { affinity = 1, opinion = { gnomes = "proud" } } },
+        { text = "I won't choose, Warug.", next = "BACK" },
+      },
+    },
+    so_magram = {
+      lines = { { id = "som_default", text = "Ha! Yes! Warug will tell the whole camp what you said, loud, so the Gelkis hear it from across the valley." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    so_gelkis = {
+      lines = { { id = "sog_default", text = "Bah! Then go and pray with them, and see how much their mother helps when Warug comes over the hill." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    so_neither = {
+      lines = { { id = "son_default", text = "The Kolkar laugh at nothing, because the Kolkar are stupid! But you are rude, and Warug almost likes that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    so_gnome = {
+      lines = { { id = "sogn_default", text = "Ha! The little one is brave! Warug does not believe you, but Warug will take another gadget, if you have one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     gelkis_real = {
       lines = {

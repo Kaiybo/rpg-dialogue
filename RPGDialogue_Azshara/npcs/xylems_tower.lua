@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_arcane", when = { opinion = { topic = "arcane_magic", stance = "dangerous" } }, text = "I'm told you think magic should be locked away by wiser heads than ours. Wiser than mine? Name one, and I'll write to them." },
     { id = "g_default", text = "Ah, a visitor who survived Sanath's manners. Come in, and do try not to touch anything that glows." },
     { id = "g_back", when = { metBefore = true }, text = "You again, {name}. Good; the last three visitors were disappointments." },
     { id = "g_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") }, text = "My favourite drake-slayer! Sit, sit; the shard has been singing all week." },
@@ -36,6 +37,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirintor = {
+      lines = {
+        { id = "opk_default", text = "They think I'm a renegade with a nice tower, which is half right. They'd have every Highborne rune sealed in a vault and every student who reads one sent home in disgrace. Tell me, are they right?" },
+      },
+      choices = {
+        { text = "They're right. Some knowledge should stay buried.", next = "op_kt_right", fx = { affinity = -1, align = { order = 1 }, opinion = { kirin_tor = "trust" } } },
+        { text = "The Kirin Tor are timid. Study what you like.", next = "op_kt_timid", fx = { affinity = 1, align = { order = -1 }, opinion = { kirin_tor = "contempt" } } },
+        { text = "Dalaran taught me caution, Archmage. You might try some.", next = "op_kt_right", fx = { affinity = -1, trait = { stern = 1 }, opinion = { kirin_tor = "respect" } }, when = { class = "MAGE" } },
+        { text = "I'm here for the work, not the politics.", next = "BACK" },
+      },
+    },
+    op_kt_right = {
+      lines = {
+        { id = "opkr_default", text = "Buried knowledge doesn't stay buried; it only waits for someone less careful than me to find it. But do go on, you sound exactly like my old examiners, and I've missed them terribly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_timid = {
+      lines = {
+        { id = "opkd_default", text = "Timid! I'll have that carved over my door, and I'll send them a drawing of it. You and I are going to get along splendidly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "Grim is a fine word for anywhere trolls and dragons share a cellar. The dragonkin down there guard the Atal'ai's mistakes for their mistress, and I find it fascinating that creatures with so much power choose to spend it as jailers." } },
@@ -210,6 +234,7 @@ P:NPC {
     study_danger = {
       lines = { { id = "sd_default", text = "Their appetite broke the world, which is a different thing entirely. A knife cuts bread or throats, and nobody blames the knife; I simply intend to be a better cook than they were." } },
       choices = {
+        { text = "What do the Kirin Tor think of your work here?", next = "op_kirintor" },
         { text = "Knowledge is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { curious = 1 } } },
         { text = "Some doors should stay shut, Archmage.", next = "BACK", fx = { affinity = -1, align = { order = 1 }, trait = { cautious = 1 } } },
       },
@@ -403,6 +428,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kirintor", when = { gossip = { topic = "kirin_tor", stance = "contempt" } }, text = "The Archmage says you called the Kirin Tor timid. He's been insufferable all week, so I hope you're pleased with yourself." },
     { id = "g_default", text = "Another pilgrim at my master's door, and how dreary you all are." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and wearing the same dreadful clothes, which is almost impressive." },
   },

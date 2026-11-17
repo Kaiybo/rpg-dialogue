@@ -36,6 +36,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Felgur Twocuts. I was sent to gather what I could on the centaur of Desolace, and what I've gathered is that there are too many of them and they all hate us." },
+        { id = "h_op_war", when = { opinion = { topic = "centaur", stance = "war" } },
+          text = "Regthar's runners say you'd carry the war right into Desolace. Well, you're here now, so start with the Kolkar and work your way south." },
+        { id = "h_op_people", when = { gossip = { topic = "centaur", stance = "people" } },
+          text = "Takata tells me you think the centaur are a people. Keep thinking it, if you like, but keep your shield up while you do." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("The Kolkar of Desolace") },
           text = "You're here on Regthar's orders? Then you're here to deal with the centaur. Good; sit, listen, and don't expect this to end quickly." },
         { id = "h_bounty_before", when = { questBefore = TODO_QUEST("Centaur Bounty") },
@@ -68,8 +72,35 @@ P:NPC {
       },
       choices = {
         { text = "Is there any talking to them?", next = "hate_talk" },
+        { text = "Do you think they're beasts, then?", next = "centaur_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    centaur_op = {
+      lines = { { id = "co_default", text = "Doesn't matter what I think, I count ears for a living. You've seen them up close now, though, and some of the tauren say there's a people under all that cruelty, so tell me: is there?" } },
+      choices = {
+        { text = "They're beasts, every clan of them.", next = "co_beasts", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "hate" } } },
+        { text = "They're a people, cruel or not. Kill only who you must.", next = "co_people", fx = { affinity = -1, align = { light = 1 }, opinion = { centaur = "people" } } },
+        { text = "They're most useful when they're killing each other.", next = "co_useful", fx = { opinion = { centaur = "divide" } } },
+        { text = "Kolkar spears killed my grandfather. I'll never forgive them.", next = "co_blood", when = { race = "Tauren" }, fx = { affinity = 2, opinion = { centaur = "blood" } } },
+        { text = "I'm still making up my mind.", next = "BACK" },
+      },
+    },
+    co_beasts = {
+      lines = { { id = "cob_default", text = "Beasts with bows and khans and grudges, which is worse than beasts. Bring me ears, and we'll agree on everything." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_people = {
+      lines = { { id = "cop_default", text = "Maybe they are. People can be worth killing too, and these ones burn tauren camps for sport, so I'll take your mercy under advisement." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_useful = {
+      lines = { { id = "cou_default", text = "Now you sound like Pentigast over at Nijel's Point, and I mean that as half an insult. The other half's a compliment, because he's still alive." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_blood = {
+      lines = { { id = "cobl_default", text = "Then you've more right to that bag of ears than I have. Fill it, and say his name over every one if it helps." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     hate_talk = {
       lines = {
@@ -86,8 +117,8 @@ P:NPC {
         { id = "hk_default", text = "Maybe. Thrall would call it diplomacy, and I'd call it a bargain with a snake, but I'm not the Warchief." },
       },
       choices = {
-        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather fight them face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", fx = { align = { honor = -1 }, opinion = { centaur = "divide" } } },
+        { text = "I'd rather fight them face to face.", next = "BACK", fx = { align = { honor = 1 }, opinion = { centaur = "war" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

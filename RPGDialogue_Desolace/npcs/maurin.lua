@@ -87,8 +87,8 @@ P:NPC {
         { id = "bl2_default", text = "In death, and in the Undercity's libraries afterwards, and that is all you will hear of it. Knowledge does not care where it was found, {class}, only how it is used." },
       },
       choices = {
-        { text = "Some knowledge is too dangerous to keep.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Any weapon is worth having against our enemies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some knowledge is too dangerous to keep.", next = "BACK", fx = { align = { light = 1 }, opinion = { necromancy = "dangerous" } } },
+        { text = "Any weapon is worth having against our enemies.", next = "BACK", fx = { align = { light = -1 }, opinion = { necromancy = "useful" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,8 +99,35 @@ P:NPC {
       },
       choices = {
         { text = "And the gems themselves?", next = "gems_kept" },
+        { text = "Isn't that necromancy?", next = "necro_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    necro_op = {
+      lines = { { id = "ne_default", text = "It is, and I make no apology for the word. The Scourge use the same arts to chain the dead, and I use them to unmake the Blade, so tell me, {class}: does the tool make the crime, or the hand?" } },
+      choices = {
+        { text = "The hand. Turned on our enemies, it's justice.", next = "ne_hand", fx = { affinity = 2, align = { light = -1 }, opinion = { necromancy = "useful" } } },
+        { text = "The tool. Necromancy is rot, whoever holds it.", next = "ne_tool", fx = { affinity = -2, align = { light = 1 }, opinion = { necromancy = "wrong" } } },
+        { text = "Both. I'll fight beside you, but I'll watch you.", next = "ne_both", fx = { affinity = 1, trait = { skeptical = 1 }, opinion = { necromancy = "dangerous" } } },
+        { text = "It made us. We may as well master it.", next = "ne_undead", when = { race = "Scourge" }, fx = { affinity = 1, opinion = { necromancy = "master" } } },
+        { text = "Something else, Maurin.", next = "BACK" },
+      },
+    },
+    ne_hand = {
+      lines = { { id = "neh_default", text = "Precisely. You would do well in the Undercity, where that answer is taught to apprentices before they are allowed to touch a scalpel." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_tool = {
+      lines = { { id = "net_default", text = "Then you will forgive me if I do not ask you to carry the gems. Rot is what the Blade made of itself; I merely sweep it up." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_both = {
+      lines = { { id = "neb_default", text = "Good. Watch me closely, then, and you may learn something, which is more than the orcs here manage." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_undead = {
+      lines = { { id = "neu_default", text = "A sensible child of the Dark Lady. Mastery is the only answer to what was done to us, and the Lich King will learn it in time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     gems_kept = {
       big = true,

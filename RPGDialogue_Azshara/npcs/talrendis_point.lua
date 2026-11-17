@@ -426,6 +426,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_orcs", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "Brinna says you'd drive the orcs out of Azshara. My birds would thank you, since the orcs' wind riders frighten them, though I'd not say the same about the orcs themselves." },
     { id = "g_default", text = "Ishnu-alah. If you need to fly, the hippogryphs are rested. Don't offer them bread, though; the Sentinels have spoiled them rotten." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the Point, and the hippogryphs lift their heads at your step. They choose their friends carefully." },
   },
