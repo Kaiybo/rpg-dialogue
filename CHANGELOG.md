@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.70.0 (2026-11-17)
+More origins to choose from. No new files: /reload is enough.
+
+- **Origins for every race and class.** 72 new backgrounds. Every race now has at least four general origins, and every race and class pairing has two of its own, so each character sees six to eight choices in the picker (plus "Other"). This includes the newer pairings: human hunters, dwarf shamans, gnome priests, orc mages, troll warlocks, undead paladins, and every Skyborne class.
+
 ## 0.69.0 (2026-11-17)
 A proper origin picker. No new files: /reload is enough.
 
