@@ -91,7 +91,8 @@ C.PROBE_LIST = {
   "C_UnitAuras.GetAuraDataByIndex", "AuraUtil.ForEachAura",
   "C_AddOns.GetAddOnMetadata", "C_AddOns.LoadAddOn",
   "C_Calendar.GetDayEvent", "C_DateAndTime.GetCurrentCalendarTime",
-  "C_VoiceChat.SpeakText", "C_TooltipInfo.GetUnit",
+  "C_VoiceChat.SpeakText", "C_VoiceChat.GetTtsVoices", "C_TTSSettings.GetSpeechRate", "TextToSpeech_Speak",
+  "C_TooltipInfo.GetUnit",
   "C_Reputation.GetFactionDataByID", "C_Map.GetBestMapForUnit", "C_Map.GetPlayerMapPosition",
   "C_DeathRecap.GetRecapEvents", "C_GameRules.IsHardcoreActive",
   "Settings.RegisterCanvasLayoutCategory", "AddonCompartmentFrame.RegisterAddon",
@@ -1160,24 +1161,151 @@ function C.RequestCalendar()
 end
 
 ---------------------------------------------------------------------------
--- Text to speech (the signature changed between client versions, so try both)
+-- Text to speech
+-- SpeakText's arguments changed between clients ((voice, text, dest, rate, volume) on
+-- older ones, (voice, text, rate, volume, overlap) on newer), and a wrong guess doesn't
+-- error, it just plays at volume 0. So the client's own TextToSpeech_Speak goes first
+-- (it always matches its client); the direct call picks its shape from the enum.
 ---------------------------------------------------------------------------
+local tts = { pending = 0, lastError = nil, speaking = false }
+C.TTS = tts
+
 function C.TTSAvailable()
-  return resolve("C_VoiceChat.SpeakText") ~= nil and resolve("C_VoiceChat.GetTtsVoices") ~= nil
+  return resolve("C_VoiceChat.SpeakText") ~= nil
 end
 
-function C.Speak(text, rate, volume)
-  if not C.TTSAvailable() then return false end
-  local voices = call("C_VoiceChat.GetTtsVoices")
-  local voice = type(voices) == "table" and voices[1] and voices[1].voiceID or 0
+local function ttsVoices()
+  local v = call("C_VoiceChat.GetTtsVoices")
+  if type(v) ~= "table" then return {} end
+  return v
+end
+C.TTSVoices = ttsVoices
+
+local FEMALE = { "zira", "hazel", "susan", "eva", "linda", "heera", "catherine", "hedda", "helena",
+  "julie", "hortense", "elsa", "paulina", "maria", "haruka", "huihui", "yaoyao", "heami", "sabina",
+  "irina", "female", "woman", "samantha", "karen", "moira", "tessa", "fiona", "victoria", "allison",
+  "ava", "serena", "kate", "aria", "jenny", "sonia", "libby", "natasha", "clara" }
+local MALE = { "david", "mark", "george", "james", "richard", "ravi", "sean", "stefan", "pablo",
+  "paul", "claude", "cosimo", "daniel", "ichiro", "kangkang", "pavel", "male", "man", "alex",
+  "fred", "tom", "oliver", "arthur", "guy", "ryan", "thomas", "william", "brian", "eric" }
+
+local function nameIs(voice, list)
+  local n = type(voice) == "table" and voice.name and voice.name:lower() or ""
+  if n:find("female", 1, true) then return list == FEMALE end
+  for i = 1, #list do
+    if n:find("%f[%a]" .. list[i] .. "%f[%A]") then return true end
+  end
+  return false
+end
+
+local function byID(voices, id)
+  if id == nil then return nil end
+  for i = 1, #voices do if voices[i].voiceID == id then return voices[i] end end
+  return nil
+end
+
+-- The game's picks (Options > Accessibility > Text to Speech): Standard voice for men,
+-- Alternate voice for women. If both are the same voice, guess by the voice's name.
+function C.TTSVoice(gender)
+  local voices = ttsVoices()
+  if #voices == 0 then return { voiceID = 0, name = "?" } end
+  local vt = resolve("Enum.TtsVoiceType")
+  local std = byID(voices, call("C_TTSSettings.GetVoiceOptionID", vt and vt.Standard or 0))
+  local alt = byID(voices, call("C_TTSSettings.GetVoiceOptionID", vt and vt.Alternate or 1))
+  std = std or voices[1]
+  if gender == "female" then
+    if alt and alt.voiceID ~= std.voiceID then return alt end
+    if nameIs(std, FEMALE) then return std end
+    for i = 1, #voices do if nameIs(voices[i], FEMALE) then return voices[i] end end
+  elseif gender == "male" then
+    if nameIs(std, FEMALE) and alt and alt.voiceID ~= std.voiceID then return alt end
+    if not nameIs(std, FEMALE) then return std end
+    for i = 1, #voices do if nameIs(voices[i], MALE) then return voices[i] end end
+  end
+  return std
+end
+
+function C.TTSRate()
+  local r = tonumber(call("C_TTSSettings.GetSpeechRate"))
+  return r or 0
+end
+
+function C.TTSVolume()
+  local v = tonumber(call("C_TTSSettings.GetSpeechVolume"))
+  if not v or v <= 0 then v = 100 end   -- 0 usually means "never set", not "mute"
+  return v
+end
+
+-- What the box shows isn't what should be read: no colour codes, links, icons or <emotes>.
+function C.TTSClean(text)
+  text = tostring(text or "")
+  text = text:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
+  text = text:gsub("|H.-|h(.-)|h", "%1"):gsub("|T.-|t", ""):gsub("|A.-|a", ""):gsub("|n", " ")
+  text = text:gsub("<.->", " "):gsub("%[(.-)%]", "%1")
+  text = text:gsub("%s+", " "):gsub("^%s+", ""):gsub("%s+$", "")
+  return text
+end
+
+local function speakNow(voice, text, rate, volume)
+  local blizz = resolve("TextToSpeech_Speak")
+  if blizz and pcall(blizz, text, voice) then return true, "TextToSpeech_Speak" end
   local speak = resolve("C_VoiceChat.SpeakText")
-  local dest = resolve("Enum.VoiceTtsDestination.LocalPlayback") or 1
-  if pcall(speak, voice, text, dest, rate or 0, volume or 100) then return true end
-  return (pcall(speak, voice, text, rate or 0, volume or 100))
+  if not speak then return false, "no C_VoiceChat.SpeakText" end
+  local dests = resolve("Enum.VoiceTtsDestination")
+  local ok, err
+  if dests then
+    ok, err = pcall(speak, voice.voiceID, text, dests.LocalPlayback or 1, rate, volume)
+    if ok then return true, "SpeakText(dest)" end
+  end
+  ok, err = pcall(speak, voice.voiceID, text, rate, volume, false)
+  if ok then return true, "SpeakText" end
+  if not dests then
+    ok, err = pcall(speak, voice.voiceID, text, 1, rate, volume)
+    if ok then return true, "SpeakText(dest=1)" end
+  end
+  return false, tostring(err)
+end
+
+-- Speak text in a voice for gender ("male"/"female"/nil). Anything still being read is
+-- stopped first; the new line starts a moment later, because a stop issued right before a
+-- speak can swallow the new line too.
+function C.Speak(text, gender)
+  if not C.TTSAvailable() then return false end
+  text = C.TTSClean(text)
+  if text == "" then return false end
+  tts.pending = tts.pending + 1
+  local mine = tts.pending
+  local voice, rate, volume = C.TTSVoice(gender), C.TTSRate(), C.TTSVolume()
+  local function go()
+    if mine ~= tts.pending then return end
+    local ok, how = speakNow(voice, text, rate, volume)
+    tts.lastHow, tts.lastVoice = how, voice
+    if ok then tts.speaking = true else tts.lastError = how end
+  end
+  if tts.speaking then
+    call("C_VoiceChat.StopSpeakingText")
+    C.After(0.15, go)
+  else
+    go()
+  end
+  return true
 end
 
 function C.StopSpeaking()
+  tts.pending = tts.pending + 1
   call("C_VoiceChat.StopSpeakingText")
+end
+
+-- Playback events (where the client has them) tell us whether a stop is needed, and why
+-- a line failed.
+function C.TTSEvents(on)
+  on("VOICE_CHAT_TTS_PLAYBACK_STARTED", function() tts.speaking = true end)
+  on("VOICE_CHAT_TTS_PLAYBACK_FINISHED", function() tts.speaking = false end)
+  on("VOICE_CHAT_TTS_PLAYBACK_FAILED", function(_, status)
+    tts.speaking = false
+    tts.lastError = "playback failed: " .. tostring(status)
+    if tts.verbose then C.Print("RPG Dialogue: text to speech failed (" .. tostring(status) .. ").") end
+  end)
 end
 
 ---------------------------------------------------------------------------

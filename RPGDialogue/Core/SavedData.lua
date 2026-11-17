@@ -31,6 +31,7 @@ SD.ACCOUNT_DEFAULTS = {
     minimapButton = true,       -- the journal button on the minimap
     alignHints = false,
     tts = false,
+    ttsQuests = true,           -- with tts: also read quest and gossip pages aloud
     tags = "available",         -- special option tags: "always" | "available" | "never"
     showLocked = false,
     newMarker = false,

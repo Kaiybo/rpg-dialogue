@@ -177,6 +177,37 @@ end
 commands.export = function() ns.UI.ExportFrame.Show("export") end
 commands.import = function() ns.UI.ExportFrame.Show("import") end
 
+-- /rpgd tts: what text to speech is using, then a line in each voice. Failures are
+-- reported in chat while the test runs.
+commands.tts = function()
+  local lines = {}
+  local function yes(b) return b and "|cff40ff40yes|r" or "|cffff4040no|r" end
+  lines[#lines + 1] = "SpeakText " .. yes(C.Resolve("C_VoiceChat.SpeakText"))
+    .. ", TextToSpeech_Speak " .. yes(C.Resolve("TextToSpeech_Speak"))
+    .. ", TTS settings " .. yes(C.Resolve("C_TTSSettings.GetSpeechRate"))
+  local voices = C.TTSVoices()
+  lines[#lines + 1] = ("%d voice(s): "):format(#voices)
+  for i = 1, math.min(#voices, 8) do
+    lines[#lines] = lines[#lines] .. (i > 1 and ", " or "") .. tostring(voices[i].voiceID) .. "=" .. tostring(voices[i].name)
+  end
+  local m, f = C.TTSVoice("male"), C.TTSVoice("female")
+  lines[#lines + 1] = ("men: %s, women: %s, rate %s, volume %s"):format(tostring(m.name), tostring(f.name),
+    tostring(C.TTSRate()), tostring(C.TTSVolume()))
+  lines[#lines + 1] = "read aloud in conversations: " .. yes(ns.db.settings.tts)
+  if C.TTS.lastError then lines[#lines + 1] = "last error: " .. C.TTS.lastError end
+  printList(L.TTS_HEADER, lines)
+  if not C.TTSAvailable() then ns.Print(L.OPT_TTS_MISSING); return end
+  C.TTS.verbose = true
+  C.Speak(L.TTS_TEST_MALE, "male")
+  C.After(5, function()
+    C.Speak(L.TTS_TEST_FEMALE, "female")
+    C.After(6, function()
+      C.TTS.verbose = nil
+      if C.TTS.lastHow then ns.Print("Text to speech used " .. C.TTS.lastHow .. ".") end
+    end)
+  end)
+end
+
 function Slash.Handle(msg)
   local args = {}
   for word in (msg or ""):gmatch("%S+") do args[#args + 1] = word end
