@@ -1230,8 +1230,13 @@ function C.TTSRate()
   return r or 0
 end
 
+-- The game's stored volume as it is (nil where the client has no TTS settings).
+function C.TTSGameVolume()
+  return tonumber(call("C_TTSSettings.GetSpeechVolume"))
+end
+
 function C.TTSVolume()
-  local v = tonumber(call("C_TTSSettings.GetSpeechVolume"))
+  local v = C.TTSGameVolume()
   if not v or v <= 0 then v = 100 end   -- 0 usually means "never set", not "mute"
   return v
 end
@@ -1247,8 +1252,13 @@ function C.TTSClean(text)
 end
 
 local function speakNow(voice, text, rate, volume)
+  -- TextToSpeech_Speak reads the game's own volume, so when that reads 0 (never set) it
+  -- plays silently without an error; then we call SpeakText ourselves at full volume.
   local blizz = resolve("TextToSpeech_Speak")
-  if blizz and pcall(blizz, text, voice) then return true, "TextToSpeech_Speak" end
+  local gameVol = C.TTSGameVolume()
+  if blizz and gameVol and gameVol > 0 and pcall(blizz, text, voice) then
+    return true, "TextToSpeech_Speak"
+  end
   local speak = resolve("C_VoiceChat.SpeakText")
   if not speak then return false, "no C_VoiceChat.SpeakText" end
   local dests = resolve("Enum.VoiceTtsDestination")

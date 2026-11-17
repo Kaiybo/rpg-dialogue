@@ -22,7 +22,15 @@ Forever's new lands. **Three new folders and new files in two packs: exit the ga
 ### Also
 - Your diary notes your first steps on Mount Hyjal, in Shen'dralas and in Dalaran. Ansirem Runeweaver stands at Dalaran's opened gate.
 
-Packs: Dalaran 1.0.0, Hyjal 1.0.0, Shendralas 1.0.0 (new), Zephras 1.7.0, Riverglades 1.10.0, World 1.29.0, Hillsbrad 1.22.0 (the rest as in 0.63.0).
+Packs: Dalaran 1.0.0, Hyjal 1.0.0, Shendralas 1.0.0 (new), Zephras 1.7.0, Riverglades 1.10.0, World 1.29.0, Hillsbrad 1.22.0 (the rest as in 0.64.0). Includes 0.64.0's text-to-speech fixes..
+
+## 0.64.0 (2026-11-17)
+Core only; no pack changes. No new files: /reload is enough if you have 0.39.0 or later.
+
+### Text to speech fixes
+- **No more silent lines when the game's speech volume was never set.** If the game reports its text-to-speech volume as 0, RPG Dialogue now speaks the line itself at full volume, instead of handing it to the game's own routine, which played it silently.
+- **Quest pages read only what the quest giver says.** Objectives, rewards and required items stay on the page and aren't read out.
+- `/rpgd tts` now also shows the game's own volume setting next to the one we use, so a muted setting is easy to spot.
 
 ## 0.63.0 (2026-11-17)
 Core only; no pack changes. Includes 0.62.0 (tidier settings, journal button). No new files: /reload is enough if you have 0.39.0 or later.
