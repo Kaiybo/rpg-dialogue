@@ -23,6 +23,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "A few, dear, for the living and the dead both, though never the same ones! The pale caps from under the Sepulcher settle a Forsaken's joints, and the little brown ones by the Dead Fields ease a living fever if you boil them twice. I'd never sell a healer the wrong kind." } },
+      choices = {
+        { text = "Then I'll take the healing ones and leave the rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The purple caps sound more useful, honestly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some of them are safe for anyone, some are safe only for the dead, and the rest I keep under the counter for the apothecaries. Eat a few of the safe ones before you go out into the forest, and you'll have something in your stomach besides worry." } },
@@ -51,8 +60,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come to see my mushrooms! I keep them in the dark under the stairs, and they grow better here than anything I tried to grow in life." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll be hungry after the worgen, I'd wager, and I've a few mushrooms that won't hurt you even if you're still breathing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll walk past more mushrooms in a day than I find in a week, so look down now and then, would you?" },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, how lovely! Mind the purple caps at the end of the table, dear, because they'd have you seeing visions you never prayed for." },
       },
       choices = {
+        { text = "Do any of your mushrooms help with healing, Gwyn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I tell you which caps are safe for the living, Gwyn?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the mushrooms grow from the plague, Gwyn?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your mushrooms.", next = "BUSINESS" },
@@ -152,6 +163,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "For the chapel in my village, every spring, white and gold with the Light's sun stitched on the breast. I can't bring myself to stitch that sun now, though my hands still remember every thread of it. Whatever you pray to, I'll make sure you look as though you meant it." } },
+      choices = {
+        { text = "The Light's sun still deserves stitching, Andrea.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Leave the sun behind. It never stitched anyone back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A proper shirt under the mail, so it doesn't chafe, and a cloak that isn't held together with worgen hair. I can't make you plate, but I can make you look as though you meant to come out of the house today." } },
@@ -180,8 +200,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You change shape, I'm told, so tell me, what happens to the robe?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I don't sell anything you'd wear, {class}, but I'll say this much: that tabard needs mending, and badly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, tracking mud across my floor. Your lot are always the worst, because you've been crawling through the undergrowth for days." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and in robes that have seen far too many roads. Come here and let me look at that hem before it drags you into a bog." },
       },
       choices = {
+        { text = "Did you make vestments in life, Andrea?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What's wrong with how I dress, Andrea?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you believe it simply comes back, Andrea?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your clothes.", next = "BUSINESS" },
@@ -279,6 +301,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "More than the Sepulcher likes to count. The worgen take the ones who stray south, the gnolls take the careless ones in the Dead Fields, and the bogs take whoever's left. If you're the praying kind, pray for the ones who set out tomorrow, because the ones who set out last week are past it." } },
+      choices = {
+        { text = "Then I'll pray for tomorrow's travellers, and walk with some.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fools who wander off the road deserve the bogs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Food, water and someone watching your back, in that order, because the worgen fight dirty and the forest makes you tired before they do. I sell the first two, and the third you'll have to find yourself." } },
@@ -307,8 +338,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be going into the forest, I expect, so buy what you need now, because the forest won't sell you anything." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll need more than a sword to get through Silverpine, {class}, so buy rations and water before you start swinging." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll eat off the land, I expect, and I'd advise against it, because half the land in Silverpine is trying to eat you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, you can pray over the bandages I sell, because Silverpine goes through them faster than I can stock them." },
       },
       choices = {
+        { text = "How many travellers does Silverpine take, Edwin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could the spirits clean your water, Harly?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is anything in Silverpine still worth saving, Harly?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your supplies.", next = "BUSINESS" },

@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "At the barracks door when the patrols come back, and nowhere else, because a priest who wanders off to pray is a priest I can't use. The Kul Tirans hit hard and fast, so be there when my grunts come in, and you'll have my respect." } },
+      choices = {
+        { text = "I'll be at the barracks door, Commander, every time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll heal where I'm needed, not where I'm posted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -67,6 +76,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my grunts come back from Tiragarde with Kul Tiran arrows in them, and I've no use for a grunt who can't stand." },
         { id = "h_default", key = true,
           text = "Gar'Thok, commander of Razor Hill. I served under Nazgrel before this. Now I hold Durotar's crossroads, and I hold them well." },
         { id = "h_betrayers", tags = { "news" }, when = { questActive = TODO_QUEST("Vanquish the Betrayers") },
@@ -83,6 +93,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
       },
       choices = {
+        { text = "Where does Razor Hill need a priest most, Commander?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you trust the spirits to guard Razor Hill, Commander?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you endure this land, Commander?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why does Razor Hill matter?", next = "why" },
@@ -175,6 +186,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Patiently, the same way I do. They hide among us and smile, so you'll mend some of them without knowing it, but sooner or later one will ask you for a prayer you won't give, and then you'll know who to send to me." } },
+      choices = {
+        { text = "I'll heal anyone, and send you the ones who refuse mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll find them myself and end them, same as you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In Skull Rock to the north, and in the coven above the Valley of Trials, and in the shadows of Orgrimmar itself, if half of what I hear is true. They call up imps and worship the old masters, so when you find them, cut them down before they can open their mouths to chant." } },
@@ -226,6 +246,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade fear the light more than they fear axes, and the shadow they don't fear at all, so I'm curious which you carry." },
         { id = "h_default", key = true,
           text = "I'm Orgnil Soulscar. The Burning Blade crawl through Durotar like lice in a pelt, and I find them, and I end them." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Orgnil") },
@@ -239,6 +260,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Burning Blade keep imps and worse at their heels, and someone who can track a beast can track those too." },
       },
       choices = {
+        { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a shaman find the Blade by the ground they've poisoned?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does the Burning Blade's magic poison Durotar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where do the Blade hide?", next = "hide" },
@@ -311,6 +333,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "More than you'd think, mostly scorpid stings and quilboar cuts they're too proud to mention. I keep a corner by the fire for the worst of them, so if you see someone shaking in it, they're yours and not mine." } },
+      choices = {
+        { text = "Then the corner by the fire is mine to keep.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They should ask for help. I won't chase them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Kul Tirans at Tiragarde Keep, with their muskets and their sour faces, and the quilboar of Razormane Grounds, who smell worse but shoot less. Gar'Thok keeps the grunts busy against both, so the warriors who sleep here come in bruised and leave before dawn." } },
@@ -373,6 +404,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my inn. The beds are clean, and the ale isn't holy, but it'll do." },
         { id = "h_default", key = true,
           text = "I'm Grosk, the innkeeper. I've a bed, ale and a roof against the sun, and everything outside is rocks and scorpids." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
@@ -387,6 +419,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
       },
       choices = {
+        { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits ever trouble your inn, Grosk?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there nothing green in Durotar, Grosk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do rogues cause much trouble at your inn?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -426,6 +459,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The fire, mostly, and the sky when it's clear, though I'd not call it praying where a shaman could hear. My journal's full of places I was glad to wake up in, and I suppose writing them down is the nearest I get to giving thanks." } },
+      choices = {
+        { text = "Giving thanks counts, Brakk, whatever you call it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thanks are for the weak. The road owes us nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That you walked Durotar with an axe on your back and the sun on your neck like the rest of us, and that something made you stop and talk to an old wanderer. That's the start of every good page, and the end depends on what you do once you leave this camp." } },
@@ -467,6 +509,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on the road. Sit by the fire, then, and tell me what you pray to out here, because I've always wondered what holy folk say when there's nobody listening." },
         { id = "h_default", key = true,
           text = "I'm Brakk. I walk Durotar and camp wherever I stop, and my journal says more about it than I do." },
         { id = "h_journal", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
@@ -479,6 +522,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've the look of somebody who'd make a good page in my journal, all scars and stories." },
       },
       choices = {
+        { text = "What do you pray to on the road, Brakk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have you noticed about this land, Brakk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why sleep out here?", next = "why" },
         { text = "My beast and I sleep rough too.", next = "hunter", when = { class = "HUNTER" } },

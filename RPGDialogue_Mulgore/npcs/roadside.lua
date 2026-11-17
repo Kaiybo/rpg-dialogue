@@ -22,6 +22,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "We burned what was left and sang over the ashes as the elders taught us, but it was hurried, and I fear it was not enough. If your prayers can reach the dead, say one on the road where the wagons fell, because I still feel them watching it." } },
+      choices = {
+        { text = "I'll pray on that road, Morin, and stay until they rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead have had their rites. Watch the living instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The dwarves, I believe, or the beasts they've driven off their land, for they blast the earth at Bael'dun and the plains shake for miles. A warrior who goes there will find guns waiting, so stay low and strike quickly, and come back to me before you go too deep." } },
@@ -76,6 +85,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You are a shaman, so you must feel what the strangers to the north are doing to the earth, as surely as I see it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The braves of Bloodhoof could use your arm on the road, because the dwarves at Bael'dun do not leave their camp unguarded." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your eyes are what I need on this road, because the tracks around the ravaged caravan don't match any beast I know." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The braves who survived the ravaged caravan could have used you, and so could the ones who didn't." },
       },
       choices = {
         { text = "What are the dwarves digging for?", next = "dwarves" },
@@ -87,6 +97,7 @@ P:NPC {
         { text = "Who ravaged the caravan, Morin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What tracks did you find near the caravan, Morin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your road is safer with a demon on it, Morin.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Did the dead of the caravan receive their rites, Morin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
       again = {
@@ -151,6 +162,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Not quite, I think, because a druid asks the land to mend itself and a priest asks something greater to mend it for them. Both are a kind of asking, though, and I have never thought the land minded who did the asking, so long as it was asked kindly." } },
+      choices = {
+        { text = "Then we're kin in the asking, Gennia.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers don't ask. They command.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gennia.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That a bear fights only to protect its cubs and its den, and stops the moment the danger has passed. Our family learned that from the night elves long ago, and the warriors who learn it fight hard and stop in time, which is rarer than you'd think." } },
@@ -201,6 +221,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman among my druids? You're welcome here, because the Earth Mother speaks to both of us, only in different voices." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You carry the strength of a bear without its patience, and the druids could teach you the second." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The druids and the hunters both walk with the beasts, though we walk inside them and you walk beside." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The night elves who taught my family spoke of priestesses of the moon, and I wonder whether your prayers feel the same as theirs." },
       },
       choices = {
         { text = "Tauren learned from the night elves?", next = "elves" },
@@ -210,6 +231,7 @@ P:NPC {
         { text = "Can a druid teach a warrior anything, Gennia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do druids and hunters differ, Gennia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is there any balance in what I do, Gennia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do druids and priests heal in the same way, Gennia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows." } },
@@ -258,6 +280,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Some do, and I do not stop them, because a wounded companion deserves every kindness. A troll priest once mended my old cat after a Palemane spear found her, and I have thought better of the loa ever since." } },
+      choices = {
+        { text = "Every living thing deserves healing, beast or brave.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers are for people, not for pets.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Yaw.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "To take only what you need, which is the first lesson I give my hunters and the last one most warriors learn. The plains feed us because we never strip them bare, and a warrior who fights the same way, only as much as is needed, will find the Earth Mother kind to him." } },
@@ -308,6 +339,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. You'll understand why we thank the beast after a hunt, because you've heard the spirits that walk beside it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You could learn something from the hunters of Bloodhoof, if you're willing to slow down long enough to listen." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, one of mine. Show me how your bow arm has grown, and let me see whether your companion still trusts you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You walk without a beast, but I can see you care for the living, and that is the first thing I teach my students." },
       },
       choices = {
         { text = "What makes a good hunter?", next = "good" },
@@ -317,6 +349,7 @@ P:NPC {
         { text = "I hunt with fire and frost. Is that so different?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you teach a warrior, Yaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do I keep my companion's trust, Yaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do hunters here ask a priest to tend their beasts, Yaw?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Good hunting, Yaw.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask on. A hunter learns by asking as much as by tracking." } },

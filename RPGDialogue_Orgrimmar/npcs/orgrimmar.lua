@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The same place any healer has, which is beside the wounded when the fighting stops. The shaman speak for the elements, but the elements do not bind a grunt's leg, and I have watched too many orcs die in the camps for want of someone who would kneel beside them." } },
+      choices = {
+        { text = "Then I'll kneel beside them, whoever they are.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I serve my own people first, Warchief, and the Horde after.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strength, but strength with a purpose. The demon blood made my people mighty and taught them to love slaughter, and I will not let that hunger take root again, so fight for those behind you, the peons and the young ones, and never for the joy of killing alone." } },
@@ -85,6 +94,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Darkspear brought their healers across the sea with them, and now the Forsaken bring theirs from Lordaeron, and I am still learning what each of them prays to." },
         { id = "h_default", key = true,
           text = "Thrall, Warchief of the Horde. Orgrim Doomhammer gave me his hammer and his people with his last breath. I've spent every day since trying to deserve both." },
         { id = "h_garthok", when = { heardLine = "garthok.h_default" },
@@ -102,6 +112,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a companion at your side. The Frostwolves taught me in Alterac that the bond with a beast is a bond of honour, and I have never forgotten it." },
       },
       choices = {
+        { text = "What place does a priest have in a Horde of shaman, Warchief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Cairne says the tauren owe you a debt, Warchief.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does the Horde stand for?", next = "horde" },
         { text = "What of the humans at Theramore?", next = "theramore" },
@@ -270,6 +281,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They listen, mon, though they don't always answer the way you be wantin'. Zalazane think the loa give power to whoever shout the loudest, and look where that take him, cursin' his own people on Echo Isles. A priest who listen more than he shout, that one the spirits remember." } },
+      choices = {
+        { text = "Then I'll listen, and heal whoever needs it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sometimes the spirits must be made to answer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Zalazane on the Echo Isles, with his hexed trolls and his madness, and the Kul Tirans at Tiragarde Keep, who never forgave us for walkin' free. Thrall gave us Sen'jin Village, but a gift like that only stay given if somebody be willin' to bleed for it." } },
@@ -313,6 +333,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one of the Horde's own. The loa watch who do the healin' and who do the hurtin', and the best of my people learn to do both when the time be right." },
         { id = "h_default", key = true,
           text = "Vol'jin, chief of the Darkspear. Thrall stand with my people when nobody else would. Now I stand at his side and tell him what he don't want to hear." },
         { id = "h_nimboya", when = { heardLine = "nimboya.h_default" },
@@ -323,6 +344,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the Darkspear be few, and every strong arm in Orgrimmar be one more spear between my people and the ones who want us gone." },
       },
       choices = {
+        { text = "Do the loa still listen to a priest, Vol'jin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the loa and the Earth Mother ever agree?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why follow Thrall?", next = "thrall" },
         { text = "What happened to the Echo Isles?", next = "isles" },
@@ -454,6 +476,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I watch everyone, friend, because that is what the Warchief needs from someone like me. Priests are seldom any trouble, though the shadow your kind draws on is a cousin to the fire I keep an eye on, and cousins do have a way of visiting each other." } },
+      choices = {
+        { text = "The shadow serves my healing, nothing more.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. I'll draw on whatever answers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Work? Oh, the Cleft is perfectly peaceful, I assure you, and the Warchief's guards see to that. If it's a fight you want, Orgnil Soulscar hunts the Burning Blade down in Durotar, and I'm told he's never short of cultists, though I can't imagine where they all come from." } },
@@ -507,6 +538,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. How refreshing; most of the Horde's spellcasters come to the Cleft of Shadow for something less wholesome than prayer." },
         { id = "h_default", key = true,
           text = "Neeru Fireblade, loyal servant of the Warchief. I keep an eye on those in the Horde who still play with fire. Someone with experience must, after all." },
         { id = "h_burning", tags = { "news" }, when = { questActive = TODO_QUEST("Burning Shadows") },
@@ -520,6 +552,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the Cleft! We don't see many of your kind down here, because the beasts don't care for the smell of brimstone, and I can't say I blame them." },
       },
       choices = {
+        { text = "Do you watch the Horde's priests as closely as its warlocks?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you make of the Horde's warlocks, Neeru?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What is the Burning Blade?", next = "blade" },
         { text = "What do you think of Thrall?", next = "thrall" },
@@ -643,6 +676,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Only after they've lost, and only if nobody's watching, because an orc would sooner bleed than admit he needs mending. If you sit by the door with a bowl of stew, though, you'll find they come to you, and you can tell them the stew did it." } },
+      choices = {
+        { text = "I'll mend them and let the stew take the credit.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them bleed until they learn to ask.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every night, and I wouldn't have it otherwise, though I'd like them to break fewer stools. Grezz Ragefist's students come here after a hard day and arm-wrestle over my tables until somebody loses a tooth, so I keep a bucket by the door for the teeth." } },
@@ -705,6 +747,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the Broken Tusk! Good, because half my customers leave with a black eye, and the other half give it to them." },
         { id = "h_default", text = "I'm Gryshka, and I keep the Broken Tusk, and I keep it fed. Nobody leaves my inn hungry, and a few leave too full to walk." },
         { id = "h_zargh", when = { questActive = TODO_QUEST("Meats to Orgrimmar") },
           text = "From Zargh? Choice cuts from the Barrens! He remembered, of course he remembered. Tell him, well, tell him the meat was very good." },
@@ -717,6 +760,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit down before you fall down, because the ones who come in off the Valley of Honor always swear they aren't hungry until the stew's in front of them." },
       },
       choices = {
+        { text = "Do your brawlers ever let a priest patch them up?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits favor a good hearth, Gryshka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do orcs and tauren get along here, Gryshka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
@@ -778,6 +822,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Because tomorrow somebody will knock me down again, and then the healing's wasted on me. I was a warrior once, you know, and a good one, and I think I'd rather keep the bruises than pretend I'm still that orc." } },
+      choices = {
+        { text = "A warrior who keeps getting up is still a warrior.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then stop getting up, Gamon, and stop being their sport.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -823,6 +876,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
         { id = "h_default", key = true,
           text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again." },
         { id = "h_bruise", when = { metBefore = true }, text = "Oh, you again. You didn't hit me last time, which makes you my favourite person in Orgrimmar. It's a short list." },
@@ -830,6 +884,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "Oh, a hunter. Mind your beast doesn't lick my face, because the last one did, and I couldn't get up to stop it." },
       },
       choices = {
+        { text = "Why don't you let someone heal you, Gamon?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Did the spirits ever speak to you, Gamon?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why does everyone attack you?", next = "why" },
         { text = "I could teach whoever keeps knocking you down a lesson.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },

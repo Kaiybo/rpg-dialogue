@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.52.0 (2026-11-17)
+Packs: Orgrimmar, Durotar, the Barrens, Mulgore, Thunder Bluff, Tirisfal, the Undercity and Silverpine have new versions. No new files in 0.52.0: /reload is enough if you have 0.39.0 or later.
+
+### Horde priests from level 1, and in the Horde capitals
+- **The Horde's starting lands notice troll and Forsaken priests**: about 150 named people greet a Horde priest as one, with a question to ask and something to argue about. Orgrimmar, Durotar, the Barrens (Crossroads, Ratchet, Camp Taurajo), Mulgore, Thunder Bluff, Tirisfal, the Undercity and Silverpine.
+- Trolls are spoken to as servants of the loa, Forsaken as priests of the Forgotten Shadow or of the Light they still cling to; tauren meet both as outsiders. Thrall, Vol'jin, Cairne, Magatha and Varimathras are among them, and the hard ones (Magatha, the apothecaries, Ratchet's goblins) side with the darker answer.
+- Priest trainers and people who already had priest lines (Sylvanas, Novice Elreth, Dark Cleric Duesten, Ken'jai, Tai'jin) kept theirs.
+
 ## 0.51.0 (2026-11-17)
 Packs: 13 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.51.0: /reload is enough if you have 0.39.0 or later.
 

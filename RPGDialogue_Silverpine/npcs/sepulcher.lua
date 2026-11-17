@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "At the Sepulcher's door, mending the deathstalkers who limp in from the forest, until I need you somewhere worse. The worgen tear, the gnolls stab, and Dalaran's mages throw fire from behind their wall, so there's always someone to stitch. Do that well, and I'll find you harder work." } },
+      choices = {
+        { text = "I'll keep your deathstalkers on their feet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll mend whom I choose, High Executor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -40,8 +49,10 @@ P:NPC {
           text = "Some of my best went into Shadowfang Keep, Arugal's keep, and haven't come out. Go in after them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because Silverpine has more enemies than I have soldiers, and lightning is cheaper than a deathstalker." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my Sepulcher. The Warchief's people keep surprising me, and I'm not easily surprised." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my deathstalkers come back in pieces, and I'd rather they came back in one." },
       },
       choices = {
+        { text = "Where can a priest serve the Sepulcher best, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Where do you need the storm, High Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Will you let me fight the worgen as a beast, High Executor?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What threatens the Sepulcher?", next = "threats" },
@@ -167,6 +178,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Both of us know exactly what a body can bear, and both of us push it past that point for a purpose. The difference is that my results can be bottled, labelled and carried to the Undercity, while yours depend on whoever happens to be listening. I prefer a method that doesn't rely on anybody's mood." } },
+      choices = {
+        { text = "Faith asks more of a healer than any recipe does.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Results matter more than belief.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I need a guard on the shipments, since half of what comes down the road from Brill arrives broken or not at all. And the Rot Hide gnolls carry a sickness someone made deliberately, so if you cut one down, don't cut your own hand on the same blade." } },
@@ -192,8 +212,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call up any water spirits in here, because the damp is already ruining my samples." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how fortunate. The Moonrage worgen and the spiders near Fenris Isle both interest me, and you'll know them better than my errand-runners." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Do keep your blade sheathed in here, {class}, because the samples are fragile and I am out of patience with this damp." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've come to bless my work, don't bother, because it does its job very well without anyone's god." },
       },
       choices = {
+        { text = "Are a priest's craft and yours alike, Renferrel?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could the spirits help trace the Rot Hide sickness, Renferrel?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you want with the worgen, Renferrel?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I could bring you samples from Silverpine's beasts.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -294,6 +316,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "That the Light would protect the city, which it did not, and that I was too fond of dark predictions, which I was not. They prayed very beautifully while Kel'Thuzad's cult grew fat in the farmlands around them. I hope your faith listens better than theirs did, priest, because faith that doesn't listen is only noise." } },
+      choices = {
+        { text = "They failed, Dalar, not faith itself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Faith is noise. You were right to scorn it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -319,8 +350,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Kirin Tor never trusted shamans, and I always thought it was because they couldn't explain what you did, and they hated anything they couldn't explain." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Dalaran's libraries had three shelves on the Cenarion Circle and two of them were wrong, so I'd welcome a correction." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Arugal's worgen are beasts only in shape, {class}, and I'd advise you not to treat them like ordinary game." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Dalaran had priests too, clever ones in fine robes, and they listened to my warnings no better than the Kirin Tor did." },
       },
       choices = {
+        { text = "What did Dalaran's priests say when you warned them, Dalar?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can you explain what I do, Archmage?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What did the Kirin Tor get wrong about druids?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Sepulcher could use more steel and fewer spells, Dalar.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -438,6 +471,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "To see clearly, mostly, and to stop expecting the Light to love us again. The Shadow doesn't care whether you were a farmer or a bishop before you died; it gives strength to whoever has the will to hold it. A troll's loa might ask for gratitude, but the Shadow asks only that you never look away." } },
+      choices = {
+        { text = "Some of us still remember the Light. It isn't gone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I won't look away. The Shadow suits me.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very little, I'm afraid, because a watcher must go unnoticed and you could not go unnoticed in a fog. But someone has to deal with what my watchers find, and that, I suspect, is where you come in." } },
@@ -474,8 +516,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I heard a tauren had come to Silverpine, and I heard you'd been sniffing about Pyrewood, so I assume you've something to tell me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. My watchers saw you coming, {class}, and you're not hard to see, with all that steel catching the light." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You read the forest the way my watchers read people, {class}, and I wonder which of you is the better at it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I heard one was coming, of course, and I'm pleased to see you look the part, for the Shadow could use more servants in Silverpine who know how to listen." },
       },
       choices = {
+        { text = "What does the Forgotten Shadow ask of its priests, Allister?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you want from a shaman, Shadow Priest?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever stop listening, Shadow Priest?", next = "druid_q", when = { class = "DRUID" } },
         { text = "My spells could serve your watchers, Allister.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -580,6 +624,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Most of us have had our last rites already, and some had them twice. Still, a deathstalker came in last week asking for a prayer before he went to Shadowfang, and I didn't have one to give him. He didn't come back, so if you've a spare, I'll keep it for the next one." } },
+      choices = {
+        { text = "I'll leave a prayer here for them, Bates.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers wouldn't have saved him. Better steel might.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -588,8 +641,10 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the howling? That's worgen, out past the trees. Listen long enough and you can tell them apart, and I wish I couldn't." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my crypt! Sit down, and if your spirits want a chair as well, they'll have to share with the spiders." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under my roof! You'll want somewhere soft to sleep, and I'm afraid all I've got are slabs, though I've thrown a fur over the east one." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Welcome to the slabs, I mean the beds; you'll find the crypt quiet, mostly, though the spiders hear every prayer said aloud." },
       },
       choices = {
+        { text = "Do your guests ever ask for last rites, Bates?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I calm the spirits of this crypt, Bates?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the worgen ever come to your door, Bates?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Want me to see off the worgen at your door, Bates?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },

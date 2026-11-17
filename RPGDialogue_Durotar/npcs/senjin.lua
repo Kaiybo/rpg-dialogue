@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "He take what the loa give for healin' and turn it to bindin' his own people, mon. Now the Echo Isles be full of Darkspear with his hex on them, and I wake up some nights thinkin' I should have seen it in him when he was small." } },
+      choices = {
+        { text = "Then I'll use the loa's gifts as they were meant.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power given is power to use as you see fit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Gently, if you can, and that be the hard part for a warrior. Zalazane's voodoo turn our own people against us, and when the hex break they wake up confused and ashamed, so knock them down if you must, but don't kill a troll who can still come home." } },
@@ -56,6 +65,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one I didn't teach. That be good, because the last few I taught don't make me proud." },
         { id = "h_default", key = true,
           text = "I be Master Gadrin, and I teach the Darkspear witch doctors. I teach Vol'jin once, and Zalazane, and one of them I be proud of." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Minshina's Skull") },
@@ -69,6 +79,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the hexed Darkspear on the Echo Isles still swing their spears, even when Zalazane be the one pullin' the strings." },
       },
       choices = {
+        { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened on the Echo Isles?", next = "isles" },
         { text = "Vol'jin was your student?", next = "voljin" },

@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "We have those who ask the wind to carry sickness away, and sometimes it listens, though it is a fickle healer. Your way seems steadier to me, and I would be grateful if you shared a little of it with Gev'rek's young ones." } },
+      choices = {
+        { text = "Gladly, Elder. Healing should be shared.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My faith isn't for sharing with outsiders, Elder.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "We need friends more than we need blades, but a friend with a blade is welcome at Gev'rek. The plains are new to us, and the gnolls and the goblins do not care whose guests we are, so a warrior who stands with us honours the welcome Thunder Bluff gave us." } },
@@ -58,6 +67,7 @@ P:NPC {
           text = "I'm Ayessa Dawnsinger, and I lead the Windshapers. The Earthen Ring answered when we called, and the Horde gave us a place to stand." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warrior. The Horde gave us a place to stand, and its warriors are the reason that place stays standing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A hunter, with a beast that walks beside you. These plains hold creatures I'm still learning to name." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Windshapers pray to the winds and not to gods, but Mulgore has taught me that the Horde holds many faiths, and I would understand yours." },
       },
       choices = {
         { text = "Why did you leave Skywall?", next = "skywall" },
@@ -69,6 +79,7 @@ P:NPC {
         { text = "The Earthen Ring trained me too.", next = "ring", when = { race = { "Orc", "Troll", "Tauren" }, class = "SHAMAN" } },
         { text = "Do the Windshapers need warriors, Elder?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Are the beasts of the plains strange to your people, Elder?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Do the Windshapers have healers of their own, Elder?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },
       },
       again = {

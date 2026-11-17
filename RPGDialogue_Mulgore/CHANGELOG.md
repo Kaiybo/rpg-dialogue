@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-17)
+- Troll and Forsaken priests are noticed: 20 people greet a Horde priest as one, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.52.0.
+
 ## 1.12.0 (2026-11-17)
 - Warriors and hunters are noticed: about 30 new warrior and hunter conversations; people greet a warrior or hunter as one, with a question to ask and something to argue about, and hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.50.0.
 

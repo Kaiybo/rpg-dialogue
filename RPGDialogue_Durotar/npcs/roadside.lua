@@ -22,6 +22,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I'd like his amulet back more than any prayer, if I'm honest, but I'll not turn one away. Pray that he went quickly, and that he wasn't afraid, because those are the things I think about when the hut is quiet." } },
+      choices = {
+        { text = "I'll pray for him, and bring his amulet home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't help him. Vengeance on the beasts will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Guard it from what? The beasts already took the only thing I had worth losing. But if you go out among them, go carefully, because a strong arm didn't save my son, and I'd not have another mother waiting by her door for nothing." } },
@@ -84,6 +93,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Then you'll know how to speak to a mother who's lost her son, and you'll know not to say it was meant to be." },
         { id = "h_default", key = true,
           text = "I am Misha Tor'kren, and this hut is all the clan I have left. My son Kron went out hunting and never came home, and the beasts of this hill have his amulet still." },
         { id = "h_amulet", when = { questActive = TODO_QUEST("Lost But Not Forgotten") },
@@ -98,6 +108,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, with a beast at your heel. Kron hunted too, and he'd have loved a companion like that." },
       },
       choices = {
+        { text = "Would you like me to say a prayer for Kron?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I listen for Kron among the spirits, Misha?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you blame the beasts for Kron, Misha?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Kron.", next = "kron" },
@@ -171,6 +182,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Maybe, after they're all dead and gone, and not a moment before. Whatever they call up in there fouls the air for days, and I've seen grunts walk out coughing black, so if you go in, go in with someone who can swing an axe." } },
+      choices = {
+        { text = "Then I'll go in, and cleanse it when it's done.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the cave rot. Cleansing it is wasted effort.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More every week, and I stopped counting at forty, because counting doesn't kill them. They've got apprentices and fanatics and the imps they call up between them, so go in with your shield first and your axe second, and back out the way you came if they swarm." } },
@@ -225,6 +245,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You won't change Skull Rock with prayers, but you can keep my scouts alive while they count the cultists, which is more use than most." },
         { id = "h_default", key = true,
           text = "I'm Margoz, and I watch Skull Rock for the Horde. The Burning Blade have dug themselves into that cave like ticks, and someone has to count them." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Skull Rock") },
@@ -238,6 +259,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen the tracks around Skull Rock, then, the scorched ones that no honest beast leaves." },
       },
       choices = {
+        { text = "Can a priest cleanse what the Burning Blade did to Skull Rock?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have the cultists done to the earth around Skull Rock?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "Why watch from out here?", next = "watch" },
@@ -306,6 +328,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Not resent, no, though they keep their distance from it the way water keeps its distance from fire. A priest who uses the shadow to heal is welcome among us, but one who uses it to hurt will find the earth less friendly under his feet." } },
+      choices = {
+        { text = "Then I'll heal with it, and the earth may judge me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The shadow is mine. The earth can keep its distance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They say the land is tired of blood, and the Kul Tirans at Tiragarde Keep spill more of it every season. But the earth also says it gave itself to the Horde when Thrall asked, so a warrior who defends this land does the spirits' work, if he fights only as long as he must." } },
@@ -359,6 +390,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The elements don't answer you, I think, but something does, and I'll not pretend I can't feel it." },
         { id = "h_default", key = true, text = "I am Swart, and I teach those the elements will answer. If you have the gift, I can help you hear it; if not, I can still tell you what the spirits say of this land." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. Sit, and let us see what the earth has taught you since we last spoke." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren! The spirits of Durotar are dry and harsh, but they speak plainly, and I suspect you hear them as well as any of my students." },
@@ -368,6 +400,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The spirits of the beasts walk with you, and I can hear them complaining about the heat, as everyone does in Durotar." },
       },
       choices = {
+        { text = "Do the elements resent the shadow a priest draws on?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do the spirits of Durotar say, Swart?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the spirits say of Durotar?", next = "land" },
         { text = "How did the orcs regain the old ways?", next = "ways" },
@@ -414,6 +447,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Not mid-lesson, no, because a recruit who knows he'll be healed stops being careful. Heal them after, when they've felt it and remembered it, and they'll live longer for both of us." } },
+      choices = {
+        { text = "Fair enough. Pain teaches, and I'll heal after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I won't make anyone suffer to teach them, Tarshaw.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Keep your shield up when you're tired, because that's when everybody drops it. The quilboar at Razormane Grounds fight dirty and the Kul Tirans fight in lines, so learn both, and never charge a musket line across open ground unless you want a scar like mine." } },
@@ -468,6 +510,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my recruits learn faster when they know someone will pick them back up." },
         { id = "h_default", key = true, text = "I'm Tarshaw Jaggedscar, and I teach the warriors of Razor Hill how to stay alive long enough to be useful. The scars are from the ones who taught me." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back for more lessons, warrior? Good, because the scorpids out there won't wait for you to get better." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman wearing mail, good. Thrall fights in plate with a hammer in his hand, and I've never once seen him wait for the spirits to swing it for him." },
@@ -477,6 +520,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast takes the hits for you, which is clever, but I've seen what happens when the beast goes down first." },
       },
       choices = {
+        { text = "Do you want a priest to heal your recruits mid-lesson?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should a shaman stand in the front line, Tarshaw?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you get those scars?", next = "scars" },
         { text = "What makes a good warrior?", next = "good" },

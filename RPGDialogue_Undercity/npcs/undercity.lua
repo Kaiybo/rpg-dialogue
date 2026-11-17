@@ -251,6 +251,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I think they are useful to the Dark Lady, as all her servants are, and I serve her as faithfully as any of you. Pray to whatever you like, little priest, but remember who rules in this city, and that her will is the only one that matters here." } },
+      choices = {
+        { text = "The Dark Lady has my loyalty, Varimathras.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My faith answers to me, not to any throne.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -276,8 +285,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Royal Quarter. Your people knelt to my kind once and then changed their minds, which I have always found rather ungrateful." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You smell of grass and wet fur, which is a novelty down here, though not one I'd ask you to repeat." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I have watched a great many mortal hunters stalk their prey, {class}, and I confess I still find it charming." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, before me. How interesting, because I have watched mortals pray to many things, and I have never once seen those things answer quickly." },
       },
       choices = {
+        { text = "What do you think of mortal priests, Varimathras?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you miss your hold on my people, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does a dreadlord make of the Emerald Dream?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Your guards are dreadlords, Varimathras. Mine is a shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -405,6 +416,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I have a theory that it does, because a Forsaken who believes in something mends a little faster and rots a little slower than one who doesn't. I can't prove it yet, but I'd be delighted to take a few measurements of you, purely in the interests of science." } },
+      choices = {
+        { text = "If faith helps us endure, I'll take your theory.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith is chemistry, then. Nothing sacred about it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -430,8 +450,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, how marvellous, you put your hands into lightning and come out the other side, and I'd simply adore a sample of whatever's left in your blood afterwards." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Bear, cat, seal, whatever you like, all of them so wonderfully alive, so do hold still while I take a few notes, nothing invasive, I swear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Oh, splendid, splendid, you'll be bringing me bear hearts and spider blood by the bucket, I can feel it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Marvellous, because you're a living, or once-living, example of a hypothesis I've never managed to test properly, which is whether faith changes the body's chemistry." },
       },
       choices = {
+        { text = "Does faith change the body, Master Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could your work and my totems serve the same fight, Faranell?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do your notes say about the living, Faranell?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What use are your potions to a warrior, Faranell?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -553,6 +575,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "It burned with the rest of Lordaeron, I imagine, and I've not gone back to look. The oath was the thing that mattered, and one of us broke it, so I've stopped expecting the place to have kept faith better than he did." } },
+      choices = {
+        { text = "The oath still matters, Bethor. You kept yours.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Oaths are words. He broke his, so you may break yours.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than most mages would admit, because a lich spends its time guarding against spells and forgets that steel still cuts. Thule always did underestimate anyone who couldn't quote the Kirin Tor's charter, and I'd like to think that will be his undoing." } },
@@ -577,8 +608,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Magic Quarter. Dalaran's scholars insisted the Horde knew nothing but fel and axes, and I'm glad to see they were wrong about something besides Arugal." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I knew a scholar in Dalaran who studied your Cenarion Circle, and he said druids were the only mages who never wanted more than they were given." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. In Dalaran we used to think a blade a crude thing beside a spell, and I've learned since that a blade, at least, doesn't sell its soul." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My old friends and I swore our oath in a chapel, and I've found myself thinking about that chapel lately more than I'd like." },
       },
       choices = {
+        { text = "What became of the chapel where you swore your oath?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is the arcane so different from the elements, Bethor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does that make druids wiser than mages, Bethor?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do mages ever need a hunter, Bethor?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -696,14 +729,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "It's the only kind I can keep, a chair of your own where nobody asks anything of you. The Cathedral used to promise the same, and I think I keep it better, though I'll admit my roof leaks green when it rains." } },
+      choices = {
+        { text = "A chair and peace is holy enough, Norman.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sanctuary makes people soft. They should keep moving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Name's Norman, and I keep the inn by the Trade Quarter. We don't sleep, most of us, but we like a chair and a place that's ours, and that's what I sell, really." },
         { id = "h_chair", when = { metBefore = true }, text = "Your chair's still there, and nobody's taken it. Nobody takes anyone's chair down here; it's the last courtesy we keep." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, under the city! Sit down by the stove, and if the fire starts muttering, I'd rather not hear what it thinks of the damp." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under the city? You'll not find much growing down here, friend, except what's in the canals, and I wouldn't touch that." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Take a chair, any chair that's empty, and nobody will take it from you while you sit, which is the closest thing to a sanctuary I can offer." },
       },
       choices = {
+        { text = "Is the inn a sanctuary, Norman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I bless your hearth, Norman, the way we do at home?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you miss the sun, Norman?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Warriors don't sit much, Norman. Why keep chairs?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },

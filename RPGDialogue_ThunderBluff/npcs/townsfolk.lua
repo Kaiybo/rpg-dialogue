@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The old way, yes. When the tauren wandered, a family was rich if it had healthy herds and friends who would come when called, and a healer who came was worth more than both. The coins in these vaults are useful, but I have never seen one close a wound." } },
+      choices = {
+        { text = "Then I'll be the friend who comes when called.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Coin pays for my work, Chesmu, the same as anyone's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Old shields, mostly, and armour from fights they'd rather not forget. I keep it all in the rock beneath the mesa, and some of the braves come back years later just to look at the shield that saved them." } },
@@ -75,9 +84,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The elders say the earth keeps its treasures deep, and so do I, though mine have locks on them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll have spare armour to store, I expect, because warriors always carry more than they can wear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hides and trophies go in the lower vaults, where the smell won't bother the other guests." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Welcome to the vault, friend, though I suspect the thing you value most can't be kept in a box." },
       },
       again = { { id = "h_again", text = "Is there something more you wanted to ask, friend? The vaults have waited this long, so they can wait a little longer." } },
       choices = {
+        { text = "Do you count a priest's work as wealth, Chesmu?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans keep anything in your vaults, Chesmu?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like my vault.", next = "BUSINESS" },
         { text = "Did the tauren always have banks?", next = "history" },
@@ -155,6 +166,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Now and then, when harpies spook a wind rider over the Barrens or a storm catches one above the Needles. The beasts fall harder than their riders do, and I've nursed more than one torn wing with salve and patience. I don't know whether your prayers reach a wind rider, but I'd be grateful if you tried." } },
+      choices = {
+        { text = "I'll try. Beasts deserve healing as much as riders.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers are for people, Tal, not beasts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "To the Crossroads, mostly, where the centaur raid and the quilboar fight, and to Camp Taurajo, where the Razorfen grow bolder every season. The wind riders carry warriors to the fight and bring them home again, though they always seem to fly faster on the way back." } },
@@ -205,9 +225,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then you'll enjoy the flight more than most, because the wind riders say your kind talk to the air the whole way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders will carry you wherever the Horde needs you, but hold on tight, because they don't slow down for armour." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders are beasts too, and they always know when a hunter is near; they lift their heads and watch." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the top of the tower. The wind up here hears a great many prayers from nervous riders, so you'll be in good company." },
       },
       again = { { id = "h_again", text = "Anything more? The wind won't wait forever." } },
       choices = {
+        { text = "Do your riders ever come back hurt, Tal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the wind riders feel the air spirits, Tal?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Take me somewhere.", next = "BUSINESS" },
         { text = "What is it like to fly?", next = "fly" },
@@ -285,6 +307,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "A staff, most often, because it keeps an enemy at arm's length while you work, and it leans well when you're tired. Some trolls carry daggers and some Forsaken prefer a wand, and I'll teach either. What matters is that you can protect yourself long enough to protect someone else." } },
+      choices = {
+        { text = "Then I'll learn the staff and guard the wounded.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather strike first than wait to protect anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The one in your hand, until it breaks, and then the one nearest you. A tauren warrior learns the axe, the mace and the staff, because the herd must be protected with whatever is at hand, and a warrior who can only fight with one weapon fights poorly with all the others." } },
@@ -335,9 +366,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll need a weapon you trust as much as your totems, and I can teach you one." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Show me how you hold that weapon, and I'll tell you how many fights it has lost you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know the bow and the gun, but I can teach you the spear and the axe for when the beast comes close." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Welcome, friend; few healers come to learn a weapon, but a staff or a mace in the right hands is a promise kept." },
       },
       again = { { id = "h_again", text = "What else? Ask, and I'll answer plainly." } },
       choices = {
+        { text = "What weapon suits a priest, Ansekhwa?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Which weapons should a shaman learn, Ansekhwa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "Which weapon do you prefer?", next = "prefer" },
@@ -401,6 +434,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "We thank the beast and the Earth Mother before and after, and my family has done so since long before we had a rise to stand on. I don't know if it's prayer the way you mean it, but it keeps a hunter honest. Holt says a hunter who forgets to give thanks will soon forget to aim." } },
+      choices = {
+        { text = "Giving thanks is a good habit. I'll remember it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thanks won't fill a belly, Kuna. Good aim will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches further than his arm, because the harpies stay in the air and the centaur throw spears. A Thunderhorn bow is light enough to carry beside an axe, and it'll start a fight on your terms instead of theirs." } },
@@ -451,9 +493,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise! You'll want a mace more than a bow, I'd wager, but you're welcome to admire the craftsmanship." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Hunter Rise? You'll be wanting a gun for when the centaur keep their distance, I'd wager." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! I can tell by the way you looked at my bows before you looked at me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on Hunter Rise! I've nothing on my rack for you, I'm afraid, though you're welcome to admire the wood." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time choosing; a bow is a long friendship." } },
       choices = {
+        { text = "Do hunters here ever pray before a hunt, Kuna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans ever take up the bow, Kuna?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What makes a good bow?", next = "bow" },
@@ -531,6 +575,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Only when the fish in Stonebull Lake are being stubborn, and they usually are. Aska says it's the bait and not the Earth Mother, and she's probably right, but I like to think someone's listening when I sit out there all morning. If a priest wants to bless my hooks, I won't say no." } },
+      choices = {
+        { text = "Someone always listens, Kah. Keep asking.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer's wasted on fish, Kah. Change your bait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior on the road must eat, and the lakes of Mulgore are full of fish for anyone patient enough to catch them. The braves who learn to fish learn patience along with it, and patience is a warrior's best friend when the centaur are waiting in ambush." } },
@@ -559,9 +612,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then maybe you can tell me why the fish bite better after a rain, because I've wondered for years." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior who fishes? Don't laugh, because the best warriors I know are the ones who know how to wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know patience already, so you'll make a fine fisher, and the lakes of Mulgore are waiting." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, all the way up on a mesa! Sit a while, friend, for fishing is mostly waiting, and I hear prayer is much the same." },
       },
       again = { { id = "h_again", text = "Something more? Fishing gives plenty of time for talking." } },
       choices = {
+        { text = "Do you ever pray for fish, Kah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why do you think the fish bite better after rain, Kah?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why would a warrior need to fish, Kah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is fishing much like hunting, Kah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -634,6 +689,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Every winter, dear, when the fevers go round the lower rises. A good broth does half the work of any healer, and I'll argue that with a shaman or a priest alike. Bring me a sick one and I'll feed them, and you can do the other half." } },
+      choices = {
+        { text = "Then we'll share the work, Aska. Broth and prayer together.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Broth doesn't close wounds, Aska. Leave the healing to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior who can cook keeps his strength on the road, and a warrior who can't eats jerky until his teeth ache. The braves who learn to stew a plainstrider at dawn fight better by noon, and they share their pot with whoever's beside them." } },
@@ -684,9 +748,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and too thin, like all of you who spend your nights talking to campfires instead of cooking on them. Sit, and I'll fix that." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll eat well if you learn to cook, and you'll make friends at every campfire, which is worth more than a sharp blade." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll bring me meat to cook, I hope, because a hunter's game makes the finest stew there is." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Look at you, all prayers and no supper; sit down, dear, before you fall over." },
       },
       again = { { id = "h_again", text = "What else, dear? Ask while the pot's still warm." } },
       choices = {
+        { text = "Do you ever cook for the sick, Aska?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans cook differently from other tauren, Aska?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What should I cook first?", next = "first" },
@@ -762,6 +828,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They ought to, if both are used for mending. A potion carries a healer's skill to places the healer can't go, and a priest can mend what no potion reaches. What I won't abide is either one turned to poison, and I've watched the apothecaries on Spirit Rise come very close to that line." } },
+      choices = {
+        { text = "Mending is the only proper use for either.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Poison has its uses too, Bena.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Healing first, always, and something for strength if you can afford it. The Earth Mother grows peacebloom and silverleaf across Mulgore, and a warrior who carries a few of my potions comes home far more often than one who trusts only his armour." } },
@@ -812,9 +887,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because you'll understand that what the Earth Mother grows is meant for healing, whatever the apothecaries on Spirit Rise think." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want healing potions, I expect, because warriors always need more of them than they think." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know the herbs of the plains better than most, because you walk among them every day." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and a healer, I hope. I'll say plainly that I don't trust what the apothecaries brew on Spirit Rise, but anyone who mends is welcome at my table." },
       },
       again = { { id = "h_again", text = "Something else? Ask quickly, before this boils over." } },
       choices = {
+        { text = "Can alchemy and prayer work together, Bena?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should a shaman worry about the Forsaken on Spirit Rise, Bena?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "What do you think of the Forsaken apothecaries?", next = "forsaken" },
@@ -894,6 +971,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Every one, if you pick it with thanks and leave enough for the next season. Peacebloom and silverleaf grow all over Mulgore, and I've seen them ease a fever when a healer was too tired to pray. I don't think the Earth Mother minds who does the mending, so long as it's done." } },
+      choices = {
+        { text = "Then I'll pick with thanks, as you do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A plant is a plant, Nida. It owes no one anything.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every warrior should know which plants heal and which plants poison, because a wounded brave far from home must make do with what grows around him. The peacebloom of Mulgore has saved more warriors than any shield, though few of them ever thank it." } },
@@ -944,9 +1030,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel how glad the earth is when an herb is gathered properly, with thanks." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Strong hands make fine gatherers, if you're gentle enough not to crush what you pick." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You walk the plains every day, so you've passed more herbs than anyone, though perhaps you never stopped to see them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Welcome, friend; I teach herbs here, and I'd guess you've pressed a few leaves into a wound alongside your prayers." },
       },
       again = { { id = "h_again", text = "Something more? I'm always glad to talk about green things." } },
       choices = {
+        { text = "Do your herbs carry the Earth Mother's blessing, Nida?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the earth spirits mind when we gather herbs, Nida?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What herbs grow in Mulgore?", next = "herbs" },
@@ -1021,6 +1109,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Every one, though it's more thanks than prayer. The beast gave the hide, and the least I can do is make something worthy of it and say so out loud while my hands work. You priests would call it a blessing, I suppose, and I don't mind the word." } },
+      choices = {
+        { text = "It is a blessing, Una. Keep saying it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hide's just leather. The beast never chose to give it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Under their mail, always, because mail against bare skin is a misery no warrior forgets. The braves who guard the bluffs wear a quilted jerkin beneath their armour, and every one of them was cut from a hide some hunter brought me." } },
@@ -1071,9 +1168,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll understand better than most that every hide I work once held a spirit, and that spirit deserves respect." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leather armour won't stop an axe the way mail will, but a good leather jerkin under it will stop the chafing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and I can smell the hides in your pack from here. Let me see them, and I'll tell you which ones you've ruined." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my bench. Mind the hides, friend; they're drying, and I'd rather your robes stayed clean." },
       },
       again = { { id = "h_again", text = "Something else? Ask while I stitch." } },
       choices = {
+        { text = "Do you say a prayer over each hide, Una?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits of the beasts stay with their hides, Una?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "What's the best hide in Mulgore?", next = "best" },
