@@ -1252,12 +1252,10 @@ local function speakNow(voice, text, rate, volume)
   local speak = resolve("C_VoiceChat.SpeakText")
   if not speak then return false, "no C_VoiceChat.SpeakText" end
   local dests = resolve("Enum.VoiceTtsDestination")
-  local ok, err
-  if dests then
-    ok, err = pcall(speak, voice.voiceID, text, dests.LocalPlayback or 1, rate, volume)
-    if ok then return true, "SpeakText(dest)" end
+  if dests and pcall(speak, voice.voiceID, text, dests.LocalPlayback or 1, rate, volume) then
+    return true, "SpeakText(dest)"
   end
-  ok, err = pcall(speak, voice.voiceID, text, rate, volume, false)
+  local ok, err = pcall(speak, voice.voiceID, text, rate, volume, false)
   if ok then return true, "SpeakText" end
   if not dests then
     ok, err = pcall(speak, voice.voiceID, text, 1, rate, volume)
