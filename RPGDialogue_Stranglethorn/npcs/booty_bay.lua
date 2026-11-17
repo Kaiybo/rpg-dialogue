@@ -381,7 +381,7 @@ P:NPC {
 P:NPC {
   key = "seahorn", id = TODO_NPC("Fleet Master Seahorn"), name = "Fleet Master Seahorn",
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
-  communities = { "booty_bay" }, temper = { "boisterous" }, values = { "brave", "loyal" },
+  communities = { "booty_bay", "blackwater" }, temper = { "boisterous" }, values = { "brave", "loyal" },
   notices = { "race", "kit" },
 
   impression = {
@@ -526,6 +526,9 @@ P:NPC {
         { text = "Tell me about the Bloodsail.", next = "bloodsail" },
         { text = "What's it like, working for a goblin?", next = "baron" },
         { text = "Got a sea story for me?", next = "story" },
+        { text = "Tell me about the Blackwater Raiders.", next = "raiders" },
+        { text = "Crazz says the Bloodsail letters name you and the Baron.", next = "bs_letters", when = { any = { { questActive = TODO_QUEST("The Bloodsail Buccaneers") }, { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } } },
+        { text = "I've been to Faldir's Cove. O'Breen's alive.", next = "r_obreen", when = { any = { { questActive = TODO_QUEST("Land Ho!") }, { questDone = TODO_QUEST("Land Ho!") }, { heardLine = "ar_obreen.h_default" } } } },
         { text = "Do you miss the plains, ever?", next = "plains", when = { race = "Tauren" } },
         { text = "I've never been on a ship.", next = "landlubber", when = { race = { "Dwarf", "Gnome" } } },
         { text = "The sea has spirits too, Fleet Master. Do you hear them?", next = "k_shaman", when = { class = "SHAMAN", faction = "Horde" } },
@@ -571,7 +574,10 @@ P:NPC {
     },
     bloodsail_lead = {
       lines = { { id = "bl_default", text = "A fleet master of their own, with a grudge for every one of my ships. He'd dearly love my horns over his door. I'd love to see him try." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+      choices = {
+        { text = "Does this fleet master have a name?", next = "bs_firallon" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } },
+      },
     },
     bloodsail_why = {
       lines = { { id = "bw_default", text = "Because we did what they wanted to: found a cove, made it rich, and kept it. Nothing makes a pirate angrier than another pirate who settled down." } },
@@ -584,6 +590,7 @@ P:NPC {
       },
       choices = {
         { text = "They came for him?", next = "baron_attempt" },
+        { text = "Does the Baron pay the Raiders well?", next = "baron_pay" },
         { text = "Sounds like friendship.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -650,6 +657,242 @@ P:NPC {
       choices = {
         { text = "Away. The winds found them after.", next = "BACK", fx = { affinity = 2 } },
         { text = "That's a story for another day, Fleet Master.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+
+    -- Deeper: the Raiders themselves (sub-hub), Firallon and his captains, the Baron's pay.
+    raiders = {
+      hub = true,
+      lines = {
+        { id = "rd_default", text = "The Blackwater Raiders, my friend: twelve hulls on a good year, nine on a bad one, and every one of them flies the Baron's colours under our own. Ask me anything, for I've had rum enough to answer honestly." },
+        { id = "rd_rep", when = { reputation = { faction = "Booty Bay", min = "honored" } }, text = "You want to hear about the Raiders? Ha, half my captains already talk about you as if you were one of us, so you may as well know what you've been adopted into." },
+        { id = "rd_bloodsail", when = { reputation = { faction = "Bloodsail Buccaneers", min = "neutral" } }, text = "The Raiders, is it? Strange question from someone the Bloodsail seem to like. Oh, I hear things, friend, and I'll answer anyway, because I'd rather you heard our side from me." },
+      },
+      again = {
+        { id = "rd_again", text = "More about the fleet? There's always more, and most of it's even true." },
+        { id = "rd_again2", text = "Go on, ask. A Fleet Master loves nothing better than talking about his ships, save sailing them." },
+      },
+      choices = {
+        { text = "How did the Raiders come to Booty Bay?", next = "r_history" },
+        { text = "Do the Raiders keep any kind of code?", next = "r_code" },
+        { text = "What's life like aboard a Blackwater ship?", next = "r_life" },
+        { text = "Who captains your ships these days?", next = "r_captains" },
+        { text = "Would the Raiders sail for the Horde, Fleet Master?", next = "r_sides", when = { faction = "Horde" } },
+        { text = "Would the Raiders sail for the Alliance, Fleet Master?", next = "r_sides", when = { faction = "Alliance" } },
+        { text = "One of your captains is a dwarf, I hear.", next = "r_dwarf", when = { race = "Dwarf" } },
+        { text = "Kul Tiras hangs pirates. Why are you different?", next = "r_kultiras", when = { race = "Human" } },
+        { text = "Let's talk about something else, Fleet Master.", next = "hello" },
+      },
+    },
+    r_history = {
+      lines = {
+        { id = "rh_default", text = "This was Blackwater Cove before it was Booty Bay, and the trolls had it before either of us. The Steamwheedle goblins came with gold and gunpowder and drove them out, and they hired the toughest crews on the coast to keep it, which is where we come in." },
+      },
+      choices = {
+        { text = "What happened to the trolls?", next = "r_history_trolls" },
+        { text = "So the Raiders are hired muscle.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else about the fleet.", next = "BACK" },
+      },
+    },
+    r_history_trolls = {
+      big = true,
+      lines = {
+        { id = "rht_default", text = "They went up into the jungle and they've never quite forgiven us, which I understand better than the Baron does. Every so often a Gurubashi skull turns up in a net, and the old hands throw it back with an apology, just in case." },
+        { id = "rht_troll", when = { race = "Troll" }, text = "They went up into the jungle, and you'll know better than I do what that cost them. I won't dress it up for you, friend: the cove was taken, not bought, and the old hands still throw back any skull that turns up in a net, with an apology." },
+      },
+      choices = {
+        { text = "Then the cove was stolen, and someone should say so.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The trolls lost it. That's how the world works.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_code = {
+      lines = {
+        { id = "rc_default", text = "We do, and it's short enough to remember drunk: share the prize fairly, follow your captain's signal, never strike a colour you've sworn to, and never harm a ship that's paid the Baron's toll. The Bloodsail have a code too, I'm told, but it's written on the back of a menu." },
+      },
+      choices = {
+        { text = "What happens to a Raider who breaks it?", next = "r_code_break" },
+        { text = "A pirate with a code is still a pirate.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_code_break = {
+      big = true,
+      lines = {
+        { id = "rcb_default", text = "Depends what he broke. A short share gets you a dunking off the pier with the whole fleet watching, but turning on your own crew gets you put ashore on Jaguero Isle with a pistol and one shot, and nobody's ever come back to complain." },
+      },
+      choices = {
+        { text = "Harsh, but a crew lives or dies by its rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd sooner trust a sailor's own heart than a code.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_life = {
+      lines = {
+        { id = "rl_default", text = "Hard biscuit, sour grog, a hammock that smells of the last fellow, and the finest sunsets in the world from the top of the mainmast. We sing badly, we fight the Bloodsail well, and we come home rich about one voyage in three." },
+        { id = "rl_tauren", when = { race = "Tauren" }, text = "Low beams, my friend, and I've the scars on my horns to prove it. Otherwise it's hard biscuit, sour grog and sunsets you'd not believe, and you'll find a ship rocks a lot like a kodo, once you stop fighting it." },
+      },
+      choices = {
+        { text = "Sour grog? Why not better rum?", next = "r_life_grog" },
+        { text = "Sounds like a life worth living.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_life_grog = {
+      lines = {
+        { id = "rlg_default", text = "Because Skindle sells the good rum, and the Baron owns Skindle's tavern, and the Baron sells me the grog. A goblin gets paid at both ends of every bargain, friend, and I've long since stopped arguing about it." },
+      },
+      choices = {
+        { text = "Ha! The Baron wins every time.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_captains = {
+      lines = {
+        { id = "rcp_default", text = "Good ones and lucky ones, and once in a while both. Crazz will have his own deck before long, Fin would too if he'd kept out of that pond, and I sent O'Breen north with three ships after a treasure, which I'm starting to regret." },
+      },
+      choices = {
+        { text = "Why do you regret O'Breen?", next = "r_obreen" },
+        { text = "What happened to Fin?", next = "r_fin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_obreen = {
+      lines = {
+        { id = "rob_default", text = "Because he's late, and O'Breen is never late, he's only ever loud. If the Arathi coast has eaten my ships, I'll want to hear it from him in person, not from some gull with a letter tied to its leg." },
+        { id = "rob_known", when = { any = { { questActive = TODO_QUEST("Land Ho!") }, { questDone = TODO_QUEST("Land Ho!") }, { heardLine = "ar_obreen.h_default" } } },
+          text = "Two ships on a reef that wasn't there, and Steelgut's whole crew drowned? Shakes O'Breen, you strutting fool, you'd better bring me something shiny. Still, he's alive, and that's worth more to me than the gold, though I'd never tell him so." },
+      },
+      choices = {
+        { text = "He's afraid you'll take his ship.", next = "r_obreen_ship", when = { any = { { questActive = TODO_QUEST("Land Ho!") }, { questDone = TODO_QUEST("Land Ho!") }, { heardLine = "ar_obreen.h_default" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_obreen_ship = {
+      big = true,
+      lines = {
+        { id = "robs_default", text = "Afraid, is he? Good, let him sweat a while. I'll not take the Harbinger, but I'll make him scrub the Salty Sailor's top floor with his own hat, and I've not decided what to tell Steelgut's widows." },
+      },
+      choices = {
+        { text = "Forgive him, Fleet Master. The sea did it, not him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Two ships lost? Make an example of him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_fin = {
+      lines = {
+        { id = "rfn_default", text = "Swam in a jungle pond on shore leave, against orders, and came back yellow and shaking. He's down on the docks sweating it out, and I've kept his berth for him, because a Raider doesn't lose his place for being an idiot once." },
+        { id = "rfn_cured", when = { questDone = TODO_QUEST("Stranglethorn Fever") }, text = "Up and about again, thanks to some brave soul and a gorilla's heart, and I hear that was you! He's back on the ropes, though he still turns green whenever someone says the word pond." },
+      },
+      choices = { { text = "Something else about the fleet.", next = "BACK" } },
+    },
+    r_sides = {
+      big = true,
+      lines = {
+        { id = "rs_default", text = "We sail for the Baron, and the Baron sells to anyone with coin. An orc's gold and a human's gold weigh the same on Krazek's scales, so my ships escort both, and neither of them likes it." },
+        { id = "rs_horde", when = { faction = "Horde" }, text = "We sail for the Baron, not the Warchief, but your folk have been good customers off the Ratchet run, and the Bloodsail hate you nearly as much as they hate us. That makes us friends of a sort, and on this sea, that's as much as anyone gets." },
+        { id = "rs_alliance", when = { faction = "Alliance" }, text = "We sail for the Baron, not Stormwind's House of Nobles, but Stormwind's merchants pay us well to see them past the Cape. Your navy thinks we're pirates, and we are, but we're the pirates who keep the other pirates off your cargo." },
+      },
+      choices = {
+        { text = "Good. Gold should be the only flag at sea.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A sailor should choose a side and stand by it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_dwarf = {
+      lines = {
+        { id = "rdw_default", text = "Steelgut, aye, captain of the Maiden's Folly, and the stubbornest sailor I've ever paid. He won his first deck on a bet at Skindle's bar, and he's held onto it ever since out of pure spite, which is how dwarves hold onto everything." },
+        { id = "rdw_known", when = { any = { { questDone = TODO_QUEST("Drowned Sorrows") }, { heardLine = "ar_steelgut.h_default" } } }, text = "Steelgut. You've seen him, then, sitting by that fire at Faldir's Cove without his ship or his crew. I'll find him another deck when he's ready, but I'll not push a dwarf before he's ready, because I'm not a fool." },
+      },
+      choices = {
+        { text = "Dwarves make fine sailors, Fleet Master.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_kultiras = {
+      lines = {
+        { id = "rkt_default", text = "Kul Tiras would hang me, aye, and I'd hang a few of theirs if I caught them smuggling past the Baron. The difference is that we fly an honest flag and pay our harbour dues, which is more than Admiral Proudmoore's privateers ever did in the old war." },
+      },
+      choices = {
+        { text = "You have me there. Something else.", next = "BACK" },
+        { text = "Pay your dues all you like. You're still a pirate.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+      },
+    },
+    bs_letters = {
+      lines = {
+        { id = "bsl_default", text = "Crazz is right to worry. The Bloodsail want this cove, and they've a fleet master of their own who'd cut his way to it through me and the Baron both, so bring me every scrap of paper you find on the Wild Shore." },
+        { id = "bsl_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Firallon, Keelhaul and Stillwater, all three gone to the bottom, and their letters burned in my own stove! The Bloodsail will find another fleet master, they always do, but this one won't be plotting against my horns again." },
+      },
+      choices = {
+        { text = "Who is this fleet master of theirs?", next = "bs_firallon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bs_firallon = {
+      lines = {
+        { id = "bsf_default", text = "Fleet Master Firallon, a human with a beard he oils every morning and a temper he never bothers to. He keeps his captains close, Keelhaul and Stillwater the worst of them, and the three of them have sunk more honest cargo than the Cape's storms." },
+        { id = "bsf_dead", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Was, friend, Firallon was, and you'll know that better than I do, since you sent him to the crabs. I'll say this for him: he oiled his beard every morning, and he never once ran from a fight, which is more than his crews can say." },
+      },
+      choices = {
+        { text = "Tell me about Keelhaul and Stillwater.", next = "bs_captains", when = { ["not"] = { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } },
+        { text = "How do you mean to beat him?", next = "bs_plan_ask", when = { ["not"] = { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } },
+        { text = "Was there more in those letters, Fleet Master?", next = "bs_plan_ask", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } },
+      },
+    },
+    bs_captains = {
+      big = true,
+      lines = {
+        { id = "bsc_default", text = "Keelhaul earned his name the way you'd guess, and he's dragged more of my sailors under a hull than I like to count. Stillwater's the quiet one, who'll sit off our coast for a week without firing a shot and then take the one ship I sent out alone." },
+      },
+      choices = {
+        { text = "Then they should hang, both of them.", next = "BACK", fx = { align = { light = -1 }, learn = { "bloodsail" } } },
+        { text = "Take them alive. Let the Baron try them.", next = "BACK", fx = { align = { light = 1 }, learn = { "bloodsail" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bs_plan_ask = {
+      lines = {
+        { id = "bsp_default", text = "Ha! With cannons, friend, and with brave fools like you. As for the rest, that's between me, the Baron and a bottle, and I've not decided yet whether you're the sort I'd share a bottle with." },
+        { id = "bsp_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Sharp, aren't you? There was more, aye, and it's been keeping me up nights, but it's between me, the Baron and a bottle until I decide whether you're the sort I'd share a bottle with." },
+      },
+      choices = {
+        { text = "You need someone outside the fleet. Let me in on it.", tag = "Persuade", next = "bs_plan",
+          check = { pass = { any = { { disposition = { min = 65 } }, { reputation = { faction = "Booty Bay", min = "honored" } }, { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } } },
+          fail = { next = "bs_plan_no", fx = { affinity = -1 } } },
+        { text = "Fair winds to the cannons, then.", next = "BACK" },
+      },
+    },
+    bs_plan = {
+      lines = {
+        { id = "bspl_default", text = "Then here's the part I don't tell my captains: those letters didn't only name me and the Baron, they named our sailing days, and only someone in this town could have known them. I've a Bloodsail eye somewhere on my own docks, friend, and I don't yet know whose face it wears." },
+      },
+      choices = {
+        { text = "I'll keep my eyes open on the docks.", next = "BACK", fx = { affinity = 2, standing = { booty_bay = 1 } } },
+        { text = "Have you told Crazz?", next = "bs_plan_crazz" },
+      },
+    },
+    bs_plan_crazz = {
+      lines = {
+        { id = "bspc_default", text = "Crazz? Crazz would throw half the town off the pier by supper and the other half by breakfast. I love the lad, but he's a cannon, not a spyglass, so this stays between us." },
+      },
+      choices = { { text = "Between us, then.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    bs_plan_no = {
+      lines = {
+        { id = "bspn_default", text = "Ha! A good try, and I like the nerve of it, but I've known you about as long as I've known this rum. Sink a few Bloodsail first, and then we'll see about secrets." },
+      },
+      choices = { { text = "Something else, then.", next = "BACK" } },
+    },
+    baron_pay = {
+      big = true,
+      lines = {
+        { id = "bp_default", text = "A tenth of every prize, a berth in the safest harbour in the South Seas, and powder at cost, which from a goblin is very nearly love. In return, my ships fly his flag and sink whoever he points at, and so far he's only pointed at people who deserved it." },
+      },
+      choices = {
+        { text = "Loyalty bought with powder is still loyalty. I respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "So far. One day he'll point at someone who doesn't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -2248,6 +2491,9 @@ P:NPC {
         { text = "Why do you hate them so much?", next = "hate" },
         { text = "How do you know they're planning something?", next = "proof" },
         { text = "What's the Fleet Master like?", next = "seahorn" },
+        { text = "Tell me about the Raiders, Crazz.", next = "c_raiders" },
+        { text = "I've found the Bloodsail camp on the Wild Shore.", next = "c_wildshore", when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") } },
+        { text = "Firallon's at the bottom of the sea, Crazz.", next = "c_after", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") } },
         { text = "Stormwind's navy could help against them.", next = "navy", when = { faction = "Alliance" } },
         { text = "The Horde has no love for the Bloodsail either.", next = "horde", when = { faction = "Horde" } },
         { text = "A goblin pirate who hates pirates?", next = "goblin", when = { race = "Goblin" } },
@@ -2295,7 +2541,10 @@ P:NPC {
       lines = {
         { id = "sh_default", text = "Best captain on the South Seas! He laughs at cannon fire and pays on time, and if he tells the same storm story every night, I'll punch anyone who yawns." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Has he ever lost a ship?", next = "c_obreen" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     navy = {
       lines = {
@@ -2327,6 +2576,195 @@ P:NPC {
         { text = "Anything with writing. Got it.", next = "BACK", fx = { affinity = 2, standing = { booty_bay = 1 } } },
         { text = "How do you know they're planning something?", next = "proof" },
       },
+    },
+
+    -- Deeper: the Raiders (sub-hub), Fin, the Bruisers, customers, Keelhaul, the spy list, after the chain.
+    c_raiders = {
+      hub = true,
+      lines = {
+        { id = "cr_default", text = "The Raiders? Best crews on the South Seas, and the only ones who'll sail into a Bloodsail cove on purpose. What do you want to know, and quick, because I've a watch to stand at the turn of the tide." },
+        { id = "cr_rep", when = { reputation = { faction = "Booty Bay", min = "honored" } }, text = "You've done right by the Bay, so I'll talk straight. Ask about the Raiders and I'll tell you what we're like below decks, not the stuff Seahorn tells the Cartel's accountants." },
+      },
+      again = {
+        { id = "cr_again", text = "More? Fine, but if it isn't about sinking somebody, keep it short." },
+        { id = "cr_again2", text = "Go on, then. The red sails aren't coming in yet, so I've a minute." },
+      },
+      choices = {
+        { text = "How did you join the Raiders?", next = "c_joined" },
+        { text = "I met Fin Fizracket on the docks. He's in a bad way.", next = "c_fin" },
+        { text = "Do the Raiders get on with the Baron's Bruisers?", next = "c_bruisers" },
+        { text = "How do the Raiders treat Horde folk?", next = "c_customers", when = { faction = "Horde" } },
+        { text = "How do the Raiders treat Alliance folk?", next = "c_customers", when = { faction = "Alliance" } },
+        { text = "Stormwind's sailors would call you a pirate too, Crazz.", next = "c_human", when = { race = "Human" } },
+        { text = "My people fished these coves before your Cartel came.", next = "c_troll", when = { race = "Troll" } },
+        { text = "Back to the Bloodsail, Crazz.", next = "hello" },
+      },
+    },
+    c_joined = {
+      lines = {
+        { id = "cj_default", text = "Stowed away on the Fleet Master's flagship when I was about knee-high to an ogre, and when they found me in the powder room he laughed so hard he forgot to throw me over. I've been earning my place on that deck ever since, and the Bloodsail sank my first berth the year after." },
+      },
+      choices = {
+        { text = "The Bloodsail sank your first ship?", next = "c_keelhaul" },
+        { text = "Seahorn's soft on stowaways, then.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_keelhaul = {
+      lines = {
+        { id = "ck_default", text = "Captain Keelhaul did, off the Cape, and he dragged the bosun under our own hull for laughs while we watched. I was hiding in a water cask, which is why I'm alive, and why I don't laugh at much any more." },
+        { id = "ck_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Captain Keelhaul did, off the Cape, and he dragged our bosun under the hull for laughs. You put him on the bottom, so I'll say it plain: I owe you one, and goblins don't say that lightly." },
+      },
+      choices = {
+        { text = "What would you do if you caught him alive?", next = "c_keelhaul_mercy" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } },
+      },
+    },
+    c_keelhaul_mercy = {
+      big = true,
+      lines = {
+        { id = "ckm_default", text = "Seahorn would want him tried in front of the Baron, all proper, with Krazek taking notes. Me, I'd tie him under the Harbinger and see how he likes the barnacles, but I'm only the first mate, so what would you do?" },
+      },
+      choices = {
+        { text = "Try him before the Baron. Justice, not revenge.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The barnacles. Let him learn what he taught.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_fin = {
+      lines = {
+        { id = "cf_default", text = "Bad way's right, and it's his own fault, though I'd hit anyone else who said so. I told him not to swim in that pond, the Fleet Master told him not to swim in that pond, and the pond itself practically had a sign on it." },
+        { id = "cf_cured", when = { questDone = TODO_QUEST("Stranglethorn Fever") }, text = "Fin's back on his feet, and he says it was you who fetched that gorilla's heart. He won't stop talking about it, which is annoying, but I'd rather have him annoying than shaking, so thanks." },
+      },
+      choices = {
+        { text = "Does he deserve it, then?", next = "c_fin_stance" },
+        { text = "You visit him, though, don't you?", next = "c_fin_soup" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_fin_soup = {
+      lines = {
+        { id = "cfs_default", text = "Every night after watch, with whatever's left in the galley pot and the news off the piers. Don't tell him I said so, because he thinks it's the cook's idea, and I'd like to keep it that way." },
+      },
+      choices = { { text = "Your secret's safe, Crazz.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    c_fin_stance = {
+      big = true,
+      lines = {
+        { id = "cfst_default", text = "Nobody deserves that fever, but a crew lives on orders, and Fin thought shore leave meant no orders. If he'd been in my watch, I'd have docked his share for it, and then I'd have sat up with him anyway." },
+      },
+      choices = {
+        { text = "Orders keep a crew alive. He should have listened.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Shore leave's shore leave. A sailor should swim where he likes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_bruisers = {
+      lines = {
+        { id = "cbr_default", text = "We get on fine as long as nobody mentions who's tougher. The Bruisers keep the peace in town, and we keep the Bloodsail out of the harbour, so they think we're loud and we think they're furniture with clubs." },
+      },
+      choices = {
+        { text = "Who is tougher?", next = "c_bruisers_tough" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_bruisers_tough = {
+      lines = {
+        { id = "cbt_default", text = "Us, obviously, but you didn't hear it from me, because there's twelve of them on the pier and I've got a nose I'm fond of. Last time a Raider said it out loud in Skindle's, they billed him for the table he went through." },
+      },
+      choices = { { text = "Ha! Something else, Crazz.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    c_customers = {
+      big = true,
+      lines = {
+        { id = "ccu_default", text = "The same as anybody else: you pay the Baron's toll and you're cargo we protect, and you don't and you're cargo we take. Seahorn says we don't pick sides, and I don't, except against the Bloodsail." },
+        { id = "ccu_horde", when = { faction = "Horde" }, text = "Better than you'd think, because the boats from Ratchet pay their tolls on time and the Horde hate the Bloodsail nearly as much as I do. Some of the lads still flinch at a grunt with an axe, but they're getting over it, mostly." },
+        { id = "ccu_alliance", when = { faction = "Alliance" }, text = "Fine, as long as your navy doesn't come asking for our letters of marque, because we haven't got any. Your merchants pay well and complain a lot, and we can live with both, so long as the toll's paid." },
+      },
+      choices = {
+        { text = "Taking cargo that won't pay is just robbery, Crazz.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pay the toll or lose the cargo. That's a fair sea.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_human = {
+      lines = {
+        { id = "chu_default", text = "They would, and then they'd hire us to see them round the Cape, because the Bloodsail don't care what flag you call yourself. I've met Stormwind sailors in Skindle's who swear at us all evening and buy our rum all night." },
+      },
+      choices = { { text = "That sounds like Stormwind sailors.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    c_troll = {
+      lines = {
+        { id = "ctr_default", text = "I know it, and I'd not argue it to your face. The Darkspear are welcome on our docks, and the Gurubashi up the hill would gut me for a toll, so I try to remember which troll is which before I open my mouth." },
+      },
+      choices = {
+        { text = "Remember it well, then.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    c_wildshore = {
+      lines = {
+        { id = "cw_default", text = "You've found the camp? Good, now get me paper: letters, orders, anything with ink on it, because those scum write down everything, including who they mean to stab. If it's got a red seal, I want it twice." },
+      },
+      choices = {
+        { text = "How do you know the plan's on paper?", next = "proof" },
+        { text = "Who else should I watch for, Crazz?", next = "c_spies" },
+        { text = "I'll bring you paper.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    c_spies = {
+      lines = {
+        { id = "csp_default", text = "Their spies, here in town, because somebody tells the Bloodsail when our ships sail and it isn't the gulls. I've got a list, but a list's only good if it stays a list, so I don't show it around." },
+      },
+      choices = {
+        { text = "Show me that list, Crazz. I'll find your spy.", tag = "Persuade", next = "c_spylist",
+          check = { pass = { any = { { class = "ROGUE" }, { disposition = { min = 60 } }, { questDone = TODO_QUEST("The Bloodsail Buccaneers") } } } },
+          fail = { next = "c_spylist_no", fx = { affinity = -1 } } },
+        { text = "Keep your list. Something else.", next = "BACK" },
+      },
+    },
+    c_spylist = {
+      lines = {
+        { id = "csl_default", text = "Fine, but quietly: a rope seller who buys more rope than he sells, a dishwasher at Skindle's who can read, and a fishmonger who never seems to catch any fish. One of them's Bloodsail, and the other two are just odd, which in Booty Bay isn't a crime yet." },
+      },
+      choices = {
+        { text = "I'll watch all three.", next = "BACK", fx = { affinity = 2, standing = { booty_bay = 1 } } },
+        { text = "Does Seahorn know about this list?", next = "c_spylist_seahorn" },
+      },
+    },
+    c_spylist_seahorn = {
+      lines = {
+        { id = "csls_default", text = "He's got his own, I'd bet, and he thinks I don't know about it. The Fleet Master's cleverer than he lets on, and he lets on that he's not clever at all, so you work it out." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    c_spylist_no = {
+      lines = {
+        { id = "csln_default", text = "Nice try. For all I know you're on somebody's list yourself, so bring me some Bloodsail letters first and then we'll talk about mine." },
+      },
+      choices = { { text = "Fine. Something else.", next = "BACK" } },
+    },
+    c_after = {
+      lines = {
+        { id = "caf_default", text = "Firallon on the bottom and his letters in Seahorn's stove, and the lads have been singing about it in Skindle's for three nights straight. It's the best thing to happen to this cove since the Baron lowered the rope prices, which he never has." },
+      },
+      choices = {
+        { text = "Will the Bloodsail give up now?", next = "c_after_more" },
+        { text = "Glad I could help.", next = "BACK", fx = { affinity = 1, standing = { booty_bay = 1 } } },
+      },
+    },
+    c_after_more = {
+      lines = {
+        { id = "cam_default", text = "Give up? They'll find another fleet master by the end of the month, and he'll have a grudge and a beard just like the last one. That's why I keep watching the horizon, and why I'll be needing you again." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+    c_obreen = {
+      lines = {
+        { id = "cob_default", text = "Not one, not till O'Breen took three up the Arathi coast after some gnome's treasure. Nobody's heard from him in weeks, and the Fleet Master keeps looking north from the top floor when he thinks nobody's watching." },
+        { id = "cob_known", when = { any = { { questDone = TODO_QUEST("Land Ho!") }, { heardLine = "ar_obreen.h_default" } } }, text = "He hadn't, till O'Breen put two of ours on a reef up at Faldir's Cove. I'd not want to be O'Breen when he walks up those stairs, though I'll say this for him: he never ran from a fight, only from the bill." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -3228,7 +3666,9 @@ P:NPC {
         { text = "How did you catch it?", next = "caught" },
         { text = "A gorilla's heart? Who says that works?", next = "cure" },
         { text = "Let me look at you.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
-        { text = "What'll you do when you're well?", next = "after" },
+        { text = "What'll you do when you're well?", next = "after", when = { ["not"] = { questDone = TODO_QUEST("Stranglethorn Fever") } } },
+        { text = "You're cured! What's first, Fin?", next = "f_cured", when = { questDone = TODO_QUEST("Stranglethorn Fever") } },
+        { text = "Tell me about the Raiders, Fin.", next = "f_raiders" },
         { text = "I could hunt the gorilla for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Where did you catch the Stranglethorn Fever, Fin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can't a mage's magic cure your fever, Fin?", next = "xmage", when = { class = "MAGE" } },
@@ -3283,6 +3723,108 @@ P:NPC {
         { text = "Mokk won't be throwing anything for long.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "A gorilla's heart? Who says that works?", next = "cure" },
       },
+    },
+
+    -- Deeper: the Raiders from a sickbed (sub-hub), Crazz, Seahorn's half pay, a kind lie, life after.
+    f_raiders = {
+      hub = true,
+      lines = {
+        { id = "fr_default", text = "The Raiders? Ugh, talking about the ship makes me miss it, and missing it makes me sweat, but go on, it beats staring at the ceiling. I've counted the planks up there three times and got a different number every time." },
+        { id = "fr_cured", when = { questDone = TODO_QUEST("Stranglethorn Fever") }, text = "The Raiders! Ask away, pal, because I can talk about the ship again without wanting to cry, and that's thanks to you and one very dead gorilla." },
+      },
+      again = {
+        { id = "fr_again", text = "More? Sure, sure, I've got nowhere to be, which is the whole problem." },
+        { id = "fr_again2", text = "Go on. Talking keeps my mind off the shakes, mostly." },
+      },
+      choices = {
+        { text = "Does your crew come to see you?", next = "f_crew" },
+        { text = "Does Seahorn still pay a sick sailor?", next = "f_wages" },
+        { text = "What have you missed out there?", next = "f_missed" },
+        { text = "My people know this fever, Fin. It's an old one.", next = "f_troll", when = { race = "Troll" } },
+        { text = "I've had the fever myself. It passes in a day or two.", tag = "Deceive", next = "f_lie",
+          when = { ["not"] = { questDone = TODO_QUEST("Stranglethorn Fever") } },
+          check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { disposition = { min = 55 } } } } },
+          fail = { next = "f_lie_no", fx = { affinity = -1 } } },
+        { text = "Let's talk about something else, Fin.", next = "hello" },
+      },
+    },
+    f_crew = {
+      lines = {
+        { id = "fc_default", text = "Crazz comes by every night with soup and says it's the cook's idea, which it isn't, because the cook hates me. Then he tells me it's my own fault for swimming in that pond, every single time, like I might've forgotten." },
+      },
+      choices = {
+        { text = "Crazz is right about the pond, Fin.", next = "f_crazz" },
+        { text = "Sounds like a good friend.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    f_crazz = {
+      lines = {
+        { id = "fcz_default", text = "I know he's right, pal, that's what makes it so annoying! A goblin can stand being wrong, but being told he's wrong by another goblin with soup is a whole new kind of suffering." },
+      },
+      choices = { { text = "Ha! Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    f_wages = {
+      big = true,
+      lines = {
+        { id = "fw_default", text = "Half pay, and my berth kept, which nobody else on this coast would do for a sick deckhand, never mind a stupid one. Krazek says it's bad business and the Fleet Master told him to put it in the ledger under 'loyalty' and stop whining." },
+      },
+      choices = {
+        { text = "A crew that cares for its sick is worth sailing with.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Half pay for no work? Krazek has a point.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    f_missed = {
+      lines = {
+        { id = "fm_default", text = "Everything! The lads raided a Bloodsail camp on the Wild Shore while I was lying here, and Crazz came back with a stack of their letters and the biggest grin I've ever seen on a goblin. I was supposed to be on that boat, pal, and I got a pond instead." },
+        { id = "fm_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Everything! Firallon's gone to the bottom, Keelhaul too, and I was lying here sweating through all of it. The lads say some outsider did most of the work, and if that was you, I'd like it noted that I'd have helped." },
+      },
+      choices = {
+        { text = "There'll be other raids, Fin.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Who are the Bloodsail, anyway?", next = "f_bloodsail" },
+      },
+    },
+    f_bloodsail = {
+      lines = {
+        { id = "fb_default", text = "Red bandanas, red sails, no manners, and a fleet master called Firallon who wants the Baron's chair. They'd have Booty Bay if it weren't for us, and Crazz will tell you the rest, at length, whether you ask or not." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+    f_troll = {
+      lines = {
+        { id = "ft_default", text = "Your people know it? Then tell me straight, pal, do trolls die of it, or just get grumpy? No, don't answer that, I can see it on your face, so just tell me Mokk's heart works and lie if you have to." },
+      },
+      choices = {
+        { text = "It works, Fin. The witch doctors don't joke about hearts.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    f_lie = {
+      lines = {
+        { id = "fl_default", text = "A day or two? Really? Oh, that's the best thing anybody's said to me all week, pal, and I've had a lot of people say things to me, mostly 'stand back'. I feel better already, or I think I do, which is close enough." },
+      },
+      choices = { { text = "Rest up, Fin. You'll be on deck soon.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    f_lie_no = {
+      lines = {
+        { id = "fln_default", text = "A day or two? Pal, I've had it for three weeks, and so did the bosun, and the bosun's twice my size. Don't feed a sick goblin sweet stories, because we can smell them better than soup." },
+      },
+      choices = { { text = "Sorry, Fin. I meant well.", next = "BACK" } },
+    },
+    f_cured = {
+      lines = {
+        { id = "fcu_default", text = "First I'm going to eat something that isn't soup, and then I'm going to climb the mainmast just to prove I can. After that, Crazz has promised me a Bloodsail sloop to shout at, and I've been saving up some very good insults." },
+      },
+      choices = {
+        { text = "Save one for Firallon.", next = "BACK", fx = { affinity = 1 } },
+        { text = "And the pond?", next = "f_pond" },
+      },
+    },
+    f_pond = {
+      lines = {
+        { id = "fp_default", text = "I've told every new deckhand in the fleet about that pond, and I made Crazz draw it on the chart with a skull next to it. Nobody's swum in it since, so maybe some good came of it after all." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

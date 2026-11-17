@@ -105,3 +105,17 @@ Sources: Classic NPC roster of Booty Bay as remembered (wiki pages for each name
 - Skindle: Horde and Alliance drinking under one roof, and the Bruisers' pier as the town's whole law. Drizzlik: a druid reply about hides.
 - Authored, not canon: Gyll and Gringer's fined bird fight; Viznik's "never ask where a coin has been"; Zarena's northern guild past.
 - Unsure, so left out: Kizzak Sparks, Mazk Snipeshot, Rickle Goldgrubber, Wigcik, Glyx Brewright, Corporal Kaleb, Rikqiz, Kelsey Yance, Grizzlowe.
+
+## The Salty Sailor's corners (keys: ianstrom, tokal, elril; npcs/booty_bay_tavern.lua)
+Sources: Ian Strom (Rogue Trainer, Salty Sailor Tavern, trains both factions; canon gossip to non-rogues sends them to their own class trainer, paraphrased, never verbatim). Tokal (Season of Discovery chain: On the Lam from Bibbly F'utzbuckle in Desolace; Cherry for Your Thoughts?, a Cherry Grog for the rest of her story; No Honor Among Thieves, her note on Illari Duskfeather, the night elf who hired her crew, fed them camp intel, let them keep most loot, vanished when the Alliance marshal came, and once mentioned a hideout near Arathi). Elril Everlight (Forever NPC in Booty Bay, level 55, no known lore; players took her for a night elf paladin).
+### Their quests
+- Ian Strom: none (trainer). Elril: none. Tokal: On the Lam (ends at her), Cherry for Your Thoughts?, No Honor Among Thieves (all TODO_QUEST until captured).
+### Voices
+- Ian Strom: low, dry Stormwind voice; counts exits; teaches anyone who leaves the war at the door.
+- Tokal: blunt, wary, bitter at Illari; not a Horde loyalist; softens only for a Cherry Grog.
+- Elril: warm, guarded, playful; coy about being a paladin, never confirms or denies ("the Light doesn't check your ears"); devoted to Elune.
+### Authored, not canon
+- Ian: Stormwind docks origin, came south on a Blackwater ship about eight years ago, left when lords wanted spies and scapegoats after the stonemasons went unpaid; pays Skindle for a room he hardly uses; nods nightly to a Bloodsail spy; the gnome student caught in the bank vault; poisons learned from a Darkspear woman; once a blindfolded guest at "a house in the Alterac hills" (Ravenholdt only hinted, never named).
+- Tokal: struck a sergeant and left Durotar; crew of six (two orcs, an ogre who held a pass so they could run, two trolls, a human deserter cook); waits on a goblin captain who owes her a berth, avoiding the Ratchet ferry; the bar never waters the Cherry Grog because only she orders it; suspects Illari tipped off the marshal.
+- Elril: female; temple-trained in Ashenvale without vows, carried water for the Sentinels, plate from a Menethil Harbor dwarf who charged double for the legs; the paladin question is a running joke she keeps alive (a sailors' song, Krazek's ten-gold offer); knelt once beside a human paladin and felt "something warm" answer, never sure whose. No night-elf paladin order is claimed.
+- Never: confirming Elril as a paladin; Illari's fate or capture; anything about the chain's later rewards.
