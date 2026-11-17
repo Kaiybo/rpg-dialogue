@@ -127,9 +127,9 @@ P:NPC {
         { id = "h_seed", tags = { "news" }, when = { questActive = TODO_QUEST("Seed of Life") },
           text = "You smell of Maraudon's rot, little one, and yet there is something about you I almost know. Tell me why you have come to the shrine." },
         { id = "h_seed_done", when = { questDone = TODO_QUEST("Seed of Life") },
+          text = "My brother's seed sleeps in good soil now. I thought Zaetar lost to us for good, and you brought me word that he was only waiting to be reborn." },
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "You walk gently in my glade, little one, and the trees have noticed it as well as I. Come, sit, and ask what you will." },
-          text = "My brother's seed sleeps in good soil now. I thought Zaetar lost to us for good, and you brought me word that he was only waiting to be reborn." },
         { id = "h_visitor", when = { ["not"] = { class = "DRUID" } },
           text = "Few who are not druids find the road to Moonglade, for it runs through the furbolgs' tunnels and over the cold of Winterspring. You are welcome all the same." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my father's glade. The trolls speak to their loa and the Forsaken to whatever answers them, and either way you are welcome here, little one, so long as you come in peace." },
@@ -448,6 +448,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Lists, mostly, and a good memory. The druids arrive from Darnassus and Thunder Bluff and expect the moonwell clean and the beds ready, and they are, because I see to it. Druids are wise about the forest and hopeless about laundry, I'm afraid, and someone has to be the opposite." } },
+      choices = {
+        { text = "You do good work, Rabine. Moonglade would be lost without you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Druids should tend themselves. Let them do their own laundry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Rabine.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -469,6 +478,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, in Nighthaven. I keep the Circle's ledger, so I'll know if anything goes missing, and I'll know who was standing near it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Keeper is patient with your kind, and so am I, but the druids remember the Highborne better than most, so I'd keep any spellwork modest while you're here." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll write your name down, as I do everyone's, and I'll be watching to see what you owe the Circle by the time you leave." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, home to Moonglade. Welcome back; Keeper Remulos may not say it himself, but he likes to see the Circle's children return, and I like to see them fed." },
       },
       again = {
         { id = "h_again", text = "Go on, then. I've a ledger to finish, but it can wait for a good question." },
@@ -488,6 +498,7 @@ P:NPC {
         { text = "What would a warlock owe the Circle, Rabine?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do warriors cause trouble in Nighthaven, Rabine?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why can't my beast hunt in Moonglade, Rabine?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What keeps Nighthaven running so smoothly, Rabine?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },

@@ -321,6 +321,15 @@ P:NPC {
         { text = "Something else, Drazial.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That something in this land makes them grow larger, faster and angrier than any creature ought to be, and that their blood carries it. A druid would call it corruption, I imagine, but I call it a gift no one has had the courage to unwrap." } },
+      choices = {
+        { text = "It is corruption, Drazial, and bottling it will only spread it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it can be studied, it can be understood. Carry on.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Tell me honestly, do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
@@ -335,6 +344,7 @@ P:NPC {
           text = "Tell me honestly, do you feel invulnerable yet? The boars do, and nothing out here has managed to prove them wrong." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Now there's a subject I'd love to study, if you'd allow it, because I'm told the Light lets your kind mend flesh that should have stayed broken." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! How delightful, you turn into beasts, and I study beasts, so we are practically colleagues, though I suspect you won't see it that way." },
       },
       again = {
         { id = "h_again", text = "Another question? Splendid; curiosity is the first sign of a healthy subject." },
@@ -349,6 +359,7 @@ P:NPC {
         { text = "Why call yourselves bloodmages, Drazial?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the fel make the beasts strong?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is the Light just another strength to bottle, Drazial?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What have you learned from the beasts out here, Drazial?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -640,6 +651,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "You call a bear out of yourself and command it, and I call a demon out of the Nether and command it, and the price of losing control is about the same. I have paid my price, and you can see it on me, and I wonder sometimes what yours will look like." } },
+      choices = {
+        { text = "A druid's bond is with nature, given freely. Yours is theft.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps you're right, Daio. All power has a price.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -654,6 +674,7 @@ P:NPC {
           text = "The prison is ready, and now the hard part: find a Doomguard Commander in the Scar and take it. Bring friends who can keep you alive, because it will want nobody dead but you." },
         { id = "h_bound", tags = { "news" }, when = { questRecent = { TODO_QUEST("Suppression"), days = 7 } },
           text = "You've a Doomguard in your keeping now, and the knowledge to call it. Remember what it costs every time you do, and never assume it has forgiven you." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at my altar. Your kind and mine both bind something wild to our will, friend, though you'd never admit the likeness, and I'd never ask you to." },
       },
       again = {
         { id = "h_again", text = "More questions? Good; the ones who stop asking are the ones the demons keep." },
@@ -668,6 +689,7 @@ P:NPC {
         { text = "Mages bind things too, old man.", next = "k_mage", when = { class = "MAGE" } },
         { text = "What price does a warrior pay for strength, Daio?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is a demon anything like a hunter's beast, Daio?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "How is a druid anything like a demon-binder, Daio?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to your altar.", next = "END" },
       },
     },

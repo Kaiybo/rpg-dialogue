@@ -83,6 +83,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Well, it is curious! The water glows, the wolves have extra teeth and the mushrooms whisper, and I want to know why. I know you druids want to scrub it all clean, and that's fine, but somebody ought to write down what's here before it's gone." } },
+      choices = {
+        { text = "This forest is dying. It needs healing, not study.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. Understand the poison, and the cure follows.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Never mind the mushrooms.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -103,6 +112,7 @@ P:NPC {
         { id = "h_sabers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Corrupted Sabers"), days = 3 } },
           text = "Look at it, look at the size of it! *cackles* If the corrupted water can do that to one little cat, think what a few dozen like it could do to the Alliance." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Oh, lovely, you can tell me whether a blessing works better before or after a sip of the river. *cackles* Nobody here will volunteer to find out." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Oh, you must love Felwood, everything here grows in such interesting ways, and none of them are the way the Earth Mother intended!" },
       },
       again = {
         { id = "h_again", text = "*giggles* More questions? I love questions; they're like experiments that talk back." },
@@ -122,6 +132,7 @@ P:NPC {
         { text = "What does the corrupted moonwell actually do to the water?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is anything in Felwood beyond mending, Winna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How big is your kitten going to get, Winna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "You treat Felwood's corruption like a curiosity, Winna.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },

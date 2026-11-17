@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Very likely, and I'd have carried the torch, once. The Crusade calls anything it doesn't understand a corruption, and it understands less every year. I left because I couldn't tell the difference anymore between cleansing a village and burning it." } },
+      choices = {
+        { text = "You left. That took more courage than staying.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A man who carried torches should answer for them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too well, and for the wrong war. They teach you to hold a line against the Scourge, then they teach you the line runs through every village that won't wear the tabard, and by then you're too disciplined to ask why." } },
@@ -86,6 +95,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You stand like a soldier, and I used to drill men to stand like that, under a red banner I'd rather not name. Close the door, please, and sit with your back to the wall if it makes you easier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you came up the stairs quietly, which I'm grateful for. The Crusade used trackers to find those of us who left, so forgive me if I check the window." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, here in Southshore. I spent years being told your kind were heathens, and I'm ashamed of how readily I believed it." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away; I've stopped keeping secrets for them." },
@@ -102,6 +112,7 @@ P:NPC {
         { text = "Would you still see me burned, Raleigh?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Did the Crusade train its warriors well, Raleigh?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The Crusade hunts its deserters with trackers, Raleigh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "You wore the Crusade's red. Would they have burned me?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },

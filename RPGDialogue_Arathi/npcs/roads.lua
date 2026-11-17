@@ -177,6 +177,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd thought to ambush him, but if you could follow him without his noticing, perhaps we could learn where he goes, which would be cleverer. Oh, I do wish I were braver about it all." } },
+      choices = {
+        { text = "Ambush him. Take the papers and be done.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Confront him openly. No ambush, no tricks.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -220,6 +229,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh, you're quiet, {class}, quieter than me by a mile, and I've been practising all week so the courier won't hear me coming." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Oh, a hunter, that's, well, that's very good, because you can shoot the courier's guards from a distance, and then I won't have to see them coming." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I'm terribly sorry, I'm a bit nervous, but you seem like the sort of person who could find a Forsaken courier without being seen." },
       },
       choices = {
         { text = "I'll take the loud part. Stealth was never my way.", next = "warrior", when = { class = "WARRIOR" } },
@@ -231,6 +241,7 @@ P:NPC {
         { text = "You're frightened, Kinelory. Why go after the courier yourself?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you know of the courier's route?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I cover you from the trees when you face the courier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should we ambush the courier, or follow him quietly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Talking helps, honestly, so please do." } },

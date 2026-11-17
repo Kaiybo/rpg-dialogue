@@ -302,6 +302,15 @@ P:NPC {
         { text = "Another question, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because my regiment's bones lie in the Blasted Lands, where nothing grows and nothing returns to the earth, and I cannot rest until they are honored. Your elders say the earth takes back what it gave, but the land around the Portal takes nothing back, and I fear it never will." } },
+      choices = {
+        { text = "Then their bones should be carried home, to earth that still lives.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The dead are past honor now. Let their bones lie where they fell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Orders do not vanish on their own, and you would know better than most how a letter goes missing on a road." },
@@ -317,6 +326,7 @@ P:NPC {
           text = "Go to Stonard and speak to Dispatch Commander Ruag. He will know what became of the orders, or he will know who does." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I led warriors once, in Thrall's Grasp, and I see their faces in yours, so forgive me if I stare." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You see what others pass over, and that is what I need, for the truth of what befell my regiment is buried somewhere out there." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren. Your people give their dead back to the earth and let them go, and I envy them, for this swamp will not let me go at all." },
       },
       again = {
         { id = "h_again", text = "What more would you hear?" },
@@ -333,6 +343,7 @@ P:NPC {
         { text = "Do you think someone stole your orders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What kind of warriors were Thrall's Grasp?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a hunter look for out there, spirit?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why won't the swamp let you rest, Fallen Hero?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll leave you to your road.", next = "END" },
       },
     },

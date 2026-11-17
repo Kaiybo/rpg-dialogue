@@ -84,6 +84,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "More than you'd think, because Thunder Bluff's a long way from anywhere and even the Earth Mother's own get tired of walking. One of your elders rode up top the whole way to Orgrimmar once, and I swear the gas bags were happier for it." } },
+      choices = {
+        { text = "Your zeppelins are clever, but the sky was ours first, friend.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your zeppelins carry the Horde safely. I respect that work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You wouldn't put in a word with the air spirits about the crosswinds, would you? The last crossing nearly put us in the sea." },
@@ -97,6 +106,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll be teleporting to Orgrimmar, I suppose, and leaving my zeppelin empty, which is a crying shame, pal." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Keep that axe sheathed on the deck, pal, because the last fellow who practiced his swings up there cut through a rope we really needed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Beasts ride free on my zeppelin, pal, but if yours gets airsick, you're the one cleaning the deck." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, but if you turn into something small you could ride the rigging and save me a seat." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? The zeppelin waits for nobody, except when it does." },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Do many mages skip the zeppelin, Nez'raz?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What happened to the rope, Nez'raz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do beasts really get airsick on your zeppelin, Nez'raz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do druids ride your zeppelins much, Nez'raz?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll catch the next one.", next = "END" },
       },
     },
@@ -244,6 +255,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Gathering, mostly, and burning things in the old ruins, and once I saw a fire go green and not come back. The riders won't fly low over Zul'Gurub anymore, and wind riders aren't easy beasts to frighten." } },
+      choices = {
+        { text = "Whatever burns green up there must be stopped before it spreads.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave the trolls to their ruins. It isn't the Horde's fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders feel the air before we do, and they've been restless all morning, so perhaps you can tell me why." },
@@ -255,6 +275,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders don't care for your companion, so I'll ask you to keep it on the ground while I saddle your mount." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind your armor, but they hate the noise of it, so climb on slowly and try not to clank." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have noticed the trolls on the ridges watching us, I expect, since your kind usually does." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother. The jungle here isn't like Mulgore, friend; the trees have teeth, and the trolls on the ridges watch everything." },
       },
       again = {
         { id = "h_again", text = "Ask, then. The wind riders are fed and resting, so I have a moment." },
@@ -270,6 +291,7 @@ P:NPC {
         { text = "Why don't wind riders like demons, Thysta?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the ridge trolls threaten warriors on the road, Thysta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How long have the ridge trolls been watching, Thysta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do you see the trolls doing up on the ridges, Thysta?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -389,6 +411,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because they rot faster than I can sell them, and because the last time I paid a picker, a panther ate him. Druids pick their own and don't get eaten, and everyone else can buy a bandage and stop complaining." } },
+      choices = {
+        { text = "The jungle is generous to those who respect it. Learn that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fair enough. Bandages don't rot, and nobody has to pick them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want ankhs, then, and shiny scales, though the jungle turns my stock green as fast as I unpack it." },
@@ -400,6 +431,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want food and water, I'd guess, unless you're the kind who conjures his own and leaves honest merchants with nothing to sell." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want bandages, rations and a whetstone, and you'll want them now, before the jungle eats my stock." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Arrows and shot are in the back, and they're dearer here than in Orgrimmar, so don't waste them on monkeys." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll be wanting herbs, then, and I don't stock them, because the jungle's full of them and anyone who can't pick their own shouldn't be here." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -415,6 +447,7 @@ P:NPC {
         { text = "Does conjured food hurt your trade, Uthok?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What should a warrior carry in this jungle, Uthok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why are arrows so dear at Grom'gol, Uthok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why don't you stock herbs, Uthok, with the jungle right outside?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

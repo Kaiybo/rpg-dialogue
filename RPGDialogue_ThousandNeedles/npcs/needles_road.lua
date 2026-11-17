@@ -36,6 +36,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I did, I think, only later, after I'd seen something besides Mulgore. I thought the Earth Mother would still be there when I got back, and she will be, but I wasn't counting on the centaurs being here too." } },
+      choices = {
+        { text = "See the world first. The Circle will wait for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Go home and study. Wandering nearly killed you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -49,9 +58,11 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Are you a mage? Could you make a light? It gets dark in the canyons very fast, and I don't like the dark out here." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "You're a warlock? I'm not scared, honestly, but please keep that thing on your side of the path." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! You scared me, because I didn't hear you at all. Can you teach me to walk like that, so the Galak won't hear me either?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You're a druid, from Thunder Bluff maybe? My mother wanted me to study with the druids, but I wanted to see the canyons first, and now look at me." },
       },
       again = { { id = "h_again", text = "What else? I'm listening, just a bit nervous." }, { id = "h_again2", text = "Ask me anything; it helps to talk." } },
       choices = {
+        { text = "Why didn't you want to study with the druids?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How did you get lost?", next = "b1_1" },
         { text = "Who's your family?", next = "b2_1" },
         { text = "Why are the centaurs dangerous?", next = "b3_1" },
@@ -441,6 +452,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "There's no wildlife on the Flats worth mentioning, unless you count the gnomes, and they frighten easily. A few basilisks come round to watch sometimes, and I swear one of them cheers." } },
+      choices = {
+        { text = "Race where you like. The flats belong to no one.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Mind the beasts. Even a salt flat has its residents.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -462,9 +482,11 @@ P:NPC {
           text = "A mage! You could make my car faster with a spell, couldn't you? A little fire in the engine, maybe, or a little ice in the tires?" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, at the track? You'd better stand behind the barrels, because if this engine goes, you'll be busy patching me up before the dust settles." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! How fast can you run in that cat shape of yours, anyway? Because I bet I can beat you, and I know the gnomes can't." },
       },
       again = { { id = "h_again", text = "What else? Talk quick, like me." }, { id = "h_again2", text = "More? Sure, I got a minute between laps." } },
       choices = {
+        { text = "Doesn't the racing frighten the wildlife out here?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How do you race here?", next = "b1_1" },
         { text = "Is it safe?", next = "b2_1" },
         { text = "What's the prize?", next = "b3_1" },
@@ -582,6 +604,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A kodo, once, that got loose from somebody's caravan and ran half the track before anyone could catch it. I gave it a respectable time, too, and it beat two of the gnome cars, which nobody has let them forget." } },
+      choices = {
+        { text = "Let the kodo race next season. It earned it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Beasts belong in the wild, not on a racetrack.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -596,9 +627,11 @@ P:NPC {
           text = "A mage! Don't you dare blink across my finish line, because I can't time a racer who skips half a length, and the gnomes would argue about it for a week." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You've got quick hands, I can tell. Keep them away from my stopwatch, because there's more than one crew that would pay to have it run slow." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! If you ever want your running shape timed on the track, I'll do it, though the racers might get jealous." },
       },
       again = { { id = "h_again", text = "What else, hon?" }, { id = "h_again2", text = "Make it fast; the cars sure are." } },
       choices = {
+        { text = "What's the strangest thing you've timed out here?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Who's winning?", next = "b1_1" },
         { text = "Is the job dangerous?", next = "b2_1" },
         { text = "Do the racers ever cheat?", next = "s_1" },
@@ -720,6 +753,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because everything is machinery if you look closely enough, or at least that's what they taught us in Gnomeregan. I imagine a druid is a very clever machine that doesn't know it, and I mean that as the highest compliment I have." } },
+      choices = {
+        { text = "Measure away. Understanding never hurt anyone.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Nature isn't a machine. Some things can't be measured.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -739,9 +781,11 @@ P:NPC {
           text = "A priest! Splendid, would you stand near the finish line? Statistically speaking, someone always needs patching up after the third heat, and it's usually a goblin." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Do you know, your armor has a lovely articulation at the elbow, and I'd love a look at the hinge, purely for engineering reasons, of course." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Fascinating, simply fascinating; I'd love to know how your shapeshifting works, mechanically speaking, if you'd ever let me take a few measurements." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Questions? I love questions!" } },
       choices = {
+        { text = "Shapeshifting isn't machinery, Wizzle. Why measure it?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How do you beat the goblins?", next = "b1_1" },
         { text = "Are you related to Fizzle?", next = "b2_1" },
         { text = "Is racing a good use of engineering?", next = "s_1" },

@@ -595,6 +595,15 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Dragons, dwarves and fire, depending on which ruin you ask. The scholars say this was green once, before the black dragons and the Dark Irons had their way, and I've found petrified roots in Lethlor Ravine that agree with them." } },
+      choices = {
+        { text = "Some land is better left dead. Let it go.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Then it can be green again, one day.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Oh! You came up behind me and I didn't even hear you, which is exactly what I'd expect of a rogue, so I'm not startled at all." },
@@ -614,12 +623,14 @@ P:NPC {
           text = "Your essences went off to the Undercity by courier this morning, every one of them. I do hope you spent your payment on something frivolous; it's what I'd do." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "Oh! A warrior, and you clank, which is good, because at least I heard you coming, and I'm perfectly composed, thank you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, out in this blasted place. I expect the Badlands make your fur crawl, and I can't say I blame you, for nothing here has grown properly in an age." },
       },
       again = {
         { id = "h_again", text = "Yes? I'm perfectly composed, so ask away." },
         { id = "h_again2", text = "Something else? Oh good, I was hoping you'd stay." },
       },
       choices = {
+        { text = "What happened to the Badlands, Vivian?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "My beasts could scout the Burning Steppes for you, Vivian.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Those golem essences hold bound elementals, Vivian. Does that trouble you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What could a spellcaster learn from the Dark Irons' fire, Vivian?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
@@ -839,6 +850,15 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Black dragonkin, mostly, and the Blackrock orcs who threw in with them, though I report all of it. Some nights the mountain glows red from the inside, and the wind riders won't fly near it until morning." } },
+      choices = {
+        { text = "The Blackrock betrayed the Horde. They must answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave the Blackrock to themselves. It's not our fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp talks, which makes it a bad spy, so keep it in your pocket while you're near my reports." },
@@ -860,12 +880,14 @@ P:NPC {
         { id = "h_seen", when = { metBefore = true }, text = "You came in by the south path at noon; I know, because I always know. Don't take it personally." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You'll do for the loud work, and there's plenty of that, since the Spire's full of orcs who'd sooner fight than talk." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. They tell me your kind see in the dark when you take a cat's shape, so I might have a use for you up near the Spire." },
       },
       again = {
         { id = "h_again", text = "Something else. Quickly." },
         { id = "h_again2", text = "Ask, but keep your voice down; the wind carries." },
       },
       choices = {
+        { text = "What do you watch for near Blackrock Spire?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Could the spirits help you watch the Spire, Lexlort?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would you have a spellcaster do for the Expeditionary Force?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do you watch for?", next = "watch" },
@@ -1066,6 +1088,15 @@ P:NPC {
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A few tough roots in the gullies and a cactus that tastes like it's angry at you, and that's about it. Most of what we eat comes by wind rider from the Barrens, so when the riders are late it's lizard, and when they're very late it's more lizard." } },
+      choices = {
+        { text = "Share what you have. Everyone eats or no one does.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Feed the soldiers first. Travelers can fend for themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, and an imp with you. Keep it off the hearth, because the last one decided my stew needed more fire, and the grunts haven't forgiven either of us." },
@@ -1080,9 +1111,11 @@ P:NPC {
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he fought a Dark Iron the size of a door, and then it was two doors, and by morning it was a castle. Good story, though." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter at my fire. If you've anything fresh, I'll take it for the pot, because the grunts are sick of salted coyote, and so am I." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my inn. The bunks are hard and the stew is mostly lizard, but nobody's died of either, and that's a better record than the Badlands have." },
       },
       again = { { id = "h_again", text = "Anything else, while the pot's still on?" } },
       choices = {
+        { text = "Does anything grow out here worth cooking?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the grunts tell many stories about shamans, Shul'kar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the grunts' stories say about spellcasters, Shul'kar?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Want to hear a battle?", next = "story" },

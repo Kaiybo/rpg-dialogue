@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "There was a time I'd have laughed at the question, but the catches are smaller every year, and the murlocs are fighting us for what's left. I don't know if it's us or them, but somebody's taking too much." } },
+      choices = {
+        { text = "Then set limits. The bay won't feed you if it's empty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "People need to eat. The bay will manage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "One or two, for the fields toward Tarren Mill, where the Forsaken patrol by night. I sell it as fishing line and they buy it as fishing line, and Donald thinks we've had a very good season for anglers." } },
@@ -99,6 +108,7 @@ P:NPC {
           text = "A paladin, and in all that plate! If you fall off my dock you'll sink like an anchor, so mind the loose board by the third post." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want fishing line, I expect, though it makes a handy bowstring in a pinch, and a handier tripwire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want snares and line, I suppose, and maybe a hook or two in case the hills turn out stingy." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Donald says your people fish with a spear and a prayer. I sell only one of those, but I've plenty of spears." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tide waits for no one, but I can." },
@@ -116,6 +126,7 @@ P:NPC {
         { text = "Did knights of the Silver Hand ever come down to the docks?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have soldiers bought your line for tripwires, Lindea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters buy fishing gear from you, Lindea?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the fishermen take too much from the bay?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },
@@ -209,6 +220,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Freely? Never, for the hills are full of ogres and Syndicate. If you mean whether we should pick everything we find, I've seen fields of briarthorn stripped bare in a season, and they never came back." } },
+      choices = {
+        { text = "Leave the roots and take only some. That's the way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whoever picks first earns it. That's how trade works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "None that I can promise, if I'm honest, though I've a draught that helps against the common poisons and buys time against the worse ones. I read every label twice and still lie awake wondering whether it's enough." } },
@@ -256,6 +276,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want soul shards, I suppose, and I'll tell you now that I don't sell them, and I'd rather not know where you get them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be one of those who goes up toward Tarren Mill, then, and I'd beg you to carry an antidote, because what they're brewing up there won't care how thick your armour is." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're out in the hills, I'd pay well for herbs from the higher slopes, so long as you pick them above the streams the Forsaken have been fouling." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf one! I've a hundred questions about herbs and no one to ask, so do forgive me if I follow you around." },
       },
       again = {
         { id = "h_again", text = "Yes? Is there something else, friend?" },
@@ -271,6 +292,7 @@ P:NPC {
         { text = "What reagents do you sell to warlocks, Nandar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What antidote would protect me from the Forsaken, Nandar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which streams have the Forsaken fouled, Nandar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should herbs be gathered freely in the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -362,6 +384,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "From the hills, mostly, and from the hunters who bring in the deer and the bears. There are fewer of both these days, and the price is going up, which is good for me and bad for everyone else." } },
+      choices = {
+        { text = "Then hunt fewer. The hills need their beasts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "People need leather. The hunters should take what they need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The careful ones do, and the rest wait until something falls off in the middle of a fight. Kundric swears a lost buckle once decided a battle in these hills, and I don't believe him, but I've sold more buckles since he started telling it." } },
@@ -431,6 +462,7 @@ P:NPC {
           text = "A paladin! You'll want oil and polish for that plate, I'd wager, because the damp in Hillsbrad will rust a buckle overnight." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want leather strips and heavy thread for those straps, I'd guess, since every soldier who comes back from the fields has something torn." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Bring me good hides from the hills and I'll find a crafter who needs them, since half of Southshore's leatherworkers are short on everything but complaints." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Do your people use thread and leather, or do you just grow your clothes on trees? I'm only partly joking." },
       },
       again = {
         { id = "h_again", text = "Ask on; I've a cart to unload, but my tongue works fine while I do." },
@@ -447,6 +479,7 @@ P:NPC {
         { text = "Do you outfit many knights these days, Micha?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the soldiers mend their own gear here, Micha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hides do Southshore's crafters need most, Micha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Where does Southshore's leather come from, Micha?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -528,6 +561,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only what's lying about and nobody's using! Fallen branches, dropped arrows, the odd lost boot. I'm a merchant, not a logger, and I'd never cut down a tree when there's one already lying on the ground." } },
+      choices = {
+        { text = "Fair enough. Scavenging the fallen hurts no one.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Even fallen wood feeds the forest. Leave it be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Whetstones, rivets, and a little something to stop the shakes after a long fight, and I sell the same to both towns, which keeps the prices honest. Tarren Mill buys the heavy stuff and Southshore buys the cheap stuff, and I'll let you guess who's winning." } },
@@ -623,6 +665,7 @@ P:NPC {
           text = "A paladin! I've had knights try to arrest me before, so let's get it out of the way: everything I sell is legal in at least one of the two towns I sell it in." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, pal! You look like you break a lot of things, and I sell a lot of things to replace 'em, so I think we're gonna be friends." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You got the look of someone who needs ammo, and I got the look of someone who sells it, so let's skip the haggling and go straight to the paying." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You walk the road between the hills too, I bet, so you'll know how lonely it gets out there. It's good for business, though." },
       },
       again = {
         { id = "h_again", text = "What else, customer? Talk while you walk; I've a schedule." },
@@ -642,6 +685,7 @@ P:NPC {
         { text = "Do you sell weapons to the Forsaken, Zixil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does a goblin sell a warrior, Zixil?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do your robots ever scare off the game, Zixil?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you take anything from the land you walk, Zixil?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Safe travels.", next = "END" },
       },
     },

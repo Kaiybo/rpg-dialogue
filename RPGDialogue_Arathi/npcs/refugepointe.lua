@@ -361,6 +361,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not in a cage, they don't, for the gryphons think the hippogryphs are showing off. In the air they leave each other alone, which is more than I can say for the Syndicate and the Forsaken around here." } },
+      choices = {
+        { text = "Let them keep apart. Some creatures shouldn't mix.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Raise them together and they'll learn to share the sky.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They screech, they sulk, and one of them dropped a footman's shield into the gorge under Thandol Span out of pure spite. Wildhammer birds know the difference between a rider and a load, and they'll let you know which one you are." } },
@@ -414,6 +423,7 @@ P:NPC {
           text = "Quiet on your feet, {class}, good, because the gryphons startle easily, and a startled gryphon is a hard thing to calm." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds can carry you, armour and all, though the gryphons do complain about plate when the wind's blowing off the coast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll appreciate my gryphons, then, for there isn't a beast in the Highlands they couldn't take, though they're a sight harder to feed." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Your people have their hippogryphs, I know, but I'll wager you'll find a gryphon just as steady." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons smell trolls on the wind and won't settle until we're done." },
@@ -428,6 +438,7 @@ P:NPC {
         { text = "Does Refuge Pointe have the strength to hold, Cedrik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do gryphons really complain about armoured riders, Cedrik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do you feed the gryphons at Refuge Pointe?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do gryphons and hippogryphs get along, Cedrik?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -497,6 +508,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Plenty, if you know where to look, though the League of Arathor wants to plough most of them back into farmland. I sell to both sides of that argument, so I try not to have an opinion." } },
+      choices = {
+        { text = "Arathor was farmland once. Let them have it back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Save some wild places. Not every hill needs a plough.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Shorter than the Captain admits, though she knows, for she counts the same crates I do. The carts come up from the Wetlands when Thandol Span is clear, and the Syndicate have started watching the road, so every cart's a gamble now." } },
@@ -540,6 +560,7 @@ P:NPC {
           text = "I count every arrow and every loaf at the end of the day, {class}, so if something goes missing I'll know exactly when you were here." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting rations, then, and whetstones, and I've enough of both for three more days if nobody else comes up the road." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want arrows, I suppose, which is a pity, since I'm down to my last two quivers and the soldiers want those too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. If you're after herbs, the Highlands have plenty, but watch out for the ogres in the east, because they think everything in the hills belongs to them." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a tally to finish." },
@@ -554,6 +575,7 @@ P:NPC {
         { text = "How are the wounded at Refuge Pointe faring, Vikki?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are supplies really that short at Refuge Pointe, Vikki?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter help with your supplies, Vikki?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Highlands still have wild places worth saving?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },

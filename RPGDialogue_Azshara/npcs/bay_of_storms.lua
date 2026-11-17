@@ -401,6 +401,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Felhound tracks under the Highborne ruins, and the rot the satyrs leave wherever they dance. Your Circle would heal this land with patience and seeds, but you cannot plant a garden over a nest of demons, druid; first they burn, and then you may grow what you like." } },
+      choices = {
+        { text = "Then burn them. The healing can wait until they're gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Burn the demons, not the forest. The land has suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -425,6 +434,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You again, and I find I am glad of it. Of all the mortals who have stumbled onto this island, you are the one I would least like to see die, so try not to." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Do you see them, the shapes at the tide? No, your prayers don't open your eyes, they only steady your hands, which is something, I suppose." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You hear the forest well enough, I'll grant you, but you're as blind to the demons hiding in it as any other mortal." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; the tide is turning, and what it brings in does not wait." },
@@ -445,6 +455,7 @@ P:NPC {
         { text = "What walks unseen along the shore?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a priest's shadow touch the demons you hunt, Loramus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does a warrior fight what he can't see?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What do you see in Azshara's woods that I can't?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -683,6 +694,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The deep folk welcome nothing that walks on land and pretends to swim. Yet the hydra that took the one's sons is no creature of the sea, druid; it is a wrong thing, and if your kind would hunt it beside the makrura, the one would call that a fair shape to wear." } },
+      choices = {
+        { text = "I'll hunt it. A wrong thing has no place in the sea.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your sons are your affair. I keep to my own waters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lord Arkkoroc.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -699,6 +719,7 @@ P:NPC {
         { id = "h_name", when = { questActive = TODO_QUEST("The Name of the Beast") },
           text = "A demon lord, the demon hunter says? The one knows the name you seek, and will give it, but first you must do something for the one." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest comes before Arkkoroc. The one is a god to the deep folk, and the one wonders whether your gods ever answer you as the makrura answer the one." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A shape-changer comes to the temple of Arkkoroc. The one has seen your kind take the shape of the seal and the shark, and the one is not impressed, but the one is curious." },
       },
       again = {
         { id = "h_again", text = "What else does the small thing want of the one?" },
@@ -716,6 +737,7 @@ P:NPC {
         { text = "Do the deep folk truly worship you, Arkkoroc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a warrior kill the beast that slew your sons?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the deep folk hunt as I do, Arkkoroc?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Would the deep folk welcome a druid in the water?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },
     },

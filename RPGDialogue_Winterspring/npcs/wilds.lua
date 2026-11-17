@@ -550,6 +550,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Things that mortals should not touch, and that is all you need to know. Your Cenarion Circle understands that some power is meant to sleep, which is more wisdom than your mages have ever shown, so do not disappoint me by asking more than you should." } },
+      choices = {
+        { text = "I won't pry. Some power is meant to sleep.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Knowledge hoarded by dragons helps no one. Mortals deserve to know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Haleh.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -564,6 +573,7 @@ P:NPC {
         { id = "h_default", text = "I am Haleh of the blue dragonflight, and these caves are ours to guard. Magic has been stolen and misused across this world, and the blue flight does not forgive those who play with what they don't understand." },
         { id = "h_cond", when = { class = "MAGE" }, text = "A mage. You wield a power that belongs to my flight, you know, and you wield it like a child with a lantern." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here in Mazthoril. Your power at least does not belong to my flight, mortal, which makes you a little less tiresome than a mage." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Your kind learned from Cenarius and walk in the Dream that the Green Aspect guards, so perhaps you will speak to me with a little less foolishness than the others." },
       },
       again = {
         { id = "h_again1", text = "What else would you ask the blue flight?" },
@@ -580,6 +590,7 @@ P:NPC {
         { text = "What does the blue flight think of priests, Haleh?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is a warrior's steel worth anything to a blue dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do mortals hunt your kind, Haleh?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What does your flight guard in these caves?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -705,6 +716,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every day, in this cold. I traded the forest for power, as so many of my kind did, and the power was real, but so was the price. A druid might think there's a way back for one like me, but there is not, so do not waste your pity, only finish the tale I've started." } },
+      choices = {
+        { text = "Regret is a beginning. Even you can still do some good.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You chose your bargain, satyr. Live with it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Lorax.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -719,6 +739,7 @@ P:NPC {
         { id = "h_default", text = "I am Lorax, and once I was something better than this, before I bargained my soul away to the Legion. Now I want only to strike back at the demon who holds my debt, and I can't do it alone." },
         { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock, of all things. Then you know already how a demon's bargain works, and how it always ends." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here, with me? Then perhaps you can tell me whether any god would still hear a satyr, because I stopped expecting it long ago." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You look at me the way the night elves always did, as though you can smell the forest I betrayed, and perhaps you can." },
       },
       again = {
         { id = "h_again1", text = "There is more of the tale, if you have the stomach for it." },
@@ -735,6 +756,7 @@ P:NPC {
         { text = "Is there no redemption left for a satyr, Lorax?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a warrior break your demon's hold, Lorax?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How did the Legion snare you, Lorax?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you regret becoming a satyr, Lorax?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll think on your tale.", next = "END" },
       },
     },
@@ -878,6 +900,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Everyone who walks through that door, friend, Horde or Alliance or druid or dwarf. Winterspring doesn't care what you are, it'll freeze you all the same, and I'd rather fill a stranger's bowl than find them stiff in the snow the next morning." } },
+      choices = {
+        { text = "That's a kindness, Himmik. Everlook's lucky to have you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Kind, but costly. Charge them proper, or you'll go broke.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Never mind the stew.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -896,6 +927,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say a little grace over the soup, would you? Business has been slow, and I'll take any blessing I can get on the pot." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow needs soup more than most, and mine's practically a miracle itself." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll want something hearty too, I'd say, because turning into a bear in this weather must take a lot out of you." },
       },
       again = {
         { id = "h_again1", text = "What else? The soup's getting cold." },
@@ -914,6 +946,7 @@ P:NPC {
         { text = "Is your soup truly a miracle, Himmik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you feed a warrior in Winterspring, Himmik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do chimaera steaks really taste of frost, Himmik?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you feed the travelers who come in from the wilds?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Keep the soup warm.", next = "END" },
       },
     },

@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The beasts are harder, dearie, for they smell what you are under what you look like. Men, on the other hand, believe their eyes, and that's the only reason I've lived so long out here." } },
+      choices = {
+        { text = "A seeming is a lie. I'll stick to the truth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Deceiving the dead is fair. Teach me, then.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else, Myranda.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "With the right tabard and a little of my work, dearie, the guards at Hearthglen would salute you. The trick is the swagger, for a Crusader walks as if the Light owes him money, and you've the shoulders for it already." } },
@@ -61,6 +70,7 @@ P:NPC {
           text = "A warrior, dearie, with a jaw like a castle gate. You'd make a lovely Scarlet Crusader with the right seeming, {class}, and they'd never guess you'd come to knock their teeth in." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, dearie. Mind your beasts don't sniff at my cauldron, for the last one that did walks on its hind legs now and won't stop talking." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, dearie, and what a seeming you wear! I could teach you a few of mine, though I suspect you've a few of your own." },
       },
       choices = {
         { text = "I serve the Light. Your craft makes my skin crawl.", next = "paladin", when = { class = "PALADIN" } },
@@ -72,6 +82,7 @@ P:NPC {
         { text = "What's the difference between your seemings and a good disguise?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Could your seeming really pass me off as a Crusader?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can your seemings fool a beast's nose, Myranda?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do your seemings deceive the beasts as well as people?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I've no use for witchcraft.", next = "END" },
       },
       again = {
@@ -166,6 +177,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some of them want to rest, and some of them want to be remembered first, and the hard part is telling which is which. I'm helping the ones who want remembering, and I think your people would understand that." } },
+      choices = {
+        { text = "Help them remember. Then let them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The past is past. Let them all rest now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Chromie.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Long enough for some of the townsfolk to get away, though not nearly long enough for all of them. Captain Redpath held the square to the very end, and what became of him afterwards is a sadder story, which I'd rather tell properly or not at all." } },
@@ -225,6 +245,7 @@ P:NPC {
           text = "A warrior! Darrowshire had warriors too, you know, {class}, and they held the town square longer than anyone thought they could, which I'd very much like people to remember." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You follow things that have already passed by, {class}, which is a little like what I do, only with footprints." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Oh, a druid! You know what it is to watch something grow over a very long time, so I think you'll understand why I care about Darrowshire." },
       },
       choices = {
         { text = "Fellow gnome, you're hiding something.", next = "gnome", when = { race = "Gnome" } },
@@ -237,6 +258,7 @@ P:NPC {
         { text = "Did Joseph Redpath die a knight of the Silver Hand?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How long did Darrowshire's defenders hold?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What is it you track, Chromie?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Should the dead of Darrowshire be left to rest?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye, Chromie.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? You were about to ask something, I'm almost certain of it." } },

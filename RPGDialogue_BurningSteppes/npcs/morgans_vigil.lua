@@ -44,6 +44,15 @@ P:NPC {
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Stormwind barely sends us bread, so I've no hope at all for this land, though a druid once told me the ash makes the best soil in the world given a hundred years. I'll not be here to see it, but I'd like to think somebody will be." } },
+      choices = {
+        { text = "Then the Vigil should hold this ridge until the land comes back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "This ground isn't worth a soldier's life. Stormwind's right to ignore it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stormwind pretends your kind don't exist, and out here I'm too short of soldiers to pretend anything at all." },
@@ -65,6 +74,7 @@ P:NPC {
           text = "I don't sleep much since Windsor went missing, so I sit by this fire and count the lights on the mountain. There are more of them every week." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's a face I'm glad to see, which isn't something I say about most people who walk up this ridge. Sit by the fire, deputy, and we'll pretend for a minute that the mountain isn't there." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You'll find nothing growing on this ridge but stubbornness, I'm afraid, and we've plenty of that." },
       },
       again = {
         { id = "h_again", text = "What else, deputy? I've got a report to write, but it'll keep; they always do." },
@@ -85,6 +95,7 @@ P:NPC {
         { text = "What happened to Jalinda's mages?", next = "k_mage", when = { class = "MAGE" } },
         { text = "I could scout the mountain for you, unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Would you put a warlock on your line, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does Stormwind ever send anything to help this land, Marshal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll see what I can do, Marshal.", next = "END", fx = { affinity = 1, standing = { morgans_vigil = 1 } } },
       },
     },
@@ -718,6 +729,15 @@ P:NPC {
         { text = "Something else, sir.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "My second in command, soldier, and a fine tactician when he isn't sulking, though some of the men claim they've never seen him. Now, a druid who can turn into a bear and charge a Blackrock line is exactly what this campaign needs, and I'll hear no argument about it." } },
+      choices = {
+        { text = "I'll fight beside you, Oralius, but on my own terms.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Give me my orders, and I'll charge where I'm told.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Winky says we oughtn't to enlist demons, soldier, but Winky also says the moon is a cheese, so I've stopped listening to Winky." },
@@ -738,6 +758,7 @@ P:NPC {
           text = "Winky swears the Dark Irons in the Depths keep all the good stuff in those little belt-packs of theirs. Bring me twenty and we'll see who's lying." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, reporting! Excellent, soldier; Captain Winky says we need scouts, and Winky is right about twice a year, so this must be one of the times." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Excellent, soldier, a bear is worth three footmen, Captain Winky says five, but Captain Winky exaggerates, as I've told him repeatedly." },
       },
       again = {
         { id = "h_again", text = "Anything else, soldier? Speak up, because Winky's listening and he's a terrible gossip." },
@@ -754,6 +775,7 @@ P:NPC {
         { text = "What would you have your artillery do, sir?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you really enlist my demons, sir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What should a scout watch for, sir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who exactly is Captain Winky, Oralius?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Dismissed, then.", next = "END" },
       },
     },
@@ -1136,6 +1158,15 @@ P:NPC {
         { text = "Another question, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Someone will take them, darling, and better a man who'll dust them than an orc who'll melt them. I know your people bury things and let them lie, but the Dark Irons left these to burn, and I'm only rescuing them." } },
+      choices = {
+        { text = "Leave them in the ash. The dead's treasures belong to the dead.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better in a collection than melted down. Rescue what you can.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock? Do keep your imp away from the porcelain, because it's older than Stormwind, and so, apparently, is my patience with imps." },
@@ -1156,6 +1187,7 @@ P:NPC {
           text = "A warrior. The Count does adore a fine sword, and you look like someone who might stumble over one in the ruins and never know what it's worth." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter? How splendid, for the Count is mad about trophies, and I've a standing order for anything from the Steppes with horns, wings or a pedigree." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle! You'll find the Dark Irons' treasures rather ugly, I expect, but the Count's tastes run to the dramatic." },
       },
       again = {
         { id = "h_again", text = "What else? I'm cataloguing, but I can talk and count at the same time." },
@@ -1174,6 +1206,7 @@ P:NPC {
         { text = "Do you sell relics of the Silver Hand to collectors, Mayara?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Count collect Dark Iron weapons?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sort of trophies does the Count want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a dead kingdom's treasures go to a count's collection, Mayara?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with the hunt.", next = "END" },
       },
     },
@@ -1350,6 +1383,15 @@ P:NPC {
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Aye, if anyone could, because I've tried everything from oil to bathin' them in water I had carried up special from Lakeshire, an' they hated the bath. A druid could talk to them, maybe, an' tell them it's for their own good, because they won't believe it from me." } },
+      choices = {
+        { text = "Your birds should be kept somewhere cleaner than this, Borgus.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Vigil needs them. Keep them flying and keep them clean.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, is it? Mind, the birds know a light step when they hear one, an' they hate bein' crept up on more than they hate the smoke." },
@@ -1366,6 +1408,7 @@ P:NPC {
           text = "A warrior! Mind ye stand still while I saddle ye, for the birds can feel a soldier fidgetin' in his plate, an' it puts them off their flyin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, is it? Keep yer beasts clear o' the roost an' all will be well, for my birds are cross enough wi' the smoke as it is." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Now there's a sight, and me birds have been sneezin' ash all mornin', so if ye know a trick for that I'd hear it gladly." },
       },
       again = { { id = "h_again", text = "Need somethin' more? The gryphons cannae abide the smoke off the mountain, so be quick." } },
       choices = {
@@ -1378,6 +1421,7 @@ P:NPC {
         { text = "Do the Blackrock orcs ever come for the Vigil, Borgus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have your gryphons ever carried soldiers into battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons hunt anything in the Steppes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Could a druid help your gryphons with the ash, Borgus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not today, Borgus.", next = "END" },
       },
     },

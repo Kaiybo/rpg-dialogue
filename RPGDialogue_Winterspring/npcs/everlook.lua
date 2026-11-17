@@ -289,6 +289,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "To scare goblins, mostly, and because nobody's ever done it! I know your kind would say a real yeti is better than any machine, and maybe so, but a real yeti won't sit still while I fit it with a whistle. Mine won't hurt the wild ones, I promise; it's a joke, not a hunter." } },
+      choices = {
+        { text = "Leave the wild yetis be. A joke's fine if no beast pays for it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A machine that scares goblins? Build ten of them, Umi.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Never mind the yeti.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -309,6 +318,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Don't bless the yeti, please, because I've no idea what holy water does to clockwork, and I'd rather not find out before Legacki screams." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Don't bless anything in here, please; the last time someone said a prayer over my yeti its eyes lit up, and I don't think that was me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You can turn into a bear, can't you? I'm building a yeti, and I'd love to know how a real animal moves, because mine keep falling over on the ice." },
       },
       again = {
         { id = "h_again", text = "More? Ooh, I love questions, because questions are how pranks start." },
@@ -326,6 +336,7 @@ P:NPC {
         { text = "Is your mechanical yeti truly just a harmless prank, Umi?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why measure your yeti against a warrior, Umi?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you want a hunter's opinion of your yeti, Umi?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why build a mechanical yeti at all, Umi?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },

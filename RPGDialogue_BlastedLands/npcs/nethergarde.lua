@@ -51,6 +51,15 @@ P:NPC {
         { text = "Let's leave that there.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The mages say it's the Portal and the old fel magic soaked into the ground, and the soldiers say it's the ogres trampling everything flat. I say it's both, and the result's the same: every grain we eat comes down the road from Darkshire in a wagon." } },
+      choices = {
+        { text = "The land can heal, Lungertz. Keep trying the seed corn.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "This land's dead for good. Trust the wagons and stop wasting seed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. My crates go missing between Darkshire and here often enough without help, so please tell me you're the kind who brings things back." },
@@ -67,6 +76,7 @@ P:NPC {
           text = "By day the Blasted Lands try to bake you and by night they try to freeze you, so I keep the ledgers by the brazier and count blankets twice." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's the one person in the Blasted Lands who brings me more than they take. Sit down; I'll find you something that isn't hardtack." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Nethergarde! I've a crate of seed corn nobody's managed to grow out here, and you're very welcome to try, though I'd not stake my supper on it." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; there's a wagon due and I'd like to count it before the ogres do." },
@@ -86,6 +96,7 @@ P:NPC {
         { text = "A gnome could keep your powerstones working.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "Why do the mages need so many powerstones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who takes your crates on the road?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why won't anything grow around Nethergarde, Quartermaster?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll keep an eye out for your crates.", next = "END", fx = { affinity = 1, standing = { nethergarde = 1 } } },
       },
     },
@@ -928,6 +939,15 @@ P:NPC {
         { text = "Another question, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It does, though perhaps not as loudly as I would like, and your druids sit with the tauren in Moonglade without a single sword drawn. If the Circle can keep that peace, then the Alliance and the Horde can keep it here too, and fight what came through the Portal instead of one another." } },
+      choices = {
+        { text = "The Circle's peace is a good example. The war should end.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Moonglade isn't Nethergarde. The Horde must answer for the war.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -944,6 +964,7 @@ P:NPC {
           text = "So you've heard his story, and now you know what grows in the south while we squabble. Tell me you feel a little less certain about who the enemy is." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "On cold nights like this one I count the demons' fires in the south from the wall. There are more of them than there are of us, and that's before you count the ogres." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You of all people should hear me out, for the Circle has always said that the land matters more than the banners fighting over it." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm in no hurry; nobody here wants to talk to me anyway." },
@@ -963,6 +984,7 @@ P:NPC {
         { text = "Every spy says that, Ambassador.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Who should a warrior be fighting, then, Ambassador?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's south of the keep that you keep watching, Ambassador?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the Circle truly say the land matters more than banners, Ambassador?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Ambassador.", next = "END" },
       },
     },
@@ -1407,6 +1429,15 @@ P:NPC {
         { text = "Something else, Alexandra.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The air burns their lungs, the water's foul, and the ash gets into their feathers until they can barely fly. Your Circle sent a druid through last year who sat with my sickest bird all night, and it flew the next morning, and I've never known how." } },
+      choices = {
+        { text = "Your birds deserve better land than this. They should be sent home.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Nethergarde needs its gryphons. They must stay and serve.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -1423,6 +1454,7 @@ P:NPC {
           text = "A priest! The birds take to holy folk, I've noticed, and you'd be doing me a kindness if you said a word over them before the next long flight north." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want my steadiest bird, then, because the heavy riders frighten the young ones, and the young ones are all I have left after this spring." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! My gryphons perked up when you walked in, and they don't do that for anyone in this keep, so I'll thank you to stay a while." },
       },
       again = { { id = "h_again", text = "Is there something else, or shall I saddle a bird for you?" } },
       choices = {
@@ -1435,6 +1467,7 @@ P:NPC {
         { text = "What happened to your gryphons this spring, Alexandra?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can a gryphon carry a warrior in full plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you keep your gryphons healthy here, Alexandra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do the Blasted Lands do to your gryphons, Alexandra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1546,6 +1579,15 @@ P:NPC {
         { text = "Something else, Bernie.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every new recruit tries, and every one of them gives up when the seeds come up black and twisted. One lad ate one of the blackened turnips on a dare, and the healers said he'd live, though he never talked about it again." } },
+      choices = {
+        { text = "Then plant again, carefully. The land must be coaxed back to life.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn whatever comes up black. Nothing from this ground is safe.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -1562,6 +1604,7 @@ P:NPC {
           text = "A priest! Blessing the bread's no bad idea out here, I'll say, because by the time it comes down the road from Darkshire it's had a harder trip than most soldiers." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want a proper meal, then, because plate is heavy, and I'll swear the keep's cooking is better than anything Darkshire's sending down the road." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't think much of my larder, I'm afraid; it's bread, cheese and water, because nothing that grows in the Blasted Lands is fit for anyone." },
       },
       again = { { id = "h_again", text = "Anything else, or shall I wrap something up for the road?" } },
       choices = {
@@ -1574,6 +1617,7 @@ P:NPC {
         { text = "Who keeps this garrison in good spirits, Bernie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the soldiers say about the Dreadmaul, Bernie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's the strangest thing the soldiers have tried to eat here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Has anyone tried to grow food here, Bernie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },
@@ -1671,6 +1715,15 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "More than ye'd think, because yer kind fights in the shape of beasts and comes back with leather torn in places no tailor would expect. The leather's no problem; it's the moss growin' in the seams I can't abide." } },
+      choices = {
+        { text = "Leave the moss, Strumner. It means the armor's still alive.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Scrape it out. A druid's armor should be as tidy as anyone's.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -1681,6 +1734,7 @@ P:NPC {
           text = "Strumner Flintheel, armorer. There's no other forge between here and Darkshire that'll take yer coin, so ye'll forgive me if I don't haggle." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. Ye'll not need much from my forge, I'd wager, but the soldiers here are glad o' ye, so sit by the fire if ye like." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye'll not want my steel, I'd wager, but if ye've armor that needs mending after a fight as a bear, bring it here and I'll see what I can do." },
       },
       again = { { id = "h_again", text = "Anythin' else, or can I get back tae the anvil?" } },
       choices = {
@@ -1692,6 +1746,7 @@ P:NPC {
         { text = "Do the mages upstairs ever need a smith?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the soldiers here need a priest more than an armorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does this dust do to a hunter's mail?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you mend much druid armor out here, Strumner?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },

@@ -75,6 +75,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "By serving where the land is hurting most, in Silithus or Felwood or wherever the Circle sends you. I don't care whether you came from Teldrassil or Thunder Bluff, only whether you've stood and done the work, and I keep careful track of who has." } },
+      choices = {
+        { text = "Trust should be earned in the field. That's right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Any druid should have what the Circle has. We're all its children.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lorelae.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -87,6 +96,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. The Circle's goods are counted twice a day, and I'm the one who counts them, so I'd ask you to keep your hands where I can see them." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Most of what I hold was made by druid hands, without a spark of the arcane in it, and the Circle prefers it that way." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be courteous, as the Keeper asks, but the Circle's wares are for its friends, and the Circle is slow to befriend those who carry the fel." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. You're one of ours, and you'll find I keep the Circle's goods for those who've earned its trust, so let's see how far you've come." },
       },
       again = {
         { id = "h_again1", text = "Anything else I can help you with?" },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Could a warlock ever earn the Circle's friendship, Lorelae?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a warrior grow the Circle's friendship?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Circle trust hunters more than others?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "How does one earn the Circle's trust, Lorelae?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Thank you, Lorelae.", next = "END" },
       },
     },

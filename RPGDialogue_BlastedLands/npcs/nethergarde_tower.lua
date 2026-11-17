@@ -85,6 +85,15 @@ P:NPC {
         { text = "Another question, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Blindweed, firebloom, and a twisted thistle that grows only near the Tainted Scar, and every one of them is stronger and stranger than it should be. The mages want to know if it's the fel magic doing it, and I want to know if it's useful, so we're both very busy." } },
+      choices = {
+        { text = "Twisted plants should be destroyed, Nina, not brewed into potions.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they're useful, use them. Something good should come of this place.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -99,6 +108,7 @@ P:NPC {
           text = "A priest, up all these stairs! If you're here for holy water, I'm afraid I sell the other kind, the sort that cures fevers instead of driving off demons." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll be after healing potions, I expect, because even a knight of the Light runs short of breath for prayers out in the wastes." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle! Come see what grows in the Blasted Lands, because some of these plants are like nothing in any herbal I've ever read." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a flask of something cooling on the sill, and it mustn't boil over." },
@@ -115,6 +125,7 @@ P:NPC {
         { text = "What grows in the Blasted Lands that could heal anyone?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which potion should a warrior carry near the Portal, Nina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the plants out here poison the animals, Nina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What grows in the Blasted Lands that interests an alchemist, Nina?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
