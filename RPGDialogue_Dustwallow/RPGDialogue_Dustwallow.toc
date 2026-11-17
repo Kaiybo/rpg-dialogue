@@ -14,7 +14,9 @@ pack.lua
 pools.lua
 npcs\theramore.lua
 npcs\theramore_more.lua
+npcs\theramore_citadel.lua
 npcs\brackenwall.lua
+npcs\brackenwall_folk.lua
 npcs\marsh.lua
 npcs\unsung.lua
 npcs\tharg.lua

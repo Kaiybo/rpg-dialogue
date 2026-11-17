@@ -82,7 +82,7 @@ P:NPC {
       lines = { { id = "co_default", text = "I listen, and I watch the faces of those who come before her, and later I tell her which of them lied. She trusts few people, and she is right not to, and I count it an honour that I'm one of them." } },
       choices = {
         { text = "Loyalty like that is rare. She's lucky to have it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "And who watches your face, Sharlindra?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Someone should be watching your face too, Sharlindra.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
