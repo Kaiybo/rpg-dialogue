@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.33.0 (2026-11-17)
+- Every Booty Bay NPC now talks: 19 new people (trainers, armorers, the Salty Sailor's Raiders, the wharf vendors, the stable master, Scooty, the auctioneers). New files: restart the game fully (a /reload won't load them).
+
 ## 1.32.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 
