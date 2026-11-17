@@ -4,20 +4,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.17.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.17.0 (2026-11-17)
 - Stories (0.80.0): Athridas greets you once the Teldrassil and Darkshore Story ends.
-
-## 1.17.0 (2026-11-17)
 - Prejudices (0.80.0): Corithras Moonrage (outsiders). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.17.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.17.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Sylassa Moonglow and the Aldrassil trainers Eleyna Duskbreeze, Fanorran Stilloak, Terunne Bearshaper.
-
-## 1.17.0 (2026-11-17)
 - New people to talk to: Mardant Strongoak, Alyissia, Frahun Shadewhisper, Ayanna Everstride, Shanda, Sentinel Kyra Starsong, Sentinel Arynia Cloudsbreak, Laurna Morninglight, Jannok Breezesong, Seriadne, Daryn Lightwind.
 - New files: restart the game fully (a /reload won't load them).
 

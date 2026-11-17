@@ -4,24 +4,12 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.21.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.21.0 (2026-11-17)
 - Stories (0.80.0): Master Gadrin carries part of the Echo Isles Story and greets you by its ending.
-
-## 1.21.0 (2026-11-17)
 - Prejudices (0.80.0): Orgnil Soulscar (warlocks and Burning Blade defectors) and Master Gadrin (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.21.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.21.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Kagil, Norzsh, Thedda, Zor'la, Pa'zula, Pal'juh, Slizzy Kreeg and Turroc.
-
-## 1.21.0 (2026-11-17)
 - New people to talk to: Cook Torka, Takrin Pathseeker, Shoja'my, Master Vornal, Vel'rin Fang, Ula'elek, Canaga Earthcaller.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.21.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.20.0 (2026-11-17)

@@ -4,14 +4,8 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.14.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.14.0 (2026-11-17)
 - Stories (0.80.0): Mahar Ba greets you once the Dark Portal Story ends.
-
-## 1.14.0 (2026-11-17)
 - Bloodmage Drazial, Bloodmage Lynnore, Daio the Decrepit and the Spirit of Kirith have much more to say. A /reload is enough.
-
-## 1.14.0 (2026-11-17)
 - Prejudices (0.80.0): Bloodmage Drazial (trolls and orcs). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
 ## 1.13.0 (2026-11-17)

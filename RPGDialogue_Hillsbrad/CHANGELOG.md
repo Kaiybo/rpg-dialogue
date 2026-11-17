@@ -4,19 +4,11 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.28.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.28.0 (2026-11-17)
 - Prejudices (0.80.0): Raleigh the Devout (warlocks) and High Executor Darthalia (the living Horde). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.28.0 (2026-11-17)
 - New: Hal McAllister on Southshore's jetty hates the Forsaken (and warlocks), and Christoph Jeffcoat in Tarren Mill, Southshore-born, hates orcs and the town that turned him away. Each can be softened with a [Persuade].
 - New file: needs a full game restart, not /reload.
-
-## 1.28.0 (2026-11-17)
 - New people to talk to: Monika Sengutz, Christoph Jeffcoat, Theodore Mont Claire, Ott, Darla Harris, Wesley, Hal McAllister, Neema.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.28.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.27.0 (2026-11-17)

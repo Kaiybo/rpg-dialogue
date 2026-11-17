@@ -4,24 +4,12 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.27.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.27.0 (2026-11-17)
 - Stories (0.80.0): Pentigast and Felgur greet you once the Desolace clans Story ends.
-
-## 1.27.0 (2026-11-17)
 - Prejudices (0.80.0): Vahlarriel Demonslayer (warlocks). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.27.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Aka'rai at Shadowprey and the centaur Umarak.
-
-## 1.27.0 (2026-11-17)
 - New people to talk to: Gurda Wildmane, Harnor, Kireena, Taiga Wisemane, Vark Battlescar, Roon Wildmane, Drulzegar Skraghook, Innkeeper Sikewa, Thalon, Corporal Melkins, Talendria, Baritanas Skyriver, Cavindra. New files: restart the game fully (a /reload won't load them).
-
-## 1.27.0 (2026-11-17)
 - New people to talk to: Corporal Melkins, Talendria, Baritanas Skyriver, Gurda Wildmane, Taiga Wisemane, Vark Battlescar, Drulzegar Skraghook, Jinar'Zillen, Innkeeper Sikewa.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.27.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.26.0 (2026-11-17)

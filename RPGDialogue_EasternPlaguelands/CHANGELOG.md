@@ -4,17 +4,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.23.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.23.0 (2026-11-17)
 - New people to talk to: Joseph Redpath at Darrowshire, Augustus the Touched at Terrordale, Eris Havenfire at Light's Hope. Egan and Zverenhoff have more to say. New files: restart the game fully (a /reload won't load them).
-
-## 1.23.0 (2026-11-17)
 - Prejudices (0.80.0): Nathanos Blightcaller (trolls) and Duke Nicholas Zverenhoff (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.23.0 (2026-11-17)
 - New people to talk to: Augustus the Touched, Eris Havenfire, Joseph Redpath, Davil Lightfire, Quartermaster Miranda Breechlock. New files: restart the game fully (a /reload won't load them).
-
-## 1.23.0 (2026-11-17)
 - New people to talk to: Augustus the Touched, Quartermaster Miranda Breechlock.
 - New files: restart the game fully (a /reload won't load them).
 

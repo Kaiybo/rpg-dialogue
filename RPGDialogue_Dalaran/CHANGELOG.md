@@ -4,17 +4,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.6.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.6.0 (2026-11-17)
 - Prejudices (0.80.0): Archmage Celindra (warlocks) and Warmaster Laggrond (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.6.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.6.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Archivists Delv Fortuz and Helm Anvilhand, Ranath Nightstride, Spellweaver Thaldris, the Skyborne scholars of Tempered Tomes (Kae'la, La'tanja, Ysa'bel), the Seasoned Adventurer, and the Orphanage's children and staff.
-
-## 1.6.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.5.0 (2026-11-17)

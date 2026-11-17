@@ -4,18 +4,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.26.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.26.0 (2026-11-17)
 - Prejudices (0.80.0): Warlord Goretooth (warlocks). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.26.0 (2026-11-17)
 - New people to talk to: Lucien Tosselwrench, Garek, Thunderheart, Galamav the Marksman, Razal'blade, Grunt Gargal, Initiate Amakkar. New files: restart the game fully (a /reload won't load them).
-
-## 1.26.0 (2026-11-17)
 - New people to talk to: Greth, Sranda, Lucien Tosselwrench.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.26.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.25.0 (2026-11-17)

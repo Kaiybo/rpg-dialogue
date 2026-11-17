@@ -4,37 +4,17 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.27.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.27.0 (2026-11-17)
 - New: Betty Quin, the enchanting teacher upstairs at Cordell's (see the main changelog for 0.80.0). New file `npcs/betty_quin.lua`: restart the game fully (a /reload won't load it).
-
-## 1.27.0 (2026-11-17)
 - New: Adair Gilroy, Librarian, in the Mage Quarter (see the main changelog for 0.80.0). New file `npcs/gilroy.lua`: restart the game fully (a /reload won't load it).
-
-## 1.27.0 (2026-11-17)
 - New: Mazen Mac'Nadir, caretaker of the Academy's library (see the main changelog for 0.80.0). New file `npcs/mazen.lua`: restart the game fully (a /reload won't load it).
-
-## 1.27.0 (2026-11-17)
 - New: Archmage Malin in the Wizard's Sanctum (see the main changelog for 0.80.0). New file `npcs/malin.lua`: restart the game fully (a /reload won't load it).
-
-## 1.27.0 (2026-11-17)
 - Prejudices (0.80.0): Orphan Matron Nightingale (warlocks), Sheldras Moontree (mages) and Lord Baurles K. Wishock (stonemasons' children). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.27.0 (2026-11-17)
 - New: Osric Strang of Limited Immunity in Old Town hates orcs after the First War and his years guarding an internment camp, and resents night elves. Night elves get their own branch; a [Persuade] gets the story of the orc who carved him a toy footman.
 - New file: needs a full game restart, not /reload.
-
-## 1.27.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.27.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Abigail Lawson, Gilbert Gray and Idrieth Mossgrove at the harbor, Roy Lewells, Aendaril Brookshot and Fyrenz Vishonar.
-
-## 1.27.0 (2026-11-17)
 - New people to talk to: Shoni the Shilent, Argos Nightwhisper, Mazen Mac'Nadir.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.27.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.26.0 (2026-11-17)

@@ -2,31 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.36.0 (2026-11-17)
-- Pools answer the 52 new "Ask about" topics: role pools for everyone, town pools for local takes, neutral goblin answers in Booty Bay, Gadgetzan, Ratchet and Everlook. Adds the 52 new topics (the Scourge, the Forsaken, Thrall, Sylvanas, Onyxia, Booty Bay, Dalaran, the Holy Light and more).
-
-## 1.36.0 (2026-11-17)
-- Twelve new Stories (journal: Stories page): the Echo Isles, Zul'Gurub, the Hinterlands, Felwood, the Winterfall, Teldrassil and Darkshore, Gnomeregan, the Dark Portal, the Blackrock over Redridge, Gadgetzan's water, Desolace's clans and Feralas. New files: restart the game fully (a /reload won't load them).
-
 ## 1.36.1 (2026-11-17)
+- Pools answer the 52 new "Ask about" topics: role pools for everyone, town pools for local takes, neutral goblin answers in Booty Bay, Gadgetzan, Ratchet and Everlook. Adds the 52 new topics (the Scourge, the Forsaken, Thrall, Sylvanas, Onyxia, Booty Bay, Dalaran, the Holy Light and more).
+- Twelve new Stories (journal: Stories page): the Echo Isles, Zul'Gurub, the Hinterlands, Felwood, the Winterfall, Teldrassil and Darkshore, Gnomeregan, the Dark Portal, the Blackrock over Redridge, Gadgetzan's water, Desolace's clans and Feralas. New files: restart the game fully (a /reload won't load them).
 - Spoogledorf rewritten as the old Gnomeregan gnome he is in Stormwind.
-
-## 1.36.0 (2026-11-17)
-- New: a conversation for Spoogledorf of Uber Town (`wanderers/spoogledorf.lua`). **New file: restart the game fully.**
-
-## 1.36.0 (2026-11-17)
 - About 90 new innkeeper rumors across both continents, in `rumors/eastern.lua` and `rumors/kalimdor_more.lua`. **New files: restart the game fully.**
-
-## 1.36.0 (2026-11-17)
 - Politics: new branches for the Alliance and Horde guard trees and the general vendor tree, with stance replies that record opinions (`regency`, `peace`, `refugees`, `gilneas`, `war_taxes`, `forsaken_in_horde`, `warsong`, `old_ways`, `goblin_trade`), reactions to each stance, gossip echoes and contradiction lines. New political lines and gossip echoes for Alliance and Horde townsfolk. No new files.
-
-## 1.36.0 (2026-11-17)
 - Guards, townsfolk and innkeepers can notice your other characters (needs core 0.80.0).
-
-## 1.36.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): The Darkspear Emissary in every Horde capital (Darkspear Islands battleground), and Gabbi Goodwhistle (goblin peddler; may only exist from the beta event).
-
-## 1.36.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.35.0 (2026-11-17)

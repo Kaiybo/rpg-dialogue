@@ -4,20 +4,10 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.23.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.23.0 (2026-11-17)
 - Stories (0.80.0): Ruag greets you once the Dark Portal Story ends.
-
-## 1.23.0 (2026-11-17)
 - New people to talk to in Stonard: Kartosh, Ogromm, Grokor, Rogvar, Hekkru, Thultash, Thultazor, Hartash, Grimnal and Thralosh. New files: restart the game fully (a /reload won't load them).
-
-## 1.23.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Pelluk at the Harborage.
-
-## 1.23.0 (2026-11-17)
 - New people to talk to: Watcher Biggs, Magtoor, Masat T'andr, Infiltrator Marksen, and Stonard's Rogvar, Thultash, Hartash, Hekkru, Haromm, Ogromm, Grokor, Kartosh. New files: restart the game fully (a /reload won't load them).
-
-## 1.23.0 (2026-11-17)
 - New people to talk to: Hekkru, Thultash, Rartar, Banalash, Thralosh, Grimnal, Hartash, Gharash, Ogromm, Grokor, Kartosh, Rogvar.
 - New files: restart the game fully (a /reload won't load them).
 

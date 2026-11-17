@@ -4,24 +4,12 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.19.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.19.0 (2026-11-17)
 - New people to talk to: Deathstalker Adamant and Sorcerer Ashcrombe in Shadowfang Keep, Abigail Sawyer at the Sepulcher. Wallace and Karos have more to say. New files: restart the game fully (a /reload won't load them).
-
-## 1.19.0 (2026-11-17)
 - Prejudices (0.80.0): High Executor Hadrec (mages). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.19.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Deathguard Baldren, Tabitha Heartweaver, Trevan Rol and Lumina Windsinger at the Sepulcher, and the Image of Archmage Modera.
-
-## 1.19.0 (2026-11-17)
 - New people to talk to: Mura Runetotem, Astor Hadren, and the Sepulcher's Alexandre Lefevre, Nadia Vernon, Sebastian Meloche, Andrew Hilbert, Sarah Goode. New files: restart the game fully (a /reload won't load them).
-
-## 1.19.0 (2026-11-17)
 - New people to talk to: Astor Hadren, Sarah Goode, Andrew Hilbert, Patrice Dwyer, Johan Focht, Nadia Vernon.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.19.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.18.0 (2026-11-17)

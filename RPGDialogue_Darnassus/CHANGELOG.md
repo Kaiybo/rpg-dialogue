@@ -4,25 +4,13 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.20.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.20.0 (2026-11-17)
 - Prejudices (0.80.0): Fandral Staghelm (mages) and Jeen'ra Nightrunner (humans). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.20.0 (2026-11-17)
 - New: Erion Shadewhisper (rogue trainer) distrusts humans as short-lived oath-breakers, and Firodren Mooncaller (herbalism trainer) resents dwarves for digging up Darkshore. Humans and dwarves get their own conversations, and a [Persuade] can soften each of them for good.
 - New file: needs a full game restart, not /reload.
-
-## 1.20.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.20.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Teuren Vineshade.
-
-## 1.20.0 (2026-11-17)
 - New people to talk to: Darnath Bladesinger, Silvaria, Alassin, Elissa Dumas, Lairn, Landria.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.20.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.19.1 (2026-11-17)

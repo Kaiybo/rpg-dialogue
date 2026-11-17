@@ -4,24 +4,12 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.20.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.20.0 (2026-11-17)
 - Prejudices (0.80.0): Executor Zygand (Forsaken who once served the Scarlet Crusade). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.20.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.20.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Bandarion Keep's Forsaken paladins (Danitha Morr, Breton Samuels, Jorin Croge, Ephram Barbaro, Hilda the Breaker, Billmuth, Ander Solliden, Angus Hammerhand, Evin Schmidtt) and Bareth Dawnstone; Deathknell's trainers, Shari Stilwell, William Pickman and Angie Cilas in Brill, Hadric Harlson, Deathguard Kristof, Lizabetha and Falgan, Deyrek Duke, Relreo Emberlight, and the Bulwark's Adelbert Edmunds and Rickard Hardee. Forsaken paladins get their own lines throughout.
-
-## 1.20.0 (2026-11-17)
 - New people to talk to: Deathguards Simmer, Burgess and Linnea, a captured Scarlet zealot, Dark Cleric Beryl, Cain Firesong, Marion Call, Faruza, Abigail Shiel, Mrs. Winters, Morganus, Venya Marthand, David Trias, Isabella. New files: restart the game fully (a /reload won't load them).
-
-## 1.20.0 (2026-11-17)
 - New people to talk to: Deathguard Burgess, Dark Cleric Beryl, Cain Firesong, Marion Call, Velma Warnam, Mrs. Winters, Abigail Shiel, Faruza, Venya Marthand, Kayla Smithe, Archibald Kava.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.20.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.19.1 (2026-11-17)

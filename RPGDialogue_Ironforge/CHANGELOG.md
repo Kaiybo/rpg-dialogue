@@ -4,28 +4,14 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.22.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.22.0 (2026-11-17)
 - Stories (0.80.0): Mekkatorque decides how the Gnomeregan Story ends; he and Gnoarn greet you by that ending.
-
-## 1.22.0 (2026-11-17)
 - Prejudices (0.80.0): Senator Mehr Stonehallow (night elves) and Ragnar Thunderbrew (gnomes). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.22.0 (2026-11-17)
 - New: Senator Barin Redstone in the High Seat hates the Dark Iron, blames gnomes for Gnomeregan and scorns the Wildhammer. Gnomes and Wildhammer-born get their own branches, and a [Persuade] gets out what he did in the Senate.
 - New file: needs a full game restart, not /reload.
-
-## 1.22.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.22.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Afadra Dunwall and Thom Filch in Old Ironforge; Grund Drokda, Gozwin Halfsprocket and Earthseer Farsen in Dun Morogh.
-
-## 1.22.0 (2026-11-17)
 - New people to talk to: Foreman Stonebrow, Felix Whindlebolt, Marleth Barleybrew, Jarven Thunderbrew, Rejold Barleybrew, Ozzie Togglevolt, Shelby Stoneflint, Talvash del Kissel, Tymor.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.22.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.21.1 (2026-11-17)

@@ -4,25 +4,13 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.21.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
-
-## 1.21.0 (2026-11-17)
 - Prejudices (0.80.0): Royal Overseer Bauhaus (the living). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
-
-## 1.21.0 (2026-11-17)
 - New: Gordon Wendham, weapon merchant, holds every living thing in contempt, Horde allies included, since his apprentice joined the Scarlets and shot him. Undead players get a warmer welcome; a [Persuade] can crack him.
 - New file: needs a full game restart, not /reload.
-
-## 1.21.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
-
-## 1.21.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Fourteen Forever residents: Morbin Lightbane, Tanis Alderwood, Garen Largo, Glix Xizzix, Rugbul Boomfirst (Darkspear Islands), Alyz, Barrelmaker Ishtar, Malus, Angela Ward, Faith Duggins, Rakkamar, Anya Rince, Chadsworth, Zeglo Kruptorr.
-
-## 1.21.0 (2026-11-17)
 - New people to talk to: Chemist Cuely, Chemist Fuely, Parqual Fintallas, Sharlindra, Jorah Annison, Patrick Garrett, Raleigh Andrean, Velora Nitely.
 - New files: restart the game fully (a /reload won't load them).
-
-## 1.21.0 (2026-11-17)
 - Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
 
 ## 1.20.0 (2026-11-17)
