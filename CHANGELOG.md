@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.76.0 (2026-11-17)
+Goblins sound like goblins now. No new files, so a /reload is enough.
+
+### Goblin voice
+- **About 90 goblins across 21 zones were rewritten**, roughly 2,700 lines in total. They price everything out loud and talk fast, in run-on sales pitches. They call you "pal", "chum", "kid" or "sweetheart" (each goblin keeps to their own), swear by their last copper and treat explosions as an ordinary Tuesday. Each one keeps their own personality: Sprinkle is still warm, Bilgewhizzle still harried, and Renzik still talks about himself in the third person.
+- **Who:** Booty Bay (Revilgaz, Krazek, Kebok, Crank Fizzlebub, the shops and the Bruisers), Gadgetzan (Noggenfogger, Sprinkle, Bilgewhizzle, the trades and the Bruisers), Ratchet (Gazlowe, Sputtervalve, Dizzywig and the bruisers), Everlook (Vizzie, Legacki, Harlo and the trades), Powderfuse Port, the Shimmering Flats, Flame Crest, Un'Goro's goblins, the Ficklespraggs at Cenarion Hold, and goblins on the road (Kzixx, Zixil, Rexxie, Rezlak, Nogg, Renzik, Ziz Fizziks, Smeed, Kim'jael and others).
+- The citizens of Booty Bay, Gadgetzan and Everlook speak as goblins too.
+- **Fixed:** a few goblins offered free rum or a few coppers off, which the addon can't give, so those offers are gone.
+
 ## 0.74.0 (2026-11-17)
 69 more new people to talk to, and fixes for the characters added in 0.73.0. **New files: restart the game fully (a /reload won't load them).**
 

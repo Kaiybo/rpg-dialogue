@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.34.0 (2026-11-17)
+- Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
+
 ## 1.33.0 (2026-11-17)
 - Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 
