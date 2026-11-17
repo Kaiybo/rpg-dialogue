@@ -42,6 +42,7 @@ SD.ACCOUNT_DEFAULTS = {
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
     textSize = 13,              -- the game's quest font size
     lineSpacing = 3,
+    echoReply = true,           -- "You: ..." above their answer (0.61.0)
     look = "game",              -- "game" (the game's own quest window art) | "wood"
     pagesInBox = true,          -- the game's next gossip page and quest pages stay in the box
     fontBody = "friz",          -- see Theme.FONT_LIST ("lsm:<name>" for SharedMedia fonts)

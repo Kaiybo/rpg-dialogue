@@ -9,13 +9,22 @@ Core only; no pack changes. No new files: /reload is enough if you have 0.39.0 o
 - **Sorted into clear sections**: General, Look and text, Reading and accessibility, In the conversation, Around you, Journal, Other addons, Content packs, Developer. Window scale and high contrast moved in with the look; how often people notice you moved in with barks and insanity.
 - **Readable values.** Sliders show their value beside them ("35%", "1.00x", "4 s") instead of squeezing it into a long label.
 - **Sub-options grey out** when the option they belong to is off (auto-advance delay, insanity intensity, the Total RP 3 title).
-- **Dialogue addons and Total RP 3** now share one "Other addons" section.
+- **Dialogue addons and Total RP 3** now share one "Other addons" section. "Show what you said above their answer" moved to "In the conversation".
 - **"Open the journal" and "Reset the journal button's place"** buttons at the top of the panel. The reset brings the on-screen book back to the right edge and shows it again if you'd hidden it.
 
 ### Getting to your journal
-- **A journal button in every conversation**: the little book beside "Aa" in the box's top corner.
+- **Click the book in the conversation box** (the one beside "Aa" that shows this visit's exchange on hover) to open your journal.
 - **The minimap button is always there now** (it used to appear only on clients without the addon compartment), with its own setting to hide it. Left-click opens the journal, right-click opens settings; drag it around the minimap.
 - The on-screen book, `/rpgd journal` and the key binding still work as before.
+
+## 0.61.0 (2026-11-17)
+Core only; no pack changes. No new files: /reload is enough.
+
+### The conversation box
+- **What you said stays on screen.** The reply you picked now sits quietly above their answer ("You: ..."), so you can read their words against yours. Settings → "Look and text" → "Show what you said above their answer" turns it off.
+- **This conversation so far.** A small book in the box's title bar: hover it to read this visit's exchange, what they said and what you said (and what you asked about), newest last.
+- **Mouse and keys agree.** Once you've moved the selection with the arrow keys, Tab or a gamepad, hovering a reply moves that same selection, so Enter always takes the one you're pointing at.
+- **Reset the box's position.** Settings → "Look and text" → "Conversation box position: Reset to default" puts a dragged box back where it opens by default (at once, if it's open).
 
 ## 0.60.0 (2026-11-17)
 Core only; no pack changes. Includes 0.59.0 (party reactions). No new files in 0.60.0: /reload is enough if you have 0.39.0 or later.

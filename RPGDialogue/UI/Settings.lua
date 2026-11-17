@@ -245,6 +245,17 @@ local function build()
   fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
   fontPicker(L.OPT_FONT_NAME, "fontName", "name")
   checkbox(L.OPT_CONTRAST, "highContrast")
+  do -- Put a dragged conversation box back where it opens by default (0.61.0).
+    local t = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    t:SetPoint("TOPLEFT", LEFT + 4, y - 4)
+    t:SetText(L.OPT_RESET_POS_LABEL)
+    local b = CreateFrame("Button", nil, content, C.Template("button"))
+    b:SetSize(240, 22)
+    b:SetPoint("TOPLEFT", CONTROL_X, y)
+    b:SetText(L.OPT_RESET_POS)
+    b:SetScript("OnClick", function() UI.Dialogue.ResetPosition() end)
+    y = y - 28
+  end
 
   -- Reading: how the text arrives.
   header(L.OPT_HEADER_ACCESS)
@@ -260,6 +271,7 @@ local function build()
 
   -- In the conversation: what the box shows besides the words.
   header(L.OPT_HEADER_CONVO)
+  checkbox(L.OPT_ECHO, "echoReply")
   cycle(L.OPT_TAGS, "tags", { "available", "always", "never" }, { L.TAGS_AVAILABLE, L.TAGS_ALWAYS, L.TAGS_NEVER })
   checkbox(L.OPT_IDENTITY_TAGS, "identityTags")
   checkbox(L.OPT_LOCKED, "showLocked")
