@@ -426,6 +426,37 @@ def("affinity", 20, "hinge", nil, function(ctx, v, env)
   return inRange(a, v), "affinity " .. a
 end)
 
+-- Your affinity with a named NPC other than this one (0.55.0): { npc = "fandral", min = , max = }.
+-- Someone you've never met counts as 0.
+def("affinityWith", 30, "hinge", nil, function(ctx, v, env)
+  local key = type(v) == "table" and (v.npc or v[1]) or v
+  local m = key and ns.char.npc and ns.char.npc[key]
+  local a = m and m.affinity or 0
+  local range = type(v) == "table" and v or { min = 1 }
+  return inRange(a, { min = range.min, max = range.max }), "affinity with " .. tostring(key) .. " " .. a
+end)
+
+-- Your best affinity with any of this NPC's `rivals` (0.55.0): { min = , max = }, or a
+-- number as a minimum. With max only, it's your worst (you've crossed a rival).
+def("rivalFavor", 30, "hinge", nil, function(ctx, v, env)
+  local def = env.info and env.info.def
+  local rivals = ns.Disposition and ns.Disposition.Rivals(def) or {}
+  if #rivals == 0 then return false, "no rivals" end
+  local best, worst
+  for _, r in ipairs(rivals) do
+    local m = ns.char.npc and ns.char.npc[r]
+    local a = m and m.affinity or 0
+    best = best and math.max(best, a) or a
+    worst = worst and math.min(worst, a) or a
+  end
+  local spoof = spoofOr(ctx, "rivalFavor", nil)
+  if spoof then best, worst = spoof, spoof end
+  if type(v) == "table" and v.max and not v.min then
+    return worst <= v.max, "rival affinity (worst) " .. worst
+  end
+  return inRange(best, v), "rival affinity " .. best
+end)
+
 -- How this person regards you, 0-100 (Systems/Disposition.lua): { min = , max = }.
 -- 20-34 cold, 45-59 neutral, 60-74 warm, 75-89 friendly, 90+ devoted.
 def("disposition", 20, "hinge", nil, function(ctx, v, env)

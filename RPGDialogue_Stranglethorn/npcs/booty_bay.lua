@@ -1051,6 +1051,7 @@ P:NPC {
 
 P:NPC {
   key = "kebok", id = TODO_NPC("Kebok"), name = "Kebok",
+  rivals = { "nesingwary" },
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "slick" }, values = { "ambitious", "cunning" },
   notices = { "purse" },
@@ -1128,6 +1129,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "You're one of Nesingwary's hunters now, I hear. Good for you, but every tiger you skin for him knocks another silver off my pelts, so forgive me if I don't buy you a drink." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Old Hemet's sore at you, I hear, and anybody who's sore at Hemet is a friend of mine. What are you buying?" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Wonderful, wonderful, because my last few agents died rather badly in the jungle and nobody said a word over any of them, which I'm told is bad for morale among the next few." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The jungle trolls have witch doctors of their own, so it might do me some good to have someone like you on my side for once." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! If your loa or your shadows can stop the Bloodscalp skinning my agents, I'll make you a partner, a very junior partner." },

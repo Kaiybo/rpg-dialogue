@@ -381,6 +381,7 @@ P:NPC {
 
 P:NPC {
   key = "razzeric", id = TODO_NPC("Razzeric"), name = "Razzeric",
+  rivals = { "fizzle", "wizzle" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   impression = {
     first = "Razzeric is a goblin racer at the Mirage Raceway who treats every lap like it's his last, and some of them almost were.",
@@ -442,6 +443,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "You've been hanging around the gnome pit, I hear. That's fine, everybody loves a sad story, but come and watch a real car when you're done." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "The gnomes can't stand you, which means you've got taste. Want to see where I scraped the wall last heat?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "Whoa, armor! Hey, you wanna sit in the car? No? Smart, because the last guy in plate who sat in it cracked the axle clean through." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -646,6 +651,7 @@ P:NPC {
 
 P:NPC {
   key = "wizzle", id = TODO_NPC("Wizzle Brassbolts"), name = "Wizzle Brassbolts",
+  rivals = { "pozzik", "razzeric" },
   bible = "bibles/thousandneedles.md", role = "citizen", tier = "service",
   impression = {
     first = "Wizzle Brassbolts works for the gnome racing team and is very serious about engineering, if less serious about modesty.",
@@ -716,6 +722,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "I hear the goblins have been showing you their pit. Please tell me you didn't touch anything, because whatever they're running on isn't safe." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "The goblins are cross with you! Fizzle will be delighted. Come in, but do mind the wrench." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Marvelous, because I've been testing crash plating and I need someone to tell me what it feels like to be hit very hard." },
         { id = "h_huntcl", when = { class = "HUNTER" },
