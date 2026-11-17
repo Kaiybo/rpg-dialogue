@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-17)
+- Warriors and hunters are noticed: about 65 new warrior and hunter conversations; people greet a warrior or hunter as one, with a question to ask and something to argue about, and hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.50.0.
+
 ## 1.9.0 (2026-11-16)
 - All 37 people in Darnassus now notice rogues, mages and warlocks (72 new branches); Tyrande, Fandral and Alathea have all three.
 - Fix: Tyrande's warm greeting and Fandral's cold one were tangled into the lines above them and never showed.

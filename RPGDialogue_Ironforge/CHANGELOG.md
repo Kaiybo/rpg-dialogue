@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-17)
+- Warriors and hunters are noticed: about 120 new warrior and hunter conversations; people greet a warrior or hunter as one, with a question to ask and something to argue about, and hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.50.0.
+
 ## 1.12.0 (2026-11-16)
 - Rogues, mages and warlocks are noticed across Ironforge and Dun Morogh: 131 new branches among the court, the wards, Tinker Town, the Great Forge, Kharanos and the roads. Magni has something to say to rogues and mages.
 

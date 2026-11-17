@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only in a charge, and only if you throw it first and run second, which is the order most warriors get wrong. I'd sell you a stick if you were an engineer, but you're not, so I'll sell you a whetstone and save us both the explosion." } },
+      choices = {
+        { text = "A whetstone, then. I'll trust plain steel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell me the powder anyway. I'll learn quickly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A good one will, if it's mounted straight, and a cheap one will throw your shot a hand's width to the left, which is how bears get close. I sell the parts and the engineers mount them, so if it's crooked, it's their fault." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep your {pet} away from the flux, please, for it smells sweet and it isn't." },
+      },
+      choices = {
+        { text = "I'll pay for good parts, mounted straight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A cheap scope and a good eye will do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "To anyone who pays, and I assume they're for opening chests in Gnomeregan, which is a perfectly honest use. What you do with them after is between you and the guards." } },
@@ -53,6 +74,8 @@ P:NPC {
           text = "A rogue! I'll tell you now that my lockpicks are tested twice, like everything else, and that I don't ask what they're for." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'll warn you that none of my parts are rated for fel energy, and I won't take them back if they melt." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want blasting powder, I imagine; everybody does, sooner or later." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and every one of them's been tested twice, like everything else here." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a box of springs to count." },
@@ -65,6 +88,8 @@ P:NPC {
         { text = "Is engineering really so dangerous?", next = "danger" },
         { text = "Do you really sell lockpicks to anyone who asks?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has fel energy melted your parts before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would blasting powder be any use to a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a scope really improve my aim, Gearcutter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Gearcutter.", next = "END" },
       },
     },
@@ -134,6 +159,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Legs! Mechanical legs, on carts and cannons and very possibly on soldiers, so that nothing ever gets stuck in the mud again. The current prototype only walks backwards, and it occasionally explodes, but the principle is sound." } },
+      choices = {
+        { text = "Wheels work well enough. I'll keep my own legs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Build it. I'd ride a walking cannon gladly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That four legs are better than two, that a cat never falls over, and that a bear is just a very angry machine with excellent balance. My next prototype walks like a wolf, or it will, once it stops walking like a startled chicken." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Might I measure your {pet}'s stride while you're here? Purely for science, and I promise not to bring the calipers too close." },
+      },
+      choices = {
+        { text = "Measure away, if my beast agrees to it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pay me first. My beast isn't free for study.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "That's precisely the question, and my best guess is that the arcane doesn't like going in circles. Gnomeregan's engineers had it solved before the fall, but their notes are in the radiation, so I'm starting from nothing." } },
@@ -160,6 +206,8 @@ P:NPC {
           text = "A mage! I've been working on an arcane-powered replacement for the wheel, and I need someone to tell me why it keeps exploding." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'd ask you not to summon anything near my prototypes, for the last one caught fire on its own and I don't need help." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Imagine a battlefield without wheels, with no carts and no chariots, only my marvellous replacement, which I'll describe if you've a minute." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and they've taught me a great deal." },
       },
       again = {
         { id = "h_again", text = "More questions? Excellent, I love questions." },
@@ -173,6 +221,8 @@ P:NPC {
         { text = "I studied tinkering in Gnomeregan as well.", next = "k_tinker", when = { origin = "gnome_tinker_apprentice" } },
         { text = "Why would an arcane wheel replacement keep exploding?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Did your last prototype really catch fire on its own?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would replace the wheel on a battlefield, Springspindle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What have hunters' beasts taught you, Springspindle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -261,6 +311,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Healing, first and always, and an elixir of strength if you're going up against the ogres of Mo'grosh. I've watched warriors come back from Loch Modan with nothing in their packs but empty vials, and I take it as a compliment." } },
+      choices = {
+        { text = "I'll carry plenty and save them for need.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll drink them freely. That's what they're for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Peacebloom and silverleaf, mostly, and earthroot from the hills above Kharanos, for it grows where the boars root about. A hunter has an eye for where things grow, because a hunter has an eye for where things eat." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} probably knows more about herbs than either of us, since it's been sniffing them all its life." },
+      },
+      choices = {
+        { text = "I'll pick carefully and leave the roots to regrow.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pick the hills bare and sell the lot to you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because I'd rather my students saved lives than ended them, and because the guards would ask questions. The Forlorn Cavern has others who teach your sort of brewing, and I'd prefer not to know the details." } },
@@ -289,6 +360,8 @@ P:NPC {
           text = "A rogue! You'll want poisons, I expect, and I'll tell you now I only teach the healing sort." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You'll want mana potions, I expect, and I've a new recipe that tastes almost like berries." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, I expect, and plenty of them, because warriors drink them like ale." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me herbs from the hills, would you? Hunters always know where the best ones grow." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I've a kettle on." },
@@ -301,6 +374,8 @@ P:NPC {
         { text = "What's the most useful potion?", next = "useful" },
         { text = "Why won't you teach poisons, Tally?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What does your mana potion actually taste like?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Which potions should a warrior always carry, Tally?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Which herbs do hunters bring you, Tally?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Tally.", next = "END" },
       },
     },

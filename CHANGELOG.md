@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.50.0 (2026-11-17)
+Packs: 21 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.50.0: /reload is enough if you have 0.39.0 or later.
+
+### Warriors and hunters from level 1, and in every capital
+- **The starting lands and the six capitals notice warriors and hunters**: about 640 named people (some 1,100 new conversations) greet a warrior or hunter as one, with a question to ask and something to argue about. Alliance: Stormwind, Elwynn, Westfall, Redridge, Duskwood, Ironforge and Dun Morogh, Loch Modan, the Wetlands, Darnassus, Teldrassil, Darkshore and Ashenvale. Horde: Orgrimmar, Durotar, the Barrens, Mulgore, Thunder Bluff, Tirisfal, the Undercity and Silverpine. Stonetalon has both.
+- Warriors hear about the gnolls, the Defias, the troggs, the Frostmane, the quilboar, the Razormane and the Scourge; hunters hear about the local beasts, and a hunter with a beast at their side hears it called by name. Bolvar, Magni, Tyrande, Thrall, Cairne and Sylvanas are among them.
+- Alliance towns speak to Alliance warriors and hunters, Horde towns to the Horde's; Ratchet's goblins and a few Defias-side and neutral figures talk to either. People who already had warrior or hunter lines kept them.
+
 ## 0.49.0 (2026-11-17)
 Packs: 22 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.49.0: /reload is enough if you have 0.39.0 or later.
 

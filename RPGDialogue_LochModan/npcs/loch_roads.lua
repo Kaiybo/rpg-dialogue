@@ -20,6 +20,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bears in the hills and boars along the shore, but the best sport is the kobolds, for they scurry like rats and bite like them too. When I was your age I'd bag a dozen before breakfast, and I'll thank you not to check that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a fine tracker. Point it at the mine's mouth and it'll smell the candle wax before you see a single kobold." },
+      },
+      choices = {
+        { text = "I hunt for the valley's sake, not for the boasting.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bag two dozen, and I'll make sure you hear it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Quiet's well and good in a tunnel, I'll grant ye, for the vermin hear a mail shirt comin' a mile off. In the Second War we had a few of your sort scoutin' the Horde's camps, and half of them came back with better stories than mine." },
@@ -59,6 +71,7 @@ P:NPC {
           text = "My orders are sealed, so don't go reading them on the road. Get them where they need to go, and fast." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid on the road! Yer kind's welcome here, though I'll warn ye the troggs don't care whether ye're a bear or a dwarf." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? I tracked a cave bear three days through the snow when I was young, and I'd wager you've never bettered that." },
       },
       again = {
         { id = "h_again", text = "What else? Speak up." },
@@ -72,6 +85,7 @@ P:NPC {
         { text = "A warrior reporting, Mountaineer. Where do you want me?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Kobolds in a mine? I could clear them without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A fireball would clear that mine faster than a pick.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is there game worth tracking near the Silver Stream Mine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -138,6 +152,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "On the wall facing the Badlands, where the troggs come up the slope in a howling mob every few nights. They're stupid, but there's always more of them, and a warrior who keeps his feet and his shield up is worth five who charge down after them." } },
+      choices = {
+        { text = "I'll hold my ground and let them break on me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather charge down and break them first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bears and boars, and the odd buzzard picking at whatever the troggs leave behind. But it's the troggs I'd have you track, for they come up from the Badlands by trails I've never found, and I'd dearly like to know where." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours could follow a trogg's stink back to its hole, I'd wager, and then we'd know where they're coming from." },
+      },
+      choices = {
+        { text = "I'll follow the trail to their hole and face them there.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll set snares along their trail and let them walk in.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Count them? I'd settle for knowin' where they come up, for they don't use doors like decent folk. If ye can get close to the Stonesplinter camps and back again with yer skin on, ye'll be the first this month." },
@@ -167,6 +202,8 @@ P:NPC {
           text = "Stonesplinter troggs, out in the hills round the gate. Thin them out for me, and the King's Lands will be a bit safer tonight." },
         { id = "h_done", when = { questDone = TODO_QUEST("In Defense of the King's Lands") },
           text = "The hills are quieter since ye went through them, and my lads are sleepin' sound for once." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good, for I need a shield on the south wall more than I need another letter from Ironforge." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? A rifle on the tower and a beast at the foot of it would thin the troggs nicely." },
       },
       again = {
         { id = "h_again", text = "Somethin' else, friend?" },
@@ -179,6 +216,8 @@ P:NPC {
         { text = "The troggs took my home too.", next = "gnome", when = { race = "Gnome" } },
         { text = "I could get into the trogg camps and count them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The troggs fear fire. My imp could teach them more.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Where would you put a warrior on this tower, Mountaineer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is there anything worth tracking in these hills besides troggs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Stay safe, Mountaineer.", next = "END" },
       },
     },
@@ -238,6 +277,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Dragonmaw scouts, mostly, testin' us to see if we've gone soft, and now and then a Mosshide gnoll that's wandered too far from the marsh. The pass is narrow, so one good warrior in the right spot can hold it, and I'd sooner it were you than me some nights." } },
+      choices = {
+        { text = "Then put me in the narrows. I'll hold it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd sooner go north and hit the Dragonmaw first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Through Dun Algaz? There's Dragonmaw at the north end and Dark Irons pokin' about the hills, and they watch the road, no' the rocks. Keep to the rocks and ye'll reach Menethil with more blood in ye than most who walk it." },
@@ -275,6 +323,7 @@ P:NPC {
           text = "Kadrell sent ye, did he? Good, I've been short of able hands since the pass got busy." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Dun Algaz! If ye're headin' north, ye'll find the Wetlands more tae yer likin' than mine, all swamp an' frogs an' raptors." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at Algaz! The pass needs strong arms, for what comes down it from the Wetlands doesn't knock first." },
       },
       again = {
         { id = "h_again", text = "Anythin' else before ye head north?" },
@@ -288,6 +337,7 @@ P:NPC {
         { text = "I'm a hunter. I can scout the pass.", next = "hunter", when = { class = "HUNTER" } },
         { text = "I can slip through the pass where your patrols can't.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a ward hold the pass for you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What comes down the pass that needs a warrior's arm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Farewell, Rockgar.", next = "END" },
       },
     },
@@ -347,6 +397,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Well, the loch's crawling with things this season: crocolisks on the shore, kobolds in the hills and troggs nosing about the Ironband dig. I'm fairly sure one of them is sitting on my best wrench right now, and I'd much rather a warrior asked for it back than me." } },
+      choices = {
+        { text = "I'll fetch them back. No payment needed, Bingles.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fetch them, but an expedition like this pays its guards.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oh, I should think so! The crocolisks on the shore swallow anything shiny, so my hammer is probably inside one of them, and the kobolds took the rest toward the hills, leaving tracks even I could follow if I knew how to follow tracks." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does your {pet} eat crocolisk? Only, if it does, you could feed it and fetch my hammer in the same afternoon, which is very efficient." },
+      },
+      choices = {
+        { text = "I'll follow the tracks carefully and bring everything back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll open crocolisks until your hammer turns up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Conjured them? Oh, I wish! I'm an engineer, you see, and engineers make things the long way with spanners, which is far more satisfying right up until the murlocs run off with the spanners." },
@@ -377,6 +448,8 @@ P:NPC {
           text = "Gnoarn sent you? Oh, wonderful, he does worry so, and I'm perfectly fine apart from the tools." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("Bingles' Missing Supplies") },
           text = "My wrench, my hammer, my screwdriver and my blastencapper, scattered all over the loch! Find them and you'll be a hero of science." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Oh, a warrior! Splendid, because the things that wandered off with my supplies have teeth, and I don't." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must be good at finding things that have wandered off, which is exactly the skill I'm short of today." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm listening, mostly." },
@@ -389,6 +462,8 @@ P:NPC {
         { text = "A gnome on an expedition? Where's your escort?", next = "gnome", when = { race = "Gnome" } },
         { text = "Couldn't you have just conjured your supplies back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "My imp could fetch your things. It's quite good at errands.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What's guarding your lost supplies, Bingles?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a hunter's tracking help you find your supplies?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck, Bingles.", next = "END" },
       },
     },

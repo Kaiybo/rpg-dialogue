@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They can, though they'll complain the whole way to Thelsamar, and so would you if you had to fly in this damp. Sit still, lean forward over the mountains, and don't swing anything near their wings." } },
+      choices = {
+        { text = "I'll sit still and give the bird no trouble.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fly the way I fight, hard and fast.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They mind everything in this swamp, from the damp to the murlocs to the red drakes over Grim Batol. A hunter's beast is one more thing to hiss at, though they hiss loudest at the cats." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} stays on the ground while you fly, and it'll be waiting when you land, as beasts always are." },
+      },
+      choices = {
+        { text = "I'll keep my beast well clear of the roost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast goes where I go. The birds will cope.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "They would, and that's exactly why I keep a ledger of every rider. If the watch comes asking who flew out of Menethil in a hurry, I'll tell them true, so I'd rather you didn't give me cause." },
@@ -51,6 +72,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Shellei Brondir, gryphon master of Menethil Harbor. My birds fly east over the mountains to Thelsamar and Ironforge, which is the only way out of the Wetlands that won't leave mud in your boots." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? You'll be heavy, then, so I'll give you one of the stronger birds." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, then you'll know better than to let your beast near my birds." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are waiting, and they don't wait patiently in the rain." },
@@ -63,6 +86,8 @@ P:NPC {
         { text = "How did a human come to keep dwarven gryphons?", next = "human" },
         { text = "Your gryphons would make a fine getaway.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll be teleporting soon. Will you miss my coin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can your gryphons carry a warrior in full armor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your gryphons mind a hunter's beast, Shellei?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, Shellei.", next = "END" },
       },
     },
@@ -125,6 +150,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Aye, for a warrior wi' a rifle can pull a Dragonmaw scout down off a ridge an' then go an' finish him wi' the axe. Just keep it oiled, for this swamp'll rust a barrel in a week if ye let it." } },
+      choices = {
+        { text = "I'll fight face to face. Guns are for others.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Shoot first, then the axe. That's sense, not cowardice.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Somethin' wi' a short barrel an' a good tight stock, for ye'll be shootin' raptors at close range in the reeds, no' rams on a mountainside. An' oil it every night, for the love o' Magni's beard, or it'll seize just as the raptor jumps." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} will need tae get used tae the bang, mind, for some beasts never do." },
+      },
+      choices = {
+        { text = "I'll oil it every night, as you say.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll care for it my own way, thanks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Quieter? A gun's meant tae be loud, so every orc in the marsh knows a dwarf's havin' his say. If ye want quiet, buy a bow from somebody else, for I'll no' insult a good rifle by fittin' it wi' a muffle." },
@@ -152,6 +198,8 @@ P:NPC {
           text = "Murndan Derth, gunsmith. I came out tae Menethil tae sell guns tae the garrison, an' I've spent every day since fightin' the rust, for this swamp's the wettest place a dwarf ever kept a rifle." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Murndan Derth, gunsmith, an' it's a relief tae see a proper dwarf in this soggy place. The humans here think a gun's a kind o' crossbow, an' I've given up explainin'." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want an axe, no' a gun, but ye might want a gun for the times the axe cannae reach." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a customer, for there's no dwarf hunter born who doesnae want a better rifle." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -164,6 +212,8 @@ P:NPC {
         { text = "Is a gun better than a bow?", next = "bow" },
         { text = "A gun's too loud for my work. Got anything quieter?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could dry out your stock with a little fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Should a warrior carry a gun, Murndan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What rifle would you sell a hunter in this swamp?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Murndan.", next = "END" },
       },
     },
@@ -224,6 +274,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Whetstones, rope, a spare waterskin, and now and then a stick of blasting powder for a door they'd rather not open. The gnomes tell me that's not what it's for, but it works, so I sell it." } },
+      choices = {
+        { text = "Rations and rope will do. I'll leave the powder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell me the powder. Doors are slow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Never enough, for every dwarf hunter in the garrison goes through a pouch a day on crocolisks and raptors. I've told Murndan to sell fewer guns, and he's told me to stock more shot, and we're both right." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And jerky for your {pet}, if it'll eat jerky, which most of them will, given half a chance." },
+      },
+      choices = {
+        { text = "I'll buy only what I'll use, and leave some for others.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take your whole stock and sell it on dear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "I stock the blasting kind for the gnomes, and you'd want the flash kind from somebody with a sharper smile than mine. I'll not ask what you're blowing up, so long as it isn't in Menethil." },
@@ -251,6 +322,8 @@ P:NPC {
           text = "Neal Allen, engineering supplies and general goods. A harbor town needs a bit of everything, from rope and bread for the sailors to tubes and powder for the gnomes passing through." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "Neal Allen, engineering supplies and general goods, and I'm glad to see a gnome, for you're my best customers. I've got coarse powder and bronze tubes, if you're building something interesting." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? You'll want rope and rations before blasting powder, I'd guess, though you'd be surprised what warriors buy." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I keep shot and arrows in the back, and the dwarves buy the shot faster than I can stock it." },
       },
       again = {
         { id = "h_again", text = "Anything else you need?" },
@@ -263,6 +336,8 @@ P:NPC {
         { text = "Where do the ships from here go?", next = "ships" },
         { text = "Do you stock blasting powder? Flash powder, even?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you sell anything for spellcasters?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do warriors usually buy from you, Neal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you keep enough shot for the hunters here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thanks, Neal.", next = "END" },
       },
     },
@@ -323,12 +398,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Now and then a warrior wanders up here by mistake, and I send him back down to the bar, for my goods are no use to a sword and shield. I find warriors prefer their fights loud and fair, which is admirable, and bad for business." } },
+      choices = {
+        { text = "A fair fight needs no poison.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A win is a win, however it's earned.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They ask whether my goods would work on an arrowhead, and I tell them I couldn't possibly say. What they do with that knowledge is their own affair, and none of mine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from the jars, if you'd be so kind, for some of them smell like supper and none of them are." },
+      },
+      choices = {
+        { text = "I'll keep my arrows clean, thank you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A tipped arrow brings a raptor down quicker.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Samor Festivus, dealer in certain specialized goods. I'd tell you what they are, but if you need them, you already know, and if you don't, you're better off not asking." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "Samor Festivus, and you're the sort of customer I like, the kind who knows what they want and keeps it quiet. I've reagents for every poison you've been taught, and a few you haven't." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll have no need of my goods, I imagine, though I've been surprised before." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I've nothing for your beast, I'm afraid, though you might find something for your arrows elsewhere." },
       },
       again = {
         { id = "h_again", text = "Anything else? Softly, please." },
@@ -339,6 +437,8 @@ P:NPC {
         { text = "You call yourself a shady dealer. Why?", next = "shady" },
         { text = "Who buys from you?", next = "who" },
         { text = "Does the garrison know you're up here?", next = "garrison" },
+        { text = "Do warriors ever buy from you, Samor?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do hunters ever come up here looking for something?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

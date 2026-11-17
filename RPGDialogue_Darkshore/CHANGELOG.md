@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-17)
+- Warriors and hunters are noticed: about 32 new warrior and hunter conversations; people greet a warrior or hunter as one, with a question to ask and something to argue about, and hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.50.0.
+
 ## 1.10.0 (2026-11-16)
 - Rogues, mages and warlocks get their own conversation with 18 people in Auberdine and along the coast.
 

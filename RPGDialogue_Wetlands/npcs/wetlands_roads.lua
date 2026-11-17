@@ -20,6 +20,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By standing where I put you and not moving, for the Dark Irons come up out of the old ruins in waves and they test every gap we leave. We lost the Span because one line broke, and I'll not lose this hill the same way." } },
+      choices = {
+        { text = "Put me where the line is thinnest. I'll stay.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take the fight to them in the ruins.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Watch the ruins from the high ground and tell me when the Dark Irons move, for they gather before every push and my sentries never see it. And keep the raptors off the road behind us, for if we have to fall back, I'd rather not fall back into their jaws." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} could sit on the ridge and smell them coming, and I'd sleep better for it, if I slept at all." },
+      },
+      choices = {
+        { text = "I'll watch and warn you, and hold my fire.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll pick off their scouts before they can gather.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Inside? Ye'd be the first since they took it who came out again, an' I'd want tae hear every word. They've Dark Iron sentries on the walls an' more in the cellars, so if ye go, go by night an' go alone." },
@@ -56,6 +77,8 @@ P:NPC {
           text = "There's a face I'm glad to see, and there's no' many of those left round here. Come in out of the wet." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, out here! I've no quarrel wi' yer kind, only wi' the Dark Irons an' the dragons over Grim Batol." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, for Dun Modr needs every arm it can get, and it's had precious few." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have come up past the raptors, then, which tells me you know your trade." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick; the walls have ears." },
@@ -69,6 +92,8 @@ P:NPC {
         { text = "I'm a dwarf of Ironforge. Tell me how to help.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I could get inside Dun Modr and learn what they're planning.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Dark Iron fire won't burn through a mage's ward.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How can a warrior help hold Dun Modr, Longbraid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What could a hunter do for Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Hold fast, Longbraid.", next = "END" },
       },
     },
@@ -127,12 +152,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A bridge, for a start, an' the dwarves who were on it when it fell, an' I'll no' rest till they've paid it back. Go down tae the Span an' ye'll find them crawlin' over the rubble like they own it." } },
+      choices = {
+        { text = "I'll fight them for the living, not for vengeance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll collect your debt in full, Motley.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "North across the broken Span tae Arathi, or back intae the hills toward Grim Batol, an' I cannae tell which. Find out for me, an' I'll know where tae send the next lot o' axes." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} would follow a Dark Iron's stink through any bog, I'd wager, for they smell o' brimstone an' they never wash." },
+      },
+      choices = {
+        { text = "I'll track them and bring you the truth of it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll track them and ambush them on their own trail.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Motley Garmason, and I mean to see the Dark Irons pay for the Thandol Span. They blew it to cut us off from Arathi, and they're no' finished yet." },
         { id = "h_span", when = { questActive = TODO_QUEST("The Thandol Span") },
           text = "Go and see the Span for yerself, and find out what the Dark Irons left behind. They're bold enough to leave clues." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Good, for I've a list o' Dark Irons who owe me for the Span, an' I need someone tae collect." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? The Dark Irons at the Span leave tracks like anyone else, an' I'd like tae know where they lead." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? I've a vengeance to plan." },
@@ -143,6 +191,8 @@ P:NPC {
         { text = "Do you have family here?", next = "family" },
         { text = "How does it look from Arathi's side?", next = "arathi" },
         { text = "I know demolitions. Who set the charges?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "What do the Dark Irons owe you, Motley?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Where do you think the Dark Irons' tracks lead?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck, Motley.", next = "END" },
       },
     },
@@ -201,6 +251,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In threes an' fours, circlin' till one o' them finds a gap, an' then the rest pile in after it. Stand yer ground an' keep yer shield up, an' they'll lose interest before ye do, which is more than I can say for my diggers." } },
+      choices = {
+        { text = "I'll hold the gap so none get through.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll charge the pack before they finish circling.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Cleverer than a raptor's no' hard, friend, but quieter is, for they hear a twig snap from the far side o' the marsh. Get close tae the big ones an' ye'll find they've a soft spot under the jaw, if ye're quick." },
@@ -227,6 +286,7 @@ P:NPC {
           text = "Ormer Ironbraid, and I keep the raptors off Whelgar's dig. They've taken diggers, mules and more lunches than I care to count." },
         { id = "h_revenge", when = { questActive = TODO_QUEST("Ormer's Revenge") },
           text = "The raptors round the dig need thinnin', and I want the big ones gone most of all. Do it for me, and do it for the lads they took." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand; the raptors come at the dig in packs, an' I could use someone who'll stand firm while they circle." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep yer eyes on the grass while ye ask." },
@@ -239,6 +299,7 @@ P:NPC {
         { text = "Raptors are fine prey. I'll hunt them.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Raptors hunt by smell. I'll have to be cleverer than usual.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fire, then. Raptors fear fire, surely?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How do the raptors attack the dig, Ormer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Good hunting, Ormer.", next = "END" },
       },
     },
@@ -297,6 +358,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Raptors from the grass, Mosshide gnolls from the hills to the east, and Ormer shouting at both of them. If you'd stand watch at the edge of the trench for a spell, we might actually get some work done." } },
+      choices = {
+        { text = "I'll stand watch. Your work matters, Prospector.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll stand watch for a share of what you find.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They keep my diggers from digging, which comes to the same thing, for nobody works well with one eye on the grass. Ormer's been thinning them, but there are more in the marsh than he has bullets, or patience." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine eye for the grass, I think, and I'd be glad to have it watching ours." },
+      },
+      choices = {
+        { text = "I'll thin the pack so your diggers can work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt them for the sport, not for the dig.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Hum, do they? Then I'll thank ye tae keep yer hands off them until the League's had a look. Whatever's under this marsh is older than Menethil, I'd wager, an' I'll no' have it blown up by accident." },
@@ -321,6 +403,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Prospector Whelgar of the Explorers' League, and this is my excavation, raptors and all. The ground here hides more than mud, though it hides it under plenty of mud." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The dig could use one, for my diggers keep looking over their shoulders instead of at the ground." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the raptors know this ground better than any of my maps, and you'll know the raptors." },
       },
       again = {
         { id = "h_again", text = "What else? I've a trench to check." },
@@ -331,6 +415,8 @@ P:NPC {
         { text = "A gnome scholar would love to see this.", next = "gnome", when = { race = "Gnome" } },
         { text = "Your finds hum with old magic, Prospector.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "A dig full of treasure, and only raptors for guards.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What has your diggers looking over their shoulders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the raptors keep you from digging, Prospector?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

@@ -31,6 +31,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Dragonmaw scouts, an' the raptors that follow them, for the raptors have learned the orcs leave bodies behind. If ye can tell me how many orcs are movin' an' where, I can tell the Captain somethin' other than bad news for once." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would hear a Dragonmaw patrol long before the road did, an' I'd take its count over half my scouts'." },
+      },
+      choices = {
+        { text = "I'll count them and report, nothing more.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll count them, then thin them out myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "That's no small offer. The Dragonmaw watch the road through Dun Algaz an' they've taken two o' my runners this month, so if ye can get through unseen, ye'll be worth more tae me than a squad." },
@@ -71,6 +83,7 @@ P:NPC {
           text = "Ye saw to that business o' the spoils. The Captain was pleased, an' when he's pleased, I'm allowed to be." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, is it? I've seen yer kind fight in the old days, an' I'll tell ye now, a bear on a battlefield is a sight tae make an orc think twice." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good; I need eyes on the Algaz road, an' a hunter's eyes are better than most." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, I've three reports an' a cold supper waitin'." },
@@ -86,6 +99,7 @@ P:NPC {
         { text = "Send me to Algaz, Ironjaw. I'll hold the pass.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "I can carry your reports where the road's cut.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Dragonmaw are orcs. I know their old magic.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do you need watched on the Algaz road, Ironjaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -189,6 +203,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Raptors, or Mosshide gnolls, or worse, for the letters stopped an' nobody's come back down the road. Merrin's a tough one, but she's a digger, no' a fighter, an' I'd feel a great deal better if someone with an axe went lookin'." } },
+      choices = {
+        { text = "I'll find her, Tarrel. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go, but the dig pays my way, not you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Anythin' o' Merrin's, a glove or a letter or a bootprint, for she always walked the north side o' the road where it's drier. The raptors hunt along it now, an' I cannae bear to think what that means." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} has a good nose, I'd guess, an' Merrin always smells o' pipe smoke an' lamp oil, if that's any help." },
+      },
+      choices = {
+        { text = "I'll find her trail and follow it to the end.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll look, but I won't risk my neck on a hunch.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Can ye? Then go, please, an' look for Merrin; she'll be the one arguin' wi' Whelgar about where tae dig next. An' if she's not there, I'd still rather know than keep waitin'." },
@@ -219,6 +254,8 @@ P:NPC {
           text = "Raptors, an' lives lost, but Merrin lives, an' the Prospector, thanks to that lad Ormer. At least three made it, so I'm thankful an' sick at the same time." },
         { id = "h_unrequited", when = { questDone = TODO_QUEST("Unrequited Love") },
           text = "Ye know more o' my heart's business than most, after that. I'll thank ye to keep it between us an' the bridge." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Would ye go east, to Whelgar's dig? I know it's a lot to ask, but I cannae go myself, an' Merrin's out there." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'd know how to read a road, then, an' I need somebody to read the east road for me." },
       },
       again = {
         { id = "h_again", text = "What else? I'm not goin' anywhere till there's a letter." },
@@ -233,6 +270,8 @@ P:NPC {
         { text = "Dwarves don't leave kin in the marsh, Tarrel.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I can reach the dig without the raptors smelling me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "If the raptors trouble the dig, they'll burn.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do you fear has happened at the dig, Tarrel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should I look for on the road east, Tarrel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I hope she writes soon.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -323,6 +362,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not that he wrote, though I'm told there was fighting enough at the start, with the orcs and the demons both. Mostly he writes about the inn, and about how Theramore's walls are higher than Menethil's, which I believe, since ours are mostly mud." } },
+      choices = {
+        { text = "Walls don't keep a town. The people on them do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "High walls are fine, but I'd rather have open roads.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "James says the marsh there is worse than ours, with crocolisks the size of rowboats and black dragons in the fens to the south. I think he exaggerates, but then he always did, and I miss it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would like Dustwallow, I'd wager, if half of what James writes is true." },
+      },
+      choices = {
+        { text = "I'll take his word for it, and believe the best.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sounds like a tall tale to sell more ale.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -331,6 +391,8 @@ P:NPC {
           text = "Somebody's asking after James? That'll be one of the cooks he trained, I'd bet. He's across the sea, setting up an inn, and the clerk in Theramore can point you to him." },
         { id = "h_done", when = { questDone = TODO_QUEST("James Hyal") },
           text = "Did you find James? No, don't tell me if it's long; just tell me he's cooking. He was always happiest cooking." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? James always said he'd have made a fine soldier, though I never saw him lift anything heavier than a keg." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! James used to bring back crocolisk tails for the stew before he left, and I've never found a hunter who did them better." },
       },
       again = {
         { id = "h_again", text = "What else? I've nowhere to be but here." },
@@ -342,6 +404,8 @@ P:NPC {
         { text = "Why didn't you go with him?", next = "stay" },
         { text = "Was it right to abandon Lordaeron?", next = "abandon" },
         { text = "Lady Proudmoore was a student of Dalaran, like me.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Did your brother fight when he went west with Proudmoore?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What's the hunting like across the sea, by Theramore?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck to him.", next = "END" },
       },
     },
@@ -430,6 +494,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Fighting? Oh, there's fighting to make a bard weep, from the shores of Darkshore to the Ashenvale woods, and a warrior with a strong arm could make a name over there in a season. I'd go myself, but my place is here, telling eager souls like you about it." } },
+      choices = {
+        { text = "I'll go where I'm needed, not where the songs are.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A name and a fortune? Then sell me the fare.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Why, everything a hunter could dream of, from the nightsabers of Teldrassil to the great bears of Darkshore, and they say the night elves tame the cats as easily as we tame dogs. I've seen none of it myself, mind, but I've talked to sailors who swear by every word." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have cousins over there, I shouldn't wonder, and bigger ones too." },
+      },
+      choices = {
+        { text = "If I go, I'll respect the night elves' woods.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go for the pelts, and plenty of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "A cut! I'm wounded, friend, truly. The fare's the captain's and the passage is your own affair, and I only point the way to Auberdine and let the land sell itself." },
@@ -456,6 +541,8 @@ P:NPC {
           text = "Red Jack Flint, at your service. It's my job to tell eager souls about Kalimdor, the land of opportunity across the sea, and oh, to be on the sea again myself, with the wind in my face." },
         { id = "h_done", when = { questDone = TODO_QUEST("Fiora Longears") },
           text = "Fiora says you made it across and that you'll do well. Mr. Flint never misjudges a character, she told you, and she's right, I don't." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Kalimdor's crying out for warriors, friend, for there are centaur and quilboar and worse across the sea, and every one of them wants testing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have I told you about the beasts of Kalimdor, friend? Nightsabers, striders and birds as tall as a man, or so the sailors say." },
       },
       again = {
         { id = "h_again", text = "What else? Ask me anything about the sea, or Kalimdor, or both!" },
@@ -469,6 +556,8 @@ P:NPC {
         { text = "Kalimdor is my home, sailor.", next = "xnightelf", when = { race = "NightElf" } },
         { text = "You sell Kalimdor like a man with a cut of the fare.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is it true the night elves despise magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is there real fighting in Kalimdor, Red Jack?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What beasts would a hunter find in Kalimdor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Maybe someday.", next = "END" },
       },
     },
@@ -557,6 +646,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oozes, great drippin' ones, an' they'll swallow anythin' that stands still too long, as my bag can tell ye. Hit them hard an' quick, an' mind yer boots, for whatever they leave behind eats through leather." } },
+      choices = {
+        { text = "I'll get your bag back and ask no questions.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll get it back, once you tell me what's in it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Do they? Then burn the lot, an' if ye find my bag inside one, try not tae burn that too. There's things in it I'd not get back again for any price." },
@@ -583,6 +681,7 @@ P:NPC {
           text = "Sida. I go out to Ironbeard's Tomb every week, an' this time I was set on by great drippin' oozes. I threw my bag at one an' it swallowed the thing whole, an' I need what's in it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Digging Through the Ooze"), days = 5 } },
           text = "My bag! I'd thought it gone for good. Keep that other bit ye found in it; wash it first, though, an' I mean properly." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? Good, for the oozes out by the tomb don't care how sharp yer tongue is, only how sharp yer axe is." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Quickly, if ye please." },
@@ -596,6 +695,7 @@ P:NPC {
         { text = "My pet could sniff out which ooze took it.", next = "xhunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Oozes burn nicely, if you know the spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I could fish your bag out of the ooze. Quick fingers.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What's waiting for me out by Ironbeard's Tomb?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -684,6 +784,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because sieges are long and supply carts are slow, and the bay's full of fish that don't ask to be paid. Half the garrison fish off the wall between watches, and they eat better than the officers." } },
+      choices = {
+        { text = "I'll learn, then. Patience never hurt a soldier.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather fight than sit holding a rod.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than hunters like to admit, for you've to know where the fish go and when, and the bay has its own seasons like any forest. Mind the crocolisks while you do it, though, for they like a fisherman better than any fish." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine fishing companion, as long as it doesn't jump in after the catch." },
+      },
+      choices = {
+        { text = "I'll take the patience lesson gladly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I prefer prey that runs. Fish don't give much chase.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Ha! I suppose not, though the fish don't call the watch when you've got them. Patience is patience, whatever you're catching, and most folk haven't got any." },
@@ -707,6 +828,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Harold Riggs. I teach fishing, and talk about it, and occasionally catch something. Menethil's a fine harbour for fish, if you can stomach the rain and the wrecks." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want to learn to fish, then, for a soldier who can feed himself is worth two who can't." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Fishing's just hunting with a longer arm and a good deal more waiting." },
       },
       again = {
         { id = "h_again", text = "What else? Nothing's biting, so I've time." },
@@ -719,6 +842,8 @@ P:NPC {
         { text = "Do the murlocs bother you?", next = "murlocs" },
         { text = "Patience and a quiet step. Fishing's not so different from my trade.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I can conjure food. Why fish at all?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would a warrior bother with fishing, Riggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is fishing much like hunting, Riggs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good fishing.", next = "END" },
       },
     },
@@ -784,6 +909,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I'd write one about you, if you did something worth singing, like clearing the Dragonmaw out of Algaz so I could finally leave. Songs about holding walls are dull, I'm afraid, but songs about breaking sieges sell very well." } },
+      choices = {
+        { text = "Sing about the wall. That's where the real work is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll break the siege, and you can sing it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Well, I'd like to, from a safe distance, because my verse says they're green and the soldiers say they're mottled brown. A song should get the colour right, at least, even if it gets everything else wrong." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could go in the song too, though I'll warn you, very little rhymes with {pet}." },
+      },
+      choices = {
+        { text = "I'll tell you the truth of it, mottled brown and all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Make them green and twice as big. Nobody will check.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Oh, the best stories always come with that condition! A minstrel's discretion is worth more than his voice, so tell me, and I'll change the names and make you three inches taller." },
@@ -809,6 +955,8 @@ P:NPC {
         { id = "h_default", text = "Camerick Jongleur, wandering minstrel, though I've not wandered in a while. Raptors to the east, orcs to the north, Dark Irons on the bridges, so I'm wandering in a very small circle around Menethil." },
         { id = "h_nekrosh", when = { questDone = TODO_QUEST("Defeat Nek'rosh") },
           text = "You're the one who brought down Nek'rosh! Sit still; I'm writing a verse, and I need to know what colour his blood was." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, splendid, because every good song needs a warrior, and I've been stuck here writing songs about rain." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a whole verse about raptors and I've never seen one up close, which you'll agree is a problem." },
       },
       again = {
         { id = "h_again", text = "Another question? I've a song for most things, and a joke for the rest." },
@@ -822,6 +970,8 @@ P:NPC {
         { text = "Here's a hymn you could learn.", next = "hymn", when = { class = "PRIEST" } },
         { text = "I've a story for your songs, if you leave out my name.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I studied at Dalaran. There must be songs about it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you write a song about a warrior, Camerick?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you need to see a raptor to write about one?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -903,6 +1053,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "My horses are bred for the road, friend, but they'll stand their ground if their rider does, and that's all I ask of anyone. Stormwind's knights ride bigger beasts, but none sounder in the leg." } },
+      choices = {
+        { text = "I'll keep it back from the fighting. Horses aren't soldiers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll ride into the thick of it and trust the horse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The best, usually, for you'll feed and water the beast before yourself, and a horse remembers that. I'd sooner sell to a hunter than to a banker, though the bankers do pay faster." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will have to get used to running beside a horse, mind, which some of them never do." },
+      },
+      choices = {
+        { text = "A beast comes first. I'll care for it well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll feed it, but I'll ride it as hard as I need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Quiet, is it? Every horse I breed is steady, so it won't startle at a raptor or a thunderclap, but none of them will tiptoe for you. If you need to go unheard, friend, I'd suggest you walk." },
@@ -928,6 +1099,8 @@ P:NPC {
         { id = "h_default", text = "Unger Statforth, horse breeder. Years of careful breeding and plenty of care, and I've the privilege of showing you the results. A horse is a companion for life, friend, so don't choose in a hurry." },
         { id = "h_notrusted", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } },
           text = "I'm sorry, but I'll only sell to those Stormwind trusts completely. It's nothing against you; these steeds can't fall into an enemy's hands, so earn the kingdom's trust and come back." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! A good horse needs a rider who'll keep his seat when the axes come out, and you look the sort." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, I see. Hunters make careful riders, I find, for you know what an animal's thinking." },
       },
       again = {
         { id = "h_again", text = "Anything else? Take your time; the horses aren't going anywhere." },
@@ -940,6 +1113,8 @@ P:NPC {
         { text = "Is it fair, selling only to some?", next = "fair" },
         { text = "A quiet horse is worth more to some of us.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll have a mount of my own in time, I'm told.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would one of your horses carry a warrior into battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters make good horse owners, Unger?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

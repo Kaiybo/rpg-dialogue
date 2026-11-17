@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- Warriors and hunters are noticed: about 135 new warrior and hunter conversations; people greet a warrior or hunter as one, with a question to ask and something to argue about, and hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.50.0.
+
 ## 1.20.0 (2026-11-17)
 - Rogues, mages and warlocks get a greeting, a question and something to argue about with every named person in the forest, from Northshire to Goldshire and Eastvale.
 
