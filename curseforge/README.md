@@ -38,19 +38,21 @@ Either:
 - **By hand (works now):** `python3 tools/build_zip.py`, then upload `tools/out/RPGDialogue-<version>.zip` on the **Files** tab. Pick the **Forever** game version, release type **Beta**, and paste that version's section of `CHANGELOG.md` as the changelog.
 - **Automatically, from a git tag:** see step 4.
 
-## 4. Automatic uploads (optional)
+## 4. Automatic uploads
 
-`.github/workflows/release.yml` runs the BigWigs packager when you push a tag like `v0.67.0`. It builds the zip and uploads it to CurseForge, using `CHANGELOG.md` for the changelog.
+`.github/workflows/release.yml` runs the BigWigs packager, which builds the zip and uploads it to CurseForge with `CHANGELOG.md` as the changelog:
+
+- **Every push to `claude/import`** (merging a PR counts) uploads an **alpha**. Only players who opted into alphas get it. Pushes that only touch docs, tools, tests or this folder are skipped.
+- **A tag like `v0.67.0`** uploads a **release** (`v0.67.0-beta1` uploads a beta) and makes a GitHub release.
+
+To switch it on:
 
 1. Put the project ID (shown on the project page, under About Project) in `RPGDialogue/RPGDialogue.toc`, as a new line under `## X-Website:`:
    `## X-Curse-Project-ID: 123456`
 2. Make an API token at https://authors.curseforge.com/account/api-tokens.
 3. In the GitHub repo, go to Settings > Secrets and variables > Actions and add `CF_API_TOKEN` with that token.
-4. Tag and push: `git tag v0.67.0 && git push origin v0.67.0`.
+4. For a release, tag and push: `git tag v0.67.0 && git push origin v0.67.0`.
 
-Two things block this today:
+Without the ID and token, the packager still builds the zip but skips the upload.
 
-- **GitHub Actions isn't running for the repo.** Every recent run fails in seconds without a runner, so check Settings > Actions and your billing.
-- **The workflow runs `tools/check_all.py --release` first.** That fails by design while `TODO_NPC`/`TODO_QUEST` ids remain, which stops the upload. To release before the ids are captured, delete the "Install Lua and luacheck" and "All checks (release mode)" steps from `release.yml`.
-
-Until both are sorted, upload by hand.
+**GitHub Actions has to be running for any of this.** Every recent run failed in seconds without a runner. Making the repo public usually fixes that; otherwise check Settings > Actions and your billing. Until it runs, upload by hand.
