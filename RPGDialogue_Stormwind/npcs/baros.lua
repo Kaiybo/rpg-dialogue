@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "baros", id = TODO_NPC("Baros Alexston"), name = "Baros Alexston", title = "City Architect",
+  rivals = { "katrana" },
   bible = "bibles/baros.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "westfall", "stone" },
@@ -96,6 +97,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "You have Lady Prestor's ear, I hear, and I'd ask you to be careful with it. When the court is pleased with someone, the rest of us in this office usually find out what it costs." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Word is that Lady Prestor found you tiresome. Don't repeat this, but you're in good company: the court said the same of every mason who asked to be paid." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The masons raised the Cathedral before the House refused to pay them, so you'll forgive me if I look at it differently than you do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand speaks a great deal of justice, so I'd be curious to hear what you think is owed to the men who rebuilt this city." },
         { id = "h_default", text = "Baros Alexston, City Architect. Every street you walked to get here, someone drew first, and usually it was me." },

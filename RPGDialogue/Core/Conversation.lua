@@ -887,6 +887,15 @@ function Conv.ChoiceNote(choice, checkResult, fx, dispBefore)
         notes[#notes + 1] = L.DISP_NOW:format(ns.Disposition.TierName(after))
       end
     end
+    -- A rival you've met will hear of it (0.55.0).
+    if d > 0 and ns.Disposition and s.info then
+      for _, r in ipairs(ns.Disposition.Rivals(s.info.def)) do
+        if ns.char.npc and ns.char.npc[r] then
+          notes[#notes + 1] = L.RIVAL_HEARS:format(ns.Disposition.RivalName(r))
+          break
+        end
+      end
+    end
   end
   if #notes == 0 then return nil end
   return table.concat(notes, "  ")

@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "althea", id = TODO_NPC("Commander Althea Ebonlocke"), name = "Commander Althea Ebonlocke",
+  rivals = { "ello" },
   bible = "bibles/althea.md", role = "soldier", tier = "major",
   communities = { "darkshire" }, temper = { "steady" }, values = { "brave", "lawful", "stern" },
   notices = { "soldier", "night" },
@@ -65,6 +66,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "I hear the mayor has found a new admirer for his letters. Write all you like, but when the worgen come over the wall, it will be farmers with pikes who answer them." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Ello was sour with you, I hear. Don't let it trouble you; he'd be sour with Lothar himself if the man didn't write back in triplicate." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Stormwind hasn't sent me one of you in years, so I'll not ask who did; I'll just put you to work." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Good. This forest was green once, and I'd like to hear from someone who can tell me if it can be again." },

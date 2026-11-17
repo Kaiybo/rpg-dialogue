@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "pozzik", id = TODO_NPC("Pozzik"), name = "Pozzik",
+  rivals = { "fizzle", "wizzle" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "ambitious", "proud" },
   notices = { "craft", "status" },
@@ -86,6 +87,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "Word around the pits is you've been handing the gnomes your best advice. Fine, it's a free track, but don't expect me to show you the new fuel mixture." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "The gnomes have been grumbling about you all week, and anybody who ruins their week is welcome in my pit. What can I do for you?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Ever think about crewing? I need somebody who can lift an engine off a driver without asking too many questions." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -232,6 +237,7 @@ P:NPC {
 
 P:NPC {
   key = "fizzle", id = TODO_NPC("Fizzle Brassbolts"), name = "Fizzle Brassbolts",
+  rivals = { "pozzik", "razzeric" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "excitable" }, values = { "proud", "curious" },
   notices = { "craft", "race" },
@@ -322,6 +328,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "The goblins tell everyone you're on their side now. I don't believe them, of course, but I've locked the blueprints away until you prove otherwise." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "The goblins spent a whole morning complaining about you, which is a morning they didn't spend on their car. Thank you, truly; that's worth a lap at least." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Please don't lean on anything, because half of what's in this tent is more fragile than it looks and the other half is about to explode." },
         { id = "h_huntcl", when = { class = "HUNTER" },

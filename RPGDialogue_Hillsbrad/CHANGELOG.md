@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.17.0 (2026-11-17)
+- Marshal Redpath and Magistrate Maleb are rivals: siding with one cools the other, and each greets you accordingly. No new files. Needs RPG Dialogue 0.55.0.
+
 ## 1.16.0 (2026-11-17)
 - Warriors and hunters are noticed: 32 people greet a warrior or hunter as one, and have a question to ask and something to argue about; hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.49.0.
 

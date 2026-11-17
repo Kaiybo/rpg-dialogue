@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "ello", id = TODO_NPC("Lord Ello Ebonlocke"), name = "Lord Ello Ebonlocke",
+  rivals = { "althea" },
   bible = "bibles/ello.md", role = "noble", tier = "major",
   communities = { "darkshire" }, temper = { "proud" }, values = { "lawful", "ambitious" },
   notices = { "status", "stormwind" },
@@ -66,6 +67,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "Althea speaks well of you, which means you told her pikes are worth more than paper. Perhaps they are, this week, but I'll still be writing to Stormwind when the pikes need replacing." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "My kinswoman tells me you don't think much of her Watch. She's wrong about my letters, and you may be wrong about her farmers, so sit down and we'll see which of us is more wrong." },
         { id = "h_default", key = true,
           text = "I am Lord Ello Ebonlocke, mayor of Darkshire and head of its council. I have petitioned Stormwind for soldiers more times than I can count, because the Night Watch cannot do this alone." },
         { id = "h_messenger", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Darkshire") },

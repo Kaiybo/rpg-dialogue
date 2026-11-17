@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.55.0 (2026-11-17)
+Packs: Darnassus, Thunder Bluff, Thousand Needles, Duskwood, Hillsbrad, Stormwind and Stranglethorn have new versions. No new files in 0.55.0: /reload is enough if you have 0.39.0 or later.
+
+### Rivals
+- **Taking sides has a cost.** Some people can't stand each other, and winning one over now cools the other. If someone's rival thinks well of you, how they regard you drops, by up to 15 points of disposition. If you've crossed their rival, they warm to you a little.
+- **You're told.** When a reply pleases someone whose rival you've met, the note under the answer says "<rival> will hear of this." The disposition tooltip lists "You've sided with their rival" or "You've crossed their rival".
+- **They say so.** Each rival greets you differently once you've clearly sided with, or against, the other.
+- **The rivalries:** Tyrande and Fandral; Cairne and Hamuul against Magatha; the gnome and goblin racing teams at the Mirage Raceway (Fizzle and Wizzle against Pozzik and Razzeric); Lord Ello and Commander Althea in Darkshire; Marshal Redpath and Magistrate Maleb in Southshore; Lady Prestor and Baros Alexston in Stormwind; Hemet Nesingwary and Kebok in Booty Bay.
+- For pack writers: NPC field `rivals = { "key", ... }` (declare both sides), conditions `rivalFavor { min, max }` (best affinity with this NPC's rivals; `max` alone means your worst) and `affinityWith { npc, min, max }`.
+
 ## 0.54.0 (2026-11-17)
 Packs: World has a new version. No new files in 0.54.0: /reload is enough if you have 0.39.0 or later.
 
