@@ -17,6 +17,7 @@ L.BINDING_ASK = "Ask About... (in a conversation)"
 -- Slash help
 L.HELP_HEADER = "Commands (/rpgd):"
 L.HELP_LINES = {
+  "version - show which version of RPG Dialogue you're running",
   "talk - talk to your target",
   "settings - open the settings panel",
   "capture - record your target (ID, name, place) for the content tools",
@@ -47,6 +48,7 @@ L.HELP_LINES = {
 -- Messages
 L.LOADED = "%s loaded. Type /rpgd for commands."
 L.VERSION_LINE = "RPG Dialogue %s"
+L.VERSION_SHORT = "version %s"
 L.RESTART_NEEDED = "%s was updated to %s, but the game still has the old file list (%s). Exit the game and start it again (a /reload isn't enough) so the new files load."
 L.DEV_ON = "Developer mode on."
 L.DEV_OFF = "Developer mode off."
