@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+Spoogledorf of Uber Town has something to say. **New file: restart the game fully (a /reload won't load it).**
+
+- **Spoogledorf**, the hunter of the adventuring company Uber Town, now has a full conversation: about 25 steps on his much-mocked family name (and a wanted poster over a pie he didn't steal), the six-ish members of Uber Town and their plan to buy a whole town with eleven gold, his bad-tempered pet Biscuit, the jobs they take, and his dream of ending up in a song.
+- Choices that shape your alignment (keep the name or change it, take an empty town or buy one, search a friend's bags or trust him, glory or getting home), a few class lines (hunters, mages, priests), Horde and Alliance versions of his work, and after a first meeting you can ask to join Uber Town.
+- Matched by his Forever NPC id (276591), so he talks wherever he stands. Not yet seen in game.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
