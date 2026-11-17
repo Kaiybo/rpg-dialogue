@@ -344,7 +344,7 @@ P:NPC {
       },
       choices = {
         { text = "Then live up to his blood, and stop raising the dead.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "His blood or not, you hit hard. Who cares?", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "His blood or not, you hit hard. That's enough for me.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

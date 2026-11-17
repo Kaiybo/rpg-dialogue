@@ -163,7 +163,7 @@ P:NPC {
       },
       choices = {
         { text = "A smith should dig his own ore. Agreed.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Why dig when you can buy?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd rather buy my ore than dig for it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.17.1 (2026-11-17)
+- Small fixes; missing characters added to the file list where needed.
+
 ## 1.17.0 (2026-11-17)
 - New people to talk to: Deathguard Podrig, Deathstalker Faerleia, Quinn Yorick, Wallace the Blind. New files: restart the game fully (a /reload won't load them).
 - Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.

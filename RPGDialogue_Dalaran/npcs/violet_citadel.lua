@@ -502,7 +502,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let's begin better. I'll deal honestly with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It worked. He got his seat, didn't he?", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "It worked. He got his seat, and that's what counts.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

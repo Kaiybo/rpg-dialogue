@@ -8,7 +8,7 @@ P:NPC {
   title = "Morale Officer",
   bible = "bibles/sergeant_de_vries.md", role = "vendor", tier = "service",
   communities = { "goldshire" }, temper = { "warm" }, values = { "loyal", "friendly" },
-  notices = { "weary", "drink" },
+  notices = { "kit", "drink" },
 
   impression = {
     first = "Sergeant De Vries is Westbrook's morale officer, which seems to mean he sells the drink and listens to the complaining. He is better at the second part than he lets on.",
@@ -27,8 +27,8 @@ P:NPC {
   },
 
   notice = {
-    { id = "n_weary", cat = "weary", when = { health = { max = 0.4 } },
-      text = "You look done in. Sit down a moment; I've seen men drop in that doorway and I'd rather not see another." },
+    { id = "n_weary", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "You look done in, and your kit looks worse. Sit down a moment; the smith can wait until you've had a drink." },
     { id = "n_drink", cat = "drink", when = { drunk = true },
       text = "Somebody's started early, I see! Well, I won't tell Rainer if you won't." },
   },
