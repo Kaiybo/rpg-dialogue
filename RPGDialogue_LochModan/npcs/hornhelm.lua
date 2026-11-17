@@ -123,7 +123,7 @@ P:NPC {
       lines = {
         { id = "pwh_default", text = "Huldar, Miran an' Saean, good haulers the three o' them, or so I'd have said a month ago. They take the south road round the loch, for it's flat an' the carts like it." },
         { id = "pwh_after", when = { questDone = TODO_QUEST("Protecting the Shipment") },
-          text = "Huldar an' Miran still, bless them, an' they've no' missed a day since the ambush. Saean's name I've struck from the book, an' I pressed hard enough tae tear the page." },
+          text = "Huldar an' Miran still, bless them, an' they've no' missed a day since the ambush. Saean's name I've struck from the ledger, an' I pressed hard enough tae tear the page." },
       },
       choices = {
         { text = "A Dark Iron spy was seen in town, too.", next = "powder_spy" },
