@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-17)
+- The class conversations here are rewritten and deepened: dwarf shamans are greeted at Farholde and on the frontier, Wheatley, Mayberry, Zizplink and Gritta have a new topic each, and Demar, Riftan and Benjy notice when you've been fighting the cult and the reapers.
+
 ## 1.8.0 (2026-11-17)
-- Every class now gets a greeting and its own conversation from everyone in Farholde, the frontier camps and Powderfuse (dwarf shamans included), and Wheatley, Mayberry, Zizplink and Gritta have a new topic each.
+- Every person here now has something to say to every class: warriors, paladins, hunters (and their pets), rogues, priests, mages, warlocks and druids, plus shamans from the goblins and Gray. Each leads to a question and something to argue about.
+- Knight Commander Demar Brant's warm greeting now shows to a traveller he thinks well of (it had been tucked inside another line).
 
 ## 1.7.0 (2026-11-15)
 - Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
