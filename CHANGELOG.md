@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.78.0 (2026-11-17)
+The Topper McNabb patch. **New file: restart the game fully (a /reload won't load it).**
+
+### Topper McNabb (Stormwind, Trade District)
+- The Trade District's beggar now has one of the biggest conversations in the addon: about 140 conversation steps, 230 lines of his own and some 350 replies for you.
+- **The farm, four ways:** orcs, a dragon, a lord's card game, or (with a Persuade check) what really happened, which leads to his wife Elsie in Lakeshire and the Winter Veil letters he never sends.
+- **Life on the step:** the "blind man's miracle" act, armour shining with goose fat, the canal arch and the Duchess (a one-eared cat), the guards, the Cathedral's soup, why he doesn't work.
+- **The neighbourhood:** the auctioneers, the Gilded Rose, a cheese shop whose visitors never buy cheese, the orphans who borrow his hat, the gnomes, and something he saw by the canal after midnight (a Deceive check gets a description).
+- **Street news:** the missing king, Lady Prestor, Westfall, the Stockade, Redridge and the masons. **Stories for a copper:** the kobold's candle, the murloc, the gnoll in his hat, King Llane's turnip, the tram fish. He also asks about you.
+- He reacts to every class, to dwarves, gnomes, night elves, the Skyborne, the Horde and the Forsaken, to seven origins (Westfall farmhand, canal pickpocket, minor noble, stonemason's child, Lakeshire-born, Lordaeron refugee, Gnomeregan refugee), to clearing the Deadmines or the Stockade, to Stormwind exalted, and to your purse, your armour, your mount and how much you've had to drink.
+
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
 
