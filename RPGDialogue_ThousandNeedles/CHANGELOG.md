@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.18.0 (2026-11-17)
+- Every class this place could plausibly meet now gets a greeting and its own conversation, including this server's Forsaken paladins and dwarf shamans where they'd be welcome. Some people here also notice when you've been thinning out the local trouble.
+
 ## 1.17.0 (2026-11-17)
 - The racing teams are rivals: helping the gnomes (Fizzle, Wizzle) cools the goblins (Pozzik, Razzeric), and the other way round. No new files. Needs RPG Dialogue 0.55.0.
 

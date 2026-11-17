@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-17)
+- Every class now gets a greeting and its own conversation from everyone in Farholde, the frontier camps and Powderfuse (dwarf shamans included), and Wheatley, Mayberry, Zizplink and Gritta have a new topic each.
+
 ## 1.7.0 (2026-11-15)
 - Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.
 
