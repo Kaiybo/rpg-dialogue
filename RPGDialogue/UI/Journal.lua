@@ -23,6 +23,7 @@ local TABS = { "chronicle", "stories", "people", "heard", "sheet", "notes" }
 local ALIASES = { topics = "heard", deeds = "sheet", threads = "stories" }
 -- Pages with a search box.
 local SEARCHABLE = { chronicle = true, people = true, heard = true }
+local picking, pickList, pickIndex   -- the origin picker (Myself page)
 local switching   -- true while J.Show clears the search box on a page change
 
 ---------------------------------------------------------------------------
@@ -54,7 +55,7 @@ local DEED_NAMES = {
   first_death = function() return L.DEED_FIRST_DEATH end,
 }
 
-local function deedName(id)
+local function deedName(id, d)
   if DEED_NAMES[id] then return DEED_NAMES[id]() end
   local kind, arg = id:match("^(%a+):(.+)$")
   if kind == "level" then return L.DEED_LEVEL:format(arg) end
@@ -63,7 +64,8 @@ local function deedName(id)
   if kind == "cleared" then return L.DEED_CLEARED:format(arg) end
   if kind == "kill" then
     local cap = ns.db.capture.npcs[tonumber(arg)]
-    return L.DEED_KILL:format(cap and cap.name or ("#" .. arg))
+    local name = (d and d.name) or (cap and cap.name)
+    return name and L.DEED_KILL:format(name) or nil
   end
   return id
 end
@@ -332,7 +334,14 @@ local function myself(add, c)
   for id, d in pairs(c.deeds) do deeds[#deeds + 1] = { id = id, t = d.t or 0, n = d.n or 1 } end
   table.sort(deeds, function(x, y) return x.t > y.t end)
   lines = {}
-  for _, d in ipairs(deeds) do lines[#lines + 1] = deedName(d.id) .. (d.n > 1 and (" ×" .. d.n) or "") .. "  " .. DIM .. when(d.t) .. "|r" end
+  -- Kills from before 0.69.0 kept no name; they're counted at the end instead of "#681".
+  local unnamed = 0
+  for _, d in ipairs(deeds) do
+    local name = deedName(d.id, c.deeds[d.id])
+    if name then lines[#lines + 1] = name .. (d.n > 1 and (" ×" .. d.n) or "") .. "  " .. DIM .. when(d.t) .. "|r"
+    else unnamed = unnamed + 1 end
+  end
+  if unnamed > 0 then lines[#lines + 1] = L.J_UNNAMED_KILLS:format(unnamed) end
   if (c.deathCount or 0) > 0 then lines[#lines + 1] = L.J_DEATHS:format(c.deathCount) end
   section(L.J_DEEDS, lines)
   add(L.J_ORIGIN, "section")
@@ -403,6 +412,9 @@ local function create()
   C.SetGamePadHandler(frame, function(self, button)
     if button == "PADDLEFT" then J.OnKey(self, "LEFT")
     elseif button == "PADDRIGHT" then J.OnKey(self, "RIGHT")
+    elseif button == "PADDUP" then J.OnKey(self, "UP")
+    elseif button == "PADDDOWN" then J.OnKey(self, "DOWN")
+    elseif button == "PAD1" and picking then J.OnKey(self, "ENTER")
     elseif button == "PAD2" then J.OnKey(self, "ESCAPE")
     end
   end)
@@ -470,44 +482,258 @@ local function create()
   frame.notes:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
   frame.notes:Hide()
 
-  -- Origin page controls (Character Sheet)
-  frame.originButtons = {}
+  -- Origin (Myself page): a line saying where you stand and a button that opens the picker.
   frame.originLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  frame.originLabel:SetPoint("BOTTOMLEFT", 18, 30)
-  frame.blurb = CreateFrame("EditBox", nil, frame, C.Template("editbox"))
-  frame.blurb:SetSize(W - 140, 20)
-  frame.blurb:SetPoint("BOTTOMLEFT", 22, 8)
-  frame.blurb:SetAutoFocus(false)
-  frame.blurb:SetScript("OnEnterPressed", function(self) ns.Origins.SetBlurb(self:GetText()); self:ClearFocus(); J.Show("sheet") end)
-  frame.blurb:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
-  frame.originBtn = Theme.Button(frame, "", 100, 22)
-  frame.originBtn:SetPoint("BOTTOMRIGHT", -14, 8)
-  frame.originBtn:SetScript("OnClick", function() J.CycleOrigin() end)
+  frame.originLabel:SetPoint("BOTTOMLEFT", 24, 15)
+  frame.originLabel:SetPoint("RIGHT", frame, "RIGHT", -170, 0)
+  frame.originLabel:SetJustifyH("LEFT")
+  frame.originLabel:SetWordWrap(false)
+  frame.originBtn = Theme.Button(frame, "", 140, 22)
+  frame.originBtn:SetPoint("BOTTOMRIGHT", -14, 10)
+  frame.originBtn:SetScript("OnClick", function() J.OpenOrigins() end)
+  J.BuildPicker()
 end
 
-local pendingOrigin, originIndex
--- Origin picking: one button cycles through the list for this race and class, a second
--- click confirms (changing an existing origin always asks first).
-function J.CycleOrigin()
+---------------------------------------------------------------------------
+-- Origin picker: every background open to this race and class in a list on the left,
+-- the selected one on the right (where it puts you, what it leans you toward, and its
+-- words, which you can rewrite before you take it).
+---------------------------------------------------------------------------
+local LIST_W, ROW_H = 220, 24
+
+function J.BuildPicker()
+  local pk = CreateFrame("Frame", nil, frame)
+  pk:SetPoint("TOPLEFT", 20, -108)
+  pk:SetPoint("BOTTOMRIGHT", -20, 44)
+  pk:Hide()
+  frame.picker = pk
+
+  pk.listTitle = pk:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  pk.listTitle:SetPoint("TOPLEFT", 4, 0)
+  pk.listTitle:SetWidth(LIST_W - 8)
+  pk.listTitle:SetJustifyH("LEFT")
+  pk.listRule = Theme.Divider(pk)
+  pk.listRule:SetPoint("TOPLEFT", 0, -22)
+  pk.listRule:SetWidth(LIST_W)
+  pk.split = pk:CreateTexture(nil, "ARTWORK")
+  pk.split:SetWidth(1)
+  pk.split:SetPoint("TOPLEFT", LIST_W + 12, 0)
+  pk.split:SetPoint("BOTTOMLEFT", LIST_W + 12, 0)
+  pk.rows = {}
+
+  local x = LIST_W + 28
+  pk.name = pk:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  pk.name:SetPoint("TOPLEFT", x, 0)
+  pk.name:SetPoint("RIGHT", pk, "RIGHT", -4, 0)
+  pk.name:SetJustifyH("LEFT")
+  pk.rule = Theme.Divider(pk)
+  pk.rule:SetPoint("TOPLEFT", pk.name, "BOTTOMLEFT", 0, -5)
+  pk.rule:SetPoint("RIGHT", pk, "RIGHT", -4, 0)
+  pk.facts = pk:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  pk.facts:SetPoint("TOPLEFT", pk.rule, "BOTTOMLEFT", 0, -8)
+  pk.facts:SetPoint("RIGHT", pk, "RIGHT", -4, 0)
+  pk.facts:SetJustifyH("LEFT")
+  pk.wordsLabel = pk:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  pk.wordsLabel:SetPoint("TOPLEFT", pk.facts, "BOTTOMLEFT", 0, -14)
+  pk.wordsLabel:SetText(L.J_ORIGIN_WORDS)
+  -- The words, on a faint panel so it reads as something you can write in.
+  pk.box = CreateFrame("Frame", nil, pk)
+  pk.box:SetPoint("TOPLEFT", pk.wordsLabel, "BOTTOMLEFT", 0, -6)
+  pk.box:SetPoint("RIGHT", pk, "RIGHT", -4, 0)
+  pk.box:SetHeight(120)
+  pk.box:EnableMouse(true)
+  pk.boxBg = pk.box:CreateTexture(nil, "BACKGROUND")
+  pk.boxBg:SetAllPoints()
+  pk.boxEdge = {}
+  for i, side in ipairs({ "TOP", "BOTTOM", "LEFT", "RIGHT" }) do
+    local t = pk.box:CreateTexture(nil, "BORDER")
+    if i <= 2 then t:SetHeight(1); t:SetPoint(side .. "LEFT"); t:SetPoint(side .. "RIGHT")
+    else t:SetWidth(1); t:SetPoint("TOP" .. side); t:SetPoint("BOTTOM" .. side) end
+    pk.boxEdge[i] = t
+  end
+  pk.words = CreateFrame("EditBox", nil, pk.box)
+  pk.words:SetFontObject("ChatFontNormal")
+  pk.words:SetMultiLine(true)
+  pk.words:SetAutoFocus(false)
+  pk.words:SetMaxLetters(400)
+  pk.words:SetPoint("TOPLEFT", 8, -8)
+  pk.words:SetPoint("BOTTOMRIGHT", -8, 8)
+  pk.words:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
+  pk.box:SetScript("OnMouseDown", function() pk.words:SetFocus() end)
+  pk.hint = pk:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  pk.hint:SetPoint("TOPLEFT", pk.box, "BOTTOMLEFT", 0, -6)
+  pk.hint:SetPoint("RIGHT", pk, "RIGHT", -4, 0)
+  pk.hint:SetJustifyH("LEFT")
+  pk.hint:SetText(L.J_ORIGIN_HINT)
+
+  pk.take = Theme.Button(frame, "", 170, 22)
+  pk.take:SetPoint("BOTTOMRIGHT", -14, 10)
+  pk.take:SetScript("OnClick", function() J.TakeOrigin() end)
+  pk.back = Theme.Button(frame, L.J_ORIGIN_BACK, 90, 22)
+  pk.back:SetPoint("RIGHT", pk.take, "LEFT", -8, 0)
+  pk.back:SetScript("OnClick", function() J.CloseOrigins() end)
+  pk.take:Hide(); pk.back:Hide()
+end
+
+local function leanings(o)
+  local out = {}
+  local n = o.nudge or {}
+  local AX = { light = { L.AX_LIGHT, L.AX_SHADOW }, order = { L.AX_ORDER, L.AX_WILD }, honor = { L.AX_HONOR, L.AX_CUNNING } }
+  for _, axis in ipairs({ "light", "order", "honor" }) do
+    local v = n.align and n.align[axis]
+    if v and v ~= 0 then out[#out + 1] = AX[axis][v > 0 and 1 or 2] end
+  end
+  local traits = {}
+  for t in pairs(n.trait or {}) do traits[#traits + 1] = t end
+  table.sort(traits)
+  for _, t in ipairs(traits) do out[#out + 1] = t end
+  return out
+end
+
+local function styleRow(row, sel, cur)
+  local p = Theme.Palette()
+  local hl = p.highlight
+  row.sel:SetColorTexture(hl[1], hl[2], hl[3], sel and math.max(0.25, hl[4] * 2) or 0)
+  local a = p.accent
+  row.bar:SetColorTexture(a[1], a[2], a[3], 1)
+  row.bar:SetShown(sel)
+  Theme.SetFont(row.label, "body", Theme.TextSize() - 1)
+  Theme.TextColor(row.label, sel and "name" or "text")
+  row.label:SetText(row.o.name .. (cur and ("  " .. DIM .. L.J_ORIGIN_YOURS .. "|r") or ""))
+end
+
+function J.SelectOrigin(i)
+  local pk = frame.picker
+  if not pickList or not pickList[i] then return end
+  pickIndex = i
+  local o = pickList[i]
+  local cur = ns.char.origin
+  for j, row in ipairs(pk.rows) do
+    if row:IsShown() then styleRow(row, j == i, cur and cur.id == row.o.id) end
+  end
+  pk.name:SetText(o.name)
+  local facts = {}
+  local town = o.home and ns.Data.towns[o.home]
+  if town then facts[#facts + 1] = L.J_ORIGIN_HOME:format(town.name or o.home) end
+  local lean = leanings(o)
+  if #lean > 0 then facts[#facts + 1] = L.J_ORIGIN_LEANS:format(table.concat(lean, ", ")) end
+  if o.id == "other" then facts[#facts + 1] = L.J_ORIGIN_OTHER_NOTE end
+  pk.facts:SetText(table.concat(facts, "\n"))
+  -- Your own words stay if you're looking at the origin you already have.
+  local words = (cur and cur.id == o.id and cur.blurb) or o.blurb or ""
+  pk.words:SetText(words)
+  pk.words:SetCursorPosition(0)
+  pk.words:ClearFocus()
+  local same = cur and cur.id == o.id
+  pk.take:SetText(same and L.J_ORIGIN_SAVE or (cur and L.J_ORIGIN_SWITCH or L.J_ORIGIN_TAKE))
+end
+
+function J.StylePicker()
+  local pk = frame.picker
+  if not pk then return end
+  local size = Theme.TextSize()
+  local p = Theme.Palette()
+  Theme.SetFont(pk.listTitle, "body", size - 1)
+  Theme.TextColor(pk.listTitle, "dim")
+  Theme.SetFont(pk.name, "name", size + 5)
+  Theme.TextColor(pk.name, "name")
+  Theme.SetFont(pk.facts, "body", size - 1)
+  Theme.TextColor(pk.facts, "subtitle")
+  pk.facts:SetSpacing(3)
+  Theme.SetFont(pk.wordsLabel, "name", size)
+  Theme.TextColor(pk.wordsLabel, "name")
+  Theme.SetFont(pk.hint, "body", math.max(10, size - 2))
+  Theme.TextColor(pk.hint, "dim")
+  Theme.ColorDivider(pk.listRule)
+  Theme.ColorDivider(pk.rule)
+  Theme.ColorDivider(pk.split)
+  local hl = p.highlight
+  pk.boxBg:SetColorTexture(hl[1], hl[2], hl[3], math.max(0.10, hl[4]))
+  for _, t in ipairs(pk.boxEdge) do Theme.ColorDivider(t) end
+  pk.words:SetFont(Theme.BodyFont(), size, "")
+  pk.words:SetShadowOffset(0, 0)
+  pk.words:SetTextColor(p.text[1], p.text[2], p.text[3])
+  Theme.StyleButton(pk.take)
+  Theme.StyleButton(pk.back)
+end
+
+function J.OpenOrigins()
+  if not frame then create() end
+  local pk = frame.picker
   local _, race = C.Race("player")
   local _, class = C.Class("player")
-  local list = ns.Origins.ListFor(race, class)
-  if pendingOrigin then
-    ns.Origins.Choose(pendingOrigin.id, frame.blurb:GetText() ~= "" and frame.blurb:GetText() or pendingOrigin.blurb)
-    pendingOrigin = nil
-    J.Show("sheet")
-    return
+  local raceName = C.Race("player")
+  local className = C.Class("player")
+  pickList = ns.Origins.ListFor(race, class)
+  picking = true
+  frame.scroll:Hide()
+  frame.originLabel:Hide()
+  frame.originBtn:Hide()
+  frame.pageTitle:SetText(L.J_ORIGIN_PICK_TITLE)
+  frame.pageCount:SetText("")
+  pk.listTitle:SetText(L.J_ORIGIN_FOR:format(raceName or race or "", className or class or ""))
+  J.StylePicker()
+  local cur = ns.char.origin
+  local start = 1
+  for i, o in ipairs(pickList) do
+    local row = pk.rows[i]
+    if not row then
+      row = CreateFrame("Button", nil, pk)
+      row:SetHeight(ROW_H)
+      row.sel = row:CreateTexture(nil, "BACKGROUND")
+      row.sel:SetAllPoints()
+      row.bar = row:CreateTexture(nil, "ARTWORK")
+      row.bar:SetWidth(3)
+      row.bar:SetPoint("TOPLEFT"); row.bar:SetPoint("BOTTOMLEFT")
+      row.hl = row:CreateTexture(nil, "HIGHLIGHT")
+      row.hl:SetAllPoints()
+      row.label = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+      row.label:SetPoint("LEFT", 10, 0)
+      row.label:SetPoint("RIGHT", -4, 0)
+      row.label:SetJustifyH("LEFT")
+      row.label:SetWordWrap(false)
+      row:SetScript("OnClick", function(self) J.SelectOrigin(self.index) end)
+      pk.rows[i] = row
+    end
+    row.index, row.o = i, o
+    row:ClearAllPoints()
+    row:SetPoint("TOPLEFT", 0, -28 - (i - 1) * ROW_H)
+    row:SetWidth(LIST_W)
+    local hl = Theme.Palette().highlight
+    row.hl:SetColorTexture(hl[1], hl[2], hl[3], hl[4])
+    row:Show()
+    if cur and cur.id == o.id then start = i end
   end
-  originIndex = ((originIndex or 0) % #list) + 1
-  local o = list[originIndex]
-  frame.originLabel:SetText(L.J_ORIGIN_PICK:format(o.name))
-  frame.blurb:SetText(o.blurb or "")
-  frame.originBtn:SetText(L.J_ORIGIN_CONFIRM)
-  pendingOrigin = o
-  C.After(6, function()
-    if pendingOrigin == o then pendingOrigin = nil; frame.originBtn:SetText(L.J_ORIGIN_NEXT) end
-  end)
+  for i = #pickList + 1, #pk.rows do pk.rows[i]:Hide() end
+  pk:Show()
+  pk.take:Show(); pk.back:Show()
+  J.SelectOrigin(start)
 end
+
+function J.CloseOrigins()
+  if not frame or not frame.picker then return end
+  picking = false
+  frame.picker:Hide()
+  frame.picker.take:Hide(); frame.picker.back:Hide()
+  frame.picker.words:ClearFocus()
+  frame.scroll:Show()
+  if current == "sheet" then J.Show("sheet") end
+end
+
+function J.TakeOrigin()
+  local o = pickList and pickList[pickIndex]
+  if not o then return end
+  local words = frame.picker.words:GetText()
+  local cur = ns.char.origin
+  if cur and cur.id == o.id then
+    ns.Origins.SetBlurb(words)
+  else
+    ns.Origins.Choose(o.id, words ~= "" and words or o.blurb)
+  end
+  J.CloseOrigins()
+end
+
+function J.IsPicking() return picking == true end
 
 -- Game look: title in the title bar, tabs and search on the rock header, the pages on
 -- parchment below. Wood look: everything on the wood-framed parchment.
@@ -654,10 +880,14 @@ function J.Show(tab)
   frame.notes:SetShown(isNotes)
   frame.text:SetShown(not isNotes)
   frame.search:SetShown(SEARCHABLE[current] == true)
+  if picking then
+    picking = false
+    frame.picker:Hide(); frame.picker.take:Hide(); frame.picker.back:Hide()
+    frame.scroll:Show()
+  end
   frame.originLabel:SetShown(isSheet)
-  frame.blurb:SetShown(isSheet)
   frame.originBtn:SetShown(isSheet)
-  frame.scroll:SetPoint("BOTTOMRIGHT", -36, isSheet and 52 or 14)
+  frame.scroll:SetPoint("BOTTOMRIGHT", -36, isSheet and 44 or 14)
   frame.pageTitle:SetText(L["J_TAB_" .. current:upper()])
   frame.pageCount:SetText("")
   if isNotes then
@@ -687,9 +917,7 @@ function J.Show(tab)
   if isSheet then
     local o = ns.char.origin
     frame.originLabel:SetText(o and L.J_ORIGIN_CURRENT:format(o.name) or L.J_ORIGIN_NONE)
-    frame.blurb:SetText(o and o.blurb or "")
     frame.originBtn:SetText(o and L.J_ORIGIN_CHANGE or L.J_ORIGIN_NEXT)
-    pendingOrigin, originIndex = nil, nil
   end
   frame:Show()
 end
@@ -698,6 +926,16 @@ function J.OnKey(self, key)
   local handled = false
   if C.InCombat() then
     handled = false
+  elseif picking and key == "ESCAPE" then
+    handled = true
+    J.CloseOrigins()
+  elseif picking and (key == "UP" or key == "DOWN") then
+    handled = true
+    local n = #pickList
+    J.SelectOrigin(((pickIndex or 1) - 1 + (key == "DOWN" and 1 or -1)) % n + 1)
+  elseif picking and key == "ENTER" then
+    handled = true
+    J.TakeOrigin()
   elseif key == "ESCAPE" then
     handled = true
     frame:Hide()

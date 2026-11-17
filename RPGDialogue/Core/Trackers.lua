@@ -119,7 +119,8 @@ function T.Kill(guid, name)
   if C.IsSecret(guid) then return end
   local id = C.NPCID(guid)
   if not id then return end
-  T.Deed("kill:" .. id)
+  local d = T.Deed("kill:" .. id)
+  if type(name) == "string" and name ~= "" and not C.IsSecret(name) then d.name = name end
   local k = char().kills
   k.total = (k.total or 0) + 1
   if type(name) == "string" and name ~= "" and not C.IsSecret(name) then
