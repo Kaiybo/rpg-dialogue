@@ -79,7 +79,7 @@ P:NPC {
       choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 1 } } },
     },
     twiggy = {
-      lines = { { id = "tw_default", text = "That's Twiggy Flathead, who calls the fights and runs the book, and he'd sell tickets to his own funeral if the crowd were big enough. He's a goblin, so he cheats, but these days he cheats in ways I can live with." } },
+      lines = { { id = "tw_default", text = "That's Twiggy Flathead, who calls the fights and keeps the betting, and he'd sell tickets to his own funeral if the crowd were big enough. He's a goblin, so he cheats, but these days he cheats in ways I can live with." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     factions = {
@@ -137,7 +137,7 @@ P:NPC {
 
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "You've got quick hands, pal, I can always tell, so keep 'em off my book, because I count it twice a day." },
+      text = "You've got quick hands, pal, I can always tell, so keep 'em off my ledger, because I count it twice a day." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Look at the state of you, pal! Somebody already lost money on you today, and I hope it was me." },
   },
