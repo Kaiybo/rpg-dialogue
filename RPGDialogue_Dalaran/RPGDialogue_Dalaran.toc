@@ -16,3 +16,5 @@ npcs\violet_citadel.lua
 npcs\sky_enclave.lua
 npcs\streets.lua
 npcs\underbelly.lua
+npcs\bathrah.lua
+npcs\av_headland.lua

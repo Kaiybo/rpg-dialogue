@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, I had a use for you." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the drakes are still breathing in their ravine. Tell me you've come to change that." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown since I saw you last, and you carry yourself like you've earned it. Good, because Lethlor Ravine doesn't care how brave you feel." },
-    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you've been frightening folk in Kargath. Save that for the Blackrock, who deserve it." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "Word is you've been frightening folk in Kargath. Save that for the Blackrock, who deserve it." },
   },
 
   notice = {

@@ -50,7 +50,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because every craft dies a little with each crafter, and I had too much left in my hands to let it go. The Earth and the Moon allowed it, or at least did not forbid it, and here I am." } },
+      lines = { { id = "w_default", text = "Because every craft dies a little with each crafter, and I had too much left in my hands to let it go. Elune allowed it, or at least did not forbid it, and here I am." } },
       choices = {
         { text = "Is it lonely?", next = "why_lonely" },
         { text = "Something else.", next = "BACK" },

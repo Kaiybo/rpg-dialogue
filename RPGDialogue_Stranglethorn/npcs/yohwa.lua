@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back on your feet, good. Report, then, and keep it short." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I'd marked you down as Kurzen's. I'm glad to cross it out." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've filled out since I last saw you, and you stand like a soldier now. Somebody's been training you, or the jungle has." },
-    { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you've been throwing your weight around camp. My people have had enough of that from the Colonel, so save it for the Compound." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "Word is you've been throwing your weight around camp. My people have had enough of that from the Colonel, so save it for the Compound." },
   },
 
   notice = {
