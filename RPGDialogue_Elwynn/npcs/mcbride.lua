@@ -39,6 +39,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I need the kobolds cleared out of the vineyard and the Defias kept off the Abbey road, and I've four guards to do it with. A mage who can follow orders is worth a dozen who can't, so learn to follow them." } },
+      choices = {
+        { text = "I'll follow your orders, Marshal. You'll have no trouble from me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll get results, Marshal, but I'll choose how.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Not for sport, no. They've been taking our sheep, and I can't let a farmer's flock suffer for the sake of a wolf." } },
       choices = {
@@ -95,6 +104,8 @@ P:NPC {
           text = "You. State your business and keep it short, recruit, because I've not forgotten the last time." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, here in Northshire! I've kobolds in the vineyard and wolves in the hills, so I'll gladly take whatever help you're offering." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and fresh from the Library Wing, I'd guess. Khelden's told me about you; he says you read faster than you listen." },
       },
       again = {
         { id = "h_again", text = "What else do you need, recruit? Be quick about it." },
@@ -121,6 +132,7 @@ P:NPC {
         { text = "Your letter was in cipher, Marshal.", next = "rogue", when = { class = "ROGUE", maxLevel = 15 } },
         { text = "I've brought my own beast, Marshal.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "The spirits of the stone brought me here, Marshal.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "What do you need from a mage, Marshal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "That's all, Marshal.", next = "END" },
       },
     },

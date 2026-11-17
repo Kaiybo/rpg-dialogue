@@ -16,10 +16,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A fellow in Darkshire sold it to me for a pair of boots, and he seemed very glad to be rid of it, which I'll admit was a bad sign. I've carried it since, and it hasn't done anything strange yet, except the humming." } },
+      choices = {
+        { text = "Best to leave a strange crystal alone, Antonio.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A humming crystal is worth studying. I'll take a closer look.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Afraid's a strong word, but I've never sold anything to a demon, and I've no wish to start, because I don't know what they pay in. I'll stick to customers with honest coins, if you don't mind." } },
+      choices = {
+        { text = "My demon will stay back. You'll deal only with me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Demons pay in power, Antonio. You'd be surprised.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Antonio Perelli, traveling salesman, at your service. Goldshire to Eastvale and back again, and I sell whatever I carry to whoever stops to look." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Hm, you've quick hands, friend, so let's keep them where I can see them while you browse, eh? No offense meant." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you'll want something rare, I can tell. I've a crystal from Duskwood that hums in the dark, though I'm not sure it's meant to." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock on my road, and with something at your heel, I see. I'll sell you anything you like, but I'd ask you to keep it out of my packs." },
       },
       again = {
         { id = "h_again", text = "What else? My feet need the rest anyway." },
@@ -29,6 +51,8 @@ P:NPC {
         { text = "Let's see what you carry.", next = "BUSINESS" },
         { text = "Isn't the road dangerous alone?", next = "danger" },
         { text = "Why not keep a shop in town?", next = "shop" },
+        { text = "Where did a crystal from Duskwood come from?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are you afraid of my demon, Antonio?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Safe travels.", next = "END" },
       },
     },

@@ -39,6 +39,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Sylvius's students practice in the common room when they think nobody's watching, and I watch everything that happens in here. I don't mind you learning your trade, but I do mind boot marks on clean wood." } },
+      choices = {
+        { text = "I'll practice elsewhere and leave your benches clean.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your benches are perfect cover. I'll keep using them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not since he moved in, because he says the common room's too loud for thinking, and Farley says that's what a common room is for. I take it up and he forgets to eat it, so I suppose I'm feeding the rats as well." } },
+      choices = {
+        { text = "I'll take his supper up and see he eats it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If he won't come down, let him go hungry.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Melika. Farley talks to the guests, I feed them. What do you need?" },
@@ -58,6 +76,10 @@ P:NPC {
           text = "Did Farley tell you about the hunter on the cart? He tells it every night. The cart gets longer every time." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Josetta's upstairs, if it's her you're after. If it's supper, it's me. Most priests want both, in that order." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Mind the bench, rogue, because I polish it every morning and I can tell when someone's been crouching behind it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. Zaldimar's upstairs, if you're after him, and he'll want his supper sent up, so take it with you if you're going." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quick, the stew won't stir itself." },
@@ -71,6 +93,8 @@ P:NPC {
         { text = "Winds be with you.", tag = "Skyborne", next = "winds", when = { race = "Skyborne" } },
         { text = "The road brought me back. For a night, anyway.", next = "road", when = { minLevel = 18 } },
         { text = "Does anyone here need a healer's hands?", next = "healer", when = { class = "PRIEST" } },
+        { text = "Do rogues often hide behind your benches?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does Zaldimar never come down for his supper?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
       },
     },
 

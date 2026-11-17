@@ -18,10 +18,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I think everyone in Northshire owes something to the lads who stand at the front, and mages most of all, because you're the ones who can't take a hit. I don't ask for thanks, but I notice who gives it." } },
+      choices = {
+        { text = "I owe them my life, and I'll say so, Godric.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They're paid to take hits. Gratitude isn't required.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. The Brothers say every craft has its limits, and that's where mine is." } },
+      choices = {
+        { text = "Your iron should stay clean, Godric. You're right to refuse.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A good cage keeps everyone safer. You should reconsider.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Godric Rothgar, armorer to the Abbey. Every recruit who walks out of Northshire walks out in something I've hammered, so mind you bring it back unbroken." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and a fresh one by the look of you. Llane will teach you to swing, but I'll teach you that a shield is worth more than any sword." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you'll not be wanting my plate, I expect, though you'll be glad of whoever's wearing it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, and La Salle's student, I'd wager. You'll have nothing to do with my forge, then, unless you need a cage." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've rivets cooling." },
@@ -31,6 +53,8 @@ P:NPC {
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "What wrecks the most shields around here?", next = "dents" },
         { text = "Do the recruits listen to you?", next = "recruits" },
+        { text = "Do you think mages owe your plate-wearers something?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have you ever made a cage for a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -76,10 +100,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because you all leave Northshire for Goldshire and Stormwind and wherever else, and you forget the fellow who stitched your first jerkin by candlelight. I don't mind, really, but a word of thanks now and then would warm the evenings." } },
+      choices = {
+        { text = "I'll come back and thank you, Dermot. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Thanks don't pay for candles. Your coin's enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They come back with mud from the graves and soot from whatever they've been burning, and I spend more time mending their robes than the priests' and the mages' together. The Brothers say it's penance for selling to them, but I think it's just mud." } },
+      choices = {
+        { text = "I'll take better care of your work, Dermot.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Robes are for wearing out. That's the trade.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dermot Johns. I sell robes to the priests and jerkins to the rest, and I spend my evenings mending both by candlelight." },
         { id = "h_caster", when = { any = { { class = "PRIEST" }, { class = "MAGE" } } }, text = "A robe-wearer, I see! Do keep it out of the brambles by the vineyards, will you? Silk doesn't forgive thorns." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Dark leather, I suppose, and nothing that squeaks. I've sold to your sort before, though they never come back to say how it went." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. You'll be after a robe, and I'll sell you one, though I'll ask you to keep it out of the graveyard mud." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a hem half pinned." },
@@ -89,6 +135,8 @@ P:NPC {
         { text = "Show me what you've sewn.", next = "BUSINESS" },
         { text = "Who tears the most robes?", next = "torn" },
         { text = "Where do you get your leather?", next = "leather" },
+        { text = "Why don't rogues ever come back to thank you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do La Salle's students ruin your robes often?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -133,10 +181,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Point away from you, edge down, and loose enough that it doesn't twist in your hand, which is more than half the recruits manage. I'd rather sell a dagger to a rogue than a sword to a farmhand, because at least I know you'll use it." } },
+      choices = {
+        { text = "I'll use it well and honorably, Janos.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll use it however the moment calls for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The smart ones carry one for when the spell fizzles and the kobold's still coming, because kobolds don't wait for you to finish casting. I've sold a few to Khelden's students, and they all held them like quills." } },
+      choices = {
+        { text = "A sensible precaution. I'll carry one and learn to use it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If my spell fizzles, a dagger won't save me anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Janos Hammerknuckle. I sell steel to the Abbey's recruits, and I've given up counting how many of them grip a sword like a soup ladle." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well now, a proper dwarf! Ye've no idea how good it is to hear a sensible voice up here among all these tall folk." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You'll be wanting a dagger, I suppose, and at least you'll hold it the right way round." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. You won't be wanting steel, I suppose, unless it's a dagger to open letters with." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind, then? Out with it." },
@@ -146,6 +216,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why leave Ironforge for an abbey?", next = "why" },
         { text = "How should I hold a sword, then?", next = "grip" },
+        { text = "What's the right way to hold a dagger, Janos?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do mages ever carry daggers at all?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -190,10 +262,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every one of them, at least once, and usually the week they learn their first fireball and try it on a wolf by the vineyards. The Light mends burns well enough, but I wish the Light could mend impatience." } },
+      choices = {
+        { text = "I'll be careful with my fire, Brother. Patience first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burns are how you learn. A few scars never hurt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I worry that your path takes you further from it every day. I'll still mend you if you come to me hurt, because that's what I'm here for." } },
+      choices = {
+        { text = "I'm grateful for your mercy, Brother. I'll remember it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't need the Light. My power answers to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Brother Paxton. I walk the grounds from the vineyards to the gate, and I mend whatever the wolves and kobolds leave of our recruits." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A fellow servant of the Light! Walk with me a while, if you've the time, and you'll learn more healing on this path than in any book." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Khelden's students always come to me with burns on their fingers, and I mend them and tell them to be more careful, though they never are." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've come from La Salle's graveyard. I can feel it on you, and I'll admit it makes me uneasy." },
       },
       again = {
         { id = "h_again", text = "Something else on your mind, child?" },
@@ -202,6 +296,8 @@ P:NPC {
       choices = {
         { text = "Why walk, instead of staying in the Abbey?", next = "walk" },
         { text = "I heard you buy ore from Redridge.", next = "ink" },
+        { text = "Do Khelden's students truly burn themselves so often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the Light truly reject a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Brother.", next = "END" },
       },
     },

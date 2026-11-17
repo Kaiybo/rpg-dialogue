@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd hire a gnoll to deal with Hogger if it came to that, because the Army's sent most of its soldiers abroad and I'm short of anyone with a blade. A rogue who can get close to him without being eaten would earn every copper." } },
+      choices = {
+        { text = "I'll face him fairly, Rainer. No knives in the dark.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll get close and finish him quietly. Fair's for fools.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. Just don't let anything you call up eat any of my lads, or Dughan will have my badge." } },
+      choices = {
+        { text = "I'll keep my demon from your lads. They'll be safe.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your lads should learn to fear me as much as Hogger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -42,6 +60,10 @@ P:NPC {
           text = "Raelen said that? She sent word about bears near Eastvale, Eastvale, when I'm at the other end of the forest! Somebody tell her where Westbrook is." },
         { id = "h_seasoned", when = { minLevel = 25 },
           text = "Look at you. You came through that gate with a stick and a hopeful face. Now my lads stand up straighter when you pass." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, here at Westbrook. If you've come about the bounty, Hogger's the one on the notice, not me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, and not from around here. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I watch the road." },
@@ -56,6 +78,8 @@ P:NPC {
         { text = "Your men look worn. Let me see to them.", next = "priest", when = { class = "PRIEST" } },
         { text = "I'll stand a night on your walls.", next = "watch", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I'll help hold the road.", next = "END", fx = { affinity = 1, standing = { goldshire = 1 } } },
+        { text = "Would you hire a rogue to deal with Hogger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would a warlock's help with Hogger be welcome here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck, deputy.", next = "END" },
       },
     },

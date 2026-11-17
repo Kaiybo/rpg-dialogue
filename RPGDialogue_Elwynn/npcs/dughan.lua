@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Fargodeep and Jasperlode are crawling with kobolds, and they're terrified of candles, so you can imagine how they feel about a fireball. Clear the mine mouths for me and I'll worry about the paperwork afterwards." } },
+      choices = {
+        { text = "Put me on your roster, Marshal. I'll follow your orders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll clear the mines my own way, roster or no roster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." } },
+      choices = {
+        { text = "Nothing will come up those stairs while I'm down there.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What I summon is my business, Marshal, not the Guard's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Some, aye, if they'd stay off the roads. But the wolves have been bold this year, and I've farmers to look after." } },
       choices = {
@@ -80,6 +98,10 @@ P:NPC {
           text = "An Eastvale woodsman with a bow on his back instead of an axe. Marshal Haggard says you lot can track a wolf across bare rock, so I've a gnoll problem you might like." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid in Goldshire! We've wolves an' kobolds an' murlocs to spare, so if ye've a way of turning them, I'd hear it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and I'll be honest that I've no idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in my town square. You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone." },
       },
       again = {
         { id = "h_again", text = "What else? The desk isn't getting any emptier." },
@@ -102,6 +124,8 @@ P:NPC {
         { text = "I can track Hogger's gnolls for you.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The Defias move like trained thieves, Marshal.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do dwarves turn up in Goldshire much, Marshal?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Where could a mage be of use to you, Marshal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would you leave the cellar alone, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },

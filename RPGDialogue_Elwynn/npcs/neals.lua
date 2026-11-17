@@ -26,6 +26,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Wine, friend, nothing but wine, for our guests and for the occasional brother who needs comforting after evening prayers. I'd be very sorry to find a barrel lighter than my tally says it should be." } },
+      choices = {
+        { text = "Your barrels are safe, Brother. I'd never rob the Abbey.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A barrel or two won't be missed by the Light.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of her students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." } },
+      choices = {
+        { text = "I'll respect the brothers' wishes and keep to the surface.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Coincidence or not, your wine was never mine to guard.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "The Abbey's cellars are a quiet comfort, friend, for our guests, naturally." },
@@ -44,6 +62,10 @@ P:NPC {
           text = "You climbed all the way up the bell tower with Milly's manifest! Sit, sit, and catch your breath; I'll pour while you do." },
         { id = "h_novice", when = { origin = "human_abbey_novice" },
           text = "I know that face! You used to bring the tallies up these stairs and pretend you hadn't read them, but you had, and I always knew." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've a quiet step, friend, and the Abbey's cellars are full of quiet things, so I'll be watching where you put it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've come from the graveyard, friend, I can smell it, and the brothers don't like La Salle's students in the cellars." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? The bells won't ring for an hour." },
@@ -55,6 +77,8 @@ P:NPC {
         { text = "What's in the library worth reading?", next = "library" },
         { text = "How do I keep my faith when it's hard?", next = "faith", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "About the manifest...", next = "BUSINESS", when = { questActive = TODO_QUEST("Grape Manifest") } },
+        { text = "What are you guarding in the Abbey's cellars, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why do the brothers mind warlocks near the wine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just paying my respects.", next = "END" },
       },
     },

@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I fear nothing, but I'm careful, because Morganth has sent spies into this tower before, and some of them came in as quietly as you did. The gnomes caught the last one and he's still apologizing." } },
+      choices = {
+        { text = "I'm no spy for Morganth. You can trust me, Theocritus.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your gnomes won't catch me. I'd be careful, mage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Because it can't be measured, only felt. A spell should be precise, and I've never yet met a druid who could tell me how a thing works, only that it does." } },
       choices = {
@@ -59,6 +68,8 @@ P:NPC {
           text = "You heard me through a gnoll's pendant, weeks late? Give it here; a slow spell is still a spell that worked." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. How quaint. I've studied the arcane for decades, and I'll confess the nature magics have always seemed rather muddy to me." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief, please; Redridge doesn't watch itself." },
@@ -76,6 +87,7 @@ P:NPC {
         { text = "A priest knows something of shadow too.", next = "priest", when = { class = "PRIEST", minLevel = 20 } },
         { text = "Your servants are gnomes. Where are they from?", next = "gnome", when = { race = "Gnome" } },
         { text = "My family would rather I were at court.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "Do you fear a rogue would steal from your tower?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll show myself out.", next = "END" },
       },
     },

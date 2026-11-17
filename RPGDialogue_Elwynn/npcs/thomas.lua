@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Murlocs by the lake, bandits in the hills and wolves everywhere else, and I've lost two good men to it already. If you've a quiet step, use it to look for Rolf, because he's still out there somewhere." } },
+      choices = {
+        { text = "I'll look for Rolf, guard. He deserves to come home.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Rolf's likely dead. I'll look after myself first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once, on the road to Redridge, and she cleared a pack of wolves faster than I could draw my sword. I didn't like being shown up, but I liked being alive, so I didn't complain." } },
+      choices = {
+        { text = "You'd have done the same for me, guard. We fight together.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Next time, stand behind me. I'll handle the wolves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Guard Thomas, of the Stormwind Army. I hold this bridge, and east of here the forest stops being friendly." },
@@ -53,6 +71,10 @@ P:NPC {
           text = "You found my men, once, and now look at you. I still stand on this bridge, because somebody has to." },
         { id = "h_guard", when = { origin = "human_city_guard" },
           text = "You've the look of the Watch about you; I'd know that tired squint anywhere. Well, this bridge is the same work as the Trade District, only wetter and with murlocs." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue at my bridge. If you're heading east, you'll find plenty of trouble without making any." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. Stand behind me on the bridge if there's trouble, because I'd rather you burned the wolves than me." },
       },
       again = {
         { id = "h_again", text = "Anything further, citizen?" },
@@ -65,6 +87,8 @@ P:NPC {
         { text = "Why is the bridge so thinly held?", next = "army" },
         { text = "I came from Westfall. Nobody held a bridge for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I'll hold this bridge with you, Guard.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "What sort of trouble is there east of the bridge?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have you ever fought beside a mage, guard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },

@@ -26,6 +26,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd train anyone who can stand up again after I knock them down, and rogues get knocked down a lot, by my reckoning. You'll never block like a warrior, but you'll learn when to run, and that's half the fight anyway." } },
+      choices = {
+        { text = "I'll stand and take your drills like anyone else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll learn to run, Llane. Standing's for fools.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They respect what a mage can do, but they don't respect that you can't take a punch, and I've told them that's the point. Learn to stand behind a shield wall and you'll live long enough to burn whatever's in front of it." } },
+      choices = {
+        { text = "I'll respect your shield wall, Llane, and stand where I'm told.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your warriors should be grateful for what I can do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever La Salle lets out of the graveyard." } },
+      choices = {
+        { text = "I'll keep my imp leashed and away from your recruits.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your recruits could do with a real fight now and then.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Warriors are made, not born. Mostly by getting knocked down and standing back up." },
@@ -41,6 +68,12 @@ P:NPC {
         { id = "h_dawn", when = { metBefore = true }, text = "The recruits ran the yard twice this morning. One cried and one laughed, and the one who laughed is the one I'm worried about." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 20 },
           text = "Look at the scars on you. Somebody's been earning them properly. Stand there. Let me see if the left guard ever got fixed." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in my yard. You'll want to run the drills with my recruits, I expect, or else you're here to steal the practice swords." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage in the practice yard. Stand at the back, recruit, because my warriors swing wide." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, here in the yard. Keep that creature off my training dummies, because they're hard enough to replace as it is." },
       },
       again = {
         { id = "h_again", text = "Anything else, recruit? Ask while you stretch; you'll want the breath later." },
@@ -55,6 +88,9 @@ P:NPC {
         { text = "Do you train dwarves the same as humans?", next = "dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Can a gnome really learn your stance?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "What do you think of the other trainers here?", next = "trainers" },
+        { text = "Would you train a rogue alongside your warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your warriors respect the mages here at Northshire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have warlock pets damaged your dummies before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },

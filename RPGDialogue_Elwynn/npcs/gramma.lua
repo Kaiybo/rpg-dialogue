@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It's for the boy, though he thinks it's for the east fence crew, and he'll carry half of it across the river to someone he thinks I don't know about. I don't mind a little sneaking when it's for love, but I mind it very much when it's for pie." } },
+      choices = {
+        { text = "Your pie's safe, Gramma. I'd sooner help the boy than rob him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sneaking's sneaking, Gramma. Love doesn't make it honest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Whatever you've got whispering at your shoulder, it can't be worse than this family at harvest." } },
+      choices = {
+        { text = "Your warmth means more than you know, Gramma.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My whispers are worse than any feud. Don't mistake me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I believe in a good garden and a warm hearth, dear, and if that's magic, then I've been working it for sixty years." } },
       choices = {
@@ -55,6 +73,10 @@ P:NPC {
           text = "There's my favourite. Sit down, you, and don't tell the family I said that, or I'll never hear the end of it." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, at my door! My grandmother used to say the night elves' magic could make an apple tree bloom in winter. I'd like to see that someday." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Light-fingered, are you? I can tell from the way you're looking at my pie tin, so mind it, child, because it's spoken for." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've a cold air about you, child, colder than this kitchen in January. Sit by the stove and tell me what you've been up to." },
       },
       again = {
         { id = "h_again", text = "What else? I'm old, child, not deaf. Well, mostly not deaf." },
@@ -71,6 +93,8 @@ P:NPC {
         { text = "I'll pray the two families make peace.", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has feuds too, in Stormwind.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Dwarves feud for generations, Gramma. It never ends well.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Who is the pie spoken for, Gramma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does it trouble you to sit with a warlock, Gramma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

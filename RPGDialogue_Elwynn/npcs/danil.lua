@@ -25,6 +25,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I think the Defias robbed Milly's vineyard within a bowshot of the Abbey walls, so I've stopped thinking anyone wouldn't. You've an honest enough face, but so did the last fellow who bought one loaf and left with three." } },
+      choices = {
+        { text = "I'd never steal from the Abbey's stores, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the Abbey can't guard its bread, that's the Abbey's fault.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The Brothers mind a great deal, but they mind empty bellies more, and the Light never said a warlock had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." } },
+      choices = {
+        { text = "Your charity does you credit, Brother. I'm grateful for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save your prayers. I'll pay for bread, not pity.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bread, water, a little thread. The Abbey's stores are humble, but honest." },
@@ -36,6 +54,10 @@ P:NPC {
           text = "One of the Abbey's own, buying from my wagon. I used to give your lot the stale loaves. Now you pay for the fresh ones." },
         { id = "h_veteran", when = { minLevel = 20 },
           text = "You've outgrown my wagon, by the look of that kit. Stormwind's merchants will be glad of you. I'm glad of you too, if you're buying." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I keep the coin box under the bread, you know, and I've a very good memory for how many loaves I baked." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've come down from the graveyard, I can tell, and La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wagon's open till the bread runs out." },
@@ -47,6 +69,8 @@ P:NPC {
         { text = "Mining picks and skinning knives? From a brother?", next = "tools" },
         { text = "Arrows. As many as I can carry.", next = "arrows", when = { class = "HUNTER" } },
         { text = "I can't afford much, Brother.", next = "poor", when = { money = { max = 500 } } },
+        { text = "Do you truly think a rogue would rob the Abbey?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the Brothers mind you selling to warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

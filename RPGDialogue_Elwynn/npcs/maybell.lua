@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because there's someone on the Stonefield side who'd like to hear from me, and Pa reads every letter that leaves the house. I know it isn't proper, but proper hasn't done much for me so far." } },
+      choices = {
+        { text = "Tell your Pa the truth, Maybell. Secrets only fester.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Proper be hanged. Love finds its own way across rivers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I'd like to know if they're happy, I suppose, though Pa would say it doesn't matter as long as they give milk." } },
       choices = {
@@ -59,6 +68,8 @@ P:NPC {
           text = "You came all the way back here? From wherever adventurers go? Then you should know: nobody's caught us yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Oh, a druid! Are you one of those who can talk to the animals? I've always wondered if the cows have opinions." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You're a mage! Do you know any spells that could carry a letter across the river without anyone seeing?" },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, though; Billy's somewhere about, and Billy hears everything." },
@@ -75,6 +86,7 @@ P:NPC {
         { text = "Shall I bless the two of you? Quietly.", next = "priest", when = { class = "PRIEST" } },
         { text = "I could teach you to move unseen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You should tell your family the truth.", next = "truth", fx = { opinion = { maybell_tommy = "honest" } } },
+        { text = "Why would you need a letter carried in secret?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your secret's safe with me.", next = "END", fx = { affinity = 1, opinion = { maybell_tommy = "romantic" } } },
       },
     },

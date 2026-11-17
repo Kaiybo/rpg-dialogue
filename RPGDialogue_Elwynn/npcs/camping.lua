@@ -26,6 +26,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I've nothing worth stealing but a kettle and a bedroll, and the Defias have better targets on the Westbrook road than me. Besides, anyone who'll sit by my fire and listen to my stories has paid for whatever they take." } },
+      choices = {
+        { text = "Your kettle's safe with me, Sam. I'd never rob a host.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sleeping camper's an easy mark. You should be more careful.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a fire you've worked for is half the point of camping, though I won't deny I've wished for a spell when the wood's wet. Light it once with magic and I'd never learn to do it properly, so I suppose I'd better say no." } },
+      choices = {
+        { text = "You're right. The proper way is worth learning first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic does it faster. Take the easy road, Sam.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -36,6 +54,10 @@ P:NPC {
           text = "Sit by the fire a while. No, longer than that. You'll feel it when you've properly rested." },
         { id = "h_far", when = { minLevel = 25 },
           text = "Look at the boots on you. Those have been somewhere. Sit down and tell me where; I've only got as far as this log." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came up on my fire so quiet I nearly put the kettle over your boots. Sit down anyway; a body that sneaks still needs tea." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Could you light my fire for me some evening? I've been at it with flint for an hour some nights, and it's undignified." },
       },
       again = {
         { id = "h_again", text = "What else? There's tea, if you're staying a while." },
@@ -49,6 +71,8 @@ P:NPC {
         { text = "Let me bless the fire.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've slept rough from here to the jungle.", next = "far", when = { minLevel = 25 } },
         { text = "A hunter sleeps rough with a beast for a pillow.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Don't you worry about strangers who sneak up on you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why not just carry a spark-stone like everyone else?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Enjoy the fire.", next = "END" },
       },
     },

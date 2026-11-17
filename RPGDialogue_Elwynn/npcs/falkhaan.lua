@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a body that sleeps in hedges wakes up stiff and slow, and slow is the last thing your trade can afford. Rest properly at the Lion's Pride and you'll be sharper for it, and Farley won't ask what you do for a living." } },
+      choices = {
+        { text = "Then I'll rest at the inn like an honest traveller.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A hedge costs nothing and keeps no ledger. I'll keep my hedge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It is when your hands start shaking at Jasperlode and you set the mine's timbers alight instead of the kobolds. I've seen it happen to a young mage from the tower, and he was very sorry about it afterwards." } },
+      choices = {
+        { text = "I'll take your advice and rest, Falkhaan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll sleep when the work is done, not before.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Falkhaan Isenstrider, at your service. I stand by this road and tell tired people where to sleep, because somebody has to and it may as well be me." },
@@ -48,6 +66,10 @@ P:NPC {
           text = "I sent you south a recruit, and you've come back walking like someone who sleeps on rocks. The inn's still there, if you've forgotten what a bed is." },
         { id = "h_priest", when = { class = "PRIEST", maxLevel = 9 },
           text = "Another one out of the Abbey with sore knees. The brothers pray hard. Go and rest them somewhere soft." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You look like someone who sleeps in hedges and calls it an inn. The Lion's Pride has beds, you know, and real ones." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you're the sort who forgets to sleep, I can see it in your eyes. Reading by candlelight again, were you?" },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The road's quiet just now, and I've time." },
@@ -63,6 +85,8 @@ P:NPC {
         { text = "I walked this road as a novice once.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I've been a long way since you sent me south.", next = "far", when = { minLevel = 20 } },
         { text = "My people sleep beneath the stars, not under roofs.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "Why should a rogue pay for a bed in town?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is a little lost sleep so bad for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },

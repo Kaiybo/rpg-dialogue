@@ -35,6 +35,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It would, because the young ones scatter before a man gets within a stone's throw of them, and then they come back for my drying racks after dark. If you can get close enough to see the whites of their eyes, you'll do better than most of the Abbey's recruits." } },
+      choices = {
+        { text = "I'll thin the pack so they stop starving on your racks.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll kill every wolf on that ridge, pups and all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Every animal does, and mine have been howling at the graveyard behind the Abbey since La Salle took up her post there. A wolf knows something wrong when it smells it, and I've learned to trust a wolf's nose over a man's word." } },
+      choices = {
+        { text = "Your wolves are right to fear it. I'll keep it leashed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them howl. Fear keeps beasts in their place.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Wolves are pushing over the ridge, hungry ones, and they take whatever they can carry." },
@@ -52,6 +70,10 @@ P:NPC {
           text = "I ate the last of your wolf last night, slow over coals with a bit of salt. Tough as a boot, and I'd not change a thing." },
         { id = "h_veteran", when = { minLevel = 20 },
           text = "You've a better knife than you came here with, and a few scars from things bigger than wolves, by the look of you. That's good." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk light, like a hunter who's learned not to step on twigs. Good; the wolves on the ridge hear everything else." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Keep whatever that is on a short leash, because the wolves smell it and it puts them in a temper." },
       },
       again = {
         { id = "h_again", text = "Something else? Be quick about it; the traps don't check themselves." },
@@ -64,6 +86,8 @@ P:NPC {
         { text = "Do you ever feel sorry for them?", next = "pity" },
         { text = "Teach me a cleaner cut?", next = "skin", when = { profession = "Skinning" } },
         { text = "Would you skin me, if I were a bear?", next = "druid", when = { class = "DRUID" } },
+        { text = "Could a quiet step help with your wolves?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your wolves truly sense a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

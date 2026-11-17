@@ -25,6 +25,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I said a quiet one, because the loud ones knock over pots and the quiet ones at least taste the stew before they steal it. Truth be told, I'd rather feed you than lose a ladle, so sit and I'll fill a bowl." } },
+      choices = {
+        { text = "I'll pay for the stew, Tomas, and leave your ladles be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Free stew's the best kind. I'll take the bowl and go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Chanting, mostly, and once a laugh that wasn't anybody's, which put me off my bread for a week. I don't blame you for your trade, but I'd thank you to keep it on your side of the wall." } },
+      choices = {
+        { text = "Whatever laughed, I'll see it never troubles your kitchen.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A cook should learn not to listen through walls.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Tomas, and I cook for the Lion's Pride. Toddrick cuts the meat, Dobbins pours, and I'm the one who makes it all worth eating." },
@@ -37,6 +55,10 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf in my kitchen, and you'll be judging the ale before the food, I expect. Dobbins handles the ale; I'll stand by the stew." },
         { id = "h_back", when = { metBefore = true }, text = "Back again? Taste this and tell me it wants more salt. Everyone says that, and they're always right." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came into my kitchen without a sound, and that's the only way I'd ever let a rogue in here, so mind the knives on the board, because they're counted." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've come up from below, haven't you? The cellar stairs are right beside my larder, and I hear things on that side of the wall I'd rather not." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I chop; the onions won't wait." },
@@ -48,6 +70,8 @@ P:NPC {
         { text = "Where does the meat come from?", next = "meat" },
         { text = "Sam on the road sent me about a campfire.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Cooking") } },
         { text = "I've cooked for an abbey full of novices.", next = "abbey", when = { origin = "human_abbey_novice" } },
+        { text = "Why would a rogue be welcome in your kitchen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do you hear through your larder wall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just smelling the stew.", next = "END" },
       },
     },
@@ -123,6 +147,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Much better, because cold bread on the road to Eastvale is just bread, but warm bread is a reason to stop walking. I'd never ask for a spell outright, mind, since my mother taught me to bake by the hearth and nothing else." } },
+      choices = {
+        { text = "Your mother's way is the right way. Keep to the hearth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Times change, Kira. Hire a mage and sell twice as much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "More than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. I keep walking because the bread won't sell itself, but I walk faster near Goldshire after dark." } },
+      choices = {
+        { text = "I'll walk you past the dark stretches, if you like.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear's a good teacher. Keep walking fast.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kira Songshine, baker, and I bring the bakery to you! North to the city gates, east toward the tower, and southwest as far as the garrison, depending on my feet." },
@@ -131,6 +173,10 @@ P:NPC {
           text = "If you're going after Hogger, take two loaves, one for the walk there and one for the walk back, because I'm an optimist." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "Ooh, a gnome! The ones I meet always want to know how the oven works. I bake it in Goldshire, I tell them, and it works by being hot." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I always hope one of you will warm my baskets on a cold morning, though none of you ever have." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Oh! You gave me a fright, coming up the road with that creature, and I nearly dropped the rolls." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've got a long way to walk before dark." },
@@ -141,6 +187,8 @@ P:NPC {
         { text = "Isn't the road dangerous for you?", next = "road" },
         { text = "Who buys from you, mostly?", next = "buyers" },
         { text = "I stood a Stormwind watch once. Do the guards look after you?", next = "guards", when = { origin = "human_city_guard" } },
+        { text = "Would warm bread really sell better on the road?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are you often frightened on the road, Kira?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Safe walking.", next = "END" },
       },
     },
@@ -200,6 +248,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd sneak into the Lion's Pride cellar and see what's down there, because Farley says it's just barrels but Joshua heard it growl. Then I'd sneak out again really fast and tell everyone." } },
+      choices = {
+        { text = "Stay out of that cellar, Bo. Some doors are shut for a reason.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find out for yourself, Bo. Grown-ups hide all sorts of things.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Bo! Me and Joshua and Mark play by the smithy, because Argus lets us watch the sparks so long as we don't touch anything." },
@@ -207,6 +264,8 @@ P:NPC {
           text = "Are you a paladin? Brother Wilhelm trains them behind the smithy, and I watch through the fence. I'm going to be one when I'm big." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "You're a dwarf! Is it true dwarves are born with beards? Mark says yes, and Joshua says Mark's daft." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Are you a rogue? Can you go invisible? Mark says rogues can go invisible, and Joshua says Mark's daft again." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before Mark finds me." },
@@ -216,6 +275,7 @@ P:NPC {
         { text = "What do you play?", next = "games" },
         { text = "What do you want to be when you're grown?", next = "grown" },
         { text = "Want to see a real spell?", next = "mage", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "What would you do if you could go invisible?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -273,12 +333,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It's the fish, because they're stupid, but Lee Brown says I splash too much when I cast. I don't believe him, but I've started casting quieter, just in case." } },
+      choices = {
+        { text = "Lee's right, Matt. Listen to the man who catches fish.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Never mind Lee. Splash all you like and blame the fish.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I would, but properly takes forever, and I've been sitting here since breakfast. Lee Brown says patience is the trick, but Lee Brown's old, so he's got more patience to spare than me." } },
+      choices = {
+        { text = "Patience is the trick, Matt. Lee's right about that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget patience. Find a faster way to fill your basket.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Matt, and I'm a fisherman. I haven't caught anything yet today, but that's because the fish in this pond are stupid and won't bite." },
         { id = "h_back", when = { metBefore = true }, text = "I caught one yesterday, a big one, only it got away, so you'll have to take my word for it." },
         { id = "h_guards", when = { questDone = TODO_QUEST("Find the Lost Guards") },
           text = "Is it true you went out to the lake where the guards went missing? Ma won't let me past the bridge now, and I think I know why." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You're one of those sneaky types! Don't creep up on the pond, because you'll scare the fish, and they're scared enough already." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Can you make fish jump out of the water? That would be the best way to fish there is." },
       },
       again = {
         { id = "h_again", text = "What? Keep your voice down, there might be one coming." },
@@ -288,6 +370,8 @@ P:NPC {
         { text = "Where's the best fishing?", next = "spot" },
         { text = "Can I see your line?", next = "line" },
         { text = "Want some tips from a real fisher?", next = "tips", when = { profession = "Fishing" } },
+        { text = "Is it the fish or the fisherman that's the trouble?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Wouldn't you rather catch them properly, Matt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck, Matt.", next = "END" },
       },
     },

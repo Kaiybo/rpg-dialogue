@@ -24,6 +24,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I fear anything I don't understand, and I don't understand you or what you keep at your heel. The Stonefields would say I fear everything, but the Stonefields have never had to watch a harvest go to the Defias." } },
+      choices = {
+        { text = "Your caution is fair. I'll keep away from your vines.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear won't save your vines. Strength will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "This is the Maclure vineyard, and I'm Pa Maclure. My family's worked these vines longer than anyone in Goldshire can remember, and we'll work them long after." },
@@ -34,6 +43,8 @@ P:NPC {
         { id = "h_goldtooth", when = { questDone = TODO_QUEST("Goldtooth") },
           text = "So it was a kobold took the Stonefield woman's necklace and not my Billy. I said so from the start. Nobody listens to a Maclure on that farm." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late to be out among the vines. A man hears things in the rows at night, and none of them are honest." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've a stink about you like a burned field, and I don't want it near my vines, so state your business and go." },
       },
       again = {
         { id = "h_again", text = "What else? I've vines to see to before dark." },
@@ -45,6 +56,7 @@ P:NPC {
         { text = "How are the vines this year?", next = "vines" },
         { text = "Tell me about your children.", next = "children" },
         { text = "Seen the Defias up this way?", next = "defias", when = { any = { { questDone = TODO_QUEST("Brotherhood of Thieves") }, { class = "ROGUE" } } } },
+        { text = "Do you fear a warlock will harm your vines?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Mr. Maclure.", next = "END" },
       },
     },
@@ -153,6 +165,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "He does, and the one night he came up two short it was Billy who'd taken them to the Stonefields, which caused more trouble than a Defias raid. If you ever see Billy with a bottle, I'd be grateful if you didn't tell Pa." } },
+      choices = {
+        { text = "I won't lie to your Pa if he asks me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your secret's safe. What Pa doesn't know won't hurt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The south rows give a dry red that keeps you awake, which I'd recommend, though Pa says it's wasted on anyone who's never pruned a vine. I say coin is coin, and he says I talk like a merchant." } },
+      choices = {
+        { text = "Your Pa's right. Wine should honour the work behind it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Coin is coin, Joshua. Sell to anyone who pays.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Joshua Maclure. I sell what the vineyard makes, and a few things it doesn't, to whoever comes up the path. Don't mind Pa; he's sharper than he means to be." },
@@ -160,6 +190,10 @@ P:NPC {
           text = "A dwarf! You'll want ale, and I've a little, though Pa says ale's for folk who can't wait on a grape. Don't tell him I stock it." },
         { id = "h_escape", when = { questDone = TODO_QUEST("The Escape") },
           text = "The house is very quiet this week, and Pa keeps asking questions nobody wants to answer. I sell wine and say nothing, which suits me fine." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I'll show you everything I've got, but I'd thank you to keep your hands on the counter, because Pa counts bottles at night." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. You'll be after a bottle for the long nights with your books, I'd guess, and I've just the vintage." },
       },
       again = {
         { id = "h_again", text = "Anything else? Pa's watching, so I'd best look busy." },
@@ -170,6 +204,8 @@ P:NPC {
         { text = "Is your Pa always like that?", next = "pa" },
         { text = "Who buys your wine?", next = "buyers" },
         { text = "Do you know about Maybell and Tommy Joe?", next = "secret", when = { questDone = TODO_QUEST("Young Lovers") } },
+        { text = "Does your Pa really count bottles every night?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there a vintage you'd recommend for a scholar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },
     },

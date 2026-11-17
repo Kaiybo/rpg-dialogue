@@ -34,6 +34,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More often than they'd like Jorik to know, because they cut themselves practising on the fence posts behind the Abbey and won't admit it. I mend them and say nothing, which is the one quiet art I'm any good at." } },
+      choices = {
+        { text = "Then I'll tell Jorik myself if I'm hurt. Honesty first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some things are better kept from a trainer, Priestess.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That the Light can mend a scorched hand, but it can't mend a scorched library, and Khelden's students have come close to both. Learn your fire slowly and you'll need me a good deal less." } },
+      choices = {
+        { text = "Slow and careful, then. I'll heed you and Khelden both.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fire's learned by burning. I'll take the risk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, because I've seen where it ends for some. The Abbey keeps its doors open to you, and I'd like you to remember that." } },
+      choices = {
+        { text = "I'll remember the Abbey's open door, Priestess.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep your grief, Priestess. My road is my own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Anetta. I keep the Library Wing, and I keep the recruits alive. Some days those are the same job." },
@@ -48,6 +75,12 @@ P:NPC {
         { id = "h_cots", when = { metBefore = true }, text = "Three cots full this morning, and all three of them got up and walked out by noon. I'll take that." },
         { id = "h_back", tags = { "news" }, when = { class = "PRIEST", minLevel = 20, metBefore = true },
           text = "Look at you! You left here with a staff you could barely hold, so come and tell me what the world's done to you, and then what you've done to it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Jorik's student, I expect, since you came in without the door creaking, and that door always creaks. Sit on the stool if you're hurt, and don't touch the bandages unless you're asked." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "One of Khelden's, by the ink on your fingers. He sends me his burned ones and I send them back with a lecture of my own." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've come up from La Salle's graveyard, and I can feel it on you like a chill. I'll mend you if you need mending, but I'll pray while I do it." },
       },
       again = { { id = "h_again", text = "Something else? Sit while you ask; the stool's for visitors." } },
       choices = {
@@ -56,6 +89,9 @@ P:NPC {
         { text = "What should a new priest learn first?", next = "first", when = { class = "PRIEST", maxLevel = 15 } },
         { text = "What happens to the ones you can't heal?", next = "lost" },
         { text = "I grew up in these halls.", next = "novice", when = { origin = "human_abbey_novice" } },
+        { text = "Do Jorik's students come to you often for mending?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What lecture do you give Khelden's burned students?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you resent tending La Salle's students, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -130,6 +166,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a book of spells sells for good coin in the Trade District, and I've lost two this year already. I'm not accusing you, but I'll be counting when you leave." } },
+      choices = {
+        { text = "Your books are safe, Khelden. I'm no thief of knowledge.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If your books walk, perhaps your locks need improving.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the last of La Salle's students who borrowed one returned it with pages missing, and the ones that went were the ones about binding. I teach fundamentals here, and I'll not have them twisted into something that bites." } },
+      choices = {
+        { text = "Your caution is wise, Khelden. I'll not ask again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge belongs to whoever can use it best.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Khelden Bremen. I teach the fundamentals, though everyone wants the dramatic parts, and the fundamentals are what keep the dramatic parts from killing you." },
@@ -142,6 +196,10 @@ P:NPC {
         { id = "h_basics", when = { metBefore = true }, text = "Back for more fundamentals? Good, because everyone else wants fireballs, and you'd be amazed how many of them set the library curtains alight." },
         { id = "h_veteran", when = { class = "MAGE", minLevel = 25 },
           text = "One of mine, come back up the stairs. You still hold your hands like I taught you. Most forget by the time they reach the Sanctum." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "One of Jorik's, here in my library. You'll touch nothing on the shelves, because I know exactly where every book is, and I'll know if one moves." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in my library. You'll be La Salle's, then, and you'll be wanting a book I won't lend you." },
       },
       again = {
         { id = "h_again", text = "Another question? Go on, but mind the inkwell." },
@@ -157,6 +215,8 @@ P:NPC {
         { text = "Gnomes learn magic by taking it apart first.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "My people kept the old Highborne arts.", next = "skyborne", when = { race = "Skyborne", class = "MAGE" } },
         { text = "What do you make of the other teachers here?", next = "teachers" },
+        { text = "Why would a rogue want anything from your library?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why won't you lend your books to a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -295,6 +355,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "We get along well enough, but he thinks my students are thieves and I think his are firecrackers, and we're both half right. Still, when the kobolds come out of Echo Ridge, I'd rather have one of his firecrackers beside me than a dozen recruits." } },
+      choices = {
+        { text = "Then we'll fight side by side. Fair's fair, Jorik.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Firecrackers and thieves. We're both just tools, Jorik.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Once, and only once, because she wanted to learn about poisons and I wanted to learn what she keeps in that graveyard, and neither of us got a fair trade. The Brothers don't know about it, and they'd best not hear it from you." } },
+      choices = {
+        { text = "I won't speak of it to the Brothers, Jorik.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Brothers might pay well for that tale, Jorik.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jorik. I teach the quiet arts back here, where the Brothers don't have to watch, and they prefer it that way as much as I do." },
@@ -309,6 +387,10 @@ P:NPC {
           text = "There you are, and I didn't hear you at all that time. Don't look so pleased; I'm getting old, is all." },
         { id = "h_canals", when = { origin = "human_canal_pickpocket", class = "ROGUE" },
           text = "Canal-born; I can tell by how you count the exits before the faces. You'll skip half of lesson one, and I'll make you sit through it anyway." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, out here behind the Abbey. You've taken a wrong turn, unless Khelden's sent you to spy on my lessons." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "La Salle's student. You walk quietly for someone with an imp at your heel, and I'll give you that much." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your voice down; the horses gossip." },
@@ -324,6 +406,8 @@ P:NPC {
         { text = "Dwarves aren't meant to be quiet, they tell me.", next = "dwarf", when = { race = "Dwarf", class = "ROGUE" } },
         { text = "The Watchers taught me to go unseen.", next = "watchers", when = { race = "NightElf", class = "ROGUE" } },
         { text = "What do you think of the other teachers?", next = "teachers" },
+        { text = "Is there any truth to the rivalry between you and Khelden?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you and La Salle ever trade lessons, Jorik?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -446,6 +530,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Manners, mostly, and because the dead are very particular about who walks among them uninvited. Jorik's students treat this graveyard like a shortcut to the vineyard, and one day something will take offence." } },
+      choices = {
+        { text = "I'll respect the dead and take the long way round.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead don't mind. Shortcuts are shortcuts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Khelden thinks I'm a disgrace to the art, and I think Khelden is afraid of everything his books can't explain. We pass each other in the yard and nod, which is as civil as either of us cares to be." } },
+      choices = {
+        { text = "Khelden's caution keeps the Abbey safe, La Salle.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Khelden's fear holds back his students. You're bolder.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "La Salle. I teach out here among the dead because the Brothers prefer not to see me, and the dead don't mind; they're very good listeners." },
@@ -462,6 +564,10 @@ P:NPC {
           text = "A priest among my graves. Have you come to bless them? They're past it, and if you've come to bless me, so am I." },
         { id = "h_lamb", when = { origin = "human_lamb_cellar", class = "WARLOCK" },
           text = "Gakin's cellar sent you, did it, or rather you sent yourself there, down those stairs, and kept going. You'll find the graves quieter, and the lessons slower." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Jorik's pupil, out among the graves. You came very quietly, which the dead appreciate, though I'd rather you knocked on a headstone first." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, out here among the dead. Khelden must be teaching his pupils to wander, or else you've come to see what all the praying is about." },
       },
       again = {
         { id = "h_again", text = "Well? The dead are patient, but I am less so." },
@@ -476,6 +582,8 @@ P:NPC {
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
         { text = "Do warlocks serve the Burning Legion?", next = "legion", when = { class = "WARLOCK" } },
         { text = "Gnomeregan's forbidden shelves taught me the basics.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
+        { text = "Why would the dead want a knock on a headstone?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What does Khelden think of your teaching here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -613,6 +721,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd teach you to take a hit, which every rogue I've met is bad at, and I'd teach you to stop running long enough to see what's coming. The rest you'll learn from Sylvius, and I'd rather not know what that is." } },
+      choices = {
+        { text = "I'll learn to stand and take a hit, Du Lac.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Running is smarter than standing. I'll keep running.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They learn to stand still while fire goes over their heads, which is harder than it sounds and takes a week of drills. The farm hands who come to me flinch at a candle, but by the time I'm done, they don't even blink at a fireball." } },
+      choices = {
+        { text = "Then I'll trust your warriors and never waste their courage.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your warriors had better not flinch. My fire won't wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They'd fight beside it if I told them to, but they'd keep one eye on it the whole time, and a soldier with one eye on his ally has only one eye on his enemy. That's the trouble with your trade, and I've never found an answer to it." } },
+      choices = {
+        { text = "Then I'll keep my demon away from your soldiers' flanks.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your soldiers had better learn to trust it. War needs every weapon.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Du Lac. I make Stormwind's soldiers out of Elwynn's farm hands. The kingdom's strength isn't its walls. It's whoever's standing on them." },
@@ -627,6 +762,12 @@ P:NPC {
           text = "Look at you, with a shield that's been used and armour that's been mended twice. Stormwind's lucky to have you, though don't tell it I said so." },
         { id = "h_guard", when = { origin = "human_city_guard", class = "WARRIOR" },
           text = "A Watch recruit, by that grip, come out to the country to learn what a real fight smells like. Good; the halberd taught you to stand, and I'll teach you to stop leaning on it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in my yard. Stand at the back and watch, because you'll learn more about a fight from the edges than you will from the middle." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and a long way from the tower. You'll be wanting a warrior to stand in front of you, I expect, and I train the best in Elwynn." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, out of the cellar and into the light. Keep that creature away from my recruits, because they're nervous enough already." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your shield up while you ask." },
@@ -643,6 +784,9 @@ P:NPC {
         { text = "Does a gnome have a place in your line?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "The Sentinels trained me with a glaive.", next = "kaldorei", when = { race = "NightElf", class = "WARRIOR" } },
         { text = "What do you think of the other trainers in Goldshire?", next = "trainers" },
+        { text = "Would you teach a rogue the warrior's way?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your warriors learn to fight beside mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would your recruits fight beside a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -785,6 +929,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Of course they can, though it's harder, because your trade asks you to keep secrets, and the Light asks you to keep none. I've known rogues who walked closer to the Light than any priest, and I've known priests who walked further from it than any rogue." } },
+      choices = {
+        { text = "I'll try to walk closer to the Light, Priestess.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My secrets are my own. The Light can mind its business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He doesn't disapprove, exactly, but he thinks the Light is a sort of arcane theory nobody's bothered to write down properly. I've told him that faith isn't a theory, and he's told me that's exactly what a theorist would say." } },
+      choices = {
+        { text = "Faith and study can stand side by side. Both have worth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Zaldimar's right. Faith is only theory unwritten.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It troubles me more than I let on, because my students pray up here and something else answers down there, and they're only a floor apart. I pray for the cellar every night, though I suspect the cellar doesn't pray for me." } },
+      choices = {
+        { text = "Keep praying, Priestess. Someone below may hear you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The cellar answers to power, not prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Josetta. I teach the Light up here, above the noise of the common room, or mostly above it." },
@@ -801,6 +972,12 @@ P:NPC {
         { id = "h_go", when = { metBefore = true }, text = "You're still here? That's good, and not good. The world's bigger than Goldshire, little one, so go and see it, and come back and tell me." },
         { id = "h_far", tags = { "news" }, when = { class = "PRIEST", minLevel = 30, metBefore = true },
           text = "You came back, you actually came back, from wherever that tan's from! Sit down and tell me everything, and start with the sea." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, up here among the prayers. You'll be Sylvius's student, then, come to see what the Light looks like up close." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and Zaldimar's student, no doubt. He's just across the hall, though he pretends not to hear our prayers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You're from the cellar. I can hear them chanting down there some nights, right through the floorboards, and it makes the candles gutter." },
       },
       again = { { id = "h_again", text = "What else? Mind the floorboard; it squeaks to Farley." } },
       choices = {
@@ -809,6 +986,9 @@ P:NPC {
         { text = "Where would you have gone?", next = "where" },
         { text = "Tell me about the Cathedral.", next = "cathedral", when = { class = "PRIEST" } },
         { text = "I've been far. Want to hear about it?", next = "stories", when = { minLevel = 30 } },
+        { text = "Can a rogue truly walk in the Light, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does Zaldimar disapprove of your teaching, Priestess?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the chanting below trouble your prayers, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -881,6 +1061,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "One tried last winter and got stuck in the window, which taught him more about humility than Sylvius ever could. I don't keep anything valuable here, because the Wizard's Sanctum keeps it for me, and I'd advise you to let it." } },
+      choices = {
+        { text = "I'll leave your books alone, Wefhellt. Theft isn't my aim.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they're valuable, they'll walk eventually.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think they're dabbling in things the Kirin Tor locked away for very good reasons, and I think Farley's foolish to let them stay. But the Sanctum didn't send me here to judge, only to teach, so I keep my opinions to the stairs." } },
+      choices = {
+        { text = "The Kirin Tor were wise to lock such things away.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Kirin Tor locked it away out of fear, not wisdom.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Wefhellt, of the Wizard's Sanctum, currently of the upstairs room at the Lion's Pride. The view is of a stable, but one makes do." },
@@ -893,6 +1091,10 @@ P:NPC {
           text = "Bremen sent you down from the Abbey. He'll have drilled you on the four rules until you dreamed them. Good. We can skip to the interesting part." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Josetta's down the hall, friend. Though if you've a moment, I'd love to know how the Light feels from the inside. Purely academically." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, at my door. You'll be Sylvius's, and you'll find nothing worth stealing up here but books and a view of a stable." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "One of Marcot's, up from the cellar. You've climbed further than most of your kind bother to, and I'd ask what for." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, before the singing starts downstairs." },
@@ -908,6 +1110,8 @@ P:NPC {
         { text = "Gnomes make better mages than humans, you know.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "Would you like to see a High Order form?", next = "skyborne", when = { race = "Skyborne", class = "MAGE" } },
         { text = "What do you make of the cellar below?", next = "cellar" },
+        { text = "Have rogues ever tried to steal your books, Wefhellt?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do you think of the warlocks below your room?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1023,6 +1227,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He thinks I'm a thief with a bookshelf, and I think he's a scholar with a temper, and we're both right. We share a roof and a bad stew, which is more than most mages and rogues manage." } },
+      choices = {
+        { text = "A shared roof deserves respect. I'll mind your corner.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Respect's earned, Sylvius. Neither of you has earned mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the stairs go down to the cellar, and Farley prefers that nobody uses them at all. Your trade and mine both depend on Farley not asking questions, so let's not give him a reason." } },
+      choices = {
+        { text = "Farley's rules are fair. I'll keep your students' secret.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Farley's rules mean nothing to me. I'll do as I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Sylvius. I train the quiet ones in Goldshire and read a lot of books I don't need, and both are cover, and neither is your business." },
@@ -1035,6 +1257,10 @@ P:NPC {
           text = "A fresh fish from Jorik's stable. He sends me the ones who can at least find the stairs. Let's see if you can find anything else." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Josetta's room is down the hall. This one's for reading, and I'm reading. You'll forgive me if I don't confess anything." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, in my corner of the inn. You've wandered too far from Zaldimar's room, I think, and too close to mine." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "One of Marcot's, up from the cellar. You'll have heard my students practising on the stairs, I suspect, and I'd thank you not to tell Farley." },
       },
       again = {
         { id = "h_again", text = "Still here? Then make it worth the page I've lost." },
@@ -1050,6 +1276,8 @@ P:NPC {
         { text = "I go back into Gnomeregan for parts nobody else will fetch.", next = "gnome", when = { origin = "gnome_scavenger" } },
         { text = "A kaldorei sees things a human misses.", next = "kaldorei", when = { race = "NightElf", class = "ROGUE" } },
         { text = "What do you think of the other trainers here?", next = "trainers" },
+        { text = "What do you and Zaldimar make of each other?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would Farley mind your students on the stairs?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Wrong room. Sorry.", next = "END" },
       },
     },
@@ -1158,6 +1386,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because there are things down here that don't like surprises, and if you surprise one of them, I won't be able to call it back in time. Sylvius's students learn that the hard way, and I'm tired of cleaning up after them." } },
+      choices = {
+        { text = "Then I'll knock next time, Marcot. Your rules, your cellar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll come and go as I please. Surprises are my trade.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It's how I began, with a book I shouldn't have opened in a library I shouldn't have been in, and Zaldimar would tell you the same story ends badly. I think it ends however you choose to end it." } },
+      choices = {
+        { text = "Some books are best left closed, Marcot.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every closed book is a door waiting to be opened.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Marcot. Farley thinks this is a storeroom, and it is; we store knowledge, mostly, and some of it bites." },
@@ -1172,6 +1418,10 @@ P:NPC {
           text = "A priest in the cellar. You'll want to go back up the stairs, friend. Nothing down here needs blessing, and some of it would object." },
         { id = "h_lamb", when = { origin = "human_lamb_cellar", class = "WARLOCK" },
           text = "Gakin wrote that one of his cellar's own was coming down my stairs. You'll find ours drier and Farley friendlier, so mind you don't get too comfortable." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in the cellar. You came down those stairs without a sound, which is admirable, though I'd rather you knocked." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, down here in the dark. Zaldimar must be desperate for news, or else you're curious, and curiosity is how most of us began." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep it low, because the floor's thin and Farley's ears aren't." },
@@ -1185,6 +1435,8 @@ P:NPC {
         { text = "I could tell the brothers what goes on here.", next = "threat", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
         { text = "Gnomeregan had warlocks long before Goldshire did.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
+        { text = "Why would a warlock want a rogue to knock?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is curiosity truly how most warlocks began?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

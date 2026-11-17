@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Defias tried last spring, and they got as far as the fence before old Bramble kicked one of them into the trough. Stormwind horses fetch a high price on the Westfall road, so I don't blame them for trying, but I do blame them." } },
+      choices = {
+        { text = "Anyone who'd steal a horse deserves the trough. Bramble did right.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A horse thief's only doing what Stormwind's tax men do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They fear it more than they fear wolves, and a frightened horse is a horse that kicks its stall to splinters. You could try one of the riding horses in time, if you'd leave your companion outside the gate." } },
+      choices = {
+        { text = "Your mare comes first. I'll leave my demon at the gate.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A horse that can't stand a demon isn't worth riding.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Katie Hunter. I breed the horses Stormwind rides: bred for years, cared for daily, and worth every coin. Randal teaches you to stay on them." },
@@ -34,6 +52,10 @@ P:NPC {
         { id = "h_trusted", when = { ["not"] = { race = "Human" }, reputation = { faction = "Stormwind", min = "exalted" } },
           text = "Stormwind trusts you completely, I hear, and then so do I. Come and meet them." },
         { id = "h_other", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } }, text = "These are Stormwind's horses. Earn the kingdom's full trust and we'll do business; until then, you're welcome to pat one." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I count every horse in this stable twice a night, so you know, and I know every one of them by the sound of its hooves." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Keep your creature downwind of the stalls, please, because I've a mare in foal and she won't settle if she smells it." },
       },
       again = { { id = "h_again", text = "Anything else? They'll want feeding soon." } },
       choices = {
@@ -41,6 +63,8 @@ P:NPC {
         { text = "How do I choose?", next = "choose" },
         { text = "Why only for Stormwind's people?", next = "only" },
         { text = "Do you name them?", next = "names" },
+        { text = "Has someone tried to steal your horses before?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your horses fear a warlock's summons?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -97,12 +121,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a horse won't sit still while you think, and every mage I've taught tries to think in the saddle. Learn to ride first and work your spells second, and you'll get further than the ones who try it backwards." } },
+      choices = {
+        { text = "First things first. I'll learn to ride properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll ride however I like and think while I'm doing it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd teach anyone who pays and listens, and I'd sooner you learned on my horses than learned on something you'd called up out of the dark. A horse forgives a bad rider, and I'm told your other mounts don't." } },
+      choices = {
+        { text = "I'd rather ride an honest horse than a summoned beast.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A summoned steed never tires. Your horses can't say that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Randal Hunter. Katie breeds them, I teach people to stay on them. It's taken years to get the order of those two jobs right." },
         { id = "h_outsider", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } }, minLevel = 40 },
           text = "I teach horses, and Stormwind's people. Your own folk will have their own mounts and their own teachers; I'd go to them." },
         { id = "h_young", when = { maxLevel = 39 }, text = "Patience. Riding's for people who've lived long enough to be careful, forty seasons on the road, give or take, so come back then." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. Your kind always want to ride at first and then decide halfway to Stormwind that walking was faster." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I'll teach you to ride if you want it, though your sort will be riding something else soon enough, I hear." },
       },
       again = { { id = "h_again", text = "More questions? Good, because questions now are cheaper than falls later." } },
       choices = {
@@ -110,6 +156,8 @@ P:NPC {
         { text = "What's the hardest part?", next = "hardest" },
         { text = "Why make people wait so long?", next = "wait" },
         { text = "Can a priest ride like a knight?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Why do mages give up on riding?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you teach a warlock to ride your horses?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

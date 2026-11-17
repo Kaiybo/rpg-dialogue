@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Defias are, and they're selling it in Westfall for twice what Stormwind pays me, which is the only part of it I admire. If you know anyone who knows anyone, I'd like a word with them." } },
+      choices = {
+        { text = "I'll help you catch them and hand them to the Guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll find them, but I'll settle it my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I'd rather have anything that keeps the orders on time, but I know a spell can't tell good grain from bad, and my lads can. Still, if you've a spell that keeps wolves off the cut wood, I'd pay for it." } },
+      choices = {
+        { text = "Your lads' craft is worth more than a spell, Raelen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic's faster and cheaper. You should try it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Supervisor Raelen. I make sure the wood gets cut, stacked and shipped on time. Everybody else makes sure it doesn't." },
@@ -42,6 +60,10 @@ P:NPC {
           text = "Fewer wolves this week, so somebody's been busy. If that was you, the lads are grateful, and I'm too busy to be." },
         { id = "h_daylight", when = { timeOfDay = "day", metBefore = true },
           text = "Daylight's still on us, so the axes should be going. Hear that? Neither do I, so excuse me a moment while I go and shout at somebody." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You'll want to steer clear of the stacks, because I've had enough timber walk off this camp at night." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at my logging camp. I don't suppose you could turn a tree into planks with a wave of your hand?" },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it; daylight's money." },
@@ -54,6 +76,8 @@ P:NPC {
         { text = "Rainer says someone should tell you where Westbrook is.", next = "rainer_heard", when = { heardLine = "rainer.h_raelen" } },
         { text = "Your lads look done in. Let me tend them.", next = "priest", when = { class = "PRIEST" } },
         { text = "Westfall folk would work for you.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "Is someone stealing timber from the camp at night?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you rather have magic than honest lumberjacks?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

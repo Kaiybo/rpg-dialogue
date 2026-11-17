@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but looking at you, I'm not so sure." } },
+      choices = {
+        { text = "Gramma's stories are worth heeding. I'll be careful.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Gramma's stories are for children. Bargains make power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Tommy Joe. Stonefield, if you're asking, and folk around here usually are. Family thinks I'm mending the east fence." },
@@ -43,6 +52,8 @@ P:NPC {
           text = "We're careful, very careful. One day we'll stop being careful, and I'll stand in that vineyard and say it out loud." },
         { id = "h_princess", when = { questActive = TODO_QUEST("Princess Must Die!") },
           text = "Ma's got you after the Brackwell pig? Good, because that sow ate my supper three nights running, if you count carrots as supper." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "There's something odd about you, odd like Gramma's stories, and I'm not sure I like it." },
       },
       again = {
         { id = "h_again", text = "What else? The river's not going anywhere, and neither am I, it seems." },
@@ -57,6 +68,7 @@ P:NPC {
         { text = "I worked a Westfall farm. Land's worth more than grudges.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I've a letter from Maybell.", next = "BUSINESS", when = { questActive = TODO_QUEST("Young Lovers") } },
         { text = "I could carry your letters without anyone seeing.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "What sort of stories does Gramma tell, Tommy Joe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck, Tommy Joe.", next = "END", fx = { affinity = 1 } },
       },
     },

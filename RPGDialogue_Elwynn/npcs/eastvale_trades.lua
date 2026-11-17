@@ -26,12 +26,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A short bow is a quiet thing, quieter than a thrown knife if you know how to loose it, and plenty of scouts carry one for the long shots. I'll string you one, but don't tell Drake I took his custom." } },
+      choices = {
+        { text = "I'll pay you fairly and tell Drake if he asks.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Drake won't hear a word from me about where I shop.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The grain tells me, because a straight piece wants to be a bow and a twisted one wants to be something else, and I don't fight it. The tower sends me a request for a staff now and then, and I make it when the right piece comes up from the mill." } },
+      choices = {
+        { text = "Then I'll wait for the right piece. Good work takes time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wood's wood. Carve it to the order and be done.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Rallic Finn, bowyer. The loggers bring me the straight-grained pieces they can't sell to Stormwind, and I turn them into bows and arrows for the camp and anyone passing through." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "One of the kaldorei, at my bench! Your people made bows before mine had learned to sharpen a stick, so I'll take any criticism you care to give and try not to sulk about it." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Most of your kin walk past my bows and ask where the guns are. Drake Lindgren next door sells shot, if that's what you're after." },
         { id = "h_frontier", when = { questDone = TODO_QUEST("Protect the Frontier") }, text = "You're the one who thinned out the wolves and bears around the camp. The loggers have stopped bringing me torn quivers to mend, and I'm glad of the quiet." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've a rogue's way of looking at a room, checking the windows first and the shelves second. Most rogues buy throwing knives from Drake, not bows from me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage in a bowyer's shop. You'll be after a staff, I expect, and I'll tell you now I only make them when the wood tells me to." },
       },
       again = {
         { id = "h_again", text = "What else? I'm only rubbing oil into this stave, so I can listen while I work." },
@@ -44,6 +66,8 @@ P:NPC {
         { text = "Is the camp safe these days?", next = "safe" },
         { text = "I'm a hunter. Any advice?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I worked the timber here once.", next = "woodsman", when = { origin = "human_eastvale_woodsman" } },
+        { text = "Would a rogue have any use for one of your bows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How does the wood tell you what it wants to be?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Rallic.", next = "END" },
       },
     },
@@ -124,11 +148,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a man who overcharges a mage gets a reputation, and a man with a reputation for honesty sells everything else in the house. I'd rather lose your reagents than lose your trust." } },
+      choices = {
+        { text = "That's a fair way to keep a shop, Drake.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You'd sell more if you just kept quiet about the tower.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. I'd rather not give them any more reason to believe it." } },
+      choices = {
+        { text = "That's wise, Drake. Some things shouldn't be sold over a counter.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear's bad for trade. You're losing coin to superstition.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Drake Lindgren, general and trade supplies. Everything in this house came up the road from Stormwind on a cart, so if you think the prices are high, blame the road." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! I've nothing clever in stock, I'm afraid, but there's plenty of plain flux and thread if you're building something that won't explode." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Throwing knives are on the left, and I've counted them, so you know. It's nothing personal; I count everything." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you'll be wanting reagents, I suppose. I carry a few, but the tower charges less, which is the one thing I'll never say in front of a customer." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in Eastvale. I'll tell you now that I don't carry anything your trade needs." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a cart to unload before dark." },
@@ -139,6 +185,8 @@ P:NPC {
         { text = "What do loggers buy most?", next = "loggers" },
         { text = "How do the carts fare on the road?", next = "road" },
         { text = "Who else should I know in Eastvale?", next = "camp" },
+        { text = "Why would you send customers to the tower?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you sell to a warlock if you did carry it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Drake.", next = "END" },
       },
     },
@@ -204,12 +252,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Around these loggers, yes, because they've been jumpy since the Defias started cutting our timber at night and selling it in Westfall. A man with an axe and a fright is the most dangerous thing in this camp." } },
+      choices = {
+        { text = "Then I'll announce myself next time. Your safety matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go where I like as quietly as I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back he takes it out of. I've nothing against you personally, but I've a great deal against my back." } },
+      choices = {
+        { text = "Fair enough. I'll keep my distance for your sake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Terry Palin, and before you ask, yes, I've been cutting trees since I could lift an axe. This mill turns Elwynn's oaks into beams for Stormwind, and I turn my back into knots doing it." },
         { id = "h_bundle", when = { questActive = TODO_QUEST("A Bundle of Trouble") }, text = "Out gathering the bundles we left in the woods? Bless you, because I'm not going back for them with the bears out there, and Raelen knows it." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "You've shoulders for this work, friend. If you ever tire of the sword, Raelen pays every week and the bears only bite now and then." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "By the Light, you're bigger than the logs! Don't take it the wrong way, but I'd pay good silver to see you carry a beam." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came in so quiet I nearly put my axe through you thinking you were a stump. Make a noise next time, will you?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "There's a chill come in with you that I don't like, and it's not the weather. Keep your distance from the mill, if you would." },
       },
       again = {
         { id = "h_again", text = "What else? I'm meant to be stacking, so ask quickly." },
@@ -220,6 +290,8 @@ P:NPC {
         { text = "Where does all this wood go?", next = "wood" },
         { text = "Why did the crews leave wood in the forest?", next = "bundles" },
         { text = "I know this work. I was a woodsman here.", next = "woodsman", when = { origin = "human_eastvale_woodsman" } },
+        { text = "Should a rogue really make noise around loggers?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why keep a warlock away from the mill?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },
