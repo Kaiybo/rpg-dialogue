@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not these, not since the Lady made her peace, though I'd wager their grandsires flew against the Horde. They carry officers and post now, and I'd like it to stay that way, because a gryphon shot down over Brackenwall is a gryphon I don't get back." } },
+      choices = {
+        { text = "Good. The Lady's peace is worth keeping your birds home.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A war gryphon carrying the post. That's a waste.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They'd like to, and they'd come back covered in mud and stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} had better keep its head down near the roost, because my old hen has snatched a hare out of a man's arms before now." },
+      },
+      choices = {
+        { text = "Keep them fed and disciplined. That's how a roost runs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them hunt. A gryphon ought to be wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They do, and they won't fly within a mile of the Wyrmbog no matter how I coax them. I don't blame them, mind; Onyxia's brood nests down there, and a gryphon knows a bigger predator when it smells one." } },
       choices = {
@@ -56,6 +77,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, so you'll be heavy, and you'll want to ride with your shield, and the bird will hate both. Strap it down properly or walk." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. Keep your beast away from the roost, because gryphons don't care how well trained it is, they only care whether it looks like food." },
         { id = "h_default", key = true,
           text = "Baldruc, and these are the Lady's gryphons, so treat them better than you'd treat yourself. They carry the post, the officers and anyone with coin, and they hate the damp more than I do." },
         { id = "h_rain", when = { timeOfDay = "night" },
@@ -79,6 +104,8 @@ P:NPC {
         { text = "I'd rather ride my own mount, thanks.", next = "x_mount", when = { class = { "PALADIN", "WARLOCK" } } },
         { text = "Has anyone ever tried to steal one of your gryphons, Baldruc?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do mages really never use your gryphons, Baldruc?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do your gryphons ever carry soldiers into battle, Baldruc?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your gryphons hunt in the marsh, Baldruc?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -177,6 +204,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Ask any sergeant in Theramore whether he'd rather have a full company or a fed one, and he'll tell you they're the same thing. A man on hard bread fights for an hour, but a man on tortoise soup fights till supper, and then he wants seconds." } },
+      choices = {
+        { text = "Feed the line and it holds. You're right, Morgan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A real warrior fights the same hungry or full.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Along the shore south of the island, where the mudrocks haul out to sun themselves, though they've grown wise to the soldiers I send. It takes a hunter's patience to catch one, because a tortoise with its head in its shell can wait you out till nightfall." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Don't let {pet} near the shell pile out back, or it'll crack a tooth, and then you'll be in here asking me for a soup it can drink." },
+      },
+      choices = {
+        { text = "Take only what the kitchen needs. Leave the rest be.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hunt them out. There are plenty more where those came from.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Every week, and they're always soldiers who've worked a double watch and can't wait for supper. I don't report them, I just feed them, because a man who steals bread is a man who's hungry, and I'd rather fix the hunger." } },
@@ -206,6 +254,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! You look like someone who's been living on hard bread, and that's no way to hold a wall, so come and have some soup." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! If you've got mudrock tortoise in your pack, you and I are about to become very good friends." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit, sit, you'll have a bowl of tortoise soup before you bless anything, because I've never yet seen a prayer go down well on an empty stomach." },
         { id = "h_default", key = true,
           text = "Morgan Stern, and I feed whoever needs feeding on this island, which is everyone. Supplies come by boat when the boats come, so the rest has to come out of the marsh, one way or another." },
@@ -232,6 +284,8 @@ P:NPC {
         { text = "I'll bring you those tongues.", next = "END", fx = { affinity = 2, standing = { theramore = 1 } } },
         { text = "Do you ever catch thieves in your kitchen, Morgan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you resent conjured food, Morgan?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does soup really make a better soldier, Morgan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Where do you find your tortoises, Morgan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -333,6 +387,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Raptor bites to the forearm, mostly, from soldiers who raise a shield too late, and arrow wounds when the patrols run into whoever's camped out in the fens that week. I can close nearly all of them, provided the soldier walks in on his own feet and doesn't wait three days out of pride." } },
+      choices = {
+        { text = "I'll come in early. Pride's no use to a dead soldier.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A soldier fights on wounded. Pride is what keeps you standing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More often than my training ever prepared me for, because the scouts bring their wolves and cats to me when the marsh fever takes them. A bite is a bite and a fever is a fever, and I've found the stitches hold just as well in fur." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet}'s paws a moment. Swamp rot starts between the pads, and a beast won't tell you it hurts until it's already limping." },
+      },
+      choices = {
+        { text = "Every creature that's hurt deserves your care, Doctor.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your time should go to soldiers, not animals.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Spider bites from the marsh, mostly, and a few arrows that came back from the Bloodfen tipped with something nasty. I treat them in order of how soon they'll kill, and I write down every one, because a poison you've seen twice is half beaten." } },
@@ -353,6 +428,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. You'll be the one I see most of, then, so let me tell you now: come in when it's a scratch, not when it's a stump." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. If you bring an animal in here, I'd ask you to wash its paws first, because I've only just scrubbed this floor." },
         { id = "h_default", key = true,
           text = "Doctor VanHowzen. I teach field medicine to anyone with steady hands and a strong stomach, because the marsh makes more wounded than I can treat alone." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Triage"), profession = "First Aid" },
@@ -377,6 +456,8 @@ P:NPC {
         { text = "Do you treat the dead who walk, Doctor?", next = "x_scourge", when = { race = "Scourge" } },
         { text = "Do you see many poisoned wounds in Theramore, Doctor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have you treated fel wounds before, Doctor?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What wounds do you see most from the soldiers, Doctor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever treat beasts as well as soldiers, Doctor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye, Doctor.", next = "END" },
       },
     },

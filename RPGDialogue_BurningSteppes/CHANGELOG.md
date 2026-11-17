@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-17)
+- Warriors and hunters are noticed: 13 people greet a warrior or hunter as one, and have a question to ask and something to argue about; hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.49.0.
+
 ## 1.7.0 (2026-11-16)
 - Priests and paladins are noticed: 8 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-17)
+- Warriors and hunters are noticed: 17 people greet a warrior or hunter as one, and have a question to ask and something to argue about; hunters with a beast at their side hear it named. No new files. Needs RPG Dialogue 0.49.0.
+
 ## 1.6.0 (2026-11-16)
 - Troll and Forsaken priests are greeted as priests by 15 people at Valormok, the Bay of Storms, Xylem's tower and Eldarath.
 

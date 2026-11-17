@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.49.0 (2026-11-17)
+Packs: 22 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.49.0: /reload is enough if you have 0.39.0 or later.
+
+### Warriors and hunters from 30 to 60
+- **The two most common classes finally get noticed**: about 380 named people in the 30-60 lands greet a warrior or hunter as one, with a question to ask and something to argue about. Arathi, Hillsbrad and Alterac, the Hinterlands, both Plaguelands, Searing Gorge, the Badlands, the Burning Steppes, the Blasted Lands, the Swamp of Sorrows, Stranglethorn, Desolace, Dustwallow, Thousand Needles, Tanaris, Feralas, Un'Goro, Silithus, Felwood, Winterspring, Azshara and Moonglade.
+- Warriors hear about holding a line against the Scourge, the Dark Irons, the silithid and the Syndicate; hunters about the local beasts, and a hunter with a beast at their side hears it called by name.
+- Alliance towns speak to Alliance warriors and hunters, Horde towns to the Horde's; goblins, the Argent Dawn, the Cenarion Circle, the Thorium Brotherhood and Moonglade talk to either. People who already had warrior or hunter lines kept them.
+
 ## 0.48.0 (2026-11-17)
 Packs: Stormwind, Elwynn, Stonetalon and Ashenvale have new versions. No new files in 0.48.0: /reload is enough if you have 0.39.0 or later.
 

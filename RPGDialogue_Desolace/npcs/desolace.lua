@@ -27,6 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Which clan is moving and which way, mostly, because the Kolkar, the Gelkis and the Magram spend more time watching each other than watching us. If any of their war parties turn our way, I want to hear about it a day before the Point does." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} low in the scrub. Centaur scouts know a wild animal from a trained one, and they'll come looking for whoever's holding the leash." },
+      },
+      choices = {
+        { text = "I'll scout them, but I won't help set clan against clan.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find their weak point, and you can use it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warrior_pg = {
       lines = {
         { id = "wpg_default", text = "Welcome, and don't get comfortable, because there's no line here to hold, only a ridge and a great deal of centaur on either side of it. My best warriors are the ones who learned to count before they learned to charge." },
@@ -86,6 +98,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. Good, because I need eyes on the centaur camps more than I need another sword, and the Kolkar can smell a soldier a mile off." },
         { id = "h_default", key = true,
           text = "Captain Pentigast, of the Stormwind Army. We're spread thin out here, and the centaur outnumber us, but luckily they hate each other more." },
         { id = "h_alliance", tags = { "news" }, when = { questActive = TODO_QUEST("Strange Alliance") },
@@ -112,6 +126,7 @@ P:NPC {
         { text = "Stormwind's soldiers march through our forests to get here.", next = "nelf_pg", when = { race = "NightElf" } },
         { text = "What use does Nijel's Point have for a mage, Captain?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will you trust a warlock on your ridge, Captain?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What do you need scouted among the centaur, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help hold the Point.", next = "END", fx = { affinity = 1, standing = { nijels_point = 1 } } },
       },
     },
@@ -242,6 +257,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Circle would tell you that nature defends itself, and in a greener place I would agree. Here the satyrs foul the land faster than we can cleanse it, and I will not pretend that the Circle's patience has kept a single one of my sisters safe." } },
+      choices = {
+        { text = "Then I'll guard your sisters while the Circle does its work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Patience cleanses nothing. I'll cut the satyrs out myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hunter_md = {
       lines = {
         { id = "hmd_default", text = "Wrong is a kind word for it. The earth here is poisoned from below, and what grazes on it sickens, and what hunts what grazes sickens after; you may be the first to notice, because you are the last link in that chain." },
@@ -289,6 +313,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. The Circle has little need of blades, though in Desolace I have learned that need and preference are seldom the same thing." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, so far from the cathedrals. The Circle does not pray as you do, but we tend the same wounded world, and Desolace has more wounds than either of us can count." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, here among the centaur and the dust. I hope you have come to protect this land and not only to fight upon it, because Desolace has had more than enough of fighting." },
         { id = "h_default", key = true,
@@ -312,6 +338,7 @@ P:NPC {
         { text = "Why does the fel trouble you so much, Keeper?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Can the Light do anything for a land this broken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there evil here a paladin should root out, Keeper?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Cenarion Circle ever need a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -385,6 +412,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Centaur spears, ogre clubs as long as I am, an' once a dwarven axe frae afore the Second War, still sharp under the rust. I cleaned it up an' hung it above the stall, because some things ye don't sell, no matter what the Reclaimers' ledger says." } },
+      choices = {
+        { text = "Right. A fallen warrior's axe deserves a wall, not a price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good axe should be swung, not hung up for show.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Belt buckles, arrowheads, a centaur's earring, an' once the whole brass compass off a wagon, which I'll swear blind is true. The Scorpashi dig deep in the sand, an' a hunter who knew where they nest could tell me a great deal about what Desolace has lost." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out o' the nests, though, because Scorpashi venom'll lay a beast low faster than a dwarf after a cask o' stout." },
+      },
+      choices = {
+        { text = "What the dead dropped belongs to their kin, not your ledger.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Lost is lost. If I find it, I'll sell it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dwarf_kr = {
       lines = {
         { id = "dkr_default", text = "Aye, an' they'd say it wi' a pickaxe in one hand an' a bit o' Titan pottery in the other! The League puts things in glass cases in Ironforge; Reclaimers put 'em back to work, an' I know which one's more use to a hungry dwarf." },
@@ -441,6 +489,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Ye'll be wantin' tae know if I've any old arms out o' the wreckage, an' the answer's aye, though most o' it's rusted tae its scabbard." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, eh? If ye're headed down past the Kodo Graveyard, keep an eye out for anythin' shiny, because I'd swear the scorpids drag all sorts back tae their holes." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Good, because half o' what I salvage out o' this waste was left behind by folk who didnae make it home, an' it'd sit easier wi' me if someone said a word over them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin o' the Silver Hand, out among the dust an' the demon-lovers! Reclaimers Inc. could use a strong back an' a stronger conscience, an' ye look like ye've brought both." },
         { id = "h_default", key = true,
@@ -468,6 +520,8 @@ P:NPC {
         { text = "Do you stock anything a warlock might need, Kreldig?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you ever find the dead along with their belongings?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is salvage from the fallen honest work, Kreldig?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What arms have the Reclaimers pulled from Desolace, Kreldig?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do the scorpids drag back to their holes, Kreldig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -529,6 +583,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Obedience, courage and a heart that will not hesitate when the dead wear the faces of people you knew. Brother Crowley says hesitation has cost more lives in Lordaeron than any plague, and I've no reason to doubt him." } },
+      choices = {
+        { text = "Obedience and courage, then. I'd stand against the Scourge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't follow orders blindly, not even the Crusade's.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Follow the silence, the brothers say, because no bird sings where the dead walk and no fox will den near a plague pit. The Valley of Bones down there is just as quiet, and I've asked more than once who is stirring the dead in it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will know them before you do. A beast's hackles rise at the dead long before any of us can smell the rot." },
+      },
+      choices = {
+        { text = "Then I'll hunt the dead wherever they walk.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt beasts, Brother. Your crusade isn't my trail.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warlock_an = {
       big = true,
       lines = {
@@ -559,6 +634,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! The Crusade has a place for a strong arm and a sound heart, and the Scourge have never once been turned back by anything softer." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. The Crusade could use someone who reads tracks, because the Scourge leave a trail of their own, if you know where to look." },
         { id = "h_default", key = true,
           text = "Brother Anton, an emissary of the Scarlet Crusade. We fight the undead wherever they rise. Brother Crowley in Stormwind sends me the willing." },
         { id = "h_path", tags = { "news" }, when = { questActive = TODO_QUEST("Down the Scarlet Path") },
@@ -586,6 +665,8 @@ P:NPC {
         { text = "Would the Crusade take a warlock, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
         { text = "What would the Crusade want with someone like me, Brother?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does the Crusade trust mages after Dalaran, Brother?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What does the Crusade ask of its warriors, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How would a hunter track the Scourge, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I won't fight for the Crusade, Brother.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -687,6 +768,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Most who go down into Desolace stop here first, and the warriors sleep soundest, because they've stopped worrying about what they can't fight. It's the ones who come back up that I watch, because the centaur and the Burning Blade leave marks you can't see." } },
+      choices = {
+        { text = "I'll rest while I can. The fight will wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't rest before a fight. Sleep comes after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Thunder lizards on the open plain, scorpids in the sand and the hyenas that trail the old kodos toward the Graveyard. The hunters who stay here say the hyenas are the worst, because they never fight fair and they never give up." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} can lie by the fire with the others, if it doesn't mind the dust. There's no keeping it out of anything here, so the beasts and I have made our peace with it." },
+      },
+      choices = {
+        { text = "I'll hunt the hyenas and leave the old kodos in peace.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll hunt whatever pays, kodo or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I'd like to think so, though I've swept this floor every morning and the dust never seems to mind. Keeper Marandis says the sickness rises from deep under Maraudon, and if he's right, no broom of mine will help." } },
       choices = {
@@ -724,6 +826,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, and dusty to the knees, like everyone who climbs up from below. Leave your boots by the door, and the floor and I will both thank you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. The game is poor down in Desolace, but what's left is hard and hungry, and I'd ask you to come back to this hearth before you're as thin as it is." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, here at the edge of the dust. Sit by the hearth a while, because the people who come up from Desolace often carry more than dust home with them, and I think you would know what to say to them." },
         { id = "h_default", key = true,
           text = "Innkeeper Lyshaerya. I keep the only warm hearth between Stonetalon and Feralas, and travelers find their way to it eventually." },
@@ -743,6 +849,8 @@ P:NPC {
         { text = "Do many shady folk pass through your inn, Lyshaerya?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Has the dust ever beaten your hearth, Lyshaerya?", next = "xmage", when = { class = "MAGE" } },
         { text = "What do travelers bring back up from Desolace?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do many warriors rest here before going down, Lyshaerya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What beasts still live down in Desolace, Lyshaerya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just a room, thank you.", next = "END" },
       },
     },
@@ -791,6 +899,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They take the satyrs' paths and the satyrs' caves, and the satyrs take their coin and their demons in return. Follow the hoofprints into the hills and you'll find robed orcs where you expected beasts, and that's where I want arrows." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} downwind of the camps. Satyrs smell beasts better than they smell men, and one warning growl costs us the whole ambush." },
+      },
+      choices = {
+        { text = "I'll hunt the cultists, but satyrs who keep away can live.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every satyr dies. They chose their company.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     shaman_tk = {
       lines = {
         { id = "stk_default", text = "Sick, yes, and the Burning Blade made them so, the same way the demons sickened our blood. Thrall's shamans are the only ones I've seen make a fel-touched place breathe again, so if you can, do it while I kill what's poisoning it." },
@@ -841,6 +961,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Can you track a satyr through broken ground, or only deer through grass? I need the first." },
         { id = "h_default", key = true,
           text = "Takata Steelblade. Keldran sent me from Orgrimmar to hunt the Burning Blade here. They hide among the satyrs, so the satyrs die too." },
         { id = "h_satyr", tags = { "news" }, when = { questActive = TODO_QUEST("Befouled by Satyr") },
@@ -874,6 +996,7 @@ P:NPC {
         { text = "Give me a satyr camp. I'll clear it.", next = "warrior_tk", when = { class = "WARRIOR" } },
         { text = "How do you want the Blade hunted, Takata?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the tauren here fear mages, Takata?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "How do the Burning Blade hide among the satyrs, Takata?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
     },
@@ -1019,6 +1142,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Some do, if they stay long enough to stop listening for centaur hooves. I fought the Kolkar when I first came to Desolace, and now I fish, and I'm not sure which of the two takes more patience." } },
+      choices = {
+        { text = "Patience is a warrior's strength too. I'll sit awhile.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A warrior who sits too long goes soft.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The thunder lizards on the plains, if you have the stomach for it, and the kodo herds if you have the patience. My people don't hunt the old kodos that walk toward the Graveyard, though, and I'd ask the same of you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has the look of a beast that knows the land it's walking on. That's more than I can say for most hunters who come through Shadowprey." },
+      },
+      choices = {
+        { text = "The old kodos walk in peace. I'll leave them be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A kodo is meat. Old or young, I hunt what's there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hunter_nt = {
       lines = {
         { id = "hnt_default", text = "Then you'll weep at the kodo graveyard, as I did. The old kodo come all the way out here to die, and the centaur pick at their bones, and I've never once heard a good reason why they walk so far." },
@@ -1058,6 +1202,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Sit, if you like, and set that weapon down for a while, because the fish don't bite for anyone who looks ready to fight." },
+        { id = "h_huntcl", when = { class = "HUNTER", race = { "Orc", "Troll" }, faction = "Horde" },
+          text = "A hunter of the Horde. Mind the shore when you hunt near Shadowprey, because the surf is rougher than it looks and the things in it don't care what you came for." },
         { id = "h_default", key = true,
           text = "Nataka Longhorn, of Thunder Bluff. The centaur harass us, the land gives nothing, and still I've grown fond of it. Don't tell anyone." },
         { id = "h_family", tags = { "news" }, when = { questActive = TODO_QUEST("Family Tree") },
@@ -1094,6 +1242,8 @@ P:NPC {
         { text = "Who should I watch out for in Desolace?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Is fishing in Desolace really so hard, Nataka?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What have you seen the Burning Blade leave behind, Nataka?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do warriors ever find peace out here, Nataka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What's worth hunting near Shadowprey, Nataka?", next = "xhuntcl", when = { class = "HUNTER", race = { "Orc", "Troll" }, faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },

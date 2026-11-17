@@ -29,6 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Less than people do, if I'm honest, but the raptors have taken more than one courier on the road to Sentry Point. I'd rather we learned the marsh's ways than burned it back, though not everyone in Theramore agrees with me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this must be {pet}. Theramore was built by people who came from very far away, and I'd like to think there's room here for every companion they brought." },
+      },
+      choices = {
+        { text = "Learn the marsh's ways. Burning it would only make enemies.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The road needs clearing, my lady. Burn the raptor nests back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Some do, and some never will, and I can't blame the second kind. Your people remember what reckless magic did to the world, and I am a mage, so I try to earn their trust rather than ask for it." } },
       choices = {
@@ -48,6 +60,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter of the Alliance. The marsh is full of creatures that would rather we'd never come, and I'm grateful to anyone who keeps them from our gates without hating them for it." },
         { id = "h_default", key = true,
           text = "Jaina Proudmoore. I brought the survivors of Lordaeron across the sea and built Theramore with them. We keep the peace here, even when it costs us." },
         { id = "h_thrall", when = { heardLine = "thrall.h_default" },
@@ -81,6 +95,7 @@ P:NPC {
         { text = "Dalaran would have burned me. Will you?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Dwarves helped build these walls, I hear.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Does Theramore have enemies inside its walls, my lady?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the marsh's beasts threaten Theramore, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -310,6 +325,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Some of my colleagues in Dalaran did, and they learned better when the Scourge came to the gates. A spell takes time to cast, and in my experience that time comes from someone with a shield standing very still in front of me." } },
+      choices = {
+        { text = "Each to their part. That's how battles are won.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spell or steel, a fighter should stand on their own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out of the shallows at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} looks a sight more sensible than the tortoises, though I'd still ask you to keep it on the path. The garden has suffered enough this season." },
+      },
+      choices = {
+        { text = "Leave the tortoises be. The island can share its garden.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll clear them out for you. Your herbs matter more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The marsh water, mostly, which is brackish one week and sweet the next, so the roots can't decide whether to drown or go thirsty. I'd ask the Circle, but I suspect they'd tell me to stop forcing Lordaeron flowers into Kalimdor mud." } },
       choices = {
@@ -356,6 +392,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. You'll forgive me if I keep this brief, because the last time a soldier stood in my study he knocked over a shelf of reagents with his scabbard." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! If your beasts have trampled anything in my garden, I'd rather hear it now, while I'm still in a forgiving mood." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive me, I've a meeting with the Lady in a quarter hour and I haven't read half of what I meant to, but I'm always glad to see the Light about the place, because Theramore has a great many mages and not nearly enough healers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, good! The Lady's peace needs people who can stand in a doorway and not move, and I'm afraid most of us in the tower are better at reading about doorways than standing in them." },
         { id = "h_default", key = true,
@@ -385,6 +425,8 @@ P:NPC {
         { text = "Did the Kirin Tor ever study warlock magic, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the mages and the faithful of Theramore get along?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Theramore's peace rest on arms or on trust?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do mages look down on warriors, Archmage?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What creatures trouble your garden, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll be quick.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -637,6 +679,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Damp, boredom and the slow suspicion that nobody in Stormwind remembers Theramore exists, in roughly that order. The good ones stay because they swore to the Lady, and the records show it, because an oath kept is the easiest line I ever write." } },
+      choices = {
+        { text = "An oath sworn is an oath kept, whatever the damp.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sometimes a soldier is right to walk away.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the raptors hunt in threes, the crocolisks lie up in the shallows, and the black whelps come a little further north every season. I file it all, though I sometimes wonder whether anyone reads it but me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'll note {pet} in your file, if you don't object. I've never yet had a scout's companion on record that didn't end up mattering." },
+      },
+      choices = {
+        { text = "Keep filing. Someone will need those records one day.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Records won't stop a raptor. Scouts need blades, not paper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Only what the Lady permits, which is very little, because the mages answer to her and to Archmage Tervosh. I keep their names, their quarters and their sailing dates, and I leave the rest to people who can read their handwriting." } },
@@ -657,6 +720,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "Warrior, by the look of you. If you're here to enlist, I'll need your name, your previous unit and a reason I won't find you in the deserters' column next month." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. The Guard keeps a handful of scouts on the roll, and their records are mostly lists of things that tried to eat them." },
         { id = "h_default", key = true,
           text = "Adjutant Tesoran. Every soldier in the Theramore Guard has a record, and I keep it, including the ones who walked away." },
         { id = "h_reethe", when = { questActive = TODO_QUEST("Lieutenant Paval Reethe") },
@@ -678,6 +745,8 @@ P:NPC {
         { text = "A paladin keeps his oath. Do your deserters?", next = "x_paladin", when = { class = "PALADIN" } },
         { text = "Do you keep records on Theramore's mages too, Adjutant?", next = "xmage", when = { class = "MAGE" } },
         { text = "Must you record my demon too, Adjutant?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What makes a soldier desert, Adjutant?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do the scouts' records say about the marsh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -781,6 +850,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every night, and I can tell who's had a hard watch by how quietly they come in. The ones who've been out on the north road sit by the fire and don't say much, so I bring them stew and let them be." } },
+      choices = {
+        { text = "They've earned that quiet. You're good to them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Soldiers ought to talk it out, not sit and brood.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of the mud it came out of, and no amount of pepper fixes that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} can lie by the hearth if it behaves, because the sailors like a beast in the room. They say it reminds them of the ship's dog." },
+      },
+      choices = {
+        { text = "I hunt for the pot, never for sport.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt for the challenge. The pot's just a bonus.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They notice the dragons, dear, and little else. The young ones come back talking about whelps in the south as if they were bedtime stories, and I've stopped correcting them, because what good would it do?" } },
       choices = {
@@ -809,6 +899,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Sit down and take that helm off at my table, because nobody eats properly with their face in a bucket." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! If you've brought in anything from the marsh that could go in a pot, the kitchen's open, though I won't take anything that still has scales on." },
         { id = "h_default", key = true,
           text = "Innkeeper Janene. Soldiers, sailors, mages, merchants: they all end up at my tables sooner or later. Theramore is my home, and this inn is its kitchen." },
         { id = "h_lady", when = { metBefore = true }, text = "Lady Jaina came down to the kitchen last week to thank the cooks, in person, and half of them still won't wash the hand she shook." },
@@ -829,6 +923,8 @@ P:NPC {
         { text = "You look like you could use a blessing yourself.", next = "x_priest", when = { class = "PRIEST" } },
         { text = "Do you hear many secrets over your tables, Janene?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Theramore mages eat with everyone else, Janene?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do many soldiers come here after a watch, Janene?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's worth hunting for your kitchen, Janene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

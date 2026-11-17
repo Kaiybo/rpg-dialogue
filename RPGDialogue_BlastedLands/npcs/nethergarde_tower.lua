@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Healing, always, and something against fire, because the Shadowsworn don't fight fair. I'd tell you to carry an elixir of strength as well, but I've seen what the bloodmages put in theirs, and I'd rather sell you something honest." } },
+      choices = {
+        { text = "Preparation wins fights. I'll carry what you recommend.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't fight with bottles. Steel is enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, and the animals have learned which ones, which is more than I can say for the soldiers. Firebloom grows out in the wastes, and I've watched the boars eat round it as neatly as a cook trims a roast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the red flowers by the road, though. I don't think firebloom would kill a beast, but I'd wager it would make it very sorry for a day." },
+      },
+      choices = {
+        { text = "The land still grows things. That's worth something.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Nothing out here is worth saving. Let it burn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "More than you'd think, because the plants here grew up beside the Portal's taint and learned to live with it. The mages downstairs call them corrupted, but I've brewed better salves from Blasted Lands roots than anything that grows in Elwynn." } },
@@ -66,6 +87,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, all the way up the tower stairs! Healing potions are on the left shelf, and yes, I know you'll want the large ones." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! If you find anything growing out there that isn't dead, bring it up and show me, because nobody else in this tower will look at it twice." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If you're shopping for poison reagents, I don't keep them, and if you're shopping for antidotes, I keep plenty, so it depends which end of the knife you're on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, up all these stairs! Do try not to practise anything fiery near the shelves, because half of this stock goes bang if you look at it wrongly." },
         { id = "h_default", key = true,
@@ -88,6 +113,8 @@ P:NPC {
         { text = "Why no poisons, Nina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you trust potions over prayers, Nina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What grows in the Blasted Lands that could heal anyone?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Which potion should a warrior carry near the Portal, Nina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the plants out here poison the animals, Nina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Brains build the car, but muscle gets it out of the crater, and on this track that happens more than I'd like. Half my crew used to bust heads for the cartels, and they can change a wheel faster than any gnome with a wrench." } },
+      choices = {
+        { text = "Brains matter more. Muscle without a plan just breaks things.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Muscle wins. A plan never lifted an engine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Once, unofficially, when a vulture followed the gnome car all the way round and landed on the finish post first. I've been telling folks it was goblin-trained ever since, and nobody's been able to prove me wrong." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hey, {pet} looks fast. Real fast. Ever thought about racing it against Fizzle's car? We'd sell tickets, I'm just saying." },
+      },
+      choices = {
+        { text = "That vulture won fair. Don't claim it for the goblins.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good story beats the truth. I'd claim it too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Disturb them? There's nothing out here but salt, scorpids and vultures, and the vultures love us, because every crash is lunch. The flats were dead long before I built a track on them." } },
       choices = {
@@ -65,6 +86,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Ever think about crewing? I need somebody who can lift an engine off a driver without asking too many questions." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You don't happen to have a beast that can outrun a rocket car, do you? Because I'd love to see a gnome lose to a cat." },
         { id = "h_default", key = true,
           text = "Pozzik. I built this raceway with that gnome, Fizzle, to settle whose engineers are better, and the answer's goblins. We just have to prove it every day." },
         { id = "h_load", when = { questActive = TODO_QUEST("Load Lightening") },
@@ -105,6 +130,8 @@ P:NPC {
         { text = "I'm not here for sabotage, Pozzik.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would magic make your car faster?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you play fair against the gnomes, Pozzik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does your crew need strength more than brains, Pozzik?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Have any beasts ever raced on your track, Pozzik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck out there.", next = "END" },
       },
     },
@@ -228,6 +255,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Very like, really, because both involve careful preparation followed by a loud noise and somebody shouting. The difference is that when my work goes wrong I lose a piston, and when yours goes wrong you lose rather more than that." } },
+      choices = {
+        { text = "Preparation matters in both. Plan first, then strike.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fighting is instinct. You can't plan for every swing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Constantly, and with what I can only call malice, because the scorpids nest in the exhaust and the vultures peck at anything shiny. I once found a tortoise asleep under the chassis, which explained why the car wouldn't go any faster than a tortoise." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, keep {pet} away from the fuel line, please. It smells like venom to a beast, and I've seen what happens when one decides to chew it." },
+      },
+      choices = {
+        { text = "The creatures were here first. Build around them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Clear them off. A track should be clean.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Salty venom burns hot and clean, very efficient! I need dozens of tails a week, though, and I'll admit the scorpids are starting to look at me funny." } },
       choices = {
@@ -274,6 +322,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Please don't lean on anything, because half of what's in this tent is more fragile than it looks and the other half is about to explode." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Wonderful, because I'm told you lot are rather good at getting close to dangerous things, and the flats are full of them." },
         { id = "h_default", key = true,
           text = "Fizzle Brassbolts, engineer and proud member of MEGA! Pozzik and I built this raceway to see whose engineering is superior, and it's gnomish, obviously." },
         { id = "h_venom", when = { questActive = TODO_QUEST("Salt Flat Venom") },
@@ -312,6 +364,8 @@ P:NPC {
         { text = "My demon wouldn't eat your car, Fizzle.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you ever worry someone will die on your track?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you trust Pozzik to race honestly?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is engineering anything like fighting, Fizzle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the flats' creatures ever damage your car, Fizzle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll stand very still. Goodbye.", next = "END" },
       },
     },
@@ -420,6 +474,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only when they're losin', an' that's when they come tae me first, because I know which bruisers can keep their mouths shut. Nobody gets hurt that doesnae deserve it, mind, an' the winnin' car usually wins anyway." } },
+      choices = {
+        { text = "I don't hire out to rig races. Find someone else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin's coin. If the crew pays, I'll stand where you say.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Who walks intae the gnome tent after dark, who drinks wi' which goblin, an' who's got a new purse they shouldnae have. I watch it all, an' I make a decent livin' tellin' the right folk what I've seen." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours doesnae miss much either, does it? A beast like that would be worth its weight in gold, keepin' watch outside the right tent." },
+      },
+      choices = {
+        { text = "What I see, I keep to myself. I'm no informer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Information is coin. I'd sell it too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Oh, just a little whisper here an' there, maybe a loose bolt that wasn't loose a minute ago. Nothin' that'd hurt anybody, mind, just enough to make the right car win." } },
@@ -440,6 +515,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Big, strong an' noticeable, which is a fine thing in a fight an' a terrible thing in my line o' work." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Ye've got patient eyes, an' patience is worth more out here than any engine, believe me." },
         { id = "h_default", key = true,
           text = "Kravel Koalbeard. I fetch parts for the crews, pass along a word here an' there, an' now an' then the right car wins. Funny how that works." },
         { id = "h_parts", when = { any = { { questActive = TODO_QUEST("Rocket Car Parts") }, { questActive = TODO_QUEST("Parts for Kravel") } } },
@@ -475,6 +554,8 @@ P:NPC {
         { text = "What would a spellcaster be worth to you here?", next = "xhcast", when = { class = "MAGE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What kind of business, Kravel?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You want me to curse a car?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the racing crews ever hire muscle, Kravel?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What would patient eyes see around the raceway, Kravel?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I didn't hear any of this.", next = "END", fx = { affinity = 1 } },
       },
     },

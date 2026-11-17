@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They did in the wars on this continent, so the orcs tell me, and they would again if the Warchief asked it. But a wind rider sent into battle is one I may not get back, and I'd rather they carried soldiers home than carried them off to die." } },
+      choices = {
+        { text = "If the Warchief calls, they fly. That's duty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep them home. No order is worth a wind rider.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Many have, and most came away with bites to show for it, because a wind rider chooses its rider or chooses no one. The young ones from Highperch are the wildest, and I wouldn't let anyone near them without me standing beside them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} keeps looking up at the roost. Keep it on the ground, friend, because my riders have very sharp tails and very short tempers." },
+      },
+      choices = {
+        { text = "A wild creature should choose its rider freely.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Any beast can be tamed, with enough patience and will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Over the Galak, often, and over the Grimtotem when Cliffwatcher asks it. A rider who doesn't frighten the beast can see everything from up high, and the mesas hide no secrets from the sky." } },
@@ -46,6 +67,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. My wind riders will carry you, but they don't love the weight of armor, so sit still and don't fight them in the air." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Wind riders are beasts too, though they don't take kindly to taming, and they've never once let a hunter forget it." },
         { id = "h_default", key = true,
           text = "I am Nyse, and I keep the wind riders of Freewind Post. From the top of this mesa they'll carry you to Thunder Bluff, to the Crossroads, or south over the salt flats to Gadgetzan." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders always fly smoother with one of you aboard, and I've stopped asking why." },
@@ -68,6 +93,8 @@ P:NPC {
         { text = "Is it hard flying between the needles?", next = "flying" },
         { text = "Do wind riders carry scouts over enemy ground?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you resent mages for teleporting, Nyse?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do wind riders ever carry warriors into battle, Nyse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Have hunters ever tried to tame a wind rider, Nyse?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -146,6 +173,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not the good ones, because a warrior at peace with their strength moves gently, and the animals feel it. It's the angry ones they shy from, and I've seen a kodo back itself into a corner rather than stand near someone carrying a grudge." } },
+      choices = {
+        { text = "Strength should be calm. I keep my anger leashed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Anger is a warrior's fire. The beasts will learn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Most are, though the cats pace at night when the Galak drums start below. I sit with them until it stops, which is not a stable master's work, but what else can I do?" } },
       choices = {
@@ -174,6 +210,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. The animals always settle when a warrior comes in, I've noticed, because they can tell you'd stand between them and anything with teeth." },
         { id = "h_default", key = true,
           text = "I am Awenasa, and I keep the stables of Freewind Post. Hunters leave their companions with me, and I keep them fed and watered, and away from the edge of the mesa." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -199,6 +237,7 @@ P:NPC {
         { text = "What do hunters tame around here?", next = "tame" },
         { text = "My demons need no stable, Awenasa.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I like animals, Awenasa.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the stabled beasts ever fear warriors, Awenasa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -266,6 +305,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only every other heat, and usually over who borrowed whose spanner without asking. I sell to both teams, so I stand behind the counter and let the goblins and the gnomes shout until somebody remembers there's a race on." } },
+      choices = {
+        { text = "Somebody should keep the peace before it turns nasty.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good brawl clears the air. Let them settle it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Tortoises with shells that shine like brass, vultures that circle every crash, and scorpids that like the shade under the parked cars. The vultures are the ones that bother me, because they always seem to know which car's going to blow up before the drivers do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the fuel barrels, please. It's not your beast I'm worried about, it's the barrels, because they don't need much encouragement." },
+      },
+      choices = {
+        { text = "The flats were here first. The racers should mind the beasts.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If a beast can't dodge a car, that's its lookout.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Oh, gnomes love mages, back home in Ironforge and all, but out here on the Flats we're engineers first. Magic's lovely when it works, but when a bolt doesn't fit, I'd rather have a wrench than a spell." } },
@@ -295,6 +355,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You don't look much like an engineer, but if you need a wrench swung hard, I know two racing crews who'd hire you this afternoon." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Mind your step out on the flats, because the tortoises bask right on the track and the racers have stopped swerving for them." },
         { id = "h_default", key = true,
           text = "Jinky Twizzlefixxit, engineering supplies, right here on the Shimmering Flats! The racers burn through parts faster than they burn through fuel, so I'm never short of customers." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -315,6 +379,8 @@ P:NPC {
         { text = "Do gnomes and mages often clash?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm not here to steal parts, Jinky.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the racers get hurt often, Jinky?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the racing crews ever come to blows, Jinky?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What lives out on the salt flats, Jinky?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },

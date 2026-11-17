@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Burning Steppes |cff8a8a8a1.7.0|r
+## Title: RPG Dialogue: Burning Steppes |cff8a8a8a1.8.0|r
 ## Notes: Morgan's Vigil, where a marshal waits for proof and a lost commander, and Flame Crest, a cave of goblin dealers, a dragon scholar and the one dwarf who saw Windsor taken.
 ## Author: RPG Dialogue
-## Version: 1.7.0
+## Version: 1.8.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.burningsteppes

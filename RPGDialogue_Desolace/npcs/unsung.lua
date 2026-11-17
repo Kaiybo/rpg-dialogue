@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Water, every time, because they think a strong arm makes up for a dry throat, and Desolace teaches them otherwise by noon. The ones who come back buy twice as much the second trip, which is good for business and better for them." } },
+      choices = {
+        { text = "Preparation wins more fights than strength. I'll stock up.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll travel light and take what the land gives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scorpid shells, mostly, and hides so dry they crack when you fold them, and the occasional story nobody believes. One fellow swore he'd seen a centaur riding a kodo, and I've decided I'd rather not know whether he was lying." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it's had quite enough of the dust already, poor thing. They all do, after a day down there." },
+      },
+      choices = {
+        { text = "Desolace still has life in it, if you look.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Desolace is dead ground. I just take what's left.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Less to thieves than to the dust, honestly, and the dust doesn't even have the decency to run off with it. The Captain's men keep a close eye on the store, so most of the light fingers here belong to the centaurs, and they prefer whole wagons." } },
@@ -57,6 +78,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, ready to go down into Desolace and fight the whole of it single-handed. You'll want rope, bandages and a great deal more water than you think." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. I sell arrows by the quiver and rope by the coil, and in Desolace you'll need more of both than you planned." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, I don't stock holy water, but I've got bandages, bread and enough water skins to get you to the bottom of Desolace and back, which round here is about the same as a miracle." },
         { id = "h_default", key = true,
           text = "Christi Galvanis, general goods. Nijel's Point is the last bit of green before the whole of Desolace turns to dust, so whatever you need for the trip down, buy it from me, because nobody else is going to sell it to you." },
@@ -75,6 +100,8 @@ P:NPC {
         { text = "Do you lose much stock to thieves out here, Christi?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you stock anything for mages, Christi?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many people come back up from Desolace changed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do warriors usually forget to buy, Christi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters bring anything back up from Desolace, Christi?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -153,6 +180,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "As well as I can manage on what the caravans bring up the road, which some weeks is very little. The soldiers on the ridge get the first helpings, because Captain Pentigast says a hungry sentry is a sleepy one, and I'm not about to argue with him." } },
+      choices = {
+        { text = "Sentries first. The captain's right about that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Everyone should eat alike. Rank shouldn't fill a plate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Precious little, I'm afraid, because the lizards are as tough as boots and the scorpids taste of sand. The deer up here around the Point are better, though there aren't many left, and I'd rather it stayed that way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bring {pet} round to the back door, if you like, because there are always scraps, and I never could stand to see a beast go hungry." },
+      },
+      choices = {
+        { text = "Leave the deer be. The Point should keep what it has.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The soldiers come first. A few deer won't be missed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Thistles and bones, mostly, and a few hardy roots the kodos dig up. I tried planting herbs against the outpost wall once, and the wind had taken every one of them by morning." } },
       choices = {
@@ -199,6 +247,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! You'll be going down into Desolace, I suppose, so sit and eat first, because nobody fights well on an empty belly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! If you bring down anything up here that's fit to cook, bring it round to my kitchen, because the soldiers are sick to death of cheese." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, thank goodness. Half the soldiers here haven't had a proper blessing since they left Stormwind, so if you've a moment after supper, I'd count it a kindness if you sat with them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! You'll eat first, no arguments, because I've never yet seen anybody protect anything on an empty stomach." },
         { id = "h_default", key = true,
@@ -222,6 +274,8 @@ P:NPC {
         { text = "Do you get many warlocks at Nijel's Point, Janet?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How are the soldiers at Nijel's Point holding up?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Nijel's Point need most from someone like me?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the soldiers here eat well enough to fight, Janet?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's fit to eat down in Desolace, Janet?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

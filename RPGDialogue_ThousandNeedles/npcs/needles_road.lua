@@ -15,8 +15,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "My uncle says I'm too young to hold an axe properly, and after today I think he's right, because I dropped mine in the canyon running from the centaurs. When I'm older I want to stand with the braves at Freewind, if they'll have someone who gets lost this easily." } },
+      choices = {
+        { text = "Running was right. A warrior knows when not to fight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Next time, stand your ground. Courage only comes with practice.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I was following a hawk because I thought it would lead me to water, and then I was following another hawk, and then I wasn't sure which one I'd started with. I know now that hawks don't care where tauren need to go." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} friendly? It is, isn't it? Could it walk on my side, between me and the centaurs, just for a little while?" },
+      },
+      choices = {
+        { text = "Learn the trails before you wander off again.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wandering is how you learn. Don't let this stop you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "You're a warrior! That's good, that's really good, because the Galak are big and there are lots of them, and I've only got a gathering knife." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! You must know the canyons, then, and which way is home, because I've walked past this same rock three times now." },
         { id = "h_default", key = true, text = "I'm Pao'ka Swiftmountain, and I came out here to gather things for my family, but I got turned around in the canyons. The Galak centaurs are everywhere, and I don't think I can make it back to Freewind alone." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Homeward Bound") }, text = "You'll walk me home? I'll stay close, I promise, and I'll run if I see centaurs, because I'm better at running than fighting." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman! Could you ask the spirits for the way back to Freewind? I've gotten so turned around in these canyons." },
@@ -35,6 +60,8 @@ P:NPC {
         { text = "Do the Galak have magic of their own?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where did you last see the Galak riders?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Should you have stayed home?", next = "s_1" },
+        { text = "Have you ever thought of becoming a warrior, Pao'ka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How did you lose your way in the canyons, Pao'ka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -110,6 +137,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because I watch their camps and send word to Freewind, and they have learned whose eyes those are. A warrior at my side means they must come at me openly, and the Galak have never cared for a fair fight." } },
+      choices = {
+        { text = "I'll guard you, and Freewind can answer them properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let me hunt their killers down first, before they strike.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The ones that run down toward the dry riverbeds, because the Galak go down to water at dawn and grow careless there. Don't follow the trails that climb, though, because those lead to the Grimtotem, and they guard their paths more closely than any centaur." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} will smell the centaur long before you see them. Trust its nose, and when it stops, you stop." },
+      },
+      choices = {
+        { text = "I'll scout and report. Freewind can decide what's done.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll strike them where they drink, while they're careless.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They claim the high places and drive off anything that isn't theirs, beast and tauren alike. The mesas were meant to be shared, and the Grimtotem have forgotten it." } },
       choices = {
@@ -138,6 +186,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior of the Horde. The Galak have sent killers after me before, and I would welcome a strong arm on the path today." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. From this ledge I see every trail the Galak use, and I would trade all my watching for one day of following them as you can." },
         { id = "h_default", key = true, text = "I am Kanati Greycloud. Freewind Post sits above the canyons, and from here we watch both the centaurs below and the Grimtotem who think these mesas belong to them." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A child of Mulgore here at Freewind! The Earth Mother keeps you, kin, and Cairne would be proud to see you so far from home." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -157,6 +209,8 @@ P:NPC {
         { text = "Should the Grimtotem be forgiven?", next = "s_1" },
         { text = "Should I scout the Grimtotem for you, Kanati?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The winds fear my power?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why would the Galak send killers after you, Kanati?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Which of the Galak's trails should I follow, Kanati?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -205,6 +259,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Without thanks and without limit, because Magatha teaches them that the land is theirs by right and owes them nothing back. I have found kills left to rot on the canyon floor with only the hides taken, and that is not hunting, that is spite." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} walks beside you as an equal, I can see it. The Grimtotem would put a chain on such a beast and call that mastery." },
+      },
+      choices = {
+        { text = "I take only what I need, and thank the land for it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The land gives what it gives. Thanks feed no one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Power, the same as she wants in Thunder Bluff, only out here no one watches her. The Grimtotem hold Darkcloud Pinnacle, and every season they take a little more of the canyon around it." } },
       choices = {
@@ -233,6 +299,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. The Grimtotem hunt these mesas too, and they hunt like thieves, taking more than the land can give, which shames every tauren who sees it." },
         { id = "h_default", key = true, text = "I am Motega Firemane, and I keep watch over Freewind Post. The Grimtotem grow bolder each season, and someone has to stand against them before they take the whole of the Needles." },
         { id = "h_c0", when = { race = "Tauren" }, text = "A fellow tauren who walks the Earth Mother's path, not Magatha's. You are welcome at my fire." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -257,6 +325,7 @@ P:NPC {
         { text = "Are you being too harsh on them?", next = "s_1" },
         { text = "My power is not the Grimtotem's, Motega.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you have me strike the Grimtotem unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "How do the Grimtotem hunt the Needles, Motega?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -323,6 +392,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Nerve? Pal, I've got nerve coming out my ears, along with a fair bit of smoke from the last crash. Same as you charging into a fight, really, except your armor doesn't blow up when you hit a rock." } },
+      choices = {
+        { text = "Nerve is nothing without control. Know when to brake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Full speed and no brakes. That's how you win.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "All the time! Last week a tortoise sat right on the finish line, and I swerved so hard I took out the timing post, and Daisy still hasn't let me forget it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the track, all right? I like animals fine, I just don't wanna hit one at full throttle, because that's a mess nobody wants to clean up." },
+      },
+      choices = {
+        { text = "The beasts were here first. Slow down for them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they sit on the track, that's their problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "That's what the last one said too! Still, if you're honest, you're welcome to watch me win, because I don't need sabotage when I've got this engine." } },
@@ -352,6 +442,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "Whoa, armor! Hey, you wanna sit in the car? No? Smart, because the last guy in plate who sat in it cracked the axle clean through." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Hey, can you track a thief? Because somebody keeps moving my spare parts, and I'm pretty sure it's a gnome." },
         { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, and every time I take the car out, the gnomes start sweating." },
         { id = "h_c0", when = { race = "Gnome" }, text = "Uh-oh, a gnome. You here to sabotage my car, or just to watch me beat your friends?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you make the wind blow at the gnomes' car and not mine? I'm kidding, mostly, unless you can." },
@@ -376,6 +470,8 @@ P:NPC {
         { text = "I don't sabotage cars, Razzeric.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Magic in your car might blow it apart, Razzeric.", next = "xmage", when = { class = "MAGE" } },
         { text = "Aren't you afraid of dying in that car?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does a racer need a warrior's nerve, Razzeric?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the flats' beasts ever wander onto the track, Razzeric?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -442,6 +538,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They try, but I keep the stopwatch running whatever happens, and a racer who stops to throw a punch loses the heat. It's done wonders for the peace around here, because nobody fights while the clock's still ticking." } },
+      choices = {
+        { text = "Rules keep the peace. Good for you, Daisy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some fights matter more than any race.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A good stopwatch and better eyes, though the dust off the flats doesn't help, and the heat makes the far end of the track shimmer like water. Some days I swear I've timed a mirage, and then the car turns up a minute later and makes a liar of me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} by you while the heats run. The last hunter's wolf chased a car to the finish line and set a better time than the gnomes did." },
+      },
+      choices = {
+        { text = "Honest times matter. Nobody should ever doubt the clock.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A close race could go either way. Who'd notice?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Far enough to cross the finish line before anyone else, and that's what matters. I've got enough trouble keeping the goblins and gnomes honest without mages making it worse." } },
@@ -462,6 +579,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. If you're here to brawl with the gnome crew, do it off the track, because I'm not stopping the clock for anybody's broken nose." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter? Good eyes, then, and you'll know how hard it is to watch something moving fast, which is my whole job." },
         { id = "h_default", key = true, text = "I'm Daisy, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then don't go calling lightning down on my track, because the last storm cost me a whole afternoon of times." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you're praying for one team or the other, kindly do it off the track, because I don't time prayers." },
@@ -480,6 +601,8 @@ P:NPC {
         { text = "Has anyone tried to use magic on the races?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Mages can't really blink that far, Daisy.", next = "xmage", when = { class = "MAGE" } },
         { text = "Who would pay to fix the times?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do brawls ever stop the races, Daisy?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How do you keep time on cars that fast, Daisy?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -534,6 +657,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In theory, absolutely, though in practice it weighs about as much as a dwarf and heats up in the sun. I did build a breastplate from a rocket car's front panel once, and it stopped a goblin wrench beautifully, right before it melted." } },
+      choices = {
+        { text = "Tried and tested plate is best. Leave the experiments.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every great armor started as somebody's experiment.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Replace? No, no, improve upon, perhaps, with better gears and no need for dinner. Though I admit my last mechanical hound followed a smell of oil straight back to our own workshop and bit Fizzle on the ankle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, may I look at {pet}'s legs? Just a quick look? The knee joint alone would solve three problems I've had with the rear suspension." },
+      },
+      choices = {
+        { text = "No machine can match a living bond with a beast.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If a machine works better, I'd use it gladly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "So the trolls say, and I've no reason to doubt them! I'd like to know whether it's magic or something in the mallet itself, because if it's engineering, I want the blueprints." } },
@@ -572,6 +716,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Marvelous, because I've been testing crash plating and I need someone to tell me what it feels like to be hit very hard." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! I've been meaning to build a mechanical tracking hound, and I'd love to see a real one at work first, purely for research." },
         { id = "h_default", key = true, text = "Wizzle Brassbolts, gnome engineer, at your service! I help design the cars for our team, and I'm quite sure this season's model is the best yet, assuming it holds together." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Did you know Gahz'rilla, the hydra in Zul'Farrak, can be summoned with a special mallet? It's the most fascinating thing, and I'd love a mage's view on how it works." },
@@ -591,6 +739,8 @@ P:NPC {
         { text = "Imps make poor engineers, Wizzle.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there room for faith in engineering, Wizzle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the rivalry with the goblins ever settled fairly?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could racing armor plate work for a warrior, Wizzle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could a machine ever replace a hunter's beast, Wizzle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
