@@ -948,7 +948,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_el_distrust", when = { gossip = { topic = "explorers_league", stance = "distrust" } }, text = "RUTGAR SAYS YE CALLED US TREASURE-HUNTERS! Well, we are, a bit, but don't tell him I said so, because he's touchy about it." },
+    { id = "o_el_distrust", when = { gossip = { topic = "explorers_league", stance = "distrust" } }, text = "Rutgar says ye called us treasure-hunters, friend! Well, we are, a bit, but don't tell him I said so, because he's awful touchy about it." },
     { id = "g_default", text = "Look up there, friend, higher than that, over the dunes! Ah, ye've gone and missed it." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. Sit down, then, before I start shouting at the sky." },
   },

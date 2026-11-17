@@ -68,7 +68,7 @@ P:NPC {
     },
     op_fandral_r3 = {
       lines = {
-        { id = "op_fandral_r3", text = "Many of us wonder about the tree, quietly. The forest there has not been quite right, and I hear it from Darkshore every month." },
+        { id = "op_fandral_r3", text = "Many of us wonder about the tree, quietly, though few would say so aloud in Darnassus. You'll find I'm one of the quiet ones." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

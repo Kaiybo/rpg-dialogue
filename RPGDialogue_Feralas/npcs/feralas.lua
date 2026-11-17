@@ -815,7 +815,7 @@ P:NPC {
     },
     op_warchief_r3 = {
       lines = {
-        { id = "op_warchief_r3", text = "Nor I, friend. I was in the camps too, and I still dream of the walls some nights. Lok'tar!" },
+        { id = "op_warchief_r3", text = "Nor I, friend, because every orc remembers those walls, whether they stood inside them or only heard the stories. Lok'tar!" },
       },
       choices = {
         { text = "Something else, Rok.", next = "BACK" },

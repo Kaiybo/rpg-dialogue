@@ -119,7 +119,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_dw_hate", when = { gossip = { topic = "dwarves", stance = "hate" } }, text = "TAIM SAYS YOU WANT THE DWARVES OUT OF ALTERAC! GOOD! TRAIN HARDER, THEN, BECAUSE THEY HIT LIKE FALLING ROCKS!" },
+    { id = "o_dw_hate", when = { gossip = { topic = "dwarves", stance = "hate" } }, text = "Taim says you want the dwarves out of Alterac! Good! Then train harder, because they hit like falling rocks!" },
     { id = "g_hi", text = "Shoulders back! Now, what do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing. Good, that's the first lesson." },
   },
