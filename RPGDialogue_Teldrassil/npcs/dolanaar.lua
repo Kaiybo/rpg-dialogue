@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "corithras", id = TODO_NPC("Corithras Moonrage"), name = "Corithras Moonrage",
+  prejudice = { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." },
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
   notices = { "class" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "You've come a long way from your own lands to walk under Teldrassil. I'll ask you to keep to the paths, outsider, and to remember that this tree was planted for the Kaldorei." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Welcome back to Dolanaar. I said once that the tree was not for outsiders, and you've made a liar of me in the kindest way." },
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and in that time the third well has not grown any sweeter. Listen to it with me, and tell me I'm wrong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you last carried water for me. Strong enough, I hope, to face whatever is fouling the wells." },
@@ -27,6 +30,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I would rather the tree were given time to heal before a thousand boots tread on it. The Arch Druid planted it for our people, and something in it already sickens, and I can't help wondering what visitors carry up from the shore." } },
+      choices = {
+        { text = "Your tree sickened before we came. Look closer to home.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "Then I'll walk softly and keep to your paths.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "What sickens in the tree, Corithras?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "You say that as if I hadn't thought it in the small hours myself. Keep that thought quiet in Darnassus, outsider, but don't think I'll forget you said it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Then you're a better guest than many. Teldrassil remembers who treads softly, and so do I." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Something in the roots, and in the Gnarlpine, who were gentle once. I won't say more to an outsider yet, but thank you for asking rather than telling." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The third one does, and I am certain of it. The water is blessed by Elune, yet something sour has crept in. If your spirits of water feel it too, then I am not a foolish old elf." } },
@@ -119,6 +144,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like. The water is patient, and so am I, though my knees are less so after a night kneeling on wet stone." },
       },
       choices = {
+        { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { prejudiced = true } },
         { text = "What's wrong with the wells?", next = "wells" },
         { text = "Tell me the story Tenaron began.", next = "story" },
         { text = "You must have more than one well to watch over.", next = "which" },

@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "hadrec", id = TODO_NPC("High Executor Hadrec"), name = "High Executor Hadrec",
+  prejudice = { class = "MAGE", amount = 8, why = "Dalaran's mages are one of his four enemies; any mage reminds him of Arugal and the Kirin Tor's meddling in Silverpine." },
   bible = "bibles/silverpine.md", role = "soldier", tier = "major",
   communities = { "sepulcher" }, temper = { "iron" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
@@ -13,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A mage. Arugal was a mage, and his wolves are howling in my forest because of it, and Dalaran's people still tramp through Silverpine as though they own it. You'll forgive me if I keep you in sight." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've done more good in Silverpine than the whole Kirin Tor ever did, mage. That isn't high praise, but it's sincere." },
     { id = "g_sepulcher", text = "Speak. The Sepulcher has enemies on three sides, and I have little time for the fourth." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the forest, are you? Report, and be brief." },
     { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You served the Scourge and you remember it; I can always tell, because the ones who remember never sit with their backs to a door. Good, so make that memory useful in this forest." },
@@ -31,6 +34,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_hadrec = {
+      big = true,
+      lines = { { id = "prej_hadrec_default", text = "I treat every mage that way, and every mage has earned it. Arugal summoned the worgen to fight the Scourge and lost control of them, and now they are my problem, and Dalaran's mages walk past the Sepulcher on their way to Ambermill without a word of apology." } },
+      choices = {
+        { text = "Arugal's mistake isn't mine. Judge my spells by their targets.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Magic always costs something. Better wolves than the Scourge.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "Then point me at the worgen, and I'll show you what my magic is for.", next = "prej_hadrec_calm", fx = { affinity = 1 } },
+        { text = "What do the mages want with Ambermill?", next = "prej_hadrec_why" },
+      },
+    },
+    prej_hadrec_why = {
+      lines = { { id = "prej_hadrec_why_default", text = "Something under it, or around it, that they think worth guarding with a wall of their own. Their apprentices shoot first at anything grey, so they've cost me three deathguards who only went to ask." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_hadrec" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_hadrec_calm = {
+      lines = { { id = "prej_hadrec_calm_default", text = "Good. Shadowfang Keep is to the south, and Arugal is in it, and if a mage finishes what a mage started, there's a kind of tidiness in that I can appreciate." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_sfk = {
       big = true,
       lines = { { id = "xcl_sfk_default", text = "Then the Sepulcher has one front fewer, and I'll gladly take it. Arugal was a mage of Dalaran who loosed those beasts on this forest and let them have the Baron's house, and I've never understood why a man who feared the Scourge so much would make something worse to fight it." } },
@@ -85,6 +106,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, at the Sepulcher. I have worgen, Scourge, gnolls and Dalaran's mages to fight, and a paladin who can stand against all four is worth more to me than a dozen Deathguard." },
       },
       choices = {
+        { text = "You treat me like one of Dalaran's spies, Hadrec.", next = "prej_hadrec", when = { prejudiced = true } },
         { text = "Where can a priest serve the Sepulcher best, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Where do you need the storm, High Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Will you let me fight the worgen as a beast, High Executor?", next = "druid_q", when = { class = "DRUID" } },

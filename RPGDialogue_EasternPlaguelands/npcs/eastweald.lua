@@ -309,6 +309,7 @@ P:NPC {
   key = "nathanos", id = TODO_NPC("Nathanos Blightcaller"), name = "Nathanos Blightcaller",
   bible = "bibles/easternplaguelands.md", role = "soldier", tier = "major",
   communities = { "marris_stead" }, temper = { "cold" }, values = { "loyal", "proud" },
+  prejudice = { race = "Troll", amount = 10, why = "A ranger lord of Quel'Thalas who fought the Amani; he sees all trolls the same." },
   notices = { "race", "class" },
 
   impression = {
@@ -317,6 +318,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A troll on my land. I spent my life with the rangers of Quel'Thalas, holding the Amani off the forests, and now the Banshee Queen tells me trolls are allies, so I'll obey her, and nothing more." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "The Darkspear send me another hunter. Keep your hexes and your bones off my fences, troll, and we will get along well enough." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, troll. You've done the Queen's work here without complaint, and I find I have no complaint of my own left to make." },
     { id = "g_stead", text = "You stand on my land. It was my family's before the plague, and now it serves the Banshee Queen, as do I." },
     { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You remember serving the Scourge, and I remember dying to it. Keep your memory sharp, as I keep mine, because the Banshee Queen is better served by the dead who never forget." },
   },
@@ -330,6 +334,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "I knew no other trolls while I lived. The Amani came out of Zul'Aman every season to burn and to take heads, and I learned to kill them before I learned to read, so forgive me if I am slow to tell your tusks from theirs." } },
+      choices = {
+        { text = "The Darkspear fought for the Horde, not the Amani.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old hatreds sharpen a ranger. Keep yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be slow too, then. Watch me work.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Did the Banshee Queen fight the Amani as well?", next = "prej_why" },
+        { text = "Something else, Blightcaller.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "She led us against them, and she was magnificent, and she never spoke of them afterward as anything but enemies. That she now calls trolls allies tells me the world has changed, and I am still deciding whether I have." } },
+      choices = {
+        { text = "She changed. You could follow her in that too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things shouldn't change, even for her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Blightcaller.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Then work, and I will watch. That is more than I have offered any troll before you." } },
+      choices = {
+        { text = "Something else, Blightcaller.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Kill what I point you at, and leave the prayers for after. The Scarlets at Tyr's Hand call on the same Light you do, and the Banshee Queen wants them dead, so I'll be watching to see whether your hand shakes when you meet them." } },
@@ -415,6 +443,7 @@ P:NPC {
         { text = "The land might be brought back, Blightcaller.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would you have a paladin do in these fields, Blightcaller?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll clear the fields.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You speak to me as if I were Amani, Blightcaller.", next = "prej", when = { prejudiced = true } },
         { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", fx = { align = { order = -1 } } },
       },
     },

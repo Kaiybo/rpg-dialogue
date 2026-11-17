@@ -63,3 +63,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 
 ## New in the content push (keys gorn_one_eye, meilosh, taronn, malygen, banehollow)
 See bibles/timbermaw_hold.md, bibles/talonbranch_folk.md, bibles/banehollow.md. Golhine's new branches are listed in talonbranch_folk.md.
+
+## Prejudices (0.80.0, authored, not canon)
+- Arathandris Silversky fears warlocks carry the curse back into Felwood (`prejudice` WARLOCK 12); she once tended an ash grove near Jaedenar that the satyrs and the fel ruined.

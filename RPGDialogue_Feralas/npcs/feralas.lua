@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "shandris", id = TODO_NPC("Shandris Feathermoon"), name = "Shandris Feathermoon",
   bible = "bibles/feralas.md", role = "soldier", tier = "major",
+  prejudice = { { class = "WARLOCK", amount = 15, why = "the Legion's tools; her family died in the War of the Ancients" }, { class = "MAGE", amount = 8, why = "the Highborne's arcane hunger brought the Legion" } },
   communities = { "feathermoon" }, temper = { "intent" }, values = { "loyal", "dutiful", "brave" },
   notices = { "class", "race" },
 
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_lock", when = { prejudiced = true, class = "WARLOCK" }, text = "Warlock. The sisters on the dock have orders to let you pass, and they will, but every bow on Feathermoon will know where you're standing until you leave it." },
+    { id = "g_pj_mage", when = { prejudiced = true, class = "MAGE" }, text = "A mage, at my gate. The Highborne who ruled my people were mages too, and they spoke as softly as you will, right up until the sky burned." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I've watched you closely since you first came, and I meant to keep watching until you gave me a reason. You never gave me one, and the High Priestess would tell me to say so aloud." },
     { id = "g_isle", text = "Ishnu-alah, and welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back across the water, good. Now report." },
     { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "A scout off Ashenvale's borders, this far south. You left the Sentinels' paths to watch the rest of the world, I'm told, and I don't approve, but a scout's eyes are a scout's eyes, so report as if you'd never left." },
@@ -33,6 +37,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_shandris = {
+      lines = { { id = "pj_shandris_default", text = "I judge it by what it did. I was a girl when the Highborne opened the way for the Legion, and I lost my family in the burning that followed, so forgive me if I don't wait to learn which kind of {class} you are." } },
+      choices = {
+        { text = "What happened to your family, General?", next = "pj_shandris2" },
+        { text = "I answer to the Alliance's law, General, like any Sentinel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I answer to no one for my craft, least of all you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll give you no reason to draw, General.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_shandris2 = {
+      lines = { { id = "pj_shandris2_default", text = "Demons came through the trees at night, and my mother hid me under an overturned cart and went out to meet them. The High Priestess found me there days later, and I haven't lowered my bow near the Legion's tools since." } },
+      choices = {
+        { text = "I'm sorry for your mother. I'll keep my distance from your sisters.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_shandris = {
       big = true,
       lines = { { id = "xpt_shandris_default", text = "We trust them a little more, which is all anyone should ask of a Sentinel. The humans fought beside us at Hyjal, and I honor that, but this forest was ours for ten thousand years before any of them crossed the sea." } },
@@ -185,6 +205,7 @@ P:NPC {
         { text = "Do the Sentinels trust a shaman, General?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through Dire Maul, General. Eldre'Thalas is less crowded now.", next = "xcl_dm", when = { cleared = "Dire Maul", faction = "Alliance" } },
         { text = "Do the Sentinels trust outsiders who travel with your people, General?", next = "xpt_shandris", when = { party = { race = "NightElf" }, faction = "Alliance" } },
+        { text = "You judge my craft before you've seen what I do with it.", next = "pj_shandris", when = { prejudiced = true } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },

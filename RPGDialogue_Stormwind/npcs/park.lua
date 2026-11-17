@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 -- Sheldras Moontree: balance inside stone walls.
 P:NPC {
   key = "sheldras", id = TODO_NPC("Sheldras Moontree"), name = "Sheldras Moontree", title = "Druid Trainer",
+  prejudice = { class = "MAGE", amount = 8, why = "Kaldorei memory of the Sundering; polite but cool to arcanists." },
   bible = "bibles/park.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
   notices = { "form", "priest", "kaldorei" },
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Peace, {class}, though I'll ask you to keep your spells sheathed under these trees. The last time your kind of magic was loved this much, the sea swallowed my people's capital." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and welcome. I've watched you walk the park without a spark at your fingers, and I find I've stopped bracing when you come near." },
     { id = "g_balance", text = "Even within stone walls, there is peace, if you look for it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Ishnu-alah, young druid. Sit beneath the leaves a moment." },
     { id = "g_moonglade", when = { questActive = TODO_QUEST("Moonglade") }, text = "Moonglade waits for you. It is patient; be less so." },
@@ -31,6 +34,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I care for them the way you'd care for a forge left burning in a hayloft. My people drank deep of the arcane once, and the Well of Eternity tore the world in two because of it, and I see the same hunger in the young ones from the Mage Quarter." } },
+      choices = {
+        { text = "Magic needs rules and study, not fear. That's what we practise.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "Then I'll learn what the wild can teach me instead.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What did you lose, Sheldras?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Rules and study, yes, and the Highborne had libraries finer than anything in Stormwind. I hope your rules hold better than theirs did, but you'll forgive me if I keep watching." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Then you're wiser than most who walk out of that tower. The wild doesn't ask you to master it, only to listen, and the listening takes longer than any spell." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "A sister, a city I barely remember, and the shape of the coast I grew up on. It was a long time ago, but grief keeps poorly in a people who live so long." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xpt_sheldras = {
       big = true,
       lines = { { id = "xpt_sheldras_default", text = "Not at first, for your kind talk quickly and build quickly and forget quickly, and we do none of those things. But a company is a small forest of its own, and in time the roots find each other, if nobody insists on pulling them up to check." } },
@@ -125,6 +150,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The trees and I are in no hurry." },
       },
       choices = {
+        { text = "You don't care for mages, do you, Sheldras?", next = "prej", when = { prejudiced = true } },
         { text = "Train me, Sheldras.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why live in a human city?", next = "city" },
         { text = "I'm not sure I understand balance.", next = "balance" },

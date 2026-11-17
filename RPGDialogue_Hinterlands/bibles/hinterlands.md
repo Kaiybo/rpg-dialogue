@@ -31,3 +31,7 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Falstad (Persuade, kurdran): every night at the bar he drinks one to Kurdran and the riders who went through the Dark Portal with the Alliance and never came back, and tells nobody why.
+
+## Authored, not canon (prejudices, 0.80.0)
+- Falstad: teases Ironforge dwarves (`prejudice`, Alliance Dwarf, small; lines skip Wildhammer origins) over the War of the Three Hammers: "a fair king in a cave is still a king in a cave."
+- Talonaxe: dislikes gnomes for their machines (`prejudice`, race Gnome); a gnome's flying contraption over the Peak scattered three gryphons last summer, and one came back with a cut wing.

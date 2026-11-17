@@ -37,3 +37,6 @@ Truthful, but sees everything as the marsh sees it.
 
 ## Topics
 dragonmaw.
+
+## Prejudice (0.80.0, authored, not canon)
+- Rethiel the Greenwarden (prejudice, Dwarf): blames dwarven digs (Dun Modr, Thelgen Rock, Whelgar's site) for waking what was asleep in the marsh.

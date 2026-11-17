@@ -8,6 +8,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.18.0 (2026-11-17)
 - New people to talk to: Master Smith Burninate and Taskmaster Scrange at Thorium Point. Hansel and Lolo have more to say. New files: restart the game fully (a /reload won't load them).
 
+## 1.18.0 (2026-11-17)
+- Prejudices (0.80.0): Hansel Heavyhands (Ironforge dwarves). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.17.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

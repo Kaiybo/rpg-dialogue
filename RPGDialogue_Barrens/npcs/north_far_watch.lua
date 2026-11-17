@@ -11,6 +11,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 ---------------------------------------------------------------------------
 P:NPC {
   key = "kargal", id = TODO_NPC("Kargal Battlescar"), name = "Kargal Battlescar",
+  prejudice = { race = "Skyborne", amount = 8, why = "He doesn't trust anything new on the border, and the Skyborne came out of nowhere as far as Far Watch is concerned." },
   bible = "bibles/kargal.md", role = "soldier", tier = "quest",
   temper = { "gruff", "proud" }, values = { "proud", "loyal" },
   notices = { "gender", "kit" },
@@ -20,6 +21,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Skyborne. I've got a whole border to watch, and now there's people coming down out of the sky that nobody told me about. Don't take it personally that I keep an eye on you." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You know, I wrote to Orgrimmar about you lot the first time you came through. I might write again and tell them you're all right, if I can find the ink." },
     { id = "g_watch", text = "Far Watch Post. If you're lost, the Crossroads is west, and if you're not, state your business." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, because nobody else climbs up here unless Sergra sends them, and you don't look like one of hers." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in one piece? Most of the runners who leave this post can't say that." },
@@ -34,6 +37,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_kargal = {
+      big = true,
+      lines = { { id = "prej_kargal_default", text = "Course I have. I've watched this border since the Horde came to Durotar, and I know every face that crosses it, and then one day your people turn up out of the clouds with no warning and a lot of questions. A watchman doesn't like surprises, and you're a big one." } },
+      choices = {
+        { text = "We came in good faith. Your suspicion insults the Horde.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Good. A watchman who trusts strangers dies young.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Nobody needs your permission to cross the sky, old orc.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Ask what you like. I'll answer straight.", next = "prej_kargal_calm", fx = { affinity = 1 } },
+        { text = "Has anyone from the sky caused you trouble?", next = "prej_kargal_why" },
+      },
+    },
+    prej_kargal_why = {
+      lines = { { id = "prej_kargal_why_default", text = "Not yet, which is what bothers me. In my experience, trouble that hasn't happened yet is just trouble that's still on the road, and I'd like to know which road it's coming down." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_kargal" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_kargal_calm = {
+      lines = { { id = "prej_kargal_calm_default", text = "Hm. Straight answers. Sergra Darkthorn never gave me one of those in her life, so you're already ahead of her." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kargal Battlescar. I hold Far Watch Post for the Horde, which means I watch the river, the hills and the road, and nobody at the Crossroads thanks me for any of it." },
@@ -46,6 +68,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The river isn't going anywhere." },
       },
       choices = {
+        { text = "You've had your eyes on me since I came up the path, Battlescar.", next = "prej_kargal", when = { prejudiced = true } },
         { text = "What does Far Watch Post guard?", next = "post" },
         { text = "You don't think much of Sergra Darkthorn.", next = "sergra" },
         { text = "How did you get that scar?", next = "scar" },

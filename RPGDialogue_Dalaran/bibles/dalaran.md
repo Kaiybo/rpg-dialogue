@@ -148,3 +148,6 @@ New Forever content. Read on warcraft.wiki.gg (raw page text) on 2026-11-17. The
 - Archmage Ansirem Runeweaver: the Hillsbrad pack's `ansirem` (alterac_roads.lua) already defines him with the same TODO name, outside a sealed dome. A second definition would merge with it. See the report to the lead.
 - Emissary Jacques (Hillsbrad pack), the Image of Modera (Silverpine), Ravenholdt and the Syndicate (Hillsbrad pack).
 - Who or what the Shade of the Archmage is; what caused the crash; whether the Fel Ancient came from the garden.
+
+## Prejudice (0.80.0, authored, not canon)
+- Archmage Celindra (prejudice, WARLOCK): watched Archimonde level Dalaran and saw her own students walk out of the green fire changed; would rather warlocks didn't exist.

@@ -51,3 +51,6 @@ No personal memories put in Baine's mouth about the walk itself (his age then is
 
 ## 0.34.0 (Persuade check, authored, not canon)
 - Baine (Persuade, `baine_father`): Cairne would rather walk the plains with the herds and stays on the High Rise because the tribes need one place to look to (the wiki notes Cairne would rather live on the plains); Baine has never told him he noticed.
+
+## Authored, not canon
+- Harken Windtotem's prejudice (0.80.0): uneasy with the Forsaken, who were robbed of the Earth Mother's rest; tauren bury under open sky with a song and a stone.

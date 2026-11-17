@@ -204,6 +204,7 @@ P:NPC {
 
 P:NPC {
   key = "orgnil", id = TODO_NPC("Orgnil Soulscar"), name = "Orgnil Soulscar",
+  prejudice = { { class = "WARLOCK", amount = 10, why = "He hunts the Burning Blade, and every warlock is a cultist he hasn't caught yet." }, { origin = "orc_blade_defector", amount = 8, why = "He believes no one truly leaves the Blade." } },
   bible = "bibles/durotar.md", role = "soldier", tier = "quest",
   communities = { "razor_hill" }, temper = { "grim" }, values = { "lawful", "protective" },
   notices = { "class", "stealth" },
@@ -213,6 +214,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A warlock in Razor Hill. I'll be honest with you, because I'm honest with everyone I might have to kill: every Burning Blade cultist I ever buried started out telling me they could control it." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I've watched you a long while now, warlock, and you've given me nothing to hunt. That's rarer than you'd think, and I'll say so to anyone who asks." },
     { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow. Our people drank demon blood once; I won't let the Blade pour it for us again." },
     { id = "g_bb_resolved", when = { thread = { id = "burning_blade", state = "resolved" } }, text = "Word came down from Orgrimmar that the Warchief has heard the Blade's whole road from you, valley to Cleft. Good, then; I'll keep watching the hills, and he can keep watching the smiles." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons, or any blood on your blade?" },
@@ -230,6 +233,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_orgnil = {
+      big = true,
+      lines = { { id = "prej_orgnil_default", text = "I do, and I'll keep it there until you give me cause to move it. The Burning Blade are cutting through Skull Rock and the Valley of Trials, and half of them were respectable warlocks in Orgrimmar a year ago. The fel has a voice, and it is very patient." } },
+      choices = {
+        { text = "I've heard that voice and I refuse it, every day.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Your fear makes you blind. Power isn't the same as the Legion.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Then keep your hand there. I'll give you nothing to use it on.", next = "prej_orgnil_calm", fx = { affinity = 1 } },
+        { text = "Did you know any of them before they turned?", next = "prej_orgnil_why" },
+      },
+    },
+    prej_orgnil_why = {
+      lines = { { id = "prej_orgnil_why_default", text = "My own brother-in-arms, Zelk, a good warlock who taught at the Cleft. He went south to hunt the Blade the way I do, and he came back wearing their sigil and calling me by my old camp number. I put him down myself at Skull Rock." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_orgnil" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_orgnil_calm = {
+      lines = { { id = "prej_orgnil_calm_default", text = "Hm. A warlock who doesn't argue. I've not met many of those, and none of them were Burning Blade, so perhaps there's hope for you yet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_rfc = {
       big = true,
       lines = { { id = "xcl_rfc_default", text = "Some of them are, and that's more than I've managed. The Searing Blade are the Burning Blade's young, the ones the old cult raises in the dark beneath our feet, and they've been feeding a demon down there since the city was built. I hunt them in the hills because I can reach them there, but the ones I really want are closer than that, and they smile at me in the street." } },
@@ -329,6 +350,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Every one of them you put down is one less traitor whispering to the Legion." },
       },
       choices = {
+        { text = "You keep one hand on your blade around me, Soulscar.", next = "prej_orgnil", when = { prejudiced = true } },
         { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A shaman could find the Blade by the ground they've poisoned.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Burning Blade's magic must be poisoning Durotar.", next = "druid_q", when = { class = "DRUID" } },

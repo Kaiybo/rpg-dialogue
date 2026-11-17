@@ -11,6 +11,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.20.0 (2026-11-17)
 - New people to talk to: Gorn One Eye and Meilosh at Timbermaw Hold, Taronn Redfeather and Malygen at Talonbranch Glade, Lord Banehollow in Jaedenar. Golhine has more to say. New files: restart the game fully (a /reload won't load them).
 
+## 1.20.0 (2026-11-17)
+- Prejudices (0.80.0): Arathandris Silversky (warlocks). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.19.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

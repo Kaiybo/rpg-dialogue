@@ -35,3 +35,6 @@ Never says: his own former name or whether it changed
 
 ## Topics
 - background, advice, _none
+
+## Authored, not canon
+- Bauhaus's prejudice (0.80.0): clerical disdain for the living, who are careless with names; the census holds about forty thousand names, half guessed from Brill's tombstones.

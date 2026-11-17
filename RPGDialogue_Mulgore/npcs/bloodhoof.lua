@@ -488,6 +488,7 @@ P:NPC {
 
 P:NPC {
   key = "harken", id = TODO_NPC("Harken Windtotem"), name = "Harken Windtotem",
+  prejudice = { race = "Scourge", amount = 8, why = "The Earth Mother's cycle ends in rest; he finds the walking dead an offence against it, though he is too kind to say so loudly." },
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "practical" },
   notices = { "class" },
@@ -497,6 +498,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Ah, one of the Forsaken. Forgive an old herder if he stands upwind of you; my people believe the dead should rest in the Earth Mother's arms, and seeing you walk about troubles the part of me that was taught it." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "It's good to see you, friend, and I mean it more than I did the first time. Whatever you are, you've the manners of the living, and that's more than I can say for some of the living." },
     { id = "g_plains", text = "Watch the sky over Mulgore for a while, the way the hawks do. You'll see what I mean about the swoops." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the sky over Mulgore has changed its mind a dozen times since. My knees could have told you it would." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the village round to your way of thinking. That's a rarer thing among tauren than you'd guess, because we're stubborn as old kodo." },
@@ -509,6 +512,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_harken = {
+      big = true,
+      lines = { { id = "prej_harken_default", text = "I suppose I do, and that's not fair to you, but it's honest. To my people, a death is the end of a long walk, and the Earth Mother takes the body back to feed the grass. You were robbed of that, and I can't look at you without thinking of the grass going hungry." } },
+      choices = {
+        { text = "I didn't choose to rise. Pity the robbery, not the one robbed.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Your Earth Mother never came for me. I'll walk where I like.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Then let me walk Mulgore gently, and you can judge me by it.", next = "prej_harken_calm", fx = { affinity = 1 } },
+        { text = "Do the tauren bury their dead, then?", next = "prej_harken_why" },
+      },
+    },
+    prej_harken_why = {
+      lines = { { id = "prej_harken_why_default", text = "We do, under the open sky, with a song for the walk and a stone so the wind knows the spot. When I heard the Scourge dug up the dead of Lordaeron, I didn't sleep for a week, and then Thrall sent us the Forsaken as friends." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_harken" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_harken_calm = {
+      lines = { { id = "prej_harken_calm_default", text = "That I can do, and gladly. The plains have room for a quiet walker, whatever's beating or not beating inside them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "We wandered for generations without it, and the Earth Mother kept us. But I've watched the sky long enough to know there are many lights in it, and I don't see why yours can't be one of them, even if it does look odd on a Forsaken." } },
@@ -596,6 +617,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The sky's been quiet over Mulgore, and I'd like it to stay that way, so keep your demon on the ground." },
       },
       choices = {
+        { text = "You look at me like I'm a broken thing, Windtotem.", next = "prej_harken", when = { prejudiced = true } },
         { text = "You spend a lot of time watching the sky.", next = "sky" },
         { text = "The swoops must come down at a hunter's beast sometimes.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The air over Mulgore feels uneasy. Have you noticed, Harken?", next = "xhsham", when = { class = "SHAMAN" } },

@@ -5,6 +5,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.28.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 
+## 1.28.0 (2026-11-17)
+- Prejudices (0.80.0): Raleigh the Devout (warlocks) and High Executor Darthalia (the living Horde). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.27.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

@@ -47,3 +47,6 @@ Sources read: Foreman_Oslow (Classic gossip: no time for idle talk, every projec
 
 ## 0.34.0
 - Oslow (Persuade, `collapse_honest`): the bridge won't be done before the rains; the main span will be up and the rest 'planks and prayer until spring'. He keeps the schedule because the crew works faster for it.
+
+## Prejudice (0.80.0, authored, not canon)
+- Foreman Oslow (prejudice, Gnome): a mason's scorn for gears and steam; thinks Gnomeregan fell because it was built wrong; his crew call a leaning post 'the Gnomeregan'.

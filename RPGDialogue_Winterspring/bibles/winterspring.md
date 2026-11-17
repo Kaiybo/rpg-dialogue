@@ -68,3 +68,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 - none: service NPCs (Wixxrak's BRD quest is later and not used).
 ### Voices (authored, not canon)
 - Grizzlin: brisk, wants the door shut. Wixxrak: eager gun-oil man with a secret mixture. Qia: dry, exact about thread; supplies come through the Timbermaw tunnel. Azzleby: likes beasts better than people; keeps frostsabers and wolves apart. Evie: delighted by snow herbs, packs vials in straw.
+
+## Prejudices (0.80.0, authored, not canon)
+- Wixxrak has a gunsmith's grudge against dwarves (`prejudice` Dwarf 8): they all praise Ironforge's rifles in his shop, and a sealed keg of Ironforge powder took his cousin's eyebrows.

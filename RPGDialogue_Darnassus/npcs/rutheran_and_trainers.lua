@@ -341,6 +341,7 @@ P:NPC {
 -- Jeen'ra Nightrunner: hunter trainer in Darnassus.
 P:NPC {
   key = "jeenra", id = TODO_NPC("Jeen'ra Nightrunner"), name = "Jeen'ra Nightrunner", title = "Hunter Trainer",
+  prejudice = { race = "Human", amount = 8, why = "Saw a Stormwind hunting party leave stags to rot on the Darkshore coast." },
   bible = "bibles/rutheran_and_warriors.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "quiet" }, values = { "nature", "freedom" },
   impression = {
@@ -348,11 +349,35 @@ P:NPC {
     third = "{name} met Jeen'ra Nightrunner, a quiet hunter trainer of Darnassus.",
   },
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A human, come to learn the bow from me. I'll teach you, {class}, but you'll learn first that a hunter here kills to eat, and not to hang a head over the hearth." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you again. You've not brought me a single trophy to admire in all this time, and I've stopped waiting for one." },
     { id = "g_default", text = "Speak softly. The beasts are listening, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Your companion looks well, and so do you." },
   },
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I think humans hunt hungrily. A party from Stormwind came through Darkshore last spring, twelve men and their hounds, and they left four stags on the shore with only the antlers taken." } },
+      choices = {
+        { text = "Then those men shamed every hunter, human or not.", next = "prej_a", fx = { align = { light = 1 } } },
+        { text = "A kill is a kill. What's taken is the hunter's business.", next = "prej_b", fx = { align = { light = -1 } } },
+        { text = "What would you have a hunter take from a kill?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Yes, they did, and I'm glad to hear a human say it. Say it to the next party that sails over from Menethil, if you can do it without getting shot." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Then we'll disagree, and I'll still teach you, because Elune doesn't ask me to like my students. Only remember that the forest keeps count." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Everything you can use, and a word of thanks for the rest. Take the hide, the sinew and the meat; leave the antlers if you must, but leave nothing to rot that something else could have eaten." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They trust those who listen. You listen, it seems. I am more at ease with beasts than with people, and you may be the same." } },
@@ -462,6 +487,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, but softly, for a nightsaber hears a careless word a long way off." },
       },
       choices = {
+        { text = "You think humans hunt badly, Jeen'ra?", next = "prej", when = { prejudiced = true } },
         { text = "I want training.", next = "BUSINESS" },
         { text = "How do you bond with a beast?", next = "a" },
         { text = "A young hunter needs somewhere to start.", next = "b" },

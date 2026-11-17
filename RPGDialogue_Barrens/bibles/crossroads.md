@@ -44,3 +44,7 @@ Authored, not canon: Boorand's holey roof and the Ratchet goblin who tried to se
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Mankrik (Persuade, `wall_truth`): he stays on the wall because while he doesn't look, Olgra might still be alive; it's the one thing he's a coward about (authored feeling, nothing on where she lies).
+
+## Authored, not canon
+- Helbrim's prejudice (0.80.0): tauren druids have written to Thunder Bluff about him eleven times this season; he doesn't know what the Society does with his spores.
+- Gazlowe's prejudice (0.80.0): night elves are bad customers (one bandage, an hour of complaints, a letter to Astranaar about the Venture Company).

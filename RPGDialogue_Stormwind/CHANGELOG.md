@@ -17,6 +17,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.27.0 (2026-11-17)
 - New: Archmage Malin in the Wizard's Sanctum (see the main changelog for 0.80.0). New file `npcs/malin.lua`: restart the game fully (a /reload won't load it).
 
+## 1.27.0 (2026-11-17)
+- Prejudices (0.80.0): Orphan Matron Nightingale (warlocks), Sheldras Moontree (mages) and Lord Baurles K. Wishock (stonemasons' children). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.26.0 (2026-11-17)
 - The Topper McNabb patch: Topper has a conversation of his own now, far deeper than before (see the main changelog for 0.78.0). New file `npcs/topper.lua`: restart the game fully (a /reload won't load it).
 - New: Nikova Raskol in Old Town (see the main changelog for 0.78.0). New file: restart the game fully (a /reload won't load it).

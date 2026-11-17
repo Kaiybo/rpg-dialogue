@@ -59,3 +59,6 @@
 
 ## 0.34.0
 - Mekkatorque (Persuade, `whose_list`): he made a list of every survivor on the tram platform with a borrowed pencil, and reads it every night looking for a name he missed.
+
+## Prejudice (0.80.0, authored, not canon)
+- Senator Mehr Stonehallow (prejudice, NightElf): counts the Kaldorei as allies who never paid for the Second War; grumbles that Darnassus wants dwarven rifles at Auberdine.

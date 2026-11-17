@@ -30,3 +30,4 @@
 - Primal standing double watch at midnight; her shame at not freeing the camps; calling the player family.
 - Markhor burying Malkhor with Yayo'jin's rites; his patience. Katoom thinking Nat Pagle fishes near Theramore and ignores factions.
 - Lard's life among ogres before the trolls; how he keeps the peace. Slagtree's reason for living among trolls. Otho saying the Primal doesn't stop him. Gorkas keeping wind riders low past Aerie Peak; his rivalry with Katoom over bait.
+- Yayo'jin: keeps the Forsaken at arm's length (`prejudice`, race Scourge) because they walked out on Bwonsamdi without paying the toll; burns sage after selling to them. Her grandmother's saying about the patient loa is authored.

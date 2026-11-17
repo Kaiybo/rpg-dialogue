@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "gadrin", id = TODO_NPC("Master Gadrin"), name = "Master Gadrin",
+  prejudice = { race = "Scourge", amount = 8, why = "Zalazane raises dead Darkspear as puppets on the Echo Isles; walking corpses are personal for him." },
   bible = "bibles/durotar.md", role = "priest", tier = "major",
   communities = { "senjin" }, temper = { "folksy" }, values = { "wise", "proud" },
   notices = { "race", "class", "origin" },
@@ -13,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Ah, mon, you be one of the dead who walk. Gadrin be honest with you: Zalazane make our dead walk on the Echo Isles, and when Gadrin see a dead face moving, his old heart jump like a frightened lizard." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come, come, sit. Gadrin been thinking about you, dead one, and he decide the loa sent you to teach an old troll something about walking dead who keep their own mind." },
     { id = "g_hut", text = "Come, come, Gadrin don't bite. Not anymore, anyway; the teeth be too old." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you visit the old man again. Sit; the fire be warm." },
     { id = "g_away", when = { away = 14 }, text = "Ah, you been gone {away}, and the old man worried a little, though he won't tell you how much. Sit by the fire, mon." },
@@ -33,6 +36,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_gadrin = {
+      big = true,
+      lines = { { id = "prej_gadrin_default", text = "Gadrin do, and it shame him a little. Zalazane take our dead from the burning grounds, put his hex on them and send them walking against their own kin, and they don't know their own names no more. Gadrin know you not the same, but his eyes, they don't listen to his head so good." } },
+      choices = {
+        { text = "I'm no puppet. Nobody pulls my strings, old man.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I serve the Dark Lady. Her will is mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll help you free them, if I can.", next = "prej_gadrin_calm", fx = { affinity = 1 } },
+        { text = "Were any of Zalazane's dead people you knew?", next = "prej_gadrin_why" },
+      },
+    },
+    prej_gadrin_why = {
+      lines = { { id = "prej_gadrin_why_default", text = "Gadrin's sister's boy, mon, a good fisher with a crooked tusk. Gadrin see him on the Isles last year, standing in the surf with Zalazane's mark on him, and he looked right at Gadrin and didn't know him at all." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_gadrin" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_gadrin_calm = {
+      lines = { { id = "prej_gadrin_calm_default", text = "Ah, now that be a thing Gadrin didn't expect from a dead one. The loa got a sense of humour, mon, and Gadrin starting to like the joke." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_zf = {
       big = true,
       lines = { { id = "xcl_zf_default", text = "Then you see what Zalazane be wantin' to make of the Echo Isles. The Sandfury witch doctors drag their dead back up to guard the walls and call it devotion, but a spirit pulled back into rotten flesh never be grateful for it. I teach my students that the dead deserve rest, and Zul'Farrak be a whole city that forget it." } },
@@ -116,6 +137,7 @@ P:NPC {
         { id = "h_echo", when = { origin = "troll_echo_isles" }, text = "You born on the isles, child, I remember, and you cry the whole way across the water when we leave. Now you come back with a weapon on your back, and Gadrin think maybe the isles be crying for you instead." },
       },
       choices = {
+        { text = "You look at me the way you'd look at Zalazane's puppets.", next = "prej_gadrin", when = { prejudiced = true } },
         { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened on the Echo Isles?", next = "isles" },

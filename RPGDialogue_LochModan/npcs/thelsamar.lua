@@ -292,6 +292,7 @@ P:NPC {
 
 P:NPC {
   key = "ironband", id = TODO_NPC("Prospector Ironband"), name = "Prospector Ironband",
+  prejudice = { race = "NightElf", amount = 8, why = "A druid sat in his cousin Durn's Darkshore trench humming until the crew walked off." },
   bible = "bibles/thelsamar.md", role = "scholar", tier = "quest",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "honest", "practical" },
   notices = { "craft" },
@@ -302,6 +303,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A night elf at my dig. If you've come to tell me the ground is sacred and the stones are sleeping, my cousin heard that speech in Darkshore last summer, and it cost him a season." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, there's my night elf. You've not once called my trenches a wound in the earth, and I've started saving you a seat by the fire." },
     { id = "g_dig", text = "Watch the trench, an' the ropes, an' the lads, for they're workin', slowly but workin'." },
     { id = "g_back", when = { metBefore = true }, text = "Good, ye came back. We could always use another pair o' hands that know which end's the shovel." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the dig's moved on a good few feet since. Slowly, mind, but it's movin'." },
@@ -316,6 +319,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "My cousin Durn had a dig on the Darkshore coast with a permit from Magni himself, and a druid sat in his trench for a week humming at him until the crew walked off. Your people don't own the past, friend, they only act as though they do." } },
+      choices = {
+        { text = "Some ruins should stay buried. My people have their reasons.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "Dig where you like. The past belongs to everyone.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What are you hoping to find here, Prospector?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Reasons, aye, and they never tell anyone what they are, which is the part that drives an honest digger mad. Tell me one someday, and I might listen." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Ha, now you sound like a dwarf! Mind you don't say it in Darnassus, or they'll have you sitting in a trench humming." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "The truth about where we came from, and maybe the Titans' own hand in it. The troggs make that hard going, mind, but it's worth a few bruises." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' keep it, for it belongs tae the League an' tae Ironforge." } },
@@ -439,6 +464,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away; diggin's slow, an' half the lads are nursin' blisters, so talkin's the only quick thing round here." },
       },
       choices = {
+        { text = "You've had trouble with my people, Prospector?", next = "prej", when = { prejudiced = true } },
         { text = "What did the last druid say about your digging?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are you digging for?", next = "dig" },
         { text = "The dig seems to be going slowly.", next = "slow" },

@@ -74,3 +74,4 @@ Sources read (warcraft.wiki.gg, Classic sections): Kargath (NPC list), Neeka_Blo
 ### Authored, not canon
 Neeka and Helgrum's rivalry over running versus tracking; her watching red whelps in Lethlor Ravine from the ridge; Jarkal choosing the inn's quiet floor and Shul'kar's onions; Gorrik's Barrens past, soaked blankets and his running complaint with Breyk at Stonard; Grawl's Orgrimmar past and grain-pile vigil. Kargath additions to old NPCs: Goretooth on Neeka; Shul'kar on Jarkal and a troll reply.
 Left out as unsure for Classic: Thunderheart, Grunt Gargal, Initiate Amakkar, Galamav the Marksman, Razal'blade, Greth, Sranda (listed on the wiki without a Classic marker). Gorn was added in 0.72.0 (Broken Alliances is a Classic quest).
+- Goretooth: distrusts Horde warlocks (`prejudice`, class WARLOCK) because he sees Gul'dan in every one; he drank the demon's blood with everyone else and remembers it as "a fire that made everything simple".

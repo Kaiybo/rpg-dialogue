@@ -503,6 +503,7 @@ P:NPC {
 -- Lord Baurles K. Wishock: a thirsty lord with a crusade against the Slaughtered Lamb.
 P:NPC {
   key = "wishock", id = TODO_NPC("Lord Baurles K. Wishock"), name = "Lord Baurles K. Wishock",
+  prejudice = { origin = "human_stonemason_child", amount = 12, why = "Sees every mason's child as a Defias cousin since the guild's walkout." },
   title = "House of Nobles",
   bible = "bibles/keep_court.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "proud", "lawful" },
@@ -513,6 +514,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "I'm told you're a mason's whelp, and that your father's guild still thinks the crown owes it a fortune. You may speak, briefly, and keep your hands where my steward can see them." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and I find I don't mind it. I said hard things about your father's trade, and you've carried yourself better than half the lords on this floor." },
     { id = "g_house", text = "Mark my words, the House will hear of it! Oh, it's you; what is it?" },
     { id = "g_thirst", text = "Lobbying is thirsty work, dreadfully thirsty work." },
   },
@@ -526,6 +529,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I think the Stonemasons' Guild rebuilt this city, demanded a sum the treasury didn't have, and when it was refused, went west and took up masks and knives. Forgive me if I look at every mason's child and wonder which uncle is in the Deadmines." } },
+      choices = {
+        { text = "The House of Nobles cheated honest men. You made the Defias.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "The law is the law. The guild should have gone to court.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "My family never wore a red mask, my lord.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Careful. That is the sort of talk that gets a name written in a ledger by Lord Shaw's people, and I'd rather not see yours in it, whatever your father did." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Precisely, and a court would have heard them, in time. Perhaps you're not your father's child after all, or perhaps your father wasn't as bad as his guild." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "No? Then you'll understand why I said I wonder, and not that I know. I'll try to remember the difference, which is more than I promise most people." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I trust anything that isn't summoning demons in a cellar. Your spirits I can live with, so long as they don't drink on credit." } },
@@ -614,6 +639,7 @@ P:NPC {
         { id = "h_again2", text = "Well? Out with it." },
       },
       choices = {
+        { text = "You don't think much of masons' children, my lord.", next = "prej", when = { prejudiced = true } },
         { text = "What dark practitioners?", next = "coven" },
         { text = "You must have stumbled on them somehow.", next = "found" },
         { text = "The House may not listen.", next = "house" },

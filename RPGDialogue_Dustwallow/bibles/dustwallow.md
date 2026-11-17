@@ -61,3 +61,6 @@ Sources: Classic NPC roster of Theramore Isle as remembered (wiki pages Baldruc,
 ### Deepened (authored, not canon)
 - Janene: the Kul Tiras sailors who stayed after the Admiral fell and drink to his memory; priest reply. Tesoran: what became of Daelin's men (home, the Lady's colors, or neither) and their grudge; paladin reply.
 - Unsure, so left out: Lieutenant Caldwell, Clerk Lendry, Craig Nollward, Piter Verance, Guard Byron, Private Hendel (his end stays secret per Never).
+
+## Prejudices (0.80.0, authored, not canon)
+- Overlord Mok'Morokk resents orc bosses (`prejudice` Orc 10): they call ogres stupid behind their hands, Nazeer Bloodpike most of all, though he tolerates them because the Stonemaul need Brackenwall.

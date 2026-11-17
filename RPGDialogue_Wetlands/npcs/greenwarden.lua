@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "wl_rethiel", id = TODO_NPC("Rethiel the Greenwarden"), name = "Rethiel the Greenwarden",
+  prejudice = { race = "Dwarf", amount = 8, why = "Holds dwarven digs (Dun Modr, Thelgen Rock, Whelgar's site) to blame for what wakes in the marsh." },
   bible = "bibles/greenwarden.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "calm", "proud" }, values = { "nature", "patient", "wise" },
   notices = { "form", "fel", "class" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A dwarf. Your kind cut into this marsh before the harbor had walls, small one, and the reeds still flinch at the sound of a pick." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "The dwarf returns, and the moss does not draw back. I spoke hard words of your kind's picks and fires, and you have walked more gently here than many." },
     { id = "g_default", text = "The roots and ferns speak of you, small one. Come, and step softly on the moss." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the grove. The reeds bent toward you as you came, and that is a good sign." },
     { id = "g_away", when = { away = 14 }, text = "The marsh has turned many times since you were here, small one. It has missed few things, and it did not miss your absence." },
@@ -33,6 +36,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "Your kind love stone so well they forget what lives on top of it. Dun Modr, Thelgen Rock, the Whelgar dig, and every one of them a wound that woke something worse than what slept there before." } },
+      choices = {
+        { text = "You're right. Some places should be left to sleep.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "Dwarves dig and raptors bite. That's the world, Greenwarden.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What lives here that I should know about?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Then you are a rarer dwarf than any I have known, and the marsh will remember it. Speak to the diggers at Whelgar's camp for me; they hear it better from a beard than from a bog." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "That is the world, yes, and it is the excuse every pick and axe has ever given. I will go on disagreeing with you, small one, and the marsh will go on keeping score." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "The raptors you know, and the crocolisks. But there are herons in the reeds that nest nowhere else on this coast, and the bog beasts of the south marsh are older than Menethil's first stone." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,6 +82,7 @@ P:NPC {
         { id = "h_again2", text = "The reeds are listening. Ask what you would ask." },
       },
       choices = {
+        { text = "You don't think much of dwarves, Greenwarden.", next = "prej", when = { prejudiced = true } },
         { text = "What are you, Rethiel?", next = "what" },
         { text = "What wounds the land?", next = "wounds" },
         { text = "The Mosshides seem to trouble you.", next = "gnolls" },

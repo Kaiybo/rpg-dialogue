@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "gazlowe", id = TODO_NPC("Gazlowe"), name = "Gazlowe",
+  prejudice = { race = "NightElf", amount = 6, why = "Night elves complain about the smoke and the logging contracts, buy nothing and haggle over the rest; to him they are bad customers first." },
   bible = "bibles/crossroads.md", role = "noble", tier = "major",
   temper = { "brash" }, values = { "ambitious", "practical" },
   notices = { "race" },
@@ -13,6 +14,8 @@ P:NPC {
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
   },
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A night elf in Ratchet. Look, pal, before you start on the smoke, the docks, the trees and the sanctity of whatever, I already got the speech last week, and I'm still payin' off the headache." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Hey, it's my favourite night elf, and I don't say that 'cause there's a lot of competition! You pay your tab and you don't preach, pal, and that makes you a rare bird in my ledger." },
     { id = "g_hi", text = "Hey, hey, a new face in my town, and new faces are my favourite kind of customer! So what is it, pal, are you buying, selling, or just standing there admiring the real estate?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! Good, good, because repeat customers are the backbone of this whole operation, and I've got the ledgers to prove it." },
   },
@@ -22,6 +25,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    prej_gazlowe = {
+      big = true,
+      lines = { { id = "prej_gazlowe_default", text = "Nothin' personal, pal, it's just the numbers. Every night elf who comes through here buys one bandage, complains about the smoke for an hour and writes a letter to Astranaar about the Venture Company, which ain't even us, by the way. That's a lot of overhead for one bandage." } },
+      choices = {
+        { text = "Then I'll be the first night elf to pay full price.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Steamwheedle profits from the smoke. Expect more letters.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "I'll judge Ratchet on what Ratchet does, Gazlowe.", next = "prej_gazlowe_calm", fx = { affinity = 1 } },
+        { text = "Is Ratchet tied up with the Venture Company?", next = "prej_gazlowe_why" },
+      },
+    },
+    prej_gazlowe_why = {
+      lines = { { id = "prej_gazlowe_why_default", text = "No! Well, they dock here sometimes, and they pay dock fees like anybody, and I can't help who pays dock fees. The Venture boys are strip-mining Stonetalon, which is bad for business 'cause it makes all of you angry at all of us, and that's the whole problem in one sentence." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_gazlowe" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_gazlowe_calm = {
+      lines = { { id = "prej_gazlowe_calm_default", text = "Now that's a sentence I'd frame, pal. Spread that one around Darnassus for me and I'll owe you, figuratively, 'cause I don't owe anybody literally." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_gazlowe = {
       big = true,
       lines = { { id = "xpt_gazlowe_default", text = "Ratchet loves crews, pal, as long as they pay their tabs and keep their quarrels off my docks. Crews from both sides come through here, and the only rule I care about is that nobody starts a war where my boats can see it, because wars do terrible things to the insurance." } },
@@ -151,6 +172,7 @@ P:NPC {
         { id = "h_cl_dm", tags = { "news" }, when = { cleared = "The Deadmines" }, text = "Heard you went down into the Deadmines and put VanCleef out of business, pal. Can't say I'm crying, but whoever built that juggernaut down there knew what they were doing, and I'd have paid good gold for a look at the blueprints first." },
       },
       choices = {
+        { text = "You flinch when I walk in, Gazlowe. Something about night elves?", next = "prej_gazlowe", when = { prejudiced = true } },
         { text = "I'd guess Thrall used the spirits to build Orgrimmar.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does Ratchet ever think about what it does to the coast?", next = "xdruid", when = { class = "DRUID" } },
         { text = "So you're the one who built Orgrimmar.", next = "orgrimmar" },

@@ -1387,6 +1387,7 @@ P:NPC {
 
 P:NPC {
   key = "stonehallow", id = TODO_NPC("Senator Mehr Stonehallow"), name = "Senator Mehr Stonehallow",
+  prejudice = { race = "NightElf", amount = 10, why = "Ironforge bled in the Second War while the Kaldorei never knew it happened; he keeps the ledger." },
   bible = "bibles/ironforge_court.md", role = "noble", tier = "quest",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "dutiful", "practical" },
   notices = { "kit", "greenness" },
@@ -1397,6 +1398,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A night elf in the High Seat. Say your piece quickly, if you please; the senate sits within the hour, and I'll not keep it waiting on ten thousand years of manners." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I've told the senate twice now that at least one Kaldorei knows how to pull their weight, and they look at me as though I've grown a second beard." },
     { id = "g_quarry", text = "Watch yer footing, for the troggs come up out o' the quarry like water from a cracked pipe." },
     { id = "g_back", when = { metBefore = true }, text = "There are fewer o' the beasts since ye were last here, I'll grant ye, though no' none, mind." },
   },
@@ -1408,6 +1411,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I trust what I can count. Ironforge bled through the Second War while your people slept in their forests and never sent a single archer, and now Darnassus wants dwarven rifles at Auberdine and calls it friendship." } },
+      choices = {
+        { text = "We never knew your war existed. We're here now, aren't we?", next = "prej_a", fx = { align = { honor = 1 } } },
+        { text = "You're right. Darnassus owes Ironforge more than polite words.", next = "prej_b", fx = { align = { honor = -1 } } },
+        { text = "What would earn your trust, Senator?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Didn't know, or didn't look? Either way, being here now is a start, and I'll write it in the minutes that one of you said so to my face." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Well! A night elf who can do sums. Don't let your priestesses hear you say that, or you'll be pruning hedges in Darnassus for a century." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Work, and the time to watch it done. Bring me something from Auberdine or Ashenvale besides promises, and I'll remember who carried it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xpt_stonehallow = {
       big = true,
       lines = { { id = "xpt_stonehallow_default", text = "Because the Senate prefers tae argue about the quarry from a warm room in the High Seat, an' I prefer tae be cold an' right. If it weren't for wanderin' companies like yers, Gol'Bolar would've been lost tae the troggs a season ago." } },
@@ -1530,6 +1555,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've a speech tae write, an' I'd welcome the delay." },
       },
       choices = {
+        { text = "You don't trust my people, Senator.", next = "prej", when = { prejudiced = true } },
         { text = "Why won't Ironforge grant the timber rights?", next = "druid_q", when = { class = "DRUID" } },
         { text = "This sounds like a job for the guards.", next = "why" },
         { text = "Where did the troggs come from?", next = "troggs" },

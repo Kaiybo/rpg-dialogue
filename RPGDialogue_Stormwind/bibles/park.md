@@ -49,3 +49,6 @@ Never says: what the blossom means beyond her curiosity; anything about Dalaran'
 ## What they notice
 1. Herbalists (rival skill).
 2. Druids (kin in the craft).
+
+## Prejudice (0.80.0, authored, not canon)
+- Sheldras Moontree (prejudice, MAGE): lost a sister and her childhood coast in the Sundering; cool towards arcanists, warms to those who never cast near her.

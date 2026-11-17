@@ -6,6 +6,7 @@ P:NPC {
   key = "goretooth", id = TODO_NPC("Warlord Goretooth"), name = "Warlord Goretooth",
   bible = "bibles/badlands.md", role = "soldier", tier = "quest",
   communities = { "kargath" }, temper = { "boisterous" }, values = { "proud", "loyal", "brave" },
+  prejudice = { class = "WARLOCK", faction = "Horde", amount = 10, why = "An old Horde warrior who remembers Gul'dan's warlocks leading the orcs to demon blood." },
   notices = { "race", "class", "level" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A warlock, climbing my tower. The last time I trusted one of your trade, Gul'dan's lot were handing round a cup of something red, and I've had the taste in my mouth ever since." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Keep your imp at the foot of the stairs, warlock. The vultures don't like it, and neither do I." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, warlock! I've heard what you did on the road, and I don't care what whispers in your ear any more. You fight like an orc, and that's the end of it." },
     { id = "g_tower", text = "Another one climbs my tower, good! Lok'tar, {class}; I was starting to talk to the vultures, and they have no honor and worse jokes." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and with your blood still on the inside! That's more than I can say for the last three I sent up the road." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and I was back to talking to the vultures. Good, you can take their place." },
@@ -34,6 +38,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "I think the warlocks of the old Horde sold us to the demons and called it strength, and every orc my age paid for it. When I see a warlock now, I see Gul'dan smiling at the back of the tent, and that's not your fault, but it's there." } },
+      choices = {
+        { text = "I'm not Gul'dan. My power serves the Horde, not demons.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. The old Horde just used it badly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then watch me on the road, Warlord, and judge from that.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Did you drink the demon's blood yourself?", next = "prej_why" },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Everyone did, or near enough, and I'd not lie to you about it. I don't remember it as a choice, more a fire that made everything simple, and it took Thrall and years in the camps to burn it out of me." } },
+      choices = {
+        { text = "Then you know what it costs. That's wisdom, not prejudice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That was the old Horde. Let the old fears die with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Ha! Good answer. Go and show me, then, and I'll listen when you come back down that road." } },
+      choices = {
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Trouble me? Ha! I've fought beside the dead and I've fought against the Light, and you're both at once, so I can't decide whether to salute you or duck. Take the Spire road and smite a few Blackrock for me, and I'll decide you're one of mine." } },
@@ -164,6 +192,7 @@ P:NPC {
         { text = "Kargath looks short of healers, Warlord.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does a Forsaken paladin trouble you, Warlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Wyrmthalak is dead, Warlord. I've seen the lower Spire.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire", faction = "Horde" } },
+        { text = "You don't think much of warlocks, Warlord.", next = "prej", when = { prejudiced = true } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },

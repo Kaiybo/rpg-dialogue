@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "xylem", id = TODO_NPC("Archmage Xylem"), name = "Archmage Xylem",
   bible = "bibles/azshara.md", role = "scholar", tier = "major",
+  prejudice = { class = "DRUID", amount = 10, why = "a human archmage who thinks the Circle squandered the Highborne's knowledge and lectures anyone who studies it" },
   communities = { "xylems_tower" }, temper = { "proud", "sharp" }, values = { "curious", "proud" },
   notices = { "class", "race", "arcane" },
 
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_druid", when = { prejudiced = true }, text = "A druid, climbing my tower, how bracing. Your Circle drove the Highborne's learning out of Kalimdor and then spent ten thousand years asleep in trees, so you'll forgive me if I don't expect a scholarly conversation." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "My druid! I told Sanath you were the exception that proves the rule, and he asked which rule, and I couldn't remember, which tells you how thoroughly you've ruined it." },
     { id = "g_default", text = "Ah, a visitor who survived Sanath's manners. Come in, and do try not to touch anything that glows." },
     { id = "g_back", when = { metBefore = true }, text = "You again, {name}. Good; the last three visitors were disappointments." },
     { id = "g_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") }, text = "My favourite drake-slayer! Sit, sit; the shard has been singing all week." },
@@ -36,6 +39,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_xylem = {
+      lines = { { id = "pj_xylem_default", text = "To me? Nothing, which is rather the point. Your Circle had the greatest library of magic this world has ever known lying in the rubble of Zin-Azshari, and it chose to grow moss over it and lecture anyone who picked up a page." } },
+      choices = {
+        { text = "Is there more to it than books, Archmage?", next = "pj_xylem2" },
+        { text = "Some knowledge should stay buried. The Sundering proved that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Knowledge belongs to whoever is bold enough to dig.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let me show you a druid who reads.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_xylem2 = {
+      lines = { { id = "pj_xylem2_default", text = "A little. When I first came to this coast, a Cenarion druid followed me for a month, undoing my wards at night and leaving acorns on my desk as a kind of sermon. I burned the acorns, and I'm told that was the worst thing I could have done." } },
+      choices = {
+        { text = "Acorns as a sermon? I'd have burned them too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "Grim is a fine word for anywhere trolls and dragons share a cellar. The dragonkin down there guard the Atal'ai's mistakes for their mistress, and I find it fascinating that creatures with so much power choose to spend it as jailers." } },
@@ -186,6 +205,7 @@ P:NPC {
         { text = "Why study the magic that broke this land?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What does an archmage think of the Light, Xylem?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I've been through the Sunken Temple, Archmage. It was grim.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
+        { text = "You sneer at druids, Archmage. What did the Circle do to you?", next = "pj_xylem", when = { prejudiced = true } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },

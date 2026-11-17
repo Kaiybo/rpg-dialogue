@@ -331,6 +331,7 @@ P:NPC {
 
 P:NPC {
   key = "kardris", id = TODO_NPC("Kardris Dreamseeker"), name = "Kardris Dreamseeker",
+  prejudice = { race = "Orc", class = "WARLOCK", amount = 12, why = "An orc who takes up the fel again is, to her, choosing the old sickness twice; she is gentler with warlocks of other races." },
   bible = "bibles/orgrimmar.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "wise", "devout" },
   notices = { "class" },
@@ -339,10 +340,31 @@ P:NPC {
     third = "{name} met Kardris Dreamseeker, a shaman trainer in Orgrimmar's Valley of Wisdom.",
   },
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "The spirits draw away from you, warlock, and so do I. Our people drank the demon's blood once and burned Draenor for it, so tell me why an orc would reach for that cup again." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I was hard on you when we met, warlock, and the spirits have since told me what you are, which is not what I feared. Sit, if you like; I'll not move my mat away." },
     { id = "g_hi", text = "The spirits are restless in the city today. Come, sit where they are quieter." },
   },
   start = "hello",
   nodes = {
+    prej_kardris = {
+      big = true,
+      lines = { { id = "prej_kardris_default", text = "It is, and I'll not hide it. I grew up in the camps on the stories of what the warlocks did to us, how Gul'dan sold our grandfathers to the Legion for power. When an orc comes to me with that stink on him, I see the whole history standing behind him." } },
+      choices = {
+        { text = "I master the fel so it never masters our people again.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Power is power. Your spirits never freed us from the camps.", next = "BACK", fx = { align = { light = -1, order = -1 }, affinity = -1 } },
+        { text = "You're right; I'll leave the fel behind when I can.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Watch me, then. I'm not Gul'dan's and I'm not the Blade's.", next = "prej_kardris_calm", fx = { affinity = 1 } },
+        { text = "Were there warlocks in the camps too?", next = "prej_kardris_why" },
+      },
+    },
+    prej_kardris_why = {
+      lines = { { id = "prej_kardris_why_default", text = "There were, and the humans let them be, because a warlock who'd lost his demons was just another hungry orc. Some taught the young ones in secret, and some of those young ones are the Burning Blade now, in the canyons south of here." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_kardris" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_kardris_calm = {
+      lines = { { id = "prej_kardris_calm_default", text = "Then I'll watch, and listen, and the spirits will tell me the rest. They have a way of knowing which hands are only borrowing a thing and which hands mean to keep it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_kardris = {
       big = true,
       lines = { { id = "xpt_kardris_default", text = "Respect, first and always, because the elements answer a shaman's call as a favour and never as a duty. A shaman who must heal a careless war band again and again begins to wonder whom the spirits are really serving, so be a companion worth the trouble." } },
@@ -460,6 +482,7 @@ P:NPC {
         { id = "h_cl_mc", tags = { "news" }, when = { cleared = "Molten Core", faction = "Horde" }, text = "The fire spirits have been quieter these past days, as if something in Blackrock Mountain stopped burning so hot. I think you know why, because your boots still stink of the Firelord's hall." },
       },
       choices = {
+        { text = "You flinch from me, Dreamseeker. Is it the fel you smell?", next = "prej_kardris", when = { prejudiced = true } },
         { text = "Do the spirits mind that a priest prays to something else?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shaman and druid must hear the same voices.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What were the orcs before the demons?", next = "before" },

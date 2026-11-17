@@ -736,6 +736,7 @@ P:NPC {
 P:NPC {
   key = "glynda", id = TODO_NPC("Sentinel Glynda Nal'Shea"), name = "Sentinel Glynda Nal'Shea",
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
+  prejudice = { race = "Dwarf", amount = 10, why = "Remtravel's diggers carry off carvings from Ameth'Aran and Mist's Edge; she sees every dwarf with a pick as a grave-robber" },
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
   notices = { "kit" },
   impression = {
@@ -744,6 +745,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_dwarf", when = { prejudiced = true }, text = "Another dwarf off the boat. If you're bound for Remtravel's dig, remember that those ruins were our people's houses, and they are not a quarry for your Explorers' League." },
+    { id = "g_pj_dwarf2", when = { prejudiced = true, metBefore = true }, text = "You again, dwarf. I've counted the shovels going north this week and I'm in no mood to count yours, so tell me plainly what you want." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I owe you an apology, and Sentinels don't hand those out often. I took you for one of Remtravel's grave-diggers, and you've done more for this shore than half my own patrols." },
     { id = "g_watch", text = "If you're staying in Auberdine, then you're under the Sentinels' eye; don't take it personally, for we watch everyone." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the murlocs haven't stopped coming ashore in that time. Report anything you've seen along the coast." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you first walked these sands. The Sentinels could use a blade like yours on the beach." },
@@ -758,6 +762,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_glynda = {
+      lines = { { id = "pj_glynda_default", text = "Your countrymen dig in Ameth'Aran and at Mist's Edge, and they carry off whatever they find in sacks, carvings and urns and bones alike. Those were our homes before the Sundering, so every dwarf with a pick looks like a thief to me until I see otherwise." } },
+      choices = {
+        { text = "Remtravel isn't every dwarf. Who did they take from?", next = "pj_glynda2" },
+        { text = "Those ruins should be left in peace. I'll tell Remtravel so myself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old ruins serve the living better than the dead, Sentinel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand. I'll tread carefully up the coast.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_glynda2 = {
+      lines = { { id = "pj_glynda2_default", text = "From my mother, if you want it plainly. I found the lintel of her house propped under a dwarf's cookpot at the dig, with her name still carved in it, and perhaps that makes me unfair, but it doesn't make me wrong." } },
+      choices = {
+        { text = "That's a hard thing to find. I'm sorry, Sentinel.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I count murloc sign, mostly, and it grows. Your water spirits might tell me where they come from before my Sentinels find out by stepping on one." } },
@@ -894,6 +914,7 @@ P:NPC {
         { text = "Do you count warlocks among the corruption, Sentinel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you count on the beach each morning, Glynda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Blackfathom, Sentinel.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
+        { text = "You glare at me like I've robbed a tomb, Sentinel.", next = "pj_glynda", when = { prejudiced = true } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },

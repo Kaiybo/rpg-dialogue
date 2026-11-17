@@ -10,6 +10,7 @@ P:NPC {
   title = "The Highborne",
   bible = "bibles/shendralas.md", role = "questgiver", tier = "major",
   communities = { "shendralas", "shendralar" }, temper = { "proud", "sharp" }, values = { "learned", "honest", "kind" },
+  prejudice = { race = "NightElf", amount = 8, why = "An old Highborne wound: the kaldorei who distrusted and drove out his people." },
   notices = { "race", "class", "carry" },
 
   impression = {
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A kaldorei, at the overlook. Your ancestors called my people dangerous and drove most of them across the sea, and I find, to my embarrassment, that I have not entirely forgiven you for it." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Ah, one of Elune's druids' children, come to look at the ruins. Look, by all means; my people built them while yours were learning to talk to bears." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, child of the kaldorei. I owe you an apology, I think, for blaming you for a quarrel ten thousand years older than you are." },
     { id = "g_default", text = "You stand in Shen'dralas, or in what little the ages have left of it." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the overlook. Few do, and fewer come back twice." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The temple stones still catch the moonlight, even now. Come and see, if you like." },
@@ -51,6 +55,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because your people never trusted mine, and after the Sundering they had reason, and still I resent it. The Highborne who stayed here were scholars, not demon-worshippers, and the kaldorei never troubled to learn the difference." } },
+      choices = {
+        { text = "The Highborne nearly ended the world. Caution was wise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They should have learned the difference. You were wronged.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'm not my ancestors. Judge me by my own deeds.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What was Shen'dralas like, before?", next = "prej_why" },
+        { text = "Something else, archmage.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Full of lamps and libraries and arguments that ran through the night, and the arguments were the best of it. We thought we were preserving the old learning for a wiser age, and perhaps we were, though the wiser age has been slow to arrive." } },
+      choices = {
+        { text = "Then I'll help it arrive. Show me what's left.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Learning without wisdom caused the Sundering. Remember that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, archmage.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "A fair rebuke, and gently given. Very well; I will try to see you and not your grandmothers." } },
+      choices = {
+        { text = "Something else, archmage.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -112,6 +140,7 @@ P:NPC {
         { text = "Could these ruins be held against the Magram?", next = "xwarrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "What hides in these ruins that I should know of?", next = "xrogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "The spirits of this land are uneasy, archmage.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "You speak to me coldly, archmage. Why?", next = "prej", when = { prejudiced = true } },
         { text = "Farewell, archmage.", next = "END" },
       },
     },

@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "althea", id = TODO_NPC("Commander Althea Ebonlocke"), name = "Commander Althea Ebonlocke",
+  prejudice = { class = "ROGUE", amount = 8, why = "A smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits; three watchmen died." },
   rivals = { "ello" },
   bible = "bibles/althea.md", role = "soldier", tier = "major",
   communities = { "darkshire" }, temper = { "steady" }, values = { "brave", "lawful", "stern" },
@@ -16,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A rogue in Darkshire. My watchmen already jump at shadows, {class}, so keep to the lamplight while you're in town and we'll get along." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and in the lamplight, as I asked. I don't care much for your trade, but I've come to trust the one practising it." },
     { id = "g_watch", text = "Night Watch. State your business, {class}, and then make yourself useful." },
     { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You're one of mine now, or near enough, so report." },
     { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "There's the reason half my watchers are still alive. Sit down, if only for a moment." },
@@ -35,6 +38,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I trust what I can see, and your trade is built on not being seen. Half the knives in Duskwood belong to bandits who'd sell a Night Watch patrol to the worgen for a pair of boots, and they learned the same tricks you did." } },
+      choices = {
+        { text = "Shadows hide me from worgen too. That makes me useful to you.", next = "prej_a", fx = { align = { honor = -1 } } },
+        { text = "Then I'll walk openly while I'm in Darkshire.", next = "prej_b", fx = { align = { honor = 1 } } },
+        { text = "What happened to make you so wary, Commander?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Useful, yes, I suppose you are, and I've never turned down a useful blade. I'll still have Sorigal count the strongbox when you leave." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "That's more than I usually get from your sort. Walk openly, then, and the Watch will treat you as one of its own." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "A man came to us two winters ago with a fine tongue and a rogue's hands, and he sold the payroll and a patrol route to bandits on the Westfall road in the same night. Three of my watchmen died on that road." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xcl_scholo = {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Good, though schools outlive their masters, and every necromancer who passed through that place is still out there with what he learned. Men like Morbent Fel don't find their trade in a book lying in a ditch, and I'd wager the road from Raven Hill runs north to Caer Darrow sooner or later." } },
@@ -132,6 +157,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then, and keep half an eye on the gate while you do." },
       },
       choices = {
+        { text = "You don't trust rogues, Commander.", next = "prej", when = { prejudiced = true } },
         { text = "Can Duskwood still be healed?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's out in the woods?", next = "woods" },
         { text = "I'd like to help the Watch.", next = "help" },

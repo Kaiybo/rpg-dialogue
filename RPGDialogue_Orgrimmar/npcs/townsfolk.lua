@@ -740,6 +740,7 @@ P:NPC {
 -- Overlord Runthak: an officer of Orgrimmar who walks the Valley of Strength.
 P:NPC {
   key = "runthak", id = TODO_NPC("Overlord Runthak"), name = "Overlord Runthak", title = "Orgrimmar Officer",
+  prejudice = { race = "Scourge", amount = 10, why = "Fought beside human knights at Blackrock and against Lordaeron's dead; he trusts the Forsaken because Thrall says to, not because he does." },
   bible = "bibles/townsfolk.md", role = "soldier", tier = "service",
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "loyal", "disciplined" },
   notices = { "class", "race" },
@@ -749,6 +750,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "I watched the Scourge walk out of Lordaeron's fields with my brothers' faces on them, so forgive me if I count your fingers when you pass, Forsaken. The Warchief vouches for you, and that's the only reason you're in my valley." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've stood your post in this city as well as any orc I command, and I've stopped counting your fingers. Don't make me start again, Forsaken." },
     { id = "g_hi", text = "Keep moving, citizen, and keep your weapon sheathed in the Warchief's city. And mind the kodo dung by the gate, because nobody's been paid to shovel it this week." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still in one piece, I see. Good; the Horde needs you that way." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, citizen, and nobody filed a report. Next time you vanish from the Warchief's city, at least tell a guard." },
@@ -766,6 +769,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_runthak = {
+      big = true,
+      lines = { { id = "prej_runthak_default", text = "I do, and I'll tell you why to your face. I've fought the dead, and the dead don't tire, don't bleed and don't stop when their master falls. You say you've broken free, and maybe you have, but I've seen nothing yet that proves it." } },
+      choices = {
+        { text = "Then judge me by what I do, not by what walks in Lordaeron.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Your fear is your problem, Overlord, not mine.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "That's a fair worry. I'll give you time to see otherwise.", next = "prej_runthak_calm", fx = { affinity = 1 } },
+        { text = "What did the dead take from you?", next = "prej_runthak_why" },
+      },
+    },
+    prej_runthak_why = {
+      lines = { { id = "prej_runthak_why_default", text = "Two of my grunts at Hillsbrad, during the raid that freed the Warchief, and I saw them again a year later walking with the Scourge. They didn't know me. You'll understand if a grey face makes my hand go to my axe before my head catches up." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_runthak" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_runthak_calm = {
+      lines = { { id = "prej_runthak_calm_default", text = "Hmph. That's more patience than most of your people show me. Keep your word to the Horde and I'll keep my axe on my back, and we'll see where we stand in a season." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_runthak = {
       big = true,
       lines = { { id = "xpt_runthak_default", text = "Choose one voice to follow when the blades come out, and argue about it afterwards over grog. I've watched brave orcs die because three of them shouted three different orders, and the enemy only needed to hear one of them." } },
@@ -883,6 +904,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Make it quick; I'm on my rounds." } },
       choices = {
+        { text = "You watch me closer than anyone else in the valley, Overlord.", next = "prej_runthak", when = { prejudiced = true } },
         { text = "Do you trust priests in Orgrimmar, Overlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The Warchief still walks the shaman's path, I hear.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would any of them win, Overlord?", next = "druid_q", when = { class = "DRUID" } },

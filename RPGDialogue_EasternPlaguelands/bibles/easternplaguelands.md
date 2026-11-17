@@ -21,6 +21,7 @@
 
 ## Authored, not canon
 - Tyrosus walks the chapel at dawn, the one quiet hour. Leonid dislikes being called Revered and feels the Light as warmth on frostbitten hands. Tirion fishes and the fish don't bite. Nathanos means to take the house back himself.
+- Nathanos: cold to trolls (`prejudice`, race Troll), the ranger's old war with the Amani; he obeys the Queen's alliance and is still deciding whether he has changed with her.
 
 ## Voices
 - Tyrosus: reserved, out of practice with visitors, measured, no prejudice.

@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "bauhaus", id = TODO_NPC("Royal Overseer Bauhaus"), name = "Royal Overseer Bauhaus",
+  prejudice = { race = { "Orc", "Tauren", "Troll" }, amount = 6, why = "He finds the living careless with names and records; his disdain is clerical, not cruel, and the living are bad at filling forms." },
   bible = "bibles/bauhaus.md", role = "questgiver", tier = "quest",
   communities = { "undercity" }, temper = { "dry" }, values = { "orderly", "proud" },
   notices = { "race", "status" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "One of the living. How wonderful. You'll want to tell me your name, and then you'll spell it three different ways, and then you'll ask me why the census is so slow." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, my favourite living visitor. You spelled your name the same way twice, which in my office counts as a kind of friendship." },
     { id = "g_census", text = "The census office. Do state your business, preferably in fewer words than I would use." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I trust this isn't another inquiry about whether somebody's dead." },
     { id = "g_jeremiah", when = { questActive = TODO_QUEST("The Jeremiah Blues") }, text = "Payson, near the bank, under one of the walkways. Follow the smell of cockroaches, which in this city narrows it down very little." },
@@ -30,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_bauhaus = {
+      big = true,
+      lines = { { id = "prej_bauhaus_default", text = "I think the living are careless with what matters. You have names and lose them, family trees you can't recite, and you die and leave no record of where you were buried. My work is remembering the dead of Lordaeron by name, and the living make it very hard to do." } },
+      choices = {
+        { text = "Records are for the dead. The living have better things to do.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "You're right. Names matter, and I'll keep mine straight.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then let me help. Whose names are missing?", next = "prej_bauhaus_calm", fx = { affinity = 1 } },
+        { text = "How many names are in the census now?", next = "prej_bauhaus_why" },
+      },
+    },
+    prej_bauhaus_why = {
+      lines = { { id = "prej_bauhaus_why_default", text = "Forty thousand, more or less, and half of them are guesses from tombstones in Brill. Every one of them was somebody, and I won't let them become nobody just because the Scourge was faster than the scribes." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_bauhaus" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_bauhaus_calm = {
+      lines = { { id = "prej_bauhaus_calm_default", text = "Now there's a question nobody asks. Most of the missing are from Andorhal and Stratholme, and I'll want them in triplicate, but the thought is very nearly touching." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Royal Overseer Bauhaus, of the Undercity census. Since our liberation from the Scourge, we have tried to keep an accurate account of the city's populace, and through a certain arcane discipline, I can reach those records." },
@@ -47,6 +68,7 @@ P:NPC {
         { id = "h_again2", text = "Proceed. I'm keeping a tally of your questions, purely from habit." },
       },
       choices = {
+        { text = "You don't think much of the living, Overseer.", next = "prej_bauhaus", when = { prejudiced = true } },
         { text = "Why keep a census of the dead?", next = "census" },
         { text = "I'd not have thought people would change their names.", next = "names" },
         { text = "Who asks you if people are dead?", next = "asks" },

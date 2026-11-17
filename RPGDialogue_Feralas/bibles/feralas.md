@@ -41,3 +41,6 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Rok_Orhan, Orwi
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Shandris (Persuade, tyrande_far): she'd rather be at Tyrande's side; nobody in the Temple would tell Tyrande to rest, so Shandris writes long reports and sends them fast, knowing Tyrande reads them at moonrise.
+
+## Prejudices (0.80.0, authored, not canon)
+- Shandris Feathermoon formalises her old distrust (`prejudice` WARLOCK 15, MAGE 8): her mother hid her under an overturned cart and went out to meet the demons; Tyrande found her days later. The cart is authored.

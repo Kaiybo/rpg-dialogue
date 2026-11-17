@@ -36,3 +36,6 @@ Gryshka sends Zargh's bones back clean after Meats to Orgrimmar and is still won
 - Thrall (Persuade, `neeru_suspect`): he has suspected Neeru since the day Neeru offered to watch the Burning Blade for him; he keeps Neeru in the Cleft, "a snake I can see", and lets him think he is grateful.
 - Vol'jin (Persuade, `zalazane_friend`): as boys, Zalazane dared him to swim to the far rock and swam out after him when he tired; Vol'jin still half hopes his friend is under the voodoo, and does not tell Thrall.
 - Neeru (Deceive, `neeru_opinion`): his "real opinion" of Thrall, irony only: the Warchief's patience lets enemies "grow rather powerful"; to warlocks, the Horde was strong "when it wasn't afraid of what made it strong". He never admits what he is.
+
+## Authored, not canon
+- Kardris's prejudice (0.80.0): hard on orc warlocks in particular (the old sin twice); gentler with warlocks of other races.

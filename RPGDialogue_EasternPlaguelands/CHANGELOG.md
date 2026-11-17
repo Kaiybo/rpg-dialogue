@@ -8,6 +8,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.23.0 (2026-11-17)
 - New people to talk to: Joseph Redpath at Darrowshire, Augustus the Touched at Terrordale, Eris Havenfire at Light's Hope. Egan and Zverenhoff have more to say. New files: restart the game fully (a /reload won't load them).
 
+## 1.23.0 (2026-11-17)
+- Prejudices (0.80.0): Nathanos Blightcaller (trolls) and Duke Nicholas Zverenhoff (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.22.1 (2026-11-17)
 - Writing pass on the characters added in 0.74.0: stock phrases ("fair enough", "truly", "worth more than") rewritten.
 

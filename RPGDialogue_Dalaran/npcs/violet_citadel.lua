@@ -351,6 +351,7 @@ P:NPC {
 
 P:NPC {
   key = "dal_celindra", id = TODO_NPC("Archmage Celindra"), name = "Archmage Celindra",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Kirin Tor horror of demonology; watched Archimonde level the city." },
   bible = "bibles/dalaran.md", role = "scholar", tier = "major",
   communities = { "dalaran", "kirin_tor" }, temper = { "sharp", "proud" }, values = { "learned", "stern" },
   notices = { "class", "faction" },
@@ -361,6 +362,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A warlock, inside the Violet Citadel. You'll forgive me if I keep a ward up while we talk, {class}; the last demon to walk these halls was Archimonde, and he left by flattening the city." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I still keep a ward up when you come in, but I've noticed I no longer weave it with my whole attention." },
     { id = "g_default", text = "Yes? Be quick, please; I'm very busy." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Is it urgent, or merely interesting?" },
     { id = "g_helped", when = { questDone = TODO_QUEST("Friend of the Kirin Tor") }, text = "Ah, the mote-bearer. Come in, but mind the circle on the floor." },
@@ -380,6 +383,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I'd rather your kind didn't exist, and I'll say so to your face. The Kirin Tor have expelled students for less than what you do openly, and I watched the Legion turn this city to rubble with the same fire you carry in your satchel." } },
+      choices = {
+        { text = "You fight demons with walls. I fight them with their own chains.", next = "prej_a", fx = { align = { light = -1 } } },
+        { text = "I'll keep my pacts well away from your city.", next = "prej_b", fx = { align = { light = 1 } } },
+        { text = "What did you see, the night the city fell?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Chains. Every warlock I've ever buried said chains, until the chain was round their own throat, so go carefully, and don't make me prove myself right." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "That is the most sensible thing a warlock has ever said to me. Keep to it, and the Citadel will keep its doors open to you, if not its arms." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Fire that burned green, and students I'd taught walking out of it with their eyes gone strange. I don't speak of it as a rule, so take that as more courtesy than I usually give." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Yes? I'm Celindra, and I have three wards to recalibrate and only one pair of hands, so please be brief." },
@@ -403,6 +428,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The ward will hold another minute." },
       },
       choices = {
+        { text = "You'd rather my kind weren't here, Archmage.", next = "prej", when = { prejudiced = true } },
         { text = "This mote hums with a strange power.", next = "mote" },
         { text = "You look busy with some great working.", next = "work" },
         { text = "Is the city safe now?", next = "safe" },

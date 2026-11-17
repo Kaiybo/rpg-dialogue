@@ -715,16 +715,35 @@ P:NPC {
 P:NPC {
   key = "mokmorokk", id = TODO_NPC("Overlord Mok'Morokk"), name = "Overlord Mok'Morokk",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
+  prejudice = { race = "Orc", amount = 10, why = "orc bosses call ogres stupid behind their hands; he tolerates them because the Stonemaul need Brackenwall" },
   impression = {
     first = "Overlord Mok'Morokk rules the ogres of Brackenwall Village with a heavy hand and a heavier appetite.",
     third = "{name} met Overlord Mok'Morokk, the ogre leader of Brackenwall Village in Dustwallow Marsh.",
   },
   greetings = {
+    { id = "g_pj_orc", when = { prejudiced = true }, text = "Another orc come to tell Mok'Morokk what to do. Orcs always little bosses, always pointing, and they think ogres not see them laugh behind their hands, but Mok'Morokk see everything." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "You! You the orc who never laugh at Mok'Morokk. Mok'Morokk tell the Stonemaul you a good small boss, and they say Mok'Morokk must be sick, but Mok'Morokk say it anyway." },
     { id = "g_main", text = "You stand before Mok'Morokk, so bow, little one! Maybe Mok'Morokk not squash you today." },
     { id = "g_back", when = { metBefore = true }, text = "You come back? Mok'Morokk has more work for strong ones." },
   },
   start = "hello",
   nodes = {
+    pj_mok = {
+      lines = { { id = "pj_mok_default", text = "Orcs bring ogres to fight in their big war, and orcs say ogres strong, ogres brave, ogres stupid. Mok'Morokk hear the stupid part even when orcs say it quiet, and now Stonemaul live in orc swamp and carry orc things, and orcs still say it." } },
+      choices = {
+        { text = "Who calls you stupid, Overlord?", next = "pj_mok2" },
+        { text = "The Horde keeps your people fed. Serve it and be glad.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Stonemaul should answer to no orc boss.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll never call you stupid, Overlord.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_mok2 = {
+      lines = { { id = "pj_mok2_default", text = "Nazeer say it to the grunts when he think Mok'Morokk busy eating, and Mok'Morokk always eating, so Nazeer say it a lot. Someday Mok'Morokk stop eating and listen, and then Nazeer be very sorry." } },
+      choices = {
+        { text = "Maybe Nazeer should be more careful, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_mokmorokk = {
       big = true,
       lines = { { id = "xpt_mokmorokk_default", text = "Ha! Then you know being boss is hard work, because every gang has one who wants to be boss next. Mok'Morokk keeps his gang loyal by keeping the food coming and hitting the clever ones first." } },
@@ -860,6 +879,7 @@ P:NPC {
         { text = "A shining dead thing seems to scare Mok'Morokk.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Onyxia is dead, Overlord. Your chief is avenged.", next = "xcl_ony", when = { cleared = "Onyxia's Lair" } },
         { text = "My friends follow me, Overlord. I'm the boss of this gang.", next = "xpt_mokmorokk", when = { party = { size = 4 } } },
+        { text = "You don't like orcs much, do you, Overlord?", next = "pj_mok", when = { prejudiced = true } },
         { text = "Farewell.", next = "END" },
       },
     },

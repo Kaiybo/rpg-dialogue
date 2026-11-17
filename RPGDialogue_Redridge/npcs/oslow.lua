@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "oslow", id = TODO_NPC("Foreman Oslow"), name = "Foreman Oslow",
+  prejudice = { race = "Gnome", amount = 8, why = "A mason's scorn for gnomish engineering; blames Gnomeregan's fall on building it wrong." },
   bible = "bibles/oslow.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "craft", "swim" },
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A gnome. If you're from the Tinker Town office with another plan for a bridge that folds up and walks away, the answer's still no, and I'll thank you not to measure anything." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, it's you. I was wrong about gnomes, or about one of them at least, and I've told my lads to stop calling the leaning post 'the Gnomeregan'." },
     { id = "g_busy", text = "Unless you're carrying a hammer, keep walking." },
     { id = "g_tools", when = { questActive = TODO_QUEST("The Lost Tools") }, text = "My toolbox? Have you got my toolbox? Then why on earth are you dry?" },
     { id = "g_after", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "Look at that span, go on, look at it. That's craftsmanship, that is." },
@@ -32,6 +35,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I trust stone, mortar and an honest plumb line. Gnomes trust gears and steam and their own cleverness, and look what happened to their city, gassed and flooded under their own feet." } },
+      choices = {
+        { text = "Gnomeregan fell to treachery, not to bad engineering.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "Stone is stone. Nobody ever went wrong building with it.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "I'd like to see how a mason builds, Foreman.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Treachery, they say, and maybe so, but a city you can poison from the inside was never built right. You'll not talk me round on that one." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Now you're talking sense! Stone doesn't blow up, stone doesn't need oiling, and stone doesn't sit in a workshop three weeks waiting on a part from Ironforge." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Would you, now? Then come by the bridge any morning and I'll show you a keystone set properly. You might take it home to your people, for all the good it'll do." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Not if the orcs keep interfering. They've taken it personally, it seems. Your spirits might help, if they're willing." } },
@@ -145,6 +170,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The bridge isn't going anywhere, which is rather the problem." },
       },
       choices = {
+        { text = "You don't trust gnomish engineering, do you, Foreman?", next = "prej", when = { prejudiced = true } },
         { text = "Why does the bridge matter so much?", next = "why" },
         { text = "Your crew seems to be working without its tools.", next = "tools" },
         { text = "Where are your building supplies?", next = "supplies" },

@@ -6,6 +6,7 @@ P:NPC {
   key = "darthalia", id = TODO_NPC("High Executor Darthalia"), name = "High Executor Darthalia",
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "tarren_mill" }, temper = { "cold" }, values = { "loyal", "relentless" },
+  prejudice = { faction = "Horde", race = { "Orc", "Tauren", "Troll" }, amount = 10, why = "The living Horde flinch from the Forsaken, and she returns the contempt." },
   notices = { "race", "class" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "Another of the living Horde, holding your breath so you won't smell us. The front doesn't care how I smell, so state your business and breathe as you like." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "The Warchief sends his living soldiers to help us, and they spend their first week staring at our jaws. Are you here to fight, or to stare?" },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. You've stood on this front without wrinkling your nose, which is more than most of your kind manage, and I have noticed it." },
     { id = "g_front", text = "You stand at the Dark Lady's front. Be useful to it, or stand somewhere else." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, good. The front moves forward only when people like you push it." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and the front did not wait for you. Report what you can and take up your post." },
@@ -32,6 +36,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because most of them do, in the end, or they ask to pitch their tents upwind of us. The orcs call us allies in Orgrimmar and corpses in the field, and I stopped waiting for the difference to close." } },
+      choices = {
+        { text = "The Horde stands together. Your contempt only widens the gap.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then stop waiting. The Forsaken need nobody's approval.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll camp where you tell me and keep my nose to myself.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What happened to make you say that?", next = "prej_why" },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "A Warsong band came to Tarren Mill last spring to help us hold the ridge. Their captain spat when he saw our apothecaries at work, and when Southshore's militia came up the road, his band was already halfway to the Barrens." } },
+      choices = {
+        { text = "One coward doesn't speak for the whole Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then trust only your own dead. It's the safer bet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Do that, and do it twice, and I may start remembering your name instead of your smell." } },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "Good, because every crusader who dies in Tirisfal is one fewer to stiffen Southshore's flank. The Crusade likes to think it stands apart from the Alliance, but a human with a torch is a human with a torch, and my deathguards don't stop to ask which banner it marches under." } },
@@ -172,6 +200,7 @@ P:NPC {
         { text = "Where would you have me break the human line, High Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should I track for you, High Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a priest at Tarren Mill, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "You treat every living soldier as if they're about to run.", next = "prej", when = { prejudiced = true } },
         { text = "I'll take my leave.", next = "END" },
       },
     },

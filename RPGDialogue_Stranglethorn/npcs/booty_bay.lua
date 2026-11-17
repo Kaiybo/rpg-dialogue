@@ -988,6 +988,7 @@ P:NPC {
   key = "krazek", id = TODO_NPC("Krazek"), name = "Krazek",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "chatty" }, values = { "cunning", "ambitious" },
+  prejudice = { race = "Gnome", amount = 8, why = "Goblin-gnome rivalry: gnomes give inventions away and undercut the market." },
   notices = { "craft", "purse" },
 
   impression = {
@@ -996,6 +997,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A gnome, at my desk! No offence, pal, but your people give away blueprints for free, and every time you do it, a goblin somewhere loses a contract." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Well, well, a gnome in Booty Bay. Hands where I can see 'em, pal, because the last one of your folk who sat in that chair took my best pen apart to see how it worked." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Hey, it's my favourite gnome! Don't tell anybody I said that, pal, because it's bad for business, but you've been a valued customer and I've stopped counting my pens." },
     { id = "g_desk", text = "Busy, busy, busy, but never too busy for a customer, pal! You are a customer, aren't you, because the chair costs extra if you're just browsing." },
     { id = "g_back", when = { metBefore = true }, text = "Back already? I said you'd come back, I bet Skindle a silver on it, and I'm rarely wrong about these things, so thanks for the silver." },
   },
@@ -1009,6 +1013,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "A problem? Pal, it's a whole ledger! Your people build a thing and then just tell everyone how it works, for free, and that's no way to run a market, and somebody has to say it." } },
+      choices = {
+        { text = "Sharing knowledge helps everyone. Your ledger's the problem.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good secret's worth gold. I see your point.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fine. I promise not to take apart your pen.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Is it really just about business?", next = "prej_why" },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Mostly business, sure, but listen, listen: my uncle lost a whole shipping contract in Ratchet to a gnome who built a better winch and then drew the plans on a napkin for anybody who asked. Uncle's never been the same, and neither has the napkin trade." } },
+      choices = {
+        { text = "Your uncle should have built a better winch.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fair trade needs rules. I'd be sore too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Ha! That's a deal I'll take, and I'll even throw in the chair at no extra charge. Don't tell Skindle." } },
+      choices = {
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That Ironforge has started talking to the weather, that it'll make the Horde nervous, and that both are worth knowing to somebody with deep pockets. Don't worry, chum, I only sell the interesting parts, and I sell them by the ounce." } },
@@ -1140,6 +1168,7 @@ P:NPC {
         { text = "Which beasts are fetching the best prices this month, Krazek?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the jungle trade pay for, Krazek, and who's buying?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What will you write about me, Krazek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You've got a problem with gnomes, Krazek?", next = "prej", when = { prejudiced = true } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },

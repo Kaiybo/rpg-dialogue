@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "nat_pagle", id = TODO_NPC("Nat Pagle"), name = "Nat Pagle",
   bible = "bibles/nat_pagle.md", role = "questgiver", tier = "quest",
+  prejudice = { race = "Gnome", amount = 6, why = "a gnome's humming fish-caller once brought a crocolisk that took half his dock; he thinks gnomes can't sit still" },
   temper = { "easygoing", "dry" }, values = { "patient", "honest" },
   notices = { "craft", "drink" },
   impression = {
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_gnome", when = { prejudiced = true }, text = "A gnome, on my dock. Now, I'm not sayin' anythin', but if there's a contraption in that pack that ticks or hums, I'd ask you to leave it ashore, because the last gnome who fished here did it with a bang." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I'll admit somethin', since nobody's listenin' but the fish: you've sat a line longer than most dwarves, and I had you down as the type to blow the pond up. Shows what I know." },
     { id = "g_default", text = "Sit down if you're stayin', and hush if you're sittin'. The fish can hear you." },
     { id = "g_active", when = { questActive = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "Anything bitin' today? No rush, there never is." },
     { id = "g_done", when = { questDone = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "Well, if it ain't my best student. Don't tell the others I said so; there ain't any others." },
@@ -30,6 +33,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_nat = {
+      lines = { { id = "pj_nat_default", text = "I think gnomes can do anythin' they set their minds to, which is the trouble. Fishin' is about not settin' your mind to anythin' at all, and I've never met one of your folk who could sit still long enough to let a fish make the first move." } },
+      choices = {
+        { text = "What happened with the gnome who fished here?", next = "pj_nat2" },
+        { text = "Patience is a choice, and I'll sit as long as it takes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a bang gets the fish, I'll use a bang.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Maybe you're right. Show me how to sit still.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_nat2 = {
+      lines = { { id = "pj_nat2_default", text = "He built a little brass box that hummed under the water and called the fish to it, he said, and it called the fish all right, along with a crocolisk the size of a rowboat that took the box, the line and half my dock. I'm still rebuildin', and I still flinch when somethin' hums." } },
+      choices = {
+        { text = "I promise not to hum, Nat.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Nat Pagle. Folks come a long way to find me, and I've never understood it, since all I do is sit on a dock and wait for somethin' to happen." },
@@ -56,6 +75,7 @@ P:NPC {
         { text = "I've fished my whole life. What am I missing?", next = "fisher", when = { profession = "Fishing" } },
         { text = "What do you know about these waters, Nat?", next = "waters", when = { class = { "SHAMAN", "DRUID", "HUNTER" } } },
         { text = "Give me the list, Nat.", next = "BUSINESS" },
+        { text = "You don't think gnomes can fish, do you, Nat?", next = "pj_nat", when = { prejudiced = true } },
         { text = "I'll leave you to it, Nat.", next = "END" },
       },
     },

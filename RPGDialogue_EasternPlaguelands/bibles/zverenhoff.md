@@ -41,3 +41,6 @@ Never says: anything about Naxxramas, the Scourge invasion or later Argent histo
 
 ## 1.23 additions (authored, not canon)
 - He takes the visitors and letters, Tyrosus the decisions. A knight inside still lowers his voice near orcs. The Cult writes necromancy "like clerks write ledgers". Whether to reach out to doubting Crusaders after the Balnazzar reveal (stance node). Never states Tyrosus's Stratholme plan (that's Tyrosus's Persuade).
+
+## Authored, not canon (prejudices, 0.80.0)
+- Zverenhoff: looks twice at the Forsaken (`prejudice`, race Scourge) though he welcomes them; lost a brother and two cousins in Stratholme, and once searched the Undercity for them and found no one.

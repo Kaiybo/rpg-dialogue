@@ -5,6 +5,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.21.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 
+## 1.21.0 (2026-11-17)
+- Prejudices (0.80.0): Harken Windtotem (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.20.0 (2026-11-17)
 - New story "The Venture Company's reach": Baine asks your counsel on the Venture Company, and remembers it.
 

@@ -6,6 +6,7 @@ P:NPC {
   key = "nials", id = TODO_NPC("Captain Nials"), name = "Captain Nials",
   bible = "bibles/arathi.md", role = "soldier", tier = "major",
   communities = { "refuge_pointe" }, temper = { "firm" }, values = { "dutiful", "proud" },
+  prejudice = { class = "ROGUE", amount = 10, why = "Syndicate cutthroats in the same leathers keep killing his lookouts." },
   notices = { "kit", "race" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A rogue in my camp. Keep your hands out of my supplies and in plain sight, because the last one who walked in looking like you was a Syndicate scout." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "I know that walk; it's a cutthroat checking for the exits. Stand where my sentries can see you, and then we'll talk." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've been in and out of Refuge Pointe and nothing's gone missing, which is more than I can say for my own sentries. Come in, then." },
     { id = "g_tent", text = "Captain Nials. Make it quick; the highlands don't wait, and neither do I." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the hills, are you? What did you find?" },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and the highlands haven't got any quieter. Tell me you're back to stay a while." },
@@ -32,6 +36,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because the Syndicate wear the same dark leathers and the same soft boots, and they've cut the throats of three of my lookouts this season. I can't read a man's heart, so I read his boots." } },
+      choices = {
+        { text = "Judge me by what I do, Captain, not by my boots.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right to be wary. I'd watch me too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Put a sentry on me, then. I've nothing to hide.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Who are the Syndicate, exactly?", next = "prej_why" },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Alterac's nobles, or what's left of them, carrying Lord Perenolde's debts and a crowd of hired knives. They sold the Horde passage through their mountains in the war, and now they sell whatever they can steal out of Arathi." } },
+      choices = {
+        { text = "Thieves or nobles, they answer to the law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The law failed Alterac first. That's how thieves get made.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Brave words, or clever ones, and I'll find out which in time. Go on; the sentry will only follow you halfway now." } },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then fight for Stromgarde's people and not for its stones, because the stones have changed hands more times than I can count and the people only once, when they ran here. Hammerfall's orcs and the Syndicate both want this land, and I'd sooner see you guard a farmer than take back a tower." } },
@@ -103,6 +131,7 @@ P:NPC {
         { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Arathor's first mages learned their craft in these hills.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Your sentries follow me everywhere, Captain. Why?", next = "prej", when = { prejudiced = true } },
         { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
