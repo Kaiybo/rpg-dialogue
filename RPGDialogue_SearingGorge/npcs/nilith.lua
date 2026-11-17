@@ -169,6 +169,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A tailor first and a warlock second, though the second has been very useful to the first." } },
     advice = { { id = "tp_ad", text = "Never buy silk from someone who can't tell you which nest it came from." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's servants are useful, and Raze is the most useful of all. I don't worship them, I employ them." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain spin no silk worth having, but their spiders are excellent. I've sent people to fetch me some." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages would have called me a heretic, and they'd have been right. Their city's in ruins now, and I'm still sewing." } },
     _none = { { id = "tp_none", text = "I know thread and spiders and the people who steal both, and that's the end of my expertise." } },
   },
 }

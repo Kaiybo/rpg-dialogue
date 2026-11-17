@@ -135,6 +135,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A scout of the Horde, a wife, and now a ghost on a rock in the Burning Steppes." } },
     advice = { { id = "tp_ad", text = "Never get close enough to hear the chanting. By then they've already seen you." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he be wise. Tell him a Darkspear scout died well, if you ever see him." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my husband's people, mon, and mine be in the Hinterlands. We was going to live there together, after." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut chained me to this altar for their ritual. Krom'Grul be the one who did it, mon, and I hope you make him pay." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief give the Darkspear a home, and my husband fight for him. I fight for him too, in my way." } },
     _none = { { id = "tp_none", text = "I don't know. The dead know less than you'd think." } },
   },
 }

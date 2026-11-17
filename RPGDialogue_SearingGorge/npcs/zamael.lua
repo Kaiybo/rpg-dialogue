@@ -180,6 +180,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A night elf of Darkshore, a servant of the Hammer, a penitent, and now a ghost, which is the most honest of the four." } },
     advice = { { id = "tp_ad", text = "Beware of people who befriend you quickly and ask you to change slowly, mortal. That is how I was lost." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "The Hammer took me in when I was lost, and I served them with my whole heart. I was wrong, and I've had a long time to think about how wrong." } },
+    elune = {
+      { id = "tp_elune", text = "Elune's light doesn't reach this ridge, but I pray to her anyway. I don't expect an answer, but I'd like her to know I'm sorry." },
+      { id = "tp_elune2", when = { race = "NightElf" }, text = "You'll know her prayers, sister or brother, so say one for me when you reach the moonwell. I've forgotten half of them." },
+    },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande would be ashamed of me, and she'd be right to be. I'd like to tell her so, if I could." } },
+    the_elements = { { id = "tp_the_elements", text = "The Hammer worshipped the elements, or said they did. They worshipped power, and the elements were just the shape it took." } },
     _none = { { id = "tp_none", text = "I do not know it, mortal. My world has been this cage for a long while." } },
   },
 }

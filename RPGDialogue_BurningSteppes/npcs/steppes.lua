@@ -195,6 +195,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I am of the Flight, and that is all the history a mortal needs.", next = "who" } },
     advice = { { id = "tp_ad", text = "Never wake a sleeping dragon, mortal. And never assume that it was sleeping." } },
     black_dragonflight = { { id = "tp_dragons", text = "We were masters of this world before it had a name, and we will be masters of it after.", next = "who" } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire belongs to the Flight, mortal, and the orcs and dwarves who squabble beneath it are guests who have forgotten their manners. They will be reminded." } },
+    onyxia = { { id = "tp_onyxia", text = "The Lady in Dustwallow is of the Flight, and she is far beyond your concern, mortal. Speak her name again and I may decide you're food." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons and their fire lord dwell beneath the mountain, and the Flight tolerates them for now. Their time will come." } },
+    second_war = { { id = "tp_second_war", text = "The Flight fought beside the orcs in your Second War, mortal, and the orcs were fools to think it was an alliance. We used them, as we use everyone." } },
     _none = { { id = "tp_none", text = "You bore me with your questions. Go and ask a goblin." } },
   },
 }

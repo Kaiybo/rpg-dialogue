@@ -162,6 +162,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An orphan of the war, a squire by my master's grace, and nothing else that matters." } },
     advice = { { id = "tp_ad", text = "Serve someone greater than yourself, and you'll never wonder what you're for." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons in their city beneath the mountain are a blight on this land. My master will see them burned, and I will hand him the torch." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons killed my master's father, and my master's grief is a holy thing. I serve it gladly." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons are terrible and glorious, and fire follows them wherever they go. I would not speak against them in my master's hearing." } },
     _none = { { id = "tp_none", text = "My master hasn't told me about that, so I don't need to know it." } },
   },
 }

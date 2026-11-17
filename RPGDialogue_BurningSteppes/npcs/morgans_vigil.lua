@@ -406,6 +406,16 @@ P:NPC {
     blackrock_spire = { { id = "tp_spire", text = "It's their citadel, built into the mountain by the Dark Irons and taken by the orcs. Every road in the Steppes leads to its gate eventually.", next = "enemy_spire" } },
     black_dragonflight = { { id = "tp_dragons", text = "Helendis says they're the true masters of the Blackrock, and I've stopped arguing with Helendis." } },
     dark_iron = { { id = "tp_darkiron", text = "They took Windsor alive, which is more mercy than I expected of them. I don't expect any more." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a good man, and I'd trust him with my life, but my reports go to Stormwind and nothing comes back. Somebody's sitting on them, and I don't think it's him." } },
+    varian = { { id = "tp_varian", text = "The king vanished, and the court went quiet, and my reports started going unanswered. I don't like the way those things line up." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor seems to have the ear of everyone in Stormwind, and none of them have answered my letters. I'd like to know what she's telling them." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War as a young man, and we drove the orcs back through these very hills. I never thought I'd be back here." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock are restless, and they've been raiding our supply lines. I'd like to see them driven off the mountain." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Dustwallow, they say, and she's the daughter of Deathwing himself. I'd rather fight a hundred orcs than one of her." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I pray to the Light every night, and I ask it to send me reinforcements. So far, it's sent me you." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You serve the Light as I do, so you know it doesn't always answer how we'd like. Keep faith, and keep your shield up." },
+    },
     _none = { { id = "tp_none", text = "Not my department, deputy. Ask Helendis; he knows a little of everything." } },
   },
 }
@@ -736,6 +746,12 @@ P:NPC {
     black_dragonflight = { { id = "tp_dragons", text = "The true masters of the Blackrock, as I wrote to Lakeshire. I'd be glad to be wrong, but I am not.", next = "dragons" } },
     blackrock = { { id = "tp_blackrock", text = "Savage, yes, but savage on someone else's orders. That's what makes them dangerous now." } },
     thaurissan = { { id = "tp_thaurissan", text = "The Dark Iron city that woke the fire. Its ruins lie north of here, and something in them still whispers to anyone who touches the stones." } },
+    elune = {
+      { id = "tp_elune", text = "Elune's light is dimmer here, under the smoke, but it's still there. I pray to her every night, and I'm grateful for every star I can see." },
+      { id = "tp_elune2", when = { race = "NightElf" }, text = "You'll have felt it too, then, how the smoke hides the moon. Pray with me tonight, if you can find a clear patch of sky." },
+    },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande sent me to read the old places, and I've read many of them. This one is the hardest." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil still stands on Hyjal, wounded, and the Circle tends it. We gave up our immortality to save the world, and here in the smoke I feel every year of it." } },
     _none = { { id = "tp_none", text = "I know the land, not that. Marshal Maxwell may know, or will pretend to." } },
   },
 }
@@ -977,6 +993,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Always keep a horn handy and a head on a pike, soldier. You'd be amazed how many problems one or the other solves." } },
     firegut = { { id = "tp_firegut", text = "Big, blue, stupid and frightened of their own shadows, once you know which shadow to show them.", next = "orders" } },
     blackrock = { { id = "tp_blackrock", text = "They wear medallions like they're proud of something, soldier. Bring me fifty and we'll find out what." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I'm still fighting it, as far as I'm concerned. Captain Winky says the war's over, but Winky's a liar." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are the enemy, and I'll see them burned. Winky says we need more men, but Winky always says that." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a fine soldier, and I'd follow him into any fight. Winky says he's too soft, but Winky would." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow? I'll fight her myself, given half a chance. Winky says I'm mad, and Winky's probably right." } },
     _none = { { id = "tp_none", text = "That's classified, soldier, and Winky can stop laughing right now." } },
   },
 }
@@ -1174,6 +1194,13 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry water, carry more water, and if anything made of fire starts talking to you, don't answer it." } },
     blackrock_depths = { { id = "tp_depths", text = "The Dark Iron city, built into the mountain's heart. My expedition was meant to go in, but the fire elementals had other ideas.", next = "mountain" } },
     dark_iron = { { id = "tp_darkiron", text = "They serve the fire, or the fire owns them, and I'm honestly not sure which is worse." } },
+    gnomeregan = {
+      { id = "tp_gnomeregan", text = "Gnomeregan was home, and I lost my eyebrows there long before I lost them here. I'd like to see it again, but not until it's safe." },
+      { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "You'll remember it too, then, the halls and the lights. Do you dream about it? I do, nearly every night." },
+    },
+    dalaran = { { id = "tp_dalaran", text = "The mages in my expedition trained in Dalaran, before it fell. They talk about it all the time, and I try not to listen." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons make the ground shake when they fly, and I've measured it. It's terrifying, and fascinating, and I'd rather not measure it again." } },
+    thaurissan = { { id = "tp_thaurissan", text = "The ruins of Thaurissan are full of old magic, and my mages are studying it very carefully. I'm studying it from a long way off." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, I'm afraid. Helendis might; he knows a great deal and is very patient about it." } },
   },
 }
@@ -1403,6 +1430,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never pick up anything that hums, and never sell anything the day you find it. Both lessons cost me dearly." } },
     thaurissan = { { id = "tp_thaurissan", text = "A dead city full of beautiful things and unhappy voices. I took the first and left the second.", next = "ruins" } },
     blackrock_spire = { { id = "tp_spire", text = "A vault with orcs in it. That's all a fortress ever is, if you think about it.", next = "spire" } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain have the finest treasures in the Eastern Kingdoms, and I'd catalogue them all, if I could get in. The Count would pay handsomely." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are dreadful neighbors and wonderful craftsmen. I'd love to see their workshops, and I'd love to see them gone, in that order." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the toast of Stormwind, and the Count dines with her often. He says she has the most remarkable eyes." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where the Count's treasures are shipped, and where the goblins try to steal them. I keep a very close eye on the manifests." } },
     _none = { { id = "tp_none", text = "If it isn't old and it isn't valuable, I'm afraid I haven't paid it any attention." } },
   },
 }
@@ -1575,6 +1606,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the Vigil's birds, and I keep 'em alive, and that's the whole of my tale worth tellin'." } },
     advice = { { id = "tp_ad", text = "Never feed a gryphon from yer hand in the Steppes; the ash makes 'em bitey." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught me gryphons, an' they'd laugh at the way I fuss over mine. I don't care, my birds are the happiest in the Steppes." } },
+    magni = { { id = "tp_magni", text = "The king's a good king, an' I'd fly him anywhere he wanted. He'd have to sit still, mind." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres throw rocks at my birds when they fly over Dreadmaul. I'd like to drop a few rocks on them." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, eh? My birds would smell her from a hundred miles off, an' they'd refuse to fly. I'd not blame them." } },
     _none = { { id = "tp_none", text = "I fly birds. Ask the Marshal about the rest." } },
   },
 }

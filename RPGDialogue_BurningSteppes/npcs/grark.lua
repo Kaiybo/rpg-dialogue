@@ -136,6 +136,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I served at Kargath until I found a better master. That's all you need to know." } },
     advice = { { id = "tp_ad", text = "Always know who's winning, and stand beside them before they've won." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief is a fool who's made the Horde soft, and I've found a stronger master. I don't expect you to understand." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You serve the slave-born fool too, then, and you'll learn soon enough that the old ways were stronger. I'll be here when you do." },
+    },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock clan remembers what the Horde was, before Thrall made us weak. I serve them now, and I'm not sorry." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire is a fortress no army can take, and I'm safe inside it. Kargath can scream all it likes." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons rule the Spire, and they reward those who serve them. You should consider it." } },
     _none = { { id = "tp_none", text = "Why would I tell you anything for free?" } },
   },
 }

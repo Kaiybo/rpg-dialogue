@@ -150,6 +150,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A digger of the Explorers' League, and proud of it, though I'd have been prouder still to dig somewhere that didn't kill us." } },
     advice = { { id = "tp_ad", text = "Never trust a man who's too eager to show ye the way in, friend." } },
+    magni = { { id = "tp_magni", text = "Tell the king, if ye ever see him, that the League died diggin' for him. I think he'd want to know." } },
+    uldaman = { { id = "tp_uldaman", text = "I dug at Uldaman before this, an' I thought that was dangerous. I was wrong about a great many things." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons found us before we found anythin' worth findin'. Watch the ridges, friend, they're always watchin' back." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have a whole city under the mountain, I've heard, with a forge that never cools. I'd have liked to see it, from a safe distance." } },
     _none = { { id = "tp_none", text = "I don't know, friend, and I've not the breath to guess." } },
   },
 }

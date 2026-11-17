@@ -171,6 +171,12 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I keep gryphons, and Ironforge sent me where they were needed. That's the long and the short of it." } },
     advice = { { id = "tp_ad", text = "Tie a wet cloth over your face if you're walking the Gorge for long. Your lungs will thank you." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni sent me to keep gryphons among Dark Irons, an' I've done it. I'd like to know what he was thinkin', but I don't ask." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye'll know what it's like, then, to stand among the Dark Irons an' bite yer tongue. The king says peace is worth it, an' I'm tryin' to believe him." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The Thorium Brotherhood are decent enough, for Dark Irons, but I sleep wi' one eye open. Old habits." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught me to fly, though I'm Bronzebeard born. They'd laugh at me keepin' gryphons in a place like this." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask one of the Brotherhood; they know this place better than I ever will." } },
   },
 }
@@ -342,6 +348,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fly wind riders for the Horde. What I did before that is my own business." } },
     advice = { { id = "tp_ad", text = "Don't walk down into the Gorge without a reason. The Dark Irons down there aren't the friendly kind." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sends us where we're needed, and I'm needed here, among dwarves. I don't understand why, but I don't ask." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are dwarves, and dwarves are dwarves. I watch them all the same, whatever they call themselves." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are what the Horde used to be, and the Warchief means to make sure we never go back. I'd like to help." } },
     _none = { { id = "tp_none", text = "Don't know. Ask the dwarves, and bring earplugs, because they never stop at one story." } },
   },
 }

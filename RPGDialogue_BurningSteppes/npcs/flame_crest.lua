@@ -384,6 +384,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "When fifty orcs come over a hill, find a shadow; when three hundred Dark Irons come after, find a deeper one." } },
     windsor = { { id = "tp_windsor", text = "Not dead, whatever they tell ye in Morgan's Vigil. Ask me properly and I'll tell ye the whole of it.", next = "st1" } },
     blackrock_spire = { { id = "tp_spire", text = "Full of orcs, worgs, spiders and dragons, and I've been in and out more times than I can count. Mostly out." } },
+    magni = { { id = "tp_magni", text = "Magni's a good king an' a better drinker, an' I'd raise a mug to him right now if I had one. Oh, look, I do." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War when these hills were still green, if ye can believe it, an' I watched the Horde an' their dragons burn them black. They've never grown back." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have a whole city under that mountain, an' a bar, they say, wi' the best ale in the world. I'd go in just for that, if I weren't so fond o' breathin'." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Dustwallow, they say, an' she's the daughter o' the biggest black dragon there ever was. I'd stay well clear o' that family, lad." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock are loud an' stupid an' they can't hold their drink. I tried to share a cask wi' one once, an' I'm lucky I've still got my beard." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I've heard of most things, usually at the bottom of a mug." } },
   },
 }
@@ -593,6 +598,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Booty Bay born, by way of every ruin that ever had a rumour attached to it. The Seven are just the latest rumour.", next = "seven" } },
     advice = { { id = "tp_ad", text = "Never pay for anything you can find, my friend, and never find anything you can't sell." } },
     thaurissan = { { id = "tp_thaurissan", text = "A dwarven city that went up in one great flash, leaving nothing but ash and treasure for patient goblins.", next = "seven" } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have a city under the mountain, an' it's full o' treasure, an' I'd sell my mother to see it. I wouldn't sell her cheap, mind." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I was born, an' where I'll go back rich someday. Every ruin's a step closer to the docks." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are greedy an' cruel an' they've got all the best treasure. I hate them for the first two an' envy them for the third." } },
     _none = { { id = "tp_none", text = "Is there money in it? If not, buddy, I'm afraid I've never looked." } },
   },
 }
@@ -856,6 +864,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A goblin who'd rather study than sell, which most goblins find about as sensible as giving away free samples. The Steppes have the best dragonkin anywhere, so here I am.", next = "study" } },
     advice = { { id = "tp_ad", text = "Freeze it first, then pick it up, sweetie. That rule has saved my life more than once, and my eyebrows twice." } },
     black_dragonflight = { { id = "tp_dragons", text = "Fascinating creatures, terribly clever and terribly rude, and they grow so fast you can almost watch it happen.", next = "study" } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire is full of dragonkin and orcs and things I don't have names for yet. I'd give anything to study them up close, if I could do it without being eaten." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan to their own inventions, and I respect that kind of ambition. I'd never be so careless, of course." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins think I'm mad for studying dragons instead of selling things. They're probably right, but I'm having more fun." } },
     _none = { { id = "tp_none", text = "Is it a dragon? If it isn't, pal, then I'm afraid I haven't studied it, and nobody's paid me to." } },
   },
 }
@@ -1073,6 +1084,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Screwspigot, which means I sell things and my family owes people money. One of those is improving.", next = "ribbly" } },
     advice = { { id = "tp_ad", text = "Buy your powder before you need it, pal, because the moment you need it, I double the price." } },
     blackrock_depths = { { id = "tp_depths", text = "Where my brother's hiding, sweetheart, and where most of my customers go to spend what they buy from me." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where my family's business is, and where my family's debts are. I'm working on the second." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got good engineers, but they're all so serious. I like a little fun with my explosions." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city to radiation, and I'll never understand how anybody could be so careless. I'm very careful with my gadgets, mostly." } },
     _none = { { id = "tp_none", text = "I don't sell that, so I don't know about it, pal. Want some flux?" } },
   },
 }
@@ -1290,6 +1304,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Booty Bay's finest dealer in beasts, now operating from a cave for reasons that have nothing to do with G.E.T.A.", next = "pets" } },
     advice = { { id = "tp_ad", text = "Get 'em young, feed 'em well, and never let 'em see you scared, buddy. Works on worgs, and it works on customers too." } },
     blackrock_spire = { { id = "tp_spire", text = "The best hunting ground in the world, my friend, if you don't mind most of the stock trying to eat you before you can price it." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I made my name, and where G.E.T.A. made my life difficult. I'm doing better business out here, in a cave." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons are the finest pets a person could ask for, if they didn't burn everything down. I'm working on the second part." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got good animal traders, but none as good as me. Opus agrees." } },
     _none = { { id = "tp_none", text = "Can I sell it? If I can't, buddy, then I wouldn't know the first thing about it." } },
   },
 }
@@ -1490,6 +1507,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A mage of Quel'Thalas and the last student of Telmius Dreamseeker. The rest is not yours to know.", next = "librams" } },
     advice = { { id = "tp_ad", text = "Never sell power cheaply, and never buy it from someone who does." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was where I studied, before the Scourge came and everything burned. I've no wish to see it rebuilt, because it won't be the same." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are fools who thought they could master magic with rules and councils. My master knew better, and he paid for it." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was Ranger-General of Silvermoon, and she died defending our home. What leads the dead in her name now is a stranger to me." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge burned Quel'Thalas, and I've no home to return to. Don't speak to me of it again." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons hold the secrets of the Steppes, and I'll have them, one way or another." } },
     _none = { { id = "tp_none", text = "That is beneath my notice, and it should be beneath yours." } },
   },
 }
@@ -1663,6 +1685,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve the Warchief where he sends me, and he sent me to a rock full of goblins. Don't ask me how I feel about it." } },
     advice = { { id = "tp_ad", text = "Fly high over the lava; the heat lifts you, and the riders like it, though they come down smelling of singed feathers." } },
     blackrock = { { id = "tp_blackrock", text = "Orcs who never learned what Thrall taught the rest of us. That makes them more dangerous than humans, not less." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me to a rock full of goblins, and I go where he sends me. That's all there is to it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are what the Horde used to be, and the Warchief means to see them gone. I'll fly anyone who wants to help." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock shoot at my wind riders. I'd like to see them gone, and I'm not picky about how." } },
     _none = { { id = "tp_none", text = "I keep wind riders. Ask the goblins; they know everything for a price." } },
   },
 }
