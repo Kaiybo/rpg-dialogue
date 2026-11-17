@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Too many, and most of them say presumed wolf. I joke because the alternative is weeping into the ledgers. If your spirits know names, I'd take them." } },
+      choices = {
+        { text = "Keep the records true, Daltry. Every name deserves an entry.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn the ledger. Counting the dead won't bring them back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It does, and I keep it, and every week I strike a few names off for reasons I'd rather not write. The Night Watch is mostly farmers with borrowed swords, so a trained arm on the roll would be a fine change." } },
@@ -103,6 +112,7 @@ P:NPC {
         { id = "h_files", when = { metBefore = true }, text = "I've re-filed the Night Watch reports by date, then by street, then by date again. I find it calming, so please don't judge me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; the Watch keeps a list of those too, and it's the only list in my office that ever gets shorter for good reasons." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Then you'll be adding to my wolf entries, though for once on the right side of the ledger." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me guess: you've come to tell me the spirits know where my missing persons went. I'd mark them found, presumed spirit, if it helped." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a drawer open, so I may as well help." },
@@ -122,6 +132,7 @@ P:NPC {
         { text = "How many of your missing were taken by the worgs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some of your missing folk may not be dead, Daltry.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why did the Cathedral never answer your letters, Daltry?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How many entries are marked missing, Daltry?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Daltry.", next = "END" },
       },
     },

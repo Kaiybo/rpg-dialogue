@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Listen. My watchmen hear too late, and the dead don't make much noise until they're on you. If your spirits can give us a moment's warning, that's worth a dozen swords." } },
+      choices = {
+        { text = "Put me on the roster, Commander. I'll keep the watch properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll listen my own way and report when I choose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "My watch is loud because the wolves hear us coming and some of them run, {class}, and that's saved more lives than any blade. But a quiet pair of eyes out past the Darkened Bank? I'd take that, gladly." } },
       choices = {
@@ -94,6 +103,7 @@ P:NPC {
         { id = "h_roll", when = { metBefore = true }, text = "We lost no one last night. Write that down somewhere, because it doesn't happen often enough." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Good, it's you. My watchers stand a little straighter when you're in town, and I'll take every bit of that I can get." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll put you on the watch roster like everyone else, but tell me first: can your spirits see the things in the trees before they reach my men?" },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, because the lamps won't light themselves." },
@@ -116,6 +126,7 @@ P:NPC {
         { text = "Your watch is loud, Commander. I could scout ahead of them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A few wards around Darkshire would help your watch.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does the Night Watch need from a paladin, Commander?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you have a shaman do for the Night Watch, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },

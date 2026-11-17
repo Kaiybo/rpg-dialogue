@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It was green and alive, before the darkness. Nothing matters much now, but your spirits might remember." } },
+      choices = {
+        { text = "It can be green again, Sven. Don't lose hope.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's gone. Accept the darkness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Defias, using my barn to hide stolen goods, and they've made themselves very comfortable there. My wife planted the garden behind it, and I'd like to see it again before I die, even if nothing grows." } },
@@ -106,6 +115,7 @@ P:NPC {
           text = "Pray if you want to, priest; I stopped. I'll stand next to you while you do it, though, and that's as far as I go." },
         { id = "h_quiet", when = { metBefore = true }, text = "You came back, and most don't. Sit if you like, but I don't talk much; the forest does it for me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I've a farm I can't go back to and a family I can't bring back, so if you're looking for something to fight, the Defias on my land would be a start." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I remember when this forest was green. Do your spirits remember too?" },
       },
       again = {
         { id = "h_again", text = "What else do you want to know?" },
@@ -127,6 +137,7 @@ P:NPC {
         { text = "Who's squatting on your farm, Sven?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Morbent Fel's wards are crude work. I could break them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would justice look like for your family, Sven?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Was Duskwood truly green once, Sven?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

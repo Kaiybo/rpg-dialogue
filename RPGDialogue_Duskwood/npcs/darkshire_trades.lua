@@ -17,6 +17,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They do, and so do I, honestly. Your wind spirits might steady them in flight." } },
+      choices = {
+        { text = "Then keep them steady, Felicia. They need you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gryphons should be brave. Train them harder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -110,6 +119,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Quiet steps, those. The gryphons don't like being snuck up on, so whistle when you come near the roosts." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll fly like everyone else here, I hope, because the birds hate it when riders just appear beside them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll fly you, but your companion walks, and the gryphons will thank me for it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My gryphons hate Duskwood's dark nearly as much as the townsfolk do. Do your wind spirits calm them?" },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds want their supper." },
@@ -127,6 +137,7 @@ P:NPC {
         { text = "Does anyone fly out of Darkshire who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the gryphons mind a mage on their backs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why won't your gryphons carry my demon, Felicia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your gryphons fear the dark, Felicia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Felicia.", next = "END" },
       },
     },
@@ -171,6 +182,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Nothing I sell, honestly. But a shaman's lightning might keep the dead at bay a little longer." } },
+      choices = {
+        { text = "Then I'll fight with honest steel and lightning both.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If nothing's enough, why bother?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -264,6 +284,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A knife-fighter, by the way you walk. I've daggers, and they're good ones, but nobody stabs a worgen from behind twice." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've a staff or two for your sort, though I'll be honest, they're mostly for walking." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I don't forge for demons, so if your friend wants a blade, it'll have to find its own." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Swords and axes, and none of them enough against what's in the wood. Your lightning might help." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -281,6 +302,7 @@ P:NPC {
         { text = "Do your daggers bite through worgen hide, Gavin?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is a blade any use to a mage in this wood, Gavin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you sell your steel to a warlock, Gavin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is anything enough against the wood's horrors, Gavin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

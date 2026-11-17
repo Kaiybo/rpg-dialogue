@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It wants to forget the dead, the worgen and the missing. I keep the warmest room in Duskwood, which isn't saying much." } },
+      choices = {
+        { text = "Keep the room warm, Smitts. People need it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Forget it all. Remembering hurts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The ones who didn't come back, mostly, and the ones who might not tomorrow. I keep a record of every name, because somebody should, and a warrior who drinks with them might keep a few names off my list." } },
@@ -109,6 +118,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll pour you something, but you'll drink it with your back to the wall like everyone else in here, because that's how Darkshire drinks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and your beast is welcome by the fire, so long as it doesn't drink from the bucket under the bar, because that's for washing." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll write you down, if you don't mind, because I note everyone who walks in out of that forest, and a night elf is a first." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I pour, listen, and remember what Darkshire wants to forget. Your spirits must do the same." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? I've a long memory and a short queue." },
@@ -133,6 +143,7 @@ P:NPC {
         { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you still want justice for those murdered nobles, Smitts?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you write down about the forest, Smitts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does Darkshire want to forget, Smitts?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just warming up.", next = "END" },
       },
     },
