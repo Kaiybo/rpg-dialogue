@@ -68,10 +68,33 @@ function Origins.SetBlurb(text)
   if ns.char.origin then ns.char.origin.blurb = text end
 end
 
+-- A new character (first time we see it, still low level) gets the journal's origin
+-- picker opened once, a few seconds after login and out of combat. Older characters seeing
+-- the addon for the first time get the chat hint instead.
+Origins.PROMPT_MAX_LEVEL = 5
+
+local function prompt(tries)
+  if ns.char.origin then return end
+  if (C.InCombat() or C.InInstance()) and tries < 20 then
+    C.After(15, function() prompt(tries + 1) end)
+    return
+  end
+  if ns.UI.Journal and ns.UI.Journal.OpenOrigins then
+    ns.UI.Journal.Show("sheet")
+    ns.UI.Journal.OpenOrigins(true)
+  else
+    ns.Print(L.ORIGIN_HINT)
+  end
+end
+
 ns.OnLogin(function()
   local c = ns.char
   if not c.originHintShown and not c.origin then
     c.originHintShown = true
-    C.After(8, function() ns.Print(L.ORIGIN_HINT) end)
+    if (C.Level("player") or 99) <= Origins.PROMPT_MAX_LEVEL then
+      C.After(8, function() prompt(0) end)
+    else
+      C.After(8, function() ns.Print(L.ORIGIN_HINT) end)
+    end
   end
 end)

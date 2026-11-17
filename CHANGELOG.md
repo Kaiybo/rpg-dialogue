@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.69.0 (2026-11-17)
+A proper origin picker. No new files: /reload is enough.
+
+- **Choosing an origin.** "Choose an origin" (or "Change origin") on the Myself page opens a picker instead of cycling one button. Every background open to your race and class is listed on the left. Pick one to see its home town, what it leans you toward and its words, which you can rewrite in a roomy box before you take it. Your current origin is marked "(yours)", and opening it lets you just save new words. Keyboard and gamepad: up/down to move, Enter to take, Escape to go back.
+- **New characters are asked.** The first time a new character (level 5 or lower) logs in with the addon, the journal opens on the picker by itself, a few seconds in and never during combat. "Later" closes it, and the picker stays on the Myself page whenever you want it. Characters you already play just get the usual chat hint.
+- **No more cramped one-line blurb box** at the bottom of the Myself page.
+- **Deeds name what you killed.** Kills now remember the creature's name, so the Myself page says "Defeated Kobold Vermin" instead of "Defeated #681". Older kills the journal can't name are counted in one line.
+
 ## 0.68.0 (2026-11-17)
 A better-looking journal. No new files: /reload is enough.
 
