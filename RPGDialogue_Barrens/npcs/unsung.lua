@@ -19,7 +19,7 @@ P:NPC {
     third = "{name} met Devrak, the wind rider master of the Crossroads.",
   },
   greetings = {
-    { id = "g_fly", text = "Need to fly? The wind riders are rested, and the sky over the Barrens is clear." },
+    { id = "g_fly", text = "Need to fly, {class}? The wind riders are rested, and the sky over the Barrens is clear enough for an orc to see the Kolkar from the clouds." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The beasts remember you, so they won't bite. Probably." },
   },
   notice = {
@@ -121,7 +121,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin wants a wind rider. The beasts will carry you; I can't say the harpies will be as polite." },
-        { id = "h_default", key = true, text = "I'm Devrak, and I keep the wind riders of the Crossroads. They'll take you to Orgrimmar, Thunder Bluff, Ratchet and anywhere else the Horde has a roost, faster than any kodo." },
+        { id = "h_default", key = true, text = "I'm Devrak, and I keep the wind riders of the Crossroads. They'll take you to Orgrimmar, Thunder Bluff, Ratchet and anywhere else the Horde has a roost, faster than any kodo, and they only respect a rider who doesn't show fear." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders settle down when one of you is nearby, so come up the tower any time, because you'll make my job easier." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The wind riders know your scent changes when you do, so tell me now if you're coming up the tower as a cat, because I'd like to warn them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't care how hard you hit, so hold on tight and keep your axe strapped down." },
@@ -164,7 +164,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I know the skies, not that. Ask Thork, he knows the ground." } },
+    _none = { { id = "tp_none", text = "I know the skies, not that. Ask Thork; he knows the ground, and he likes reminding me of it." } },
   },
 }
 
@@ -179,7 +179,7 @@ P:NPC {
     third = "{name} bought supplies from Barg, who keeps the general goods at the Crossroads.",
   },
   greetings = {
-    { id = "g_shop", text = "Water, food and bags, and you'll want all three out here. What do you need?" },
+    { id = "g_shop", text = "Water, food and bags, and you'll want all three out here. An orc who learned thirst in the camps doesn't forget it. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, so you didn't buy enough water last time. Nobody ever does." },
   },
   notice = {
@@ -326,7 +326,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I sell water, not answers, so go and ask Thork." } },
+    _none = { { id = "tp_none", text = "I sell water, not answers, grunt, so go and ask Thork." } },
   },
 }
 
@@ -493,7 +493,7 @@ P:NPC {
     third = "{name} met Uthrok, the bowyer and gunsmith of the Crossroads.",
   },
   greetings = {
-    { id = "g_shop", text = "Bows, guns, arrows and shot. If it kills from a distance, I sell it." },
+    { id = "g_shop", text = "Bows, guns, arrows and shot. An orc likes his axe, but out here, if it kills from a distance, I sell it." },
   },
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
@@ -642,7 +642,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I couldn't tell you, so ask Thork or Sergra; they run this place." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you, grunt, so ask Thork or Sergra; they run this place." } },
   },
 }
 
@@ -661,11 +661,11 @@ P:NPC {
     third = "{name} met Omusa Thunderhorn, the wind rider master of Camp Taurajo.",
   },
   greetings = {
-    { id = "g_fly", text = "The wind riders are ready, friend. Where would you go?" },
+    { id = "g_fly", text = "The wind riders are ready, friend, and the wind is kind today. Where would you go?" },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
-      text = "You look tired and torn, friend. Let a wind rider carry you for a while, and rest your legs." },
+      text = "You look tired and torn, friend. Let a wind rider carry you for a while, the way the herd carries its weary, and rest your legs." },
   },
   start = "hello",
   nodes = {
@@ -762,7 +762,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The wind riders will take you north, and I'll tell them your name, since they like to know who they carry." },
-        { id = "h_default", key = true, text = "I am Omusa Thunderhorn, and I keep the wind riders of Camp Taurajo. From here they fly north to the Crossroads and further, and they carry the camp's news to Thunder Bluff." },
+        { id = "h_default", key = true, text = "I am Omusa Thunderhorn, and I keep the wind riders of Camp Taurajo. From here they fly north to the Crossroads and further, over the grass my people walked on the long migration, and they carry the camp's news to Thunder Bluff." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders have been uneasy since the dwarves came south with their digging, and perhaps you can feel what they feel." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, at Taurajo's roost. My wind riders have been uneasy since the dwarves started digging at Bael Modan, and I think you'll feel that same unease if you go near it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The dwarves at Bael Modan carry guns, and a warrior is the first thing they'll shoot at, so I hope you're as tough as you look." },
@@ -785,14 +785,14 @@ P:NPC {
         { text = "Do the tauren fear the Light, Omusa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything more, friend? The wind is patient today." } },
+      again = { { id = "h_again", text = "Anything more, friend? The wind is patient today, and so is an old tauren." } },
     },
     trouble = {
       lines = { { id = "t_default", text = "The quilboar of Razorfen Kraul to the south, and the dwarves who dig at Bael Modan to the southeast. The braves keep both away from the camp, but there are fewer braves every season." } },
       choices = { { text = "What do the dwarves want there?", next = "trouble_dwarves" } },
     },
     trouble_dwarves = {
-      lines = { { id = "td_default", text = "They dig for old things, buried things, and they don't ask the earth's permission. Every shaman in the camp says the land is angry there, and I believe them." } },
+      lines = { { id = "td_default", text = "They dig for old things, buried things, and they don't ask the Earth Mother's permission. Every shaman in the camp says the land is angry there, and I believe them, because I can feel it under my hooves." } },
       choices = {
         { text = "They must be driven off.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Perhaps they can be reasoned with.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
@@ -805,7 +805,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "The sky I know, friend, but not that, so put your question to the camp's elders by the fire." } },
+    _none = { { id = "tp_none", text = "The sky I know, friend, but not that, so put your question to the camp's elders by the fire. Walk with the Earth Mother." } },
   },
 }
 
@@ -824,7 +824,7 @@ P:NPC {
     third = "{name} met Bragok, the flight master of Ratchet.",
   },
   greetings = {
-    { id = "g_fly", text = "Flying? Then hurry, because the beasts don't like the salt air." },
+    { id = "g_fly", text = "Flying? Then hurry, {class}, because the beasts don't like the salt air, and neither does any orc with sense." },
   },
   start = "hello",
   nodes = {
@@ -966,7 +966,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I wouldn't know, so ask Gazlowe, because he knows everything that happens in Ratchet." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, so ask Gazlowe, because he knows everything that happens in Ratchet and sells most of it." } },
   },
 }
 

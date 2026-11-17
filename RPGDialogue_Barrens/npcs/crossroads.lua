@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_home", text = "Make yourself at home at the Crossroads, and mind your own business while you do." },
+    { id = "g_home", text = "Make yourself at home at the Crossroads, {class}, and mind your own business while you do. The Horde shares its fire, not its secrets." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the road, I see. The Crossroads is glad of you, so don't let it go to your head." },
     { id = "g_away", when = { away = 14 }, text = "You've been off the roads for {away}, and the Crossroads held without you, as it always does. Still, it's good to see you back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first came through this gate, and the Barrens has noticed even if you haven't. Go and put it to use." },
@@ -145,7 +145,7 @@ P:NPC {
           text = "That's a proper war band you've brought to my crossroads. The centaur raid in fours and fives, so they'll think twice before they come at you, which is more than I can say for most of the travellers I send out." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the Crossroads. Every kind of trouble meets here, and I'm not yet sure which kind you are." },
         { id = "h_default", key = true,
-          text = "I'm Thork, and I keep the Crossroads for the Warchief. Every road in the Barrens meets here, and so does every kind of trouble." },
+          text = "I'm Thork, and I keep the Crossroads for the Warchief. Every road in the Barrens meets here, and so does every kind of trouble, and an orc doesn't give ground to either." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "My scouts say someone went deep into the Wailing Caverns, and the howling from the hills has changed its tune since. If that was you, I'd like to hear about it." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to the Crossroads") },
           text = "So they sent you to me. Good, I've more work than warriors. Rest a night, and then we'll see what you're made of." },
@@ -234,7 +234,7 @@ P:NPC {
       { id = "tp_knows", text = "I hear every report that reaches these walls, and these are the ones I'll speak to." },
     },
     wailing_caverns = { { id = "tp_caverns", text = "That's the druids' business, and Tonga worries about it enough for all of us." } },
-    _none = { { id = "tp_none", text = "That's not my concern. My concern is the walls, and keeping them standing." } },
+    _none = { { id = "tp_none", text = "That's not my concern. My concern is the walls, and keeping them standing for the Horde." } },
   },
 }
 
@@ -440,7 +440,7 @@ P:NPC {
 
   topics = {
     wailing_caverns = { { id = "tp_caverns", text = "Something's wrong in the deep places, and it's seeping into the oases. Tonga knows more than I do, so listen to him." } },
-    _none = { { id = "tp_none", text = "Ask Thork, or better yet, go out there and find out for yourself." } },
+    _none = { { id = "tp_none", text = "Ask Thork, or better yet, go out there and find out for yourself. Deeds teach more than talk." } },
   },
 }
 
@@ -654,7 +654,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I don't know much beyond the quilboar and this wall. Ask about these, if you must." },
     },
-    _none = { { id = "tp_none", text = "I don't know and I don't care. Ask me about quilboar." } },
+    _none = { { id = "tp_none", text = "I don't know and I don't care, grunt. Ask me about quilboar." } },
   },
 }
 
@@ -669,9 +669,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_calm", text = "Peace, friend. The land is restless lately. All the more reason for us not to be." },
-    { id = "g_druid", when = { class = "DRUID" }, text = "Druid-kin, good. I need eyes that see the land the way I do, so sit, and I'll tell you what's wrong with it." },
-    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the land hasn't healed in that time, I'm sorry to say. Sit, and I'll tell you what has changed." },
+    { id = "g_calm", text = "Peace, friend. The land is restless lately, like a herd before a storm, and all the more reason for us not to be." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "Druid-kin, good. I need eyes that see the land the way the Earth Mother does, so sit, and I'll tell you what's wrong with it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the land hasn't healed in that time, I'm sorry to say. Grass is slow to forgive. Sit, and I'll tell you what has changed." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I heard you left someone here angry not long ago. The land is troubled enough, friend, so I'd ask you not to add to it." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone at the Crossroads spoke warmly of you, and warm words are rare enough out here. The Earth Mother notices kindness, and so do I." },
   },
@@ -784,7 +784,7 @@ P:NPC {
           text = "Your friend {companion} walks like a druid, careful where the grass is thin. The Barrens are hard on everything that grows, so tell them to keep an eye on the oases, because something has gone wrong in the water." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. Thunder Bluff sent me to find a strange power in the Barrens, and I did not expect to meet another one at the Crossroads." },
         { id = "h_default", key = true,
-          text = "My name is Tonga Runetotem. Thunder Bluff sent me to find where a strange power in the Barrens was coming from, and I found it, though I wish I hadn't." },
+          text = "My name is Tonga Runetotem. Thunder Bluff sent me to find where a strange power in the Barrens was coming from, and I found it, though I wish the wind had carried me somewhere else." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "The oases have run a little clearer this week, and the wrongness I felt in the green has faded. I've heard you went down into the caverns, and I'd very much like to know what you found." },
         { id = "h_oases", tags = { "news" }, when = { questActive = TODO_QUEST("The Barrens Oases") },
           text = "The oases are the heart of the Barrens, and something is poisoning them. Bring me samples from the water, and we'll see how deep the sickness goes." },
@@ -815,7 +815,7 @@ P:NPC {
         { text = "Farewell, Tonga.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Something more, friend? The land isn't in a hurry, even if we must be." },
+        { id = "h_again", text = "Something more, friend? The land isn't in a hurry, even if we must be. A kodo crosses the plains one step at a time." },
       },
     },
     druid = {
@@ -852,7 +852,7 @@ P:NPC {
       },
     },
     druids = {
-      lines = { { id = "d_default", text = "Druids meant well. That's the most frightening part, friend. Anyone can mean well and still go wrong in the dark." } },
+      lines = { { id = "d_default", text = "Druids meant well. That's the most frightening part, friend. Anyone can mean well and still go wrong in the dark, where An'she's light doesn't reach." } },
       choices = { { text = "...", next = "END" } },
     },
   },
@@ -863,7 +863,7 @@ P:NPC {
     },
     wailing_caverns = { { id = "tp_caverns", text = "It's a cave with a poisoned dream at the bottom of it. That's the plain version, and the plain version is bad enough." } },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul brought us into it. The Barrens needs every druid it can get, and the Circle needs to hear about this place." } },
-    _none = { { id = "tp_none", text = "I don't know, friend, but the land might. Listen to it a while." } },
+    _none = { { id = "tp_none", text = "I don't know, friend, but the land might. Listen to it a while, and walk with the Earth Mother." } },
   },
 }
 
@@ -879,7 +879,7 @@ P:NPC {
 
   greetings = {
     { id = "g_samples", text = "Hands! Living ones, even, which is excellent. Mine shake a little, these days." },
-    { id = "g_back", when = { metBefore = true }, text = "Back with something for me? The Barrens is full of things worth bottling." },
+    { id = "g_back", when = { metBefore = true }, text = "Back with something for me? The Barrens is full of things worth bottling, most of them still alive, which I find so wasteful." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still breathing, which is more than my samples can say. Do you have anything for me?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since I sent you out for those first samples. Stronger hands mean bigger jars, so I'm delighted." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone here believed a tale you spun them. How delightful; the living are so trusting, and I do enjoy watching them learn." },
@@ -1012,7 +1012,7 @@ P:NPC {
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "Another of my own, travelling with you. {companion} must have the patience of a saint or the stubbornness of the dead, because the orcs out here still won't share a campfire with me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. How quaint. Some of us remember the Silver Hand from before the plague, and we wonder which side of that memory you stand on." },
-        { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful, and a great deal does, it turns out." },
+        { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Dark Lady sent me to see what grows out here that might be useful, and a great deal does, it turns out, though most of it is better dead." },
         { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Word reached me that the lich in Razorfen Downs has been dealt with. The Society will be pleased, and I confess so am I, because the Scourge are an embarrassment to all of us who left them behind." },
         { id = "h_spores", tags = { "news" }, when = { questActive = TODO_QUEST("Fungal Spores") },
           text = "Spores from the fungus out by the water are what I need, and don't breathe near them. Well, you do still breathe, I suppose, so I'll simply advise against it." },
@@ -1045,7 +1045,7 @@ P:NPC {
         { text = "Good luck with your work.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a sample warming, so be brief." },
+        { id = "h_again", text = "Anything else? I've a sample warming, and unlike you, it won't keep forever. Be brief." },
       },
     },
     forsaken = {
@@ -1077,7 +1077,7 @@ P:NPC {
 
   topics = {
     wailing_caverns = { { id = "tp_caverns", text = "A poisoned dream leaking into the water? Terrible, of course, but quite fascinating." } },
-    _none = { { id = "tp_none", text = "Not my field. Bring me a sample and I'll make it my field." } },
+    _none = { { id = "tp_none", text = "Not my field. Bring me a sample, preferably no longer twitching, and I'll make it my field." } },
   },
 }
 
@@ -1247,7 +1247,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "If it doesn't bleed, I'm not interested." } },
+    _none = { { id = "tp_none", text = "If it doesn't bleed, I'm not interested, and in the Barrens nearly everything bleeds." } },
   },
 }
 
@@ -1402,7 +1402,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Don't know, friend. I know meat, so ask me about meat." } },
+    _none = { { id = "tp_none", text = "Don't know, friend. I know meat, so ask me about meat, grunt." } },
   },
 }
 
@@ -1417,7 +1417,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Rest your hooves, or your feet, or whatever you've got. Everyone's welcome under this roof." },
+    { id = "g_inn", text = "Rest your hooves, or your feet, or whatever you've got. Everyone's welcome under this roof, as the Earth Mother welcomes every calf to the grass." },
     { id = "g_home", when = { homeInn = { "The Crossroads" } }, text = "Back to the Crossroads! Your bedroll's where you left it. I swept the dust off twice." },
     { id = "g_away", when = { away = 14 }, text = "Back to the Crossroads after {away}! I swept your corner a few times while you were out, and the stars kept coming in through the roof." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, friend, and I was starting to worry the road had swallowed you whole. Sit down and let me find you something hot." },
@@ -1539,7 +1539,7 @@ P:NPC {
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = { min = 3 } } },
           text = "That's a lot of dusty boots on my floor, but the Crossroads has seen worse. Find a corner for all of you, and if one of you snores, I'd ask you to put them nearest the wind rider roost." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! The odd Forsaken sleeps here often enough, but never one who glows. Come in, the roof leaks, but the stars are fine." },
-        { id = "h_default", text = "Boorand Plainswind is my name, and I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough." },
+        { id = "h_default", text = "Boorand Plainswind is my name, and I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough, like a herd in the long grass." },
         { id = "h_mankrik", when = { heardLine = "mankrik.h_default" },
           text = "Mankrik's been on that wall since before I got here. He eats when someone puts food in his hands, so I put food in his hands." },
         { id = "h_roof", when = { metBefore = true }, text = "A goblin from Ratchet stayed three nights and tried to sell me a better roof. This roof is fine; it has holes, and that's how the stars get in." },
@@ -1582,6 +1582,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask Tonga, by the inn. He knows the Barrens better than anyone." } },
+    _none = { { id = "tp_none", text = "Ask Tonga, by the inn. He knows the Barrens better than anyone, and he listens to the grass as I never learned to." } },
   },
 }

@@ -18,7 +18,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "The gulch is always open, and the night elves are always waiting in it. Are you going or aren't you?" },
+    { id = "g_hi", text = "The gulch is always open, and the night elves are always waiting in it. Will you go and earn your honor, or aren't you going?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Either you liked the gulch or you've come to complain about it, and I only listen to one of those." },
     { id = "g_ranked", when = { pvpRank = 6 }, text = "I know that rank, {rank}. You've earned it the hard way, and the Sentinels know your face by now." },
     { id = "g_away", when = { away = 21 }, text = "Gone {away}, and the Outriders lost a stand of timber while you were away. Next time, tell me before you take a holiday." },
@@ -41,7 +41,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The Sentinels aren't going to wait for us." },
-        { id = "h_again2", text = "Ask, then, but ask quickly." },
+        { id = "h_again2", text = "Ask, then, but ask quickly. Deeds are won in the gulch, not in this valley." },
       },
       choices = {
         { text = "What happens in Warsong Gulch?", next = "gulch" },
@@ -127,7 +127,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fought my share before the camps and more after them, and now I send the young ones out with what I learned. The name came later, and I didn't choose it." } },
     advice = { { id = "tp_ad", text = "In the gulch, look up. The night elves love their rooftops and their high ground, and the grunt who never looks up gets an arrow in the neck." } },
-    _none = { { id = "tp_none", text = "If it isn't in Warsong Gulch, it isn't my business. Ask Runthak, he likes talking more than I do." } },
+    _none = { { id = "tp_none", text = "If it isn't in Warsong Gulch, it isn't my business. Ask Runthak; he likes talking more than an orc should." } },
   },
 }
 
@@ -145,7 +145,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the wolves. They know you're new, and they like to see if you'll flinch." },
+    { id = "g_hi", text = "Mind the wolves, {class}. They know you're new, and they like to see if you'll flinch, the way any orc would." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and the wolves remember you. That's either a good thing or a bad one, depending on how you smelled last time." },
     { id = "g_mounted", when = { mounted = true }, text = "Off the beast before you come into my yard, if you please. The wolves don't like strangers riding in on their own territory." },
   },
@@ -237,7 +237,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "My father rode with the Horde before the camps, and I learned to ride before I learned to walk properly. That's all the story I need." } },
-    _none = { { id = "tp_none", text = "Ask me about wolves and riding, and I'll talk until you beg me to stop. Ask me about anything else, and you'll get a blank stare." } },
+    _none = { { id = "tp_none", text = "Ask me about wolves and riding, and I'll talk until you beg me to stop. Ask me about anything else, and you'll get a blank stare and a grunt." } },
   },
 }
 
@@ -254,7 +254,7 @@ P:NPC {
     third = "{name} met Sorek, one of the warrior trainers in Orgrimmar's Valley of Honor.",
   },
   greetings = {
-    { id = "g_hi", text = "Find a space in the yard and wait your turn. Grezz shouts enough for both of us." },
+    { id = "g_hi", text = "Find a space in the yard and wait your turn, grunt. Grezz shouts enough for both of us." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're standing better than last time I saw you. Someone's been teaching you the hard way, I see." },
   },
   notice = {
@@ -265,7 +265,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Sorek, and I train warriors here. Grezz teaches you to hit hard, and I teach you to keep standing after you've hit, which is the part most grunts forget." },
+        { id = "h_default", key = true, text = "I'm Sorek, and I train warriors here. Grezz teaches you to hit hard, and I teach you to keep standing after you've hit, which is the part most grunts forget and the part that brings them home to the Horde." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Sorek, and you've come for training, I hope, {class}. Show me your stance first, because I can tell more about a warrior from his feet than from his arms." },
       },
       again = { { id = "h_again", text = "What else? There are recruits waiting." } },
@@ -320,7 +320,7 @@ P:NPC {
     third = "{name} met Sayoc, a weapon master in Orgrimmar's Valley of Honor.",
   },
   greetings = {
-    { id = "g_hi", text = "Let me see what you're carrying, and then let me guess what you should be carrying instead." },
+    { id = "g_hi", text = "Let me see what you're carrying, warrior, and then let me guess what you should be carrying instead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another weapon? Good, because there's always another weapon." },
   },
   notice = {
@@ -331,7 +331,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Sayoc, the weapon master, and I teach anyone how to use a weapon they don't know yet, for a fee. If you've been fighting with only one kind of blade all your life, you've been fighting with one hand tied." },
+        { id = "h_default", key = true, text = "I'm Sayoc, the weapon master, and I teach anyone how to use a weapon they don't know yet, for a fee. In the camps we fought with whatever the guards dropped, and if you've only ever swung one kind of blade, you've been fighting with one hand tied." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "I'm Sayoc, the weapon master, and you'll want daggers, I suppose, because your kind always does. Have you ever thought about a good mace, though?" },
       },
       again = { { id = "h_again", text = "Anything else? I have blades to oil." } },
@@ -364,7 +364,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "If it doesn't have an edge or a weight to it, I don't know about it. Ask someone who does." } },
+    _none = { { id = "tp_none", text = "If it doesn't have an edge or a weight to it, I don't know about it. Ask some grunt who does." } },
   },
 }
 
@@ -450,7 +450,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Xao'tsu, and I train beasts, not hunters. I teach your pet new tricks and better ways to fight, and the hunters who listen to me lose fewer beasts." },
+        { id = "h_default", key = true, text = "Xao'tsu, and I train beasts, not hunters, mon. The loa put a spirit in every animal, and I teach your pet new tricks and better ways to fight, so the hunters who listen to me lose fewer beasts." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Xao'tsu, pet trainer, and you be a hunter, so you'll want your beast to learn something new. Show me what it knows already, and we'll see." },
       },
       again = { { id = "h_again", text = "Anything else? The beasts be getting hungry." } },
@@ -463,7 +463,7 @@ P:NPC {
     },
     train = {
       big = true,
-      lines = { { id = "tr_default", text = "With patience and meat, mostly in that order. A beast that's beaten learns fear, and a beast that's fed learns to trust, and a frightened beast will turn on you in the end." } },
+      lines = { { id = "tr_default", text = "With patience and meat, mostly in that order, mon. A beast that be beaten learns fear, and a beast that be fed learns to trust, and a frightened beast will turn on you in the end." } },
       choices = {
         { text = "Trust is stronger than fear. I treat my beast well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast should fear its master a little.", next = "BACK", fx = { align = { light = -1 } } },
@@ -579,7 +579,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Jin'sora, and I sell bows and arrows, the best you'll find in the Valley of Honor. Kaja will tell you a gun be better, but a gun scares off everything in the forest for a mile, and a bow lets you take two shots before anyone knows you're there." },
       },
-      again = { { id = "h_again", text = "What else? I've got strings to wax." } },
+      again = { { id = "h_again", text = "What else, mon? I got strings to wax." } },
       choices = {
         { text = "Why are bows better than guns?", next = "guns" },
         { text = "Where does your wood come from?", next = "wood" },

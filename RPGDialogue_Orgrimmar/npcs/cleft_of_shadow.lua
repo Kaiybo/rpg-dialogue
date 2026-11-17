@@ -18,7 +18,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in out of the light, friend. Nobody in the Cleft likes being looked at too closely." },
+    { id = "g_hi", text = "Come in out of the light, {class}. Nobody in the Cleft likes being looked at too closely, not even the orcs who built it." },
     { id = "g_back", when = { metBefore = true }, text = "You found your way back down here, and without a guide this time. I'm almost proud of you." },
     { id = "g_stealth", when = { stealthed = true }, text = "I can hear you breathing, you know. Come out and talk properly." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone in the city caught you in a lie, which is careless. A good lie is never caught, only forgotten." },
@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Shenthul, and I train those who work in the shadows for the Horde. Not every war is fought with banners and drums, and the Warchief knows that better than the grunts who shout his name." },
+        { id = "h_default", key = true, text = "Shenthul, and I train those who work in the shadows for the Horde. Not every war is fought with banners and war drums, and the Warchief knows that better than the grunts who shout Lok'tar in his name." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Shenthul, and you're one of mine, by the look of your boots and the way you watched the exits when you came in. Good habits, so keep them." },
         { id = "h_rfc", when = { questActive = TODO_QUEST("Hidden Enemies") }, text = "Shenthul, and you've been asking about Ragefire, I hear. The Warchief has good reason to worry about what's festering down there, so keep your blade close when you go." },
       },
@@ -109,7 +109,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Where I come from doesn't matter, and nobody who knows is going to tell you. That's rather the point." } },
     advice = { { id = "tp_ad", text = "Never stand in a doorway, never sit with your back to one, and never trust anyone who says they have nothing to hide." } },
-    _none = { { id = "tp_none", text = "If I knew, I'd want to know why you're asking. Since I don't, I'll just wonder about you instead." } },
+    _none = { { id = "tp_none", text = "If I knew, I'd want to know why you're asking. Since I don't, I'll just wonder about you instead, the way a good orc wonders about anyone who asks." } },
   },
 }
 
@@ -137,7 +137,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Mirket, and I teach warlocks. The rest of the city would rather we didn't exist, but it's glad enough of us when the Alliance comes over the hill." },
+        { id = "h_default", key = true, text = "Mirket, and I teach warlocks. The rest of the city remembers the blood curse and would rather we didn't exist, but it's glad enough of us when the Alliance comes over the hill." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "Mirket, and you're a shaman, so you'll be wanting to tell me the spirits disapprove of me. Save your breath, because Kardris has already said it twice this season." },
       },
       again = { { id = "h_again", text = "What else? Be quick, my next student's late." } },
@@ -170,7 +170,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I don't care about that. Ask me about binding demons, or go away." } },
+    _none = { { id = "tp_none", text = "I don't care about that. Ask me about binding demons, or go and bother a grunt." } },
   },
 }
 
@@ -198,7 +198,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. An imp knows a dozen tricks it would rather not show you, and my books make sure it shows you anyway." },
+        { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood; my books make sure it goes the other way now, and an imp shows you every trick it would rather hide." },
       },
       again = { { id = "h_again", text = "Anything else? My grimoires don't like being left open." } },
       choices = {
@@ -312,7 +312,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Hagrus, and I sell reagents. Mages want powder, shamans want ankhs, warlocks want soul shards they think I keep under the counter, and I sell what I've got and argue about the rest." },
+        { id = "h_default", key = true, text = "I'm Hagrus, and I sell reagents. Mages want powder, shamans want ankhs, warlocks want soul shards they think I keep under the counter, and I sell what I've got and argue about the rest like any honest orc." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "Hagrus, and you're a shaman, so you'll be wanting an ankh. Everybody dies sometime, and your kind just plan for it better." },
       },
       again = { { id = "h_again", text = "What else? I've got stock to count." } },
@@ -345,6 +345,6 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Don't know, don't care. Buy something or move along." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care. Buy something, or go and ask a grunt who does." } },
   },
 }

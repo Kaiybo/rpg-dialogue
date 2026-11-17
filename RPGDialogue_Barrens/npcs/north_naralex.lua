@@ -321,7 +321,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You made it this far. Then perhaps you can make it further, with me." },
+    { id = "g_default", text = "You made it this far, stranger. Then perhaps, Elune willing, you can make it further, with me." },
   },
 
   notice = {
@@ -335,11 +335,11 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am a disciple of Naralex, the last of us who still walks these caverns with a clear mind. I have the means to wake him, but not the strength to fight my way to him alone." },
+        { id = "h_default", key = true, text = "I am a disciple of Naralex, the last of us who still walks these caverns with a clear mind. I have the means to wake him, but not the strength to fight my way to him alone, and my shan'do has slept too long already." },
         { id = "h_cleared", when = { cleared = "Wailing Caverns" }, text = "You came back. I feel him stirring more each time someone reaches his chamber, as if the nightmare loosens a little with every blow struck against it." },
       },
       again = {
-        { id = "h_again", text = "What else? We should not wait long." },
+        { id = "h_again", text = "What else? We should not wait long; even the kaldorei cannot outlast a nightmare." },
         { id = "h_again2", text = "Ask quickly. The nightmare stirs." },
       },
       choices = {
@@ -359,7 +359,7 @@ P:NPC {
       },
     },
     wrong = {
-      lines = { { id = "wr_default", text = "The nightmare will fight back, and I don't know what form it will take. Something has fed on his dreams for years, and it won't like being driven out." } },
+      lines = { { id = "wr_default", text = "The nightmare will fight back, and I don't know what form it will take. Something has fed on his dreams for years, something the Emerald Dream itself should never have held, and it won't like being driven out." } },
       choices = {
         { text = "Whatever comes, I'll face it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If it gets bad, I'm leaving you.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
@@ -382,7 +382,7 @@ P:NPC {
       },
     },
     stay = {
-      lines = { { id = "s_default", text = "Because he would have stayed for me. He brought us here to heal a land that wasn't even ours, and if I left him to rot in his own dream, I'd be no disciple at all." } },
+      lines = { { id = "s_default", text = "Because he would have stayed for me. He brought us here to heal a land that wasn't even ours, as the druids have tended this world since the War of the Ancients, and if I left him to rot in his own dream, I'd be no disciple at all." } },
       choices = {
         { text = "Then let's get him out.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -399,6 +399,6 @@ P:NPC {
 
   topics = {
     naralex = { { id = "tp_nar", text = "My teacher. He sleeps below, and I mean to wake him.", next = "wake" } },
-    _none = { { id = "tp_none", text = "I can't think of that now. Naralex is all that matters." } },
+    _none = { { id = "tp_none", text = "I can't think of that now. Naralex is all that matters, and Elune grant I reach him in time." } },
   },
 }

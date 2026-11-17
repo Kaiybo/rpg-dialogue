@@ -13,7 +13,7 @@ P:NPC {
     third = "{name} met Misha Tor'kren, a widowed orc keeping a lonely hut in northern Durotar.",
   },
   greetings = {
-    { id = "g_hut", text = "Few walk this far north, and fewer stop at my door. Say what brings you, traveler." },
+    { id = "g_hut", text = "Few walk this far north, and fewer stop at my door. Say what brings you, young one, and say it plainly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to this old hut, then. Sit, if you can stand the smell of goat." },
   },
   notice = {
@@ -183,7 +183,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I know this hut and these hills, and little else matters to me now." } },
+    _none = { { id = "tp_none", text = "I know this hut and these hills, and the ancestors know the rest. Little else matters to me now." } },
   },
 }
 
@@ -356,7 +356,7 @@ P:NPC {
   },
   topics = {
     burning_blade = { { id = "tp_blade", text = "Cultists, fools and worse. Kill them where you find them, and look hard at who mourns them." } },
-    _none = { { id = "tp_none", text = "I watch a rock for a living, so ask someone who gets out more." } },
+    _none = { { id = "tp_none", text = "I watch a rock for a living, grunt, so ask someone who gets out more." } },
   },
 }
 
@@ -366,17 +366,17 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "calm" }, values = { "wise" },
   notices = { "class" },
   impression = {
-    first = "Swart trains the shaman of Razor Hill, a calm orc who speaks of the elements the way other orcs speak of old friends.",
+    first = "Swart trains the shaman of Razor Hill, a calm Darkspear troll who speaks of the elements the way other trolls speak of the loa.",
     third = "{name} met Swart, the shaman trainer at Razor Hill.",
   },
   greetings = {
-    { id = "g_hi", text = "Welcome. The wind's dry today, and it blew you in with half the Barrens on your boots." },
+    { id = "g_hi", text = "Welcome, mon. The wind be dry today, and it blew you in with half the Barrens on your boots." },
   },
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "The elements trust no one at first; trust is earned. When the orcs lost them, it was demons who came, and when we were caged, it was the Light that kept the doors shut. I would like to believe the Light can mean something else in your hands." } },
+      lines = { { id = "xfpala_default", text = "The elements trust no one at first, mon; trust be earned. When the orcs lost them, it was demons who came, and when they were caged, it was the Light that kept the doors shut. I'd like to believe the Light can mean something else in your hands." } },
       choices = {
         { text = "It can, and I'll show the spirits that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The spirits can believe what they like.", next = "BACK", fx = { align = { light = -1 } } },
@@ -394,7 +394,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "They say the land is tired of blood, and the Kul Tirans at Tiragarde Keep spill more of it every season. But the earth also says it gave itself to the Horde when Thrall asked, so a warrior who defends this land does the spirits' work, if he fights only as long as he must." } },
+      lines = { { id = "xwarcl_default", text = "They say the land be tired of blood, and the Kul Tirans at Tiragarde Keep spill more of it every season. But the earth also say it gave itself to the Horde when Thrall asked, so a warrior who defends this land does the spirits' work, if he fights only as long as he must." } },
       choices = {
         { text = "I'll fight only as long as I must.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll fight until every enemy is dead.", next = "BACK", fx = { align = { light = -1 } } },
@@ -427,7 +427,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Our shamans became warlocks once, on Draenor, when Ner'zhul and Gul'dan led them away from the spirits, and our whole people paid for it. I can trust you as far as I can see you, and I will be watching you closely." },
+        { id = "xlock_default", text = "The orc shamans became warlocks once, on Draenor, when Ner'zhul and Gul'dan led them away from the spirits, and the whole Horde paid for it. I trust you as far as I can see you, mon, and I be watching you close." },
       },
       choices = {
         { text = "Watch, then. I'll prove I'm not Gul'dan.", next = "BACK", fx = { align = { light = 1 } } },
@@ -436,7 +436,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "That this land was hard long before the orcs came, and that it respects those who don't try to soften it. Your people would plant a grove here, I think, and the land would let it die just to make its point." } },
+      lines = { { id = "dq_default", text = "That this land was hard long before the orcs and the Darkspear came, and that it respects those who don't try to soften it. Your people would plant a grove here, I think, and the land would let it die just to make its point." } },
       choices = {
         { text = "Respect the land as it is.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Plant anyway. Even hard land can change.", next = "BACK", fx = { align = { order = -1 } } },
@@ -456,13 +456,13 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who calls on the Light. The elements around you are very still, as though they are listening for what you will do. So am I." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who call on the Light. The elements around you be very still, mon, as though they listen for what you will do. So do I." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The elements don't answer you, I think, but something does, and I'll not pretend I can't feel it." },
-        { id = "h_default", key = true, text = "I am Swart, and I teach those the elements will answer. If you have the gift, I can help you hear it; if not, I can still tell you what the spirits say of this land." },
-        { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. Sit, and let us see what the earth has taught you since we last spoke." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren! The spirits of Durotar are dry and harsh, but they speak plainly, and I suspect you hear them as well as any of my students." },
+        { id = "h_default", key = true, text = "I be Swart of the Darkspear, and I teach those the elements will answer. If you got the gift, I help you hear it; if not, I can still tell you what the spirits say of this land, mon." },
+        { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. Sit, mon, and let us see what the earth has taught you since we last spoke." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren! The spirits of Durotar be dry and harsh, but they speak plainly, and I suspect you hear them as well as any of my students." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "The elements don't answer you, mage, though they notice when you pull at them. The fire spirits around Razor Hill grumble whenever you pass." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The spirits go quiet when you're near, warlock, the way birds go quiet when a hawk is overhead. I don't need them to tell me what you carry." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The spirits go quiet when you near, warlock, the way birds go quiet when a hawk be overhead. I don't need the loa to tell me what you carry." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The elements notice you, though you don't notice them, because the earth feels every step you take toward a fight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The spirits of the beasts walk with you, and I can hear them complaining about the heat, as everyone does in Durotar." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, come to a shaman's fire. The spirits don't mind you, but they always notice you, however quietly you walk." },
@@ -480,17 +480,17 @@ P:NPC {
         { text = "Do the elements trust a Forsaken paladin, Swart?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Swart.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something more? The elements are patient, and so am I." } },
+      again = { { id = "h_again", text = "Something more? The elements be patient, mon, and so be I." } },
     },
     land = {
-      lines = { { id = "l_default", text = "That it is hard and honest, like the people who chose it. The fire here is close to the surface and the water is scarce, so we learn to give thanks for every rain." } },
+      lines = { { id = "l_default", text = "That it be hard and honest, like the people who chose it. On the Echo Isles the rain came every day; here the fire sit close to the surface and the water be scarce, so we learn to give thanks for every rain." } },
       choices = {
         { text = "A hard land makes a strong people.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Strong or not, we deserved better land.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
     ways = {
-      lines = { { id = "w_default", text = "The Warchief learned them from Drek'Thar, who kept them alive through the dark years. Now every shaman Thrall trains carries a little of that old Frostwolf patience with him." } },
+      lines = { { id = "w_default", text = "The Warchief learned them from Drek'Thar, who kept them alive through the dark years. My own people kept their spirits too, with the loa, and now every shaman Thrall trains carries a little of both, mon." } },
       choices = { { text = "Tell me more of Drek'Thar.", next = "ways_drek" } },
     },
     ways_drek = {
@@ -499,7 +499,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "The spirits have told me nothing of that, and I won't guess for them." } },
+    _none = { { id = "tp_none", text = "The spirits told me nothing of that, mon, and I won't guess for them." } },
   },
 }
 
@@ -513,7 +513,7 @@ P:NPC {
     third = "{name} met Tarshaw Jaggedscar, the warrior trainer at Razor Hill.",
   },
   greetings = {
-    { id = "g_hi", text = "Stand straight when you come to my yard, recruit. Now, what is it?" },
+    { id = "g_hi", text = "Stand straight when you come to my yard, recruit. An orc earns respect on his feet. Now, what is it?" },
   },
   start = "hello",
   nodes = {
@@ -654,6 +654,6 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I teach fighting, recruit, not gossip. Ask Grosk at the inn." } },
+    _none = { { id = "tp_none", text = "I teach fighting, recruit, not gossip. Deeds, not talk; ask Grosk at the inn if you want talk." } },
   },
 }

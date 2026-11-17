@@ -36,7 +36,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Nargal Deatheye. I sell blades, axes and maces to anyone at the Crossroads who can pay, and I tell them which ones will get them killed, which is a service nobody thanks me for." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior. Good, you'll know a real axe from a pretty one, which saves us both time." },
       },
-      again = { { id = "h_again", text = "What else? I've customers." }, { id = "h_again2", text = "Go on, then." } },
+      again = { { id = "h_again", text = "What else? I've customers, and an orc's time is worth steel." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where do your weapons come from?", next = "source" },
@@ -68,7 +68,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Don't know. If it's not sharp, I don't keep track of it." } },
+    _none = { { id = "tp_none", text = "Don't know, grunt. If it's not sharp, I don't keep track of it." } },
   },
 }
 
@@ -85,7 +85,7 @@ P:NPC {
     third = "{name} met Jahan Hawkwing, the tauren leather merchant of the Crossroads.",
   },
   greetings = {
-    { id = "g_default", text = "Welcome. Leather breathes in this heat, which is more than you can say for plate." },
+    { id = "g_default", text = "Welcome, friend. Leather breathes in this heat, which is more than you can say for plate, and the kodo who gave it walked these same plains." },
   },
   notice = {
     { id = "n_skin", cat = "craft", when = { profession = { "Skinning", "Leatherworking" } },
@@ -99,7 +99,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Jahan Hawkwing. I sell leather armor cut from the beasts of the Barrens and Mulgore, and every piece was hunted with respect, so wear it with respect." },
       },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Ask what you like." } },
+      again = { { id = "h_again", text = "What else, friend? There is no hurry under An'she's sky." }, { id = "h_again2", text = "Ask what you like." } },
       choices = {
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "What beasts does your leather come from?", next = "beasts" },
@@ -108,7 +108,7 @@ P:NPC {
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "Kodo and plainstrider mostly, with zhevra for the light pieces. Zhevra hide is tough and thin, which is why the hunters here chase them, and why the zhevra kick so hard when they're caught." } },
+      lines = { { id = "b_default", text = "Kodo and plainstrider mostly, with zhevra for the light pieces. Zhevra hide is tough and thin, which is why the hunters here chase them, and why the zhevra kick so hard when they're caught; the Earth Mother made them proud." } },
       choices = {
         { text = "Do you hunt them yourself?", next = "hunt" },
         { text = "Something else.", next = "BACK" },
@@ -131,7 +131,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "That's not something I know about. Leather, I know." } },
+    _none = { { id = "tp_none", text = "That's not something I know about, friend. Leather, I know, and the beasts it came from." } },
   },
 }
 
@@ -211,7 +211,7 @@ P:NPC {
     third = "{name} met Moorane Hearthgrain, the tauren baker of the Crossroads.",
   },
   greetings = {
-    { id = "g_default", text = "Come in out of the sun, little one. The bread's just out, and it smells better than anything else in the Barrens." },
+    { id = "g_default", text = "Come in out of the sun, little one. The bread's just out, baked from Mulgore grain the Earth Mother grew, and it smells better than anything else in the Barrens." },
   },
   notice = {
     { id = "n_hungry", cat = "hunger", when = { hp = { max = 0.5 } },
@@ -223,9 +223,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Moorane Hearthgrain, and I bake for the Crossroads, which means a great many hungry grunts and very little grain. Buy a loaf, and eat it while it's warm." },
+        { id = "h_default", key = true, text = "I'm Moorane Hearthgrain, and I bake for the Crossroads, which means a great many hungry grunts and very little grain. Back home the wheat stands taller than a calf; here I make do. Buy a loaf, and eat it while it's warm." },
       },
-      again = { { id = "h_again", text = "Anything else, little one?" } },
+      again = { { id = "h_again", text = "Anything else, little one? The oven is patient, and so am I." } },
       choices = {
         { text = "I'll buy some bread.", next = "BUSINESS" },
         { text = "Where do you get grain out here?", next = "grain" },
@@ -257,7 +257,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I don't know about that, little one, but I know a good loaf, if you're hungry." } },
+    _none = { { id = "tp_none", text = "I don't know about that, little one, but I know a good loaf, if you're hungry. May the Earth Mother keep your belly full." } },
   },
 }
 
@@ -359,7 +359,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Halga Bloodeye. I trade at the Crossroads because this is where the roads meet, and where the roads meet, there's always someone who needs something they didn't pack." },
       },
-      again = { { id = "h_again", text = "Anything else? Make it worth my while." } },
+      again = { { id = "h_again", text = "Anything else? Make it worth my while, {class}." } },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What do you think of Sergra?", next = "sergra" },
@@ -392,7 +392,7 @@ P:NPC {
   },
   topics = {
     sergra = { { id = "tp_sergra", text = "The best commander in the Barrens, and you can tell Kargal I said so.", next = "sergra" } },
-    _none = { { id = "tp_none", text = "No idea. Ask me about prices." } },
+    _none = { { id = "tp_none", text = "No idea. Ask me about prices, grunt." } },
   },
 }
 

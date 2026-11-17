@@ -106,6 +106,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm an orc who keeps a strongbox and a tower. I was good at it until the lizards came." } },
     advice = { { id = "tp_ad", text = "Lock your valuables up high. Raptors can't climb, or I hope they can't, anyway." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask Thork, he knows everything that happens here." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask Thork; he knows everything that happens here, and he never lets an orc forget it." } },
   },
 }

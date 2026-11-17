@@ -361,7 +361,7 @@ P:NPC {
     third = "{name} bought supplies from Duokna, who keeps general goods for the recruits of the Valley of Trials.",
   },
   greetings = {
-    { id = "g_shop", text = "Water, bread, thread and bags, everything a recruit forgets until it is too late. What do you need?" },
+    { id = "g_shop", text = "Water, bread, thread and bags, everything a recruit forgets until it is too late. We had none of it in the camps, so nobody leaves my shop without it. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, so the valley has eaten through your supplies already. That is what it does." },
   },
   notice = {
@@ -464,7 +464,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I don't suppose you need a waterskin, but every other recruit forgets something, so tell me what you forgot." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Then you'll want bandages and clean water, because prayers go further when the wound's been washed." },
-        { id = "h_default", key = true, text = "I am Duokna, and I keep the goods for the Den. Most of the young ones walk in with an axe and nothing else, so I make sure they walk out with a waterskin." },
+        { id = "h_default", key = true, text = "I am Duokna, and I keep the goods for the Den. My father walked out of the camps with nothing, so I make sure the young ones walk out of here with a waterskin at least." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are heavy, so I'll ask you what I ask everyone, which is whether you remembered to carry water as well." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll tell me you can live off the land, I suppose, and I'll tell you that Durotar's land is mostly rock, so take a waterskin anyway." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my shop. Count your goods, Duokna, I always say to myself, and I'm saying it now." },
@@ -513,7 +513,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I sell bread and bags, recruit, so ask Gornek if you want answers about anything bigger." } },
+    _none = { { id = "tp_none", text = "I sell bread and bags, recruit. Ask Gornek if you want answers about anything bigger." } },
   },
 }
 
@@ -532,7 +532,7 @@ P:NPC {
     third = "{name} met Uhgar, the weaponsmith of Razor Hill.",
   },
   greetings = {
-    { id = "g_shop", text = "Blades, axes and maces, all of them sharp. Look, but do not touch the edges unless you are buying." },
+    { id = "g_shop", text = "Blades, axes and maces, all of them sharp enough for orc hands. Look, but do not touch the edges unless you are buying." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Show me what you did to the last one I sold you." },
   },
   notice = {
@@ -624,7 +624,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. A hammer, I suppose? I don't sell many to orcs; they remember who swung them at the camps." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll be wanting a mace, then, because I've never sold a priest a sword who didn't regret it." },
-        { id = "h_default", key = true, text = "I am Uhgar, and I sell weapons to the grunts of Razor Hill and anyone else with coin. Durotar is a hard place, and you will want something better than a training axe before you leave town." },
+        { id = "h_default", key = true, text = "I am Uhgar, and I sell weapons to the grunts of Razor Hill and anyone else with coin. Durotar is a hard place, and a warrior of the Horde wants something better than a training axe before he leaves town." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so you'll want a mace or an axe and not some little dagger. The spirits respect a weapon with weight behind it, or so the old shamans told me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in a weapon shop. You'll want a staff or a mace, then, and something heavy enough that the Kul Tirans notice it before they notice the claws." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in a weapon shop. You'll be after a staff, then, and I'll find you one that won't snap on a quilboar's head." },
@@ -843,7 +843,7 @@ P:NPC {
     third = "{name} found Kaplak, the rogue trainer hidden beneath Razor Hill.",
   },
   greetings = {
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "You found the burrow on your own, so you are learning. Come in and keep your voice low." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "You found the burrow on your own, so you are learning. Come in, keep your voice low, and leave your pride at the door; it clanks." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "This burrow is not for sightseers, so either you are lost or you are nosy. Which is it?" },
   },
   notice = {
@@ -935,7 +935,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, here in my burrow. I didn't think your kind knew how to come in quietly. Most of them knock the door down." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, down here in the dark. You'll fit in better than you'd like to think, because the shadow you pray in is the same one I work in." },
-        { id = "h_default", key = true, text = "Name's Kaplak, and I teach the quiet arts to those who have the stomach for them. The grunts upstairs fight in the open, but somebody has to handle the work that happens in the dark." },
+        { id = "h_default", key = true, text = "Name's Kaplak, and I teach the quiet arts to those who have the stomach for them. The grunts upstairs win their honor in the open, but somebody has to handle the work that happens in the dark, and the Horde needs both." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, down in my burrow. Keep your thunder to yourself, friend, because the grunts upstairs don't need to know what goes on down here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, down in my burrow, and quieter than most of my students. I hear your kind can walk as a cat, so you'll forgive me if I keep one eye on the shadows while we talk." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, down in my burrow? You're the last person I expected, because your kind glow too much to hide." },
@@ -977,7 +977,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "If I knew, I would be the wrong person to ask about it, wouldn't I?" } },
+    _none = { { id = "tp_none", text = "If I knew, I would be the wrong orc to ask about it, wouldn't I?" } },
   },
 }
 

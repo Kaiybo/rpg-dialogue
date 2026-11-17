@@ -9,7 +9,7 @@
 ## Identity
 Disciple of Naralex · inside the Wailing Caverns · neutral · Night Elf · druid
 Personality: earnest, weary, loyal
-Speech: Tired, urgent, devout
+Speech: Tired, urgent, devout; kaldorei formality, Elune, "shan'do" for Naralex
 Relationships: Naralex (teacher), the Fang (pities), Ebru and Nalpak outside
 Never says: anything after Year 1; no foreshadowing.
 

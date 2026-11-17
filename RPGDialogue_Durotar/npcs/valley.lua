@@ -13,7 +13,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_road", text = "Fresh off the road, are you? Good. The Horde has room for you, if you earn it." },
+    { id = "g_road", text = "Fresh off the road, are you? Good. The Horde is a family, and it has room for you, if you earn it with your hands." },
     { id = "g_back", when = { metBefore = true }, text = "Still in the valley? Then you've still got work to do, so go on." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the valley's had a dozen new recruits through since. Go on and show them what one looks like after the road." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "I remember you walking into this valley with nothing, and look at you now. Somebody greeted you right, I'd say." },
@@ -188,7 +188,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask Gornek; I just point the way." } },
+    _none = { { id = "tp_none", text = "Ask Gornek; I just point the way. Lok'tar, recruit." } },
   },
 }
 
@@ -367,7 +367,7 @@ P:NPC {
       { id = "tp_knows", text = "Recruits talk in the Den when they think I'm asleep, and I never am. Ask about these, and then listen." },
     },
     burning_blade = { { id = "tp_blade", text = "There are cultists in the coven to the north, calling up imps. Zureetha deals with them, and you'll help her." } },
-    _none = { { id = "tp_none", text = "That's not your concern yet, recruit, so finish the valley first." } },
+    _none = { { id = "tp_none", text = "That's not your concern yet, recruit. Finish the valley first, and let your deeds do your asking." } },
   },
 }
 
@@ -554,20 +554,20 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_peon", text = "You! You're not a peon, are you? Good, because I have plenty of those, and they're all asleep." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, the one who can stay awake. A rare sight." },
+    { id = "g_peon", text = "You! You not be a peon, are you? Good, mon, because I got plenty of those, and they all be asleep." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, the one who can stay awake. A rare sight in dis camp, mon." },
   },
 
   notice = {
     { id = "n_peon", cat = "idle", when = { race = "Orc", maxLevel = 3 },
-      text = "Hmm. You've got the look of someone who'd nap behind a lumber pile. Prove me wrong." },
+      text = "Hmm. You got the look of someone who'd nap behind a lumber pile, mon. Prove me wrong." },
   },
 
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Ha! I'd pay to see it. But don't, because half of them were born to parents who remember the Light in the camps, and I'd have a riot instead of a nap. Just walk past and look holy. They'll work out of nerves." } },
+      lines = { { id = "xfpala_default", text = "Ha! I'd pay to see it, mon. But don't, because half of them were born to parents who remember the Light in the camps, and I'd have a riot instead of a nap. Just walk past and look holy, and they'll work out of nerves." } },
       choices = {
         { text = "I'll leave them in peace. They've earned rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A little fright will do them good.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -576,7 +576,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. Mind you, they'd probably sleep through it, because I once watched one nap through a scorpid crawling up his back, and honestly I was almost proud of him." } },
+      lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. Mind you, they'd sleep through it, because I once watched one nap through a scorpid crawling up his back, and by the loa, I was almost proud of him." } },
       choices = {
         { text = "Let them rest, Foreman. Tired hands make poor work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Work comes first. Wake them, and I'll pray after.", next = "BACK", fx = { align = { light = -1 } } },
@@ -619,7 +619,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Probably, but you haven't seen how deep these peons sleep. I've tried shouting and I've tried the blackjack, and if the sky itself can't wake them I'll give up and let them have the lumber camp." } },
+      lines = { { id = "xhsham_default", text = "Probably, but you not seen how deep these peons sleep, mon. I tried shouting and I tried the blackjack, and if the sky itself can't wake them I give up and let them have the lumber camp." } },
       choices = {
         { text = "Let them nap. Working peons to the bone helps no one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll save some thunder for them. They've earned a fright.", next = "BACK", fx = { align = { light = -1 } } },
@@ -637,16 +637,16 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Perfect. Maybe your glow will wake my peons up. Nothing else has." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Perfect, mon. Maybe your glow wake my peons up, because nothing else has." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You wouldn't happen to know a prayer for waking up lazy peons, would you, because I've tried everything else." },
         { id = "h_default", key = true,
-          text = "I'm Foreman Thazz'ril. My peons are meant to be gathering lumber, but mostly they're gathering naps." },
+          text = "I be Foreman Thazz'ril of the Darkspear. My peons be meant to gather lumber, but mostly they gather naps." },
         { id = "h_lazy", tags = { "news" }, when = { questActive = TODO_QUEST("Lazy Peons") },
-          text = "Take this blackjack. Find a sleeping peon, give him a tap, and watch him remember he has a job." },
+          text = "Take dis blackjack, mon. Find a sleeping peon, give him a tap, and watch him remember he got a job." },
         { id = "h_pick", when = { questActive = TODO_QUEST("Thazz'ril's Pick") },
           text = "I left my pick in the coven while I was surveying, and it's enchanted, so don't let those cultists keep it." },
-        { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, in the cart, while it was moving. I don't know how they managed it, and I'm almost impressed." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
+        { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, mon, in the cart, while it was moving. Even a witch doctor couldn't hex a body that still, and I be almost impressed." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile, mon? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Can you make the trees grow faster? Then my peons would have less to chop and less excuse to nap, though I doubt it would stop them trying." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Could you wake up my peons with a spell? A small fire, perhaps, or a cold breeze? I'm only half joking." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I'd rather they were awake than trembling." },
@@ -666,7 +666,7 @@ P:NPC {
         { text = "I'll wake them.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else? Ask fast, before another one of them nods off." },
+        { id = "h_again", text = "Anything else? Ask fast, mon, before another one of them nods off." },
       },
     },
     rogue = {
@@ -681,13 +681,13 @@ P:NPC {
       choices = { { text = "Ha. I'll bring both.", next = "BACK", fx = { affinity = 1 } } },
     },
     rest = {
-      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves. Well, they will if the peons build them, and that's the problem." } },
+      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves, mon. Well, they will if the peons build them, and that be the problem." } },
       choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Don't ask me; ask a peon, and wake him up first." } },
+    _none = { { id = "tp_none", text = "Don't ask me, mon; ask a peon, and wake him up first." } },
   },
 }
 
@@ -865,7 +865,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along. And don't bleed on the grindstone; it rusts." },
+    { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along. And don't bleed on the grindstone, grunt; blood rusts it." },
   },
 
   notice = {
@@ -987,6 +987,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "If it's not a weapon, I don't sell it." } },
+    _none = { { id = "tp_none", text = "If it's not a weapon, I don't sell it. Steel is the only thing an orc needs to bargain over." } },
   },
 }
