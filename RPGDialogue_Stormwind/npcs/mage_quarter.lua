@@ -382,6 +382,8 @@ P:NPC {
           text = "The fundamentals never stop mattering, whatever the more senior magi tell their students. Come back to me whenever a spell feels wrong in your hands, and we'll find out why." },
         { id = "h_human", when = { race = "Human" },
           text = "I've lived among your people for a long time now, and I've grown fond of the haste. Everything you build, you build as if you'd never get another chance." },
+        { id = "h_quarter", when = { origin = "human_mage_quarter" },
+          text = "One of the Quarter's own apprentices, come back to me. I remember you in the back row, listening to your masters talk about Dalaran and watching what they did rather than what they said, which was the wiser course." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk very quietly, and I notice it because my apprentices walk like a herd of goats. Do you need something from the Sanctum?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -411,7 +413,27 @@ P:NPC {
         { text = "Do the high elves still honour the Alliance, Elsharin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Might our two peoples ever be one again, Elsharin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did Quel'Thalas know any shamans, Elsharin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My masters never stopped talking about Dalaran. Were they right to?", next = "xorig_mq", when = { origin = "human_mage_quarter" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    xorig_mq = {
+      lines = {
+        { id = "xmq_default", text = "Dalaran taught a great many good mages and a few disastrous ones, and the disastrous ones were usually the loudest about where they'd studied. Your masters were proud of the Violet Citadel, I think, because it let them forget how much they still had to learn." },
+      },
+      choices = {
+        { text = "I learned more from their mistakes than their lectures.", next = "xorig_mq2", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "They earned that pride. Dalaran made them.", next = "xorig_mq2", fx = { trait = { stern = 1 } } },
+        { text = "Did you ever study there yourself?", next = "xorig_mq2", fx = { trait = { curious = 1 } } },
+      },
+    },
+    xorig_mq2 = {
+      lines = {
+        { id = "xmq2_default", text = "I visited, long ago, and I found it beautiful and very sure of itself, which is a dangerous pairing in a city of mages. Learn from your masters' mistakes by all means, but don't tell them so; they'll only make new ones out of spite." },
+      },
+      choices = {
+        { text = "I'll keep that between us.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Elsharin.", next = "BACK" },
       },
     },
     stay = {
@@ -601,6 +623,8 @@ P:NPC {
         { id = "h_default", text = "Larimaine Purdue. I teach the conjuring of portals, which is to say I teach a select few mages how to fold the world in half and step across the crease. I don't believe you're one of them." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "As a mage, you belong to a select group that can conjure a portal back to this very place. I'll teach you when you're ready, and I'll tell you honestly if you aren't." },
+        { id = "h_quarter", when = { origin = "human_mage_quarter" },
+          text = "Ah, one of the Quarter's apprentices. Your masters used to send you up here with notes for me, and you always read them on the stairs, didn't you? I could tell by the creases." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, and so not a portal mage, whatever you may hope. I'll answer you briefly, if you'll keep your fingers off the focusing stones." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -762,6 +786,8 @@ P:NPC {
           text = "The House has gone remarkably quiet on the subject of taverns. We're very grateful, you and I, and we'll leave it at that." },
         { id = "h_human", when = { race = "Human" },
           text = "Stormwind likes to think its magic all lives upstairs in the Sanctum. The city has always had a cellar, my friend; it's simply learned not to look." },
+        { id = "h_lamb", when = { origin = "human_lamb_cellar" },
+          text = "Our little visitor, grown up. I remember the first night you came down those stairs out of curiosity, and I remember thinking you'd never come back, and then you came back the next night, and the next." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, and one who found the stairs. Shaw's people come down here now and again to count us, and they always leave having counted wrong." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -788,7 +814,27 @@ P:NPC {
         { text = "What keeps me from turning this cellar out, Zardeth?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What becomes of the green things that come down here, Zardeth?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did the orcs truly turn from shamans to warlocks, Zardeth?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why did you let me keep coming down the stairs, Zardeth?", next = "xorig_lamb", when = { origin = "human_lamb_cellar" } },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    xorig_lamb = {
+      lines = {
+        { id = "xlb_default", text = "Because nobody upstairs would have asked you a single interesting question, and curiosity left unfed goes looking for worse kitchens than ours. Tell me, now that you've seen what's beyond the circles, do you regret the stairs?" },
+      },
+      choices = {
+        { text = "No. Power is power, and I'd take it again.", next = "xorig_lamb2", fx = { align = { light = -1 }, trait = { curious = 1 } } },
+        { text = "Some nights. I keep a careful eye on what I've learned.", next = "xorig_lamb2", fx = { align = { light = 1 }, trait = { cautious = 1 } } },
+        { text = "I'd rather not answer that down here.", next = "xorig_lamb2" },
+      },
+    },
+    xorig_lamb2 = {
+      lines = {
+        { id = "xlb2_default", text = "A fine answer either way, and I'd distrust anyone who gave me a simpler one. Keep coming back down when the city upstairs bores you, because it will, and the cellar remembers its own." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Goodnight, Zardeth.", next = "END" },
       },
     },
     wishock = {

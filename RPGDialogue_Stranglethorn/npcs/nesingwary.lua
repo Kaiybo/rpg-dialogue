@@ -480,6 +480,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_bear = {
+      lines = {
+        { id = "xbr_default", text = "Do ye, now? I followed a few o' those snow bears myself, back home in my day, though none o' them ever followed me home. The master would call that a waste o' a fine trophy, but I'd call it the better bargain, so which o' ye is in charge?" },
+      },
+      choices = {
+        { text = "Some days I'm not sure, Barnil.", next = "xorig_bear2", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "We look after each other. Neither of us is in charge.", next = "xorig_bear2", fx = { trait = { kind = 1 } } },
+      },
+    },
+    xorig_bear2 = {
+      lines = {
+        { id = "xbr2_default", text = "Ha, that's the right answer! The jungle cats here would make a meal o' most beasts, but a Dun Morogh bear's too stubborn tae be eaten, an' I'd wager yours is the same. Keep it fed an' keep it out o' the master's sights." },
+      },
+      choices = {
+        { text = "I will.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll forgive the mess, for the master's pages blow all over the camp an' I've no' had time tae tidy, but sit an' rest, for the jungle's hard on soft feet." },
@@ -495,6 +513,8 @@ P:NPC {
           text = "I was proofreadin' the master's book, The Green Hills of Stranglethorn, when the wind took the lot, an' now there's pages all over the jungle. Find them, please, for he doesnae know yet." },
         { id = "h_quiet", when = { metBefore = true },
           text = "I like it here, truth be told: cleanin' rifles, packin' for the next trip, all peaceful. I miss a good fight sometimes, but the jungle's always happy tae provide one." },
+        { id = "h_bear", when = { origin = "dwarf_bear_tracker" },
+          text = "A Dun Morogh tracker, wi' a bear o' yer own, in the jungle! Keep it well back from the master's tent, friend, for he'll take one look an' start measurin' it for the wall." },
         { id = "h_book_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Green Hills of Stranglethorn"), days = 3 } },
           text = "Every page back an' bound, an' he's never goin' tae know. Ye'll have a drink on me for that, an' ye'll never mention it either." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be good at finding loose pages, I'd guess, since you've an eye for things that aren't where they should be." },
@@ -511,6 +531,7 @@ P:NPC {
         { text = "Does Nesingwary's book have anything to say about shamans?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Has magic ever helped with the master's lost pages?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },
+        { text = "I tracked bears through the Dun Morogh snow. Now one follows me.", next = "xorig_bear", when = { origin = "dwarf_bear_tracker" } },
         { text = "What's the book about?", next = "book" },
         { text = "What's he really like, your master?", next = "master" },
         { text = "Don't you miss Ironforge?", next = "home", when = { race = "Dwarf" } },

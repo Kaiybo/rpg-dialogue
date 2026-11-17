@@ -16,6 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_isle", text = "Welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back across the water, good. Now report." },
+    { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "A scout off Ashenvale's borders, this far south. You left the Sentinels' paths to watch the rest of the world, I'm told, and I won't pretend I approve, but a scout's eyes are a scout's eyes, so report as if you'd never left." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone from the isle {away}, and the naga have tested our shores more than once in that time. Report, and then rest, because I'll need you sharp." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I had begun to count you among those the forest kept, as Feralas keeps so many. I'm glad to be wrong, and the High Priestess will be glad to hear it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since you last stood on this isle, and I can see it in how you carry your weapon. I have harder errands than the ones I gave you before, if you want them." },

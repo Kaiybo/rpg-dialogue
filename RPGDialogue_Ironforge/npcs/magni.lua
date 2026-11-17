@@ -47,7 +47,7 @@ P:NPC {
       },
     },
     xpt_magni2 = {
-      lines = { { id = "xpt_magni2_default", text = "Every day, though in different ways, for Brann's off diggin' somewhere an' writes when he remembers, an' Muradin went north wi' Prince Arthas an' never came home. I keep a chair for each o' them at the table, an' the servants have stopped askin' why." } },
+      lines = { { id = "xpt_magni2_default", text = "Every day, though in different ways, for Brann's off diggin' somewhere an' writes when he remembers, an' Muradin went north wi' Prince Arthas an' never came home. I keep a chair for each o' them at the table, an' some nights I catch myself waitin' for Muradin tae come in late an' complain about the ale." } },
       choices = {
         { text = "Perhaps one of them will come home yet, Your Majesty.", next = "BACK" },
       },

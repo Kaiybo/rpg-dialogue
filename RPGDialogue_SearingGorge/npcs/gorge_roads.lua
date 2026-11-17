@@ -139,7 +139,27 @@ P:NPC {
         { text = "What tracks should I look for, Dorius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why keep my demon away from the Suntara Stones, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would the stones here tell me where your team went, Dorius?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The stone speaks to me, Dorius. It's restless here.", next = "xorig_stone", when = { origin = "dwarf_stone_listener" } },
         { text = "Be careful, Dorius.", next = "END" },
+      },
+    },
+    xorig_stone = {
+      lines = {
+        { id = "xst_default", text = "Speaks tae ye? Och, my brother would have ye in a glass case in the Hall o' Explorers by supper. I'll no' laugh, though, for my grandmother swore the stone sang in her sleep, an' this Gorge has been burnin' since before any dwarf can remember. What does it say?" },
+      },
+      choices = {
+        { text = "It's angry. Something under the mountain keeps it burning.", next = "xorig_stone2", fx = { trait = { curious = 1 } } },
+        { text = "It's grieving, I think. For whatever was lost here.", next = "xorig_stone2", fx = { trait = { kind = 1 } } },
+        { text = "I'd rather not try to put it into words.", next = "BACK" },
+      },
+    },
+    xorig_stone2 = {
+      lines = {
+        { id = "xst2_default", text = "Aye, that sounds like this place, right enough. If it ever tells ye where my team went, ye'll tell me first, before the League, before anyone, an' I'll believe ye, whatever the priests say about such things." },
+      },
+      choices = {
+        { text = "I'll listen for them, Dorius.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     stones = {

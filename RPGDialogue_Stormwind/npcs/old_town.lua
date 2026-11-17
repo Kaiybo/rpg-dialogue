@@ -553,6 +553,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The soldiers behave better with your lot in the room, love, so stay as long as you like." },
         { id = "h_default", text = "Elly Langston, and I run the drinks round the Pig and Whistle while Reese keeps the taps. Sit where you like, except Bartleby's stool, because he bites." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Busy tonight, love, the soldiers are in. Shout if you need me and duck if you hear a stool." },
+        { id = "h_stonemason", when = { origin = "human_stonemason_child" },
+          text = "You're a mason's child, aren't you, love? The Guild used to drink in that corner every payday, back when there were paydays, and you've got the same look they had when the coin stopped coming." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I count the mugs when your sort comes in, love, and I count them again when you leave. Nothing personal; I do it to Bartleby too." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },

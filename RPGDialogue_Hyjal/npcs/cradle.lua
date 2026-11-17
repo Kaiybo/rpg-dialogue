@@ -56,6 +56,8 @@ P:NPC {
           text = "The orc killed his doomguard, and you were with him. Good work, but do not mistake one dead warlord for a clean mountain." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The night is when they move, the things the Legion left behind. I sleep in the day, when I sleep at all." },
+        { id = "h_hyjal", when = { origin = "nightelf_hyjal_survivor" },
+          text = "You were here, on the day. I can see it in how you look at the slopes, counting the places where the line broke. Most of the kaldorei who stood on this mountain would rather not see me again, and yet here you are." },
       },
       again = {
         { id = "h_again", text = "Ask. I have nothing but time and very little of it is pleasant." },
@@ -69,6 +71,7 @@ P:NPC {
         { text = "What do you think of Yashiro?", next = "yashiro" },
         { text = "Your power is fel. How can it be trusted?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Sentinels say your kind betrayed us.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "I stood on these slopes when the Tree gave up its gifts.", next = "xsurvivor", when = { origin = "nightelf_hyjal_survivor" } },
         { text = "You and I are not so different.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does a demon hunter see in me?", next = "xshadow", when = { form = "shadow" } },
         { text = "Farewell, hunter.", next = "END" },
@@ -84,6 +87,26 @@ P:NPC {
         { text = "What was lost can be rebuilt.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Every victory costs. That's war.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Do you regret the battle?", next = "victory_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsurvivor = {
+      big = true,
+      lines = {
+        { id = "xsv_default", text = "Then you know the sound it made, which nobody who wasn't here believes when I describe it. Afterward, the Sentinels went home to grieve their lost eternity, and I stayed to hunt what crawled out of the ashes, so tell me, which of those did you do?" },
+      },
+      choices = {
+        { text = "I went home. Someone had to carry the living.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "I kept fighting. Grief could wait for the Legion to be gone.", next = "BACK", fx = { affinity = 2, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "Does the mountain remember that day?", next = "xsurvivor_mem" },
+      },
+    },
+    xsurvivor_mem = {
+      lines = {
+        { id = "xsm_default", text = "The mountain remembers everything, and it forgives very little of it. The ground where the Tree's roots burned still won't take a seed, and the Wild Gods who live here speak of that day as if it were last night, which to them, I suppose, it was." },
+      },
+      choices = {
+        { text = "Then I'll remember it with them.", next = "BACK", fx = { affinity = 1, learn = { "burning_legion" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

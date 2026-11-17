@@ -121,6 +121,7 @@ P:NPC {
         { text = "Why doesn't Stormwind help?", next = "stormwind" },
         { text = "Who leads the Defias?", next = "leader" },
         { text = "How does someone join the militia?", next = "militia" },
+        { text = "Tell me about yourself, Commander.", next = "gr_self" },
         { text = "I took the Silver Hand's oath too.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Who says the words over your dead?", next = "priest", when = { class = "PRIEST" } },
         { text = "I grew up on a farm out here.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
@@ -527,6 +528,273 @@ P:NPC {
       choices = {
         { text = "Then the Alliance should remember for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A kingdom that forgets doesn't deserve its provinces.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+
+    -- 0.71.0 depth: Gryan himself (sub-hub): the north, the nobles, his people, what he asks of you, the captured lad.
+    gr_self = {
+      hub = true,
+      lines = {
+        { id = "gxs_default", text = "There's not much to tell that the hill doesn't already know, but ask and I'll answer what I can. Mind, there's a part in the middle I don't talk about, and you'll know it when you reach it." },
+        { id = "gxs_warm", when = { disposition = { min = 70 } }, text = "For you I'll make the time, and I'll answer straighter than I would for most. Sit on that crate; it's the only one the wind hasn't claimed." },
+      },
+      again = {
+        { id = "gxs_again", text = "What else? The wind's picking up, so ask it quick." },
+        { id = "gxs_again2", text = "Go on, then. I've answered worse questions from Danuvin before breakfast." },
+      },
+      choices = {
+        { text = "Why did a Westfall lad go north to the Silver Hand?", next = "gr_north" },
+        { text = "You sound bitter about the nobles, Commander.", next = "gr_nobles" },
+        { text = "What do you make of the people around you?", next = "gr_people" },
+        { text = "What do you need from me, Commander?", next = "gr_ask" },
+        { text = "What do you do with a Defias you catch?", next = "gr_lad" },
+        { text = "Do you remember the harvest fairs in Moonbrook?", next = "gr_fair", when = { origin = "human_westfall_farmhand" } },
+        { text = "Did you know any of the masons, before?", next = "gr_masons", when = { origin = "human_stonemason_child" } },
+        { text = "The Watch never once spoke of Westfall, Commander.", next = "gr_guard", when = { origin = "human_city_guard" } },
+        { text = "Do you ever wish you'd stayed in Lordaeron?", next = "gr_doubt", when = { disposition = { min = 65 } } },
+        { text = "Back to the war, then.", next = "hello" },
+      },
+    },
+
+    gr_north = {
+      lines = {
+        { id = "gxn_default", text = "My father wanted me behind a plough and my mother wanted me in a chapel, so when the Silver Hand began taking young men for training in Lordaeron, I split the difference and went north. Lordaeron gave me the Light and a trade in war, and I never thought I'd need either one at home." },
+      },
+      choices = {
+        { text = "Did you ever meet Lord Uther?", next = "gr_uther" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    gr_uther = {
+      lines = {
+        { id = "gxu_default", text = "Once or twice, close enough to be shouted at, which I was. He held that a paladin's first duty is to the people in front of him and not the crown behind him, and I've never heard better advice, though it's done my standing in Stormwind no favours." },
+        { id = "gxu_paladin", when = { class = "PALADIN" }, text = "You'll know he's dead and the Order scattered after him. I don't hold that the oath died with the Order, and I don't think you do either, or you'd not be wearing it on my hill." },
+      },
+      choices = {
+        { text = "The people in front of you. That's a good creed.", next = "gr_uther2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_uther2 = {
+      lines = {
+        { id = "gxu2_default", text = "It is, and it cuts both ways, because it means you've to know who's standing in front of you. So I'll ask you, since you've a soldier's look about you: who is it you fight for, when it comes to it?" },
+      },
+      choices = {
+        { text = "My family, Commander. Everything else comes after.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "The Light, before anyone with a name.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Whoever's paying me this week, truth be told.", next = "BACK", fx = { affinity = -2, trait = { greedy = 1 } } },
+        { text = "Whoever's in front of me, like Uther said.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+      },
+    },
+
+    gr_nobles = {
+      lines = {
+        { id = "gxb_default", text = "Bitter's a fair word for it. The lords who hold the deeds to half these farms live behind Stormwind's walls and haven't seen a furrow in years, and the House of Nobles cheated the Stonemasons and then acted surprised when the masons came out here angry." },
+      },
+      choices = {
+        { text = "So who's more to blame, the nobles or the Defias?", next = "gr_nobles2" },
+        { text = "Not every noble house is the same, Commander.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_nobles2 = {
+      lines = {
+        { id = "gxb2_default", text = "I'll not weigh it for you, because I've done that sum a hundred nights and it comes out different every time. The nobles broke their word and the Brotherhood broke Westfall, and the farmers never signed either bargain, so I keep both on my list and the farmers off it." },
+        { id = "gxb2_vancleef", when = { deed = "dungeon:The Deadmines" }, text = "I knew Edwin VanCleef's name when it meant good stonework, and I can't forgive the nobles for what they made of him, nor him for what he made of himself. Both debts were real, and neither of them was Westfall's to pay." },
+      },
+      choices = {
+        { text = "Debt or no debt, they chose the masks.", next = "BACK", fx = { affinity = 1, opinion = { defias = "hardline" } } },
+        { text = "The nobles made the Defias, plain and simple.", next = "BACK", fx = { opinion = { defias = "masons_wronged" } } },
+      },
+    },
+
+    gr_people = {
+      lines = {
+        { id = "gxp_default", text = "I've a captain who was a farmer, a scout who never sleeps and a tower full of volunteers, and I'd not trade one of them for a company of the King's regulars. Ask me about any of them, or about the folk beyond the hill, and I'll tell you true." },
+      },
+      choices = {
+        { text = "What about Captain Danuvin?", next = "gr_danuvin" },
+        { text = "And Marshal Dughan, over in Goldshire?", next = "gr_dughan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_danuvin = {
+      lines = {
+        { id = "gxd_default", text = "Danuvin was a farmer until the thieves took his fields, and he's the angriest man on this hill and the most careful, which is why I made him captain. He tells the volunteers it's a fight for their dignity, and he's right, though I'd sooner they fought for their supper and lived to eat it." },
+      },
+      choices = {
+        { text = "And Scout Galiaan?", next = "gr_galiaan" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    gr_galiaan = {
+      lines = {
+        { id = "gxg_default", text = "Galiaan worked out that the Brotherhood's bands each wear their own bandanas, and that's the only reason my map's worth the paper it's drawn on. He'll tell you the front keeps moving, and it does, because they've more men than I have and they know these hills as well as we do." },
+      },
+      choices = {
+        { text = "I'll bring him whatever I find out there.", next = "BACK", fx = { affinity = 1, learn = { "people_militia" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_dughan = {
+      lines = {
+        { id = "gxdu_default", text = "Dughan's a good man with a bad job, holding all of Elwynn with a handful of guards and a desk. He tells Goldshire the Defias are common thieves so the farmers there keep planting, and I'd quarrel with him over it if I didn't understand exactly why he does it." },
+      },
+      choices = {
+        { text = "Should he tell them the truth?", next = "gr_dughan2" },
+        { text = "Dughan told me soldiers are coming west by spring.", tag = "Deceive", next = "gr_spring",
+          check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { disposition = { min = 70 } } } } },
+          fail = { next = "gr_spring_no", fx = { affinity = -2 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_dughan2 = {
+      lines = {
+        { id = "gxdu2_default", text = "If Goldshire panics, the Stormwind road fills with carts and Westfall loses the only friendly town at its back, so no, not yet. But the day the Brotherhood comes past Westbrook Garrison, he'd better have told them, because a kind lie won't hold a door shut." },
+      },
+      choices = {
+        { text = "Then I'll keep an eye on Westbrook too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_spring = {
+      lines = {
+        { id = "gxsp_default", text = "By spring? Then Light help me, I'll finally do it. I've a plan for Moonbrook I've shown nobody but Danuvin, a night march down the old cart road with every man on the hill, and I've never dared it because it needs twice the swords I have, so if the Keep truly sends them, we take the town back in one night and the farmers walk home behind us." },
+      },
+      choices = {
+        { text = "I hope it comes to that, Commander.", next = "BACK" },
+      },
+    },
+    gr_spring_no = {
+      lines = {
+        { id = "gxsn_default", text = "Dughan never said any such thing, because Dughan hasn't a soldier to send and he'd not promise me what he hasn't got. I've had enough false hope out of Stormwind to last me, so don't you bring me more of it." },
+      },
+      choices = {
+        { text = "Forgive me, Commander.", next = "BACK" },
+      },
+    },
+
+    gr_ask = {
+      lines = {
+        { id = "gxa_default", text = "I'll ask you one first, since you've been asking me plenty. Westfall's not on the way to anywhere a sensible soul wants to go, so I'd like to know what brought you up my hill." },
+      },
+      choices = {
+        { text = "Elwynn sent me, and I go where I'm sent.", next = "gr_ask2", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "The farmers. Someone should stand up for them.", next = "gr_ask2", fx = { affinity = 2, trait = { kind = 1 }, standing = { sentinel_hill = 1 } } },
+        { text = "The Defias carry coin, and I like coin.", next = "gr_ask2", fx = { affinity = -2, trait = { greedy = 1 } } },
+        { text = "I wanted to see this fight for myself.", next = "gr_ask2", fx = { trait = { brave = 1 } } },
+      },
+    },
+    gr_ask2 = {
+      lines = {
+        { id = "gxa2_default", text = "Fair enough, and I'll take an honest answer over a pretty one any day. What I need from you is this: when you go back to the city, tell anyone who'll listen what you saw out here, the empty farms and the masks and the scarecrows that walk, because the Keep believes reports and it doesn't believe farmers." },
+      },
+      choices = {
+        { text = "I'll tell them, Commander. What should I say?", next = "gr_ask3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_ask3 = {
+      lines = {
+        { id = "gxa3_default", text = "Say it plainly, and don't let them tell you it's being looked into. If they ask what Westfall wants, tell them it wants its roads patrolled and a fair price for the grain it sends, and nothing more, because we've never once asked for more than that." },
+      },
+      choices = {
+        { text = "I'll carry it word for word, Commander.", next = "BACK", fx = { affinity = 2, standing = { sentinel_hill = 1 } } },
+        { text = "The Keep won't listen to me either.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+
+    gr_lad = {
+      big = true,
+      lines = {
+        { id = "gxl_default", text = "Here's one the hill argued over last week, and I'd like your answer before I give you mine. My scouts caught a lad of sixteen in a red mask with a sack of seed corn on his back, and he wept the whole way up the hill, so tell me: what would you have done with him?" },
+      },
+      choices = {
+        { text = "Put him to work for the farms he robbed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hang him by the tower, so the others see it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "What did you do with him?", next = "gr_lad2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_lad2 = {
+      lines = {
+        { id = "gxl2_default", text = "I gave him a pitchfork and put him under Danuvin, who watched him like a hawk for a month, and now he walks the south road with the rest of my volunteers. It saddens me to condemn any man and I'll do it when I must, but the Brotherhood recruits from hungry boys, and I'd rather recruit them first." },
+      },
+      choices = {
+        { text = "And if he runs back to them?", next = "gr_lad3" },
+        { text = "That's a decent answer, Commander.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    gr_lad3 = {
+      lines = {
+        { id = "gxl3_default", text = "Then I was wrong, and I'll say so in front of the whole hill, and it'll cost me. That's the price of mercy out here, and I'd sooner pay it now and then than become the sort of man who never has to." },
+      },
+      choices = {
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+
+    gr_fair = {
+      lines = {
+        { id = "gxf_default", text = "Do I! Moonbrook used to hang lanterns the length of its high street at harvest, and the miners came down from the Jangolode in their dust to dance with the farm girls until the lamps burned out. You'd have been small then and I was off in Lordaeron missing it, so tell me, does your family still talk about it?" },
+      },
+      choices = {
+        { text = "My mother still sings the harvest songs.", next = "gr_fair2", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Nobody talks about Westfall at all, now.", next = "gr_fair2", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    gr_fair2 = {
+      lines = {
+        { id = "gxf2_default", text = "Then we'll have the songs back, if I've anything to do with it, and the lanterns too, though it'll be a few seasons yet. Help me clear Moonbrook, and I'd like to see you dance down that street before I'm too old to watch." },
+      },
+      choices = {
+        { text = "I'll hold you to that, Commander.", next = "BACK", fx = { affinity = 1, standing = { sentinel_hill = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_masons = {
+      lines = {
+        { id = "gxm_default", text = "A few, aye. Westfall lads went to the city to cut stone after the Second War because good coin was promised in it, and I came home from Lordaeron to find some of those same lads wearing masks in Moonbrook. I've stopped asking after the ones I knew by name, because I'd rather not learn which of them I've buried." },
+      },
+      choices = {
+        { text = "My father said they were good men, once.", next = "gr_masons2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_masons2 = {
+      lines = {
+        { id = "gxm2_default", text = "They were, and that's the bitter part of it. The House of Nobles took good men and made thieves of them for want of a fair wage, and I'll curse the nobles for it until I'm in the ground, but I'll not let a cheated man take a farmer's last cow and call it justice." },
+      },
+      choices = {
+        { text = "My father would say the same, Commander.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Some of them were owed more than a farm's worth.", next = "BACK", fx = { affinity = -1, opinion = { defias = "masons_wronged" } } },
+      },
+    },
+    gr_guard = {
+      lines = {
+        { id = "gxw_default", text = "No, it wouldn't, because the Watch has its hands full with the Trade District and the canals, and Westfall's on no patrol they walk. But you came out anyway, so tell me straight: did anyone in the Keep ever speak of sending soldiers west?" },
+      },
+      choices = {
+        { text = "Never, Commander. Not once while I served.", next = "gr_guard2", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "There was talk, but nobody believed it.", next = "gr_guard2", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    gr_guard2 = {
+      lines = {
+        { id = "gxw2_default", text = "That's what I thought, and it's no more than I expected, but I'm glad to hear it from someone who'd know. Stay on the hill a while, then, because a soldier who's walked a city beat knows how to keep a watch, and my farmers keep theirs by guessing." },
+      },
+      choices = {
+        { text = "I'll take a watch, Commander.", next = "BACK", fx = { affinity = 2, standing = { sentinel_hill = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_doubt = {
+      lines = {
+        { id = "gxdb_default", text = "Every night, if I'm honest, and you've earned honest. Lordaeron needed every sword it had and I took mine home because my own land was burning, and some nights I think I was right and some nights I think I ran, and nothing I do on this hill settles it." },
+      },
+      choices = {
+        { text = "You came home to save what could be saved.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Lordaeron was lost either way, Commander.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
   },

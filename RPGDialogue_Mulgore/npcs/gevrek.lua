@@ -102,6 +102,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Windshapers pray to the winds and not to gods, but Mulgore has taught me that the Horde holds many faiths, and I would understand yours." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A mage, at Gev'rek. My people shape the wind, so we know a little of what it is to bend the world, and to be careful when we do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warlock. I'll be honest with you, as I try to be with everyone: the wind goes still around you, and my people notice." },
+        { id = "h_windshaper", when = { origin = "skyborne_windshaper" }, text = "You passed the trials and took the sapta before we left the isle, and you came down with us anyway. The winds that sheltered us are gone, but Gev'rek is full of people who swore to them, and you're one of the few who still says the oath aloud." },
       },
       choices = {
         { text = "Why did you leave Skywall?", next = "skywall" },
@@ -111,6 +112,7 @@ P:NPC {
         { text = "I chose the blade over the trials. Is that a failing?", next = "warrior", when = { race = "Skyborne", class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "I'm a druid. Does that set me apart from the Windshapers?", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The Earthen Ring trained me too.", next = "ring", when = { race = { "Orc", "Troll", "Tauren" }, class = "SHAMAN" } },
+        { text = "How do I honor winds that aren't here anymore, Elder?", next = "xhonor", when = { origin = "skyborne_windshaper" } },
         { text = "Do the Windshapers need warriors, Elder?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Are the beasts of the plains strange to your people, Elder?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers have healers of their own, Elder?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -165,6 +167,17 @@ P:NPC {
           text = "A tauren shaman! Your people taught us how the Earth Mother is honored here, and our initiates have taken to it more readily than I expected. They ask me why the ground here hums at night, and I tell them to ask you." },
       },
       choices = { { text = "I'd be glad to sit with them.", next = "BACK", fx = { affinity = 2, standing = { gevrek = 1 } } } },
+    },
+    xhonor = {
+      big = true,
+      lines = {
+        { id = "xho_default", text = "The tauren taught me an answer without meaning to. They thank the Earth Mother for every kodo and every stalk of grain, though she never thanks them back, so I've started thanking the wind for every breeze over the plateau, whether it's ours or not. Would you call that faith, or habit?" },
+      },
+      choices = {
+        { text = "Faith. A debt honored in silence is still honored.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Habit, and a comfortable one. The debt died with them.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
     },
     skywall = {
       big = true,

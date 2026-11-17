@@ -124,6 +124,8 @@ P:NPC {
           text = "Longbraid, they call me, and they add 'the Grim' because I've had little to smile about since the Dark Irons came. They broke the Thandol Span and took Dun Modr, and we hold on by our fingernails." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's a face I'm glad to see, and there's no' many of those left round here. Come in out of the wet." },
+        { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
+          text = "A mountaineer out o' Dun Morogh, by the cut o' yer cloak. Ye kept the passes clear o' trolls, so ye'll know what it is tae hold a gap wi' too few, and that's all Dun Modr is now, a gap we cannae hold." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, out here! I've no quarrel wi' yer kind, only wi' the Dark Irons an' the dragons over Grim Batol." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, for Dun Modr needs every arm it can get, and it's had precious few." },

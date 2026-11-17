@@ -370,6 +370,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Don't touch anything on the tables. Some of it bites, and some of it does worse." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still alive, I see, which means you've been careful." },
+    { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "Cult of the Damned, before you died? Then you know more about plague than half my apprentices, and I'll expect you to stop pretending otherwise while you're in my Apothecarium." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nothing on these tables got any safer while you were away. Don't touch anything." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone took one of your stories for truth. Clever of you, and careless of them, which is how most of my experiments end." },
   },

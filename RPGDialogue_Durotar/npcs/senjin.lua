@@ -6,7 +6,7 @@ P:NPC {
   key = "gadrin", id = TODO_NPC("Master Gadrin"), name = "Master Gadrin",
   bible = "bibles/durotar.md", role = "priest", tier = "major",
   communities = { "senjin" }, temper = { "folksy" }, values = { "wise", "proud" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "origin" },
   impression = {
     first = "Master Gadrin taught Vol'jin and Zalazane both, and only one of them makes him proud. He jokes about his old teeth, but the shame of Zalazane plainly keeps him from sleeping through the night.",
     third = "{name} met Master Gadrin at Sen'jin Village, the old Darkspear witch doctor who once taught both Vol'jin and Zalazane.",
@@ -19,6 +19,7 @@ P:NPC {
     { id = "g_away_long", when = { away = 60 }, text = "You been away {away}, mon, and Gadrin started to fear he lost another student. Sit, and let the old man have a look at you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You got stronger since we last talk, mon, and Gadrin can see it in how you stand. A teacher likes that, even when it's not his teaching." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "The village say somebody caught you in a lie. Gadrin had a student once who lied with a smile, so forgive him if he watches your face a while." },
+    { id = "g_apprentice", when = { origin = "troll_witch_doctor_apprentice" }, text = "Ah, the root-grinder! You still got the green under your nails, mon, and the old witch doctor you served still tell me you was the only apprentice who never let the pot boil over." },
   },
 
   notice = {
@@ -26,6 +27,8 @@ P:NPC {
       text = "A Darkspear child! Let me look at you, so strong. You going to do the tribe proud, I can tell." },
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST", "MAGE" } },
       text = "You got the spark, eh? Careful with it. I teach two boys with the spark once, and only one of them listen." },
+    { id = "n_sailed", cat = "origin", when = { origin = "troll_sailed_with_thrall" },
+      text = "You was on the boats when the Warchief come, eh? I see it in how you stand by the water, never with your back to it. Sen'jin swear our debt to the Horde that day, and you and me both hear him do it." },
   },
 
   start = "hello",
@@ -106,12 +109,15 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You move quiet as a raptor in the grass, mon. Zalazane's hexed ones never hear you coming, I bet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the hexed Darkspear on the Echo Isles still swing their spears, even when Zalazane be the one pullin' the strings." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hexed", min = 20 } }, text = "Fewer of the hexed trolls stagger about the Echo Isles now, and my people say a stranger has been giving them rest. Zalazane will feel that, and he'll not like it." },
+        { id = "h_echo", when = { origin = "troll_echo_isles" }, text = "You born on the isles, child, I remember, and you cry the whole way across the water when we leave. Now you come back with a weapon on your back, and Gadrin think maybe the isles be crying for you instead." },
       },
       choices = {
         { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened on the Echo Isles?", next = "isles" },
         { text = "Vol'jin was your student?", next = "voljin" },
+        { text = "The loa been talking to me again, Master. Loudly.", next = "xloa", when = { origin = "troll_loa_speaker" } },
+        { text = "What does the loa want from me, Master? I never asked.", next = "xwant", when = { origin = "troll_witch_doctor_apprentice" } },
         { text = "I hear a voice, Master, and it isn't a loa.", next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "The spirits answer me now. Teach me to listen better.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I studied the arcane, Master. Is that so strange?", next = "mage", when = { race = "Troll", class = "MAGE" } },
@@ -210,6 +216,35 @@ P:NPC {
         { id = "zs_easy", text = "Ha, you ask the hard question first, eh? Gadrin answer only the easy ones today." },
       },
       choices = { { text = "Another time, then.", next = "BACK" } },
+    },
+    xloa = {
+      big = true,
+      lines = {
+        { id = "xl_default", text = "Loudly, eh? Then they be laughing at something, because the loa only shout when the joke be on somebody. You tell people what they say, sometimes, and I tell you this as an old man who did the same: the loa's truth be sharp, so you choose who you cut with it." },
+      },
+      choices = {
+        { text = "I tell what the loa say. Softening it is lying.", next = "BACK", fx = { affinity = -1, align = { order = -1 }, trait = { stern = 1 } } },
+        { text = "I keep most of it to myself, Master, like you taught.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Who are they laughing at this time?", next = "xloa_who" },
+      },
+    },
+    xloa_who = {
+      lines = {
+        { id = "xlw_default", text = "Zalazane, I hope, because he think the spirits on the isles belong to him now, and no loa ever belong to anybody. Maybe they laugh at old Gadrin too, for waiting so long, and that be fair, mon, so Gadrin laugh along." },
+      },
+      choices = {
+        { text = "Then I'll listen for the end of the joke.", next = "BACK", fx = { affinity = 1, learn = { "echo_isles" } } },
+        { text = "Something else, Master.", next = "BACK" },
+      },
+    },
+    xwant = {
+      lines = {
+        { id = "xw_default", text = "Ha! Your old master teach you to ask before you ask, and now you ask about yourself, eh? Every loa want something, child, and the ones who come to you without being called usually want you to finish something somebody else start, so think hard about what in your life be unfinished." },
+      },
+      choices = {
+        { text = "The isles. That's unfinished for all of us.", next = "BACK", fx = { affinity = 2, learn = { "echo_isles" }, trait = { brave = 1 } } },
+        { text = "I'll think on it before I answer, Master.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
+      },
     },
   },
 

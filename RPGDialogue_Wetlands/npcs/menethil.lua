@@ -1604,6 +1604,8 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Well, an elf from the sky, in the wettest place on Azeroth! Ye'll miss yer clouds... no, ye won't, come to think of it, for we've plenty here." },
         { id = "h_mate", when = { metBefore = true }, text = "The first mate asked for his usual again, an' I didnae ask what it was, since neither of us remembers anymore. I just pour." },
+        { id = "h_smuggler", when = { origin = "dwarf_loch_smuggler" },
+          text = "Well, if it isnae the Loch road's least honest carter! Some o' the casks in my cellar came down that road in yer cart, I'd wager, an' I never asked where the tax stamps went, so dinnae tell me now." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Rain on the roof an' sailors singin' badly: that's Menethil at night, an' I wouldnae trade it, most nights." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Ye'll have come in out o' the rain, I'd hope, an' no' just wandered in as a bear lookin' for the pantry." },
@@ -1631,7 +1633,26 @@ P:NPC {
         { text = "Do mages ever stay at the Deepwater, Helbrek?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are your regulars superstitious about shamans, Helbrek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "We're bound for the hills below Grim Batol. Any advice?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
+        { text = "Did you ever wonder where my casks came from, Helbrek?", next = "xorig_smug", when = { origin = "dwarf_loch_smuggler" } },
         { text = "Just drying off.", next = "END" },
+      },
+    },
+    xorig_smug = {
+      lines = {
+        { id = "xos_default", text = "Every time, an' every time I decided I'd rather no' know, for a tavern at the end o' a long wet road takes its ale where it can get it. The Mountaineers came askin' after ye once, mind, an' I told them I'd never seen a dwarf in my life." },
+      },
+      choices = {
+        { text = "Thank you for that. I owe you.", next = "xorig_smug2", fx = { affinity = 2 } },
+        { text = "They learned my face anyway. That's why I stopped.", next = "xorig_smug2", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    xorig_smug2 = {
+      lines = {
+        { id = "xos2_default", text = "Aye, they've long memories, the Mountaineers, an' longer beards. The road's darker than it was, too, wi' the Dragonmaw out on it, so whatever ye carry these days, I'm glad it's no' casks through the marsh at midnight." },
+      },
+      choices = {
+        { text = "So am I, Helbrek.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     news = {

@@ -7,7 +7,7 @@ P:NPC {
   key = "thork", id = TODO_NPC("Thork"), name = "Thork",
   bible = "bibles/crossroads.md", role = "soldier", tier = "quest",
   communities = { "crossroads" }, temper = { "firm" }, values = { "loyal", "dutiful" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "origin" },
   impression = {
     first = "Thork keeps the Crossroads for the Warchief and treats every road in the Barrens as his to hold. He is firm and fair after his fashion, and he will not spend soldiers on a grieving man's vengeance.",
     third = "{name} met Thork, the steadfast orc who holds the Crossroads for the Warchief against every threat in the Barrens.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "An Alliance face at the Crossroads? That's bold. You'll get the same welcome as anyone else, once, so don't make me regret it." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been out among the centaur, by the look of it. Get yourself patched up; the Horde needs you standing." },
+    { id = "n_walk", cat = "origin", when = { origin = "tauren_long_migration" },
+      text = "You came through here on the long walk to Mulgore, I'd wager, small enough to ride on a kodo. Some of my older grunts fought the Kolkar off your people's flanks on that march, and they still talk about how quiet the calves were." },
   },
 
   start = "hello",

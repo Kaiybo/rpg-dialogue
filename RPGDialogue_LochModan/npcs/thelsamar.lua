@@ -140,6 +140,8 @@ P:NPC {
           text = "Well, look who it is! Thelsamar's favourite visitor, an' I'll hear no argument about it. Come here, come here!" },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "Aye, I see ye. I'll be civil, because it's my post, but don't be expectin' the warm welcome." },
+        { id = "h_smuggler", when = { origin = "dwarf_loch_smuggler" },
+          text = "Hold there, I know that face. It used tae come up the Wetlands road after dark wi' a cart that sat a wee bit low fer an honest load, so what's it doin' on my road in daylight?" },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid on my road! Good. The bears in these hills have been in a foul temper all season, an' I'd wager ye could tell me why." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road! Grand, for the troggs are bold this season, an' I like a shield beside mine when they come." },
@@ -169,7 +171,27 @@ P:NPC {
         { text = "Do you think a warlock might be your Dark Iron spy, Kadrell?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the earth tell me where your Dark Iron spy is hiding?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I went down into Uldaman, Kadrell.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
+        { text = "Those carts are behind me, Mountaineer. Mostly.", next = "xorig_smug", when = { origin = "dwarf_loch_smuggler" } },
         { text = "Thanks, Kadrell.", next = "END" },
+      },
+    },
+    xorig_smug = {
+      lines = {
+        { id = "xos_default", text = "Mostly, says the smuggler, an' the tax men in Thelsamar would laugh tae hear it. I chased ye three nights runnin' past the dam once an' never caught ye, so I'll grant ye were good at it, whatever else ye were." },
+      },
+      choices = {
+        { text = "The tax men were slow. Somebody had to keep the ale moving.", next = "xorig_smug2", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "I'm not proud of it. I'd rather work the right side now.", next = "xorig_smug2", fx = { align = { honor = 1 } } },
+        { text = "What made you give up the chase?", next = "xorig_smug2" },
+      },
+    },
+    xorig_smug2 = {
+      lines = {
+        { id = "xos2_default", text = "The Wetlands road got darker, that's what, an' I'd rather chase a smuggler than bury one the raptors found first. Keep yer cart honest on my road an' we'll call it settled, though I'll be watchin' how low it sits." },
+      },
+      choices = {
+        { text = "Fair enough, Kadrell.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     spy = {
@@ -405,6 +427,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my dig. Bless it if ye like, for we need the luck, an' poor Agmond needs the words more." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll see the troggs off my dig, I hope, for trowels make poor weapons." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my dig! Mind ye don't summon anythin' in the trenches; it's crowded enough wi' troggs." },
+        { id = "h_miner", when = { origin = "dwarf_ironforge_miner" },
+          text = "Ye stand at the edge o' my trench like it's the only safe bit o' ground in the loch, which tells me ye were born under the mountain. The sky out here gets tae the deeps lads; ye'll get used tae it, or ye won't." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the ropes while ye ask." },
@@ -426,7 +450,27 @@ P:NPC {
         { text = "Should the League keep digging while the troggs are so close?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has your dig found anything a warlock should worry about?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I went to the bottom of Uldaman, Ironband.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
+        { text = "I grew up in the Ironforge deeps. Your trench feels like home.", next = "xorig_deeps", when = { origin = "dwarf_ironforge_miner" } },
         { text = "Good luck with the dig.", next = "END" },
+      },
+    },
+    xorig_deeps = {
+      lines = {
+        { id = "xod_default", text = "Does it now? Then ye'll be the first in a month who didnae complain about the mud. A deeps miner reads the stone better than most o' my League scholars, so tell me, what d'ye make o' the seam on the north wall?" },
+      },
+      choices = {
+        { text = "It's soft. I'd shore it up before you dig further.", next = "xorig_deeps2", fx = { trait = { cautious = 1 }, affinity = 1 } },
+        { text = "It'll hold. Dig faster and stop fretting.", next = "xorig_deeps2", fx = { trait = { brave = 1 } } },
+        { text = "I'd rather not guess at another dwarf's stone.", next = "BACK" },
+      },
+    },
+    xorig_deeps2 = {
+      lines = {
+        { id = "xod2_default", text = "Hah, that's a miner's answer, an' it's near enough what I'd say myself. The League sends me scholars who can read a tablet an' no' a wall, so if ye ever tire o' wanderin', there's a shovel here wi' yer name on it." },
+      },
+      choices = {
+        { text = "I'll keep it in mind, Ironband.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dig = {
@@ -637,6 +681,8 @@ P:NPC {
         { id = "h_default", text = "Hearthstove, an' I keep the Stoutlager. It's the best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise, after they've paid." },
         { id = "h_brawl", when = { metBefore = true }, text = "Two miners fought over the last stool last night an' broke it, so now neither of 'em has a stool. There's a lesson in that somewhere." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, an' the miners are singin' about the dam again. Every verse is the same verse, only louder." },
+        { id = "h_brewer", when = { origin = "dwarf_brewer" },
+          text = "Ye sniffed my taps before ye looked at me, an' only a brewer's bairn does that. Go on, then, tell me what's wrong wi' it, for yer family'll have told ye somethin' is." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at my inn! Loch Modan's a fair green place for dwarven country, an' I'd hope ye find a corner o' it that pleases ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want a strong ale an' a stronger stool, for the last warrior I served broke one o' each." },
@@ -662,7 +708,27 @@ P:NPC {
         { text = "Do the mountaineers bring their grief here, Hearthstove?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do brawls break out at the Stoutlager often, Hearthstove?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do folk in Thelsamar mind a shaman at the Stoutlager?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My family brews. I came to see where the barrels end up.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
         { text = "Just a pint.", next = "END" },
+      },
+    },
+    xorig_brew = {
+      lines = {
+        { id = "xob_default", text = "Well, a good many of 'em end up here, an' the rest end up in a miner's belly halfway up the north road. It's a sorry thing for a brewer tae see, though, because by the time a barrel crosses the loch, it's been jolted, warmed an' cursed at, an' it tastes o' all three." },
+      },
+      choices = {
+        { text = "That's the road's fault, not the brew's.", next = "xorig_brew2", fx = { affinity = 1 } },
+        { text = "Then I'll tell my family to pack them better.", next = "xorig_brew2", fx = { trait = { witty = 1 } } },
+        { text = "Is that why the miners sing so loud?", next = "song" },
+      },
+    },
+    xorig_brew2 = {
+      lines = {
+        { id = "xob2_default", text = "Ye've a brewer's loyalty, I'll give ye that! The Stoutlager's a fine place tae watch where the barrels go, an' I'll wager ye find the end o' the road's no' half as grand as the start." },
+      },
+      choices = {
+        { text = "I'll find out for myself.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Hearthstove.", next = "BACK" },
       },
     },
     regulars = {

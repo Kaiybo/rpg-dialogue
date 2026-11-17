@@ -1245,6 +1245,7 @@ P:NPC {
 
   greetings = {
     { id = "g_books", text = "If you've come about the books, sit. If you've come about anything else, sit anyway; I'll get to the books." },
+    { id = "g_xrefugee", when = { origin = "human_lordaeron_refugee" }, text = "You were born up north, weren't you? I can hear Lordaeron in your vowels, even after all those years in Stormwind, and I've books on the old kingdom you might want before you go looking for it." },
   },
 
   notice = {

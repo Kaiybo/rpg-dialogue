@@ -16,6 +16,8 @@ P:NPC {
   greetings = {
     { id = "g_watch", text = "From up here I see the centaur long before they see us. That is why we built on the mesas." },
     { id = "g_back", when = { metBefore = true }, text = "The canyon gave you back, good. It keeps more than it returns." },
+    { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "You were a calf on the long walk, I'd guess, with the centaur at our backs the whole way. Their Galak cousins hold these canyons now, so from this mesa I mean to see them first for once." },
+    { id = "g_grim", when = { origin = "tauren_grimtotem_born" }, text = "Grimtotem by birth, the post says, and Bloodhoof by choice. Your old kin camp in these canyons and throw spears at Freewind when it suits them, so if they come for you up here, they'll come through me first." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the canyon gave you back, which is more than it does for most. I watched for you from up here more than once." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came up to Freewind a youngster, and now you look like someone the centaur ought to worry about. The canyon has made you hard, and I'm glad of it." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone on the mesas back down with a look. Save it for the centaur, because they're the ones who need to learn it." },

@@ -100,6 +100,8 @@ P:NPC {
         { id = "h_morning", when = { metBefore = true }, text = "It's been a long morning and my temper's short, so talk fast." },
         { id = "h_cityguard", when = { origin = "human_city_guard" },
           text = "You stand like a city guardsman, citizen, which is more than I can say for the deputies. The court could use someone who knows how a warrant is served." },
+        { id = "h_lakeborn", when = { origin = "human_redridge_born" },
+          text = "Citizen, the court's register says you were born in Lakeshire, and the court is glad to see a local name come home. Mind you, the register also says what the orcs did to half the names beside it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, citizen. You'll be glad to know that hunting in Redridge is entirely lawful, provided the quarry isn't the Magistrate's cattle." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, citizen. The court has no objection to prayer, provided it is conducted in an orderly fashion and does not block the steps." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Citizen, and a druid of the kaldorei, I see. The Magistrate will want your name for the register, since it has never yet listed a night elf." },
@@ -766,7 +768,27 @@ P:NPC {
         { text = "What does Lakeshire say about my people, Darcy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does Lakeshire's gossip say about warlocks, Darcy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's the nicest gossip in Lakeshire, Darcy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I grew up in Lakeshire, Darcy. What gossip have I missed?", next = "xorig_lake", when = { origin = "human_redridge_born" } },
         { text = "Just passing through.", next = "END" },
+      },
+    },
+    xorig_lake = {
+      lines = {
+        { id = "xol_default", text = "You're a Lakeshire child? Oh, love, then you've missed the worst and the best of it, because half the families who fled the orcs never came back, and the half who did married each other. Have you still got people here, then?" },
+      },
+      choices = {
+        { text = "Some. I don't visit as often as I should.", next = "xorig_lake2", fx = { trait = { kind = 1 } } },
+        { text = "Nobody now. That's partly why I left.", next = "xorig_lake2", fx = { trait = { stern = 1 } } },
+        { text = "I'd rather hear the gossip than talk about me.", next = "gossip", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xorig_lake2 = {
+      lines = {
+        { id = "xol2_default", text = "Well, you've got the inn, at least, and the inn remembers everyone who ever sat at the wobbly table. Come by of an evening and I'll tell you who's still about, though only the nice parts." },
+      },
+      choices = {
+        { text = "I'd like that, Darcy.", next = "BACK", fx = { affinity = 2, standing = { lakeshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     food = {
@@ -931,6 +953,25 @@ P:NPC {
         { text = "Something else, Martie.", next = "BACK" },
       },
     },
+    xorig_home = {
+      lines = {
+        { id = "xoh_default", text = "Smaller, dear, and the boar's had half of it, but it's still here, same as the lake. The town's thinner than when you were little, though, since the orcs came down out of the hills, and Stormwind never seems to count who's missing." },
+      },
+      choices = {
+        { text = "Lakeshire always gets forgotten. I learned that young.", next = "xorig_home2", fx = { trait = { stern = 1 } } },
+        { text = "It's good to see something still growing here.", next = "BACK", fx = { affinity = 2, standing = { lakeshire = 1 } } },
+        { text = "Something else, Martie.", next = "BACK" },
+      },
+    },
+    xorig_home2 = {
+      lines = {
+        { id = "xoh2_default", text = "We all learned it, dear, and some of us learned it at a graveside. But you came back, which is more than Stormwind ever does, so I'll put that in the garden's favour." },
+      },
+      choices = {
+        { text = "Someone has to remember this place.", next = "BACK", fx = { affinity = 2, standing = { lakeshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Martie Jainrose. I keep the garden by the lake and grow what the town needs: herbs for the healer, and flowers for nobody in particular." },
@@ -945,6 +986,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Mind the flowerbeds, please, because even holy boots trample marigolds." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could you warm the soil a little on frosty nights? My seedlings would thank you, and so would I." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My garden's gentle, so be gentle with it. Do your earth spirits like flowers?" },
+        { id = "h_lakeborn", when = { origin = "human_redridge_born" },
+          text = "Now there's a lake face if ever I saw one, dear! You grew up here, didn't you? Welcome home, whatever brought you back over that bridge." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? Just step around the seedling trays." },
@@ -952,6 +995,7 @@ P:NPC {
       },
       choices = {
         { text = "What grows well here?", next = "grow" },
+        { text = "I grew up on this lake, Martie. Is the garden what it was?", next = "xorig_home", when = { origin = "human_redridge_born" } },
         { text = "Tell me about Bellygrub.", next = "boar" },
         { text = "You seem sad about the flowers.", next = "sad" },
         { text = "I'm an herbalist too.", next = "herbs", when = { profession = "Herbalism" } },

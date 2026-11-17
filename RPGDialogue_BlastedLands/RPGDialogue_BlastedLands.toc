@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Blasted Lands |cff8a8a8a1.11.0|r
+## Title: RPG Dialogue: Blasted Lands |cff8a8a8a1.12.0|r
 ## Notes: Nethergarde Keep, the Alliance's grim watch over the Dark Portal: a harried quartermaster, a mage who reads Khadgar, a Wildhammer diviner and an elf who wants peace with the Horde; and out in the red wastes a broken draenei collector, two elven bloodmages and an old warlock at a demon altar.
 ## Author: RPG Dialogue
-## Version: 1.11.0
+## Version: 1.12.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.blastedlands

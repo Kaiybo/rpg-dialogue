@@ -161,7 +161,27 @@ P:NPC {
         { text = "Is the bridge worth the lives it's cost, Foreman?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will the new bridge be strong enough to stand against the orcs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will your bridge be done before the rains, Oslow?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My father helped rebuild Stormwind and never saw his wages.", next = "xorig_mason", when = { origin = "human_stonemason_child" } },
         { text = "Good luck with the rains.", next = "END" },
+      },
+    },
+    xorig_mason = {
+      lines = {
+        { id = "xom_default", text = "Him and a hundred others, and I knew a good few of them by their mark on the stone. Some went west in masks when the House of Nobles laughed at the bill, and some, like me, swallowed it and took the Crown's next job, because a bridge doesn't care who's owed." },
+      },
+      choices = {
+        { text = "The ones in masks had a point, Foreman.", next = "xorig_mason2", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
+        { text = "Masks and murder don't settle a debt.", next = "xorig_mason2", fx = { align = { order = 1 } } },
+        { text = "Did you ever see any of them again?", next = "xorig_mason2" },
+      },
+    },
+    xorig_mason2 = {
+      lines = {
+        { id = "xom2_default", text = "I see their work sometimes, in a wall or an arch, and I know whose hands set it. That's the trouble with masons, friend, because the stone outlasts the grudge and the grudge outlasts the man." },
+      },
+      choices = {
+        { text = "My father's still angry about it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Foreman.", next = "BACK" },
       },
     },
 

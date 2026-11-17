@@ -30,6 +30,10 @@ P:NPC {
       text = "A priest! Our clerics will want a word, and so will I, because they go through bandages and prayers faster than I can order either." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "Another mage, is it? Then you'll know what an Azoran crystal costs, and you'll forgive me for counting them twice." },
+    { id = "n_quarter", cat = "origin", when = { origin = "human_mage_quarter" },
+      text = "Trained in Stormwind's Mage Quarter, were you? Half the magi on these walls came out of the same towers, and every one of them talks about Dalaran as if they'd built it themselves, so you'll fit right in." },
+    { id = "n_lamb", cat = "origin", when = { origin = "human_lamb_cellar" },
+      text = "I know that look, because I've seen it on the Lamb's people when they come through for the demons on the plain. You'll sign for anything you take from my stores, and you'll sign in ink, not in anything else." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Light's sake, look at your armor; the ogres had a go at you, didn't they? Strumner's at the forge downstairs, and he's the only one who'll mend it for leagues." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -765,6 +769,8 @@ P:NPC {
           text = "My eyebrows have nearly grown back, ye'll be glad tae hear. The ritual worked, an' that's the main thing; Sharpbeak's alive, an' the Vilebranch have him." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night's when the scryin' goes clearest, an' when the mages downstairs pretend not tae hear the chantin'. Sit, if ye like, but quietly." },
+        { id = "h_listener", when = { origin = "dwarf_stone_listener" },
+          text = "Ye hear the stone, don't ye? I can see it in how ye stand, as if the floor were talkin' an' ye were bein' polite. The priests in Ironforge'll no' know what tae make o' ye, but up at the Peak we'd have called it a gift, so tell me, what does this dead land say?" },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, climbin' my stairs. Ye'll want tae tell me my scryin' is unholy, I expect, so go on an' get it said, an' then we can talk business." },
       },
@@ -1343,6 +1349,10 @@ P:NPC {
           text = "Ragnar's at the distillery in Kharanos, steamin' like a kettle. Go an' see him, an' tell him Enohar sent ye, so he knows the family's lookin' after its own." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Cold as a Dun Morogh winter out there tonight, an' not half as pretty. Good night for a warm mug, if ye ask me." },
+        { id = "h_brewer", when = { origin = "dwarf_brewer" },
+          text = "Now there's a nose that's been raised over a mash tun, I'd stake my mug on it! Another brewer's youngest, out at the end o' the world? Then ye've found where the barrels go, friend, an' it's here, an' they come back empty." },
+        { id = "h_bear", when = { origin = "dwarf_bear_tracker" },
+          text = "A Kharanos face, an' a bear at yer heel! I'd know the hill trackers anywhere, for they used tae stamp the snow off their boots on our distillery step an' never once on the mat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, an' a long way from any chapel! Ye'll find little holy out here, but there's a mug o' Thunderbrew in my kit, an' I'd call that a blessin' o' sorts." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1368,7 +1378,26 @@ P:NPC {
         { text = "Is a mug before battle good for a warrior, Enohar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting out in the Blasted Lands?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would your family really mind a dwarf shaman, Enohar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My family brews too. I ran off to see where the barrels go.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
         { text = "Enjoy your brew, Enohar.", next = "END" },
+      },
+    },
+    xorig_brew = {
+      lines = {
+        { id = "xob_default", text = "Hah! Ye an' me both, an' look where it got us, a stone keep in a red desert wi' demons at the gate. Tell me true, though, did yer folk let ye go wi' a blessin', or did ye climb out the window?" },
+      },
+      choices = {
+        { text = "Out the window. With a cask.", next = "xorig_brew2", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "They let me go, though it hurt them.", next = "xorig_brew2", fx = { trait = { kind = 1 } } },
+      },
+    },
+    xorig_brew2 = {
+      lines = {
+        { id = "xob2_default", text = "Then ye're a proper brewer's runaway, an' ye'll end up like me, homesick for the smell o' the mash an' too proud tae go back for it. Here's tae the barrels, friend, an' tae the families who'll forgive us eventually." },
+      },
+      choices = {
+        { text = "To the barrels.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

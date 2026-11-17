@@ -223,6 +223,8 @@ P:NPC {
 
   greetings = {
     { id = "g_dome", text = "Mind the barrier, please. It hums when it is pleased and crackles when it is not, and it has not been pleased in some time." },
+    { id = "g_xquarter", when = { origin = "human_mage_quarter" }, text = "A student of Stormwind's Mage Quarter, unless I miss my guess, and your masters will have studied here once. Look well at what's left of the city, apprentice, because they surely told you how it looked before." },
+    { id = "g_xdalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "You studied here once; I can see it in the way you look at the barrier. I'm sorry for what became of you, truly, and I'll still ask you not to come any closer than you are." },
   },
 
   notice = {

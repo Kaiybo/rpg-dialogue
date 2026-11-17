@@ -161,6 +161,10 @@ P:NPC {
         { text = "What do you make of a dwarf shaman, my lady?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Onyxia is dead, my lady. Her lair is empty.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
         { text = "My companions come from every corner of the Alliance, my lady.", next = "xpt_jaina", when = { race = "Human", party = { race = { "Dwarf", "Gnome", "NightElf" } }, faction = "Alliance" } },
+        { text = "May I ask you some harder questions, my lady?", next = "jd_deeper" },
+        { text = "My masters in the Mage Quarter studied in Dalaran.", next = "jd_mq", when = { origin = "human_mage_quarter" } },
+        { text = "My classroom in Gnomeregan is under the sludge now, my lady.", next = "jd_gnome", when = { origin = "gnome_last_student" } },
+        { text = "Forgive me, my lady, but you look tired.", next = "jd_tired", when = { disposition = { min = 60 } } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -265,6 +269,17 @@ P:NPC {
       choices = {
         { text = "You saved who you could.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "We made a life here. That counts.", next = "BACK", fx = { affinity = 2, standing = { theramore = 1 } } },
+        { text = "Do you still dream about the docks, my lady?", next = "jd_docks" },
+      },
+    },
+    jd_docks = {
+      lines = {
+        { id = "jdk_default", text = "Most nights, though the dream has changed. It used to be the dead on the shore behind us, and now it's the faces of the people still waiting on the pier when the last ship pulled away, and I wonder whether you dream of the ones you left behind as well." },
+      },
+      choices = {
+        { text = "Every night, my lady. I keep their names.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Sometimes. I try not to look back.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "I dream of the road south, not the north.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
 
@@ -347,6 +362,277 @@ P:NPC {
       },
       choices = {
         { text = "Dwarven stone outlasts everything, my lady.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- 0.71.0 depth: harder questions (sub-hub), the other leaders (sub-hub), Stratholme, what she wants, a stance on the docks.
+    jd_deeper = {
+      hub = true,
+      lines = {
+        { id = "jdp_default", text = "Hard questions are the only kind worth my time lately, so ask. I may not answer all of them, but I won't lie to you, and that's more than most of my letters can say." },
+        { id = "jdp_warm", when = { disposition = { min = 70 } }, text = "Ask whatever you like. You've earned straight answers in this tower, and I find I'd rather give them to you than to another courier." },
+      },
+      again = {
+        { id = "jdp_again", text = "What else weighs on you? It can't be heavier than the stack on my desk." },
+        { id = "jdp_again2", text = "Go on. I'd rather hear the hard ones from you than read them in Stormwind's letters." },
+        { id = "jdp_again3", when = { timeOfDay = "night" }, text = "Another? The candle's still good for an hour, and so am I." },
+      },
+      choices = {
+        { text = "What do you make of the Alliance's other leaders?", next = "jd_leaders" },
+        { text = "You were at Stratholme, weren't you?", next = "jd_strat" },
+        { text = "What do you want from someone like me?", next = "jd_want" },
+        { text = "What would you do if the peace were tested tomorrow?", next = "jd_test" },
+        { text = "Let's speak of other things, my lady.", next = "hello" },
+      },
+    },
+
+    jd_leaders = {
+      hub = true,
+      lines = {
+        { id = "jld_default", text = "I've met most of them and argued with all of them, usually by letter. Name one, and I'll tell you what I think, which isn't always what I write." },
+      },
+      again = {
+        { id = "jld_again", text = "Who else? I'm being more honest than a diplomat should, so make the most of it." },
+        { id = "jld_again2", text = "Another? Tervosh would tell me to be careful, but go on." },
+      },
+      choices = {
+        { text = "What is Thrall really like?", next = "jd_thrall" },
+        { text = "Who speaks for Stormwind now?", next = "jd_sw" },
+        { text = "And King Magni, in Ironforge?", next = "jd_magni" },
+        { text = "Do the night elves' leaders trust you?", next = "jd_tyrande" },
+        { text = "Enough of kings and warchiefs.", next = "jd_deeper" },
+      },
+    },
+    jd_thrall = {
+      lines = {
+        { id = "jth_default", text = "He was raised a slave in an internment camp by a man who wanted a pet gladiator, and he came out of it wanting a homeland rather than revenge, which is more than I could promise of myself. He's patient and stubborn, and he listens better than most kings I've met." },
+        { id = "jth_met", when = { heardLine = "thrall.h_default" }, text = "You've stood in front of him yourself, so you'll know I'm not flattering him. He was raised by the very people who caged his race, and somehow he still looks at a human and sees a person." },
+      },
+      choices = {
+        { text = "Can a warchief really hold every orc to a treaty?", next = "jd_thrall2" },
+        { text = "Then he's earned your trust, my lady.", next = "BACK", fx = { affinity = 1, opinion = { thrall = "trusted" } } },
+        { text = "I'd still keep a hand near my sword around him.", next = "BACK", fx = { trait = { cautious = 1 }, opinion = { thrall = "wary" } } },
+      },
+    },
+    jd_thrall2 = {
+      lines = {
+        { id = "jth2_default", text = "No, and he'd be the first to admit it. The Blackrock clans in the east never accepted him, he has trouble in his own capital that he won't name to me, and the land he gave his people is red rock and scorpids where hardly anything grows, and hungry people are very easy to stir up." },
+      },
+      choices = {
+        { text = "Then why not send Durotar grain?", next = "jd_thrall3" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    jd_thrall3 = {
+      lines = {
+        { id = "jth3_default", text = "I've thought of it, believe me, and I've been told in three different hands that Stormwind won't feed the Horde while its own provinces go hungry. The worst of it is that they're not wrong, because Westfall's farmers have had less help from the crown than anyone in Durotar would believe." },
+      },
+      choices = {
+        { text = "Westfall does deserve better, my lady.", next = "BACK", fx = { affinity = 1, opinion = { westfall = "abandoned" } } },
+        { text = "Feeding enemies only buys you better-fed enemies.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jd_sw = {
+      lines = {
+        { id = "jsw_default", text = "Highlord Bolvar Fordragon governs as Regent for a ten-year-old king, and he's an honorable man holding a kingdom together with one hand while the House of Nobles pulls at the other. When I ask Stormwind for anything, the answer comes back courteous and slow, and I've learned the slowness rarely starts with Bolvar." },
+      },
+      choices = {
+        { text = "Who slows it, then?", next = "jd_sw2" },
+        { text = "Bolvar's a good man. That counts for something.", next = "BACK", fx = { affinity = 1, opinion = { bolvar = "trusted" } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    jd_sw2 = {
+      lines = {
+        { id = "jsw2_default", text = "I don't know, and I won't guess aloud about a court I can't see from here. I'll only say that somebody in Stormwind finds a war with the Horde more useful than a peace, and that whoever it is has a great deal of patience." },
+        { id = "jsw2_warm", when = { disposition = { min = 70 } }, text = "Since it's you, I'll tell you what I've told only Tervosh: I keep copies of every answer Stormwind sends me, and when I lay them side by side the delays fall into a pattern I don't like. Someone at court doesn't want Theramore strong, and I can't prove who, so it stays in this room." },
+      },
+      choices = {
+        { text = "Then I'll keep my ears open in Stormwind.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Courts are always slow, my lady. It needn't be a plot.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    jd_magni = {
+      lines = {
+        { id = "jmg_default", text = "King Magni's dwarves came west with me out of Lordaeron, and he's never once asked for them back, which I count as friendship. He doesn't trust Thrall and says so to my face, and I'd rather have an honest doubter than a polite ally." },
+        { id = "jmg_dwarf", when = { race = "Dwarf" }, text = "If you see your king before I do, tell him his masons still complain about my architects, and that the walls are still standing. He'll laugh, and then he'll ask about the orcs, because he always does." },
+      },
+      choices = {
+        { text = "Could you win him over to the peace?", next = "jd_magni2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    jd_magni2 = {
+      lines = {
+        { id = "jmg2_default", text = "Not with arguments, because dwarves have long memories and the Horde burned a good deal of Khaz Modan in the Second War. Perhaps with years of nothing happening, which is the slowest and dullest kind of diplomacy and the only kind I've ever seen work." },
+      },
+      choices = {
+        { text = "Then here's to dull years, my lady.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jd_tyrande = {
+      lines = {
+        { id = "jty_default", text = "Tyrande Whisperwind called us mongrels when we first landed on Kalimdor, and I can't say we'd given her much reason to think better. At Hyjal she held the line beside us, and afterwards she told me she might have misjudged us, which from a high priestess of Elune is very nearly a song of praise." },
+        { id = "jty_elf", when = { race = "NightElf" }, text = "Your people have been kinder to Theramore than your leaders have, I think, and I hope you'll take that as the compliment I mean it to be." },
+      },
+      choices = {
+        { text = "Darnassus keeps to itself these days.", next = "jd_tyrande2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    jd_tyrande2 = {
+      lines = {
+        { id = "jty2_default", text = "It does, and I understand why, because they gave up their immortality and their world tree to stop the Legion and now they're rebuilding on Teldrassil, far from everyone. I only wish they'd remember the orcs bled at Hyjal too, though with Cenarius dead by an orc's axe I can hardly blame them for remembering the rest." },
+      },
+      choices = {
+        { text = "Some wounds don't close in one lifetime, even theirs.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    jd_strat = {
+      lines = {
+        { id = "jst_default", text = "I was there at the beginning of it. Arthas decided the people of Stratholme were already lost to the plague and meant to kill them before they could rise, and Uther refused, and I couldn't watch, so I left. That's the short version, and it's the only one I usually tell." },
+        { id = "jst_paladin", when = { class = "PALADIN" }, text = "You'll have heard the Silver Hand's version. Uther refused the order and Arthas stripped him of his command on the spot, and I walked away with Uther's men because I couldn't bear to stay and couldn't bear to stop him." },
+      },
+      choices = {
+        { text = "Do you blame yourself for leaving him?", tag = "Persuade", next = "jd_strat_true",
+          check = { pass = { any = { { disposition = { min = 70 } }, { origin = "human_lordaeron_refugee" }, { origin = "human_paladin_squire" }, { all = { { class = "PALADIN" }, { trait = "kind" } } } } } },
+          fail = { next = "jd_strat_no", fx = { affinity = -1 } } },
+        { text = "What became of the city after?", next = "jd_strat2" },
+        { text = "You were right to walk away, my lady.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    jd_strat2 = {
+      lines = {
+        { id = "jst2_default", text = "By nightfall it was burning, and before the season was out Arthas had sailed north after the plague's master and left the rest of us to bury Lordaeron's hope. When he came home again he brought the end of the kingdom with him, and by then I'd gone west, because a prophet told me to." },
+      },
+      choices = {
+        { text = "A prophet? Who was he?", next = "lordaeron_prophet" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    jd_strat_true = {
+      lines = {
+        { id = "jstt_default", text = "Every day, if you want the truth. I loved him, or I loved the man he was before that morning, and I keep thinking that if I'd stayed and argued instead of walking away, someone might have reached him. Tervosh says no one could have, and I know that's true, but knowing a thing and believing it are very different." },
+        { id = "jstt_squire", when = { origin = "human_paladin_squire" }, text = "You squired for an Order that broke on that same morning, so I'll tell you plainly: I loved him once, and I left him at the city gates, and I still wonder whether one more voice might have turned him. Uther couldn't, and I know I couldn't either, but I can't quite make myself believe it." },
+      },
+      choices = {
+        { text = "No one could have, my lady. Not even you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Is that why you fight so hard for this peace?", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+      },
+    },
+    jd_strat_no = {
+      lines = {
+        { id = "jstn_default", text = "Some of it I'll never say aloud, not even to people I like, and I'm afraid that includes you today. Ask me something else, please, and I'll answer it properly." },
+      },
+      choices = {
+        { text = "Of course, my lady.", next = "BACK" },
+      },
+    },
+
+    jd_want = {
+      lines = {
+        { id = "jwt_default", text = "Honest eyes, mostly. You go through places I only read about in reports, and I'd like to hear what you actually see there rather than what Stormwind or Orgrimmar would like me to think. But first tell me something: what brought you all the way out to Theramore?" },
+      },
+      choices = {
+        { text = "The work. Theramore pays in trouble, and I like trouble.", next = "jd_want2", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I wanted to see this peace for myself.", next = "jd_want2", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Someone has to watch the Horde. I don't trust them.", next = "jd_want2", fx = { affinity = -1, trait = { cautious = 1 }, opinion = { peace = "against" } } },
+        { text = "I go wherever I'm needed, my lady.", next = "jd_want2", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    jd_want2 = {
+      lines = {
+        { id = "jwt2_default", text = "Whatever brought you, I'm glad of it, because I need people who'll carry word between the Alliance's cities honestly. When someone in Stormwind or Ironforge tells you the orcs are massing on our border, ask them how they know, and remember who told you." },
+      },
+      choices = {
+        { text = "I'll be your eyes, my lady.", next = "jd_want3", fx = { affinity = 2, standing = { theramore = 1 } } },
+        { text = "I'll say what I see, to whoever asks.", next = "jd_want3", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jd_want3 = {
+      lines = {
+        { id = "jwt3_default", text = "Then start close to home. Captain Vimes has been chasing deserters and a burned inn across half the marsh, and he believes someone wants Theramore blamed for things it didn't do, so help him if he asks, and if the trail leads somewhere I won't like, I'd still rather know." },
+      },
+      choices = {
+        { text = "I'll find Captain Vimes, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+
+    jd_test = {
+      big = true,
+      lines = {
+        { id = "jte_default", text = "Let me turn it around and ask you, because I've had to decide this more than once. Suppose one of my father's old sailors spits on a Horde envoy on the docks tomorrow, in front of half the city: what would you have me do with him?" },
+      },
+      choices = {
+        { text = "Punish him openly. The envoy was under your protection.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let it pass quietly. Grief isn't a crime, my lady.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What did you do, when it happened?", next = "jd_test2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jd_test2 = {
+      lines = {
+        { id = "jte2_default", text = "I had him clean the envoy's boots on the same dock, in front of the same people, and then I paid his passage home to Kul Tiras myself, because he couldn't bear to live beside orcs and I couldn't let him go on trying. Half of Theramore thought I was too harsh and the other half too soft, and the envoy thought the whole thing very funny, which helped more than anything." },
+      },
+      choices = {
+        { text = "That sounds like justice to me, my lady.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    jd_mq = {
+      lines = {
+        { id = "jmq_default", text = "Then they never let you forget it, I expect, because none of us who studied there ever let anyone forget it. I learned under Antonidas myself, and what I miss most isn't the towers but the arguments in the library long after midnight." },
+      },
+      choices = {
+        { text = "My masters say you left Dalaran too young.", next = "jd_mq2" },
+        { text = "I learned more from their mistakes than their lectures.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    jd_mq2 = {
+      lines = {
+        { id = "jmq2_default", text = "They're right, and I'd like to know which of them said it, because I probably owe them a letter. I went north with Arthas on the king's business before I'd properly finished, and everything I've learned since I learned by needing it, which is a terrible way to study and the only one a war allows." },
+      },
+      choices = {
+        { text = "Then you've studied harder than any of them.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jd_gnome = {
+      lines = {
+        { id = "jgn_default", text = "Gnomeregan's mages used to send letters to Dalaran that nobody there could follow, because they put the equations in the margins and the conclusions somewhere else entirely. I'm truly sorry about your city, and if you're rebuilding your notes from memory, you're braver than most archmages I've known." },
+      },
+      choices = {
+        { text = "Would you look over my notes someday, my lady?", next = "jd_gnome2" },
+        { text = "We'll take Gnomeregan back, one level at a time.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jd_gnome2 = {
+      lines = {
+        { id = "jgn2_default", text = "Gladly, though I warn you I'll ask questions until you're sick of me, because that's the only way I've ever understood anything. Tervosh will want to see them too, and he'll pretend he isn't interested for at least a quarter of an hour." },
+      },
+      choices = {
+        { text = "Then I'll bring them, my lady.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jd_tired = {
+      lines = {
+        { id = "jtr_default", text = "I am, and it's kind of you to notice when most people only notice the title. Every letter from Stormwind or Orgrimmar seems to arrive after dark, and any one of them could start a war if I answer it badly, so I don't sleep much." },
+        { id = "jtr_warm", when = { disposition = { min = 75 } }, text = "Since it's you, I'll admit something: some nights I stand at the top of the tower and wonder whether I built Theramore for its people or for myself, so I'd have something to hold after Lordaeron. I haven't decided which, and I've begun to think it doesn't matter, so long as it stands." },
+      },
+      choices = {
+        { text = "Then rest tonight. The peace will keep till morning.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Theramore needs you awake, my lady.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

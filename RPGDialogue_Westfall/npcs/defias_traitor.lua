@@ -121,7 +121,27 @@ P:NPC {
         { text = "Why should I trust a man who betrayed his own crew?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I could prowl ahead as a cat and find their lookouts.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why did you turn on the Defias?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My father was a Stonemason. He never went west in a mask.", next = "xorig_mason", when = { origin = "human_stonemason_child" } },
         { text = "Let's go.", next = "END" },
+      },
+    },
+    xorig_mason = {
+      lines = {
+        { id = "xom_default", text = "Then he was smarter than me, or luckier, or both. The masons who came west first really did believe we'd get what the nobles owed us, but what they built out here isn't a guild anymore, it's a gang with a grudge, and I'd sooner your father never saw it." },
+      },
+      choices = {
+        { text = "He was angry enough to understand them.", next = "xorig_mason2", fx = { align = { order = -1 } } },
+        { text = "Anger's no excuse for what the Brotherhood does now.", next = "xorig_mason2", fx = { align = { order = 1 } } },
+        { text = "Did you know any of the old masons?", next = "xorig_mason2" },
+      },
+    },
+    xorig_mason2 = {
+      lines = {
+        { id = "xom2_default", text = "A few, and most of them are dead or deep in the mine by now, swinging a pick for VanCleef's ship instead of a hammer for Stormwind's walls. Tell your father to stay angry in Stormwind, where it's safe, because out here anger gets you a mask and an early grave." },
+      },
+      choices = {
+        { text = "I'll tell him.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

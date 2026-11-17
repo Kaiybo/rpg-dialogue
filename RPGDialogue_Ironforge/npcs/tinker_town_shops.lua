@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering" } },
       text = "Singed eyebrows, if I'm not mistaken. Welcome, fellow engineer; you'll want the coarse powder, not the rough, whatever you used last time." },
+    { id = "n_apprentice", cat = "origin", when = { origin = "gnome_tinker_apprentice" },
+      text = "You're an apprentice, I can tell by the way you're counting the blasting powder in your head. How many explosions so far? Don't tell me, because I'd rather not know which of my parts were involved." },
   },
 
   start = "hello",
@@ -508,6 +510,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want healing potions, I expect, though your sort heal yourselves, so maybe something for the troggs instead." },
         { id = "h_default", key = true,
           text = "Tally Berryfizz, alchemist! I teach anyone who wants to learn how to turn a handful of weeds into something that'll save their life, and I've never yet lost a student, or not for very long." },
+        { id = "h_tinkertown", when = { origin = "gnome_ironforge_raised" },
+          text = "Oh, you're a Tinker Town child, I'd know that quiet anywhere! We all learned to keep our voices down when the dwarves were drinking, didn't we? Well, you can be as loud as you like in my shop." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "Tally Berryfizz, alchemist, and I think you'll be good at this, being a druid. You already know which plants heal and which ones bite, so I only have to teach you the boiling part." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },

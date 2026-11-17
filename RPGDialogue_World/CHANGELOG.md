@@ -2,6 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-17)
+- Guards, stable masters and vendors (food, drink, reagents and the rest) now have whole conversations instead of one reply; goblin bruisers in Ratchet get their own, and Ratchet counts as a town. Townsfolk recognise you when your origin is from their town.
+- Needs RPG Dialogue 0.71.0.
+
+## 1.31.0 (2026-11-17)
+- 72 new origins: at least four general backgrounds per race and two per race and class, Skyborne included. Needs RPG Dialogue 0.69.0 or later.
+
 ## 1.30.0 (2026-11-17)
 - Townsfolk, guards, innkeepers, children, trainers and the other trades notice when you come back to their town after a week or more away, and pass on what the town has been saying about you. Needs RPG Dialogue 0.67.0.
 

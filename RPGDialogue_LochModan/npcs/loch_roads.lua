@@ -115,6 +115,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've stood beside yer kind against worse than kobolds, an' I'll tell ye about it, whether ye ask or no'." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I've held this valley against worse than kobolds, an' I'll no' turn away help, but keep yer beastie off the mine road." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Tunnel Rat", min = 30 } }, text = "The Tunnel Rats are fewer in the Silver Stream these days, an' I'd wager I know whose work that is. Keep it up, an' the miners might get their tunnels back before winter." },
+        { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
+          text = "Ye walk like ye've kept a pass in the snow, so ye'll be one o' the Dun Morogh lads. Good, for ye'll know there's no glory in this work, only cold feet an' a long watch, an' the vermin never tire before ye do." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in the loch? The kobolds in the Silver Stream are the only ones I know who talk tae the earth, an' they mostly ask it for candles." },
       },
       again = {
@@ -134,7 +136,27 @@ P:NPC {
         { text = "Did you fight beside paladins in the Second War, Mountaineer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a warlock be welcome in Loch Modan, Stormpike?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the kobolds truly listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I kept the high passes in Dun Morogh, Stormpike.", next = "xorig_pass", when = { origin = "dwarf_mountaineer" } },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    xorig_pass = {
+      lines = {
+        { id = "xop_default", text = "Did ye, now? Then ye've had trolls at yer back an' troggs at yer feet, same as I had at yer age, an' ye'll know the trick is never tae let either see ye cold. Why'd ye leave the passes, then, when they need every axe they've got?" },
+      },
+      choices = {
+        { text = "The trouble was moving south. I went after it.", next = "xorig_pass2", fx = { trait = { brave = 1 } } },
+        { text = "I needed to see more than snow.", next = "xorig_pass2", fx = { trait = { curious = 1 } } },
+        { text = "I'd rather not say, Mountaineer.", next = "BACK", fx = { affinity = -1 } },
+      },
+    },
+    xorig_pass2 = {
+      lines = {
+        { id = "xop2_default", text = "Fair enough, an' the loch's no' so different, only wetter an' fuller o' kobolds. Cold work an' honest work, that's what the passes teach ye, an' ye'll find plenty o' both up at the Silver Stream." },
+      },
+      choices = {
+        { text = "Then point me at it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     mine = {
@@ -466,6 +488,8 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at Algaz! What comes back down that pass from the Wetlands could use yer prayers, when it comes back at all." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at Algaz! The Dragonmaw would think twice about the pass wi' the likes o' ye standin' in it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, headin' north? The orcs in that marsh had warlocks o' their own back in the war, so I hope ye're the better sort." },
+        { id = "h_smuggler", when = { origin = "dwarf_loch_smuggler" },
+          text = "Halt, and let me get a proper look at ye. Aye, I thought so, for I've seen that face slip past this station at midnight wi' a cart o' somethin' that wasnae on any manifest, though this time ye've come in by the front." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at Algaz! Ye'll find the Wetlands' earth a sour thing, all mud an' rot, an' the orcs up there call on powers o' their own." },
       },
       again = {
