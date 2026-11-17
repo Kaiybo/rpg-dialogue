@@ -57,11 +57,11 @@ P:NPC {
       },
       choices = {
         { text = "What's actually in the Arathi Basin worth fighting for?", next = "basin" },
-        { text = "Who are the Defilers?", next = "defilers" },
-        { text = "What happened to Stromgarde?", next = "strom" },
+        { text = "The Defilers sound like a grim lot.", next = "defilers" },
+        { text = "Stromgarde seems to have fallen on hard times.", next = "strom" },
         { text = "I've brought marks from the basin.", next = "marks", when = { carrying = 20559 } },
         { text = "How does a soldier earn the League's trust?", next = "marks" },
-        { text = "How do you find it here, so far from Arathi?", next = "city" },
+        { text = "You seem far from home here.", next = "city" },
         { text = "Stromgarde's people are my people too.", next = "k_human", when = { race = "Human" } },
         { text = "The Wildhammer and Thandol Span. Do they still matter?", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "Would gnomes be any use in your basin?", next = "k_gnome", when = { race = "Gnome" } },
@@ -81,7 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "How does the fighting actually go there?", next = "basin_points" },
-        { text = "Couldn't the land just be shared?", next = "basin_share" },
+        { text = "Surely the land could be shared.", next = "basin_share" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "df_default", text = "They're Forsaken, sworn to the Dark Lady in Undercity, and they've built a camp called the Defiler's Den in the hills below Hammerfall. They want Arathi's gold and timber for the Horde's war, and they want something else besides, which troubles me more." },
       },
       choices = {
-        { text = "Something else? What do you mean?", next = "defilers_dead" },
+        { text = "You make it sound as if they want something else.", next = "defilers_dead" },
         { text = "Hammerfall? So the orcs are in it too.", next = "defilers_orcs" },
         { text = "Something else.", next = "BACK" },
       },
@@ -374,9 +374,9 @@ P:NPC {
       choices = {
         { text = "What do the Defilers want with Arathi?", next = "basin" },
         { text = "Tell me about the League of Arathor.", next = "league" },
-        { text = "Did you live before the Plague?", next = "self" },
+        { text = "You must have lived before the Plague.", next = "self" },
         { text = "I've marks from the basin.", next = "marks", when = { carrying = 20559 } },
-        { text = "How do you find it, recruiting in this city?", next = "city" },
+        { text = "Recruiting in this city can't be easy.", next = "city" },
         { text = "Why should orcs bleed for Forsaken ambitions?", next = "k_orc", when = { race = "Orc" } },
         { text = "Da Darkspear don't trust your apothecaries, mon.", next = "k_troll", when = { race = "Troll" } },
         { text = "What do the Forsaken do with the land they take?", next = "k_tauren", when = { race = "Tauren" } },
@@ -429,7 +429,7 @@ P:NPC {
       choices = {
         { text = "The dead should rest. Leave the barrows alone.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The dead don't need their bones. The living do.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "What do the apothecaries want with them?", next = "basin_apoth" },
+        { text = "I can't think what the apothecaries want with them.", next = "basin_apoth" },
       },
     },
     basin_apoth = {
@@ -489,7 +489,7 @@ P:NPC {
         { id = "sr_default", text = "Trouble isn't a feeling I have much use for anymore. But I know which stretch of the road floods in spring and which farmhouse had a dog, and the League's soldiers don't, which is a great advantage." },
       },
       choices = {
-        { text = "A dog? What happened to it?", next = "self_dog" },
+        { text = "I'd hate to think what happened to the dog.", next = "self_dog" },
         { text = "Something else.", next = "BACK" },
       },
     },

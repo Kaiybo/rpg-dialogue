@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does Darnassus need so much cloth?", next = "shortage" },
-        { text = "Where does the cloth go?", next = "where" },
+        { text = "That's a great deal of cloth.", next = "where" },
         { text = "Why should I give cloth away?", next = "why" },
         { text = "I'm a tailor. I could sew instead of giving.", next = "tailor_r", when = { profession = "Tailoring" } },
         { text = "I'd like to donate.", next = "BUSINESS" },
@@ -91,7 +91,7 @@ P:NPC {
         { id = "wh_default", text = "Linen and wool go for bandages and bedrolls, and silk and mageweave for the priestesses' robes and the Sentinels' cloaks. Runecloth, the finest, we keep for those standing in the worst of it." },
       },
       choices = {
-        { text = "Who stands in the worst of it?", next = "where_worst" },
+        { text = "Someone must stand in the worst of it.", next = "where_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },

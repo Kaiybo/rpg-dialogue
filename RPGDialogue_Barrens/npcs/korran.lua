@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. I talk better than I sleep, these days, with the beetles crawling in my hammock." },
       },
       choices = {
-        { text = "What are these insects?", next = "insects" },
+        { text = "These insects look like nothing else in the Barrens.", next = "insects" },
         { text = "Why does Belgrom care about bugs?", next = "belgrom" },
         { text = "Who else is helping you?", next = "moktar" },
         { text = "I've studied beasts. Let me look at the eggs.", next = "study", when = { class = { "DRUID", "HUNTER" } } },
@@ -83,7 +83,7 @@ P:NPC {
     belgrom = {
       lines = { { id = "b_default", text = "Belgrom care about anything that might make him look wise to the Warchief, mon, and bugs be no different. He thought I was chasing beetles at first, but I been his loyal servant a long time, and now he read every letter, even the long ones about dung beetles." } },
       choices = {
-        { text = "Does he deserve your loyalty?", next = "loyal" },
+        { text = "Belgrom doesn't seem to deserve your loyalty.", next = "loyal" },
         { text = "Something else.", next = "BACK" },
       },
     },

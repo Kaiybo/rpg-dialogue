@@ -55,8 +55,8 @@ P:NPC {
       },
       choices = {
         { text = "Why do you guard this road yourself?", next = "road" },
-        { text = "Are you a priestess or a Sentinel?", next = "both" },
-        { text = "Who rides with you?", next = "huntresses" },
+        { text = "You salute like a Sentinel, but you bless like a priestess.", next = "both" },
+        { text = "Your two companions look sharp-eyed.", next = "huntresses" },
         { text = "Pray with me before I go up the path.", next = "pray_a", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "I've never seen Darnassus. What's it like?", next = "darnassus", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I'll clear the ambushers.", next = "BUSINESS" },
@@ -78,7 +78,7 @@ P:NPC {
         { id = "rw_default", text = "The druids say a corruption has them, and that Ursal the Mauler drives them with it. I believe it, though I cannot stand on the road and argue the point with an arrow in my saddle." },
       },
       choices = {
-        { text = "Do you pity them?", next = "road_pity" },
+        { text = "You speak of them as though you pity them.", next = "road_pity" },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },

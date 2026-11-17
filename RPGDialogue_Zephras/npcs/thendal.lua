@@ -67,12 +67,12 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the relic you give the young.", next = "relic" },
-        { text = "Why are the beasts of the grove so restless?", next = "vuldren" },
+        { text = "The beasts of the grove seem very restless.", next = "vuldren" },
         { text = "What do you know of the Al'Aketh?", next = "cult" },
         { text = "Myriaal says jumping off the watchtower is good practice.", next = "gifts" },
         { text = "Who should I train with?", next = "trainers", when = { race = "Skyborne" } },
         { text = "What is this village, and who are your people?", next = "village", when = { ["not"] = { race = "Skyborne" } } },
-        { text = "What troubles you about my craft?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Something about my craft troubles you, I can tell.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the Al'Aketh make you wary of priests?", next = "xpriest", when = { class = "PRIEST", ["not"] = { race = "Skyborne" } } },
         { text = "The Light holds me up. Shall I tell you of it?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Winds be with you, Rorian.", next = "END" },
@@ -164,7 +164,7 @@ P:NPC {
       },
       choices = {
         { text = "Why didn't you act sooner?", next = "cult_wait" },
-        { text = "Who leads them?", next = "cult_lead" },
+        { text = "A cult like that must have a leader.", next = "cult_lead" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -234,7 +234,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did your ancestors leave Kalimdor?", next = "village_why" },
-        { text = "What's it like, seeing outsiders after so long?", next = "village_out" },
+        { text = "Your people can't have seen outsiders in a long while.", next = "village_out" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -365,7 +365,7 @@ P:NPC {
       },
       choices = {
         { text = "What does the Council of Elders do?", next = "council" },
-        { text = "What do the winds tell you?", next = "winds" },
+        { text = "The winds must tell you a great deal.", next = "winds" },
         { text = "Why test the young at all?", next = "trial" },
         { text = "Where should I go after Thendal?", next = "shendar", when = { race = "Skyborne" } },
         { text = "How do your people see us outsiders?", next = "outsiders", when = { ["not"] = { race = "Skyborne" } } },
@@ -381,7 +381,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did the Shal'nan give up his rule?", next = "shalnan" },
-        { text = "What is the High Elder like?", next = "talaanis" },
+        { text = "The High Elder seems a careful sort.", next = "talaanis" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -458,7 +458,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll go.", next = "BACK" },
-        { text = "Why have the ursera turned on us?", next = "matriarch_why" },
+        { text = "Something must have turned the ursera against us.", next = "matriarch_why" },
       },
     },
     matriarch_why = {
@@ -614,7 +614,7 @@ P:NPC {
         { id = "ga_default", text = "It's very simple: you step off the ledge, then walk on the air to slow your fall and see how far forward you can float. The rules are whatever I say they are, and the best score is landing on Rorian's toes." },
       },
       choices = {
-        { text = "Won't Rorian be angry?", next = "game_rorian" },
+        { text = "Rorian will be angry about this.", next = "game_rorian" },
         { text = "Is it dangerous?", next = "game_safe" },
         { text = "Something else.", next = "BACK" },
       },
@@ -624,7 +624,7 @@ P:NPC {
         { id = "gr_default", text = "Furious, every time, and that's half the fun. He'll tell you our gifts are sacred and not for amusement, and then he'll say something about youths, and then he'll quietly admit a little practice is acceptable." },
       },
       choices = {
-        { text = "Does he have a point?", next = "game_point" },
+        { text = "He might have a point, you know.", next = "game_point" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -768,7 +768,7 @@ P:NPC {
         { id = "h_again", text = "Something more? I have time; the pylon isn't going anywhere, I hope." },
       },
       choices = {
-        { text = "What's wrong with the pylons?", next = "pylon" },
+        { text = "Something seems wrong with the pylons.", next = "pylon" },
         { text = "Tell me about your gift.", next = "gift" },
         { text = "Myriaal calls you a stuffy old wretch.", next = "myriaal" },
         { text = "Do your eyes reach as far as mine, ranger?", next = "xhunter", when = { class = "HUNTER" } },
@@ -782,7 +782,7 @@ P:NPC {
       },
       choices = {
         { text = "What happens if they fail?", next = "pylon_fail" },
-        { text = "Could someone be harming them?", next = "pylon_harm" },
+        { text = "Someone could be harming them on purpose.", next = "pylon_harm" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -821,7 +821,7 @@ P:NPC {
       },
       choices = {
         { text = "Could you lend it to me?", next = "gift_lend" },
-        { text = "Don't you wish for more?", next = "gift_wish" },
+        { text = "I'd wish for more, in your place.", next = "gift_wish" },
         { text = "Something else.", next = "BACK" },
       },
     },

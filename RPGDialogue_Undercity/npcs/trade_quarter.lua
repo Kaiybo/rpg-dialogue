@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "Why cockroaches, of all things?", next = "roaches" },
-        { text = "Who comes to buy them?", next = "buyers" },
+        { text = "I can't think who would buy cockroaches.", next = "buyers" },
         { text = "You were Jeremiah Felstone, weren't you?", next = "felstone", when = { questDone = TODO_QUEST("The Jeremiah Blues") } },
         { text = "What do you need, Payson?", next = "BUSINESS" },
         { text = "I'll leave you to your roaches.", next = "END" },
@@ -59,7 +59,7 @@ P:NPC {
     roaches = {
       lines = { { id = "ro_default", text = "Because they're the only thing that lived through the plague without complaining. Rats got sick, dogs went mad, birds fell out of the sky, and the roaches just carried on, and I respect that." } },
       choices = {
-        { text = "You see something of yourself in them?", next = "roaches_self" },
+        { text = "You seem to see something of yourself in them.", next = "roaches_self" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,7 +83,7 @@ P:NPC {
     buyers = {
       lines = { { id = "bu_default", text = "Rogues, mostly, who like something small that can get into places. Some of the apothecaries buy them by the jar, which I don't ask about, and a few lonely sorts who just want something to talk to." } },
       choices = {
-        { text = "The apothecaries buy them by the jar?", next = "buyers_apoth" },
+        { text = "So the apothecaries buy them by the jar.", next = "buyers_apoth" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,7 +151,7 @@ P:NPC {
       },
       choices = {
         { text = "Why only blue?", next = "blue" },
-        { text = "Who buys this sort of thing?", next = "buyers" },
+        { text = "I'd not have guessed many folk buy this sort of thing.", next = "buyers" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Good day, Luca.", next = "END" },
       },
@@ -209,7 +209,7 @@ P:NPC {
       },
       choices = {
         { text = "Are you and William related?", next = "william" },
-        { text = "What's the strangest thing in your vaults?", next = "strange" },
+        { text = "Your vaults must hold some strange things.", next = "strange" },
         { text = "Open my vault.", next = "BUSINESS" },
         { text = "Good evening, Ophelia.", next = "END" },
       },
@@ -269,7 +269,7 @@ P:NPC {
         { id = "h_again", text = "What else? I've got a fuse burning, but it's a long one." },
       },
       choices = {
-        { text = "What happened to your fingers?", next = "fingers" },
+        { text = "You're missing a few fingers.", next = "fingers" },
         { text = "Why do the dead need engineers?", next = "dead" },
         { text = "Teach me engineering.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "I'll leave before something explodes.", next = "END" },
@@ -328,7 +328,7 @@ P:NPC {
       },
       choices = {
         { text = "Does Graham worry you?", next = "graham" },
-        { text = "Where do your supplies come from?", next = "supplies" },
+        { text = "Your supplies must come from a long way off.", next = "supplies" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Goodbye, Franklin.", next = "END" },
       },
@@ -388,7 +388,7 @@ P:NPC {
         { id = "h_again", text = "Something else? These hides won't scrape themselves." },
       },
       choices = {
-        { text = "Do you miss the smell?", next = "smell" },
+        { text = "I'd guess you miss the smell of the tannery.", next = "smell" },
         { text = "What hides do you work now?", next = "hides" },
         { text = "Teach me leatherworking.", next = "BUSINESS", when = { profession = "Leatherworking" } },
         { text = "Good day, Arthur.", next = "END" },
@@ -449,7 +449,7 @@ P:NPC {
         { id = "h_again", text = "Something else? I've a robe on the table that needs its sleeves reattached." },
       },
       choices = {
-        { text = "You made coats for the court?", next = "court" },
+        { text = "So you made coats for the court.", next = "court" },
         { text = "Why do the dead need tailors?", next = "dead" },
         { text = "Teach me tailoring.", next = "BUSINESS", when = { profession = "Tailoring" } },
         { text = "Good day, Bowen.", next = "END" },
@@ -458,7 +458,7 @@ P:NPC {
     court = {
       lines = { { id = "co_default", text = "For the King's nobles and their wives, and once, a riding coat for Prince Arthas himself, in blue and gold. I wonder sometimes whether he wore it on his way north." } },
       choices = {
-        { text = "Do you hate him for what he did?", next = "court_arthas" },
+        { text = "You must hate him for what he did.", next = "court_arthas" },
         { text = "Something else.", next = "BACK" },
       },
     },

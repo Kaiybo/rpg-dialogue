@@ -49,7 +49,7 @@ P:NPC {
         { text = "What does Far Watch Post guard?", next = "post" },
         { text = "You don't think much of Sergra Darkthorn.", next = "sergra" },
         { text = "How did you get that scar?", next = "scar" },
-        { text = "What's been moving in the hills lately?", next = "hills" },
+        { text = "You keep a close eye on those hills.", next = "hills" },
         { text = "I serve under Sergra at the Crossroads.", next = "hers", when = { questDone = TODO_QUEST("Plainstrider Menace") } },
         { text = "Women have held the line for the Horde since Durotar.", next = "women", when = { gender = "female", faction = "Horde" } },
         { text = "Watch well, Kargal.", next = "END" },
@@ -73,7 +73,7 @@ P:NPC {
     sergra = {
       lines = { { id = "s_default", text = "I don't think much of being passed over, which isn't the same thing. I've held a wall since before she could lift an axe, and when the Warchief needed someone to command the Crossroads, he gave it to her and gave me a hill." } },
       choices = {
-        { text = "Is she bad at the job?", next = "job" },
+        { text = "It sounds like she's bad at the job.", next = "job" },
         { text = "Maybe a hill is where you're most useful.", next = "useful" },
         { text = "Something else.", next = "BACK" },
       },
@@ -96,7 +96,7 @@ P:NPC {
     scar = {
       lines = { { id = "sc_default", text = "An internment camp guard, outside Durnholde, with a sword he'd taken off a better soldier than he was. I got this scar, he got my axe in his ribs, and the Warchief got one more orc who was done with cages." } },
       choices = {
-        { text = "You were in the camps?", next = "camps" },
+        { text = "So you were in the internment camps.", next = "camps" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,7 +113,7 @@ P:NPC {
     hills = {
       lines = { { id = "hl_default", text = "Harpies in the Dry Hills to the north, screeching all night, and the Burning Blade on Dreadmist Peak lighting fires they shouldn't. There's an orc called Ak'Zeloth camped out that way who claims to know their business, and I'd like to know how." } },
       choices = {
-        { text = "You don't trust Ak'Zeloth?", next = "akz" },
+        { text = "You don't sound like you trust Ak'Zeloth.", next = "akz" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -235,7 +235,7 @@ P:NPC {
     peak = {
       lines = { { id = "p_default", text = "Cultists in red robes, mostly young, mostly orcs who came to Kalimdor too late to remember the blood. The Burning Blade tells them Thrall made the Horde weak and promises them the strength the clans used to have, and some of them are fool enough to want it." } },
       choices = {
-        { text = "Can they be turned back?", next = "turned" },
+        { text = "Some of them might still be turned back.", next = "turned" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -320,7 +320,7 @@ P:NPC {
     alone = {
       lines = { { id = "a_default", text = "Because the wind up here feeds it and the land below it is dry enough to burn for a week if I'm careless. A fire kept where it could do harm teaches you respect faster than one kept in a hearth." } },
       choices = {
-        { text = "Isn't that dangerous?", next = "danger" },
+        { text = "That sounds dangerous.", next = "danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,7 +342,7 @@ P:NPC {
     shows = {
       lines = { { id = "s_default", text = "Your anger, mostly, at first. Every young orc who sits at this fire finds out how much rage they carry from the camps and the old wars, and the fire will burn it out of them or burn them with it." } },
       choices = {
-        { text = "Did it burn yours out?", next = "mine" },
+        { text = "I'd guess it burned yours out, in time.", next = "mine" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -442,7 +442,7 @@ P:NPC {
     learn = {
       lines = { { id = "l_default", text = "In the Second War, on a wall in Lordaeron, holding off human knights for a day and a night. Most of my clan charged out to meet them, and I stayed on that wall, and that's why I'm here to tell you about it." } },
       choices = {
-        { text = "What happened to the ones who charged?", next = "charged" },
+        { text = "The ones who charged never came back, I'd guess.", next = "charged" },
         { text = "Something else.", next = "BACK" },
       },
     },

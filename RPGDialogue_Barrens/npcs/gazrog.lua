@@ -50,7 +50,7 @@ P:NPC {
       choices = {
         { text = "Raptors stole silver? Really?", next = "raptors" },
         { text = "How are the guards taking it?", next = "guards" },
-        { text = "How's the Crossroads holding up?", next = "crossroads" },
+        { text = "The Crossroads seems to have trouble on every side.", next = "crossroads" },
         { text = "I'm looking for word of Grunt Dogran.", next = "dogran", when = { class = "WARLOCK" } },
         { text = "I've got work in me.", next = "BUSINESS" },
         { text = "Good luck with the lizards.", next = "END" },

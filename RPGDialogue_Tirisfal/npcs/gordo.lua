@@ -52,9 +52,9 @@ P:NPC {
       choices = {
         { text = "Who is your master, Gordo?", next = "master" },
         { text = "Why do you say \"us\"?", next = "us" },
-        { text = "What do you see on this road?", next = "road" },
+        { text = "You must see a great deal on this road.", next = "road" },
         { text = "I know herbs. Let me show you how to pick them.", next = "teach", when = { profession = "Herbalism" } },
-        { text = "Who made you, Gordo?", next = "made", when = { class = { "WARLOCK", "PRIEST", "MAGE" } } },
+        { text = "Someone must have made you, Gordo.", next = "made", when = { class = { "WARLOCK", "PRIEST", "MAGE" } } },
         { text = "I'll help you with the weeds.", next = "BUSINESS" },
         { text = "Goodbye, Gordo.", next = "END" },
       },
@@ -103,7 +103,7 @@ P:NPC {
     road = {
       lines = { { id = "ro_default", text = "Gordo sees the new dead walking from Deathknell, very wobbly, and the men in red hiding in the trees. The red men shoot arrows at Gordo, but the arrows is small." } },
       choices = {
-        { text = "The Scarlet Crusade shoots at you?", next = "road_scarlet" },
+        { text = "The Scarlet Crusade shoots at you, then.", next = "road_scarlet" },
         { text = "Something else.", next = "BACK" },
       },
     },

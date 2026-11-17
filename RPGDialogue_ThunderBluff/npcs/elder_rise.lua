@@ -77,7 +77,7 @@ P:NPC {
     maur = {
       lines = { { id = "m_default", text = "A Grimtotem of some learning, who could speak a little of the tongue of the deep places. He went further into the Chasm than the others, because he believed he could reach the troggs where the others had failed." } },
       choices = {
-        { text = "What did he hope to find?", next = "maur_find" },
+        { text = "He must have hoped to find something.", next = "maur_find" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,7 +203,7 @@ P:NPC {
         { id = "f_warm", when = { disposition = { min = 65 } }, text = "Like growing up beside a very old tree, which is lovely until you want some sunlight of your own. Don't tell him, but I'd follow him into the Emerald Dream itself if he asked, and I'd complain the whole way." },
       },
       choices = {
-        { text = "Does he know Magatha's watching him?", next = "father_magatha" },
+        { text = "Magatha seems to be watching him.", next = "father_magatha" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -263,7 +263,7 @@ P:NPC {
       choices = {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What's the first thing a druid learns?", next = "first" },
-        { text = "Is the Archdruid a good teacher?", next = "hamuul" },
+        { text = "The Archdruid must be a good teacher.", next = "hamuul" },
         { text = "Farewell, Sheal.", next = "END" },
       },
     },
@@ -329,14 +329,14 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why do you prefer the plains?", next = "plains" },
-        { text = "Are you kin to Nara Wildmane?", next = "nara" },
+        { text = "You must be kin to Nara Wildmane.", next = "nara" },
         { text = "Farewell, Kym.", next = "END" },
       },
     },
     plains = {
       lines = { { id = "p_default", text = "Because that's where the Earth Mother actually is, running with the plainstriders and hunting with the lions. The Hall of Elders is beautiful, and it's also where the old ones go to talk for a very long time." } },
       choices = {
-        { text = "Don't the elders have wisdom worth hearing?", next = "plains_elders" },
+        { text = "The elders must have some wisdom worth hearing.", next = "plains_elders" },
         { text = "Something else.", next = "BACK" },
       },
     },

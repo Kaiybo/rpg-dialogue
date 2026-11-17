@@ -59,10 +59,10 @@ P:NPC {
         { id = "h_again2", text = "Ask what ye like, friend, for there's little else tae do but wait." },
       },
       choices = {
-        { text = "What happened at the Thandol Span?", next = "span" },
+        { text = "The Thandol Span looks badly broken.", next = "span" },
         { text = "Who was Ol' Rustlocke?", next = "rustlocke" },
         { text = "Tell me about Longbraid.", next = "longbraid" },
-        { text = "Why hasn't Ironforge sent help?", next = "help" },
+        { text = "Ironforge seems slow to send help.", next = "help" },
         { text = "I've spoken with King Magni about Dun Modr.", next = "king_word",
           when = { thread = { id = "dwarves_and_dark_iron", beat = "b4_magni", state = { "stirring", "unfolding" } } } },
         { text = "How long has the Span stood?", next = "dwarf", when = { race = "Dwarf" } },
@@ -75,7 +75,7 @@ P:NPC {
         { id = "sp_default", text = "The Dark Irons packed the bridge wi' powder an' blew the near span intae the gorge. 'Twas horrible, I tell ye, for half o' the guard was standin' on it when it went." },
       },
       choices = {
-        { text = "Who planned it?", next = "span_who" },
+        { text = "Somebody must have planned it.", next = "span_who" },
         { text = "Something else, Rhag.", next = "BACK" },
       },
     },
@@ -130,7 +130,7 @@ P:NPC {
         { id = "lb_default", text = "Longbraid the Grim, an' he's earned the name twice over this year. He says we'll take revenge on the Dark Irons before all's said an' done, an' I believe him, for he's never said a thing he didnae mean." },
       },
       choices = {
-        { text = "Can he hold Dun Modr?", next = "longbraid_hold" },
+        { text = "He can't hold Dun Modr for long.", next = "longbraid_hold" },
         { text = "Something else.", next = "BACK" },
       },
     },

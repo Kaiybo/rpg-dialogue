@@ -91,7 +91,7 @@ P:NPC {
       lines = { { id = "m_default", text = "You put a leper gnome in one end and a gnome comes out the other, in theory! In practice, it's a matter of viscosity in the electrogum gel and getting the inner combustion pistons to agree with each other." },
       },
       choices = {
-        { text = "Have you tested it on anyone?", next = "machine_test" },
+        { text = "I'd hope you've tested it on someone.", next = "machine_test" },
         { text = "I understood about half of that.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
       },
     },

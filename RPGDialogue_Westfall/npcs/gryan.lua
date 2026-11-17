@@ -117,9 +117,9 @@ P:NPC {
       },
       choices = {
         { text = "Your fields are sick, Stoutmantle. The soil itself is starving.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "What happened to Westfall?", next = "westfall" },
+        { text = "Westfall looks like it's been left to rot.", next = "westfall" },
         { text = "Why doesn't Stormwind help?", next = "stormwind" },
-        { text = "Who leads the Defias?", next = "leader" },
+        { text = "Someone must be leading the Defias.", next = "leader" },
         { text = "How does someone join the militia?", next = "militia" },
         { text = "Tell me about yourself, Commander.", next = "gr_self" },
         { text = "I took the Silver Hand's oath too.", next = "paladin", when = { class = "PALADIN" } },
@@ -148,7 +148,7 @@ P:NPC {
       },
       choices = {
         { text = "And you came back for it.", next = "back" },
-        { text = "Who still holds out?", next = "holdouts" },
+        { text = "Some folk must still hold out.", next = "holdouts" },
         { text = "I'll help you take it back.", next = "BACK", fx = { affinity = 2, learn = { "westfall" }, align = { order = 1 } } },
         { text = "Maybe the Defias have earned a share of it.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -213,7 +213,7 @@ P:NPC {
       choices = {
         { text = "The city should be ashamed.", next = "BACK", fx = { opinion = { westfall = "abandoned" }, affinity = 1 } },
         { text = "The kingdom has bigger problems.", next = "bigger", fx = { opinion = { westfall = "patience" } } },
-        { text = "Who in the city decided this?", next = "nobles" },
+        { text = "Someone in the city must have decided this.", next = "nobles" },
       },
     },
     bigger = {
@@ -247,7 +247,7 @@ P:NPC {
           text = "You're on the trail already. Follow it where it goes and bring every scrap back to me. I'll do the sorting." },
       },
       choices = {
-        { text = "Why does Wiley owe you?", next = "wiley" },
+        { text = "Wiley must owe you a great deal.", next = "wiley" },
         { text = "Wiley's note says goblins built the watchers.", next = "watchers_truth", when = { heardLine = "wiley.h_defias" } },
         { text = "What about the stonemasons people mention?", next = "masons" },
         { text = "Send me in. I go where soldiers can't.", next = "rogue", when = { class = "ROGUE" } },
@@ -346,7 +346,7 @@ P:NPC {
     paladin = {
       lines = { { id = "pa_default", text = "Then you know what it asks of a man. The Order's been scattered since Lordaeron, but the oath didn't scatter with it." } },
       choices = {
-        { text = "Does the Light answer you out here?", next = "paladin_light" },
+        { text = "The Light must feel far away out here.", next = "paladin_light" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -470,7 +470,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll stand there.", next = "warrior2", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Why not march on Moonbrook?", next = "warrior_march" },
+        { text = "You could march on Moonbrook.", next = "warrior_march" },
       },
     },
     warrior2 = {
@@ -545,7 +545,7 @@ P:NPC {
       choices = {
         { text = "Why did a Westfall lad go north to the Silver Hand?", next = "gr_north" },
         { text = "You sound bitter about the nobles, Commander.", next = "gr_nobles" },
-        { text = "What do you make of the people around you?", next = "gr_people" },
+        { text = "You've gathered a strange crew around you, Commander.", next = "gr_people" },
         { text = "What do you need from me, Commander?", next = "gr_ask" },
         { text = "What do you do with a Defias you catch?", next = "gr_lad" },
         { text = "Do you remember the harvest fairs in Moonbrook?", next = "gr_fair", when = { origin = "human_westfall_farmhand" } },

@@ -53,7 +53,7 @@ P:NPC {
         { text = "What happened up on the plateau?", next = "fight" },
         { text = "Why does a scorpid matter so much to you?", next = "honor" },
         { text = "Why did the Darkspear come to the valley?", next = "darkspear" },
-        { text = "Who looks after the wounded here?", next = "gornek" },
+        { text = "Nobody seems to look after the wounded here.", next = "gornek" },
         { text = "Let me look at that wound, Hana'zua.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "I hunt too. How did a hunter get caught like that?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
@@ -102,7 +102,7 @@ P:NPC {
       },
       choices = {
         { text = "The Horde is stronger with the Darkspear in it.", next = "BACK", fx = { affinity = 1, learn = { "echo_isles" } } },
-        { text = "What happened to the Echo Isles?", next = "isles" },
+        { text = "Something must have happened to the Echo Isles.", next = "isles" },
       },
     },
     isles = {

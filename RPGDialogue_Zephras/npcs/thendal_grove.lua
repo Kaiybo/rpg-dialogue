@@ -56,7 +56,7 @@ P:NPC {
       },
       choices = {
         { text = "What are these sprites?", next = "sprites" },
-        { text = "Who is stirring them up?", next = "cult" },
+        { text = "Someone seems to be stirring them up.", next = "cult" },
         { text = "What's it like being Rorian's apprentice?", next = "rorian" },
         { text = "Do you think the true spirits will return?", next = "spirits" },
         { text = "The spirits still answer me, Yala.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
@@ -201,7 +201,7 @@ P:NPC {
       choices = {
         { text = "What are cirrusflies?", next = "flies" },
         { text = "Where's the queen?", next = "queen" },
-        { text = "What do the rangers do?", next = "rangers" },
+        { text = "The rangers must have their hands full out here.", next = "rangers" },
         { text = "I hunt for a living. Bugs included.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Winds be with you, Elatrell.", next = "END" },
       },
@@ -211,7 +211,7 @@ P:NPC {
         { id = "f_default", text = "Insects, about the size of your hand, that drift on the wind and bite when they land. One or two are a nuisance, but a swarm can strip a grove bare, and they've been breeding at the eastern end." },
       },
       choices = {
-        { text = "Why so many now?", next = "flies_why" },
+        { text = "There seem to be far more of them now.", next = "flies_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,7 +248,7 @@ P:NPC {
         { id = "r_default", text = "We keep the beasts away from the village and the village away from the edges, and we watch for anything the elders ought to hear about. Halaan sees farthest, Myriaal jokes loudest, and I mostly deal with bugs." },
       },
       choices = {
-        { text = "Do you mind the bug work?", next = "rangers_mind" },
+        { text = "Bug work can't be anyone's favourite duty.", next = "rangers_mind" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -327,7 +327,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the boy?", next = "boy" },
-        { text = "Why are the ursera so bold?", next = "why" },
+        { text = "The ursera have grown very bold.", next = "why" },
         { text = "Is killing them the only answer?", next = "kill" },
         { text = "Couldn't a druid calm the ursera?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Winds be with you, Valreaa.", next = "END" },
@@ -447,9 +447,9 @@ P:NPC {
       },
       choices = {
         { text = "What exactly is a windstone?", next = "stones" },
-        { text = "Why is the island's magic fading?", next = "fading" },
+        { text = "The island's magic seems to be fading.", next = "fading" },
         { text = "What happens to the stones you collect?", next = "use" },
-        { text = "Could I study a windstone's magic?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I'd like to study a windstone's magic.", next = "xmage", when = { class = "MAGE" } },
         { text = "Winds guide you, Dalia.", next = "END" },
       },
     },
@@ -458,7 +458,7 @@ P:NPC {
         { id = "s_default", text = "A piece of the wind made solid, more or less, left behind where the elementals used to gather. They're not without their limits, but they're a reliable source of power, and nothing else on Zephras is reliable any more." },
       },
       choices = {
-        { text = "Will they run out?", next = "stones_out", fx = { learn = { "windstones" } } },
+        { text = "Surely they'll run out one day.", next = "stones_out", fx = { learn = { "windstones" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

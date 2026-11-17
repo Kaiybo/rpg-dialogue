@@ -58,7 +58,7 @@ P:NPC {
       choices = {
         { text = "What's wrong with Ironforge's soldiers?", next = "ironforge" },
         { text = "Tell me about the ogres.", next = "ogres" },
-        { text = "What else threatens Thelsamar?", next = "threats" },
+        { text = "Thelsamar looks to have more than one trouble on its hands.", next = "threats" },
         { text = "What does a magistrate actually do here?", next = "duties" },
         { text = "The dam is vital. Who guards it?", next = "dam", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Good day, Magistrate.", next = "END" },
@@ -102,7 +102,7 @@ P:NPC {
           text = "Fewer o' them now, thanks tae you, though ogres breed like rabbits an' fight like bears. Keep an eye on the north shore when ye pass." },
       },
       choices = {
-        { text = "What do they want with the loch?", next = "ogres_want" },
+        { text = "I'd guess the ogres want more from the loch than fish.", next = "ogres_want" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,7 +121,7 @@ P:NPC {
         { id = "th_default", text = "Troggs in the hills, kobolds in the foothills, a Dark Iron spy creepin' about the dam an' ogres on the north shore. I could go on, but I'd only depress us both." },
       },
       choices = {
-        { text = "Which troubles you most?", next = "threats_most" },
+        { text = "Something must trouble you more than the rest.", next = "threats_most" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,7 +148,7 @@ P:NPC {
         { id = "du_default", text = "Settle who owns which goat, fine whoever started the fight at the Stoutlager, an' make sure the bounty board's paid. It's dull work, but a town without it falls apart faster than ye'd think." },
       },
       choices = {
-        { text = "Who usually starts the fights?", next = "duties_fights" },
+        { text = "I'd wager it's the miners who start most of the fights.", next = "duties_fights" },
         { text = "Something else.", next = "BACK" },
       },
     },

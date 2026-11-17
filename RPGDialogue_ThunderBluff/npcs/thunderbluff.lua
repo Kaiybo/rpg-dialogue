@@ -43,7 +43,7 @@ P:NPC {
       choices = {
         { text = "They deserve a place among us. I'd trust mine with my life.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead belong in the earth, Chieftain, not in the Horde.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Do your elders still oppose them?", next = "xpt_cairne2" },
+        { text = "Your elders must still oppose them.", next = "xpt_cairne2" },
         { text = "Something else, Chieftain.", next = "BACK" },
       },
     },
@@ -125,7 +125,7 @@ P:NPC {
       lines = { { id = "wk1_default", text = "Long, and hungry, and loud with mourning. The Kolkar and their kin rode us down across the Barrens for more generations than our songs can count, and every season we lost the slowest of the herds, and sometimes the slowest of our own, and we buried our dead quickly because we could never stay to mourn them." } },
       choices = {
         { text = "How did Thrall come into it?", next = "walk_thrall" },
-        { text = "What did it cost you, Chieftain?", next = "walk2" },
+        { text = "It must have cost you dearly, Chieftain.", next = "walk2" },
         { text = "Something else, Chieftain.", next = "BACK" },
       },
     },
@@ -133,7 +133,7 @@ P:NPC {
       lines = { { id = "wkt_default", text = "He came upon my people as the centaur fell on us, and he and his orcs fought as though our calves were their own, though they owed us nothing. Afterwards I told him of the Oracle on Stonetalon Peak, because he was searching for a road for his people, and I think that small kindness was the beginning of everything since." } },
       choices = {
         { text = "That's a debt I'd honor too, Chieftain.", next = "BACK", fx = { affinity = 1 } },
-        { text = "And the Horde has had your word ever since?", next = "thrall" },
+        { text = "And the Horde has had your word ever since.", next = "thrall" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,7 +216,7 @@ P:NPC {
     ld_thrall = {
       lines = { { id = "ldt_default", text = "He is young, and he carries his whole people's shame on his shoulders as though he alone drank the demon's blood, which he did not. I counsel him as I would a son, and he listens more than he lets his warriors see, which is the mark of a leader who will last." } },
       choices = {
-        { text = "Do you ever disagree with him, Chieftain?", next = "ld_thrall2" },
+        { text = "You must disagree with him sometimes, Chieftain.", next = "ld_thrall2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -264,7 +264,7 @@ P:NPC {
       lines = { { id = "lda_default", text = "I've no love for the humans who herded the orcs into camps, and no hatred either, because Jaina Proudmoore keeps faith with Thrall from Theramore, and I will not throw that away over an old grudge. What troubles me lies closer to home, for the dwarves dig at Bael'dun in Mulgore's own earth and never asked whose land it was." } },
       choices = {
         { text = "My people mean the tauren no harm, Chieftain.", next = "ld_alliance2", when = { faction = "Alliance" } },
-        { text = "Should the Horde drive the dwarves out?", next = "ld_alliance2", when = { faction = "Horde" } },
+        { text = "The Horde should drive the dwarves out.", next = "ld_alliance2", when = { faction = "Horde" } },
         { text = "Something else, Chieftain.", next = "BACK" },
       },
     },
@@ -290,7 +290,7 @@ P:NPC {
       choices = {
         { text = "Tell me about the Grimtotem.", next = "bd_grimtotem" },
         { text = "What did the Venture Company do here?", next = "bd_venture" },
-        { text = "Will the centaur ever leave you be?", next = "bd_centaur" },
+        { text = "The centaur will never leave you be.", next = "bd_centaur" },
         { text = "Magatha says the tauren should reclaim the old lands.", next = "bd_lands" },
         { text = "And what weighs on you yourself, Chieftain?", next = "bd_age" },
         { text = "Something else, Chieftain.", next = "BACK" },
@@ -299,7 +299,7 @@ P:NPC {
     bd_grimtotem = {
       lines = { { id = "bdg_default", text = "They are tauren, and they are proud, and they believe the orcs and the humans and every other young race are a sickness on the land that ought to be burned out of it. They keep to the high places, in Thousand Needles and Stonetalon and further, and they have never forgiven me for bringing the tauren into the Horde." } },
       choices = {
-        { text = "Are they a danger to Thunder Bluff?", next = "bd_grimtotem2" },
+        { text = "They sound like a danger to Thunder Bluff.", next = "bd_grimtotem2" },
         { text = "I was born among them, Chieftain. I left.", next = "bd_grimtotem_born", when = { origin = "tauren_grimtotem_born" } },
         { text = "Something else.", next = "BACK" },
       },
@@ -326,7 +326,7 @@ P:NPC {
     bd_venture = {
       lines = { { id = "bdv_default", text = "The goblins of the Venture Company came asking to dig in Mulgore, and when we told them the land was not for sale, they fouled the wells our herds drink from and set their machines on our hills anyway. They are a people who think everything has a price, and they are learning that the tauren do not." } },
       choices = {
-        { text = "Are all goblins like that, Chieftain?", next = "bd_venture2" },
+        { text = "All goblins seem to be like that.", next = "bd_venture2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,7 +342,7 @@ P:NPC {
     bd_centaur = {
       lines = { { id = "bdc_default", text = "Not while either of us lives, I think, because the centaur have hated the tauren longer than our oldest songs reach back. The Kolkar still ride the Barrens, the Galak raid the Needles, and the Magram and Gelkis fight each other in Desolace when they are not fighting us, and not one of them has ever asked for peace." } },
       choices = {
-        { text = "Have you ever offered them peace?", next = "bd_centaur2" },
+        { text = "I'd guess you've offered them peace before.", next = "bd_centaur2" },
         { text = "Something else, Chieftain.", next = "BACK" },
       },
     },
@@ -403,11 +403,11 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde stands on Thunder Bluff. The Earth Mother has many children, and I am glad to welcome those who heal, whatever voice answers their prayers." },
       },
       choices = {
-        { text = "Do the tauren have room for priests, Chieftain?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The tauren may not have room for priests, Chieftain.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How did the tauren come to Mulgore?", next = "mulgore" },
         { text = "Why do you follow Thrall?", next = "thrall" },
         { text = "Tell me of the Horde's other leaders, Chieftain.", next = "leaders" },
-        { text = "What weighs on you, Chieftain?", next = "burdens" },
+        { text = "Something seems to weigh on you, Chieftain.", next = "burdens" },
         { text = "I was a calf on the long walk, Chieftain.", next = "walk_calf", when = { origin = "tauren_long_migration" } },
         { text = "My mother hunted plainstriders at Red Cloud Mesa.", next = "o_narache", when = { origin = "tauren_narache_hunter" } },
         { text = "I ran messages between Taurajo and the Crossroads, Chieftain.", next = "o_runner", when = { origin = "tauren_plains_runner" } },
@@ -422,7 +422,7 @@ P:NPC {
         { text = "I'm a warrior. Teach me how you fought, chieftain.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "The Earth Mother's spirits answer me now.", next = "shaman", when = { race = "Tauren", class = "SHAMAN" } },
         { text = "My work is done in shadow, chieftain. Is there honor in it?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do the tauren fear the arcane, chieftain?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "The tauren seem to fear the arcane, chieftain.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a hunt teach the tauren, Cairne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You allied with a Horde that has warlocks, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The Scourge are broken in Razorfen Downs, Chieftain.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
@@ -444,7 +444,7 @@ P:NPC {
       choices = {
         { text = "There's no way back. I want only vengeance on the Scourge.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "If there's a cure, I'll take it gladly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Do the other tribes agree with you?", next = "forsaken_tribes" },
+        { text = "The other tribes must not all agree with you.", next = "forsaken_tribes" },
       },
     },
     forsaken_tribes = {
@@ -584,7 +584,7 @@ P:NPC {
       choices = {
         { text = "Some things in nature shouldn't be forced, however good the cause.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Naralex was right to try. Caution never healed anything.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Did you know Naralex yourself?", next = "xcl_wc2" },
+        { text = "You must have known Naralex yourself.", next = "xcl_wc2" },
       },
     },
     xcl_wc2 = {
@@ -698,10 +698,10 @@ P:NPC {
         { text = "I'm a druid of the sky isles. Will the Circle have me?", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The elements speak to me. Is that so different from the wild?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Does the wild have any place for my kind?", next = "forsaken", when = { race = "Scourge" } },
-        { text = "Did Malfurion ever speak of the arcane, Arch Druid?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Malfurion must have spoken of the arcane.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What did Malfurion mean by patient warriors, Arch Druid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do the druids watch over Mulgore's beasts, Arch Druid?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Would the Cenarion Circle ever accept a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The druids must watch over Mulgore's beasts, Arch Druid.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "The Cenarion Circle might accept a warlock someday.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a rogue learn from a druid, Arch Druid?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Will the druids accept a Forsaken paladin, Arch Druid?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went into the Wailing Caverns to wake Naralex, Arch Druid.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
@@ -724,7 +724,7 @@ P:NPC {
       lines = { { id = "sk_default", text = "It will, though Fandral will make a face about it, and so will some of mine. You come to the wild through the elements rather than through Elune or the Earth Mother, and I think the Circle could learn something from that, if it's willing." } },
       choices = {
         { text = "Then I'll show them, gently.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } },
-        { text = "Does it trouble you, the difference?", next = "skyborne_trouble" },
+        { text = "The difference must trouble you.", next = "skyborne_trouble" },
       },
     },
     skyborne_trouble = {
@@ -916,7 +916,7 @@ P:NPC {
         { text = "A cat druid moves as quietly as I do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is the arcane part of the Great Balance, Turak?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do druids think of warriors, Turak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Can a warlock keep the balance, Turak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "A warlock can't keep the balance, I'd guess.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Am I out of balance, Turak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Princess Theradras is defeated, Turak.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
@@ -1040,7 +1040,7 @@ P:NPC {
       choices = {
         { text = "Power like hers belongs to those strong enough to claim it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "The earth's power should be respected, Elder Crone, not seized.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Do the Grimtotem honour the earth's anger?", next = "xcl_mara2" },
+        { text = "The Grimtotem seem to honour the earth's anger.", next = "xcl_mara2" },
       },
     },
     xcl_mara2 = {
@@ -1145,7 +1145,7 @@ P:NPC {
       },
       choices = {
         { text = "What do the Forsaken priests tell you, Magatha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What do you think of Cairne?", next = "cairne" },
+        { text = "You must have opinions about Cairne.", next = "cairne" },
         { text = "What do the Grimtotem want?", next = "want" },
         { text = "Then let's test it. Whose voice do the elements prefer?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "What can your ways give back to my people?", next = "forsaken", when = { race = "Scourge" } },
@@ -1153,9 +1153,9 @@ P:NPC {
         { text = "Hamuul made me a druid. You disapprove.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I'm the sort who keeps secrets, Elder Crone.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Your earth magic and my arcane aren't so different.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do you need protection on Elder Rise, Magatha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "You might need protection on Elder Rise, Magatha.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the Grimtotem hunt, Magatha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do the Grimtotem fear demons, Elder Crone?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The Grimtotem must fear demons, Elder Crone.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you see in me, Magatha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I defeated Princess Theradras in Maraudon, Elder Crone.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "My companion is Forsaken. Will you speak plainly about it?", next = "xpt_magatha", when = { party = { race = "Scourge" } } },
@@ -1378,15 +1378,15 @@ P:NPC {
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "Some of the young druids came through the Cat and the Shaman saying a stranger had been down the Wailing Caverns ahead of them. Sit down, because anyone who's breathed that air needs a bowl of something hot." },
       },
       choices = {
-        { text = "Do travellers often need healing at your inn, Pala?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Travellers must often need healing at your inn, Pala.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Why 'the Cat and the Shaman'?", next = "name" },
-        { text = "Do the Forsaken ever stay here?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I'd guess few Forsaken stay here.", next = "forsaken", when = { race = "Scourge" } },
         { text = "Why is your inn called the Cat and the Shaman, Pala?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Your guests leave their packs unattended, Pala.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Your stew's gone cold, Pala. Shall I warm it with a spell?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do warriors behave in your inn, Pala?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do hunters bring you game for the stew, Pala?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess warriors behave in your inn, Pala.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Hunters must bring you game for the stew, Pala.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the druids and shamans argue about, Pala?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Is a warlock welcome at the Cat and the Shaman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does Thunder Bluff welcome paladins, Pala?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },

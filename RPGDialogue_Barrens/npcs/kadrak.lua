@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "Why is the Horde pushing into Ashenvale?", next = "ashenvale" },
         { text = "Tell me about the Warsong.", next = "warsong" },
-        { text = "What are the night elves like?", next = "elves" },
+        { text = "The night elves must be hard enemies in those woods.", next = "elves" },
         { text = "I'm Warsong blood too.", next = "kin", when = { race = "Orc" } },
         { text = "Where did that runed scroll come from?", next = "scroll", when = { questDone = TODO_QUEST("The Runed Scroll") } },
         { text = "Give me orders.", next = "BUSINESS" },

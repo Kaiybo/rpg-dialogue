@@ -49,8 +49,8 @@ P:NPC {
         { id = "h_again2", text = "I am listening, friend, though the potion is not." },
       },
       choices = {
-        { text = "What potion are you making?", next = "potion" },
-        { text = "Why do the Ancients fear that cave?", next = "cave" },
+        { text = "That potion smells strong.", next = "potion" },
+        { text = "It's strange that the Ancients fear that cave.", next = "cave" },
         { text = "Why not go yourself?", next = "coward" },
         { text = "Tell me about Onu.", next = "onu_b" },
         { text = "I found naga in the cave.", next = "naga", when = { questDone = TODO_QUEST("Cave Mushrooms") } },
@@ -80,10 +80,10 @@ P:NPC {
 
     cave = {
       lines = {
-        { id = "ca_default", text = "They did not say, and I did not presume to ask more than once. The Ancients speak slowly, and they speak of what they feel rather than what they see, so all I know is that something has come to Darkshore that was not here before." },
+        { id = "ca_default", text = "They did not say why, and I did not presume to ask more than once. The Ancients speak slowly, and they speak of what they feel rather than what they see, so all I know is that something has come to Darkshore that was not here before." },
       },
       choices = {
-        { text = "And you sent me there anyway?", next = "cave_sent" },
+        { text = "And still you sent me there.", next = "cave_sent" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,7 +114,7 @@ P:NPC {
         { id = "ob_default", text = "Onu is an Ancient of Lore at the Grove, to the south near the mountains. He has watched this coast longer than Auberdine has stood, and he does not ask to see anyone without reason." },
       },
       choices = {
-        { text = "What should I say to him?", next = "onu_say" },
+        { text = "I'm not sure what to say to him.", next = "onu_say" },
         { text = "Something else.", next = "BACK" },
       },
     },

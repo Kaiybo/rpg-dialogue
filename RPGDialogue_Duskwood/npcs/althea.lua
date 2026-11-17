@@ -134,9 +134,9 @@ P:NPC {
       choices = {
         { text = "Can Duskwood still be healed?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's out in the woods?", next = "woods" },
-        { text = "How can I help the Watch?", next = "help" },
-        { text = "Who are your watchers?", next = "watchers" },
-        { text = "What is Mor'Ladim?", next = "morladim" },
+        { text = "I'd like to help the Watch.", next = "help" },
+        { text = "Your watchers don't look like soldiers.", next = "watchers" },
+        { text = "Your watchers speak of Mor'Ladim with dread.", next = "morladim" },
         { text = "You and the mayor are kin?", next = "ello" },
         { text = "Let me tend your wounded watchers.", next = "priest", when = { class = "PRIEST" } },
         { text = "Did Stalvan Mistmantle do it?", next = "stalvan", when = { topicKnown = "stalvan" } },
@@ -160,7 +160,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll take them all.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1, learn = { "worgen" } } },
-        { text = "How do you live like this?", next = "live" },
+        { text = "I don't know how anyone lives like this.", next = "live" },
         { text = "Where do the dead come from?", next = "woods_dead" },
       },
     },
@@ -212,7 +212,7 @@ P:NPC {
         { id = "wa_default", text = "Farmers, bakers, a tanner, and two brothers who never agree on anything. Stormwind pulled its guards out, so we trained our own, and they're good." },
       },
       choices = {
-        { text = "Do they get paid?", next = "watchers_pay" },
+        { text = "I'd guess the pay is poor.", next = "watchers_pay" },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
       },
     },
@@ -264,7 +264,7 @@ P:NPC {
         { id = "el_default", text = "Kin, yes. He talks to Stormwind and I talk to the dead, mostly with a pike, and we each think the other is wasting their time. We're both right." },
       },
       choices = {
-        { text = "Does he know you think that?", next = "ello_know" },
+        { text = "I'd wager he knows you think that.", next = "ello_know" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -366,13 +366,13 @@ P:NPC {
           text = "A dwarf on my roster would steady the young ones, since they think anything short and armoured is too stubborn to die. Stand from dusk to dawn, and don't let them see you yawn." },
       },
       choices = {
-        { text = "Why is dawn the worst of it?", next = "warrior_dawn" },
+        { text = "I'd have thought dawn was the safest hour.", next = "warrior_dawn" },
         { text = "Orders are orders. Tell me where to stand.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { darkshire = 1 } } },
         { text = "I'd rather hunt them in the woods than wait at a wall.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
     warrior_dawn = {
-      lines = { { id = "cwd_default", text = "Because the worgen know it too. We lost two watchers last spring in the grey hour, men who'd lowered their shields because the sky was turning pink." } },
+      lines = { { id = "cwd_default", text = "Everyone thinks so, and the worgen know it too. We lost two watchers last spring in the grey hour, men who'd lowered their shields because the sky was turning pink." } },
       choices = {
         { text = "I'll keep my shield up.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Something else, Commander.", next = "BACK" },

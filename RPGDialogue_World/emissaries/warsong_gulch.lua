@@ -56,10 +56,10 @@ P:NPC {
       },
       choices = {
         { text = "What is Warsong Gulch?", next = "gulch" },
-        { text = "Why does the Warsong clan cut the forest?", next = "mill" },
+        { text = "The Warsong clan seems bent on cutting the whole forest.", next = "mill" },
         { text = "How does the fighting there work?", next = "flags" },
         { text = "What do the Marks of Honor mean to the Sentinels?", next = "marks" },
-        { text = "How do you find it, standing in this city?", next = "city" },
+        { text = "You seem out of place among these walls.", next = "city" },
         { text = "Did the Warsong really kill Cenarius?", next = "x_druid", when = { class = "DRUID" } },
         { text = "Our ancestors' forest is dying. What would you have me do?", next = "k_nelf", when = { race = "NightElf" } },
         { text = "Dwarves fight for stone, lass. Why should we bleed for trees?", next = "k_dwarf", when = { race = "Dwarf" } },
@@ -79,7 +79,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do the Warsong want that valley in particular?", next = "gulch_why" },
-        { text = "Who holds Silverwing Hold?", next = "gulch_hold" },
+        { text = "Silverwing Hold must be well defended.", next = "gulch_hold" },
         { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
@@ -108,7 +108,7 @@ P:NPC {
       },
       choices = {
         { text = "Couldn't they take wood from somewhere else?", next = "mill_else" },
-        { text = "Is there no peace to be made with them?", next = "mill_peace" },
+        { text = "Surely some peace could be made with them.", next = "mill_peace" },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -146,7 +146,7 @@ P:NPC {
       },
       choices = {
         { text = "Why a banner? Why not simply burn the mill?", next = "flags_why" },
-        { text = "What makes a good flag-runner?", next = "flags_run" },
+        { text = "A flag-runner must need more than fast legs.", next = "flags_run" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -327,7 +327,7 @@ P:NPC {
       },
       choices = {
         { text = "What is Warsong Gulch?", next = "gulch" },
-        { text = "Why does the Horde need Ashenvale's wood?", next = "wood" },
+        { text = "I'd have thought the Horde had wood enough at home.", next = "wood" },
         { text = "How does the fighting go there?", next = "flags" },
         { text = "What are these Marks of Honor worth to you?", next = "marks" },
         { text = "Tell me about Hellscream's clan.", next = "grom" },
@@ -349,7 +349,7 @@ P:NPC {
       },
       choices = {
         { text = "What's the mill like?", next = "gulch_mill" },
-        { text = "Who are the Silverwing?", next = "gulch_elves" },
+        { text = "I've heard the Silverwing are hard to fight.", next = "gulch_elves" },
         { text = "Something else, Outrider.", next = "BACK" },
       },
     },
@@ -377,7 +377,7 @@ P:NPC {
         { id = "wd_uc", when = { zone = "Undercity" }, text = "Your Forsaken have a whole dead city to build from, but in Durotar we have red rock and thorns and nothing more. Without timber we can't build houses or ships or wagons, so the Horde goes north, because the Horde has to live somewhere." },
       },
       choices = {
-        { text = "Couldn't you trade for wood instead?", next = "wood_trade" },
+        { text = "You could trade for wood instead.", next = "wood_trade" },
         { text = "The night elves say the forest is sacred.", next = "wood_sacred" },
         { text = "Something else.", next = "BACK" },
       },
@@ -407,7 +407,7 @@ P:NPC {
       },
       choices = {
         { text = "Why a banner? Why not just burn their hold?", next = "flags_why" },
-        { text = "What does it take to carry the flag?", next = "flags_run" },
+        { text = "Carrying the flag must take some nerve.", next = "flags_run" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,7 +461,7 @@ P:NPC {
     grom_god = {
       lines = { { id = "gg_default", text = "Cenarius, they call him, and he came at us with the trees themselves as his army. The night elves say we owe them for it forever, but he struck first and we answered, and that's the way of war." } },
       choices = {
-        { text = "And then Hellscream freed you?", next = "grom_free" },
+        { text = "So Hellscream freed you in the end.", next = "grom_free" },
         { text = "Something else.", next = "BACK" },
       },
     },

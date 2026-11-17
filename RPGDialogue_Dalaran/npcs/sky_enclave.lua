@@ -57,9 +57,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask away. Visitors are the best part of this post." },
       },
       choices = {
-        { text = "What's the skycutter?", next = "skycutter" },
+        { text = "That skycutter is a strange-looking ship.", next = "skycutter" },
         { text = "What kind of trouble should I expect here?", next = "trouble" },
-        { text = "Is the city really safe?", next = "safe" },
+        { text = "This city doesn't look all that safe to me.", next = "safe" },
         { text = "How long have you kept this post?", next = "post" },
         { text = "Can I ride that ship home to Valanaar?", next = "xhome", when = { race = "Skyborne" } },
         { text = "You laughed just now. Is it really that bad?", next = "xmage", when = { class = "MAGE" } },
@@ -73,7 +73,7 @@ P:NPC {
         { id = "sc_default", key = true, text = "It's the ship that runs between this landing and Valanaar on Zephras Isle, which is up in Skywall, in the Plane of Air, if you can believe it. Archmage Ansirem worked a long while to make the crossing steady, and steady is a generous word for it." },
       },
       choices = {
-        { text = "Can anyone ride it?", next = "skycutter_any" },
+        { text = "I'd guess not just anyone can ride it.", next = "skycutter_any" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,7 +134,7 @@ P:NPC {
         { id = "po_default", text = "Only since the dome came down, so not long. They wanted someone cheerful at the landing, and I am cheerful, mostly, whenever the ship comes in on time." },
       },
       choices = {
-        { text = "Are you a magus of the Kirin Tor?", next = "post_rank" },
+        { text = "You have the look of a Kirin Tor magus.", next = "post_rank" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -226,7 +226,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? I've nowhere to be but here, and the ley lines under this city are louder than anything I knew on Zephras, so I'm glad of a voice to listen to instead." },
       },
       choices = {
-        { text = "Why only Skyborne through the portal?", next = "only" },
+        { text = "Only Skyborne come through that portal, I notice.", next = "only" },
         { text = "What's this part of the city?", next = "enclave" },
         { text = "What did you make of Stormwind?", next = "stormwind" },
         { text = "Do you miss Zephras?", next = "xmiss", when = { race = "Skyborne" } },
@@ -247,7 +247,7 @@ P:NPC {
         { id = "en_default", key = true, text = "The Sky Enclave, the corner of Dalaran the Kirin Tor set aside for the High Order. Belanaa takes in cloth for our people, Alfina teaches our druids, and the cats wander through as if they signed the agreement." },
       },
       choices = {
-        { text = "Who's Alfina?", next = "alfina" },
+        { text = "I don't know this Alfina you mention.", next = "alfina" },
         { text = "Why do your people need cloth?", next = "cloth" },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
@@ -332,7 +332,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else I can tell you? Winds be with you, whatever you need." } },
       choices = {
         { text = "Why does the High Order need cloth?", next = "why" },
-        { text = "Does clothcraft matter to your people?", next = "craft" },
+        { text = "Your people seem to set great store by clothcraft.", next = "craft" },
         { text = "I have cloth for you.", next = "BUSINESS" },
         { text = "Winds be with you.", next = "END" },
       },
@@ -404,8 +404,8 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've seedlings to see to, but they're patient." } },
       choices = {
         { text = "Why would a druid teach in Dalaran?", next = "why" },
-        { text = "What does all this magic do to the land?", next = "land" },
-        { text = "The Skyborne have druids?", next = "skydruids" },
+        { text = "All this magic can't be good for the land.", next = "land" },
+        { text = "I didn't know the Skyborne had druids.", next = "skydruids" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Does Darnassus know you're here?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Do my spells trouble you?", next = "xmage", when = { class = "MAGE" } },

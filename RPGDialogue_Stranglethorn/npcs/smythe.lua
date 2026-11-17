@@ -72,7 +72,7 @@ P:NPC {
         { text = "Smythe? I've heard that name before.", next = "name" },
         { text = "Do you ever think about going home?", next = "home" },
         { text = "I'm from Stormwind too, Markel.", next = "k_human", when = { race = "Human" } },
-        { text = "A human who doesn't mind trading with the Horde?", next = "k_horde", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "A human who doesn't mind trading with the Horde is a rare thing.", next = "k_horde", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "You don't flinch at me, human. Why not?", next = "k_forsaken", when = { race = "Scourge" } },
         { text = "Goblin contracts must give you terrible headaches.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "You've never seen one of my people, have you?", next = "k_sky", when = { race = "Skyborne" } },
@@ -81,7 +81,7 @@ P:NPC {
         { text = "A witness swears an oath. Who do you swear to?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Do people ever confess things to you?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Has a mage ever tried to fool your eyes?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Have you ever witnessed a bargain with a demon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I'd wager you've witnessed a bargain with a demon or two.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do hunters bring their wagers to you?", next = "xhunt", when = { class = "HUNTER" } },
         { text = "Does the jungle ever trouble you, up here?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The spirits are witnesses too, Markel. Did you know that?", next = "xsham", when = { class = "SHAMAN" } },
@@ -104,7 +104,7 @@ P:NPC {
     salvage_hulk = {
       lines = { { id = "svh_default", text = "Chained us below in an old hulk off the Wild Shore while they wrote ransom letters to anyone who might pay, and nobody did. They took my boots, too, and to this day I look at every Bloodsail that washes up in the cove, hoping he's wearing them." } },
       choices = {
-        { text = "So who got you out of there?", next = "salvage_fee" },
+        { text = "Somebody must have got you out of there.", next = "salvage_fee" },
         { text = "I hope you find those boots someday.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "bloodsail" } } },
       },
     },
@@ -167,7 +167,7 @@ P:NPC {
         { text = "What do you make of Baron Revilgaz?", next = "baron" },
         { text = "And the Bruisers?", next = "bruisers" },
         { text = "Tell me about the Salty Sailor.", next = "salty" },
-        { text = "Who's this Strom everyone mentions?", next = "strom" },
+        { text = "Everyone keeps mentioning this Strom.", next = "strom" },
         { text = "Blackwater Raiders or Bloodsail: what's the difference to you?", next = "pirates" },
         { text = "Enough about the neighbors.", next = "hello" },
       },
@@ -247,7 +247,7 @@ P:NPC {
     name = {
       lines = { { id = "nm_default", text = "I don't doubt it, because it's a common name, Smythe, and you can't throw a bucket in a human port without wetting one of us. Every so often a sailor tells me he met a Smythe somewhere or other, and I always ask whether that one owes me money." } },
       choices = {
-        { text = "Are you related to any of them?", next = "name_kin" },
+        { text = "You might be related to some of them.", next = "name_kin" },
         { text = "Markel's not so common, at least.", next = "BACK", fx = { affinity = 1 } },
       },
     },

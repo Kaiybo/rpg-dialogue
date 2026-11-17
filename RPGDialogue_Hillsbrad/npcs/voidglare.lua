@@ -58,7 +58,7 @@ P:NPC {
       choices = {
         { text = "Why do you want Dalaran so badly?", next = "dalaran" },
         { text = "Who were the thieves?", next = "thieves" },
-        { text = "What do you research here?", next = "research" },
+        { text = "Your notes look like serious research, Magus.", next = "research" },
         { text = "What will you do with the arcane mote?", next = "mote", when = { questDone = TODO_QUEST("Heart of Disruption") } },
         { text = "I studied in Dalaran, once.", next = "apprentice", when = { origin = "forsaken_dalaran_apprentice" } },
         { text = "Good day, Magus.", next = "END" },
@@ -100,7 +100,7 @@ P:NPC {
         { id = "th_default", text = "Four Forsaken, Kegan among them, who turned their backs on their brethren and broke into a secure vault for artifacts our apothecaries required. They fled to Dalaran, perhaps hoping for sanctuary, and the wizards caged them like any other trespasser." },
       },
       choices = {
-        { text = "Why would they steal from Sylvanas?", next = "thieves_why" },
+        { text = "Stealing from Sylvanas seems a foolish thing to do.", next = "thieves_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -213,7 +213,7 @@ P:NPC {
       },
       choices = {
         { text = "How do the wizards bind elementals?", next = "binding" },
-        { text = "What's it like working for Voidglare?", next = "magus" },
+        { text = "Working for Voidglare can't be easy.", next = "magus" },
         { text = "What was that about your timing?", next = "timing" },
         { text = "I've bound a creature or two myself.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Good day, Keeper.", next = "END" },
@@ -225,7 +225,7 @@ P:NPC {
         { id = "bi_default", text = "Stone tokens hold the command, and bracers set round the elemental's wrists hold the creature. Together they make a servant of a thing that would otherwise tear its summoner into gravel." },
       },
       choices = {
-        { text = "Is it cruel, binding them like that?", next = "binding_cruel" },
+        { text = "Binding them like that seems cruel.", next = "binding_cruel" },
         { text = "Something else.", next = "BACK" },
       },
     },

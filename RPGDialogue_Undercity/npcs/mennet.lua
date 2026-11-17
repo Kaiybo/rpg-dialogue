@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "What are the Deathstalkers?", next = "deathstalkers" },
         { text = "What happens to people who ignore your summons?", next = "summons" },
-        { text = "Andron Gant. What do you make of him?", next = "andron", when = { questDone = TODO_QUEST("The Deathstalkers") } },
+        { text = "Andron Gant seems to know a great many people.", next = "andron", when = { questDone = TODO_QUEST("The Deathstalkers") } },
         { text = "Who was Fenwick Thatros?", next = "fenwick", when = { questDone = TODO_QUEST("Fenwick Thatros") } },
         { text = "Teach me something, Mennet.", next = "lesson", when = { class = "ROGUE" } },
         { text = "What do you need from me?", next = "BUSINESS" },
@@ -72,7 +72,7 @@ P:NPC {
     deathstalkers_join = {
       lines = { { id = "dj_default", text = "By passing tests you don't know you're taking, mostly. I won't lie to you: some of those tests have killed better candidates than you, and the ones who pass don't talk about it." } },
       choices = {
-        { text = "And you serve Varimathras willingly?", next = "deathstalkers_lord" },
+        { text = "You don't sound fond of serving Varimathras.", next = "deathstalkers_lord" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,7 +89,7 @@ P:NPC {
     summons = {
       lines = { { id = "su_default", text = "Nothing dramatic. They simply stop being people I send for, and then, after a while, they stop being people anyone sends for." } },
       choices = {
-        { text = "That's a threat, isn't it?", next = "summons_threat" },
+        { text = "That sounds like a threat.", next = "summons_threat" },
         { text = "Something else.", next = "BACK" },
       },
     },

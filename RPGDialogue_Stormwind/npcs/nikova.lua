@@ -66,8 +66,8 @@ P:NPC {
         { id = "h_again3", text = "Well? I'm listening, though my ears aren't what they were." },
       },
       choices = {
-        { text = "Who was Mac?", next = "mac" },
-        { text = "What happened in the Stockade?", next = "death" },
+        { text = "You spoke of Mac as if you loved him.", next = "mac" },
+        { text = "Something happened in the Stockade, I take it.", next = "death" },
         { text = "Why the bandanas?", next = "bandanas" },
         { text = "What's Old Town like these days?", next = "oldtown" },
         { text = "I stood shifts at the Stockade. I knew him, a little.", next = "xguard", when = { origin = "human_city_guard" } },
@@ -85,7 +85,7 @@ P:NPC {
       },
       choices = {
         { text = "How did a boy end up guarding the Stockade?", next = "mac_guard" },
-        { text = "What was he like?", next = "mac_like" },
+        { text = "He sounds like he was a good lad.", next = "mac_like" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,7 +144,7 @@ P:NPC {
           fx = { learn = { "defias" } } },
       },
       choices = {
-        { text = "Was the man who did it caught?", next = "death_who" },
+        { text = "I hope the man who did it was caught.", next = "death_who" },
         { text = "The Defias have earned the rope, every one.", next = "death_who", fx = { align = { light = -1 } } },
         { text = "Some of those prisoners are just hungry men, Nikova.", next = "death_hungry", fx = { affinity = -2, align = { light = 1 } } },
       },

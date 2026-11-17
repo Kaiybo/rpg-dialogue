@@ -38,7 +38,7 @@ P:NPC {
       choices = {
         { text = "How do the wind riders bear the sand?", next = "sand" },
         { text = "You share the courtyard with the elves' hippogryphs?", next = "cloud" },
-        { text = "Can I meet your riders?", next = "riders", when = { class = { "HUNTER", "DRUID", "SHAMAN" } } },
+        { text = "I'd like to meet your riders.", next = "riders", when = { class = { "HUNTER", "DRUID", "SHAMAN" } } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Farewell, Runk.", next = "END" },
       },
@@ -116,7 +116,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I can preen and listen at the same time." },
       },
       choices = {
-        { text = "How do your birds stand the desert?", next = "desert" },
+        { text = "Your birds don't look happy in this desert.", next = "desert" },
         { text = "What do you think of the wind riders?", next = "runk" },
         { text = "Do you sing to them?", next = "sing", when = { class = { "DRUID", "PRIEST" } } },
         { text = "I need a flight.", next = "BUSINESS" },
@@ -137,7 +137,7 @@ P:NPC {
     runk = {
       lines = { { id = "r_default", text = "Runk's a quiet sort, and his beasts are uglier than mine, though I'd never say it to his face. We nod in the mornings, and once he lent me a bucket, which out here is practically a treaty." } },
       choices = {
-        { text = "Can the Horde be trusted, though?", next = "runk_stance" },
+        { text = "I'm not sure the Horde can be trusted.", next = "runk_stance" },
         { text = "Something else.", next = "BACK" },
       },
     },

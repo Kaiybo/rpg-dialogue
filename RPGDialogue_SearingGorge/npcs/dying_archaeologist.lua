@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to your unit?", next = "unit" },
-        { text = "What is the Altar of Suntara?", next = "altar" },
+        { text = "That altar looks older than anything the Dark Irons ever built.", next = "altar" },
         { text = "Who betrayed you?", next = "traitor", when = { questDone = TODO_QUEST("Release Them") } },
         { text = "Let me tend your wounds.", next = "wounds" },
         { text = "Let me pray over you, at least.", next = "xpray", when = { class = { "PRIEST", "PALADIN", "SHAMAN" } } },
@@ -112,7 +112,7 @@ P:NPC {
         { id = "tr_default", text = "Lathoric the Black, he calls himself now, and he led us into it smiling, and then he called up Obsidion to guard what we'd dug. I'll not tell ye who he was before, friend, because that's for Thorius to hear first." },
       },
       choices = {
-        { text = "What is Obsidion?", next = "traitor_obsidion" },
+        { text = "That name Obsidion sounds like nothing I'd care to meet.", next = "traitor_obsidion" },
         { text = "Something else.", next = "BACK" },
       },
     },

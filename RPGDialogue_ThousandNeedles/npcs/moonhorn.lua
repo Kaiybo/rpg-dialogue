@@ -45,7 +45,7 @@ P:NPC {
       },
       choices = {
         { text = "What are the centaur doing?", next = "centaur" },
-        { text = "What's wrong with the Grimtotem?", next = "grimtotem" },
+        { text = "The Grimtotem seem unfriendly.", next = "grimtotem" },
         { text = "Tell me about the Great Lift.", next = "lift" },
         { text = "The Grimtotem are tauren. Why fear them?", next = "kin", when = { race = "Tauren" } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -55,7 +55,7 @@ P:NPC {
     centaur = {
       lines = { { id = "c_default", text = "The Galak used to keep to the canyons below, raiding a caravan now and then. Now they come up onto the mesas in bands, and they don't run when we come out to meet them." } },
       choices = {
-        { text = "What changed?", next = "changed" },
+        { text = "Something must have changed.", next = "changed" },
         { text = "Something else, Moonhorn.", next = "BACK" },
       },
     },

@@ -174,7 +174,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the Dark Iron.", next = "dark" },
-        { text = "Where have your axes gone?", next = "reserve" },
+        { text = "The Alliance seems to have most of your axes already.", next = "reserve" },
         { text = "I'll lend mine.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Keep your axes at home, Your Majesty, because Ironforge comes first.", next = "BACK", fx = { align = { honor = -1 } } },
       },
@@ -204,7 +204,7 @@ P:NPC {
         { id = "rs_default", text = "At the Alliance's front, mostly. The Reserve's been called up, so Loch Modan holds wi' half a garrison an' Captain Rugelfuss countin' troggs in his sleep." },
       },
       choices = {
-        { text = "Should Ironforge send so many?", next = "reserve_why" },
+        { text = "That's a great many soldiers to send away.", next = "reserve_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -315,7 +315,7 @@ P:NPC {
         { id = "gn_default", text = "Their city was poisoned an' overrun, an' ours had room. That's the whole of it, an' anyone who tells ye otherwise wants somethin' from ye." },
       },
       choices = {
-        { text = "Did your people mind?", next = "gnomes_mind" },
+        { text = "Your people can't all have welcomed them.", next = "gnomes_mind" },
         { text = "And the tram?", next = "tram" },
         { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } },
       },
@@ -341,7 +341,7 @@ P:NPC {
         { id = "li_default", text = "Up from the humans, after the Second War. The Silver Hand took some o' my folk intae its ranks, an' the Church's teachin' came wi' them. Now Rohan keeps a whole hall for it." },
       },
       choices = {
-        { text = "Do you follow the Light yourself?", next = "light_self" },
+        { text = "You don't strike me as a dwarf who follows the Light.", next = "light_self" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,7 +380,7 @@ P:NPC {
         { id = "in_default", text = "Ha! Old Farsen saw Dark Iron tunnels from a hill in Dun Morogh before my own guards saw 'em under their boots. I'll be hearin' about that for years." },
       },
       choices = {
-        { text = "Are the breaches sealed?", next = "incursion_sealed" },
+        { text = "I hope the breaches have been sealed.", next = "incursion_sealed" },
         { text = "Something else.", next = "BACK" },
       },
     },

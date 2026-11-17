@@ -54,8 +54,8 @@ P:NPC {
       },
       choices = {
         { text = "Who are the druids you guard?", next = "sleeping" },
-        { text = "What happened to the Gnarlpine?", next = "gnarlpine" },
-        { text = "What happened here in Starbreeze?", next = "village" },
+        { text = "The Gnarlpine seem to have gone mad.", next = "gnarlpine" },
+        { text = "Starbreeze looks as if it was overrun.", next = "village" },
         { text = "Tallonkai says you gave him his dreamcatcher.", next = "dreamcatcher", when = { any = { { questActive = TODO_QUEST("The Emerald Dreamcatcher") }, { questDone = TODO_QUEST("The Emerald Dreamcatcher") } } } },
         { text = "Will I one day sleep in the Dream myself?", next = "druid_g", when = { class = "DRUID" } },
         { text = "Let me look at that wound.", next = "heal_g", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "You did your duty. There's no shame in it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Did they take anything that matters?", next = "village_take" },
+        { text = "It looks as though they carried off whatever they could.", next = "village_take" },
       },
     },
     village_take = {

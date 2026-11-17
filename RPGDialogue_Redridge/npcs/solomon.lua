@@ -128,7 +128,7 @@ P:NPC {
       choices = {
         { text = "The orcs are stripping the Redridge hills bare for timber.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What does Lakeshire need?", next = "need" },
-        { text = "Why won't Stormwind help?", next = "stormwind" },
+        { text = "Stormwind seems in no hurry to help.", next = "stormwind" },
         { text = "What happened at Stonewatch Keep?", next = "stonewatch" },
         { text = "Tell me about the Court of Lakeshire.", next = "court" },
         { text = "I can tend your wounded, Magistrate.", next = "priest", when = { class = "PRIEST" } },
@@ -143,7 +143,7 @@ P:NPC {
         { text = "Gnomeregan knows what it is to lose a city.", next = "gnome", when = { race = "Gnome" } },
         { text = "Someone in Stormwind may be reading your letters before the nobles do.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Morganth's tower belonged to a wizard once, didn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Has Stormwind answered your letters, Magistrate?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Stormwind seems slow to answer your letters, Magistrate.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Drakkisath is dead, Magistrate. Dragons stood behind the orcs, as you said.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
@@ -183,7 +183,7 @@ P:NPC {
           text = "The Highlord told Westfall the kingdom is stretched thin? He told me the same, almost word for word. I begin to think someone is writing his answers for him." },
       },
       choices = {
-        { text = "Who did you write to?", next = "letters" },
+        { text = "You must have written to half the kingdom.", next = "letters" },
         { text = "The kingdom's failing you.", next = "BACK", fx = { opinion = { westfall = "abandoned" }, affinity = 1 } },
         { text = "Maybe the city has its reasons.", next = "reasons", fx = { opinion = { westfall = "patience" } } },
       },
@@ -237,7 +237,7 @@ P:NPC {
           fx = { learn = { "westfall", "night_watch" } } },
       },
       choices = {
-        { text = "You think someone at court wants Lakeshire to fall?", next = "amiss_court" },
+        { text = "It sounds as if someone at court wants Lakeshire to fall.", next = "amiss_court" },
         { text = "Lady Prestor counsels patience at court.", next = "prestor", when = { heardClaim = "prestor_patience" } },
         { text = "Something else.", next = "BACK" },
       },
@@ -272,7 +272,7 @@ P:NPC {
       },
       choices = {
         { text = "Who is Gath'Ilzogg?", next = "gath" },
-        { text = "Morganth turned on his own allies?", next = "morganth" },
+        { text = "So Morganth turned on his own allies.", next = "morganth" },
         { text = "Was anyone taken alive?", next = "keeshan" },
         { text = "Something else.", next = "BACK" },
       },
@@ -329,7 +329,7 @@ P:NPC {
       },
       choices = {
         { text = "What does the law say about the gnolls?", next = "court_law" },
-        { text = "Has Lakeshire always been this embattled?", next = "court_history" },
+        { text = "Lakeshire seems to have known little peace.", next = "court_history" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -368,7 +368,7 @@ P:NPC {
           journal = { first = "Magistrate Solomon told me Lakeshire has no priest of its own. I said I'd see to the wounded.",
                       third = "{name} offered to tend Lakeshire's wounded." } },
         { text = "I'm not here to nurse anyone, Magistrate.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "Has the Church sent no one?", next = "priest_church" },
+        { text = "I'd have thought the Church would send someone.", next = "priest_church" },
       },
     },
     priest_church = {
@@ -485,7 +485,7 @@ P:NPC {
           text = "A Stormwind hunter, and not a ranger from the north. I'd heard the young ones were taking up the bow and the beast; I hadn't expected one in my hall." },
       },
       choices = {
-        { text = "Are they working with the orcs?", next = "hunter_orcs" },
+        { text = "They may be working with the orcs.", next = "hunter_orcs" },
         { text = "I'll bring you a count.", next = "BACK", fx = { affinity = 1 } },
       },
     },

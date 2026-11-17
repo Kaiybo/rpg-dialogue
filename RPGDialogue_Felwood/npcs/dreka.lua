@@ -49,7 +49,7 @@ P:NPC {
       choices = {
         { text = "Tell me about your husband.", next = "husband" },
         { text = "Who was the druid he went with?", next = "druid" },
-        { text = "What do you know about Overlord Ror?", next = "ror" },
+        { text = "I've heard the name Overlord Ror.", next = "ror" },
         { text = "Why stay at Bloodvenom Post?", next = "post" },
         { text = "The furbolgs are sick, Dreka'Sur. Not evil.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Do the spirits tell you where he fell?", next = "xshaman", when = { class = "SHAMAN" } },
@@ -61,13 +61,13 @@ P:NPC {
         { id = "hu_default", text = "He was a warrior who never learned to sit still, and he came north to fight the Shadow Council and anything else that stank of the old curse. Every letter he sent me had a new scar in it, and he laughed about every one." },
       },
       choices = {
-        { text = "What did his last letter say?", next = "letter" },
+        { text = "His last letter must have said something.", next = "letter" },
         { text = "Something else.", next = "BACK" },
       },
     },
     letter = {
       lines = {
-        { id = "le_default", text = "That a druid had asked for his blade against a great furbolg gone foul, and that he'd said yes, because he always said yes. He wrote that he'd be home by the next moon, and the moon came and went, and nothing came after it." },
+        { id = "le_default", text = "It said that a druid had asked for his blade against a great furbolg gone foul, and that he'd said yes, because he always said yes. He wrote that he'd be home by the next moon, and the moon came and went, and nothing came after it." },
       },
       choices = {
         { text = "Do you keep the letter?", next = "letter_keep" },

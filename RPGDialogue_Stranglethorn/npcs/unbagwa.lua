@@ -49,7 +49,7 @@ P:NPC {
         { text = "How do you call the gorillas?", next = "calling" },
         { text = "Why live out here alone?", next = "alone" },
         { text = "Do the apes ever hurt you?", next = "danger" },
-        { text = "What do the spirits tell you, Unbagwa?", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
+        { text = "The spirits must tell you a great deal, Unbagwa.", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
         { text = "Let my beast stand guard.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll be back with a fang.", next = "END" },
       },
@@ -89,7 +89,7 @@ P:NPC {
         { id = "cl_default", text = "You give Unbagwa a gorilla fang, and the fang remember the gorilla, and the spirits carry the call to every ape in the valley. They come in order, mon: first a big silverback, then Konda, then Mokk himself." },
       },
       choices = {
-        { text = "And I fight all of them?", next = "calling_fight" },
+        { text = "So I'll have to fight all of them.", next = "calling_fight" },
         { text = "Something else.", next = "BACK" },
       },
     },

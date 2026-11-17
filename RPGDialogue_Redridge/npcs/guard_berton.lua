@@ -52,7 +52,7 @@ P:NPC {
       },
       choices = {
         { text = "What did Targorr do?", next = "targorr" },
-        { text = "Why hasn't he been executed?", next = "delay" },
+        { text = "I'm surprised he hasn't been executed already.", next = "delay" },
         { text = "Isn't killing him a matter for the courts?", next = "courts" },
         { text = "I've been in the Stockade. I know the cells.", next = "stockade", when = { questDone = TODO_QUEST("What Comes Around...") } },
         { text = "I'll deal with him.", next = "BUSINESS" },

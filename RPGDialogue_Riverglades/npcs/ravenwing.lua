@@ -56,7 +56,7 @@ P:NPC {
     cultists = {
       lines = { { id = "cu_default", text = "Very little that's useful and a great deal that's frightening. They talk about the end of the world as if it were a harvest festival, and they look forward to it." } },
       choices = {
-        { text = "Do you believe any of it?", next = "cultists_believe" },
+        { text = "You don't seem to believe any of it.", next = "cultists_believe" },
         { text = "Something else.", next = "BACK", fx = { learn = { "twilights_hammer" } } },
       },
     },

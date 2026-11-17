@@ -51,7 +51,7 @@ P:NPC {
       choices = {
         { text = "What is the Altar of Storms?", next = "altar" },
         { text = "Why do you love blood so much?", next = "blood" },
-        { text = "Who is Gorzeeki?", next = "gorzeeki" },
+        { text = "That goblin seems to serve you, Mor'zul.", next = "gorzeeki" },
         { text = "Teach me to bind a dreadsteed.", next = "xsteed", when = { class = "WARLOCK" } },
         { text = "Your craft is an abomination.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll leave you to your circle.", next = "END" },

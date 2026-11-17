@@ -51,7 +51,7 @@ P:NPC {
         { text = "Why build a mechanical ape?", next = "ape" },
         { text = "Tell me about your uncle.", next = "uncle" },
         { text = "What happened at Fungal Rock?", next = "fungal" },
-        { text = "What do you hope to find here?", next = "hope" },
+        { text = "You must hope to find something here.", next = "hope" },
         { text = "How did you build A-Me's eyes?", next = "gems", when = { profession = "Engineering" } },
         { text = "Animals know a fake when they see one.", next = "beasts", when = { class = { "HUNTER", "DRUID" } } },
         { text = "How can I help?", next = "BUSINESS" },
@@ -61,7 +61,7 @@ P:NPC {
     ape = {
       lines = { { id = "a_default", text = "The apes of Un'Goro are clever, and they won't let a dwarf within a hundred yards of their young. So I thought, why not send them a friend who looks like them and sees for me?" } },
       choices = {
-        { text = "Isn't that spying on them?", next = "ape_stance" },
+        { text = "That sounds a lot like spying on them.", next = "ape_stance" },
         { text = "Did it work?", next = "ape_stance" },
       },
     },

@@ -55,8 +55,8 @@ P:NPC {
       },
       choices = {
         { text = "How did a human end up here?", next = "human" },
-        { text = "What do you keep in the archive?", next = "archive" },
-        { text = "What was in the chitin?", next = "journal", when = { questDone = TODO_QUEST("Under the Chitin Was...") } },
+        { text = "Your archive must hold a great deal.", next = "archive" },
+        { text = "Something must have been sealed inside that chitin.", next = "journal", when = { questDone = TODO_QUEST("Under the Chitin Was...") } },
         { text = "Why call Rabine the den mother?", next = "rabine" },
         { text = "Could a mage help you with the old dialect?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to your shelves.", next = "END" },
@@ -76,7 +76,7 @@ P:NPC {
         { id = "ht_default", text = "They trust me with their filing, which is nearly the same thing. A secret's no use to anyone if it's on the wrong shelf, and most of theirs were on the wrong shelf when I arrived." },
       },
       choices = {
-        { text = "Do you ever read things you shouldn't?", next = "human_read" },
+        { text = "I'd guess you read things you shouldn't.", next = "human_read" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -260,7 +260,7 @@ P:NPC {
         { id = "c_default", text = "To honor your elders is to honor your culture and your people, and the coins are a way of marking it. Visit the elders who rest across the world, and each will give you a coin of ancestry; bring them to me, and I'll reward your diligence." },
       },
       choices = {
-        { text = "Where are these elders?", next = "elders" },
+        { text = "These elders must be scattered far and wide.", next = "elders" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -335,7 +335,7 @@ P:NPC {
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why keep your birds out here, away from the village?", next = "edge" },
-        { text = "Do Horde and Alliance really share this place?", next = "peace" },
+        { text = "Horde and Alliance seem to share this place.", next = "peace" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -413,7 +413,7 @@ P:NPC {
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "How does an orc fare in Moonglade?", next = "orc" },
-        { text = "Do you trust the Keeper's truce?", next = "truce" },
+        { text = "The Keeper's truce seems to hold.", next = "truce" },
         { text = "Farewell.", next = "END" },
       },
     },

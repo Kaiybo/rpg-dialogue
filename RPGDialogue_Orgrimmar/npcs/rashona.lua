@@ -54,7 +54,7 @@ P:NPC {
     who = {
       lines = { { id = "w_default", text = "Bandages go to the healers and the barracks, and garments go to whoever needs them most. There are orcs in this city who came out of the internment camps with nothing, and trolls who left the isles with less, and winter on the Drag is colder than people think." } },
       choices = {
-        { text = "The camps? People still need help from that?", next = "camps" },
+        { text = "People still need help, years after the camps.", next = "camps" },
         { text = "Something else, Rashona.", next = "BACK" },
       },
     },
@@ -62,7 +62,7 @@ P:NPC {
       lines = { { id = "c_default", text = "Some of them came out of those camps young and never learned a trade, so they've got their freedom and not much else. The Warchief freed them, and the rest is up to the rest of us." } },
       choices = {
         { text = "Then I'll give what I can.", next = "camps_end" },
-        { text = "Shouldn't they learn to provide for themselves?", next = "camps_end" },
+        { text = "They should learn to provide for themselves.", next = "camps_end" },
       },
     },
     camps_end = {

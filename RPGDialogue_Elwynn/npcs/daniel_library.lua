@@ -49,7 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've a moment before Brother Paxton comes looking." },
       },
       choices = {
-        { text = "What books are missing?", next = "books" },
+        { text = "You seem to be missing a good many books.", next = "books" },
         { text = "Brother Paxton calls you useless.", next = "paxton" },
         { text = "You seem keen on trades.", next = "trades" },
         { text = "Who should I see about my trade?", next = "trainer", when = { maxLevel = 15 } },

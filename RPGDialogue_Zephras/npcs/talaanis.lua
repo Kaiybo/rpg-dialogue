@@ -155,13 +155,13 @@ P:NPC {
       choices = {
         { text = "Why are our people going down to Azeroth?", next = "skywall", when = { race = "Skyborne" } },
         { text = "Who are the Skyborne?", next = "who", when = { ["not"] = { race = "Skyborne" } } },
-        { text = "Why do the two orders quarrel?", next = "orders" },
+        { text = "The two orders don't seem to agree on much.", next = "orders" },
         { text = "What became of the Shal'nan?", next = "shalnan" },
         { text = "How does the Council of Elders work?", next = "council" },
         { text = "What became of Lorthuna?", next = "lorthuna" },
-        { text = "Where are all these refugees from?", next = "refugees" },
+        { text = "There are a great many refugees here, Elder.", next = "refugees" },
         { text = "What happens to the relics of the fallen?", next = "relics", when = { race = "Skyborne" } },
-        { text = "What do your people make of us mainlanders?", next = "outsiders", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "Your people stare at us mainlanders wherever we go.", next = "outsiders", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I'm one of the few druids among us.", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The High Order sent me to the Kirin Tor's mages.", next = "mage", when = { race = "Skyborne", class = "MAGE" } },
         { text = "I've passed the Windshaper trials.", next = "shaman", when = { race = "Skyborne", class = "SHAMAN" } },
@@ -170,8 +170,8 @@ P:NPC {
         { text = "I work quietly, Elder. Is there a place for that?", next = "rogue_ta", when = { race = "Skyborne", class = "ROGUE" } },
         { text = "Do the Skyborne have any faith in the Light, Elder?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Who do the Skyborne pray to, Elder?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What do you make of the Windshapers joining the Horde, Elder?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Does my craft trouble you, Elder?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The Windshapers joining the Horde must have been hard to accept.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "My craft seems to trouble you, Elder.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Winds be with you, Elder.", next = "END" },
       },
     },
@@ -338,7 +338,7 @@ P:NPC {
         { id = "lo_default", key = true, text = "I set young people to watch her, and a broken recall crystal told us at last what she meant to do: bring down the wards that hid Zephras and let the Windlord in. When Rohash came to her beacon she begged to be brought before Al'Akir, and he struck her aside into the open sky, and nobody has seen her since." },
       },
       choices = {
-        { text = "Do you think she's dead?", next = "lorthuna2" },
+        { text = "I'd guess she's dead by now.", next = "lorthuna2" },
         { text = "She earned that fall.", next = "BACK", fx = { align = { light = -1 }, learn = { "al_aketh" } } },
         { text = "Even she deserved better than that.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, learn = { "al_aketh" } } },
       },
@@ -354,7 +354,7 @@ P:NPC {
     },
     refugees = {
       lines = {
-        { id = "rf_default", text = "From everywhere that has fallen: Ban'aethal on this isle, and Shen'dramar out in the sky, whose last few got away on the last skycutters to leave it. Valanaar takes in all it can, and it's never enough, so some have turned to banditry and some to the Al'Aketh simply to eat." },
+        { id = "rf_default", text = "They come from everywhere that has fallen: Ban'aethal on this isle, and Shen'dramar out in the sky, whose last few got away on the last skycutters to leave it. Valanaar takes in all it can, and it's never enough, so some have turned to banditry and some to the Al'Aketh simply to eat." },
       },
       choices = {
         { text = "What becomes of the ones who turn bandit?", next = "refugees2" },

@@ -49,7 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I can listen and whisk." },
       },
       choices = {
-        { text = "What makes the Blue Recluse special?", next = "recluse" },
+        { text = "I've heard the Blue Recluse is a special place.", next = "recluse" },
         { text = "Tell me about your nephew.", next = "morgan" },
         { text = "Why go to such lengths for one dish?", next = "lengths" },
         { text = "I cook as well. Have you any secrets to share?", next = "cook", when = { profession = "Cooking" } },

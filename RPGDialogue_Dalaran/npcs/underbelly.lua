@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "You're no Dalaranian.", next = "bluff" },
-        { text = "What are you after down here?", next = "after" },
+        { text = "You're after something down here, I'd guess.", next = "after" },
         { text = "This is stealing, plain and simple.", next = "steal" },
         { text = "Need a partner, Rexxie?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "See you around, Rexxie.", next = "END" },
@@ -61,7 +61,7 @@ P:NPC {
         { id = "bl_default", text = "Course I am, pal! I got a robe and everything, and all right, it's a borrowed robe and it's three sizes too long, but the mages are too busy chasin' glowy things to check anybody's papers." },
       },
       choices = {
-        { text = "How did you even get in?", next = "bluff_in" },
+        { text = "I can't see how a goblin got in here.", next = "bluff_in" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -47,7 +47,7 @@ P:NPC {
       choices = {
         { text = "Who buys the most of your work?", next = "buyers" },
         { text = "Why so many apprentices?", next = "apprentices" },
-        { text = "Do tauren make good smiths?", next = "smiths" },
+        { text = "I didn't know tauren made good smiths.", next = "smiths" },
         { text = "Krog wants to know who carried that shield.", next = "krog", when = { questActive = TODO_QUEST("The Black Shield") } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Earth Mother keep your forge, Mosarn.", next = "END" },
@@ -56,7 +56,7 @@ P:NPC {
     buyers = {
       lines = { { id = "b_default", text = "The braves, the Earthen Ring, and the Grimtotem, who come up from the south and buy by the cartload. I don't ask them what for, because a shield is for protecting yourself, and that's nobody's business but the one holding it." } },
       choices = {
-        { text = "Even if the Grimtotem turn it on the Horde?", next = "buyers_grim", fx = { learn = { "grimtotem" } } },
+        { text = "The Grimtotem might turn it on the Horde.", next = "buyers_grim", fx = { learn = { "grimtotem" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },
@@ -79,7 +79,7 @@ P:NPC {
     apprentices = {
       lines = { { id = "a_default", text = "Because one smith makes one good shield a day, and the braves need a hundred. I teach them the rivets and the temper, and I check every piece before it leaves, or near enough every piece." } },
       choices = {
-        { text = "Near enough?", next = "apprentices_near" },
+        { text = "Near enough doesn't sound good enough.", next = "apprentices_near" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,7 +146,7 @@ P:NPC {
     hard = {
       lines = { { id = "hd_default", text = "When to stop. Any calf can learn to swing an axe, but knowing when the fight's won and lowering it again, that takes years." } },
       choices = {
-        { text = "And if the enemy won't stop?", next = "hard_end" },
+        { text = "Some enemies won't stop.", next = "hard_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -337,14 +337,14 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What can tracks tell you?", next = "tracks" },
-        { text = "Is Urek really always lost?", next = "urek" },
+        { text = "Urek seems to be lost a great deal.", next = "urek" },
         { text = "Farewell, Kary.", next = "END" },
       },
     },
     tracks = {
       lines = { { id = "t_default", text = "Who passed, how heavy they were, whether they were hurt, and whether they were in a hurry. Quilboar drag their feet and centaur never do, and a kodo with a limp will tell you about it a mile off." } },
       choices = {
-        { text = "And people? Can you track people?", next = "tracks_people" },
+        { text = "I'd guess you can track people too.", next = "tracks_people" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -403,7 +403,7 @@ P:NPC {
       choices = {
         { text = "Teach my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you teach a beast?", next = "teach" },
-        { text = "Do you prefer beasts to people?", next = "people" },
+        { text = "You seem to prefer beasts to people.", next = "people" },
         { text = "Farewell, Hesuwa.", next = "END" },
       },
     },
@@ -479,7 +479,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because Thrall saved us from the centaur when nobody else would, and the Frostwolf are his blood. A debt like that you pay in the snow, if that's where it's owed." } },
       choices = {
-        { text = "Must every debt be paid in blood?", next = "why_end", fx = { learn = { "alterac" } } },
+        { text = "Not every debt should be paid in blood.", next = "why_end", fx = { learn = { "alterac" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "alterac" } } },
       },
     },

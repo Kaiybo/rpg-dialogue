@@ -146,7 +146,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does the bridge matter so much?", next = "why" },
-        { text = "What happened to your tools?", next = "tools" },
+        { text = "Your crew seems to be working without its tools.", next = "tools" },
         { text = "Where are your building supplies?", next = "supplies" },
         { text = "Brother Paxton needs Rethban ore for his ink.", next = "paxton", when = { questActive = TODO_QUEST("Ink Supplies") } },
         { text = "Northshire's library writes with your ore, I hear.", next = "novice", when = { origin = "human_abbey_novice" } },
@@ -160,7 +160,7 @@ P:NPC {
         { text = "Does your crew ever ask for a blessing before work, Foreman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the bridge worth the lives it's cost, Foreman?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will the new bridge be strong enough to stand against the orcs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Will your bridge be done before the rains, Oslow?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your bridge might be done before the rains, Oslow.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My father helped rebuild Stormwind and never saw his wages.", next = "xorig_mason", when = { origin = "human_stonemason_child" } },
         { text = "Good luck with the rains.", next = "END" },
       },
@@ -192,7 +192,7 @@ P:NPC {
       choices = {
         { text = "I'll help you finish it.", next = "BACK", fx = { affinity = 2, learn = { "everstill_bridge" } } },
         { text = "Pretty speech for a builder.", next = "speech", fx = { trait = { witty = 1 } } },
-        { text = "How did it come down?", next = "collapse" },
+        { text = "That must have been some blow to bring it down.", next = "collapse" },
       },
     },
     speech = {

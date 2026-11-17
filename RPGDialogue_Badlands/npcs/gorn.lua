@@ -50,7 +50,7 @@ P:NPC {
       choices = {
         { text = "Who are Blacklash and Hematus?", next = "drakes" },
         { text = "Why kill them now, after all these years?", next = "honor" },
-        { text = "What happened with the ogres?", next = "ogres" },
+        { text = "Something went wrong with the ogres, by the sound of it.", next = "ogres" },
         { text = "What was the Second War like?", next = "war" },
         { text = "My people never fought beside dragons.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Why free them first? Why not leave them chained?", next = "xcaster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
@@ -135,7 +135,7 @@ P:NPC {
         { id = "wa_default", text = "Loud, and hungry, and we didn't know half of what we'd become until the camps gave us time to think about it. The dragons burned whole valleys for us, and we cheered, because we were fools." },
       },
       choices = {
-        { text = "What changed your mind?", next = "war_change" },
+        { text = "Something must have changed your mind since then.", next = "war_change" },
         { text = "Something else.", next = "BACK" },
       },
     },

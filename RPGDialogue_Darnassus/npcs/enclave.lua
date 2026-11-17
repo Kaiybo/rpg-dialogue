@@ -148,9 +148,9 @@ P:NPC {
       },
       choices = {
         { text = "What are you actually doing?", next = "dirt" },
-        { text = "What do you dream of?", next = "dream" },
+        { text = "You look like someone with big dreams.", next = "dream" },
         { text = "Who's keeping you down?", next = "conspiracy" },
-        { text = "What does the Circle want with Un'Goro soil?", next = "soil", when = { any = { { questActive = TODO_QUEST("Un'Goro Soil") }, { questDone = TODO_QUEST("Un'Goro Soil") } } } },
+        { text = "The Circle seems very interested in Un'Goro soil.", next = "soil", when = { any = { { questActive = TODO_QUEST("Un'Goro Soil") }, { questDone = TODO_QUEST("Un'Goro Soil") } } } },
         { text = "Gnomes build machines that dig, you know.", next = "gnome_j", when = { race = "Gnome" } },
         { text = "Did you ever think about another line of work?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would the druids object to a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -180,7 +180,7 @@ P:NPC {
       choices = {
         { text = "He's not wrong.", next = "BACK", fx = { align = { order = 1 }, trait = { witty = 1 } } },
         { text = "That was cruel of him.", next = "BACK", fx = { align = { order = -1 }, affinity = 1, trait = { kind = 1 } } },
-        { text = "What did you say back?", next = "fandral2" },
+        { text = "I hope you gave him a sharp answer.", next = "fandral2" },
       },
     },
     fandral2 = {
@@ -396,7 +396,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Who is Jannok?", next = "jannok" },
-        { text = "What's wrong with Teldrassil's forests?", next = "forest" },
+        { text = "I've heard something is wrong in Teldrassil's forests.", next = "forest" },
         { text = "Why do night elves need rogues?", next = "why" },
         { text = "Teach me how the kaldorei move unseen.", next = "rogue_s", when = { class = "ROGUE" } },
         { text = "Is a mage really so easy to notice?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -639,7 +639,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What do you mean by balance?", next = "balance" },
-        { text = "How do you choose a companion?", next = "companion" },
+        { text = "Choosing a companion must take care.", next = "companion" },
         { text = "Who else teaches hunters here?", next = "dorion" },
         { text = "How do I teach my companion new tricks?", next = "teach", when = { class = "HUNTER" } },
         { text = "I rode nightsabers before I ever drew a bow.", next = "sabers", when = { origin = "nightelf_nightsaber_rider" } },
@@ -664,7 +664,7 @@ P:NPC {
       choices = {
         { text = "The wild should be left to itself.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Someone has to keep the wild in order.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "And those who break the balance?", next = "balance2" },
+        { text = "Some must break the balance on purpose.", next = "balance2" },
       },
     },
     balance2 = {
@@ -865,7 +865,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who is Cenarius, to you?", next = "cenarius" },
-        { text = "What does a young druid learn first?", next = "first" },
+        { text = "A young druid must have a great deal to learn.", next = "first" },
         { text = "How is the Circle under Fandral?", next = "circle" },
         { text = "Which shape is truest to a druid?", next = "forms", when = { class = "DRUID" } },
         { text = "What do druids wonder about mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -912,7 +912,7 @@ P:NPC {
         { id = "ci_default", text = "Busy, and loud, and growing like the tree. The Arch Druid has a vision for Teldrassil, and he pursues it harder than anyone, which some admire and some find tiring." },
       },
       choices = {
-        { text = "Which are you?", next = "circle2" },
+        { text = "I can't tell which you are.", next = "circle2" },
         { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
       },
     },

@@ -58,7 +58,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The Scourge aren't in a hurry tonight, so I can spare a moment." },
       },
       choices = {
-        { text = "What are the Scourge after out west?", next = "west" },
+        { text = "The Scourge seem to be after something out west.", next = "west" },
         { text = "Why aren't you out there fighting them yourself?", next = "post" },
         { text = "Tell me about Agamand Mills.", next = "mills" },
         { text = "Austil de Mon sent me. He said you had a mission.", next = "ulag", when = { class = "WARRIOR" } },
@@ -90,7 +90,7 @@ P:NPC {
     post = {
       lines = { { id = "po_default", text = "Because I was ordered to stand here, and a Deathguard who leaves his post because he's bored is a Deathguard who gets Brill burned. Don't mistake that for liking it." } },
       choices = {
-        { text = "Do you miss the fighting?", next = "post_miss" },
+        { text = "You must miss the fighting.", next = "post_miss" },
         { text = "Orders keep the town standing. That's worth something.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
@@ -123,14 +123,14 @@ P:NPC {
     ulag = {
       lines = { { id = "ul_default", text = "I have one, and it'll test your arm and your nerve both. When the Scourge swept through the glades, we took one of them alive, and he could speak and think for himself, and called himself Ulag the Cleaver." } },
       choices = {
-        { text = "A free mind, like ours?", next = "ulag_mind" },
+        { text = "So he has a free mind, like ours.", next = "ulag_mind" },
         { text = "Then why is he still a prisoner?", next = "ulag_mind" },
       },
     },
     ulag_mind = {
       lines = { { id = "um_default", text = "Free enough to talk, and still the Lich King's to the bone. We spent months trying to break that hold and we failed, so it's time to open the seal and let a warrior finish him." } },
       choices = {
-        { text = "Does it trouble you that you couldn't free him?", next = "ulag_doubt" },
+        { text = "It must trouble you that you couldn't free him.", next = "ulag_doubt" },
         { text = "Show me the mausoleum. I'll do it.", next = "BUSINESS" },
       },
     },

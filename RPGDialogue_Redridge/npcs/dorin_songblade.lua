@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Daewyn.", next = "daewyn" },
         { text = "Why does a dwarf keep a forge in Redridge?", next = "redridge" },
-        { text = "How do the guards hold up against the orcs?", next = "guards" },
+        { text = "The guards here seem better armoured than most.", next = "guards" },
         { text = "I found your brother. I'm so sorry.", next = "grief", when = { questDone = TODO_QUEST("Fallen in the Fen") } },
         { text = "I need my armour seen to.", next = "BUSINESS" },
         { text = "I'll leave you to it.", next = "END" },

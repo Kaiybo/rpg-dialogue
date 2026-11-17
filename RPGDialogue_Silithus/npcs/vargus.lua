@@ -44,7 +44,7 @@ P:NPC {
       choices = {
         { text = "What does the sand do to armor?", next = "sand" },
         { text = "What do you make of silithid chitin?", next = "chitin" },
-        { text = "Do the cultists' weapons come through here?", next = "cult" },
+        { text = "I'd guess a few cultist blades come through here.", next = "cult" },
         { text = "Any advice for a fellow smith?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Fix my gear, Vargus.", next = "BUSINESS" },
         { text = "Thank you, Vargus.", next = "END" },

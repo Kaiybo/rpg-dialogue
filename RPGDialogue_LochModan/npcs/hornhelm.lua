@@ -81,7 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "What's he hoping to find?", next = "dig_find" },
-        { text = "Why would results be slow?", next = "dig_slow" },
+        { text = "Results always come slowly on a dig, I'd imagine.", next = "dig_slow" },
         { text = "Something else, Jern.", next = "BACK" },
       },
     },
@@ -113,7 +113,7 @@ P:NPC {
           text = "We know now, or we know enough. Saean was passin' it tae the Dark Irons, an' I'd wager some o' it's packed against a wall I'd rather no' think about." },
       },
       choices = {
-        { text = "Who handles the barrels on the road?", next = "powder_who" },
+        { text = "Someone on that road must be handling the barrels.", next = "powder_who" },
         { text = "Count the barrels at both ends from now on.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Let the dig blow its own walls without powder.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -147,7 +147,7 @@ P:NPC {
           text = "He'll be wantin' that report, an' he'll no' like it. Hand it over, stand back, an' let him finish shoutin' before ye ask about the powder." },
       },
       choices = {
-        { text = "Does he shout at you, too?", next = "stormpike_you" },
+        { text = "I'd wager he shouts at you, too.", next = "stormpike_you" },
         { text = "Something else.", next = "BACK" },
       },
     },

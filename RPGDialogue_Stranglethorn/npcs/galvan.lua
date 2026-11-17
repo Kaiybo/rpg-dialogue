@@ -50,11 +50,11 @@ P:NPC {
       },
       choices = {
         { text = "Why do you call truesilver a liar?", next = "silver" },
-        { text = "What is the Mithril Order?", next = "order" },
+        { text = "I've heard of the Mithril Order.", next = "order" },
         { text = "Why set up a forge here, by Zul'Gurub?", next = "camp" },
         { text = "Can you really forge fel steel?", next = "fel", when = { questDone = TODO_QUEST("The Formation of Felbane") } },
         { text = "Teach me about mithril.", next = "xsmith", when = { profession = "Blacksmithing" } },
-        { text = "Must a smith also be a miner?", next = "xminer", when = { profession = "Mining" } },
+        { text = "I'd have thought a smith needn't be a miner too.", next = "xminer", when = { profession = "Mining" } },
         { text = "Farewell, Galvan.", next = "END" },
       },
     },
@@ -93,7 +93,7 @@ P:NPC {
         { id = "or_default", text = "The finest armorsmiths in the world, and Galvan leads them, more or less, because nobody else wanted to argue with him. When an Order smith finds a student with the skill and the drive, they send them to Galvan." },
       },
       choices = {
-        { text = "Who is your finest pupil?", next = "order_pupil" },
+        { text = "You must have a finest pupil.", next = "order_pupil" },
         { text = "Something else.", next = "BACK" },
       },
     },

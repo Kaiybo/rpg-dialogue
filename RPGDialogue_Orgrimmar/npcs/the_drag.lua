@@ -55,7 +55,7 @@ P:NPC {
     salvage = {
       lines = { { id = "sa_default", text = "Anything that isn't nailed down, and some things that were until recently. Old armor off the battlefields, bits of machinery, dwarf junk from the dig sites, and the odd relic some adventurer doesn't know the value of." } },
       choices = {
-        { text = "Off the battlefields? You rob the dead?", next = "salvage_dead" },
+        { text = "Off the battlefields? So you rob the dead.", next = "salvage_dead" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,7 +142,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, friend? I've always got time for a customer." } },
       choices = {
-        { text = "What's it like working for your father?", next = "father" },
+        { text = "Working for your father can't be easy.", next = "father" },
         { text = "What's your best item right now?", next = "best" },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Farewell, Malton.", next = "END" },
@@ -151,7 +151,7 @@ P:NPC {
     father = {
       lines = { { id = "fa_default", text = "Loud, mostly, and he counts my discounts at the end of every day. But he taught me everything I know, and one day the sign's going to say Droffers and Father, so I'm being patient." } },
       choices = {
-        { text = "Does he know about the sign?", next = "sign" },
+        { text = "I'd guess he doesn't know about the sign.", next = "sign" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -220,7 +220,7 @@ P:NPC {
     rashona = {
       lines = { { id = "ra_default", text = "She works beside me, not for me, and she'd tell you so herself if you suggested otherwise. She gathers cloth for the Horde, and I make sure some of it gets sewn before it goes out the door." } },
       choices = {
-        { text = "Do you two get along?", next = "rashona_along" },
+        { text = "You two seem to get along.", next = "rashona_along" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -271,7 +271,7 @@ P:NPC {
     strange = {
       lines = { { id = "st_default", text = "One that turned a grunt's skin blue for a week, though it was meant to make him stronger. He was very angry, but I learned something, and that's what counts in alchemy." } },
       choices = {
-        { text = "Do you test them on volunteers?", next = "test" },
+        { text = "I hope you test them on volunteers.", next = "test" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,7 +342,7 @@ P:NPC {
     where = {
       lines = { { id = "wh_default", text = "The Barrens, mostly, from the zhevra and the kodo. The tauren bring me the best ones, because they waste nothing and they won't sell a hide they haven't respected." } },
       choices = {
-        { text = "Do the tauren trade fairly?", next = "tauren" },
+        { text = "The tauren seem to trade fairly.", next = "tauren" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -393,7 +393,7 @@ P:NPC {
     best = {
       lines = { { id = "be_default", text = "The engineers, because they blow through everything I sell and come back the next day for more. Nogg alone keeps me in business half the year." } },
       choices = {
-        { text = "Is Nogg a good customer?", next = "nogg" },
+        { text = "Nogg must be a good customer.", next = "nogg" },
         { text = "Something else.", next = "BACK" },
       },
     },

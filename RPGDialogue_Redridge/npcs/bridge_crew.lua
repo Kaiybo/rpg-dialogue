@@ -125,7 +125,7 @@ P:NPC {
       },
       choices = {
         { text = "Why is this bridge the hardest?", next = "hardest" },
-        { text = "How do you build over open water?", next = "how" },
+        { text = "Building over open water can't be simple work.", next = "how" },
         { text = "What's the rest of the crew like?", next = "crew" },
         { text = "Who knocked the bridge down?", next = "who" },
         { text = "I could slip past the gnolls and fetch your stolen tools.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -133,7 +133,7 @@ P:NPC {
         { text = "What else watches the bridge crew, Dmitri?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Stone holds a curse well, you know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Has the crew lost anyone building this bridge, Dmitri?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Does the crew need guarding while it works, Dmitri?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The crew looks as if it needs guarding while it works, Dmitri.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the bridge trouble the lake, Dmitri, or the fish below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a mage help with the Everstill Bridge, Dmitri?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the bridge stones have a spirit, Dmitri?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -290,12 +290,12 @@ P:NPC {
       choices = {
         { text = "Why did you join the crew?", next = "why" },
         { text = "Have you ever seen the Blackrock?", next = "orcs" },
-        { text = "What do you think of Foreman Oslow?", next = "oslow" },
+        { text = "Foreman Oslow seems to shout a great deal.", next = "oslow" },
         { text = "Do you want to be an adventurer?", next = "adventure" },
         { text = "Want to see my imp, Jess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want to be a warrior someday, Jess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you seen the beasts in the hills, Jess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does the work frighten you, Jess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "This work must frighten you some days, Jess.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you stand your ground if the orcs came for the bridge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever gone past the bridge, Jess, into the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Have you ever seen a shaman before, Jess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -316,7 +316,7 @@ P:NPC {
     orcs = {
       lines = { { id = "o_default", text = "Only from across the lake, and only once close enough to see their faces. One of them shot an arrow at me, and it went into the plank next to my hand, and Dmitri made me keep the plank so I'd remember to keep my head down." } },
       choices = {
-        { text = "Were you frightened?", next = "orcs_fear" },
+        { text = "That must have frightened you.", next = "orcs_fear" },
         { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } },
       },
     },

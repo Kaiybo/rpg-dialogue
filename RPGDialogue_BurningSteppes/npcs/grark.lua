@@ -43,7 +43,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did you betray Kargath?", next = "why" },
-        { text = "What did you tell the Blackrock?", next = "secrets" },
+        { text = "You told the Blackrock plenty, I'd wager.", next = "secrets" },
         { text = "What do you think happens to you now?", next = "fate" },
         { text = "I'm Horde. You betrayed my people.", next = "xhorde", when = { faction = "Horde" } },
         { text = "The Blackrock will use you and discard you.", next = "xorc", when = { race = "Orc" } },
@@ -76,7 +76,7 @@ P:NPC {
         { id = "se_default", text = "Kargath's day to day operations, patrols, supply runs, who sleeps where and when the watch changes. Lexlort caught me with the papers in my hand, I'll give him that, but he caught me too late." },
       },
       choices = {
-        { text = "How many died because of it?", next = "secrets_cost" },
+        { text = "Soldiers died because of what you told them.", next = "secrets_cost" },
         { text = "Something else.", next = "BACK" },
       },
     },

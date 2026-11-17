@@ -79,7 +79,7 @@ P:NPC {
         { text = "What's the talk on the coast these days?", next = "gossip" },
         { text = "You don't sound like you're from the Bay.", next = "origin" },
         { text = "Who comes to you for lessons?", next = "students" },
-        { text = "How does the trade work down here?", next = "trade", when = { class = "ROGUE" } },
+        { text = "The trade must work differently down here.", next = "trade", when = { class = "ROGUE" } },
         { text = "Is there more to learn than you can teach?", next = "higher", when = { class = "ROGUE", minLevel = 20 } },
         { text = "Why would a Stormwind man train Horde rogues?", next = "horde_students", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The Watchers taught me to move unseen.", next = "k_nelf", when = { class = "ROGUE", race = "NightElf" } },
@@ -89,7 +89,7 @@ P:NPC {
         { text = "Do your students ever ask the Light's forgiveness?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What could a rogue teach a warrior?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Can a beast learn to move quietly?", next = "xhunt", when = { class = "HUNTER" } },
-        { text = "Do your students ever fear a mage?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Your students must fear a mage or two.", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you ever traded secrets with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a cat teach your students more than you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the spirits ever give a rogue away?", next = "xsham", when = { class = "SHAMAN" } },
@@ -141,7 +141,7 @@ P:NPC {
         { text = "The Bloodsail.", next = "g_bloodsail" },
         { text = "The Defias. Do they come this far south?", next = "g_defias" },
         { text = "Does SI:7 keep eyes in Booty Bay?", next = "g_si7", when = { faction = "Alliance" } },
-        { text = "Do Horde spies come through here?", next = "g_horde", when = { faction = "Horde" } },
+        { text = "Horde spies must come through here.", next = "g_horde", when = { faction = "Horde" } },
         { text = "Who's the orc nursing grog in the far corner?", next = "g_corner" },
         { text = "And the night elf in plate down by the water?", next = "g_elril" },
         { text = "That's enough gossip for one night.", next = "hello" },
@@ -219,7 +219,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did you leave Stormwind?", next = "origin_left" },
-        { text = "Do you miss the city?", next = "origin_miss" },
+        { text = "You must miss the city.", next = "origin_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -276,7 +276,7 @@ P:NPC {
       choices = {
         { text = "What are the rules in Booty Bay?", next = "trade_rules" },
         { text = "Tell me about poisons.", next = "trade_poison" },
-        { text = "Who's buying, down here?", next = "trade_buyers" },
+        { text = "Someone down here must be buying.", next = "trade_buyers" },
         { text = "Enough shop talk for now.", next = "hello" },
       },
     },
@@ -522,7 +522,7 @@ P:NPC {
       },
       choices = {
         { text = "Bibbly sent me. You rode with the Desolace marauders.", next = "lam", when = { questActive = TODO_QUEST("On the Lam") } },
-        { text = "Who are you, exactly?", next = "who" },
+        { text = "You don't look like any common sellsword.", next = "who" },
         { text = "Why hide out in Booty Bay?", next = "boat" },
         { text = "What happened in Desolace?", next = "drink_first", when = { ["not"] = { questDone = TODO_QUEST("Cherry for Your Thoughts?") } } },
         { text = "So what happened in Desolace?", next = "desolace", when = { questDone = TODO_QUEST("Cherry for Your Thoughts?") } },
@@ -535,7 +535,7 @@ P:NPC {
         { text = "Not every night elf is your Illari.", next = "k_nelf", when = { race = "NightElf", questDone = TODO_QUEST("Cherry for Your Thoughts?") } },
         { text = "What clan were you, Tokal?", next = "k_orc", when = { race = "Orc" } },
         { text = "You move like you've done some quiet work yourself.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "You carry yourself like a soldier. Were you one?", next = "xwar", when = { class = "WARRIOR" } },
+        { text = "You carry yourself like a soldier.", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Desolace must make for hard hunting.", next = "xhunt", when = { class = "HUNTER" } },
         { text = "Have you asked the ancestors for guidance?", next = "xsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Desolace is full of the Burning Blade, isn't it?", next = "xlock", when = { class = "WARLOCK" } },
@@ -561,7 +561,7 @@ P:NPC {
     },
 
     who = {
-      lines = { { id = "wh_default", text = "An orc with an axe and no clan worth naming, who rode with a crew in Desolace until the crew stopped existing. Now I'm a customer of the Salty Sailor, and as long as I keep paying, Skindle calls me his favorite." } },
+      lines = { { id = "wh_default", text = "I'm an orc with an axe and no clan worth naming, who rode with a crew in Desolace until the crew stopped existing. Now I'm a customer of the Salty Sailor, and as long as I keep paying, Skindle calls me his favorite." } },
       choices = {
         { text = "Tell me about the crew.", next = "who_crew" },
         { text = "Something else.", next = "BACK" },
@@ -571,7 +571,7 @@ P:NPC {
       lines = { { id = "wc_default", text = "Six of us at the start: two orcs, an ogre who couldn't count past his fingers, a pair of trolls, and a human deserter who cooked better than the rest of us put together. We were good at the work, and that was the trouble, because when you're good at something somebody always notices." } },
       choices = {
         { text = "What happened to them?", next = "crew_fate" },
-        { text = "A human rode with orcs?", next = "crew_human" },
+        { text = "A human riding with orcs. That's a strange crew.", next = "crew_human" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -635,7 +635,7 @@ P:NPC {
       choices = {
         { text = "You raided them for the Horde?", next = "raids_horde" },
         { text = "Who paid you?", next = "illari" },
-        { text = "What did you take?", next = "raids_loot" },
+        { text = "You must have taken something worth the trouble.", next = "raids_loot" },
         { text = "Did anyone die in those raids?", next = "raids_dead" },
         { text = "Enough about Desolace.", next = "hello" },
       },
@@ -718,7 +718,7 @@ P:NPC {
     orcs = {
       lines = { { id = "oc_default", text = "Because Orgrimmar is full of orcs who want to tell me what an orc ought to be, and I spent my whole life before Desolace being told that. Thrall's a fine Warchief and his peace is a fine peace, but there's not much room in it for an orc who doesn't fit in a barracks." } },
       choices = {
-        { text = "What happened to you, back home?", next = "orcs_exile" },
+        { text = "Something must have happened to you, back home.", next = "orcs_exile" },
         { text = "The Horde needs every orc it has. Go home.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some orcs aren't made for barracks. I understand.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -812,7 +812,7 @@ P:NPC {
     },
     xwar = {
       big = true,
-      lines = { { id = "xwar_default", text = "For a while, in a grunt's mail with a sergeant's boot behind me, and I was good at it until I wasn't. A soldier's the same anywhere, because you hold the line until somebody tells you why, and one day I asked why." } },
+      lines = { { id = "xwar_default", text = "I was, for a while, in a grunt's mail with a sergeant's boot behind me, and I was good at it until I wasn't. A soldier's the same anywhere, because you hold the line until somebody tells you why, and one day I asked why." } },
       choices = {
         { text = "A soldier holds the line without asking.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Asking why is the first thing a free orc does.", next = "BACK", fx = { align = { order = -1 } } },
@@ -930,7 +930,7 @@ P:NPC {
       },
       choices = {
         { text = "Are you a paladin, Elril?", next = "paladin" },
-        { text = "Why the plate and the hammer?", next = "hammer" },
+        { text = "Plate and a hammer seem an odd choice for a night elf.", next = "hammer" },
         { text = "Who are you, really?", next = "who" },
         { text = "What brings a night elf to Booty Bay?", next = "why_here" },
         { text = "Where have your travels taken you?", next = "travels" },
@@ -944,7 +944,7 @@ P:NPC {
         { text = "How do you fight in plate without a paladin's prayers?", next = "k_war", when = { class = "WARRIOR" } },
         { text = "Do you miss the nightsabers?", next = "k_hunt", when = { class = "HUNTER" } },
         { text = "Strom says you guard nothing in particular.", next = "k_rogue", when = { class = "ROGUE" } },
-        { text = "Does the Alliance know where you are?", next = "k_alliance", when = { faction = "Alliance", ["not"] = { race = "NightElf" } } },
+        { text = "I doubt the Alliance knows where you are.", next = "k_alliance", when = { faction = "Alliance", ["not"] = { race = "NightElf" } } },
         { text = "Have you heard of Illari Duskfeather?", next = "illari", when = { any = { { heardLine = "tokal.il_default" }, { questActive = TODO_QUEST("No Honor Among Thieves") } } } },
         { text = "May the tides be kind to you.", next = "END" },
       },
@@ -1036,7 +1036,7 @@ P:NPC {
       lines = { { id = "hm_default", text = "The salt air eats an edge in a week, and a hammer doesn't care how dull it gets, which suits me, since I'm terrible at sharpening anything. As for the plate, a lady in Booty Bay ought to have a little mystery, and it hides a great deal of it." } },
       choices = {
         { text = "Why not a glaive, like the Sentinels?", next = "sentinels" },
-        { text = "Where does a night elf buy plate that fits?", next = "hammer_dwarf" },
+        { text = "Plate that fits a night elf can't be easy to find.", next = "hammer_dwarf" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1100,7 +1100,7 @@ P:NPC {
       lines = { { id = "ba_default", text = "Kind, in their way, if you don't count the pickpockets, and I don't, since they've never found anything worth stealing on me. Ian Strom nods to me every evening, Tokal glares at me from the tavern door, and Skindle has finally stopped asking me to bless the cellar." } },
       choices = {
         { text = "Why does Tokal glare at you?", next = "bay_tokal" },
-        { text = "What do you make of Ian Strom?", next = "bay_ian" },
+        { text = "I'd like to hear what you make of Ian Strom.", next = "bay_ian" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1129,7 +1129,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Ashenvale.", next = "t_ashenvale" },
         { text = "What's Feralas like?", next = "t_feralas" },
-        { text = "Have you ever been to Desolace?", next = "t_desolace" },
+        { text = "I'd guess you've been to Desolace.", next = "t_desolace" },
         { text = "What do you make of the human kingdoms?", next = "t_humans" },
         { text = "Enough roads for one evening.", next = "hello" },
       },

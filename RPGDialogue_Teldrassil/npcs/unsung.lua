@@ -136,7 +136,7 @@ P:NPC {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "What makes a good bow?", next = "bow" },
         { text = "What should I be shooting around here?", next = "targets" },
-        { text = "Do the Sentinels buy from you?", next = "sentinels" },
+        { text = "I'd guess the Sentinels buy from you too.", next = "sentinels" },
         { text = "Have you anything for throwing? Knives, perhaps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I've never needed a bow. I have fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warrior carry a bow, Jeena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -318,8 +318,8 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS" },
-        { text = "What comes after Dolanaar for a warrior?", next = "after" },
-        { text = "What's the most common mistake you see?", next = "mistake" },
+        { text = "A warrior must outgrow Dolanaar soon enough.", next = "after" },
+        { text = "You must see young warriors make the same mistakes.", next = "mistake" },
         { text = "Why do so few kaldorei become warriors?", next = "few" },
         { text = "Should your students learn to lean on a healer, Kyra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have your students learn from a paladin?", next = "xapala", when = { class = "PALADIN" } },
@@ -541,7 +541,7 @@ P:NPC {
         { id = "fo_default", text = "For the Sentinels, mostly, and for anyone who comes back from Ban'ethil bleeding. Lately I've been sending more down to the moonwell than I'd like, because the furbolgs are not as gentle as they used to be." },
       },
       choices = {
-        { text = "Should the furbolgs be cured or driven out?", next = "for2" },
+        { text = "Perhaps the furbolgs can still be cured.", next = "for2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -688,7 +688,7 @@ P:NPC {
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "How do I gather without harming the plant?", next = "gather" },
-        { text = "What grows best on Teldrassil?", next = "grows" },
+        { text = "Teldrassil's glades must be thick with herbs.", next = "grows" },
         { text = "What does an herbalist bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
         { text = "I'll take what I need from the forest. It won't notice.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there any use for herbs in a warrior's kit?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1015,7 +1015,7 @@ P:NPC {
       choices = {
         { text = "Then I'll take my time with it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fast and clean is the only way I know.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Do you mind the work?", next = "mind" },
+        { text = "Skinning seems grim work.", next = "mind" },
       },
     },
     xlock = {
@@ -1068,7 +1068,7 @@ P:NPC {
       choices = {
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "Do you mind the work?", next = "mind" },
-        { text = "What's the best beast to skin on Teldrassil?", next = "best" },
+        { text = "The nightsabers here have fine pelts.", next = "best" },
         { text = "Skinning's just knifework. I've plenty of that.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should I skin what I kill, Radnaal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you honor the beasts you skin, Radnaal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1250,7 +1250,7 @@ P:NPC {
       choices = {
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What do you send to Auberdine?", next = "bounty" },
-        { text = "Where's the best fishing around here?", next = "fishing" },
+        { text = "There must be good fishing off these docks.", next = "fishing" },
         { text = "What's Rut'theran like?", next = "village" },
         { text = "Smugglers would love a dock like this.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "There's a great power in this tree. I can feel it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1398,7 +1398,7 @@ P:NPC {
       choices = {
         { text = "Teach me the patient way, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather get it over with quickly.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Is there a secret to it?", next = "secret" },
+        { text = "There must be some secret to it.", next = "secret" },
       },
     },
     xmage = {
@@ -1451,7 +1451,7 @@ P:NPC {
         { text = "What's the secret of fishing?", next = "secret" },
         { text = "Why fish, when you could hunt?", next = "why" },
         { text = "Patience is half my trade too.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Couldn't I just freeze the lake and pick them out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I could just freeze the lake and pick them out.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What can fishing teach a warrior, Androl?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is fishing much like the hunt, Androl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is fishing really so much like prayer, Androl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

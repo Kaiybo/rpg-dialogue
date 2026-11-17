@@ -147,10 +147,10 @@ P:NPC {
       choices = {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Horde and Alliance both trade here?", next = "both" },
-        { text = "How did you come to live in Moonglade?", next = "came" },
+        { text = "You don't seem like a druid yourself.", next = "came" },
         { text = "Does Moonglade's peace really rub off on travellers, Daeolyn?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is no one in Nighthaven ever looking for anyone, Daeolyn?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Are the druids really so prickly about magic, Daeolyn?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The druids seem prickly about magic, Daeolyn.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the grove let in anyone at all, Daeolyn?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do many warriors come through Nighthaven, Daeolyn?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What does a hunter need for the roads out of Moonglade?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -331,7 +331,7 @@ P:NPC {
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What grows differently here?", next = "grows" },
-        { text = "What do you mean, close to the Dream?", next = "dream" },
+        { text = "I don't follow what you mean about the Dream.", next = "dream" },
         { text = "Do Moonglade's herbs really listen to prayers, Malvor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there no poison growing anywhere in Moonglade, Malvor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would the arcane do to a dreaming plant, Malvor?", next = "xmage", when = { class = "MAGE" } },
@@ -357,7 +357,7 @@ P:NPC {
         { id = "dr_default", text = "The druids say Moonglade lies near the Emerald Dream, closer than anywhere else in the world, and that's why they come here to sleep and study. I'm no druid, but even I dream more clearly in Nighthaven." },
       },
       choices = {
-        { text = "Is it dangerous, to be so close?", next = "dream2" },
+        { text = "It sounds dangerous, being so close.", next = "dream2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -511,10 +511,10 @@ P:NPC {
       choices = {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Isn't selling bows here a bit odd?", next = "odd" },
-        { text = "Where do people go from here?", next = "roads" },
+        { text = "This must be a crossroads for travellers.", next = "roads" },
         { text = "Is a prayer really no match for an arrow, Narianna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you sell to rogues knowing what they'll do, Narianna?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Is an arrow better than a spell, Narianna?", next = "xmage", when = { class = "MAGE" } },
+        { text = "An arrow is no better than a spell, Narianna.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the druids really dislike summoning so much, Narianna?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why would a warrior need a bow, Narianna?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What makes your bows better than a city bowyer's?", next = "xhuntcl", when = { class = "HUNTER" } },

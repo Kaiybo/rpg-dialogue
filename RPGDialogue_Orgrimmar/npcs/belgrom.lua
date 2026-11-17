@@ -50,7 +50,7 @@ P:NPC {
       choices = {
         { text = "What happened with the elf?", next = "elf" },
         { text = "Who are these agents of yours?", next = "agents" },
-        { text = "Does the Warchief really ask your opinion?", next = "warchief" },
+        { text = "I doubt the Warchief really asks your opinion.", next = "warchief" },
         { text = "I'm a warrior. What does the hall behind you teach?", next = "hall", when = { class = "WARRIOR" } },
         { text = "I've seen the insects Korran writes about.", next = "silithid", when = { questDone = TODO_QUEST("The Swarm Grows") } },
         { text = "What work do you have?", next = "BUSINESS" },
@@ -60,7 +60,7 @@ P:NPC {
     elf = {
       lines = { { id = "e_default", text = "Magus Rimtori, she called herself, and she said the old elf ruins in Azshara were full of treasure and power. All I had to do was lend her a few warriors to guard her diggers, and I'd share in what they found." } },
       choices = {
-        { text = "And you believed her?", next = "elf_believed" },
+        { text = "And you believed her.", next = "elf_believed" },
         { text = "What happened to the warriors?", next = "elf_dead" },
       },
     },

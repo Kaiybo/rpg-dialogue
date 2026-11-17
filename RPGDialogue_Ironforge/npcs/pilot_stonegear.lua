@@ -56,7 +56,7 @@ P:NPC {
         { text = "Tell me about Trollplow.", next = "trollplow" },
         { text = "You and Bellowfiz argue a lot.", next = "fizzer" },
         { text = "What's the Siege Brigade doing out here?", next = "brigade" },
-        { text = "This incendicite. Is it safe?", next = "incendicite", when = { questDone = TODO_QUEST("Stonegear's Search") } },
+        { text = "This incendicite doesn't look entirely safe.", next = "incendicite", when = { questDone = TODO_QUEST("Stonegear's Search") } },
         { text = "I know my way around a mine.", next = "miner", when = { profession = "Mining" } },
         { text = "Got any work for me?", next = "BUSINESS" },
         { text = "Mind the treads, Stone.", next = "END" },
@@ -67,7 +67,7 @@ P:NPC {
       },
       choices = {
         { text = "Why call her Trollplow?", next = "trollplow_name" },
-        { text = "Cannon over armour, then?", next = "trollplow_armour" },
+        { text = "So you'd take cannon over armour.", next = "trollplow_armour" },
       },
     },
     trollplow_name = {
@@ -97,7 +97,7 @@ P:NPC {
       lines = { { id = "f_default", text = "Bellowfiz? He thinks a good steam engine is the finest sound in the world, an' I say it's a Crater Cannon goin' off. We've had the same argument fer years, an' neither o' us has won it yet." },
       },
       choices = {
-        { text = "But you're friends?", next = "fizzer_friends" },
+        { text = "You two sound like friends, all the same.", next = "fizzer_friends" },
         { text = "Something else.", next = "BACK" },
       },
     },

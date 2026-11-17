@@ -137,10 +137,10 @@ P:NPC {
       },
       choices = {
         { text = "Is the Light really so different from nature?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why do you never stand still?", next = "pacing" },
+        { text = "You never seem to stand still, High Priest.", next = "pacing" },
         { text = "How did the Light come to Ironforge?", next = "came" },
         { text = "They say you keep an exorcism censer.", next = "censer" },
-        { text = "What work is there for a priest?", next = "work" },
+        { text = "There must be plenty of work for a priest here.", next = "work" },
         { text = "Teach me something, High Priest.", next = "lesson", when = { class = "PRIEST" } },
         { text = "Does the Light listen to gnomes?", next = "gnome", when = { race = "Gnome" } },
         { text = "What troubles you, High Priest?", tag = "Persuade", next = "worry",
@@ -234,7 +234,7 @@ P:NPC {
           text = "Ye'd think it was always here, the way the young ones talk, but yer grandfather would ha' looked at this Hall an' asked where the forge was. The Light came up from the humans, after the Second War, an' it took root." },
       },
       choices = {
-        { text = "Do dwarves pray differently from humans?", next = "came_diff" },
+        { text = "I'd guess dwarves pray differently from humans.", next = "came_diff" },
         { text = "Who sends the young priests on, after you?", next = "came_send" },
         { text = "The mountain was fine before the Light came.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
         { text = "It's good that it found its way here.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
@@ -277,7 +277,7 @@ P:NPC {
         { id = "ce_default", text = "Aye, an old thing, an' I've swung it over more than one poor soul that had somethin' unwelcome livin' in them. Lord Shadowbreaker's paladins come for it now, an' I give it tae them for a donation." },
       },
       choices = {
-        { text = "You sell a holy relic?", next = "censer_sell" },
+        { text = "Selling a holy relic seems a strange thing for a priest.", next = "censer_sell" },
         { text = "What were the exorcisms like?", next = "censer_rite" },
         { text = "Something else.", next = "BACK" },
       },
@@ -289,7 +289,7 @@ P:NPC {
       choices = {
         { text = "Bread for the hungry is a holier use than any rite.", next = "BACK", fx = { align = { light = 1, order = -1 }, affinity = 2, trait = { generous = 1 } } },
         { text = "Holy things shouldn't carry a price.", next = "BACK", fx = { align = { order = 1 }, affinity = -1, trait = { stern = 1 } } },
-        { text = "Why are the stores low?", next = "censer_stores" },
+        { text = "The stores seem low for a temple this size.", next = "censer_stores" },
       },
     },
     censer_stores = {
@@ -609,7 +609,7 @@ P:NPC {
         { text = "How could the arcane lead a soul from the Light?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is there any road back for a warlock, Theodrus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How does the Light stand beside a warrior, Theodrus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Is the Light any comfort out in the high snows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The Light must be some comfort out in the high snows.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's a paladin's greatest danger, Theodrus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is Elune's light so different from the Holy Light?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a shaman keep faith with the Light as well, Theodrus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -797,7 +797,7 @@ P:NPC {
         { text = "I came out of the abbey at Northshire.", next = "abbey", when = { origin = "human_abbey_novice" } },
         { text = "Do rogues often come to you for quiet healing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What could a priest offer a warlock, Toldren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do many warriors come to you for healing, Toldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Many warriors must come to you for healing, Toldren.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters come to you often, Toldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins come to you for help, Toldren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How would a priest of the Light help a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1165,7 +1165,7 @@ P:NPC {
       },
       choices = {
         { text = "What does the path to virtue ask?", next = "path" },
-        { text = "Who's being stitched over there?", next = "husband" },
+        { text = "Someone over there is being stitched up.", next = "husband" },
         { text = "How did you come to the Light?", next = "came" },
         { text = "Brandur speaks highly of you.", next = "brandur" },
         { text = "I've earned my oaths, Tiza.", next = "oath", when = { class = "PALADIN" } },
@@ -1236,7 +1236,7 @@ P:NPC {
         { id = "ca_default", text = "The same way as most dwarves o' my years: the Silver Hand needed hands, an' I had two. The oaths took longer than the hammer-work, but they've held better." },
       },
       choices = {
-        { text = "Do the oaths ever chafe?", next = "came_chafe" },
+        { text = "Those oaths must chafe at times.", next = "came_chafe" },
         { text = "Something else.", next = "BACK", fx = { learn = { "silver_hand" } } },
       },
     },
@@ -1436,7 +1436,7 @@ P:NPC {
       choices = {
         { text = "What happened at Helm's Bed Lake?", next = "lake" },
         { text = "Tell me about Narm.", next = "narm" },
-        { text = "Are you badly hurt?", next = "hurt" },
+        { text = "You look badly hurt.", next = "hurt" },
         { text = "Let me pray over those wounds.", next = "pray", when = { class = "PRIEST" } },
         { text = "Tell me how to fight the Dark Irons, Muiredon.", next = "fight", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "What happened south of Helm's Bed Lake?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1444,7 +1444,7 @@ P:NPC {
         { text = "How did the Dark Irons get the better of you, Muiredon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What did you see south of Helm's Bed Lake, Muiredon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did the Dark Irons teach you, Muiredon?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Did the Dark Irons give you those wounds, Muiredon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The Dark Irons gave you those wounds, I'd guess.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you fight Dark Irons beside a warlock, Muiredon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call on fire against you, Muiredon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Mend well, Muiredon.", next = "END" },
@@ -1456,7 +1456,7 @@ P:NPC {
       },
       choices = {
         { text = "What were they after?", next = "lake_after" },
-        { text = "Why didn't you report back first?", next = "lake_why" },
+        { text = "You ought to have reported back first.", next = "lake_why" },
       },
     },
     lake_after = {
@@ -1669,7 +1669,7 @@ P:NPC {
         { text = "What should I study next, Bink?", next = "study", when = { class = "MAGE" } },
         { text = "I studied in the Mage Quarter of Stormwind.", next = "quarter", when = { race = "Human", class = "MAGE" } },
         { text = "I'd have made a fine mage, once.", next = "lock", when = { class = "WARLOCK" } },
-        { text = "Have rogues really tried to steal spells from you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Rogues must have tried to steal spells from you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a mage trainer want a warrior nearby, Bink?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do mages and hunters have in common, Bink?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do mages and priests get along in the Hall, Bink?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1703,7 +1703,7 @@ P:NPC {
         { id = "ha_default", text = "Lovely, mostly! The dwarves pray on that side and we study on this side, and about once a week by my count a fireball goes the wrong way and High Priest Rohan comes over very calmly to ask about it." },
       },
       choices = {
-        { text = "Do the priests mind?", next = "hall_mind" },
+        { text = "The priests can't be pleased about it.", next = "hall_mind" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1892,7 +1892,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE", minLevel = 40 } },
         { text = "How does a portal work?", next = "how" },
-        { text = "What happens to a careless portal?", next = "careless" },
+        { text = "A careless portal sounds a dangerous thing.", next = "careless" },
         { text = "Why must I wait for portals?", next = "wait", when = { class = "MAGE", maxLevel = 39 } },
         { text = "The Kirin Tor brought my people to Dalaran.", next = "sky", when = { race = "Skyborne", class = "MAGE" } },
         { text = "Could a rogue ever use one of your portals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

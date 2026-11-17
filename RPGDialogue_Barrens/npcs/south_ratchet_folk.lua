@@ -48,7 +48,7 @@ P:NPC {
       choices = {
         { text = "Why teach from Ratchet, of all places?", next = "why_ratchet" },
         { text = "What do you teach, exactly?", next = "teach" },
-        { text = "Do the goblins know what you are?", next = "goblins" },
+        { text = "The goblins can't know what you are.", next = "goblins" },
         { text = "Gakin the Darkbinder sent me.", next = "gakin", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The Cleft of Shadow sent me to you.", next = "cleft", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I've bound three demons already. What's left to learn?", next = "lock", when = { class = "WARLOCK" } },
@@ -59,7 +59,7 @@ P:NPC {
     why_ratchet = {
       lines = { { id = "wr_default", text = "In Stormwind a warlock lives under the Slaughtered Lamb and hopes the guard never knocks, and in Orgrimmar they keep us in the Cleft of Shadow and count us when we come out. Here the only law is the ledger, and the ledger has never once asked me where my power comes from." } },
       choices = {
-        { text = "So neither side wants you?", next = "unwanted" },
+        { text = "So neither side wants you.", next = "unwanted" },
         { text = "Something else, Strahad.", next = "BACK" },
       },
     },
@@ -75,7 +75,7 @@ P:NPC {
     teach = {
       lines = { { id = "te_default", text = "Binding, mostly, which is calling a thing across from the Twisting Nether and keeping it obedient once it's here. Any fool with a book can manage the calling, but the keeping is where my students either learn or are eaten." } },
       choices = {
-        { text = "Have students really been eaten?", next = "eaten" },
+        { text = "Surely no student has really been eaten.", next = "eaten" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -188,7 +188,7 @@ P:NPC {
       },
       choices = {
         { text = "Who stays at your inn?", next = "guests" },
-        { text = "Is the boat to Booty Bay safe?", next = "boat" },
+        { text = "The boat to Booty Bay doesn't look safe.", next = "boat" },
         { text = "I'd like to make this inn my home.", next = "BUSINESS" },
         { text = "Just passing through, Wiley.", next = "END" },
       },
@@ -196,7 +196,7 @@ P:NPC {
     guests = {
       lines = { { id = "gu_default", text = "Sailors, mostly, and caravan drivers in from the Crossroads, and now and then a Theramore captain who sits by one door and an orc who sits by the other. I keep 'em fed and I keep 'em apart, and the tips are terrible from both sides." } },
       choices = {
-        { text = "Do they ever come to blows?", next = "guests2" },
+        { text = "That sounds like a crowd that comes to blows.", next = "guests2" },
         { text = "Something else, Wiley.", next = "BACK" },
       },
     },
@@ -255,7 +255,7 @@ P:NPC {
       },
       choices = {
         { text = "Is the vault really that safe?", next = "vault" },
-        { text = "Horde and Alliance gold in the same vault?", next = "both" },
+        { text = "Horde and Alliance gold in the same vault, then.", next = "both" },
         { text = "I'd like to see my vault.", next = "BUSINESS" },
         { text = "That's all, Fuzruckle.", next = "END" },
       },
@@ -330,7 +330,7 @@ P:NPC {
     source = {
       lines = { { id = "so_default", text = "Some I hammer myself, some comes off the boat from Booty Bay, and some comes in from customers who don't need it anymore, if you follow me. I polish it all the same, and nobody's ever asked for a refund." } },
       choices = {
-        { text = "Customers who don't need it anymore?", next = "source2" },
+        { text = "You mean customers who don't need it anymore.", next = "source2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -395,7 +395,7 @@ P:NPC {
     rope = {
       lines = { { id = "ro_default", text = "Sailors buy it, caravans buy it, and every hero going down into the Wailing Caverns buys twice as much as they need and still comes back without any. I don't ask what happens to rope down there, chum, and frankly I'd rather not know." } },
       choices = {
-        { text = "Who else buys from you?", next = "rope2" },
+        { text = "I'd guess everybody buys from you sooner or later.", next = "rope2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -452,7 +452,7 @@ P:NPC {
       },
       choices = {
         { text = "What's biting off Ratchet?", next = "biting" },
-        { text = "Do the pirates bother your boats?", next = "pirates" },
+        { text = "The pirates must bother your boats.", next = "pirates" },
         { text = "Show me your tackle.", next = "BUSINESS" },
         { text = "Just looking, Kilxx.", next = "END" },
       },
@@ -518,7 +518,7 @@ P:NPC {
         { id = "h_again", text = "What else, sweetheart? Mind your elbows on the way round." },
       },
       choices = {
-        { text = "Do the explosions bother your neighbours?", next = "neighbours" },
+        { text = "Your neighbours must hate the explosions.", next = "neighbours" },
         { text = "Who buys engineering supplies out here?", next = "buyers" },
         { text = "I'm a gnome. We invented half of this.", next = "gnome", when = { race = "Gnome" } },
         { text = "Show me your stock.", next = "BUSINESS" },

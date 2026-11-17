@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "Tell me about faerie dragons.", next = "faerie" },
         { text = "How do you raise a gryphon?", next = "gryphons" },
-        { text = "What does a beast handler do here?", next = "work" },
+        { text = "A beast handler must have plenty to do here.", next = "work" },
         { text = "Why are you jealous of my egg?", next = "jealous", when = { questDone = TODO_QUEST("The Newest Member of the Family") } },
         { text = "How do you tame a beast like mine?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Thanks, Agnar.", next = "END" },
@@ -65,7 +65,7 @@ P:NPC {
         { id = "fa_default", text = "Wee dragons o' the forests, mostly in Feralas an' the night elves' woods, quick as a thought an' about as hard tae catch. They eat both meat an' greens, an' fresh flank's the best first meal for one, though I never could find out why." },
       },
       choices = {
-        { text = "Why do they like meat?", next = "faerie_why" },
+        { text = "It's strange that they like meat.", next = "faerie_why" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -138,7 +138,7 @@ P:NPC {
     yeti = {
       lines = { { id = "y_default", text = "A yeti called Vagash, big as a cart and twice as mean. He comes down off the slopes at night, takes a ram, and leaves nothin' but wool on the snow." } },
       choices = {
-        { text = "Why not hire the Mountaineers?", next = "yeti_mtn" },
+        { text = "This sounds like work for the Mountaineers.", next = "yeti_mtn" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -309,7 +309,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what ye like, lad; I've a fire goin' and nowhere better to be." },
       },
       choices = {
-        { text = "A bear stole your food?", next = "bear" },
+        { text = "So a bear stole your food.", next = "bear" },
         { text = "Why live out here alone?", next = "life" },
         { text = "What's the danger in these hills?", next = "hills" },
         { text = "The cold doesn't trouble a gnome, you know.", next = "gnome", when = { race = "Gnome" } },
@@ -347,7 +347,7 @@ P:NPC {
     life = {
       lines = { { id = "l_default", text = "Ironforge is all walls and hammers, and Kharanos is all gossip and ale. Out here it's just me and the wind, and the wind never asks me for coin." } },
       choices = {
-        { text = "Don't you get lonely?", next = "life_lonely" },
+        { text = "It must get lonely out here.", next = "life_lonely" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -501,7 +501,7 @@ P:NPC {
       choices = {
         { text = "What's Jetsteam?", next = "jet" },
         { text = "What is this depot for?", next = "depot" },
-        { text = "Who else works out here?", next = "people" },
+        { text = "You can't be the only one working out here.", next = "people" },
         { text = "A fellow gnome! Where are you flying?", next = "gnome", when = { race = "Gnome" } },
         { text = "Have you had stowaways on your flier before?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could arcane magic really power a flying machine?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -509,7 +509,7 @@ P:NPC {
         { text = "What meat do you need for your trip, Pilot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you really want a prayer said over your flier?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the depot safe out here, pilot?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does your machine ever frighten the birds, Pilot?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Your machine must frighten the birds, Pilot.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why are the fuel lines so sensitive, Bellowfiz?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you want a shaman's help with the winds, Pilot?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe flying.", next = "END" },
@@ -518,7 +518,7 @@ P:NPC {
     jet = {
       lines = { { id = "j_default", text = "My flying machine, and the finest one this side of Ironforge! She runs on steam and good luck, and I make sure there's plenty of both." } },
       choices = {
-        { text = "Is it safe?", next = "jet_safe" },
+        { text = "It doesn't look entirely safe.", next = "jet_safe" },
         { text = "Something else.", next = "BACK" },
       },
     },

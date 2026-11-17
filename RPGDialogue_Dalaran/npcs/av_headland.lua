@@ -53,7 +53,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then get in there." },
       },
       choices = {
-        { text = "Why are we fighting in Alterac Valley?", next = "why" },
+        { text = "There's a war on in Alterac Valley, I hear.", next = "why" },
         { text = "Who leads the Stormpike Guard?", next = "vanndar" },
         { text = "What are the Frostwolves like?", next = "frostwolf" },
         { text = "Tell me about the insignia.", next = "insignia" },
@@ -90,7 +90,7 @@ P:NPC {
         { id = "va_default", text = "General Vanndar Stormpike, from Dun Baldar at the valley's north end, an' a finer commander I've never served. His Guard holds the bunkers an' the mines, an' I send him every soldier I can find." },
       },
       choices = {
-        { text = "What's Dun Baldar like?", next = "vanndar_baldar" },
+        { text = "Dun Baldar must be a cold place to hold.", next = "vanndar_baldar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -195,7 +195,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does this valley matter so much?", next = "valley" },
-        { text = "Who leads the Frostwolves?", next = "drekthar" },
+        { text = "The Frostwolves must have a strong leader.", next = "drekthar" },
         { text = "What do you make of the Stormpike?", next = "stormpike" },
         { text = "What is this test?", next = "test" },
         { text = "The clan knows my name now, Warmaster.", next = "honored", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } } },

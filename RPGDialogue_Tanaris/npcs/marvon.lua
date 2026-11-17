@@ -51,7 +51,7 @@ P:NPC {
       },
       choices = {
         { text = "You crashed a zeppelin out here?", next = "crash" },
-        { text = "What is Gahz'ridian, exactly?", next = "gahz" },
+        { text = "Gahz'ridian sounds like a strange thing to chase.", next = "gahz" },
         { text = "You've been inside the Sunken Temple?", next = "temple" },
         { text = "Who looks after your workshop in Ratchet?", next = "ratchet" },
         { text = "Can I see that detector's workings?", next = "engineer", when = { profession = "Engineering" } },
@@ -63,7 +63,7 @@ P:NPC {
     crash = {
       lines = { { id = "c_default", text = "A small crash, a gentle one, as crashes go, and only one small explosion! The engines quit over the dunes, and the ground came up faster than my calculations, and here I am." } },
       choices = {
-        { text = "Is the zeppelin salvageable?", next = "crash_salvage" },
+        { text = "That zeppelin looks past saving.", next = "crash_salvage" },
         { text = "Something else.", next = "BACK" },
       },
     },

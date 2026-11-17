@@ -71,7 +71,7 @@ P:NPC {
       choices = {
         { text = "Why do they call you the Blade?", next = "blade" },
         { text = "Who are you, before the second cup?", next = "family" },
-        { text = "What's life like with the Blackwater Raiders?", next = "raiders" },
+        { text = "Life with the Blackwater Raiders must be a hard one.", next = "raiders" },
         { text = "Tell me about this \"Pretty Boy\" Duncan.", next = "duncan" },
         { text = "Who else drinks in the Salty Sailor?", next = "regulars" },
         { text = "What does a rogue need to know about the Bay?", next = "rogue", when = { class = "ROGUE" } },
@@ -90,7 +90,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you lose a knife fight?", next = "blade_lost" },
-        { text = "Why would an archmage own a troll dagger?", next = "blade_troll" },
+        { text = "A troll dagger seems an odd thing for an archmage to own.", next = "blade_troll" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,7 +148,7 @@ P:NPC {
       choices = {
         { text = "How does a girl from Dalaran join pirates?", next = "r_join" },
         { text = "What's the quarrel with the Bloodsail?", next = "r_bloodsail" },
-        { text = "What's Seahorn like as a captain?", next = "r_seahorn" },
+        { text = "Seahorn seems a good sort of captain.", next = "r_seahorn" },
         { text = "Do the Raiders take on new hands?", next = "r_hire" },
         { text = "That's enough about ships.", next = "hello" },
       },
@@ -201,7 +201,7 @@ P:NPC {
       },
       choices = {
         { text = "You liked him?", next = "duncan_liked" },
-        { text = "Want me to fetch the knife back?", next = "duncan_help", when = { ["not"] = { questDone = TODO_QUEST("\"Pretty Boy\" Duncan") } } },
+        { text = "I could fetch the knife back for you.", next = "duncan_help", when = { ["not"] = { questDone = TODO_QUEST("\"Pretty Boy\" Duncan") } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -250,7 +250,7 @@ P:NPC {
       lines = { { id = "ro_default", text = "Never rob anyone between the tunnel and the docks, because the Baron's Bruisers will throw you in the bay with weights on. Out past the reef the Bloodsail are fair game, and a Blackwater sailor will help you carry the loot if you share it." } },
       choices = {
         { text = "Who's the best mark on the coast?", next = "rogue_mark" },
-        { text = "Did you ever think about Strom's line of work?", next = "rogue_strom" },
+        { text = "You must have thought about Strom's line of work.", next = "rogue_strom" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -378,7 +378,7 @@ P:NPC {
       choices = {
         { text = "Why does a pirate fleet need so much snuff?", next = "snuff" },
         { text = "How does a dwarf end up a Blackwater Raider?", next = "origin" },
-        { text = "What happened to your tobacco shipment?", next = "theft" },
+        { text = "Something must have happened to your tobacco shipment.", next = "theft" },
         { text = "Who are the folk drinking in here?", next = "folk" },
         { text = "Can I have a pinch of that?", next = "pinch" },
         { text = "Do ye miss Ironforge, cousin?", next = "k_dwarf", when = { race = "Dwarf" } },
@@ -390,7 +390,7 @@ P:NPC {
     snuff = {
       lines = { { id = "sn_default", text = "Because a sailor on watch at night needs something to keep his eyes open, and a sailor in a fight needs something to steady his hands afterward. Snuff does both, and it doesn't blow out in the wind like a pipe does, so it's worth its weight in gold out on the water." } },
       choices = {
-        { text = "Where does it come from?", next = "snuff_where" },
+        { text = "That snuff must come from somewhere.", next = "snuff_where" },
         { text = "Sounds like a bad habit to me.", next = "snuff_habit" },
         { text = "Something else.", next = "BACK" },
       },
@@ -418,7 +418,7 @@ P:NPC {
       },
       choices = {
         { text = "Was it a hard choice?", next = "origin_choice" },
-        { text = "Does the Fleet Master treat you well?", next = "origin_seahorn" },
+        { text = "The Fleet Master seems to treat you well.", next = "origin_seahorn" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -571,7 +571,7 @@ P:NPC {
         { text = "How did you lose your eyes?", next = "eyes" },
         { text = "Tell me about the glass eye.", next = "glass" },
         { text = "Why are you called One-Eye if you have none?", next = "name" },
-        { text = "What do you hear, sitting by the window?", next = "listen" },
+        { text = "You must hear a great deal, sitting by the window.", next = "listen" },
         { text = "Can a mage make you a new eye?", next = "xmage", when = { class = "MAGE" } },
         { text = "Can the Light heal your sight, Dizzy?", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'll let you get back to your listening.", next = "END" },
@@ -609,7 +609,7 @@ P:NPC {
       },
       choices = {
         { text = "Who was the wizard?", next = "glass_wizard" },
-        { text = "How did the Bloodsail get it?", next = "glass_stolen" },
+        { text = "The Bloodsail must have known where to find it.", next = "glass_stolen" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -750,7 +750,7 @@ P:NPC {
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "How does a man end up selling poison?", next = "origin" },
-        { text = "Who buys from you?", next = "buyers" },
+        { text = "Someone must buy all this from you.", next = "buyers" },
         { text = "Is it safe to keep poison in a tavern?", next = "safety" },
         { text = "Strom says never buy from goblins on the docks.", next = "rogue_strom", when = { class = "ROGUE" } },
         { text = "Selling poison is a vile trade.", next = "xpala", when = { class = { "PALADIN", "PRIEST" } } },
@@ -762,7 +762,7 @@ P:NPC {
       lines = { { id = "or_default", text = "I was an apothecary's apprentice in Hillsbrad, making tonics for the farmers and rat poison for their barns. Then the plague swept through Lordaeron, and my master fled, and I came south with his recipe book and a bad feeling about anything sold as medicine." } },
       choices = {
         { text = "Why not keep making tonics?", next = "origin_tonics" },
-        { text = "Do you miss Hillsbrad?", next = "origin_home" },
+        { text = "You must miss Hillsbrad some days.", next = "origin_home" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -896,7 +896,7 @@ P:NPC {
         { text = "What happened to your start-up money?", next = "money" },
         { text = "Tell me about your brothers.", next = "brothers" },
         { text = "What kind of curiosities do you buy?", next = "relics", when = { minLevel = 50 } },
-        { text = "What do you make of Booty Bay so far?", next = "bay" },
+        { text = "You seem to have taken to Booty Bay.", next = "bay" },
         { text = "A goblin repairing gnomish gear? Really?", next = "k_gnome", when = { race = "Gnome" } },
         { text = "I'll come back when I've got more coin.", next = "END" },
       },
@@ -905,7 +905,7 @@ P:NPC {
     origin = {
       lines = { { id = "or_default", text = "Undermine's crowded, pal, wall to wall with trade princes and their cousins and their cousins' accountants, and there's no room for a new face to grow. So my brothers and I scraped together everything we had and sailed for Booty Bay, because the Steamwheedle say there's money in Stranglethorn for anybody quick enough to grab it." } },
       choices = {
-        { text = "Why Booty Bay, and not Ratchet or Gadgetzan?", next = "origin_why" },
+        { text = "I'd have thought Ratchet or Gadgetzan suited you better than Booty Bay.", next = "origin_why" },
         { text = "Do you miss Undermine?", next = "origin_miss" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1006,7 +1006,7 @@ P:NPC {
     bay = {
       lines = { { id = "bay_default", text = "It's loud, it's wet, it smells of fish and gunpowder, and I love it, pal! Everybody here's selling something, and everybody's buying something, and the Baron takes a cut of all of it, which is the most beautiful thing I've ever seen." } },
       choices = {
-        { text = "Who's your competition here?", next = "bay_rivals" },
+        { text = "You must have competition here.", next = "bay_rivals" },
         { text = "Something else.", next = "BACK" },
       },
     },

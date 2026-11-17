@@ -57,7 +57,7 @@ P:NPC {
       choices = {
         { text = "What happened at Kel'Theril?", next = "kel" },
         { text = "Tell me about Starfall Village.", next = "village" },
-        { text = "What other ruins are there?", next = "ruins" },
+        { text = "There must be other ruins up here.", next = "ruins" },
         { text = "Why give the crystal to Fandral?", next = "crystal", when = { questDone = TODO_QUEST("Remorseful Highborne") } },
         { text = "Couldn't a mage use the crystal properly?", next = "xmage", when = { class = "MAGE" } },
         { text = "Farewell, Wynd.", next = "END" },
@@ -68,7 +68,7 @@ P:NPC {
         { id = "k_default", text = "The Highborne who lived there stole a sacred artifact, believing they could drain its power and become greater than they were. They tried a ritual on it, and it shattered in a great blast that drove the pieces deep under the ice of the lake." },
       },
       choices = {
-        { text = "And the Highborne themselves?", next = "kel_ghosts", fx = { learn = { "highborne" } } },
+        { text = "The Highborne themselves must have paid a price.", next = "kel_ghosts", fx = { learn = { "highborne" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -213,7 +213,7 @@ P:NPC {
       choices = {
         { text = "What happened at your camp?", next = "camp" },
         { text = "What did you see at Kel'Theril?", next = "kel" },
-        { text = "What brings the Explorers' League this far north?", next = "league" },
+        { text = "The Explorers' League has come a long way north.", next = "league" },
         { text = "Who should I ask about those fragments?", next = "aurora", when = { questActive = TODO_QUEST("Troubled Spirits of Kel'Theril") } },
         { text = "Let me look at that pick, Jaron.", next = "xpick", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Good luck, Jaron.", next = "END" },
@@ -224,7 +224,7 @@ P:NPC {
         { id = "c_default", text = "I was set up in southern Winterspring, digging, minding my own business, when the wildkin came down on us like a storm. I suppose I got too close to something they were guarding, but they didn't stop to explain." },
       },
       choices = {
-        { text = "You said us. Who was with you?", next = "camp_friend" },
+        { text = "You said \"us,\" so someone was with you.", next = "camp_friend" },
         { text = "What were you digging for?", next = "camp_amulet" },
         { text = "Something else.", next = "BACK" },
       },
@@ -288,7 +288,7 @@ P:NPC {
         { id = "l_default", text = "The same thing as brings us everywhere: we want to know where we came from, and where everyone else came from too. The north's full of old elf stones, and old elf stones have a way of telling ye things they shouldn't." },
       },
       choices = {
-        { text = "And the danger?", next = "league_danger", fx = { learn = { "explorers_league" } } },
+        { text = "Digging up here seems dangerous work.", next = "league_danger", fx = { learn = { "explorers_league" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

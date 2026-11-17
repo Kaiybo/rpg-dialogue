@@ -141,11 +141,11 @@ P:NPC {
         { text = "I was a novice here, Brother.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I fled Lordaeron as a child.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
-        { text = "Does the Light really watch over rogues, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Can the Light and the arcane share a roof, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I doubt the Light watches over rogues, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Light and the arcane seem uneasy under one roof, Brother.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour warriors, Brother Sammuel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you think the Light cares for beasts, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Surely the Light cares for beasts as well, Brother.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think the spirits chose me, Brother Sammuel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
@@ -189,7 +189,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me the Abbey's, then.", next = "abbey" },
-        { text = "Did you ever doubt?", next = "again" },
+        { text = "You must have doubted, now and then.", next = "again" },
       },
     },
     again = {

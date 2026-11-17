@@ -64,8 +64,8 @@ P:NPC {
         { id = "h_again2", text = "What else would you know? Speak, or let me return to watching." },
       },
       choices = {
-        { text = "What do you mean, a victory?", next = "victory" },
-        { text = "What exactly are you?", next = "what" },
+        { text = "That hardly sounds like a victory.", next = "victory" },
+        { text = "I've never seen anyone quite like you.", next = "what" },
         { text = "What lies under the mountain?", next = "under" },
         { text = "Why keep watch in the Cradle?", next = "cradle" },
         { text = "What do you think of Yashiro?", next = "yashiro" },
@@ -98,7 +98,7 @@ P:NPC {
       choices = {
         { text = "I went home. Someone had to carry the living.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, trait = { kind = 1 } } },
         { text = "I kept fighting. Grief could wait for the Legion to be gone.", next = "BACK", fx = { affinity = 2, align = { honor = -1 }, trait = { stern = 1 } } },
-        { text = "Does the mountain remember that day?", next = "xsurvivor_mem" },
+        { text = "The mountain must still remember that day.", next = "xsurvivor_mem" },
       },
     },
     xsurvivor_mem = {
@@ -161,7 +161,7 @@ P:NPC {
         { id = "un_default", text = "Barrow dens, dug long ago by the druids and guarded by the Watchers. They held a prisoner there for ten millennia, and the deeps run further down than anyone living has walked. Prisons remember what they held, and I do not think these are as empty as the Circle hopes." },
       },
       choices = {
-        { text = "What do you think is down there?", next = "under_what" },
+        { text = "You think something is waiting down there.", next = "under_what" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -297,7 +297,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Another question. Ravens are patient, little one; ask it." } },
       choices = {
-        { text = "What is the Cradle of Tranquility?", next = "cradle" },
+        { text = "This Cradle of Tranquility feels strangely calm.", next = "cradle" },
         { text = "Why do you allow the demon hunter here?", next = "maerion" },
         { text = "What did you see when the Legion came?", next = "legion" },
         { text = "How do I keep my mind clear up here?", next = "xshadow", when = { form = "shadow" } },

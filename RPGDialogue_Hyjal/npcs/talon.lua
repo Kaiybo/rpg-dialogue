@@ -80,11 +80,11 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I've got time for one more question, maybe two." },
       },
       choices = {
-        { text = "Who are the Druids of the Talon?", next = "talon" },
-        { text = "How is anyone getting up here?", next = "gorge" },
-        { text = "How fares the World Tree?", next = "tree" },
+        { text = "I don't know the Druids of the Talon.", next = "talon" },
+        { text = "I'm surprised anyone can reach this place at all.", next = "gorge" },
+        { text = "The World Tree still looks badly scarred.", next = "tree" },
         { text = "Where is help needed on the mountain?", next = "work" },
-        { text = "Who gives you your orders?", next = "omnuron" },
+        { text = "The Talon take their orders from someone, I expect.", next = "omnuron" },
         { text = "About the owl feathers...", next = "feathers", when = { questActive = TODO_QUEST("Feathers in Flight") } },
         { text = "I'm a priest. Who here needs the Light?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I'm of the Circle. How can I help?", next = "xdruid", when = { class = "DRUID" } },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "ta_default", text = "We're the druids who learned the shape of the crow and the storm, and we take our gift from Aviana, the Mistress of Birds. Every winged thing on this mountain is ours to look after, which means I spend half my life chasing owls and the other half chasing the things that eat them." },
       },
       choices = {
-        { text = "Who was Aviana?", next = "aviana" },
+        { text = "I know little of Aviana.", next = "aviana" },
         { text = "Where is your shrine?", next = "shrine" },
         { text = "Something else.", next = "BACK" },
       },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "go_default", text = "After the battle, Malfurion Stormrage sealed the summit away behind a wall of growth so the tree could heal, and for years the only way up was on wings. Now the way through Darkwhisper Gorge is open, and all sorts are coming up it, and nobody bothers to tell the Talon why." },
       },
       choices = {
-        { text = "Who opened the gorge?", next = "gorge_who" },
+        { text = "Someone must have opened that gorge.", next = "gorge_who" },
         { text = "And Malfurion himself?", next = "gorge_malf" },
         { text = "Something else.", next = "BACK" },
       },
@@ -176,7 +176,7 @@ P:NPC {
         { id = "tr_nelf", when = { race = "NightElf" }, text = "You feel it too, don't you? We're mortal now, every one of us, and the tree that kept us otherwise is still scarred black at the crown. I say we'd better hurry, then, because we haven't got forever any more." },
       },
       choices = {
-        { text = "Can it be healed faster?", next = "tree_faster" },
+        { text = "Surely the tree could heal faster with help.", next = "tree_faster" },
         { text = "Some things should heal in their own time.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then we push, and help it along.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -198,7 +198,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Thylaen.", next = "work_thylaen" },
-        { text = "An orc, up here?", next = "work_yashiro" },
+        { text = "I didn't expect to see an orc up here.", next = "work_yashiro" },
         { text = "The dead at Mourning's Rest?", next = "work_mourning" },
         { text = "Something else.", next = "BACK" },
       },
@@ -273,7 +273,7 @@ P:NPC {
         { id = "su_default", text = "Everlook, mostly, through the snow. A goblin called Azzleby runs his beasts through the passes for me, and Evie Whirlbrew trades for what the Talon can spare. It works well enough when the Winterfall furbolgs aren't robbing the caravans." },
       },
       choices = {
-        { text = "You trust goblins?", next = "supply_goblins" },
+        { text = "I'd not have thought you'd trust a goblin.", next = "supply_goblins" },
         { text = "The Winterfall raid you?", next = "supply_winterfall" },
         { text = "Something else.", next = "BACK" },
       },

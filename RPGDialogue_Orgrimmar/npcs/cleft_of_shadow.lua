@@ -46,7 +46,7 @@ P:NPC {
       choices = {
         { text = "What do rogues do for the Horde?", next = "work" },
         { text = "Tell me about the Cleft of Shadow.", next = "cleft" },
-        { text = "Does the Warchief trust your kind?", next = "trust" },
+        { text = "I'd guess the Warchief doesn't trust your kind.", next = "trust" },
         { text = "I'm ready for my next lesson.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "What would you have of a Forsaken rogue?", next = "forsaken", when = { race = "Scourge", class = "ROGUE" } },
         { text = "Farewell, Shenthul.", next = "END" },
@@ -78,7 +78,7 @@ P:NPC {
     ragefire = {
       lines = { { id = "rf_default", text = "Troggs, fire and worse, and cultists of the Searing Blade who think the old ways of demons and blood were better. They're orcs, friend, from inside our own city, which is what troubles the Warchief more than any of it." } },
       choices = {
-        { text = "How did cultists get into Orgrimmar?", next = "ragefire_how" },
+        { text = "Cultists shouldn't be able to get into Orgrimmar.", next = "ragefire_how" },
         { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } },
       },
     },
@@ -143,7 +143,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Be quick, my next student's late." } },
       choices = {
         { text = "Why does the city tolerate warlocks?", next = "tolerate" },
-        { text = "Aren't demons what nearly destroyed the orcs?", next = "demons" },
+        { text = "Demons nearly destroyed the orcs.", next = "demons" },
         { text = "Teach me what you know.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Farewell, Mirket.", next = "END" },
       },
@@ -211,7 +211,7 @@ P:NPC {
     personal = {
       lines = { { id = "pe_default", text = "Oh, very much so, and none of them nice. Imps are vain and spiteful, voidwalkers are quiet and sulky, and succubi will try to talk you out of your own name if you let them." } },
       choices = {
-        { text = "Do you ever pity them?", next = "pity" },
+        { text = "I almost pity them.", next = "pity" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -263,7 +263,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? Mind the green jar, it's in a mood today." } },
       choices = {
         { text = "Who buys poisons in Orgrimmar?", next = "who" },
-        { text = "Isn't poison dishonorable?", next = "honor" },
+        { text = "Poison seems a dishonorable way to fight.", next = "honor" },
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "Farewell, Rekkul.", next = "END" },
       },
@@ -330,7 +330,7 @@ P:NPC {
     worst = {
       lines = { { id = "wo_default", text = "The warlocks, every one of them, asking for things I don't sell and wouldn't sell if I could. I tell them I sell powders, not souls, and they look at me like I'm the strange one." } },
       choices = {
-        { text = "Would you sell them if you could?", next = "souls" },
+        { text = "I'd guess you'd sell them if you could.", next = "souls" },
         { text = "Something else.", next = "BACK" },
       },
     },

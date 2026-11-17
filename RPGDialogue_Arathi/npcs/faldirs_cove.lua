@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Speak up. The waves are loud and my ears are older than they look." },
       },
       choices = {
-        { text = "What happened to your ships?", next = "wreck" },
+        { text = "Your ships seem to have met with trouble.", next = "wreck" },
         { text = "Who's Seahorn?", next = "seahorn" },
         { text = "Tell me about your crew.", next = "crew" },
         { text = "What's this treasure you're after?", next = "treasure" },
@@ -70,7 +70,7 @@ P:NPC {
         { id = "wr_default", text = "I brought the Harbinger in to dock and signalled the Spirit of Silverpine and the Maiden's Folly to follow suit. Then the sea rumbled, the tide dropped like a stone, and both ships crashed onto the reef." },
       },
       choices = {
-        { text = "A reef that wasn't there before?", next = "wreck_reef" },
+        { text = "A reef can't just appear out of nowhere.", next = "wreck_reef" },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
@@ -79,7 +79,7 @@ P:NPC {
         { id = "wf_default", text = "That's no ordinary reef, matey; something's down there. Nilzlix swears he saw carved stone under the hulls, like the roof of a temple, and the naga came boiling out of it before the masts had stopped falling." },
       },
       choices = {
-        { text = "What would naga want with this cove?", next = "wreck_naga" },
+        { text = "Naga must want something in this cove.", next = "wreck_naga" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,7 +143,7 @@ P:NPC {
         { id = "tr_default", text = "Gold, matey, an old hoard sunk off this coast, or so the Professor's contraption tells us. Seahorn wanted it badly enough to send three ships, and I'd like to bring back at least a pocketful to show for the two I lost." },
       },
       choices = {
-        { text = "Two ships for a pocketful of gold?", next = "treasure_worth" },
+        { text = "Two ships seems a high price for a pocketful of gold.", next = "treasure_worth" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
       choices = {
         { text = "Tell me about the Harbinger.", next = "ob_harbinger" },
         { text = "How do the Raiders split salvage like this?", next = "ob_code" },
-        { text = "Do the Bloodsail sail this far north?", next = "ob_bloodsail" },
+        { text = "I'd not expect the Bloodsail this far north.", next = "ob_bloodsail" },
         { text = "Would the Raiders take Horde coin up here?", next = "ob_sides", when = { faction = "Horde" } },
         { text = "Do the Raiders work with Alliance ships?", next = "ob_sides", when = { faction = "Alliance" } },
         { text = "Steelgut says he won his ship on a bet.", next = "ob_dwarf", when = { race = "Dwarf" } },
@@ -357,7 +357,7 @@ P:NPC {
         { text = "What do you know of the naga?", next = "naga" },
         { text = "Tell me about the Blackwater Raiders, Captain.", next = "sg_raiders" },
         { text = "What will you do now, Captain?", next = "sg_after" },
-        { text = "How does a dwarf end up captaining a ship?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "A dwarf captaining a ship is a rare sight.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Rest easy, Captain.", next = "END" },
       },
     },
@@ -388,7 +388,7 @@ P:NPC {
         { id = "su_default", text = "I went black in the water an' woke up on the shore, an' that's all I know. O'Breen made it in safe wi' the Harbinger, an' we weren't so lucky, so ye can guess how I feel about luck." },
       },
       choices = {
-        { text = "Do you blame O'Breen?", next = "survive_blame" },
+        { text = "I'd blame O'Breen, in your place.", next = "survive_blame" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -436,10 +436,10 @@ P:NPC {
         { id = "sr_again2", text = "Ask yer question. I'll answer it, if it's no' about the water." },
       },
       choices = {
-        { text = "What's Fleet Master Seahorn like?", next = "sg_seahorn" },
+        { text = "Seahorn must be quite a master to serve.", next = "sg_seahorn" },
         { text = "Do the Raiders really keep a code?", next = "sg_code" },
         { text = "What was life like aboard the Folly?", next = "sg_life" },
-        { text = "Have you fought the Bloodsail, Captain?", next = "sg_bloodsail" },
+        { text = "You look like you've fought the Bloodsail, Captain.", next = "sg_bloodsail" },
         { text = "Does a dwarf captain mind Horde passengers?", next = "sg_horde", when = { faction = "Horde" } },
         { text = "Something else, Captain.", next = "hello" },
       },

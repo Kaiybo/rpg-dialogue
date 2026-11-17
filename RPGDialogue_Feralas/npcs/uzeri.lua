@@ -55,7 +55,7 @@ P:NPC {
       },
       choices = {
         { text = "What is a muisek?", next = "muisek" },
-        { text = "Whose head did you send to Neeru?", next = "head" },
+        { text = "Somebody's head went to Neeru, I hear.", next = "head" },
         { text = "Why do the Horde need beast spirits?", next = "why" },
         { text = "How do you get on with the tauren here?", next = "tauren" },
         { text = "Binding spirits in jars is cruel, Uzer'i.", next = "shaman", when = { class = { "SHAMAN", "DRUID" } } },
@@ -67,7 +67,7 @@ P:NPC {
     muisek = {
       lines = { { id = "m_default", text = "Da muisek is da spirit of a creature, mon, its strength and its anger together. When a beast die violent, da muisek may run off and take a bigger shape, and come back lookin' for whoever killed it." } },
       choices = {
-        { text = "So you shrink the body first?", next = "muisek_shrink" },
+        { text = "So you shrink the body first.", next = "muisek_shrink" },
         { text = "Something else.", next = "BACK" },
       },
     },

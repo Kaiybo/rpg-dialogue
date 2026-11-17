@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "Why does the Cartel pay the pirates?", next = "protection" },
         { text = "What's in the small print?", next = "smallprint" },
-        { text = "Who is Andre Firebeard?", next = "andre" },
+        { text = "I've heard the name Andre Firebeard.", next = "andre" },
         { text = "Any relation to the Chief Engineer?", next = "cousin" },
         { text = "I know a thing or two about pirates' habits.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Some of those pirates were just dock workers.", next = "dockers", when = { questDone = TODO_QUEST("Southsea Shakedown") } },

@@ -61,7 +61,7 @@ P:NPC {
         { text = "What makes Wetlands crocolisk so prized?", next = "crocs" },
         { text = "How's your apprentice?", next = "apprentice" },
         { text = "Who's Einar?", next = "einar" },
-        { text = "How does a hide go from marsh to market?", next = "trade" },
+        { text = "A hide must pass through many hands before market.", next = "trade" },
         { text = "Any tips for a working leatherworker?", next = "craft", when = { profession = { name = "Leatherworking" } } },
         { text = "Good day, James.", next = "END" },
       },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "ei_default", text = "Einar Stonegrip, one of the hunters who brings me croc skins. He camps out on the road east and won't set foot in Menethil, which suits the harbour fine and suits me less." },
       },
       choices = {
-        { text = "Why won't he come into town?", next = "einar_why" },
+        { text = "He never seems to come into town.", next = "einar_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,7 +118,7 @@ P:NPC {
         { id = "tr_default", text = "The hunters bring them in raw, I salt and cure them, and the bales go aboard whatever ship's sailing south. Half the leather in Booty Bay started life in that marsh out there." },
       },
       choices = {
-        { text = "Does the Third Fleet trouble the shipping?", next = "trade_fleet" },
+        { text = "The Third Fleet's wrecks must trouble the shipping.", next = "trade_fleet" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -40,10 +40,10 @@ P:Pool {
       },
       choices = {
         { text = "What are the rules in this town?", next = "rules" },
-        { text = "Who runs Gadgetzan?", next = "boss" },
+        { text = "Someone must run a town like this.", next = "boss" },
         { text = "Any trouble out in the desert?", next = "trouble" },
         { text = "What's that humming tower?", next = "water" },
-        { text = "Doesn't staying neutral ever bother you?", next = "neutral" },
+        { text = "Staying neutral must bother you sometimes.", next = "neutral" },
         { text = "Why work for the Cartel?", next = "pay" },
         { text = "Do the Alliance give you trouble here?", next = "sides", when = { faction = "Horde" } },
         { text = "Do the Horde give you trouble here?", next = "sides", when = { faction = "Alliance" } },
@@ -111,7 +111,7 @@ P:Pool {
         { id = "wa_default", text = "That's the water tower, and it's the only reason anybody lives here at all, and the reason everything costs what it costs. It pulls water up from deep under the sand, and whoever controls the water controls Gadgetzan, which is why we stand right next to it." },
       },
       choices = {
-        { text = "What happens if it stops?", next = "water_stop" },
+        { text = "I'd hate to see what happens if it stops.", next = "water_stop" },
         { text = "Something else.", next = "BACK" },
       },
     },

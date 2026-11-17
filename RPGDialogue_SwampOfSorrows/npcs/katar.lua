@@ -49,7 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm listening to you and the sea both." },
       },
       choices = {
-        { text = "Why do you hate the sea?", next = "sea" },
+        { text = "You speak of the sea like an old enemy.", next = "sea" },
         { text = "What are the murlocs doing on this coast?", next = "murlocs" },
         { text = "How do the patrols work?", next = "patrol" },
         { text = "The water spirits aren't cruel, Katar.", next = "xshaman", when = { class = "SHAMAN" } },
@@ -92,7 +92,7 @@ P:NPC {
         { id = "mu_default", text = "Breeding, and gathering, and growing bolder, with marsh oracles among them now who chant over the tide. Their stupidity forces them to refortify after every slaughter, and that's good, because it keeps them busy." },
       },
       choices = {
-        { text = "Could they really threaten Stonard?", next = "murlocs_stonard" },
+        { text = "I doubt murlocs could ever threaten Stonard.", next = "murlocs_stonard" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "pa_default", text = "Two at a time along the tideline, from the post to the rocks and back, and never closer to the water than a spear's throw. The ones who get careless at the water's edge are the ones I don't see again." },
       },
       choices = {
-        { text = "Do you need more soldiers?", next = "patrol_more" },
+        { text = "You look like you need more soldiers.", next = "patrol_more" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -172,14 +172,14 @@ P:NPC {
         { id = "h_again3", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Go on; for you, I've a minute more." },
       },
       choices = {
-        { text = "Couldn't some of the beasts just be left alone?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Some of the beasts could surely be left alone.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "What about the Defias?", next = "defias" },
         { text = "McBride says someone is training them.", next = "confront",
           when = { any = { { heardLine = "mcbride.d_default" }, { heardClaim = "defias_trained" } } } },
         { text = "Tell me about Hogger.", next = "hogger", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\"") } },
         { text = "How bad is Elwynn, really?", next = "threats" },
-        { text = "Where's the rest of the army?", next = "army" },
+        { text = "Goldshire seems short of soldiers.", next = "army" },
         { text = "Tell me about yourself, Marshal.", next = "dg_self" },
         { text = "I'm from Westfall. Nobody came for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "My family has a name in the city.", next = "noble", when = { origin = "human_minor_noble" } },
@@ -190,9 +190,9 @@ P:NPC {
         { text = "Do dwarves turn up in Goldshire much, Marshal?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Where could a mage be of use to you, Marshal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you leave the cellar alone, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "How many soldiers have you lost this season, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must have lost a good many soldiers this season, Marshal.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin do the most good in Elwynn, Marshal?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you trust a shaman to fight for Goldshire, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You don't seem to trust a shaman to fight for Goldshire.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Stockade's quiet now, Marshal. Your prisoners won't trouble Goldshire.", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "Why doesn't Stormwind send more soldiers to Goldshire?", next = "xpt_dughan", when = { party = true } },
         { text = "Good day, Marshal.", next = "END" },
@@ -260,7 +260,7 @@ P:NPC {
           fx = { learn = { "hogger" } } },
       },
       choices = {
-        { text = "Why hasn't the army dealt with him?", next = "hogger_army" },
+        { text = "I'd have thought the army would deal with him.", next = "hogger_army" },
         { text = "I'll bring you his claw.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Not my problem.", next = "BACK", fx = { standing = { goldshire = -1 } } },
       },
@@ -287,7 +287,7 @@ P:NPC {
       choices = {
         { text = "The mines.", next = "mines" },
         { text = "The west.", next = "west" },
-        { text = "Murlocs? Really?", next = "murlocs" },
+        { text = "Murlocs, this far inland. That's hard to credit.", next = "murlocs" },
         { text = "Back to other business.", next = "hello" },
       },
     },
@@ -354,7 +354,7 @@ P:NPC {
 
     army = {
       lines = {
-        { id = "ar_default", text = "Abroad. Doing who knows what, for who knows which noble. I keep the order here with whoever's left, and whoever walks through that door." },
+        { id = "ar_default", text = "That's because the army's abroad, doing who knows what, for who knows which noble. I keep the order here with whoever's left, and whoever walks through that door." },
       },
       choices = {
         { text = "That sounds like a complaint, Marshal.", next = "army_politics" },
@@ -484,8 +484,8 @@ P:NPC {
       },
       choices = {
         { text = "How did you come to be marshal here?", next = "dg_past" },
-        { text = "How many guards do you really have?", next = "dg_guards" },
-        { text = "What do you make of McBride and Stoutmantle?", next = "dg_others" },
+        { text = "You can't have many guards to spare.", next = "dg_guards" },
+        { text = "McBride and Stoutmantle seem very different men.", next = "dg_others" },
         { text = "What do you need from me, Marshal?", next = "dg_ask" },
         { text = "Should Elwynn's farmers arm themselves, Marshal?", next = "dg_militia" },
         { text = "I walked the Trade District for the Watch, Marshal.", next = "dg_watch", when = { origin = "human_city_guard" } },
@@ -579,7 +579,7 @@ P:NPC {
         { id = "dxgr_default", text = "Stoutmantle went to Lordaeron a farm boy and came home a knight to find Westfall in thieves' hands, and he's never once written to ask me for soldiers, because he knows I haven't any. I send him every volunteer I can spare, and I'd send more if Elwynn didn't need them too." },
       },
       choices = {
-        { text = "Do you think he can hold?", next = "dg_gryan2" },
+        { text = "I'm not sure he can hold.", next = "dg_gryan2" },
         { text = "Something else.", next = "BACK" },
       },
     },

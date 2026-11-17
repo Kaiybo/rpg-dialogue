@@ -44,7 +44,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to Naralex?", next = "naralex" },
-        { text = "What are the deviate beasts?", next = "deviates" },
+        { text = "The beasts near the caverns look wrong, somehow.", next = "deviates" },
         { text = "Who are the Druids of the Fang?", next = "fang" },
         { text = "I've walked the Emerald Dream myself, a little.", next = "dream", when = { class = "DRUID" } },
         { text = "What do you need done?", next = "BUSINESS" },
@@ -69,7 +69,7 @@ P:NPC {
     deviates = {
       lines = { { id = "d_default", text = "Raptors, serpents, plants and stranger things, all drinking from water fouled by the nightmare. They grow too large and too vicious, and they've started coming up into the Barrens to hunt." } },
       choices = {
-        { text = "Can't they be healed?", next = "healed" },
+        { text = "Surely they could be healed.", next = "healed" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,7 +84,7 @@ P:NPC {
     fang = {
       lines = { { id = "f_default", text = "They were our brothers and sisters once, the ones who went down first to help him. The dream took them too, and now they call themselves the Druids of the Fang and guard his sleep like jailers." } },
       choices = {
-        { text = "You knew them well?", next = "knew" },
+        { text = "You speak of them like old friends.", next = "knew" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -149,7 +149,7 @@ P:NPC {
       },
       choices = {
         { text = "What do the hides tell you?", next = "hides" },
-        { text = "Do you believe Naralex can be saved?", next = "saved" },
+        { text = "Naralex might still be saved.", next = "saved" },
         { text = "How did you come to follow Naralex?", next = "follow" },
         { text = "I'm a skinner. What should I look for?", next = "skinner", when = { profession = { "Skinning", "Leatherworking" } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -159,7 +159,7 @@ P:NPC {
     hides = {
       lines = { { id = "hd_default", text = "That the change comes from inside, through the water they drink. The beasts closest to the deep pools are the most twisted, and the ones near the entrance are only a little wrong, so the nightmare spreads from the center outward." } },
       choices = {
-        { text = "Could it spread beyond the caverns?", next = "spread" },
+        { text = "I'd guess it could spread beyond the caverns.", next = "spread" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -279,7 +279,7 @@ P:NPC {
     beneath = {
       lines = { { id = "b_default", text = "Water, long tunnels and the roots of very old things. The Wailing Caverns are named for the wind that moans through them, and the tauren have heard that moan for as long as we've walked the Barrens." } },
       choices = {
-        { text = "Has the wailing changed?", next = "changed" },
+        { text = "You speak as if the wailing has changed.", next = "changed" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -369,7 +369,7 @@ P:NPC {
     others = {
       lines = { { id = "o_default", text = "The leaders became the Druids of the Fang, and they guard him now like a prize. The rest fled up into the sunlight and keep watch at the cave mouth, praying for news I hope to bring them." } },
       choices = {
-        { text = "Do you blame the Fang?", next = "blame" },
+        { text = "You must blame the Fang for this.", next = "blame" },
         { text = "Something else.", next = "BACK" },
       },
     },

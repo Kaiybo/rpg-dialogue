@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "What were your crew digging for in Darkshore?", next = "crew" },
         { text = "Why does the League care so much about ruins?", next = "warning" },
-        { text = "What brings a dwarf to Darnassus?", next = "city" },
+        { text = "I didn't expect to find a dwarf in Darnassus.", next = "city" },
         { text = "Tell me about Prospector Remtravel.", next = "remtravel" },
         { text = "I'm of Ironforge. Did you lecture there?", next = "ironforge", when = { race = { "Dwarf", "Gnome" } } },
         { text = "I'll look for your crew.", next = "BUSINESS" },
@@ -75,7 +75,7 @@ P:NPC {
         { id = "co_default", text = "Or one they won't speak of, which comes to the same thing for a digger. Stone doesn't lie, but it does keep secrets, and I mean to have a few of them out of it." },
       },
       choices = {
-        { text = "Do the elves mind you digging up their past?", next = "crew_elves" },
+        { text = "I'd guess the elves mind you digging up their past.", next = "crew_elves" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -51,7 +51,7 @@ P:NPC {
       choices = {
         { text = "What is a voidwalker, exactly?", next = "void" },
         { text = "Why does the Dark Lady allow warlocks?", next = "allow" },
-        { text = "Where did you learn all this?", next = "learned" },
+        { text = "You didn't learn all this from books alone.", next = "learned" },
         { text = "I'm ready for the binding, Halgar.", next = "binding", when = { class = "WARLOCK" } },
         { text = "What would you have me do?", next = "BUSINESS" },
         { text = "I'll leave you to your chalk.", next = "END" },
@@ -68,7 +68,7 @@ P:NPC {
     void_slip = {
       lines = { { id = "vs_default", text = "Then it stops serving and starts feeding, and someone like me is sent to tidy up what's left. I've tidied up three students so far, and I keep their chalk in a box by the door." } },
       choices = {
-        { text = "Does it frighten you, holding them like that?", next = "void_fear" },
+        { text = "Holding them like that would frighten me.", next = "void_fear" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -108,7 +108,7 @@ P:NPC {
         { id = "le_cult", when = { origin = "forsaken_cult_remnant" }, text = "From the same people who taught you, I suspect, before the Dark Lady broke their hold on us. The Cult of the Damned was generous with its lessons and careless about whom it taught." },
       },
       choices = {
-        { text = "You were one of the Cult?", next = "learned_cult" },
+        { text = "So you were one of the Cult.", next = "learned_cult" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does careful matter so much?", next = "careful" },
-        { text = "What were you before the plague?", next = "before" },
+        { text = "You have the manner of a teacher.", next = "before" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Good day, Kerwin.", next = "END" },
       },
@@ -248,7 +248,7 @@ P:NPC {
         { id = "h_again2", text = "What else stirs in that head of yours?" },
       },
       choices = {
-        { text = "Was Soulreaper your name in life?", next = "name" },
+        { text = "Soulreaper can't have been your name in life.", next = "name" },
         { text = "What are soul shards for, really?", next = "shards" },
         { text = "Teach me, Soulreaper.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
@@ -391,7 +391,7 @@ P:NPC {
         { id = "h_again2", text = "Another question? Splendid, I'd nearly run out of things to think about." },
       },
       choices = {
-        { text = "What happened to your school?", next = "school" },
+        { text = "Your school must have closed long ago.", next = "school" },
         { text = "Do the dead learn magic differently?", next = "dead" },
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Goodbye, Pierce.", next = "END" },
@@ -459,7 +459,7 @@ P:NPC {
       },
       choices = {
         { text = "What separates an artisan from the rest?", next = "artisan" },
-        { text = "Where did you learn the craft?", next = "learned" },
+        { text = "You learned your craft somewhere fine, by the look of it.", next = "learned" },
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Enchanting" } },
         { text = "Good day, Gregorian.", next = "END" },
       },
@@ -475,7 +475,7 @@ P:NPC {
     learned = {
       lines = { { id = "le_default", text = "In the palace above, as a junior to the court enchanter, who put a shine on King Terenas's ceremonial blades. I was polishing one of them on the day Prince Arthas came home, and I've not polished a blade for royalty since." } },
       choices = {
-        { text = "You saw Arthas return?", next = "learned_arthas" },
+        { text = "So you saw Arthas return.", next = "learned_arthas" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -524,7 +524,7 @@ P:NPC {
         { id = "h_again", text = "Anything else, dear? I've a queue of warlocks behind you, and they're not patient." },
       },
       choices = {
-        { text = "Who are your best customers?", next = "customers" },
+        { text = "I'd guess the warlocks are your best customers.", next = "customers" },
         { text = "Where do you get it all?", next = "source" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Goodbye, Hannah.", next = "END" },

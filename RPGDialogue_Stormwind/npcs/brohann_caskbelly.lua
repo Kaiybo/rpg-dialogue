@@ -52,7 +52,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, {g:lad|lass}. Old dwarves love a question." },
       },
       choices = {
-        { text = "What's the Temple of Atal'Hakkar?", next = "temple" },
+        { text = "I've never heard of the Temple of Atal'Hakkar.", next = "temple" },
         { text = "Why give up exploring?", next = "retire" },
         { text = "What happened to your gryphon pilot?", next = "pilot" },
         { text = "Tell me about the Explorers' League.", next = "league", when = { race = "Dwarf" } },

@@ -55,7 +55,7 @@ P:NPC {
       choices = {
         { text = "What makes the Burning Blade weak?", next = "blade" },
         { text = "What do the gems do to their spirits?", next = "gems" },
-        { text = "Why does Keldran trust a Forsaken?", next = "keldran" },
+        { text = "Keldran trusting a Forsaken surprises me.", next = "keldran" },
         { text = "Tell me about Azrethoc's contract.", next = "contract", when = { any = { { questActive = TODO_QUEST("The Corrupter") }, { questDone = TODO_QUEST("The Corrupter") } } } },
         { text = "I'm a warlock too. How is my power different from theirs?", next = "warlock_m", when = { class = "WARLOCK" } },
         { text = "What would you have me do?", next = "BUSINESS" },
@@ -98,7 +98,7 @@ P:NPC {
         { id = "ge_default", text = "They draw out what the demons have put into a cultist, the corrupted part, and hold it fast in stone. What remains dies, and dies cleaner than it lived." },
       },
       choices = {
-        { text = "And the gems themselves?", next = "gems_kept" },
+        { text = "The gems themselves must go somewhere.", next = "gems_kept" },
         { text = "Something else.", next = "BACK" },
       },
     },

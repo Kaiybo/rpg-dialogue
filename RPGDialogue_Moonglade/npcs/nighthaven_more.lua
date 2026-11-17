@@ -145,7 +145,7 @@ P:NPC {
         { text = "Does the Circle trust a priest of the Horde, Lorelae?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Circle trust a rogue at all, Lorelae?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does the Circle prefer goods without the arcane in them?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Could a warlock ever earn the Circle's friendship, Lorelae?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I doubt a warlock could earn the Circle's friendship, Lorelae.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a warrior grow the Circle's friendship?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Circle trust hunters more than others?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How does one earn the Circle's trust, Lorelae?", next = "xdruid", when = { class = "DRUID" } },

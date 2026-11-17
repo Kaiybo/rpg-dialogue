@@ -124,9 +124,9 @@ P:NPC {
       choices = {
         { text = "Why does a Sentinel scout watch over human farmland?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Show me your map.", next = "map" },
-        { text = "Why do they all wear red?", next = "bandanas" },
+        { text = "They all seem to wear red.", next = "bandanas" },
         { text = "Teach me something about scouting.", next = "scouting" },
-        { text = "What do you make of the walking scarecrows?", next = "watchers" },
+        { text = "Those walking scarecrows didn't build themselves.", next = "watchers" },
         { text = "I could get closer to their camps than you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "My beast could follow their trail by scent.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The kaldorei have scouted forests for ten thousand years.", next = "kaldorei", when = { race = "NightElf" } },
@@ -179,7 +179,7 @@ P:NPC {
     scouting = {
       lines = { { id = "sc_default", text = "Walk where the ground's hard, and stop where the wind can't carry your smell. Never cross a skyline, because every Defias lookout watches the hills." } },
       choices = {
-        { text = "Where did you learn all that?", next = "scouting_learn" },
+        { text = "You must have learned all that somewhere.", next = "scouting_learn" },
         { text = "I'll remember it.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },

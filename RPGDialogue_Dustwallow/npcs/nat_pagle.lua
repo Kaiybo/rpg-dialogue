@@ -50,9 +50,9 @@ P:NPC {
       },
       choices = {
         { text = "Why fish, if you don't enjoy it?", next = "why" },
-        { text = "Who comes all this way to see you?", next = "visitors" },
+        { text = "Folk must come a long way to see you.", next = "visitors" },
         { text = "Do you ever go to Theramore?", next = "theramore" },
-        { text = "Is that a bottle in your tackle box?", next = "drink" },
+        { text = "There's a bottle in your tackle box, unless I'm mistaken.", next = "drink" },
         { text = "I've fished my whole life. What am I missing?", next = "fisher", when = { profession = "Fishing" } },
         { text = "What do you know about these waters, Nat?", next = "waters", when = { class = { "SHAMAN", "DRUID", "HUNTER" } } },
         { text = "Give me the list, Nat.", next = "BUSINESS" },
@@ -62,7 +62,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", key = true, text = "If you ask me, the best part about fishin' is how slow it is. It gives a fella time to think over what's been and plan for what's comin', and somewhere in there a fish usually shows up." } },
       choices = {
-        { text = "What do you think about, out here?", next = "why_think" },
+        { text = "You must do a lot of thinking out here.", next = "why_think" },
         { text = "Something else.", next = "BACK" },
       },
     },

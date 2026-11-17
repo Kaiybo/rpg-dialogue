@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, mon. The fire doesn't hurt anymore, so I can talk." },
       },
       choices = {
-        { text = "What happened to your platoon?", next = "platoon" },
+        { text = "Your platoon never came home, Sha'ni.", next = "platoon" },
         { text = "Who is Krom'Grul?", next = "krom" },
         { text = "What should I tell Thal'trak?", next = "thaltrak" },
         { text = "What were the ogres doing up here?", next = "ritual" },

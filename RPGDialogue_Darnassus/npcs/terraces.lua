@@ -145,7 +145,7 @@ P:NPC {
       },
       choices = {
         { text = "Who was Velinde Starsong?", next = "velinde" },
-        { text = "How goes the war in Ashenvale?", next = "ashenvale" },
+        { text = "The war in Ashenvale must weigh on you.", next = "ashenvale" },
         { text = "What does a Sentinel commander do here?", next = "duty" },
         { text = "Will you tell the High Priestess about Velinde?", next = "tell", when = { questDone = TODO_QUEST("Answered Questions") } },
         { text = "Did Velinde pray as a priestess or fight as a Sentinel?", next = "both", when = { class = "PRIEST" } },
@@ -190,7 +190,7 @@ P:NPC {
       choices = {
         { text = "Then drive them out for good.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 }, learn = { "warsong" } } },
         { text = "Neither side can win this. Seek a truce.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1, learn = { "warsong" } } },
-        { text = "What do you need most?", next = "ashenvale2" },
+        { text = "You must need a great deal out there.", next = "ashenvale2" },
       },
     },
     ashenvale2 = {
@@ -413,7 +413,7 @@ P:NPC {
         { text = "What makes a warrior, to you?", next = "warrior" },
         { text = "Why does a satyr matter so much?", next = "vorlus" },
         { text = "Tell me about the elunite wreck.", next = "elura" },
-        { text = "Do the Sentinels fight like you?", next = "sentinels" },
+        { text = "The Sentinels must fight differently from you.", next = "sentinels" },
         { text = "Test me, then. I'm ready.", next = "test", when = { class = "WARRIOR" } },
         { text = "Which weapon should I master?", next = "weapons", when = { class = "WARRIOR" } },
         { text = "Ironforge trained me. Will you test me anyway?", next = "dwarf_e", when = { race = "Dwarf", class = "WARRIOR" } },
@@ -460,7 +460,7 @@ P:NPC {
         { id = "el_default", text = "A ship carrying elunite broke on the rocks below the Auberdine lighthouse, and the crates lie on the sea floor still. Elunite is blessed by Elune, and Mathiel the smith would sooner work it than any other metal." },
       },
       choices = {
-        { text = "And the captain who guards it?", next = "elura2" },
+        { text = "And there's a captain who guards it, I take it.", next = "elura2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -646,7 +646,7 @@ P:NPC {
       choices = {
         { text = "Can you repair my gear?", next = "BUSINESS" },
         { text = "What's special about elunite?", next = "elunite" },
-        { text = "You have friends in Stormwind and Ironforge?", next = "friends" },
+        { text = "You must have friends in Stormwind and Ironforge.", next = "friends" },
         { text = "You don't have your own anvil?", next = "anvil" },
         { text = "What did Furen's notes teach you?", next = "furen", when = { profession = "Blacksmithing" } },
         { text = "Do you know Klockmort Spannerspan?", next = "gnome_m", when = { race = "Gnome" } },
@@ -892,7 +892,7 @@ P:NPC {
       choices = {
         { text = "Instruct me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What is the warrior's spirit?", next = "spirit" },
-        { text = "Why 'Bladesinger'?", next = "name" },
+        { text = "Bladesinger is an unusual name.", next = "name" },
         { text = "What do your stances teach?", next = "stances", when = { class = "WARRIOR" } },
         { text = "Stormwind's guard taught me already.", next = "guard_a", when = { origin = "human_city_guard" } },
         { text = "Can a rogue really have a warrior's spirit?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1059,7 +1059,7 @@ P:NPC {
       },
       choices = {
         { text = "What's the news from the Eastern Kingdoms?", next = "east" },
-        { text = "What's happening in Kalimdor?", next = "kalimdor" },
+        { text = "You must hear all of Kalimdor's news first.", next = "kalimdor" },
         { text = "What's the strangest news you've cried?", next = "strange" },
         { text = "Is there a call for healers anywhere?", next = "healers", when = { class = { "PRIEST", "DRUID", "PALADIN", "SHAMAN" } } },
         { text = "The Plaguelands call, and the Light answers.", next = "paladin_m", when = { class = "PALADIN" } },
@@ -1079,7 +1079,7 @@ P:NPC {
       choices = {
         { text = "The dead must be put down. I'll answer.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 }, learn = { "new_plague" } } },
         { text = "Stormwind should fight its own wars.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
-        { text = "What is the Scourge, exactly?", next = "east2" },
+        { text = "I know little of the Scourge.", next = "east2" },
       },
     },
     east2 = {
@@ -1470,7 +1470,7 @@ P:NPC {
         { text = "What was Heralath studying?", next = "work" },
         { text = "How long since his last letter?", next = "letters", when = { ["not"] = { questDone = TODO_QUEST("Mortality Wanes") } } },
         { text = "I'm sorry for your loss.", next = "grief", when = { any = { { questActive = TODO_QUEST("Mortality Wanes") }, { questDone = TODO_QUEST("Mortality Wanes") } } } },
-        { text = "What will you do now?", next = "after", when = { questDone = TODO_QUEST("Mortality Wanes") } },
+        { text = "You don't seem the sort to sit and wait.", next = "after", when = { questDone = TODO_QUEST("Mortality Wanes") } },
         { text = "The Circle won't forget Heralath.", next = "druid_tr", when = { class = "DRUID" } },
         { text = "Shall I find out who threatens Heralath out there?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you wish Heralath could send letters faster?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

@@ -66,7 +66,7 @@ P:NPC {
     cargo = {
       lines = { { id = "ca_default", text = "Moonshine, mostly, meant for the thirsty half of Ratchet, which is most of Ratchet. There were a few crates the captain told me not to open, as well, so I didn't." } },
       choices = {
-        { text = "What was in the crates you didn't open?", next = "cargo2" },
+        { text = "You must know what was in the crates you didn't open.", next = "cargo2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -138,7 +138,7 @@ P:NPC {
       choices = {
         { text = "What is the Orb of Soran'ruk?", next = "orb" },
         { text = "Why live out here alone?", next = "alone" },
-        { text = "What's inside that circle?", next = "circle" },
+        { text = "Something is bound inside that circle.", next = "circle" },
         { text = "How hard are the fragments to take?", next = "fragments", when = { class = "WARLOCK" } },
         { text = "I'll find your fragments.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your fire.", next = "END" },
@@ -158,7 +158,7 @@ P:NPC {
     alone = {
       lines = { { id = "al_default", text = "Because the Crossroads would set a grunt at my tent flap and Taurajo would stand in my light with sad eyes, and I prefer the hyenas. They at least are honest about what they want from me." } },
       choices = {
-        { text = "Doesn't the solitude wear on you?", next = "alone2" },
+        { text = "The solitude must wear on you.", next = "alone2" },
         { text = "Something else.", next = "BACK" },
       },
     },

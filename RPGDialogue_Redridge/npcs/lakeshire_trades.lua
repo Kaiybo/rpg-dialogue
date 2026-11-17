@@ -117,7 +117,7 @@ P:NPC {
       },
       choices = {
         { text = "I need a flight.", next = "BUSINESS" },
-        { text = "What do you see from up there?", next = "a" },
+        { text = "You must see the whole valley from up there.", next = "a" },
         { text = "Are the gryphons ever afraid?", next = "b" },
         { text = "Gryphons must be hard to sneak up on.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I can teleport to Stormwind on my own.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -134,7 +134,7 @@ P:NPC {
     a = {
       lines = { { id = "a_default", text = "Smoke from the Blackrock camps in the east, mostly, and gnolls swarming the hills like fleas. Every week there's more smoke than the last." } },
       choices = {
-        { text = "Does the watch listen to your reports?", next = "a2" },
+        { text = "I'd guess the watch rarely listens to your reports.", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -277,7 +277,7 @@ P:NPC {
       choices = {
         { text = "Show me your arrows.", next = "BUSINESS" },
         { text = "Why can't you keep up?", next = "a" },
-        { text = "Who buys the most from you?", next = "b" },
+        { text = "The watch must buy most of your arrows.", next = "b" },
         { text = "Do warriors ever buy your arrows, Kimberly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many arrows does the watch go through, Kimberly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the watch ever ask you for anything besides arrows?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -286,7 +286,7 @@ P:NPC {
         { text = "Do rogues ever buy from a fletcher, Kimberly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage really help with your fletching, Kimberly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do you make of warlocks, Kimberly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Can you keep up with the watch's need for arrows, Kimberly?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You can't be keeping up with the watch's need for arrows, Kimberly.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -436,7 +436,7 @@ P:NPC {
       choices = {
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "Where does your powder come from?", next = "a" },
-        { text = "Do the guns help against the gnolls?", next = "b" },
+        { text = "Guns ought to help against the gnolls.", next = "b" },
         { text = "Should a warrior carry a gun, Henry?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Rifle or bow for the hills of Redridge, Henry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have your guns ever hurt someone you didn't mean them to?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -445,14 +445,14 @@ P:NPC {
         { text = "What do you think a rogue wants with powder, Henry?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever had a mage in the shop before, Henry?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you worry about fel fire near your kegs, Henry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you prefer dwarven blackpowder, Henry?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You seem to prefer dwarven blackpowder, Henry.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Henry.", next = "END" },
       },
     },
     a = {
       lines = { { id = "a_default", text = "Over the mountains from Ironforge, by way of Stormwind, by way of a lot of wagons that never quite arrive on time. Dwarven powder is worth the wait, mind you." } },
       choices = {
-        { text = "Could you make your own?", next = "a2" },
+        { text = "You could surely make your own.", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },

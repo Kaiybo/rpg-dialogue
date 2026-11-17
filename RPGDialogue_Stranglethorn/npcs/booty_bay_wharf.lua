@@ -55,14 +55,14 @@ P:NPC {
       },
       choices = {
         { text = "What happened to your eyebrows?", next = "brows" },
-        { text = "Who buys fireworks in a pirate town?", next = "buyers" },
+        { text = "Fireworks seem an odd thing to sell in a pirate town.", next = "buyers" },
         { text = "Why sell fireworks on a wooden wharf?", next = "safety" },
         { text = "What's the best thing you've ever lit?", next = "best" },
         { text = "Do you make these yourself?", next = "workshop" },
         { text = "I can make my own blasting powder, Crazk.", next = "xeng", when = { profession = { name = "Engineering", min = 1 } } },
         { text = "I could light your whole stall with a word.", next = "xmage", when = { class = "MAGE" } },
         { text = "Don't your fireworks frighten the animals?", next = "xhunt", when = { class = "HUNTER" } },
-        { text = "Do you ever sell to the Bloodsail?", next = "bloodsail", when = { faction = "Alliance" } },
+        { text = "I'd wager the Bloodsail buy from you now and then.", next = "bloodsail", when = { faction = "Alliance" } },
         { text = "Do the Horde get the same prices as the Alliance?", next = "prices", when = { faction = "Horde" } },
         { text = "I'll keep my torch away. Goodbye, Crazk.", next = "END" },
       },
@@ -92,7 +92,7 @@ P:NPC {
       choices = {
         { text = "You should have paid for the dock too.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Running before the bill came was the smart move.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Does Ratchet still want you back?", next = "ratchet_back" },
+        { text = "I'd guess Ratchet still wants you back.", next = "ratchet_back" },
       },
     },
     ratchet_back = {
@@ -133,7 +133,7 @@ P:NPC {
       },
       choices = {
         { text = "Has the cellar ever flooded on purpose?", next = "safety_cellar" },
-        { text = "A bucket. That's your whole safety plan?", next = "safety_rules" },
+        { text = "A bucket. That's your whole safety plan.", next = "safety_rules" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -272,7 +272,7 @@ P:NPC {
         { text = "What's the best fish you've got today?", next = "catch" },
         { text = "You know Old Man Heming?", next = "heming" },
         { text = "Who catches all this for you?", next = "boats" },
-        { text = "What's the strangest thing you've pulled out of the bay?", next = "strange" },
+        { text = "You must have pulled strange things out of the bay.", next = "strange" },
         { text = "Why 'superior' fisherman?", next = "title" },
         { text = "I'd sell you my catch, if the price is right.", next = "xfisher", when = { profession = { name = "Fishing", min = 1 } } },
         { text = "Do you sell fish to cooks?", next = "xcook", when = { profession = { name = "Cooking", min = 1 } } },
@@ -317,7 +317,7 @@ P:NPC {
       choices = {
         { text = "A man's stories are his own. Let him tell them.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Somebody should set the record straight, gently.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're fond of him, aren't you?", next = "heming_fond" },
+        { text = "You're fond of him, I can tell.", next = "heming_fond" },
       },
     },
     heming_fond = {
@@ -465,7 +465,7 @@ P:NPC {
     lesson = {
       lines = { { id = "ls_default", text = "First lesson, sweetheart: the fish ain't stupid, they're just hungry, and the trick is to be the most interesting thing they see all day. Second lesson is don't stand where your shadow falls on the water, and the third lesson costs money." } },
       choices = {
-        { text = "What's the third lesson?", next = "lesson_third" },
+        { text = "There must be a third lesson.", next = "lesson_third" },
         { text = "Why does the shadow matter?", next = "lesson_shadow" },
         { text = "Something else.", next = "BACK" },
       },
@@ -489,7 +489,7 @@ P:NPC {
       lines = { { id = "lk_default", text = "Luck's real, sweetheart, it's just lazy, and you've gotta give it reasons to stick around. Never fish on a Thursday, never step over a rod, and never, ever whistle on a dock, and the sea'll treat you like family." } },
       choices = {
         { text = "What happens if you fish on a Thursday?", next = "luck_thursday" },
-        { text = "What are all those charms on your fingers?", next = "luck_charms" },
+        { text = "You've got a lot of charms on your fingers.", next = "luck_charms" },
         { text = "That's all just superstition, Myizz.", next = "luck_doubt" },
       },
     },
@@ -569,7 +569,7 @@ P:NPC {
         { id = "xf_default", text = "Next comes reading, sweetheart, and I mean the book Old Man Heming sells, the one about bass, which he wrote himself or says he did. Past that you'll need Nat Pagle in Dustwallow, because there's only so much a goblin on a dock can teach ya." },
       },
       choices = {
-        { text = "Heming wrote a book?", next = "xfisher_book" },
+        { text = "Heming wrote a book. I'd never have guessed it.", next = "xfisher_book" },
         { text = "Thanks, Myizz. I'll keep at it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -653,7 +653,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you come to keep a stable here?", next = "past" },
-        { text = "What sort of beasts do you keep?", next = "beasts" },
+        { text = "You must keep all sorts of beasts here.", next = "beasts" },
         { text = "What's this about the parrots?", next = "parrots" },
         { text = "Is it hard keeping animals in this heat?", next = "heat" },
         { text = "Who are your best customers?", next = "customers" },
@@ -669,7 +669,7 @@ P:NPC {
       lines = { { id = "pt_default", text = "I drove pack mules for the Venture Company up north, boss, hauling timber out of the jungle near the Venture camps, and I was good at it. Then a foreman whipped a mule to death on a hill for being slow, and I put him in the mud and walked down to the coast." } },
       choices = {
         { text = "You hit your foreman over a mule?", next = "past_mule" },
-        { text = "What's the Venture Company like to work for?", next = "past_venture" },
+        { text = "The Venture Company can't have been kind to work for.", next = "past_venture" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -759,7 +759,7 @@ P:NPC {
       },
       choices = {
         { text = "I always come back for my companions.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "How long do people leave their beasts?", next = "xhunt_long" },
+        { text = "Folk must leave their beasts with you a long while.", next = "xhunt_long" },
       },
     },
     xhunt_long = {
@@ -840,7 +840,7 @@ P:NPC {
         { text = "What exactly are the side effects?", next = "effects" },
         { text = "Who's allowed to use it?", next = "rules" },
         { text = "Why build one to Gadgetzan?", next = "why" },
-        { text = "What about the gnome engineer here?", next = "oglethorpe" },
+        { text = "There's a gnome engineer here too, I noticed.", next = "oglethorpe" },
         { text = "I'm an engineer. Show me the wiring.", next = "xeng", when = { profession = { name = "Engineering", min = 1 } } },
         { text = "Gnomish engineering would make that pad safer.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Why not just ask a mage for a portal?", next = "xmage", when = { class = "MAGE" } },
@@ -871,7 +871,7 @@ P:NPC {
       lines = { { id = "ef_default", text = "Minor ones, pal, all minor! Some folks turn into a chicken for an hour, some folks come out with their hair on fire, and once in a while somebody arrives a little bit to the left, which in Gadgetzan means a sand dune and over here means the bay." } },
       choices = {
         { text = "Has anybody ever not arrived?", next = "effects_lost" },
-        { text = "What's the worst one?", next = "effects_worst" },
+        { text = "There must be one side effect worse than the rest.", next = "effects_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1017,7 +1017,7 @@ P:NPC {
       choices = {
         { text = "Why is the cut so steep here?", next = "cut" },
         { text = "Where do your lots come from?", next = "salvage" },
-        { text = "Why so gloomy, Graves?", next = "gloom" },
+        { text = "You look gloomy, Graves.", next = "gloom" },
         { text = "Nothing today. Good day, Graves.", next = "END" },
       },
     },
@@ -1104,7 +1104,7 @@ P:NPC {
       },
       choices = {
         { text = "What's the gossip tonight?", next = "gossip" },
-        { text = "What sells best in Booty Bay?", next = "sells" },
+        { text = "Some things must sell better than others in Booty Bay.", next = "sells" },
         { text = "Why do you work the night shift?", next = "night" },
         { text = "I'm not here to chat. Goodbye, Kresky.", next = "END" },
       },
@@ -1187,7 +1187,7 @@ P:NPC {
       choices = {
         { text = "Tell me about your grandfather.", next = "granddad" },
         { text = "What's the strangest thing you've sold?", next = "strange" },
-        { text = "What's your secret to a good auction?", next = "secret" },
+        { text = "You must have a secret to a good auction.", next = "secret" },
         { text = "I've heard enough stories. Goodbye, O'reely.", next = "END" },
       },
     },

@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "What does a morale officer do?", next = "job" },
-        { text = "How are the soldiers holding up?", next = "lads" },
+        { text = "Your soldiers look worn thin, Sergeant.", next = "lads" },
         { text = "What's for sale?", next = "BUSINESS" },
         { text = "Take care, Sergeant.", next = "END" },
       },

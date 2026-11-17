@@ -59,7 +59,7 @@ P:NPC {
       },
       choices = {
         { text = "Who leads the Kolkar?", next = "leaders" },
-        { text = "Why are the centaur so organized now?", next = "why" },
+        { text = "The centaur seem better organized than they used to be.", next = "why" },
         { text = "This is your headquarters? A burrow and a pig farm?", next = "camp" },
         { text = "How do I fight a centaur?", next = "fighting", when = { class = { "WARRIOR", "HUNTER", "ROGUE" } } },
         { text = "Krom'zar is dead. What now?", next = "after", when = { questDone = TODO_QUEST("Counterattack!") } },
@@ -79,7 +79,7 @@ P:NPC {
     first = {
       lines = { { id = "f_default", text = "Kodobane, because he's closest and he's loud, and loud ones bring the others running. Then Verog, and then Hezrul once his lieutenants are gone and he's got nobody left to hide behind." } },
       choices = {
-        { text = "And when the leaders are dead?", next = "first_end" },
+        { text = "And when the leaders are dead, it's over.", next = "first_end" },
         { text = "Understood. Something else.", next = "BACK" },
       },
     },
@@ -133,7 +133,7 @@ P:NPC {
           fx = { thread = { id = "kolkar_war", state = "soured" }, affinity = 1, align = { light = -1 }, trait = { stern = 1 } },
           journal = { first = "Told Regthar to ride Krom'zar's stragglers down. His grunts were mounted before I'd finished speaking.",
                       third = "{name} told Regthar Deathgate to ride Krom'zar's stragglers down, and his grunts rode out at once." } },
-        { text = "Why does Lanti'gah want them spared?", next = "st_lanti" },
+        { text = "Strange that Lanti'gah wants them spared.", next = "st_lanti" },
       },
     },
     st_lanti = {

@@ -52,7 +52,7 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with the timberlings?", next = "sickness" },
-        { text = "How do you know Denalan?", next = "denalan" },
+        { text = "You speak as if you know Denalan well.", next = "denalan" },
         { text = "Must we really kill them?", next = "cull" },
         { text = "Could the Circle heal them in their dreaming?", next = "druid_r", when = { class = "DRUID" } },
         { text = "I've seen fel moss on the grells and furbolgs too.", next = "felmoss", when = { any = { { questDone = TODO_QUEST("Gnarlpine Corruption") }, { topicKnown = "fel_moss" } } } },
@@ -75,7 +75,7 @@ P:NPC {
         { id = "sw_default", text = "That is the question Denalan has been chasing for months. Wellspring Lake, north of Dolanaar, is the worst of it, so whatever feeds it is near there, or flows down from there." },
       },
       choices = {
-        { text = "And if the source is in the tree itself?", next = "sickness_tree" },
+        { text = "The source might be in the tree itself.", next = "sickness_tree" },
         { text = "Something else.", next = "BACK" },
       },
     },

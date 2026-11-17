@@ -52,7 +52,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you two get lost?", next = "lost" },
-        { text = "Why not just talk to Muigin?", next = "talk" },
+        { text = "It would be simpler to just talk to Muigin.", next = "talk" },
         { text = "Who's this Marvon?", next = "marvon" },
         { text = "Do you want to go home?", next = "home" },
         { text = "The pests are zapped. Will you talk to him now?", next = "patient", when = { questDone = TODO_QUEST("Bloodpetal Zapper") } },
@@ -64,7 +64,7 @@ P:NPC {
     lost = {
       lines = { { id = "l_default", text = "We had a map, a good dwarven map, and I was following it. Then Muigin said he knew a quicker way down, and three days later we were in a crater full of lizards the size of houses." } },
       choices = {
-        { text = "Couldn't the map have been wrong?", next = "lost_map" },
+        { text = "The map could have been wrong.", next = "lost_map" },
         { text = "Something else.", next = "BACK" },
       },
     },

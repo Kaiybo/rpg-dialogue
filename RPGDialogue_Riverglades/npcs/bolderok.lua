@@ -51,10 +51,10 @@ P:NPC {
       },
       choices = {
         { text = "Why did Bolder'ok leave the Twilight's Hammer?", next = "left" },
-        { text = "Why join the Horde?", next = "horde" },
+        { text = "An ogre clan joining the Horde is a strange thing.", next = "horde" },
         { text = "Who is Jom-jom?", next = "jomjom" },
-        { text = "What do you know of Krol'dok?", next = "kroldok" },
-        { text = "Is Jom-jom all right?", next = "jomjom_after", when = { questDone = TODO_QUEST("Jom-Jom's Escape") } },
+        { text = "Krol'dok sounds like a place to stay away from.", next = "kroldok" },
+        { text = "Jom-jom seems none the worse for his adventure.", next = "jomjom_after", when = { questDone = TODO_QUEST("Jom-Jom's Escape") } },
         { text = "Do you trust shadow magic now?", next = "xlock", when = { class = { "WARLOCK", "PRIEST" } } },
         { text = "Farewell, Clugfist.", next = "END" },
       },
@@ -201,8 +201,8 @@ P:NPC {
       choices = {
         { text = "Who was your friend?", next = "friend" },
         { text = "Why did you go alone?", next = "alone" },
-        { text = "What's Bolder'ok like?", next = "home" },
-        { text = "Do you miss the Twilight's Hammer?", next = "twilight" },
+        { text = "Bolder'ok must be a fine place for an ogre.", next = "home" },
+        { text = "You must miss the Twilight's Hammer a little.", next = "twilight" },
         { text = "I'll get you home, Jom-jom.", next = "END", when = { questBefore = TODO_QUEST("Jom-Jom's Escape") } },
         { text = "Stay close.", next = "END" },
       },
@@ -232,7 +232,7 @@ P:NPC {
         { id = "al_default", text = "Because Clugfist would say no, and Clugfist says no very loudly. Jom-jom is big, so Jom-jom thought it would be easy." },
       },
       choices = {
-        { text = "Was it easy?", next = "alone_easy" },
+        { text = "That can't have been easy.", next = "alone_easy" },
         { text = "Something else.", next = "BACK" },
       },
     },

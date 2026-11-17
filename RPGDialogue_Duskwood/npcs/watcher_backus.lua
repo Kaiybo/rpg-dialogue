@@ -49,9 +49,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, but watch the trees while you talk." },
       },
       choices = {
-        { text = "Why so secretive?", next = "secret" },
+        { text = "You're awfully secretive for a watchman.", next = "secret" },
         { text = "How do you know Elling Trias?", next = "trias" },
-        { text = "What's out on this road?", next = "road" },
+        { text = "This road seems lonely for one watchman.", next = "road" },
         { text = "What was in that Defias docket?", next = "docket", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Watch yourself, Backus.", next = "END" },
@@ -79,7 +79,7 @@ P:NPC {
       lines = { { id = "t_default", text = "He sells cheese in Stormwind, and he hears things the way some men hear music. I pass him what I see out here when it seems to matter, and I don't ask what he does with it." },
       },
       choices = {
-        { text = "A cheesemonger? Really?", next = "trias_cheese" },
+        { text = "A cheesemonger. That's an odd friend for a watchman.", next = "trias_cheese" },
         { text = "Something else.", next = "BACK" },
       },
     },

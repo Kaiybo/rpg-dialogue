@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_again2", text = "Talk to me, mon. It keep me awake." },
       },
       choices = {
-        { text = "How bad is the sting?", next = "sting" },
+        { text = "That sting looks bad.", next = "sting" },
         { text = "Who is Kor'ghan to you?", next = "korghan" },
         { text = "What do you do out here?", next = "farm" },
         { text = "Let me see if I can slow the poison.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
@@ -86,7 +86,7 @@ P:NPC {
       lines = { { id = "k_default", text = "My teacher, mon, and a hard one. He keep to the Cleft of Shadow and set me rituals to prove myself, killing boars, gathering tails, and every one of them come with a lecture about understanding what you hunt." } },
       choices = {
         { text = "He'll save you, then.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Will he be angry you got stung?", next = "angry" },
+        { text = "He'll be angry you got stung.", next = "angry" },
       },
     },
     angry = {

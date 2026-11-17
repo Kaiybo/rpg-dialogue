@@ -127,14 +127,14 @@ P:NPC {
       choices = {
         { text = "Train me, Sheldras.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why live in a human city?", next = "city" },
-        { text = "What is balance?", next = "balance" },
-        { text = "What is Moonglade?", next = "moonglade" },
-        { text = "Does your Elune differ from our Light?", next = "light", when = { class = "PRIEST" } },
-        { text = "What should I be practising, Sheldras?", next = "practise", when = { class = "DRUID" } },
+        { text = "I'm not sure I understand balance.", next = "balance" },
+        { text = "I've heard druids speak of Moonglade.", next = "moonglade" },
+        { text = "Your Elune must differ from our Light.", next = "light", when = { class = "PRIEST" } },
+        { text = "I'd welcome your advice on my practice, Sheldras.", next = "practise", when = { class = "DRUID" } },
         { text = "Should druids take sides in the Alliance's wars?", next = "war", when = { class = "DRUID" } },
         { text = "My people honour the winds more than Elune.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Do you mind a hunter's beast in your Park?", next = "hunter", when = { class = "HUNTER" } },
-        { text = "What do you think of the city's other teachers?", next = "others" },
+        { text = "The city's other teachers must seem strange to you.", next = "others" },
         { text = "Humans planted these trees for you, didn't they?", next = "human", when = { race = "Human" } },
         { text = "Why do the trees shy from the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can a warrior find balance, Sheldras?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -165,7 +165,7 @@ P:NPC {
     balance = {
       lines = { { id = "b_default", text = "The wolf and the deer, the storm and the calm, growth and decay, each answering the other. Nature doesn't take sides, young one; it keeps the scales level, and a druid's work is to help when they tip." } },
       choices = {
-        { text = "And when one side is evil?", next = "balance_evil" },
+        { text = "Sometimes one side is simply evil.", next = "balance_evil" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -388,10 +388,10 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Herbalism" } },
-        { text = "What grows in a park like this?", next = "grows" },
+        { text = "Not much wild can grow in a park like this.", next = "grows" },
         { text = "Why do you want Dalaran's plants?", next = "dalaran" },
-        { text = "How does peacebloom grow, then?", next = "peacebloom", when = { class = "PRIEST" } },
-        { text = "Does magic change how your plants grow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Peacebloom seems fussy about where it grows.", next = "peacebloom", when = { class = "PRIEST" } },
+        { text = "I'd think magic changes how your plants grow.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would a herbalist want from a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Which herbs should a warrior carry, Shylamiir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What grows here that surprises you, Shylamiir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -414,7 +414,7 @@ P:NPC {
       choices = {
         { text = "Agreed. Knowledge shouldn't be locked away.", next = "dalaran_more", fx = { align = { order = -1 } } },
         { text = "The Kirin Tor have their reasons.", next = "dalaran_more", fx = { align = { order = 1 } } },
-        { text = "What do you expect to find?", next = "dalaran_more" },
+        { text = "You must expect to find something there.", next = "dalaran_more" },
       },
     },
     dalaran_more = {

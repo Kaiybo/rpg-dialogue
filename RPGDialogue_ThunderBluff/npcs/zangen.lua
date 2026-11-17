@@ -50,7 +50,7 @@ P:NPC {
         { text = "Why light the fire every night?", next = "fire" },
         { text = "What artifact do the centaur guard?", next = "artifact" },
         { text = "Who is Rau Cliffrunner?", next = "rau" },
-        { text = "Does the fire speak to you, Zangen?", next = "speak", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "The fire seems to speak to you, Zangen.", next = "speak", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "How can I help?", next = "BUSINESS" },
         { text = "Earth Mother watch over you.", next = "END" },
       },

@@ -144,9 +144,9 @@ P:NPC {
       },
       choices = {
         { text = "Your soil is tired, but it isn't dead yet.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "Why did you stay?", next = "stay" },
+        { text = "Most men would have left with their neighbours.", next = "stay" },
         { text = "Where did the watchers come from?", next = "watchers" },
-        { text = "Where did your neighbours go?", next = "neighbours" },
+        { text = "Every farm on this road stands empty.", next = "neighbours" },
         { text = "Your wife sets a fine table.", next = "salma" },
         { text = "I worked fields like these, growing up.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Shall I bless your fields?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
@@ -189,7 +189,7 @@ P:NPC {
         { id = "w_default", text = "Don't know, and I've stopped guessing. One day the fields were empty, next day they were full of things that wouldn't stay put." },
       },
       choices = {
-        { text = "How many are out there?", next = "count" },
+        { text = "There must be a good many of them out there.", next = "count" },
         { text = "Galiaan thinks someone set them on you.", next = "set_on", when = { heardLine = "galiaan.wa_default" } },
         { text = "I'm a tinker. I could take one apart.", next = "tinker", when = { race = "Gnome" } },
         { text = "I'll deal with them.", next = "BACK", fx = { learn = { "harvest_watchers" }, affinity = 1 } },

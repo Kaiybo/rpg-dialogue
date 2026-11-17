@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'll answer as long as I'm here to." },
       },
       choices = {
-        { text = "What did they do to you?", next = "torture" },
+        { text = "They did something terrible to you, I can see that.", next = "torture" },
         { text = "Who is Razelikh?", next = "razelikh" },
         { text = "How do we reach him?", next = "amulet" },
         { text = "What should I tell your captain?", next = "captain" },
@@ -75,7 +75,7 @@ P:NPC {
         { id = "ra_default", text = "Razelikh the Defiler, a demon lord who oversees the Legion's work in these lands, and the one who took our regiment. His cunning is almost as calculated as his brutality, and that's saying a great deal." },
       },
       choices = {
-        { text = "Who serves him?", next = "razelikh_triad" },
+        { text = "A demon lord like that won't be without servants.", next = "razelikh_triad" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -51,7 +51,7 @@ P:NPC {
       choices = {
         { text = "Why are you so short of weapons?", next = "short" },
         { text = "What's in the woods that takes them?", next = "woods" },
-        { text = "Do you enjoy counting swords?", next = "ledger" },
+        { text = "You seem to enjoy counting swords.", next = "ledger" },
         { text = "Do you have a list of your losses?", next = "list", when = { class = { "ROGUE", "WARRIOR", "HUNTER" } } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "I'll let you count.", next = "END" },
@@ -61,7 +61,7 @@ P:NPC {
     short = {
       lines = { { id = "sh_default", text = "Because a Deathguard who falls in Silverpine falls with his sword in his hand, and nobody goes back for the sword. I'd send for the soldiers too, if anybody were taking orders for those." } },
       choices = {
-        { text = "Who supplies you?", next = "short_supply" },
+        { text = "Someone must be supplying you.", next = "short_supply" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -85,7 +85,7 @@ P:NPC {
     woods = {
       lines = { { id = "wo_default", text = "Scourge, and worse, as the High Executor puts it. Worgen out of Pyrewood, the Dalaran wizards behind their wall at Ambermill, and gnolls in the southern hills who'll take a sword just to have something shiny." } },
       choices = {
-        { text = "Which is the worst?", next = "woods_worst" },
+        { text = "I'd guess the worgen are the worst.", next = "woods_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },

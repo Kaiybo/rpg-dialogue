@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "What are the earthen?", next = "earthen" },
-        { text = "Why are the kobolds digging?", next = "kobolds" },
+        { text = "The kobolds seem to be digging deeper than usual.", next = "kobolds" },
         { text = "What is Sun Rock like?", next = "sunrock" },
         { text = "I hear the hum too, Mor'rogal.", next = "shaman_m", when = { class = "SHAMAN" } },
         { text = "Why kill Goggeroc? He's done nothing yet.", next = "goggeroc", when = { any = { { questActive = TODO_QUEST("Earthen Arise") }, { questDone = TODO_QUEST("Earthen Arise") } } } },

@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "What's wrong with the child?", next = "child" },
         { text = "What is Bathran's Haunt?", next = "haunt" },
-        { text = "How is Maestra's Post holding up?", next = "post" },
+        { text = "Maestra's Post looks worn thin.", next = "post" },
         { text = "I saw Forsaken at Bathran's Haunt.", next = "forsaken", when = { questDone = TODO_QUEST("Bathran's Hair") } },
         { text = "Teach me something about Ashenvale's herbs.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Could my healing help the child?", next = "heal_o", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
@@ -68,7 +68,7 @@ P:NPC {
         { id = "ch_default", text = "Fevers that come and go, and nightmares that leave her shaking in the morning. Pelturas has tried every remedy the priestesses could offer, and none of them reach whatever it is." },
       },
       choices = {
-        { text = "What do you think it is?", next = "child_think" },
+        { text = "You must have some idea what it is.", next = "child_think" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "What did you find in Kolkar Crag?", next = "plans" },
-        { text = "How did you get in there unseen?", next = "sneak" },
+        { text = "Getting in there unseen can't have been easy.", next = "sneak" },
         { text = "Why do the centaur want Durotar?", next = "kolkar" },
         { text = "I move unseen too. Let me scout the Crag.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
@@ -89,7 +89,7 @@ P:NPC {
       lines = { { id = "s_default", text = "The Kolkar raid at night and leave the old ones and the young ones behind, so the village be half empty. I wait in the brush until the fires burn low, and then I walk in like I belong there, which be the whole trick." } },
       choices = {
         { text = "That took nerve.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Could you teach me that?", next = "teach" },
+        { text = "I'd like to learn that myself.", next = "teach" },
       },
     },
     teach = {

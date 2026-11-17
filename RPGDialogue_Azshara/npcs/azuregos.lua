@@ -46,7 +46,7 @@ P:NPC {
       choices = {
         { text = "What are you guarding here?", next = "guard" },
         { text = "Why does everyone try to kill you?", next = "attackers" },
-        { text = "What was this place before?", next = "eldarath" },
+        { text = "This place must have been grand once.", next = "eldarath" },
         { text = "What do you think of mortals and magic?", next = "magic" },
         { text = "I study the arcane too. Teach me something.", next = "mage", when = { class = "MAGE" } },
         { text = "My ancestors built this. What do you remember?", next = "nelf", when = { race = "NightElf" } },
@@ -61,7 +61,7 @@ P:NPC {
         { text = "What sort of treasures, exactly?", tag = "Persuade", next = "guard_true",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "MAGE" }, { reputation = { faction = "Cenarion Circle", min = "honored" } } } } },
           fail = { next = "guard_fail", fx = { affinity = -1 } } },
-        { text = "Do you enjoy the duty?", next = "guard_enjoy" },
+        { text = "Guarding these ruins must be dull duty.", next = "guard_enjoy" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,7 +106,7 @@ P:NPC {
     eldarath = {
       lines = { { id = "e_default", text = "Eldarath, one of the Highborne's proudest cities, back when this whole coast was Zin-Azshari and its queen was the most beautiful and the most foolish creature in the world. Then the Well went wrong, and the sea came in, and here we are." } },
       choices = {
-        { text = "The queen? Azshara herself?", next = "eldarath_queen" },
+        { text = "You mean the queen, Azshara herself.", next = "eldarath_queen" },
         { text = "Something else.", next = "BACK" },
       },
     },

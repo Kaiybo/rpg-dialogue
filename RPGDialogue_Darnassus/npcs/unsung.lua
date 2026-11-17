@@ -128,7 +128,7 @@ P:NPC {
       choices = {
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Why keep a bank beside the Temple?", next = "temple" },
-        { text = "Has anything ever gone missing?", next = "missing" },
+        { text = "I'd guess nothing ever goes missing here.", next = "missing" },
         { text = "Do night elves really trust in coin?", next = "coin" },
         { text = "Does the vault really object to enchanted goods?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the strangest thing a warrior has left with you?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -336,7 +336,7 @@ P:NPC {
         { id = "st_default", text = "Young kaldorei who are tired of waiting for the Sentinels to take them, mostly, and lately humans and dwarves off the boats. The dwarves are the easiest to teach, because they already expect to get hit." },
       },
       choices = {
-        { text = "And the night elves?", next = "students2" },
+        { text = "You haven't mentioned the night elves.", next = "students2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -500,7 +500,7 @@ P:NPC {
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How do I choose the right weapon?", next = "choose" },
-        { text = "Who buys from you?", next = "buyers" },
+        { text = "You must have plenty of customers up here.", next = "buyers" },
         { text = "Where do your blades come from?", next = "smiths" },
         { text = "Would you recommend a staff or a dagger for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What blade would you sell a warrior like me?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -700,7 +700,7 @@ P:NPC {
       choices = {
         { text = "Let me see the sabers.", next = "BUSINESS" },
         { text = "Where do frostsabers come from?", next = "frost" },
-        { text = "How do you train a saber to carry a rider?", next = "train" },
+        { text = "Training a saber to carry a rider must take years.", next = "train" },
         { text = "Why won't you sell to everyone?", next = "outsiders", when = { ["not"] = { race = "NightElf" } } },
         { text = "Would a saber make a good companion for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your sabers ride into battle with warriors?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -877,7 +877,7 @@ P:NPC {
       choices = {
         { text = "Teach me to ride.", next = "BUSINESS" },
         { text = "What's the hardest part of riding a saber?", next = "hard" },
-        { text = "Do you work for Lelanai?", next = "lelanai" },
+        { text = "I take it you work for Lelanai.", next = "lelanai" },
         { text = "Is riding a saber really harder than a horse?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is riding worth learning when I can teleport?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is riding any harder in full armor, Jartsam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1058,7 +1058,7 @@ P:NPC {
       choices = {
         { text = "I'd like to see about a charter.", next = "BUSINESS" },
         { text = "Why do you care what a guild is for?", next = "purpose" },
-        { text = "What makes a guild last?", next = "last" },
+        { text = "Most guilds don't seem to last.", next = "last" },
         { text = "Where do I get a guild tabard?", next = "tabard" },
         { text = "Do you refuse charters to bands of rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors make good guild founders, Lysheana?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1237,7 +1237,7 @@ P:NPC {
       choices = {
         { text = "I'd like to design a tabard.", next = "BUSINESS" },
         { text = "What makes a good tabard?", next = "good" },
-        { text = "What's the worst one you've made?", next = "worst" },
+        { text = "You must have made a few ugly ones.", next = "worst" },
         { text = "What would you put on a rogue's tabard?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you stitch a tabard with an enchantment?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What colors suit a warrior's tabard, Shalumon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1264,7 +1264,7 @@ P:NPC {
         { id = "wo_default", text = "I won't name the guild, because they're still customers. But they wanted purple, orange and a green emblem all at once, and I made it, and I have not slept well since." },
       },
       choices = {
-        { text = "Did they like it?", next = "worst2" },
+        { text = "I hope they at least liked it.", next = "worst2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1410,7 +1410,7 @@ P:NPC {
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Do the druids object to your trade?", next = "druids" },
-        { text = "Who brings you your meat?", next = "hunters" },
+        { text = "Your meat looks fresh off the hunt.", next = "hunters" },
         { text = "Is conjured food any threat to your trade?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Will your meat keep a warrior going in Ashenvale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Who brings you your venison, Jaeana?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1596,7 +1596,7 @@ P:NPC {
       choices = {
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Why should I learn this?", next = "why" },
-        { text = "What's the hardest wound to treat?", next = "wound" },
+        { text = "Some wounds must be harder to treat than others.", next = "wound" },
         { text = "Where do I get linen?", next = "linen" },
         { text = "Do rogues really come to you more than warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's the first thing a warrior should learn about bandaging?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1778,7 +1778,7 @@ P:NPC {
         { text = "Train me in alchemy.", next = "BUSINESS" },
         { text = "What should a new alchemist learn first?", next = "first" },
         { text = "Where do the best herbs grow?", next = "herbs" },
-        { text = "Is alchemy dangerous?", next = "danger" },
+        { text = "Alchemy looks a dangerous craft.", next = "danger" },
         { text = "Do you disapprove of rogues brewing poisons?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Which potions does a warrior need most, Ainethil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters find good herbs along their tracks, Ainethil?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },

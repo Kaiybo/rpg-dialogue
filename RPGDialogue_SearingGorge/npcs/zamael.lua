@@ -61,7 +61,7 @@ P:NPC {
       },
       choices = {
         { text = "What did you do while you served them?", next = "tale_deeds" },
-        { text = "What made you turn back?", next = "tale_vision" },
+        { text = "Something must have turned you back toward the Moon.", next = "tale_vision" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -132,7 +132,7 @@ P:NPC {
         { id = "ha_default", text = "The Twilight's Hammer, whose idolaters hold this ridge and worship things that ought never to be worshipped. They speak of an end to the world as though it were a gift they could hand to everyone." },
       },
       choices = {
-        { text = "What do they want in the Gorge?", next = "hammer_gorge" },
+        { text = "The cult seems to have come to the Gorge for a reason.", next = "hammer_gorge" },
         { text = "Something else.", next = "BACK" },
       },
     },

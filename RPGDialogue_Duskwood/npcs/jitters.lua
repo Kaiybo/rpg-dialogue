@@ -120,15 +120,15 @@ P:NPC {
       },
       choices = {
         { text = "What did you see?", next = "saw" },
-        { text = "Why are you hiding?", next = "hiding" },
+        { text = "You look like you're hiding from someone.", next = "hiding" },
         { text = "How did you end up in Duskwood?", next = "mine" },
-        { text = "When did you last eat?", next = "food" },
+        { text = "You look half-starved, Jitters.", next = "food" },
         { text = "I could pray with you.", next = "pray", when = { class = "PRIEST" } },
         { text = "The Brotherhood doesn't forget deserters.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm a druid. Not every beast in the woods is a monster.", next = "druid", when = { class = "DRUID" } },
         { text = "Calm down, Jitters. I'll keep a light burning.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did you see in the woods, Jitters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do the wolves follow you, Jitters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The wolves seem to follow you everywhere, Jitters.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What you saw in the woods doesn't frighten me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you do if someone came to judge you, Jitters?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What did you see in the woods, Jitters?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -194,7 +194,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened?", next = "mine_worgen" },
-        { text = "Working men. Defias?", next = "mine_defias" },
+        { text = "Working men. Defias, I'd wager.", next = "mine_defias" },
       },
     },
     mine_worgen = {

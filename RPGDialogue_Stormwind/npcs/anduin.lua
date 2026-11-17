@@ -105,11 +105,11 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Do you have another question? I like questions, and hardly anybody asks me any." } },
       choices = {
-        { text = "Do you miss your father?", next = "father" },
-        { text = "What do you do when you're not being king?", next = "fun" },
+        { text = "You must miss your father terribly.", next = "father" },
+        { text = "Being king must leave you little time for yourself.", next = "fun" },
         { text = "Would you like a prayer for your father?", next = "prayer", when = { class = "PRIEST" } },
-        { text = "What's the Highlord like?", next = "bolvar" },
-        { text = "Do you like Lady Prestor?", next = "prestor" },
+        { text = "The Highlord seems a good man to have about.", next = "bolvar" },
+        { text = "Lady Prestor seems a serious sort of woman.", next = "prestor" },
         { text = "Would you like a paladin's blessing?", next = "bless", when = { class = "PALADIN" } },
         { text = "What's it like being king?", next = "king" },
         { text = "I came all the way from Teldrassil, Your Majesty.", next = "teldrassil", when = { race = "NightElf" } },
@@ -143,7 +143,7 @@ P:NPC {
       },
       choices = {
         { text = "That sounds like a good king.", next = "BACK", fx = { affinity = 1 } },
-        { text = "What do you ask?", next = "ask" },
+        { text = "I'd like to hear what you ask them.", next = "ask" },
       },
     },
     fun = {

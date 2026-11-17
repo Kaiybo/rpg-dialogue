@@ -49,7 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, mostly. The coil's listening too, and it's a wee bit nosier than I am." },
       },
       choices = {
-        { text = "How does your blaster work?", next = "blaster" },
+        { text = "That blaster looks like a strange contraption.", next = "blaster" },
         { text = "Why do you hate the Scourge so much?", next = "hate" },
         { text = "How are you different from the Crusade?", next = "crusade" },
         { text = "Let me look at your machine.", next = "engineer", when = { profession = "Engineering" } },
@@ -94,7 +94,7 @@ P:NPC {
     crusade = {
       lines = { { id = "cr_default", text = "They'd sooner destroy the innocent dead than spare them an ounce of pity. I'd sooner save them, and that's the whole difference, but it's a difference the size of a mountain." } },
       choices = {
-        { text = "You'd save even the Forsaken?", next = "crusade_forsaken" },
+        { text = "So you'd save even the Forsaken.", next = "crusade_forsaken" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -47,7 +47,7 @@ P:NPC {
       },
       choices = {
         { text = "Would you really eat me?", next = "eat" },
-        { text = "Why are you out here alone?", next = "alone" },
+        { text = "You're a long way from the village out here.", next = "alone" },
         { text = "What's so good about murloc heads?", next = "fishy" },
         { text = "Want some bread instead? I can make it from nothing.", next = "mage", when = { class = "MAGE" } },
         { text = "I could cook those heads for you.", next = "cook", when = { profession = "Cooking" } },
@@ -78,7 +78,7 @@ P:NPC {
     alone = {
       lines = { { id = "a_default", text = "The village is full of ogres who want Mud's food, and Mud wants Mud's food. Out here there is only the road, and the road brings people who bring fishy." } },
       choices = {
-        { text = "Don't the other ogres miss you?", next = "alone_miss" },
+        { text = "The other ogres must miss you.", next = "alone_miss" },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },

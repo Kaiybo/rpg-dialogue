@@ -51,7 +51,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you make from the claws?", next = "claws" },
-        { text = "Why guard this beach?", next = "post" },
+        { text = "This beach seems an odd thing to guard.", next = "post" },
         { text = "Tell me about the others here.", next = "camp" },
         { text = "What's in the stew?", next = "stew" },
         { text = "Show me how you work the claws.", next = "xsmith", when = { profession = "Blacksmithing" } },
@@ -84,7 +84,7 @@ P:NPC {
         { id = "po_default", text = "The murlocs on this coast are getting bolder, and if they ever come at Stonard in numbers, somebody has to see them first. That's us, and it doesn't leave much time for anything else." },
       },
       choices = {
-        { text = "Are there enough of you?", next = "post_numbers" },
+        { text = "There don't look to be enough of you.", next = "post_numbers" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,7 +103,7 @@ P:NPC {
         { id = "ca_default", text = "Katar runs the patrols, and he hates the sea more than anything alive, which makes him good at his job and terrible at supper. The rest are louses, mostly, but they're our louses." },
       },
       choices = {
-        { text = "Why does Katar hate the sea?", next = "camp_katar" },
+        { text = "Katar seems to hate the sea.", next = "camp_katar" },
         { text = "What about Dar in Stonard?", next = "camp_dar" },
         { text = "Something else.", next = "BACK" },
       },

@@ -144,7 +144,7 @@ P:NPC {
         { text = "What happened at Stonewatch?", next = "stonewatch" },
         { text = "How bad is it?", next = "bad" },
         { text = "Who is Tharil'zun?", next = "tharil" },
-        { text = "Who named that boar Bellygrub?", next = "bellygrub" },
+        { text = "Someone gave that boar a fine name in Bellygrub.", next = "bellygrub" },
         { text = "Keeshan's home. How is he?", next = "keeshan_after", when = { questDone = TODO_QUEST("Missing In Action") } },
         { text = "My people have fought the Blackrock for generations.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Give me a post, Marshal. I'll hold it.", next = "warrior", when = { class = "WARRIOR" } },
@@ -169,7 +169,7 @@ P:NPC {
         { text = "Then we take it back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "Stonewatch is lost, so hold the lake and let it go.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "You did what you could.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Who did you lose?", next = "stonewatch_lost" },
+        { text = "You must have lost good soldiers there.", next = "stonewatch_lost" },
       },
     },
     stonewatch_lost = {
@@ -248,7 +248,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll deal with your boar.", next = "BACK", fx = { affinity = 1, standing = { lakeshire = 1 } } },
-        { text = "You named the garden's worst enemy?", next = "bellygrub_name" },
+        { text = "So you named the garden's worst enemy.", next = "bellygrub_name" },
       },
     },
     bellygrub_name = {

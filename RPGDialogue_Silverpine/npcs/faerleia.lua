@@ -51,7 +51,7 @@ P:NPC {
       choices = {
         { text = "Who are the Pyrewood Council?", next = "council" },
         { text = "What does Arugal want with this village?", next = "arugal" },
-        { text = "How long have you been waiting here?", next = "waiting" },
+        { text = "You look like you've been waiting here a long while.", next = "waiting" },
         { text = "Do you know Rane Yorick?", next = "yorick" },
         { text = "I'm a deathstalker in training too.", next = "rogue", when = { class = "ROGUE", race = "Scourge" } },
         { text = "I'm with you. Let them come.", next = "BUSINESS" },
@@ -62,7 +62,7 @@ P:NPC {
     council = {
       lines = { { id = "co_default", text = "Smithers, Thatcher, Hendricks, a few more, and the Lord Mayor, Morrison, who never stops talking. They're Arugal's puppets, and they keep the rest of Pyrewood in line for him." } },
       choices = {
-        { text = "Puppets? Are they cursed too?", next = "council_curse" },
+        { text = "I'd guess they're cursed too.", next = "council_curse" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,7 +101,7 @@ P:NPC {
     waiting = {
       lines = { { id = "wa_default", text = "Long enough to know which boards creak and which villagers bolt their shutters early. A deathstalker doesn't get tired, so waiting costs me nothing but patience, and I've plenty of that." } },
       choices = {
-        { text = "What happens here after dark?", next = "waiting_dark" },
+        { text = "This place must change after dark.", next = "waiting_dark" },
         { text = "Something else.", next = "BACK" },
       },
     },

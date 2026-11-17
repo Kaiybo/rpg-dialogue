@@ -97,7 +97,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else, mon? Quickly, quickly." } },
       choices = {
         { text = "What do you think of Dalaran?", next = "dalaran" },
-        { text = "Is magic dangerous?", next = "danger" },
+        { text = "Magic sounds dangerous.", next = "danger" },
         { text = "Teach me, Uthel'nay.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Farewell, Uthel'nay.", next = "END" },
       },
@@ -109,7 +109,7 @@ P:NPC {
     danger = {
       lines = { { id = "dg_default", text = "Very, which is why I don't teach fools. Too much arcane and you start wanting more and more, and then one day you be hungry for nothing else, and that be the end of you." } },
       choices = {
-        { text = "Have you seen that happen?", next = "danger_seen" },
+        { text = "You sound like you've seen that happen.", next = "danger_seen" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -170,7 +170,7 @@ P:NPC {
     forgot = {
       lines = { { id = "fo_default", text = "The warlocks came, and they offered power that didn't ask for respect, so our people took it and turned green. The spirits went silent for a whole generation, and only the Frostwolves kept the old ways until Thrall brought them home to the rest of us." } },
       choices = {
-        { text = "Do the warlocks in the Cleft trouble you?", next = "warlocks" },
+        { text = "The warlocks in the Cleft must trouble you.", next = "warlocks" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -232,7 +232,7 @@ P:NPC {
     why = {
       lines = { { id = "wh_default", text = "Because shamans and priests can't be everywhere, and a bandage costs less than a funeral. Every orc who learns to tie a proper knot saves a life someday, even if it's only his own." } },
       choices = {
-        { text = "Should every grunt be made to learn?", next = "everyone" },
+        { text = "Every grunt should be made to learn.", next = "everyone" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -292,7 +292,7 @@ P:NPC {
     alchemists = {
       lines = { { id = "al_default", text = "To Yelmak on the Drag, mostly, though I don't always like what becomes of my herbs in that shop. A plant be meant to heal, mon, and some of those potions turn grunts blue." } },
       choices = {
-        { text = "Should herbs only be used for healing?", next = "heal" },
+        { text = "Herbs should only be used for healing.", next = "heal" },
         { text = "Something else.", next = "BACK" },
       },
     },

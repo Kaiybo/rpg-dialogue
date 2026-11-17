@@ -54,7 +54,7 @@ P:NPC {
         { text = "Tell me about the pit.", next = "pit" },
         { text = "Who's Egan?", next = "egan" },
         { text = "Why do you stay at a job you hate?", next = "job" },
-        { text = "You don't hate the Scourge's victims, do you?", next = "souls", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") } },
+        { text = "You don't seem to hate the Scourge's victims.", next = "souls", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") } },
         { text = "Can I bless the pit before you fill it again?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Show me what you're selling.", next = "BUSINESS" },
         { text = "I'll let you get back to it.", next = "END" },
@@ -64,7 +64,7 @@ P:NPC {
     pit = {
       lines = { { id = "pi_default", text = "Everything the Dawn kills that used to be a person goes in there, so it can't get up again. We burn it when the wind's right, and when it's not, well, you've smelled it." } },
       choices = {
-        { text = "Do you ever wonder who they were?", next = "pit_who" },
+        { text = "You must wonder who they were.", next = "pit_who" },
         { text = "Something else, Alen.", next = "BACK" },
       },
     },

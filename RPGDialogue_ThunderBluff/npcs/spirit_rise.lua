@@ -50,7 +50,7 @@ P:NPC {
     command = {
       lines = { { id = "c_default", text = "Then you are a warlock, or worse, and the elements will wait for the moment you falter. The orc warlocks once commanded the land of their homeworld, and the orcs themselves will tell you how that ended." } },
       choices = {
-        { text = "Then should shaman ever compel the spirits?", next = "command_end" },
+        { text = "Surely a shaman must compel the spirits sometimes.", next = "command_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,7 +103,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "Where should a totem go?", next = "where" },
-        { text = "Does Tigor mind you saying that?", next = "tigor" },
+        { text = "Tigor must mind you saying that.", next = "tigor" },
         { text = "Farewell, Beram.", next = "END" },
       },
     },
@@ -166,7 +166,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've time, the wind's settled, and the earth spirits are dozing." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
-        { text = "Do you visit the Forsaken below?", next = "below" },
+        { text = "You must visit the Forsaken below.", next = "below" },
         { text = "What does the wind say?", next = "wind" },
         { text = "Farewell, Siln.", next = "END" },
       },
@@ -237,7 +237,7 @@ P:NPC {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Why teach mages here, of all places?", next = "here" },
-        { text = "Does magic really burn the untrained?", next = "burn" },
+        { text = "I've heard magic can burn the untrained.", next = "burn" },
         { text = "Farewell, Archmage.", next = "END" },
       },
     },
@@ -248,7 +248,7 @@ P:NPC {
     burn = {
       lines = { { id = "b_default", text = "Quite literally, on occasion. I knew apprentices in Lordaeron who reached too far and were carried out in buckets, and I've no wish to see it happen in a cave full of old scrolls." } },
       choices = {
-        { text = "So power should be kept from the many?", next = "burn_end" },
+        { text = "So power should be kept from the many.", next = "burn_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,7 +300,7 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? Take your time; the grave left me plenty of it." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
-        { text = "You studied in Dalaran?", next = "dalaran" },
+        { text = "So you studied in Dalaran.", next = "dalaran" },
         { text = "I studied there too, before.", next = "o_dal", when = { origin = "forsaken_dalaran_apprentice" } },
         { text = "Farewell, Ursyn.", next = "END" },
       },
@@ -308,7 +308,7 @@ P:NPC {
     dalaran = {
       lines = { { id = "d_default", text = "Long ago, before the plague, and before Archimonde's armies left the city in ruins. I still dream in its libraries, if the dead can be said to dream." } },
       choices = {
-        { text = "Would you go back, if you could?", next = "dalaran_end" },
+        { text = "I'd guess you'd go back, if you could.", next = "dalaran_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -376,7 +376,7 @@ P:NPC {
     cheer = {
       lines = { { id = "c_default", text = "Because I woke up in a grave, my friend, and then I didn't stay in it. Everything since has been a pleasant surprise, even the smell." } },
       choices = {
-        { text = "Doesn't anything about it trouble you?", next = "cheer_end" },
+        { text = "Something about it must trouble you.", next = "cheer_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -561,7 +561,7 @@ P:NPC {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Tell me about your parish.", next = "parish" },
-        { text = "Do you still pray, Father?", next = "pray" },
+        { text = "You must still pray, Father.", next = "pray" },
         { text = "Farewell, Father.", next = "END" },
       },
     },

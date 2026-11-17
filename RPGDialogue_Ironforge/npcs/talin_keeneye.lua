@@ -54,7 +54,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listenin', though I'm watchin' the treeline too." },
       },
       choices = {
-        { text = "Why are there so many boars?", next = "boars" },
+        { text = "There seem to be boars everywhere this year.", next = "boars" },
         { text = "Sten says half your mail is for Grelin.", next = "mail" },
         { text = "What's the trick to hunting boar?", next = "trick" },
         { text = "Teach a fellow hunter something, Talin.", next = "hunter", when = { class = "HUNTER" } },

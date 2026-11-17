@@ -49,7 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Please, go on. Eva says I don't let people finish, and I'm trying to improve." },
       },
       choices = {
-        { text = "What was House Barov like, before?", next = "house" },
+        { text = "House Barov must have been grand, before.", next = "house" },
         { text = "How did you and Eva come to be here?", next = "fate" },
         { text = "You let Eva do most of the talking.", next = "eva" },
         { text = "What became of the Barov sons?", next = "sons" },
@@ -69,7 +69,7 @@ P:NPC {
     house_change = {
       lines = { { id = "hc_default", text = "When the new guests began arriving after dark and leaving before dawn, and Master Barov stopped asking me to set the table at all. A butler learns not to ask questions, and I was very good at my work." } },
       choices = {
-        { text = "Do you blame yourself for not asking?", next = "house_blame" },
+        { text = "You seem to blame yourself for not asking.", next = "house_blame" },
         { text = "Something else.", next = "BACK" },
       },
     },

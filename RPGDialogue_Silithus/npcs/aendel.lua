@@ -42,7 +42,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did you come back?", next = "why" },
-        { text = "What happened to Southwind?", next = "southwind" },
+        { text = "Something terrible happened to Southwind, I think.", next = "southwind" },
         { text = "Silithid chitin, for leather?", next = "chitin" },
         { text = "Will you teach me your craft?", next = "teach", when = { profession = "Leatherworking" } },
         { text = "Let me see your patterns.", next = "BUSINESS" },
@@ -52,7 +52,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because every craft dies a little with each crafter, and I had too much left in my hands to let it go. Elune allowed it, or at least did not forbid it, and here I am." } },
       choices = {
-        { text = "Is it lonely?", next = "why_lonely" },
+        { text = "It must be lonely out here.", next = "why_lonely" },
         { text = "Something else.", next = "BACK" },
       },
     },

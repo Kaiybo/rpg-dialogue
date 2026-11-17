@@ -52,7 +52,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you hate the Magram?", next = "magram", when = { reputation = { faction = "Gelkis Clan Centaur", min = "neutral" } } },
-        { text = "Who is the earth mother you speak of?", next = "theradras", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
+        { text = "You speak of an earth mother.", next = "theradras", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "Why should the Gelkis trust outsiders?", next = "trust", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "Our peoples are old enemies, Uthek.", next = "tauren_u", when = { race = "Tauren", reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "What would the Gelkis have me do?", next = "BUSINESS", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
@@ -65,7 +65,7 @@ P:NPC {
         { id = "ma_default", text = "The Magram spit on our mother and laugh at her, and they say the centaur need no one. Fools! Without her, we would be dust blowing over Desolace." },
       },
       choices = {
-        { text = "And the Magram say the same of you?", next = "magram_say" },
+        { text = "I'd wager the Magram say the same of you.", next = "magram_say" },
         { text = "Something else.", next = "BACK" },
       },
     },

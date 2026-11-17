@@ -130,7 +130,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Sully.", next = "sully" },
         { text = "What's happening at the Thandol Span?", next = "span" },
-        { text = "How do you pass the days?", next = "days" },
+        { text = "The days must be long, waiting for news.", next = "days" },
         { text = "What did the King say?", next = "king", when = { questDone = TODO_QUEST("Sara Balloo's Plea") } },
         { text = "Would you like me to pray with you?", next = "pray", when = { class = "PRIEST" } },
         { text = "I'm a soldier too, Sara.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
@@ -387,7 +387,7 @@ P:NPC {
         { text = "I don't fight fair, Kelstrum.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do warriors and mages really need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would your recruits really fear a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Could a hunter learn anything from your warriors, Kelstrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "A hunter could learn plenty from your warriors, Kelstrum.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your recruits ever need a priest after training, Kelstrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you train a druid who fights as a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you train a shaman to hold the line, Kelstrum?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -603,7 +603,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Why does a gnome take up arms?", next = "why" },
-        { text = "Combat is like engineering?", next = "engineering" },
+        { text = "Combat sounds a lot like engineering, the way you put it.", next = "engineering" },
         { text = "Calibrate me, Bilban. Where am I weakest?", next = "calib", when = { class = "WARRIOR" } },
         { text = "Why not engineering, like the rest of us?", next = "gnome", when = { race = "Gnome", ["not"] = { class = "WARRIOR" } } },
         { text = "Why would a rogue climb your training dummies?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -822,7 +822,7 @@ P:NPC {
         { text = "I ride a nightsaber at home, Daera.", next = "elf", when = { race = "NightElf", class = "HUNTER" } },
         { text = "Why do dwarves keep rams?", next = "rams" },
         { text = "Do hunters and rogues often cross paths?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Has a mage really turned a hunter's beast into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I've heard a mage once turned a hunter's beast into a sheep.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would a hunter teach a warrior, Daera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a priest's healing help a wounded beast, Daera?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin treat a mount, Daera?", next = "xapala", when = { class = "PALADIN" } },
@@ -878,7 +878,7 @@ P:NPC {
       choices = {
         { text = "A squad leaves you. A beast doesn't.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Somebody had to, so it may as well be humans.", next = "BACK", fx = { trait = { brave = 1 } } },
-        { text = "Do dwarves look down on human hunters?", next = "human_look" },
+        { text = "I'd guess dwarves look down on human hunters.", next = "human_look" },
       },
     },
     human_look = {
@@ -904,7 +904,7 @@ P:NPC {
         { id = "ra_default", text = "Because they're the only beast in Dun Morogh as stubborn as we are, an' they'll climb where a horse would sit down an' weep. Veron Amberstill breeds the best o' them out past Kharanos, an' he'll tell ye so himself." },
       },
       choices = {
-        { text = "Is a ram a fit companion for a hunter?", next = "rams_pet" },
+        { text = "A ram would make a fine hunting companion.", next = "rams_pet" },
         { text = "Something else.", next = "BACK" },
       },
     },

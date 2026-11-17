@@ -50,10 +50,10 @@ P:NPC {
       choices = {
         { text = "How do you still smile out here?", next = "smile" },
         { text = "What happened with the elf's expedition?", next = "betrayal" },
-        { text = "What's Ag'tor like?", next = "brother" },
+        { text = "You seem to think well of Ag'tor.", next = "brother" },
         { text = "What was Azshara like before?", next = "before" },
         { text = "Warriors don't smile. Why do you?", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "Do the spirits here trouble you?", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
+        { text = "The spirits here must trouble you.", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "What can I do for Valormok?", next = "BUSINESS" },
         { text = "Farewell, Haggrum.", next = "END" },
       },

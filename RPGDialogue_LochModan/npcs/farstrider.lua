@@ -59,8 +59,8 @@ P:NPC {
       choices = {
         { text = "Tell me about the crocolisks.", next = "crocs" },
         { text = "What is this lodge, exactly?", next = "lodge" },
-        { text = "What do you make of Daryl?", next = "daryl" },
-        { text = "How do you earn a hunter's approval?", next = "approval" },
+        { text = "Daryl seems a lively sort.", next = "daryl" },
+        { text = "A hunter's approval must be hard to earn in this lodge.", next = "approval" },
         { text = "Will your hides fit my animal friends?", next = "druid", when = { class = "DRUID" } },
         { text = "Farewell, Marek.", next = "END" },
       },
@@ -103,13 +103,13 @@ P:NPC {
         { id = "lo_default", text = "A huntin' lodge on the east shore, built where the boar an' the bear are thickest. Hunters come from Ironforge an' further tae test themselves here, an' I keep them fed, housed an' honest." },
       },
       choices = {
-        { text = "Why call it the Farstrider Lodge?", next = "lodge_name" },
+        { text = "Farstrider sounds like an elven name to me.", next = "lodge_name" },
         { text = "Something else.", next = "BACK" },
       },
     },
     lodge_name = {
       lines = {
-        { id = "ln_default", text = "For the elven rangers who hunted wi' us in the old wars, an' some o' their kin still lodge here. Vyrin keeps the beds, an' she shoots better than any dwarf in the place, though I'll deny I said so." },
+        { id = "ln_default", text = "Aye, for the elven rangers who hunted wi' us in the old wars, an' some o' their kin still lodge here. Vyrin keeps the beds, an' she shoots better than any dwarf in the place, though I'll deny I said so." },
       },
       choices = { { text = "Something else, Marek.", next = "BACK" } },
     },
@@ -119,7 +119,7 @@ P:NPC {
         { id = "da_default", text = "Daryl's young, an' loud, an' better wi' a bow than his mouth makes him sound. He'll set ye a challenge if ye let him, an' he'll be very surprised when ye pass it." },
       },
       choices = {
-        { text = "What about that scar of his?", next = "daryl_scar" },
+        { text = "Daryl wears that scar of his like a medal.", next = "daryl_scar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -222,7 +222,7 @@ P:NPC {
         { text = "How did you get that scar?", next = "scar" },
         { text = "Why do they call you the Youngling?", next = "youngling" },
         { text = "I killed Ol' Sooty, you know.", next = "sooty", when = { questDone = TODO_QUEST("Vyrin's Revenge") } },
-        { text = "What was this bet, Daryl?", next = "bet", when = { questDone = TODO_QUEST("A Hunter's Challenge") } },
+        { text = "Someone at the lodge mentioned a bet, Daryl.", next = "bet", when = { questDone = TODO_QUEST("A Hunter's Challenge") } },
         { text = "Two hunters, one lodge. Let's compare notes.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Good luck with the boasting, Daryl.", next = "END" },
       },

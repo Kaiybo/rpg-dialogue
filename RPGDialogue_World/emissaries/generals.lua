@@ -69,7 +69,7 @@ P:NPC {
         { text = "I have all three marks, General.", next = "turnin", when = ALL_MARKS },
         { text = "Why do you want a mark from every battleground?", next = "task" },
         { text = "Three fronts, one war? It doesn't feel that way.", next = "fronts" },
-        { text = "Is this a real war, or a bloody game with ranks?", next = "sport" },
+        { text = "This feels more like a bloody game with ranks than a war.", next = "sport" },
         { text = "Tell me about the battlegrounds themselves.", next = "fields" },
         { text = "What do the honor ranks mean to you?", next = "ranks" },
         { text = "I've earned a {rank}'s rank, General. What's next?", next = "k_rank", when = { pvpRank = 10 } },
@@ -129,7 +129,7 @@ P:NPC {
       },
       choices = {
         { text = "Have you tried bringing them to one table?", next = "fronts_table" },
-        { text = "Why don't they trust each other?", next = "fronts_trust" },
+        { text = "They don't seem to trust each other much.", next = "fronts_trust" },
         { text = "Something else, General.", next = "BACK" },
       },
     },
@@ -388,9 +388,9 @@ P:NPC {
       choices = {
         { text = "I have all three marks, Warbringer.", next = "turnin", when = ALL_MARKS },
         { text = "Why does the Horde need to prove itself?", next = "proof" },
-        { text = "What makes a battle honorable?", next = "honor" },
+        { text = "Not every battle seems honorable to me.", next = "honor" },
         { text = "Tell me about the battlegrounds.", next = "fields" },
-        { text = "Is this war, or a blood sport with ranks?", next = "sport" },
+        { text = "Some say this is only a blood sport with ranks.", next = "sport" },
         { text = "I'm a {rank}. What does the Horde want now?", next = "k_rank", when = { pvpRank = 10 } },
         { text = "They were Alliance. Why should I spare them?", next = "k_dishonor", when = { dishonorKills = { min = 1 } } },
         { text = "When can I join the fight?", next = "k_young", when = { maxLevel = 19 } },
@@ -449,7 +449,7 @@ P:NPC {
         { id = "hn_default", text = "You fight the enemy who can fight back, and you let the farmers, the peddlers and the stablehands live. You don't run from an objective to chase easy kills, and you never let a grunt die alone if you can reach them." },
       },
       choices = {
-        { text = "What happens to those who break these rules?", next = "honor_breakers" },
+        { text = "Some must break these rules.", next = "honor_breakers" },
         { text = "Does the Alliance fight with honor?", next = "honor_alliance" },
         { text = "Something else.", next = "BACK" },
       },
@@ -538,7 +538,7 @@ P:NPC {
     ab = {
       lines = { { id = "ab_default", text = "The Defilers out of Hammerfall fight the League of Arathor for the basin's five points: the Stables, the Gold Mine, the Lumber Mill, the Blacksmith and the Farm. Whoever holds the most feeds their army, so it's a fight for supplies as much as land." } },
       choices = {
-        { text = "What do you think of the Defilers?", next = "ab_defilers" },
+        { text = "The Defilers have a grim reputation.", next = "ab_defilers" },
         { text = "Another field.", next = "BACK" },
       },
     },

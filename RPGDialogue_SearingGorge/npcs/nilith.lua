@@ -50,11 +50,11 @@ P:NPC {
       },
       choices = {
         { text = "What is shadow silk?", next = "silk" },
-        { text = "Who are the Undermarket?", next = "market" },
+        { text = "I've heard little good of this Undermarket.", next = "market" },
         { text = "Tell me about Raze.", next = "raze" },
         { text = "Why live here, so near Blackrock Mountain?", next = "camp" },
         { text = "How do you weave shadow silk?", next = "xtailor", when = { profession = "Tailoring" } },
-        { text = "How did you bind an infernal?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Binding an infernal takes more than most warlocks have.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your silk.", next = "END" },
       },
     },
@@ -115,7 +115,7 @@ P:NPC {
         { id = "ra_default", text = "An infernal, bound to me some years ago, and the best guard I've ever had, since he doesn't sleep, drink or ask for wages. He's helped more than one of my errand-runners when the poachers turned out to be more than they could manage." },
       },
       choices = {
-        { text = "Isn't a demon dangerous to keep?", next = "raze_danger" },
+        { text = "A demon seems a dangerous thing to keep.", next = "raze_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },

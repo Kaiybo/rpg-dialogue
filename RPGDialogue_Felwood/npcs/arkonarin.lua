@@ -52,7 +52,7 @@ P:NPC {
       choices = {
         { text = "Who did you come here with?", next = "trey" },
         { text = "What is the Council doing down here?", next = "council" },
-        { text = "How do I get you out?", next = "out" },
+        { text = "There must be some way to get you out.", next = "out" },
         { text = "Jessir Moonbow is waiting for you.", next = "jessir" },
         { text = "I'm a paladin. Who was your friend?", next = "xpala", when = { class = "PALADIN" } },
         { text = "I'm no Council warlock. I'm here to help.", next = "xlock", when = { class = "WARLOCK" } },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "o_key", when = { questActive = TODO_QUEST("A Strange Red Key") }, text = "You've already got the key, so let me out! Then we find our gear and Trey's sword, and we fight our way up together." },
       },
       choices = {
-        { text = "And after that?", next = "out_after" },
+        { text = "You must have plans for after that.", next = "out_after" },
         { text = "Something else.", next = "BACK" },
       },
     },

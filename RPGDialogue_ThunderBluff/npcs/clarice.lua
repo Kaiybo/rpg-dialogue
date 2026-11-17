@@ -48,7 +48,7 @@ P:NPC {
       choices = {
         { text = "Tell me about your husband.", next = "yuriv" },
         { text = "Why Thunder Bluff, of all places?", next = "bluff" },
-        { text = "Do you remember being alive?", next = "alive" },
+        { text = "You must remember being alive.", next = "alive" },
         { text = "I'm Forsaken too. How do you bear it here?", next = "kin", when = { race = "Scourge" } },
         { text = "I serve the Light. Your husband might have been right.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },

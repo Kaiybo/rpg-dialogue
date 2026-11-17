@@ -83,7 +83,7 @@ P:NPC {
       choices = {
         { text = "I'll smile. These folk have seen enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them stare. Fear keeps people careful.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "How many guards does Lakeshire have?", next = "guards" },
+        { text = "Even the guards look worried about the orcs.", next = "guards" },
       },
     },
     xapriest = {
@@ -142,7 +142,7 @@ P:NPC {
       choices = {
         { text = "Pour me whatever you've got.", next = "BUSINESS" },
         { text = "Heard anything?", next = "news" },
-        { text = "Why is the bar so dry?", next = "dry" },
+        { text = "This bar looks drier than a Westfall field.", next = "dry" },
         { text = "Who's that in the corner?", next = "wiley" },
         { text = "Who keeps this place running?", next = "inn" },
         { text = "A dwarf brewed your lager, I hope.", next = "dwarf", when = { race = "Dwarf" } },
@@ -166,12 +166,12 @@ P:NPC {
         { id = "n_default", text = "Guards drink, and guards talk. The orcs are getting bolder, the bridge is getting nowhere, and the magistrate's writing another letter." },
       },
       choices = {
-        { text = "What do the guards say about the orcs?", next = "guards" },
+        { text = "The guards must talk about the orcs over their drinks.", next = "guards" },
         { text = "Sounds about right.", next = "BACK", fx = { learn = { "blackrock" } } },
       },
     },
     guards = {
-      lines = { { id = "gu_default", text = "That there's more of them every week, and they march like soldiers. Guards don't like saying that sober, so they say it here." } },
+      lines = { { id = "gu_default", text = "They say there's more of them every week, and they march like soldiers. Guards don't like saying that sober, so they say it here." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
     },
     dry = {
@@ -195,7 +195,7 @@ P:NPC {
     inn = {
       lines = { { id = "in_default", text = "Brianna has the rooms, I have the bar, and my wife has the needle. Half the cloaks in Lakeshire are her stitching." } },
       choices = {
-        { text = "Your wife sews?", next = "wife" },
+        { text = "Your wife must be handy with a needle.", next = "wife" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -352,13 +352,13 @@ P:NPC {
         { text = "A room, please.", next = "BUSINESS" },
         { text = "Who's Narnie?", next = "narnie" },
         { text = "How's the town holding up?", next = "town" },
-        { text = "Are there wounded under your roof?", next = "wounded", when = { class = "PRIEST" } },
+        { text = "You look like you've been tending the wounded.", next = "wounded", when = { class = "PRIEST" } },
         { text = "I could light every hearth in the inn tonight.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How often does the alarm bell ring in Lakeshire, Brianna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there good hunting near Lakeshire, Brianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need somewhere quiet to work, Brianna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do you keep the town calm when the bell rings?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do many travellers still reach Lakeshire with the roads so dangerous?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Few travellers can reach Lakeshire with the roads so dangerous.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you get much trouble from thieves at the inn, Brianna?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do people in Lakeshire fear shamans, Brianna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },

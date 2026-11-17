@@ -48,7 +48,7 @@ P:NPC {
       choices = {
         { text = "What happened in the crash?", next = "crash" },
         { text = "Why are the beasts so big out here?", next = "beasts" },
-        { text = "A tauren tracker at a goblin raceway?", next = "why" },
+        { text = "I didn't expect a tauren tracker at a goblin raceway.", next = "why" },
         { text = "How do you track on salt?", next = "track", when = { class = { "HUNTER", "DRUID" } } },
         { text = "I'll take the work.", next = "BUSINESS" },
         { text = "Good luck with the races.", next = "END" },
@@ -64,7 +64,7 @@ P:NPC {
     driver = {
       lines = { { id = "d_default", text = "Walked away, somehow, with no eyebrows and a lot of opinions. Goblins are tougher than they look, and they bounce, which I'd never have believed if I hadn't seen it." } },
       choices = {
-        { text = "Do the gnomes and goblins ever stop competing?", next = "rivals" },
+        { text = "The gnomes and goblins never seem to stop competing.", next = "rivals" },
         { text = "Something else.", next = "BACK" },
       },
     },

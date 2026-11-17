@@ -45,7 +45,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Shadow.", next = "shadow" },
         { text = "What makes a good hunter?", next = "hunting" },
-        { text = "How do I bond with a beast?", next = "bond", when = { class = "HUNTER" } },
+        { text = "I'd like to learn how to bond with a beast.", next = "bond", when = { class = "HUNTER" } },
         { text = "I'd like to train.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Goodbye, Dorion.", next = "END" },
       },

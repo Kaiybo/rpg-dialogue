@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_again", text = "Something else? Ask quietly; the walls here have ears, and most of them are mine." },
       },
       choices = {
-        { text = "You were a cutpurse?", next = "purse" },
+        { text = "So you were a cutpurse.", next = "purse" },
         { text = "What's the first lesson?", next = "lesson" },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "I'll see myself out.", next = "END" },
@@ -105,7 +105,7 @@ P:NPC {
       },
       choices = {
         { text = "Who was the nobleman?", next = "noble" },
-        { text = "What does the Dark Lady want from rogues?", next = "service" },
+        { text = "The Dark Lady must have work for rogues.", next = "service" },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Good evening.", next = "END" },
       },

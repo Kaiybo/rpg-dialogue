@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "What's in Scalding Mornbrew?", next = "brew" },
         { text = "Why do you worry so much about mugs?", next = "mugs" },
-        { text = "Who are your best customers?", next = "customers" },
+        { text = "You must have a few regular customers.", next = "customers" },
         { text = "Couldn't a mage just warm the cup?", next = "mage", when = { class = "MAGE" } },
         { text = "I can run it for you.", next = "BUSINESS" },
         { text = "I'll let you get on, Nori.", next = "END" },
@@ -71,7 +71,7 @@ P:NPC {
       lines = { { id = "ba_default", text = "Ale in the mornin' makes a dwarf sleepy by noon, an' mornbrew keeps him swingin' an axe till supper. The Thunderbrews down in Kharanos don't like me sayin' it, so I say it quietly." },
       },
       choices = {
-        { text = "Do the Thunderbrews see you as a rival?", next = "brew_rival" },
+        { text = "The Thunderbrews must see you as a rival.", next = "brew_rival" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
       lines = { { id = "c_default", text = "Durnan in Anvilmar, every mornin' without fail, an' Grelin out by the troll caves, for he says it keeps him awake through the watch. Sten drinks it standin' up at the post, which I take as a compliment." },
       },
       choices = {
-        { text = "Grelin drinks it on watch?", next = "customers_grelin" },
+        { text = "So Grelin drinks it on watch.", next = "customers_grelin" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -64,13 +64,13 @@ P:NPC {
         { id = "ma_default", text = "Because he pays well and he doesn't mind my diet, pal, and do you know how rare that is in an employer? I worked for a trading company once, and they said I scared the customers, which was only true on Tuesdays and I never once charged extra for it." },
       },
       choices = {
-        { text = "Doesn't Mor'zul frighten you?", next = "master_fear" },
+        { text = "Mor'zul looks like he'd frighten anyone.", next = "master_fear" },
         { text = "Something else.", next = "BACK" },
       },
     },
     master_fear = {
       lines = {
-        { id = "mf_default", text = "All the time, and isn't it wonderful? He's so enamored with blood, and he loves to see it spilled, whereas I like it in a small rodent's veins, where it stays warm and doesn't go to waste. We understand each other perfectly, like a good contract." },
+        { id = "mf_default", text = "He frightens me all the time, and isn't it wonderful? He's so enamored with blood, and he loves to see it spilled, whereas I like it in a small rodent's veins, where it stays warm and doesn't go to waste. We understand each other perfectly, like a good contract." },
       },
       choices = {
         { text = "You two are monsters.", next = "master_monster" },
@@ -113,7 +113,7 @@ P:NPC {
         { id = "bu_default", text = "Of course, pal! Spiders, beetles, the odd scorpid when I'm feeling fancy, and they're full of good things for the brain and cost nothin'. The Steppes are crawling with them, so it's practically a free buffet out here, and I hate to waste a free buffet." },
       },
       choices = {
-        { text = "What's the best one?", next = "bugs_best" },
+        { text = "Some bugs must taste better than others.", next = "bugs_best" },
         { text = "Something else.", next = "BACK" },
       },
     },

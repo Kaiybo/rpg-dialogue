@@ -47,7 +47,7 @@ P:NPC {
       },
       choices = {
         { text = "What's the council arguing about?", next = "council" },
-        { text = "What does the town need most?", next = "needs" },
+        { text = "The town looks short of nearly everything.", next = "needs" },
         { text = "What do you think of Lord Ebonlocke?", next = "ello" },
         { text = "Lord Ebonlocke has sent me after Dextren Ward.", next = "dextren", when = { questActive = TODO_QUEST("Crime and Punishment") } },
         { text = "Good day, Deputy Mayor.", next = "END" },

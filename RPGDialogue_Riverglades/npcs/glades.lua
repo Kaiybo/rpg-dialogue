@@ -58,7 +58,7 @@ P:NPC {
         { id = "wh_default", text = "I followed their supply trains here, to this fortress in the west, and I wrote down every wagon in that log. Then I got too close, as I always said I wouldn't, and they caught me." },
       },
       choices = {
-        { text = "What did you see inside?", next = "what_saw" },
+        { text = "You must have seen a good deal inside.", next = "what_saw" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,7 +82,7 @@ P:NPC {
         { id = "ab_default", text = "My betrothed, once. She wanted me to come to Stormwind and live with her family, and I told her I'd come when this land was clean of orcs, and we haven't spoken since." },
       },
       choices = {
-        { text = "Do you regret it?", next = "abigail_regret" },
+        { text = "You sound as if you regret it.", next = "abigail_regret" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,7 +183,7 @@ P:NPC {
         { id = "en_default", text = "It goes, chum, and that's all you need to know. I'm keeping you on a need-to-know basis, because trade secrets are the only thing in this business nobody can steal twice." },
       },
       choices = {
-        { text = "Does it work yet?", next = "engine_works" },
+        { text = "It doesn't look like it works yet.", next = "engine_works" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,7 +203,7 @@ P:NPC {
         { id = "ga_default", text = "Because it's free, chum! Nobody owns a swamp's burps, not even Melbin, and the ponds out here put out tons of the stuff from vents by the water, which is pure profit if you can catch it." },
       },
       choices = {
-        { text = "Is it dangerous to collect?", next = "gas_danger" },
+        { text = "That must be dangerous to collect.", next = "gas_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },

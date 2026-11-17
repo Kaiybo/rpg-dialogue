@@ -111,7 +111,7 @@ P:NPC {
       choices = {
         { text = "Grom freed us. I won't apologise for him.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "His axe cost you dearly. I'm sorry for it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
-        { text = "How can you forgive so easily?", next = "orc_re2" },
+        { text = "You seem to forgive very easily.", next = "orc_re2" },
       },
     },
     orc_re2 = {
@@ -212,7 +212,7 @@ P:NPC {
       },
       choices = {
         { text = "What is the Cenarion Circle?", next = "circle" },
-        { text = "What troubles you, Keeper?", next = "troubles" },
+        { text = "Something seems to trouble you, Keeper.", next = "troubles" },
         { text = "You are Cenarius's son. Tell me of your family.", next = "family" },
         { text = "What is this place to the druids?", next = "glade" },
         { text = "I carry a seed from Zaetar's spirit.", next = "seed", when = { questActive = TODO_QUEST("Seed of Life") } },
@@ -284,7 +284,7 @@ P:NPC {
       },
       choices = {
         { text = "Can it be stopped?", next = "stopped", fx = { learn = { "cenarion_circle" } } },
-        { text = "Who walks there now?", next = "sleepers" },
+        { text = "Someone must still walk there.", next = "sleepers" },
         { text = "I'll be careful in my dreams.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -312,7 +312,7 @@ P:NPC {
       },
       choices = {
         { text = "You had another brother?", next = "zaetar" },
-        { text = "Where is Celebras now?", next = "celebras" },
+        { text = "You haven't said where Celebras is now.", next = "celebras" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -628,8 +628,8 @@ P:NPC {
       },
       choices = {
         { text = "What happens in Nighthaven?", next = "village" },
-        { text = "You don't believe in chance?", next = "chance" },
-        { text = "What worries the Circle these days?", next = "silithus" },
+        { text = "I've always believed in chance myself.", next = "chance" },
+        { text = "The Circle seems worried about something.", next = "silithus" },
         { text = "Another human lives here, I'm told?", next = "umber", when = { race = "Human" } },
         { text = "My people came from Eldre'Thalas, long ago.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The Keeper told me about the Dream.", next = "dream", when = { heardLine = "remulos.t_default" } },
@@ -675,7 +675,7 @@ P:NPC {
     just = {
       lines = { { id = "j_default", text = "Perhaps. Come back in a few hundred years and tell me if you still think so." } },
       choices = {
-        { text = "All right, what thread are you following?", next = "eldre" },
+        { text = "You must be following some thread yourself.", next = "eldre" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -910,7 +910,7 @@ P:NPC {
         { text = "Tell me about the trial of the water.", next = "water" },
         { text = "Why would a druid learn to cure poison like a layman?", next = "poison" },
         { text = "I'm no druid. May I watch the trials?", next = "nondruid", when = { ["not"] = { class = "DRUID" } } },
-        { text = "Where do I look for the pendant halves?", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
+        { text = "I'll need to find the pendant halves somehow.", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "My faith leans to the winds. Does that matter?", next = "winds", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Hamuul taught me. Are the trials the same for tauren?", next = "tauren_dn", when = { race = "Tauren", class = "DRUID" } },
         { text = "Could a priest learn anything from the druids' trials, Dendrite?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -937,7 +937,7 @@ P:NPC {
     fun = {
       lines = { { id = "f_default", text = "They are, and I'd never say otherwise. But a bear that doesn't know why it's a bear makes a very poor bear." } },
       choices = {
-        { text = "Then what is the bear for?", next = "bear" },
+        { text = "Then the bear must be for something else.", next = "bear" },
         { text = "I'll take your word on bears.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -1162,7 +1162,7 @@ P:NPC {
       choices = {
         { text = "What brought you to Nighthaven?", next = "why" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
-        { text = "How do you find balance?", next = "balance" },
+        { text = "Balance seems hard to find these days.", next = "balance" },
         { text = "In Darnassus they call Moonglade's druids fools.", next = "darnassus_lg", when = { race = "NightElf", class = "DRUID" } },
         { text = "Can a priest of shadow keep the balance, Loganaar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can someone like me find balance by sitting still, Loganaar?", next = "xrogue", when = { class = "ROGUE" } },
@@ -1319,7 +1319,7 @@ P:NPC {
       },
       choices = {
         { text = "What does the bear teach?", next = "teach" },
-        { text = "What do you represent, spirit?", next = "represent" },
+        { text = "You must stand for something, spirit.", next = "represent" },
         { text = "I seek your blessing, to learn the way of the Claw.", next = "blessing", when = { class = "DRUID" } },
         { text = "I'm a priest. I came to pray where it's quiet.", next = "pray", when = { class = "PRIEST" } },
         { text = "(Sit quietly a while.)", next = "sit", fx = { affinity = 2 } },
@@ -1359,7 +1359,7 @@ P:NPC {
         { id = "bo_default", text = "Power and swiftness of action, little one, kept ready in mind as well as limb. The bear looks heavy, and those who think it slow and dull learn otherwise too late; let them think it." },
       },
       choices = {
-        { text = "And the heart?", next = "heart" },
+        { text = "You haven't spoken of the heart.", next = "heart" },
         { text = "(Let the lesson settle.)", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
@@ -1537,10 +1537,10 @@ P:NPC {
       },
       choices = {
         { text = "Why only druids?", next = "rule" },
-        { text = "Where can I find half of the sea lion's pendant?", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
+        { text = "I'm looking for half of the sea lion's pendant.", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "Show me the flight.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Do your hippogryphs mind a troll or a Forsaken near them, Silva?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Has anyone ever tried to steal a hippogryph, Silva?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Someone must have tried to steal a hippogryph, Silva.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do your hippogryphs mind the arcane so, Silva?", next = "xmage", when = { class = "MAGE" } },
         { text = "Can your birds really smell the fel on me, Silva?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do your hippogryphs mind warriors, Silva?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -1718,7 +1718,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do the Circle's riders fly for druids alone?", next = "rule" },
-        { text = "Where can I find half of the sea lion's pendant?", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
+        { text = "I'm looking for half of the sea lion's pendant.", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "Show me the flight.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Does a priest's prayer reach the Earth Mother, Bunthen?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your wind riders take offence at quiet folk, Bunthen?", next = "xrogue", when = { class = "ROGUE" } },
@@ -1737,7 +1737,7 @@ P:NPC {
         { id = "r_default", text = "They were given to the Circle so its druids could come and go between Moonglade and their own people. Silva keeps the same rule with her hippogryphs, and between us we see every druid home, whatever their banner." },
       },
       choices = {
-        { text = "You and Silva get along, then?", next = "silva" },
+        { text = "You and Silva seem to get along.", next = "silva" },
         { text = "Something else.", next = "BACK" },
       },
     },

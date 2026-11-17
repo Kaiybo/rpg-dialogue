@@ -41,7 +41,7 @@ P:NPC {
       },
       choices = {
         { text = "Where do you get your wood?", next = "wood" },
-        { text = "What do the Sentinels face here?", next = "border" },
+        { text = "The Sentinels must face a good deal here.", next = "border" },
         { text = "What makes a good bow?", next = "bow", when = { class = "HUNTER" } },
         { text = "Let me see your bows.", next = "BUSINESS" },
         { text = "Farewell, Brinna.", next = "END" },
