@@ -258,6 +258,12 @@ L.J_NOBODY = "I haven't really talked to anyone yet."
 L.J_ALIGNMENT = "Where I stand"
 L.J_TRAITS = "People take me for:"
 L.J_OPINIONS = "What I've said I believe"
+-- Names for opinion topics that aren't "Ask about" topics (0.80.0).
+L.OPINION_TOPICS = {
+  peace = "Peace with the other side", regency = "Stormwind's regency", refugees = "The refugees from Lordaeron",
+  gilneas = "Gilneas and its wall", war_taxes = "Who pays the war debts", forsaken_in_horde = "The Forsaken in the Horde",
+  old_ways = "The old ways of the Horde", goblin_trade = "Trading with the goblins",
+}
 L.J_CONTRADICTED = "(though I've said otherwise, too)"
 L.J_TOWNS = "What the towns think of me"
 L.J_ORIGIN = "Origin:"

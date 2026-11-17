@@ -408,7 +408,7 @@ local function myself(add, c)
   local lines = {}
   for topic, o in pairs(c.opinions) do
     local def = ns.Data.topics[topic]
-    lines[#lines + 1] = (def and def.name or topic) .. ": " .. tostring(o.stance):gsub("_", " ") .. (o.contradicts and (" " .. L.J_CONTRADICTED) or "")
+    lines[#lines + 1] = (def and def.name or (L.OPINION_TOPICS or {})[topic] or topic) .. ": " .. tostring(o.stance):gsub("_", " ") .. (o.contradicts and (" " .. L.J_CONTRADICTED) or "")
   end
   table.sort(lines)
   section(L.J_OPINIONS, lines)
