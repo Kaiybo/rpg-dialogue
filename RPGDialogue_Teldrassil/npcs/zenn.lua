@@ -45,7 +45,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Zenn's Bidding"), days = 3 } },
           text = "Who'd have guessed that I, Zenn Foulhoof, would have one of the forest's own fetching for me? This world is full of surprises, and I do love a surprise." },
         { id = "h_redeem", tags = { "news" }, when = { questActive = TODO_QUEST("Seek Redemption!") },
-          text = "Back so soon, and with something in your pack? Is that a snack for old Zenn? You shouldn't have, truly." },
+          text = "Back so soon, and with something in your pack? Is that a snack for old Zenn? You shouldn't have, and if it's another acorn, you really shouldn't have." },
         { id = "h_frog", tags = { "news" }, when = { questRecent = { TODO_QUEST("Seek Redemption!"), days = 3 } },
           text = "My tongue still tastes of smoke and pondwater, and it's your doing. I hope the Council patted your head, because that's all you'll get from them." },
         { id = "h_elf", when = { race = "NightElf" },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "sb_default", text = "Every night, little one, and I'd thank you not to ask about it again. Fetch for me, or don't, but don't pity me, because I'd charge you for that as well." },
       },
       choices = {
-        { text = "Fair enough. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "I won't pity you, then. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Goodbye, Zenn.", next = "END" },
       },
     },
@@ -156,7 +156,7 @@ P:NPC {
       },
       choices = {
         { text = "You chose that shape. I choose mine.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Our elders made mistakes too. I won't pretend otherwise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Our elders made mistakes too. Everyone knows it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -195,7 +195,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A satyr with a quiet life and a great many acquaintances. Anything more costs extra, little one." } },
-    advice = { { id = "tp_ad", text = "Never eat anything a stranger hands you in the woods. I learned that one the hard way, and I'm giving it to you for free." } },
+    advice = { { id = "tp_ad", text = "Never eat anything a stranger hands you in the woods. I learned that one with a bellyache that lasted a fortnight, and I'm giving it to you for free." } },
     satyrs = { { id = "tp_satyrs", text = "Most of my cousins are rude, loud and fond of fire. I'm the charming one, and you'll find I'm also the only one who talks.", next = "satyrs" } },
     fel_moss = { { id = "tp_felmoss", text = "Ugly stuff, and nothing to do with me, whatever the druids whisper. Ask the grells in Fel Rock where it comes from." } },
     teldrassil = { { id = "tp_tree", text = "A very large tree full of very proud people. I'd have chosen somewhere warmer myself." } },

@@ -51,7 +51,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. Zalazane twist the dead on the Echo Isles into his slaves, and you be dead with a power he never touch. Maybe that make you safe, maybe not. The loa decide, and I listen." } },
       choices = {
         { text = "I'll prove I'm no one's slave, Master.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "I serve the Dark Lady and the Horde. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I serve the Dark Lady and the Horde. Ask no more.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -66,7 +66,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Gently, if you can, and that be the hard part for a warrior. Zalazane's voodoo turn our own people against us, and when the hex break they wake up confused and ashamed, so knock them down if you must, but don't kill a troll who can still come home." } },
+      lines = { { id = "xwarcl_default", text = "Gently, if you can, and that be what a warrior find hardest. Zalazane's voodoo turn our own people against us, and when the hex break they wake up confused and ashamed, so knock them down if you must, but don't kill a troll who can still come home." } },
       choices = {
         { text = "I'll spare the hexed ones, Master Gadrin.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A spear in my face is a spear. I'll do what I must.", next = "BACK", fx = { align = { honor = -1 } } },

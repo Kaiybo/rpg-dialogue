@@ -6,11 +6,11 @@ local TODO_QUEST = P.TODO_QUEST
 P:Pool {
   id = "guard_hyjal", role = "guard", zone = "Mount Hyjal",
   barks = {
-    { id = "b_quiet", text = "Too quiet on the ridge tonight. I don't trust a quiet mountain." },
+    { id = "b_quiet", text = "Not one owl calling on the ridge tonight. When the owls shut up, I string my bow." },
     { id = "b_gorge", text = "Another pack came up through the gorge this morning, and not all of them came up whole." },
   },
   greetings = {
-    { id = "g_default", text = "Keep to the paths, stranger. The mountain is still healing, and so are we." },
+    { id = "g_default", text = "Keep to the paths, stranger. The mountain is still healing, and so is my knee." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "Ishnu-alah, friend of the Alliance. Mind your step on the slopes." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You may pass, since your people bled here too, but you will be watched." },
     { id = "g_nelf", when = { race = "NightElf" }, text = "Welcome home, {g:brother|sister}. It is good to see our own on the mountain again." },
@@ -25,7 +25,7 @@ P:Pool {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You came through Darkwhisper, by the look of you. Rest before you go further; the demons in there aren't the worst of it." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Step out of the shadows. Things that hide on this mountain get shot." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Step out where I can see you. Things that hide on this mountain get shot." } },
   lines = {
     { id = "l_default", text = "For years nobody walked these slopes but us and the druids. Now the gorge is open, and every week brings more strangers up it, and I can't decide if that's a blessing." },
     { id = "l_tree", text = "Look up at the summit, toward the tree. It's still scarred black at the crown, but there's green coming back, a little more every season." },
@@ -68,7 +68,7 @@ P:Pool {
       text = "Please, keep that darkness away from the saplings. They have had enough of shadow." },
   },
   lines = {
-    { id = "l_default", text = "We're mending what the war broke, one slope at a time. It's slow work, but the tree is patient, and so we try to be." },
+    { id = "l_default", text = "We're mending what the war broke, one slope at a time. My hands are so full of thorns I've stopped bothering to pick them out." },
     { id = "l_weeds", text = "The brambles drank the fel when it fell, and now they choke everything. Thylaen has the right idea: cut them out at the root." },
     { id = "l_gorge", text = "I never thought I'd see strangers walking up from Winterspring. The gorge was the Legion's for years, and now there's a path through it." },
     { id = "l_coalescence", when = { class = "MAGE" }, text = "You feel the old magic, don't you? There's a shrine to the east where it gathers, the Shrine of Coalescence; I'd not linger there." },
@@ -102,7 +102,7 @@ P:Pool {
   },
   choices = { { text = "Let's see what you have.", next = "BUSINESS" } },
   topics = {
-    trade = { { id = "t_trade", text = "Azzleby's caravans, when the Winterfall don't get to them first. Prices go up when they do." } },
+    trade = { { id = "t_trade", text = "Azzleby's caravans, when the Winterfall don't get to them first. Last month they ate a whole crate of candles, wicks and all, so prices go up." } },
     _none = { { id = "t_none", text = "I sell things, friend. Knowing things costs extra, and I don't stock it." } },
   },
 }

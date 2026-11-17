@@ -49,7 +49,7 @@ P:NPC {
         { text = "What is the Prayer to Elune?", next = "prayer" },
         { text = "Who keeps you here?", next = "hammer" },
         { text = "Can I free your spirit from this cage?", next = "free" },
-        { text = "Elune forgives those who truly return to her.", next = "xelf", when = { race = "NightElf" } },
+        { text = "Elune forgives those who come back to her with clean hands.", next = "xelf", when = { race = "NightElf" } },
         { text = "Your faith came late. Does it still count?", next = "xfaith", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "Rest as you can, Zamael.", next = "END" },
       },

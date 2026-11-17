@@ -10,12 +10,12 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Auctioneer Grizzlin runs Everlook's auction house with gloves on and an ear for every bid. Grizzlin sells to Horde and Alliance alike and finds the cold good for business, since nobody lingers to haggle.",
+    first = "Auctioneer Grizzlin runs Everlook's auction house with gloves on and an ear for every bid. Grizzlin sells to Horde and Alliance alike and finds the cold good for business, since nobody stands about in the snow to haggle.",
     third = "{name} met Auctioneer Grizzlin, who runs the neutral auction house in Everlook.",
   },
 
   greetings = {
-    { id = "g_default", text = "Shut the door behind you, friend, the heat's worth more than half the lots on the board. Now, buying or selling?" },
+    { id = "g_default", text = "Shut the door behind you, friend; the heat costs more than half the lots on the board. Now, buying or selling?" },
   },
 
   notice = {
@@ -77,7 +77,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Tried, plenty of times, and every one of them ended up owing the Cartel more than they took. We've got contracts with folk in Booty Bay who find people for a living, so the smart rogue sells through us and keeps their fingers." } },
       choices = {
-        { text = "The Cartel's rules keep trade honest. Fair enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Cartel's rules keep trade honest. I'll sell through them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules only stop people who aren't clever enough.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll stick to bidding, then.", next = "BACK" },
       },
@@ -114,7 +114,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "The Cartel doesn't ask where things come from, druid, that's how we keep the peace. If a hunter brings me pelts, I sell 'em, and if your Circle wants fewer pelts on the market, it can come and outbid the buyers. That's not cruelty, it's business, and business is the only law in Everlook." } },
       choices = {
         { text = "Business without conscience is still cruelty, Grizzlin.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. The Cartel keeps the peace, and that's no small thing.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Cartel keeps the peace up here. I'll take that trade.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Never mind the pelts.", next = "BACK" },
       },
     },
@@ -361,7 +361,7 @@ P:NPC {
     buyers_anyone = {
       lines = { { id = "ba_default", text = "To anyone with coin who isn't fighting inside Everlook, because the Bruisers see to that part. What they do with it outside the gate is between them and their consciences." } },
       choices = {
-        { text = "Fair enough. A weapon's just a tool.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Coin's coin. What they do outside is their business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "A merchant should care who he arms.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -593,7 +593,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because warriors shout, friend, it's in the training, and every time one of you bellows a war cry by the gate, my bears wake up and my cats go under the hay. A beast that's frightened in the stable is a beast that bites its own hunter later." } },
       choices = {
-        { text = "Fair enough. A warrior can keep the temper off the battlefield.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll save my war cry for the furbolgs, then.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A beast that can't stand a shout won't last in Winterspring.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Azzleby.", next = "BACK" },
       },
@@ -618,7 +618,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Only until it turns back into an angry dwarf in the middle of the night, and I learned that one the hard way. No, I'll stick with hunters' pets, which are what they look like and stay that way." } },
+      lines = { { id = "xmage_default", text = "Only until it turns back into an angry dwarf in the middle of the night, and I've a dent in my lantern to prove it. No, I'll stick with hunters' pets, which are what they look like and stay that way." } },
       choices = {
         { text = "Fair. A sheep's no proper pet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Polymorph's a fine joke. You should laugh more.", next = "BACK", fx = { align = { order = -1 } } },
@@ -697,7 +697,7 @@ P:NPC {
       },
     },
     tame_sulk = {
-      lines = { { id = "ts_default", text = "Cats think they own the place, and wolves think the same, and neither of them is right, since I own the place. A little distance keeps everyone from finding that out the hard way." } },
+      lines = { { id = "ts_default", text = "Cats think they own the place, and wolves think the same, and neither of them is right, since I own the place. A little distance keeps everyone from finding that out with their teeth." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
@@ -721,7 +721,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Careful with the shelf, those vials are cold and brittle! Now, what are you brewing?" },
+    { id = "g_default", text = "Careful with the shelf, those vials are cold and brittle, and the last fellow who leaned on it paid for six! Now, what are you brewing?" },
   },
 
   notice = {
@@ -735,7 +735,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because the last time somebody knocked one over, the whole shop smelled of Felwood for a week, and my icecap went brown. I don't mind selling the stuff, because a sale's a sale, but I won't have it near the good herbs, so you'll have to ask for it nicely." } },
       choices = {
-        { text = "Fair enough. Fel doesn't belong near clean herbs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fel has no place near clean herbs. I'll mind the shelf.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your icecap will survive. Bring the whole shelf down.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

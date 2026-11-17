@@ -251,7 +251,7 @@ P:NPC {
     nat_before = {
       lines = { { id = "nb_default", text = "For weeks she spoke to herself when she thought no one was near, and when I asked, she told me she was perfectly well and must be allowed to go on with her work. She was so certain that I let it be." } },
       choices = {
-        { text = "Did you truly believe her, Commander?", tag = "Persuade", next = "nat_doubt",
+        { text = "Did you actually believe her, Commander?", tag = "Persuade", next = "nat_doubt",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "kind" } } } },
           fail = { next = "nat_duty", fx = { affinity = -1 } } },
         { text = "Madness can hide very well behind calm.", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -602,7 +602,7 @@ P:NPC {
     },
     hum_shrug = {
       lines = { { id = "hs_default", text = "A hum's a hum, friend. I'll tell ye when I've got numbers, and not a moment before; geologists don't trade in hunches." } },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "Right, then.", next = "BACK" } },
     },
 
     work = {
@@ -640,7 +640,7 @@ P:NPC {
       },
     },
     deserter_trust = {
-      lines = { { id = "dt_default", text = "Trusted to hate the people hunting him, aye, and that's enough for a code. Whether ye'd leave your purse with him is another matter." } },
+      lines = { { id = "dt_default", text = "Trusted to hate the people hunting him, aye, and out here that passes for a code. Whether ye'd leave your purse with him is another matter." } },
       choices = {
         { text = "If he's turned his back on them, I'll take his word.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Use him, then watch him closely.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
@@ -871,7 +871,7 @@ P:NPC {
         { text = "I could scout the supply roads for you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Why are the worms such a threat to the supplies?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you trust a warlock to guard your supplies?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Can the Hold truly win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can the Hold really win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you keep the soldiers fed and whole, Windcaller?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does holding the supply roads actually require, Windcaller?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -896,7 +896,7 @@ P:NPC {
       },
     },
     supply_grain = {
-      lines = { { id = "sg_default", text = "Grain the Circle coaxes up in a single night with a little magic and a lot of patience. It's not the tastiest thing you'll eat, but a soldier can march all day on it, and that's what matters to me." } },
+      lines = { { id = "sg_default", text = "Grain the Circle coaxes up in a single night with a little magic and a lot of patience. It's not the tastiest thing you'll eat, but a soldier can march all day on it, and it doesn't go green in the packs, which is more than I can say for the bread." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     victory = {
@@ -1023,7 +1023,7 @@ P:NPC {
       choices = {
         { text = "Your secret's yours. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll figure it out sooner or later.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Understood, Captain.", next = "BACK" },
       },
     },
     xlock = {
@@ -1121,7 +1121,7 @@ P:NPC {
         { text = "What are you really guarding him from, Captain?", tag = "Persuade", next = "vish_cmd",
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Into The Maw of Madness") }, { class = "ROGUE" } } } },
           fail = { next = "vish_curt", fx = { affinity = -1 } } },
-        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Aye, Captain. I'll mind it.", next = "BACK" },
       },
     },
     vish_cmd = {
@@ -1235,7 +1235,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "A few, on their way to fight the bugs, and they all sit very straight and say their prayers over my worm stew, which I suppose is fair. I'm still learning to cook with what Silithus gives us, and a blessing can't hurt, though I'd rather you just told me it tasted good." } },
       choices = {
         { text = "It tastes good, Calandrath, and I mean that kindly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'd sooner pray over it, if I'm honest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd sooner pray over it, myself.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1375,7 +1375,7 @@ P:NPC {
     },
     auberdine_why = {
       lines = { { id = "aw_default", text = "Because the Circle asked who'd keep an inn in a desert, and nobody else put their hand up. Soldiers fight better with a bed and a meal behind them, and I can't hold a bow to save my life." } },
-      choices = { { text = "That's a kind of courage too.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Takes nerve to admit that.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     food = {
       lines = { { id = "f_default", text = "Precious little that grows, so it all comes up the road from Un'Goro, and what doesn't come up the road I've been trying to learn. There aren't many desert herbs, and the sandworms taste the way old boots smell." } },
@@ -1451,7 +1451,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Beetix Ficklespragg, at your service, and if you've got a strong stomach, I've got work." },
+    { id = "g_default", text = "Beetix Ficklespragg, at your service, and if you've got a strong stomach, I've got work. It's mostly venom sacs, so don't wear your good gloves." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, it's you! Noggle's still breathing, so you're still my favourite customer." },
     { id = "g_saved", when = { questDone = TODO_QUEST("Noggle's Last Hope") }, text = "Look at him, sleeping like a baby. A baby who owes me a fortune in antidotes, but still." },
     { id = "g_away", when = { away = 14 }, text = "Hey, you're back after {away}! Noggle's still breathing, I'm still brewing, and my prices have only gone up a little, so welcome home." },
@@ -1511,7 +1511,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The stingers out here feed on things that ought not to be eaten, and the silithid poison whatever they don't eat. I've tested samples from the edge of Hive'Ashi that would fell a thunder lizard, and the closer to the hives they come from, the worse it gets." } },
       choices = {
-        { text = "A land this poisoned needs healing, not just antidotes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Antidotes won't fix this land. It needs healing.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Venom that strong must be worth something. Sell it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1594,7 +1594,7 @@ P:NPC {
         { text = "Venom like that would coat a blade nicely.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "How bad is Noggle's poisoning?", next = "xmage", when = { class = "MAGE" } },
         { text = "Could a curse really help draw out venom?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "How bad is Noggle's poisoning, truly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How bad is Noggle's poisoning, really?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a priest's healing put you out of business, Beetix?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What stung Noggle so badly, Beetix?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters' kills really help you make cures, Beetix?", next = "xhuntcl", when = { class = "HUNTER" } },

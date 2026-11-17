@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'll confess I looked over the rim more than once, wondering whether the crater had finally had you. Welcome back to the Refuge." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}! I'd added your name to the list of folk the crater kept, and I'm delighted to scratch it off again, because that list is far too long already." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since you last came up the rim, and the devilsaurs will notice even if you don't. Un'Goro respects strength, though it never stops testing it." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "The whole Refuge has been talking about what you did for us, and it's done more for morale than any supply cart from Gadgetzan. Thank you, truly." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The whole Refuge has been talking about what you did for us, and it's done more for morale than any supply cart from Gadgetzan. Somebody even scrubbed out the soup pot to celebrate, and that hasn't happened since we arrived." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone up here was in a foul temper after talking with you, and we're too few on this ridge to carry grudges. I'd take it as a kindness if you'd smooth it over." },
   },
 
@@ -70,7 +70,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Like a living thing, I'll be honest with you, one that breathes heat and eats anything foolish enough to stand still. The crystals glow, the springs boil and the mountain smokes, and every scholar I've brought down here has a different theory why, which is half the reason I keep coming back." } },
+      lines = { { id = "xhsham_default", text = "Like a living thing, if you want my plain opinion, one that breathes heat and eats anything foolish enough to stand still. The crystals glow, the springs boil and the mountain smokes, and every scholar I've brought down here has a different theory why, which is half the reason I keep coming back." } },
       choices = {
         { text = "Treat the crater as a host, not a prize.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Claim it, Williden. Knowledge belongs to whoever's brave enough.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -226,7 +226,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Running an expedition means everybody's news ends up on my desk, muddy or not. Ask me about any of these, friend." },
     },
-    background = { { id = "tp_ba", text = "I'm expedition leader by the accident of being the one who signed the papers. My sister did the hard part and I did the paperwork, and I still do." } },
+    background = { { id = "tp_ba", text = "I'm expedition leader by the accident of being the one who signed the papers. My sister did the walking and the bleeding while I did the paperwork, and I'm still doing it, mostly in triplicate for Gadgetzan." } },
     advice = { { id = "tp_ad", text = "If the ground shakes, run first and wonder later, because wondering is how we lost the tents." } },
     _none = { { id = "tp_none", text = "Not sure! But if it lives in the crater, it probably bites." } },
   },
@@ -318,7 +318,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "That's what Williden says too, and he says it kindly, which almost makes it worse. I suppose I'll have to find it the hard way, one piece at a time, the way you'd search a marsh for a dropped coin." } },
+      lines = { { id = "xmage_default", text = "That's what Williden says too, and he says it kindly, which almost makes it worse. I suppose I'll have to find it one bruise at a time, the way you'd search a marsh for a dropped coin." } },
       choices = {
         { text = "You'll find it. Don't give up on yourself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some things are better left forgotten.", next = "BACK", fx = { align = { light = -1 } } },
@@ -417,7 +417,7 @@ P:NPC {
     },
     spar = {
       lines = { { id = "sp_default", text = "Yes! Or no, maybe? My arm remembers more than my head does, but let's not, because if my head gets hit again I might forget you, and I've only just learned you." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Then I'll stay out of punching range.", next = "BACK", fx = { affinity = 1 } } },
     },
     x_skyborne = {
       lines = {
@@ -526,7 +526,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, if I'm honest, and I'd rather be honest than singed. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." } },
+      lines = { { id = "xlock_default", text = "A little, and I'd rather admit it now than explain a singed eyebrow later. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." } },
       choices = {
         { text = "That's fair. I'll keep my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't get your research far, Collie.", next = "BACK", fx = { align = { light = -1 } } },
@@ -548,7 +548,7 @@ P:NPC {
         { id = "h_aquementas", when = { questActive = TODO_QUEST("Aquementas") },
           text = "There's a water spirit called Aquementas that may be able to help with what Linken needs. Be polite to it, though, because spirits that old take offense easily." },
         { id = "h_singed", when = { metBefore = true }, text = "I lost an eyebrow this morning, putting a red crystal and a blue one too close together. Worth it, I think, and it'll grow back, I think." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Tell me, can you feel the crystals out there? I've always wondered whether the land itself knows they're doing something odd." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Tell me, can you feel the crystals out there? I've always wondered whether the ferns know the crystals are doing something odd, because they certainly lean away from them." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Finally, someone who won't look at me funny when I say the red crystals are warmer than the blue ones, because you'll have felt it too, won't you?" },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -727,7 +727,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Pterrordax", min = 20 } },
-          text = "The pterrordax don't circle the Refuge half so much since you started shooting them down, and I can finally sleep without hearing them screech. Thank you, truly." },
+          text = "The pterrordax don't circle the Refuge half so much since you started shooting them down, and I can finally sleep without hearing them screech. One of them used to steal my socks off the line, so I'll admit I took that one personally." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! Oh, could your demon find Ringo, do you think, because it can see things in the dark, can't it, and he's been missing for days." },
         { id = "h_apaladin", when = { class = "PALADIN" },

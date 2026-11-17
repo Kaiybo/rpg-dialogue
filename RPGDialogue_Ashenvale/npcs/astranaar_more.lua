@@ -149,7 +149,7 @@ P:NPC {
         { text = "What do the Sentinels face here?", next = "warsong_t" },
         { text = "What is the High Priestess like?", next = "tyrande" },
         { text = "I trained as a Sentinel scout before I left.", next = "scout_t", when = { origin = "nightelf_sentinel_scout" } },
-        { text = "Would Tyrande truly receive a human?", next = "human_t", when = { race = "Human" } },
+        { text = "Would Tyrande really receive a human?", next = "human_t", when = { race = "Human" } },
         { text = "What do the Sentinels make of rogues, Thenysil?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the kaldorei distrust arcane magic so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a warrior prove themselves to the Sentinels?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -330,7 +330,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Not you, but they'll throw anything that smells of the Legion, and you carry the smell on your cloak. Dismiss your servant on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
+        { id = "xlock_default", text = "Not you, but they'll throw anything that smells of the Legion, and your cloak reeks of it. Dismiss your servant on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
       },
       choices = {
         { text = "I'll dismiss it on the ground. The birds deserve that.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -356,7 +356,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I fly low over the trees and watch the eastern sky. Do your wind spirits fly low too?" },
       },
       again = {
-        { id = "h_again", text = "Anything else, or are we flying?" },
+        { id = "h_again", text = "Anything else, or are we flying? Ask quickly, because that one's been eyeing your hat." },
         { id = "h_again2", text = "Go on. The birds are in no hurry, even if you are." },
       },
       choices = {

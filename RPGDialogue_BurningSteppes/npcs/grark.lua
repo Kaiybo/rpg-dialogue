@@ -9,12 +9,12 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Grark Lorkrub sold Kargath to the Blackrock and isn't the least bit sorry. He talks about the power he's joined as though I ought to envy him, and I think part of him truly believes I do.",
+    first = "Grark Lorkrub sold Kargath to the Blackrock and isn't the least bit sorry. He talks about the power he's joined as though I ought to envy him, and I think part of him really believes I do.",
     third = "{name} found Grark Lorkrub, a Horde traitor sheltering with the Blackrock clan, in Blackrock Stronghold in the Burning Steppes.",
   },
 
   greetings = {
-    { id = "g_default", text = "Another of Lexlort's errand-runners, come all this way into a Blackrock fortress. Brave, or very stupid." },
+    { id = "g_default", text = "Another of Lexlort's errand-runners, come all this way into a Blackrock fortress. Brave, or very stupid, and I've lost money betting on the first one before." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft." },
     { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and they won't hold you up either, when my friends come." },
   },
@@ -33,7 +33,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Grark Lorkrub, and if Kargath sent you, then you've come to drag me back for Goretooth's axe. Can you not see the power we gain by joining the legion of Blackrock?" },
         { id = "h_bound", tags = { "news" }, when = { questActive = TODO_QUEST("Precarious Predicament") },
-          text = "Do you truly believe you'll make it to your rendezvous with me in custody? You broke into a fortress to take a prized asset of theirs, and you think nobody noticed?" },
+          text = "Do you really believe you'll make it to your rendezvous with me in custody? You broke into a fortress to take a prized asset of theirs, and you think nobody noticed?" },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance, here? The Blackrock will mount your head beside the others, and I'll watch from a comfortable distance." },
       },

@@ -84,7 +84,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Whatever you've got whispering at your shoulder, it can't be worse than this family at harvest." } },
       choices = {
-        { text = "Your warmth means more than you know, Gramma.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your kitchen's the warmest place in Elwynn, Gramma.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "My whispers are worse than any feud. Don't mistake me.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -180,7 +180,7 @@ P:NPC {
       choices = {
         { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1 } },
         { text = "Sacks get lighter if you set them down.", next = "BACK", fx = { trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "Some grudges are worth the weight of carrying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some grudges are worth keeping, Gramma.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "You can set a little of it down here, Gramma.", tag = "Persuade", next = "why_sack",
           check = { pass = { any = { { disposition = { min = 68 } }, { class = "PRIEST" }, { questDone = TODO_QUEST("The Escape") } } } },
           fail = { next = "why_kettle", fx = { affinity = -1 } } },
@@ -308,7 +308,7 @@ P:NPC {
         { id = "wk_default2", text = "Listen to you, sweet as Bernice's pastry. Save it for someone who needs it, child; I've carried mine this long without help." },
       },
       choices = {
-        { text = "Fair enough, Gramma.", next = "BACK" },
+        { text = "Yes, Gramma. Sorry, Gramma.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -76,7 +76,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "The quiet of it, when the woodcutters aren't at it. The trees are friendly here, and the deer walk right up to the inn's back door some evenings." } },
+      lines = { { id = "dq_default", text = "The peace of it, when the woodcutters aren't hacking away. The trees are friendly here, and the deer walk right up to the inn's back door some evenings." } },
       choices = {
         { text = "The woodcutters ought to leave more trees.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Stormwind needs the timber. That's honest work.", next = "BACK", fx = { align = { honor = 1 } } },

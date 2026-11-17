@@ -456,7 +456,7 @@ P:NPC {
           text = "Night, finally, and fewer birds." },
         { id = "h_innocents", tags = { "news" }, when = { questActive = TODO_QUEST("Blood of Innocents") },
           text = "A toxin to bleed the violence out of goblins. It needs innocent blood, and the Syndicate's shadow mages have been collecting it for me. How generous of them." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't touch the bottles, rogue, unless you'd like to find out what's in them the hard way, and some of them are designed to be found out the hard way." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't touch the bottles, rogue, unless you'd like to find out what's in them by smell, and a few of them are meant to be found out exactly that way." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want to know whether I've a use for your shards, and the answer is no, since I've enough trouble keeping Umpi out of my reagents." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your beast away from the table, because most of what's on it would kill it, and the rest would make it wish it had died." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, standing in my workshop. You must feel something when the Light comes, and I envy that, because the only things I still feel are my work and Umpi." },
@@ -549,7 +549,7 @@ P:NPC {
       },
       choices = {
         { text = "You're beyond help.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Fair enough. Clean air never did me much good either.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Clean air never did me much good either.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -629,7 +629,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "Most of what's left of us is habit, so I don't see why the Light should be any different. I polish the bar and you pray, and both of us do it because it was done before, and maybe because doing it keeps us from becoming the mindless things outside." } },
       choices = {
         { text = "It's more than habit. The Light answers back.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Habit, yes. It keeps me myself, and that's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Habit, yes. It keeps me myself, and I'll not apologise for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

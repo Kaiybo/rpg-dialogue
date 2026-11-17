@@ -44,7 +44,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The Brotherhood has a use for anyone who stands on the wall. The cultists call on things in the river fog, and if your spirits can tell me what they are, I'll name you in my reports with the best of them." } },
       choices = {
-        { text = "I'll stand on the wall, Commander. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll stand on the wall, Commander, fog or no fog.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll hunt the fog on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -78,7 +78,7 @@ P:NPC {
         { id = "h_fern_resolved", tags = { "news" }, key = true, when = { thread = { id = "farholde_lost", state = "resolved" } },
           text = "Gray came up to the keep, his first time in a year, and we didn't argue about Fern; we drank to her. I'm told that was your doing, so thank you, and don't make me say it twice." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "I walk the walls at night, a habit since the siege. The river's loud after dark, and I'd rather hear it than the quiet." },
+          text = "I walk the walls at night, a habit since the siege. The river's loud after dark, and I'd rather hear it than nothing at all, because nothing at all was what the siege sounded like before they came." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe will want you for an hour of shop talk, and I'll want you after that for something more useful, like fire on the ridge." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you are, warlock; the smell gives it away. The Hammer deals in the same dark, so you'll forgive me if I make you prove you're not halfway to joining them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, this far from your own forests. The glades round Sunnyglade are sick with the Hammer's filth, and I'm told your kind takes that personally." },
@@ -513,7 +513,7 @@ P:NPC {
           text = "Demar smiled at breakfast, actually smiled, and I very nearly sent for Sister Rowland." },
         { id = "h_notes", when = { metBefore = true, timeOfDay = "night" },
           text = "I was reading my father's notes. His handwriting was dreadful. I'm the only one alive who can read it, which I suppose makes them mine now." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Demar will be delighted, and you'll find me far less useful than he is, unless you'd like to know who carved the thing that's trying to kill you, which, honestly, you should." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Demar will be delighted, and you'll find me far less useful than he is, unless you'd like to know who carved the thing that's trying to kill you, which you really should." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I have a hundred questions about how the Light actually works, and you probably can't answer any of them, can you? Nobody ever can; they just say 'faith' and look at me kindly." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with a companion! Please don't let it near the stone table; Riftan's trinkets upset animals, which is a sentence I only learned to say this year." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came in very quietly, which is either good manners or professional habit, and I'm going to assume manners." },
@@ -550,7 +550,7 @@ P:NPC {
     farholde = {
       big = true,
       lines = {
-        { id = "fa_default", text = "When the Horde took these lands in the First War, the Alliance moved on; they judged it lost and spent their soldiers at home. Honestly, I'd have done the same." },
+        { id = "fa_default", text = "When the Horde took these lands in the First War, the Alliance moved on; they judged it lost and spent their soldiers at home. I'd have done the same, and I hate that I would." },
       },
       choices = {
         { text = "But you stayed.", next = "farholde_stayed" },
@@ -993,7 +993,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I've fought in these glades longer than I care to remember, and I've learned a thing or two the hard way. Ask." },
+      { id = "tp_knows", text = "I've fought in these glades longer than I care to remember, and I've buried enough friends to learn a thing or two. Ask." },
     },
     background = { { id = "tp_bg", text = "Brotherhood a long time, out here longer. That's all of it." } },
     advice = { { id = "tp_ad", text = "When they start chanting, back up. Whatever they're calling, you don't want to be the first thing it sees." } },
@@ -1045,12 +1045,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Sister Rowland, and these are the Brotherhood's sick. They're ill, and I don't yet know with what, so I keep them clean and fed and prayed over, and the rest is the Light's business." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Night's the hard part. Fevers climb after dark, and so do the prayers." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Nights are worst. Fevers climb after dark, and I run out of clean linen by the second bell." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "You'll be one of the fighters, then. Leave your sword by the door, please; the men see a blade and try to sit up, and they shouldn't." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "You've a beast with you. Keep it near the door; some of the men find it a comfort and some don't, and I can't tell which until it's too late." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move very softly, and I'm grateful for it in here, whatever the reason you learned to." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Ashe keeps asking me whether the illness has an arcane smell to it, and I keep telling her I wouldn't know one if it sat on the bed." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you carry, and I won't pretend I'm easy with it. Keep it outside the chapel, and you're as welcome as anyone who'll fetch water." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you carry, and it sets my teeth on edge. Keep it outside the chapel, and you're as welcome as anyone who'll fetch water." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Wash your hands at the basin, and then, if your spirits can tell what ails these soldiers, I'll thank them as gladly as the Light." },
       },
       again = {
@@ -1267,7 +1267,7 @@ P:NPC {
     child = {
       lines = { { id = "c_default", text = "Someone who needs watching. That's all you need to know, and all I'm saying." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then I'll stop asking.", next = "BACK", fx = { affinity = 1 } },
         { text = "Is the child yours?", next = "child_press", fx = { affinity = -2 } },
       },
     },
@@ -1421,7 +1421,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind your step there; it's fresh." },
+    { id = "g_default", text = "Mind your step there; it's fresh, and the grey's been eating clover all morning." },
     { id = "g_mount", text = "Want your mount looked at? I look at all of them anyway." },
   },
 
@@ -1606,7 +1606,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a lift? The birds are fed, and grumpy with it." },
+    { id = "g_default", text = "Need a lift? The birds are fed, and grumpy with it, and one of them has eaten my left glove." },
     { id = "g_fog", when = { timeOfDay = "dawn" }, text = "Fog's in. They'll fly, but they'll complain the whole way." },
   },
 
@@ -1908,7 +1908,7 @@ P:NPC {
         { id = "xhc_default", text = "Iron, which I haven't got, and patience, which I have. Bring me bars and I'll make you heads that go through cultist leather instead of bouncing off it." },
       },
       choices = {
-        { text = "I'll buy the iron honestly, at the port.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll buy the iron properly, at the port.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Cultist dead carry iron. I'll take theirs.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

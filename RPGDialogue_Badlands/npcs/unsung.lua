@@ -208,8 +208,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I came out here to make my fortune, and I'm still making it, very slowly and very nervously." } },
-    advice = { { id = "tp_ad", text = "Don't mine alone in the Badlands, friend. Something will always find you." } },
+    background = { { id = "tp_bg", text = "I came out here to make my fortune, and I'm still making it, very slowly and very nervously, one copper at a time, with an ogre watching." } },
+    advice = { { id = "tp_ad", text = "Don't mine alone in the Badlands, friend. Something will always find you, and it's usually got more teeth than you've got pick." } },
     _none = { { id = "tp_none", text = "No idea, friend! Ask someone who isn't busy counting coal." } },
   },
 }

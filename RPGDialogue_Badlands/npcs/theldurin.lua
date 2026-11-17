@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Who's that? Oh, it's you, it's only you, and you're not wearing their robes, so come closer and keep your voice down." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back, and nobody followed you, did they? Good, because the wind out here has ears, I'm sure of it." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back, and nobody followed you, did they? Good, because the wind out here has ears, I'm sure of it, and a lizard has been watching me for three days running." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted every night of it, because the ground hums louder when nobody listens with me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown stronger since you last stood here, I can see it in how you hold yourself. Good, because you'll need it for what sleeps below." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone says you told them a lie, and I know all about lies, for I wore a robe full of them once. Don't let it become a habit." },

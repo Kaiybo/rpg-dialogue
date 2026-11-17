@@ -7,7 +7,7 @@ local P = RPGDialogueAPI:Pack("rpgd.world")
 
 P:Arrival { zone = "Elwynn Forest",
   first = "Elwynn Forest, green and gold and quiet enough that you could forget the Defias and the kobolds were ever here. Almost.",
-  third = "{name} walked the roads of Elwynn Forest, where the farms are green and the quiet doesn't quite reach the mines.",
+  third = "{name} walked the roads of Elwynn Forest, where the farms are green and the kobolds in the mines keep stealing everyone's candles.",
 }
 
 -- Eastern Kingdoms -----------------------------------------------------------------------
@@ -252,7 +252,7 @@ P:Arrival { zone = "Azshara",
 }
 
 P:Arrival { zone = "Felwood",
-  first = "Felwood is a dying forest, the trees blackened and twisted and the water green and poisoned. The Burning Legion's taint lingers here, and the furbolgs and satyrs who drink from these waters have gone mad.",
+  first = "Felwood is a dying forest, the trees blackened and twisted and the water green and poisoned. The Burning Legion's taint still soaks the ground here, and the furbolgs and satyrs who drink from these waters have gone mad.",
   third = "{name} passed through Felwood, where the Legion's corruption has poisoned the forest and maddened the creatures within.",
 }
 
@@ -321,7 +321,7 @@ P:Arrival { zone = "Zephras Isle",
 }
 
 P:Arrival { zone = "Mount Hyjal",
-  first = "The way through Darkwhisper Gorge opens onto Mount Hyjal, where the World Tree still bears the scars of Archimonde's fall. The forest is healing, but slowly, and the fel has not finished with the foothills.",
+  first = "The way through Darkwhisper Gorge opens onto Mount Hyjal, where the World Tree is still blackened from Archimonde's fall. The forest is healing, but slowly, and the fel has not finished with the foothills.",
   third = "{name} climbed through Darkwhisper Gorge to Mount Hyjal, where the wounded World Tree is slowly healing.",
 }
 

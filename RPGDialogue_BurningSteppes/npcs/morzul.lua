@@ -89,7 +89,7 @@ P:NPC {
     },
     blood_drink = {
       lines = {
-        { id = "bd_default", text = "A little, now and then, for science, and for pleasure, which is also a kind of science. Gorzeeki prefers his warm and still moving, which I find rather vulgar, but we all have our tastes." },
+        { id = "bd_default", text = "A little, now and then, for science, and for pleasure, which is just science with a napkin. Gorzeeki prefers his warm and still moving, which I find rather vulgar, but we all have our tastes." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

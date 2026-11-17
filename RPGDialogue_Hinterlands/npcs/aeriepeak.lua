@@ -144,7 +144,7 @@ P:NPC {
       choices = {
         { text = "A blade in the dark saves lives. Honor doesn't.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "When it counts, I'd still face them openly, Thane.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Let's talk about something else, Thane.", next = "BACK" },
       },
     },
     xmage = {
@@ -240,7 +240,7 @@ P:NPC {
           text = "Ye elves an' yer long faces! I miss nothin' but a quiet sky, an' I'll have that when the trolls are gone." },
       },
       choices = {
-        { text = "Fair enough, Thane.", next = "BACK" },
+        { text = "Here's to a clear sky, then, Thane.", next = "BACK" },
       },
     },
     xhunter = {
@@ -370,7 +370,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." } },
       choices = {
-        { text = "Fair enough. I'll stay well clear of her nest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll give her nest a wide berth, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then keep her leashed. I go where I need to.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Talonaxe.", next = "BACK" },
       },
@@ -420,7 +420,7 @@ P:NPC {
         { text = "What would it take for you to trust a warrior with a gryphon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should the trolls be driven from the aeries for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would a paladin be any use against Jintha'Alor, Talonaxe?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would Keenclaw truly attack a warlock, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would Keenclaw really attack a warlock, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the gryphons really sense the spirits, Talonaxe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Could a gryphon carry two riders, Gryphon Master?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
@@ -587,7 +587,7 @@ P:NPC {
         { id = "h_pt_shaman", tags = { "news" }, when = { party = { class = "SHAMAN" }, faction = "Alliance" },
           text = "{companion} speaks to the storm; I can smell the rain on them from here. You don't see that in Ironforge's folk often, and it does an old Wildhammer's heart good." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "Ye carry the Light about ye, {class}, warm as a hearthstone. The spirits dinnae mind it, for it's an honest sort o' power, an' it's no' the Light they fear in these hills." },
+          text = "There's Light on ye, {class}, warm as a hearthstone. The spirits dinnae mind it, for it's an honest sort o' power, an' it's no' the Light they fear in these hills." },
         { id = "h_default", key = true,
           text = "Fraggar Thundermantle, an' I speak for the spirits o' this land. The Vilebranch spill blood on their altars an' call it worship, but the land remembers every drop." },
         { id = "h_necklace", tags = { "news" }, when = { questActive = TODO_QUEST("Troll Necklace Bounty") },
@@ -599,12 +599,12 @@ P:NPC {
         { id = "h_eyes", when = { metBefore = true }, text = "My eyes grow dimmer each winter, an' the spirits grow louder tae make up for it. I think they're bein' kind." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the wind on the peak? That's no' only wind, for the old spirits walk the ridges after dark." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "Ye carry the arcane like a cold draught, {class}, an' the spirits shiver when ye pass. They've no love for it, though they'll forgive ye if ye mind yer manners." },
+          text = "The arcane hangs off ye like a cold draught, {class}, an' the spirits shiver when ye pass. They've no love for it, though they'll forgive ye if ye mind yer manners." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "There's someone standin' on my blind side, an' the wind says they mean tae stay there. Speak up, {class}, an' let an old dwarf hear ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Ye stand heavy, like a dwarf in full mail, though I cannae see if ye are one. The land feels a warrior's step, an' it's no always glad of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I can hear yer beast breathin' beside ye, an' it's calmer than most, which tells me ye treat it well." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye carry the Light like a lantern, {class}, an' the spirits o' this land don't quite know what tae make o' ye, though they're no' unfriendly." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye shine like a lantern, {class}, an' the spirits o' this land don't quite know what tae make o' ye, though they're no' unfriendly." },
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', as I'm always listenin'." } },
       choices = {
@@ -649,7 +649,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     eyes = {
-      lines = { { id = "e_default", text = "Goin', slowly. I can tell a friend from a troll by the walk, an' a liar by the breath. That's all a shaman truly needs tae see." } },
+      lines = { { id = "e_default", text = "Goin', slowly. I can tell a friend from a troll by the walk, an' a liar by the breath. That's all a shaman needs tae see, an' I can still find the ale by smell." } },
       choices = {
         { text = "Then what do you see in me?", next = "eyes_me" },
         { text = "Something else.", next = "BACK" },

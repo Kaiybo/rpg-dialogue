@@ -12,7 +12,7 @@ P:NPC {
     third = "{name} met Vesprystus, who keeps the hippogryphs of Rut'theran Village.",
   },
   greetings = {
-    { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are ready, and the wind off the sea is kind today." },
+    { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are ready, and the wind off the sea is kind today, so the gulls should leave your hat alone." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the roots of Teldrassil. Where will the wind take you this time?" },
   },
   start = "hello",
@@ -56,7 +56,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Badly, if I'm honest, because a hippogryph is half eagle and the eagle half thinks your companion is supper, or the other way round. Keep your beast at heel near the roost, and nobody loses a feather." },
+        { id = "xhuntcl_default", text = "Badly, because a hippogryph is half eagle and the eagle half thinks your companion is supper, or the other way round. Keep your beast at heel near the roost, and nobody loses a feather." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my birds the way it would stare at a rabbit, and they've noticed. Keep it by your side, friend, and we'll all stay friends." },
       },
       choices = {
@@ -196,7 +196,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "A priest who can't defend themselves is a priest who needs a Sentinel beside them, and I'd rather the Sentinel were fighting. Learn the staff well enough to keep an enemy at arm's length, and your prayers will have time to work." } },
       choices = {
         { text = "My faith is my first defense, but I'll learn the staff.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A good staff is worth more than a long prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd trade a long prayer for a good staff any day.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,7 +268,7 @@ P:NPC {
       },
       choices = {
         { text = "Teach me, then. I'll stand and listen.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My servant holds the line. That's enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My servant holds the line, and I don't ask more of it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -442,7 +442,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hunters come back bitten and clawed, and they rarely think to ask a healer, so I'm glad to see one of you here." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walk loudly for these woods, {class}, but the beasts of Teldrassil will forgive you that if you come in peace." },
         { id = "h_default", text = "I am Jeen'ra Nightrunner. I teach the hunters of Darnassus to track, to shoot and to bond with the wild beasts of Teldrassil." },
-        { id = "h_cond", when = { class = "HUNTER" }, text = "Ah, one of mine. Your beast trusts you; I can see it in how it stands. That trust is worth more than any skill I could teach." },
+        { id = "h_cond", when = { class = "HUNTER" }, text = "Ah, one of mine. Your beast trusts you; I can see it in how it stands. I can teach you skills, but I can't teach that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd make a fine tracker, rogue, if only you'd learn to follow something other than a purse." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My cat has her ears flat and her tail low, warlock, and I've learned to trust her over my own eyes." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior among the hunters. The beasts in the pens are watching you, so try not to rattle that armor." },

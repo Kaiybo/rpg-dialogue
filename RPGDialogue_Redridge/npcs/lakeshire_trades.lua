@@ -92,7 +92,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Smoke from the Blackrock camps and black scars where the forest burned, and the scars spread a little more each month. The birds won't fly low over Stonewatch any more, and I don't make them." } },
+      lines = { { id = "xdruid_default", text = "Smoke from the Blackrock camps and black stumps where the forest burned, and the burn spreads a little more each month. The birds won't fly low over Stonewatch any more, and I don't make them." } },
       choices = {
         { text = "Train them past it. The wounded can't wait on fear.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Good. A rider who forces her bird loses its trust.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -183,7 +183,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, if I'm honest, though you'd be welcome on the wall when the gnolls come up the hill. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." } },
+      lines = { { id = "xlock_default", text = "Not much, though you'd be welcome on the wall when the gnolls come up the hill. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." } },
       choices = {
         { text = "It should matter where a spell comes from.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're right. Only whether it lands matters.", next = "BACK", fx = { align = { light = -1 } } },

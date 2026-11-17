@@ -270,7 +270,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     warlock_hers = {
-      lines = { { id = "wh_default", text = "The Regent's ear, darling, which is worth more than any imp. Influence doesn't scorch the carpets." } },
+      lines = { { id = "wh_default", text = "The Regent's ear, darling, and it comes far better trained than any imp. It doesn't scorch the carpets, either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rogue = {

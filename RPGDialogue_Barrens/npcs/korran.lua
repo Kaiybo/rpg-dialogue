@@ -45,7 +45,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, mon? The bugs don't mind waiting." },
-        { id = "h_again2", text = "Ask, ask. I talk better than I sleep, these days." },
+        { id = "h_again2", text = "Ask, ask. I talk better than I sleep, these days, with the beetles crawling in my hammock." },
       },
       choices = {
         { text = "What are these insects?", next = "insects" },
@@ -81,7 +81,7 @@ P:NPC {
       },
     },
     belgrom = {
-      lines = { { id = "b_default", text = "Belgrom care about anything that might make him look wise to the Warchief, mon, and bugs be no different. He thought I was chasing beetles at first, but I been his loyal servant a long time, and he read my letters in the end." } },
+      lines = { { id = "b_default", text = "Belgrom care about anything that might make him look wise to the Warchief, mon, and bugs be no different. He thought I was chasing beetles at first, but I been his loyal servant a long time, and now he read every letter, even the long ones about dung beetles." } },
       choices = {
         { text = "Does he deserve your loyalty?", next = "loyal" },
         { text = "Something else.", next = "BACK" },
@@ -89,7 +89,7 @@ P:NPC {
     },
     loyal = {
       lines = { { id = "lo_default", text = "He be loud, mon, and proud, and he trust the wrong elf once. But he listen when it count, and he never left one of his own out in the cold, so yes, he get my loyalty." } },
-      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+      choices = { { text = "Loyalty earned, then. Something else.", next = "BACK" } },
     },
     moktar = {
       lines = { { id = "m_default", text = "Moktar Krin always look out for me, mon. He be in Thousand Needles now, at the Rustmaul Dig Site, fighting the dwarves for Belgrom, and he say the same bugs crawl up out of the ground there too." } },

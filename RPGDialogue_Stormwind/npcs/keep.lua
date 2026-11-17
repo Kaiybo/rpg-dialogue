@@ -44,7 +44,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "That you're too old, too strange and too far away to be worth an envoy's salary, mostly. I tell them that a people who kept their forests for ten thousand years are worth listening to, and they nod and do nothing." } },
       choices = {
-        { text = "Keep telling them, Your Grace. Patience wins courts in the end.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep telling them, Your Grace. Courts tire before you do.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Courts never listen. My people should act without them.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -63,7 +63,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "I'd speak with anyone who walks into this room on their own feet, because that's what the Light asks of me. I'll pray that your shadows stay on their leash, though, and I'll pray it every evening whether you like it or not." } },
       choices = {
         { text = "Pray if you like. I'll keep the leash tight.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Save your prayers. The shadows serve me well enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Save your prayers. I do fine in the dark.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,7 +203,7 @@ P:NPC {
     },
     priest = {
       big = true,
-      lines = { { id = "p_default", text = "By being patient, polite and impossible to bribe, and by remembering that every petition in this room is a person who couldn't reach the throne themselves. It's less glorious than the Cathedral, but someone must carry the Light up these stairs." } },
+      lines = { { id = "p_default", text = "By being patient, polite and impossible to bribe, and by remembering that every petition in this room is a person who couldn't reach the throne themselves. It's less glorious than the Cathedral, and my knees curse every one of these stairs, but somebody has to climb them." } },
       choices = {
         { text = "I'd rather heal than petition.", next = "priest_choice" },
         { text = "That sounds like a calling.", next = "priest_choice", fx = { affinity = 2 } },

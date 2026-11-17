@@ -201,7 +201,7 @@ P:NPC {
     },
     home_where = {
       lines = {
-        { id = "hw_default", text = "A camp with walls, if I'm honest, and the Warchief opened the gates. Durotar's the first home most of us chose for ourselves, and I chose to leave it for this, which says something about me I don't like to think about." },
+        { id = "hw_default", text = "Little more than a camp with walls, and the Warchief opened the gates. Durotar's the first home most of us chose for ourselves, and I chose to leave it for this, which says something about me I don't like to think about." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -264,7 +264,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "They'll fly you, but they'll fuss about it. They know the smell of the dead and they know the shine of the Light, and they've never had both on their backs at once, so be gentle with the reins." } },
       choices = {
-        { text = "They'll fly because they're bid to. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They'll fly because they're told to, and that's all.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll be gentle, and let them learn me in their own time.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -449,11 +449,11 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and in the end I'd rather have something that hates me honestly." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and in the end I'd rather have something that hates me honestly. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but I'll grant it looks happier than any demon I've ever bound." },
+        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'd rather have something that hates me honestly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'd rather have something that hates me honestly. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but I'll grant it looks happier than any demon I've ever bound." },
       },
       choices = {
-        { text = "A beast's loyalty is worth more than any bound demon.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd take a loyal beast over any bound demon.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A demon that obeys is worth ten loyal beasts.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -660,7 +660,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "One thing: that a robe can kill you just as dead as an axe, if you're slow to close the distance. I tell the young ones to charge the mage first, and the mage tells them to try it, and that's how I lose recruits to the mud." } },
       choices = {
         { text = "Teach them caution. They'll live longer.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let them charge and learn the hard way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let them charge, then, and dig their own graves.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -719,7 +719,7 @@ P:NPC {
     },
     mud_harsh = {
       lines = {
-        { id = "mh_default", text = "Harsh training makes for living warriors. Soft training makes for dead ones, and I've buried enough of those to know the difference." },
+        { id = "mh_default", text = "My training's harsh because the swamp is harsher. I've dug graves in this mud for soft-trained grunts, and the mud doesn't stay dug." },
       },
       choices = {
         { text = "The harsh way is the only way.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -737,7 +737,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I fought, I lived, and now I teach. That's my story, and it's enough." } },
+    background = { { id = "tp_ba", text = "I fought, I lived, and now I teach. I've two fewer fingers than I started with, and I don't talk about where they went." } },
     advice = { { id = "tp_ad", text = "Lean forward in the swamp. Always lean forward." } },
     _none = { { id = "tp_none", text = "I teach warriors. Ask somebody who talks for a living." } },
   },

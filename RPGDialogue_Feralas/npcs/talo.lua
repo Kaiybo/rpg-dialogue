@@ -89,12 +89,12 @@ P:NPC {
     edana = {
       lines = { { id = "e_default", text = "The queen of the Northspring, and pure evil, they say, with a heart of crystal instead of flesh. She feels nothing but hate for every living thing, and I find I understand her better than I would like." } },
       choices = {
-        { text = "A heart of crystal? Truly?", next = "edana_heart" },
+        { text = "A heart of crystal? Really?", next = "edana_heart" },
         { text = "Something else, elder.", next = "BACK" },
       },
     },
     edana_heart = {
-      lines = { { id = "eh_default", text = "That is the story, and if it is true, I would like to hold it in my hand. Only then will I know she is truly dead and not waiting in some other tree." } },
+      lines = { { id = "eh_default", text = "That is the story, and if it is true, I would like to hold it in my hand. Only then will I know she is dead and not waiting in some other tree." } },
       choices = { { text = "I'll bring it to you.", next = "BACK", fx = { affinity = 1 } } },
     },
     hunting = {

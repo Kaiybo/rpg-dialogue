@@ -19,13 +19,13 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Show yourself, because anything that sneaks up on this camp gets a spear first and questions after!" } },
   lines = {
-    { id = "l_default", text = "Stormwind's soldiers and the Dawn's stand side by side here, and there aren't nearly enough of either, but we make do." },
+    { id = "l_default", text = "Stormwind's soldiers and the Dawn's stand side by side here, and there aren't nearly enough of either, nor enough dry socks, but we make do." },
   },
   choices = { { text = "Keep watch.", next = "END", fx = { standing = { chillwind_camp = 1 } } } },
   topics = {
-    andorhal = { { id = "t_andorhal", text = "Andorhal's north of here, friend, and you shouldn't go alone, or at all, if the commander hasn't sent you." } },
-    argent_dawn = { { id = "t_dawn", text = "They're Pureheart's lot, and good soldiers, though a bit preachy for my taste." } },
-    _none = { { id = "t_none", text = "Ask the commander. I'm paid to watch the road, friend, not to know things." } },
+    andorhal = { { id = "t_andorhal", text = "Andorhal's north of here, friend, and there's a cart in the ditch on the way that nobody's had the stomach to clear. You shouldn't go alone, or at all, if the commander hasn't sent you." } },
+    argent_dawn = { { id = "t_dawn", text = "They're Pureheart's lot, and good soldiers, though a bit preachy for my taste, and they still owe me three silver from dice." } },
+    _none = { { id = "t_none", text = "Ask the commander. I'm paid to watch the road, friend, not to know things, and I've not been paid since the thaw, either." } },
   },
 }
 
@@ -52,6 +52,6 @@ P:Pool {
   topics = {
     andorhal = { { id = "t_andorhal", text = "It's east of here and full of the dead, and not our kind of dead, either." } },
     scarlet_crusade = { { id = "t_scarlet", text = "They come at us from the north as well, so it seems everyone wants the Bulwark, which is very flattering." } },
-    _none = { { id = "t_none", text = "Ask the High Executor. I hold a spear, and that's the whole of my job." } },
+    _none = { { id = "t_none", text = "Ask the High Executor. I hold a spear, and that's the whole of my job, though I do lose a finger now and then and have to go and find it." } },
   },
 }

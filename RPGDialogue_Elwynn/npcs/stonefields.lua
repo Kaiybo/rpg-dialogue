@@ -538,7 +538,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Nothing! I didn't do nothing. Though I am hungry, and there's pie at the Stonefields'. Your spirits wouldn't tell, would they?" } },
       choices = {
-        { text = "Tell the truth, Billy. It's easier in the end.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Tell the truth, Billy. Your ma will find out anyway.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A little pie never hurt anyone. I won't tell.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -655,7 +655,7 @@ P:NPC {
       lines = { { id = "s_default", text = "I'm a Maclure, and we don't steal from Stonefields; we just don't talk to them, which is different. Ma says." } },
       choices = {
         { text = "That's not an answer.", next = "sure_push" },
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "If your ma says so, Billy.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     sure_push = {

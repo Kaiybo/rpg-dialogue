@@ -43,7 +43,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because the Syndicate and the ogres don't care which of us they hurt, and the forests around Alterac suffer as much as our walls. I know the kaldorei mistrust magic, and I don't blame them, but I'd ask you to judge us by what we do now." } },
       choices = {
-        { text = "Fair enough. I'll judge Dalaran by its deeds, then.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll judge Dalaran by its deeds, and nothing else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Mages broke the world once. I won't help them again.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Emissary.", next = "BACK" },
       },
@@ -71,7 +71,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Because whatever threatens Dalaran threatens what's left of the northern kingdoms, and the Alliance can't afford another fallen city. I won't pretend the Kirin Tor were always good friends to your order, but I'd ask you to be a better friend to us than we were to you." } },
+      lines = { { id = "xapala_default", text = "Because whatever threatens Dalaran threatens what's left of the northern kingdoms, and the Alliance can't afford another fallen city. The Kirin Tor weren't always good friends to your order, I know, but I'd ask you to be a better friend to us than we were to you." } },
       choices = {
         { text = "The Alliance stands together or it falls. I'll help.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Dalaran made its own troubles. Let it mend them.", next = "BACK", fx = { align = { order = -1 } } },
@@ -132,7 +132,7 @@ P:NPC {
         { text = "What would Dalaran do with soldiers, Emissary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Shall I look for your missing courier on the Alterac roads?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why should the Circle help Dalaran, Emissary?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would Dalaran's mages truly want to study me?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Would Dalaran's mages really want to study me?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll think on it, Emissary.", next = "END" },
       },
     },
@@ -191,7 +191,7 @@ P:NPC {
     },
     ruins_war = {
       lines = {
-        { id = "rw_default", text = "That's one of the theories, and not the most comforting. I'm an emissary, not a scholar of ley lines, so I carry the questions and leave the answering to cleverer people." },
+        { id = "rw_default", text = "That's one of the theories, and not the most comforting. I'm an emissary, not a scholar of ley lines, so I write the questions down and leave the answering to cleverer people." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -302,7 +302,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Honestly, I'd say, though honesty is hard when the man who broke the order was a prince it had trained. Uther died at Arthas's hand, and the knights who were left scattered to Hearthglen and Stratholme and worse, and I can't find a gentle way to write any of it." } },
+      lines = { { id = "xapala_default", text = "Badly, I'd say, for it's hard to write kindly of an order when the man who broke it was a prince it had trained. Uther died at Arthas's hand, and the knights who were left scattered to Hearthglen and Stratholme and worse, and I can't find a gentle way to write any of it." } },
       choices = {
         { text = "Write it plainly. The truth honours the knights who fell.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Write it kindly. Some truths only wound the living.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -507,7 +507,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Bilger says you're a sign the world's gone strange, the fishermen want to know if you can call up a good wind, and somebody at the back swears you're an orc in a false beard. I've told them all you're a paying customer, which in this inn outranks everything else." } },
       choices = {
         { text = "Tell them the truth. I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let them guess. A rumour's worth more than the truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let them guess. A good rumour does more work than the truth.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -594,7 +594,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid at my bar. Word is you lot can talk to animals, so I'll warn you, the cat in the cellar knows everything and tells nothing." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm wiping the same mug, so I'm free." },
+        { id = "h_again", text = "What else? I've been wiping this same mug since noon and it's no cleaner, so I'm free." },
         { id = "h_again2", text = "Go on. Nobody's listening, and if they are, they'll tell me later anyway." },
       },
       choices = {
@@ -946,7 +946,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Every spring, regular as rain, on their way north an' back again. Ain't seen a column of 'em since the plague, an' the stable's been quieter for it, though I'd trade all the quiet in the world to hear 'em clatter in again." } },
+      lines = { { id = "xapala_default", text = "Every spring, regular as rain, on their way north an' back again. Ain't seen a column of 'em since the plague, an' half my stalls have stood empty since, though I'd muck out every one o' them twice to hear 'em clatter in again." } },
       choices = {
         { text = "The Silver Hand will ride again. I'm proof of that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Those days are gone, Darren. Better to let them lie.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -983,7 +983,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "'Cause my horses can smell it a mile off, an' they'd kick the stalls to splinters tryin' to get away. A horse knows what's natural an' what ain't, an' I'll trust a horse's nose over anybody's word." } },
       choices = {
-        { text = "Fair enough. I'll keep my steed far from your stables.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Understood. My horse can sleep well clear of your stables.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your horses will learn to share. Times are changing.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -1019,7 +1019,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something more? You can talk while I brush; the mare won't mind." },
-        { id = "h_again2", text = "Go on, the horses don't mind listenin'." },
+        { id = "h_again2", text = "Go on, the horses don't mind listenin'. Mind where ye step, though, for I've not mucked the end stall since Tuesday." },
       },
       choices = {
         { text = "Why do you think the lions have grown so bold?", next = "druid_q", when = { class = "DRUID" } },
@@ -1217,7 +1217,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something more? Mind the steam, and talk while I stir." },
-        { id = "h_again2", text = "The bisque needs another hour, so I'm yours until it does." },
+        { id = "h_again2", text = "The bisque needs another hour, and the cat's already been at the crab shells, so I'm yours till it's done." },
       },
       choices = {
         { text = "Show me what you're selling.", next = "BUSINESS" },
@@ -1265,7 +1265,7 @@ P:NPC {
     worth = {
       big = true,
       lines = {
-        { id = "w_default", text = "Now you sound like my mother. A town that can't eat well forgets why it bothers fighting at all, but I won't pretend a bowl of soup's worth a life." },
+        { id = "w_default", text = "Now you sound like my mother. A town that can't eat well forgets why it bothers fighting at all, but no bowl of soup's worth a life, not even mine." },
       },
       choices = {
         { text = "A good meal is worth fighting for.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
@@ -1376,7 +1376,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They offend every horse I've ever bred, which is worse. A good horse is trained, loved and trusted over years, and a summoned beast is just bound, and I'd rather ride the first to my grave than the second to glory." } },
       choices = {
-        { text = "A bond earned is worth more than one forced. I agree.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast that chooses you won't bolt. I agree.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A steed is a steed. Mine never tires or dies.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -1586,7 +1586,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because the bay gives what it gives, and taking more than your share leaves nothing for the next tide. The murlocs learned that lesson the hard way, and I'd rather not have to teach it to a mage." } },
+      lines = { { id = "xmage_default", text = "Because the bay gives what it gives, and taking more than your share leaves nothing for the next tide. The murlocs found that out when the cod ran thin two winters back, and I'd rather not have to teach it to a mage." } },
       choices = {
         { text = "The bay deserves respect. I'll fish the honest way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The bay is endless. Take what you can.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1617,12 +1617,12 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll not want fishing lessons, I'd guess, but sit a while anyway, because a man in heavy armour learns patience fast on a dock." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all steel and impatience, I'd guess. Fishing might do you good, for there's no line in the world that'll bite faster because you glared at it." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then we're in the same trade, more or less, since you wait for the beast and I wait for the fish, and we both know the waiting's the hard part." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then we're in the same trade, more or less, since you wait for the beast and I wait for the fish, and we've both got the cold feet to show for it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll find fishing a strange trade after yours, I expect, because there's nothing to bind and nothing to command, only the line and the water and the waiting." },
       },
       again = {
         { id = "h_again", text = "The line's in the water, so I've all the time in the world. Ask away." },
-        { id = "h_again2", text = "Go on, softly now." },
+        { id = "h_again2", text = "Go on, softly now, for the bay's been stingy all week and I still owe Lindea for the line." },
       },
       choices = {
         { text = "Is the bay still giving up its fish, Donald?", next = "druid_q", when = { class = "DRUID" } },

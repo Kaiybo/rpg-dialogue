@@ -189,7 +189,7 @@ P:NPC {
       choices = { { text = "Do you miss building?", next = "orgrimmar_miss" } },
     },
     orgrimmar_miss = {
-      lines = { { id = "om_default", text = "Building's fine, but owning is better, pal, and I learned that the hard way. Still, I'd take another big job if the Warchief came asking and the price was right." } },
+      lines = { { id = "om_default", text = "Building's fine, but owning is better, pal, and I learned that with a lien on my favourite boat. Still, I'd take another big job if the Warchief came asking and the price was right." } },
       choices = {
         { text = "A deal's a deal. Thrall was right to pay you fairly.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "You should have squeezed him for twice as much.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -339,7 +339,7 @@ P:NPC {
     b_alliance = {
       lines = { { id = "ba_default", text = "Mind? Pal, a port that only serves orcs is a port the Alliance has a reason to burn, and Thrall's smart enough to know it. Your gold keeps my bruisers paid, and my bruisers keep your head on your shoulders while you're here, so everybody wins." } },
       choices = {
-        { text = "Fair enough, Gazlowe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Can't argue with that kind of arithmetic, Gazlowe.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -619,7 +619,7 @@ P:NPC {
         { id = "xmage_default", text = "Shh, not so loud, pal! Nobody said magic, I said refreshment, and if a customer feels a little brighter after a swig, who am I to argue with a satisfied customer?" },
       },
       choices = {
-        { text = "Fair enough. A good sale is a good sale.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "If they come back for seconds, it's working.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Your customers deserve to know what they're drinking.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "What do you use the raptor horns for?", next = "horns" },
       },
@@ -674,7 +674,7 @@ P:NPC {
         { text = "Do you have anything for a Forsaken, Mebok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Maybe later.", next = "END" },
       },
-      again = { { id = "h_again", text = "Another question, friend? Mebok's always happy to talk, especially about Mebok." } },
+      again = { { id = "h_again", text = "Another question, friend? Mebok's always happy to talk, especially about Mebok, and the first five minutes are only a small consulting fee. Kidding! Mostly." } },
     },
     horns = {
       lines = { { id = "h1_default", text = "Ground fine, they put a little kick in a drink that the customers just love. Don't ask me why it works, because I'm a businessman, not an alchemist." } },
@@ -720,7 +720,7 @@ P:NPC {
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {
-    { id = "g_hi", text = "Mind the crates, and mind the ropes, and mind the edge, because I'm not fishing anybody out today." },
+    { id = "g_hi", text = "Mind the crates, mind the ropes, and mind the edge, because I'm not fishing anybody out today, and the sharks in this harbour bill by the limb." },
   },
   start = "hello",
   nodes = {
@@ -789,7 +789,7 @@ P:NPC {
         { id = "xmage_default", text = "Have you seen what a mage does to a crate of eggs when he teleports it? The boat to Booty Bay works fine and the sea never sends me a bill, so I'll keep my cargo on the water where I can count it." },
       },
       choices = {
-        { text = "Fair enough. The old ways work well enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Eggs and magic don't mix. Keep your boats.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic is the future. Your boats are behind the times.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Where do your boats sail?", next = "boats" },
       },
@@ -872,7 +872,7 @@ P:NPC {
     },
     fair = {
       lines = { { id = "f_default", text = "Harder, if you want the truth, because your lot sneak more contraband. But I take your coin the same, and that's as fair as Ratchet gets." } },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "That's about what I expected from Ratchet.", next = "BACK" } },
     },
   },
   topics = {

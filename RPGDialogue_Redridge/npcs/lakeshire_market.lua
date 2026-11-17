@@ -259,7 +259,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Fair enough, I suppose, since a horse with no shoes hurts nobody and a guard with no sword hurts everybody. But Verner shoes the patrol horses too, and they forget that when they're carting his bars off." } },
+      lines = { { id = "xapala_default", text = "Can't blame them, I suppose, since a horse with no shoes hurts nobody and a guard with no sword hurts everybody. But Verner shoes the patrol horses too, and they forget that when they're carting his bars off." } },
       choices = {
         { text = "The Guard's need comes first. That's how a town survives.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Guard takes too much. Verner deserves his iron.", next = "BACK", fx = { align = { order = -1 } } },
@@ -283,7 +283,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Now, if you know how to swing a weapon, you might know how to swing a hammer too, and I'd respect you twice as much." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting ammunition, then, and I'll tell you now Henry Chapal's the man for shot, but I've the best whetstones for arrowheads." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, among the picks and coal? You'll want nothing here, I'd guess, but you're welcome to warm your hands at the brazier." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now there's someone who knows the weight of a hammer, and I respect you for it already." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now there's someone who knows what a hammer does to your shoulder by sundown, and I respect you for it already." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll not want to hear about mining, I'd guess, since I'm told your folk think a hole in a hill is a wound." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell coal, flux and iron bars, and none of it's any use to you, I'd guess, unless you're building something you shouldn't." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Can you swing a hammer, or just call lightning? I respect only one of those." },
@@ -484,7 +484,7 @@ P:NPC {
       },
     },
     good_light = {
-      lines = { { id = "gl_default", text = "Lighter is better until it breaks, and then it's worse than nothing. The trick is knowing where to put the weight, which is my job, and why I don't tell anyone how I do it." } },
+      lines = { { id = "gl_default", text = "Lighter is better until it breaks, and then it's worse than nothing. All the skill's in knowing where to put the weight, which is my job, and why I don't tell anyone how I do it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     who = {
@@ -1016,7 +1016,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rest = {
-      lines = { { id = "r_default", text = "When the soldiers do, love, and they never do. I sleep a bit after the last bowl's back and before Chef lights the fire, and that's enough for now." } },
+      lines = { { id = "r_default", text = "When the soldiers do, love, and they never do. I sleep a bit after the last bowl's back and before Chef lights the fire, and my feet stopped knowing the difference a month ago." } },
       choices = {
         { text = "You deserve better than that.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },

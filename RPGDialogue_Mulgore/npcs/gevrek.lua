@@ -101,7 +101,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A hunter, with a beast that walks beside you. These plains hold creatures I'm still learning to name." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Windshapers pray to the winds and not to gods, but Mulgore has taught me that the Horde holds many faiths, and I would understand yours." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A mage, at Gev'rek. My people shape the wind, so we know a little of what it is to bend the world, and to be careful when we do." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warlock. I'll be honest with you, as I try to be with everyone: the wind goes still around you, and my people notice." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warlock. I'll speak plainly, as I try to with everyone: the wind goes still around you, and my people notice." },
         { id = "h_windshaper", when = { origin = "skyborne_windshaper" }, text = "You passed the trials and took the sapta before we left the isle, and you came down with us anyway. The winds that sheltered us are gone, but Gev'rek is full of people who swore to them, and you're one of the few who still says the oath aloud." },
       },
       choices = {
@@ -123,7 +123,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is gentle today, and so is my patience." },
-        { id = "h_again2", text = "Speak, then. Gev'rek keeps no secrets from its friends, or few." },
+        { id = "h_again2", text = "Speak, then. Gev'rek keeps no secrets from its friends, or few, and the ones it keeps are mostly about whose turn it is to haul water." },
       },
     },
     shaman = {

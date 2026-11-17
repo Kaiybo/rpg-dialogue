@@ -306,7 +306,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "I've been offered good coin to lose a crate or two on the road, and I've never taken it, though I won't pretend I wasn't tempted." } },
+      lines = { { id = "s_1_l", text = "I've been offered good coin to lose a crate or two on the road, and I've never taken it, though I came close the winter my mule died." } },
       choices = { { text = "Honest books keep honest roads. You did right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "Out here, a little skimming keeps a family fed.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
     xhcast = {
@@ -396,7 +396,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Right, wrong, it's a market, friend, and somebody's going to sell those kodos sooner or later, so it might as well be the goblin with the good rope. The tauren don't like it and the bones out there don't seem to either, though neither has filed a complaint yet." } },
       choices = {
         { text = "Let the old ones die in peace, Smeed. That's their right.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "A live kodo's worth more than a dead one. Sell away.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A live kodo sells better than a dead one. Sell away.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -452,7 +452,7 @@ P:NPC {
         { text = "Is it right to sell the kodos that come here to die?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How dangerous is leading a kodo out of the Graveyard?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is taming kodos for coin the same as what a hunter does?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Is this truly a retirement home for kodos, Smeed?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is this really a retirement home for kodos, Smeed?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why not just ship them whole, Smeed?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -596,7 +596,7 @@ P:NPC {
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "If you're taking me out, stay close and watch the corners, because the cultists won't simply let me walk out the front gate." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You got in here without the cultists raising the alarm, so I'm hoping you know how to get us both out the same way." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, thank the Light. The cultists' sorcerers throw fel fire about as if it were nothing, and I'd feel far better with someone who can answer it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You smell of the same smoke as the cultists, and I won't pretend that doesn't frighten me. But you came for me, so I'll follow you out and ask no questions until we're home." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You smell of the same smoke as the cultists, and that frightens me. But you came for me, so I'll follow you out and ask no questions until we're home." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've not seen anything green in weeks, and you look like you might remember what it was like." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Whatever the Burning Blade did with fel in here, I hope your spirits can still hear you, because I'd rather not walk out of this fortress alone." },
       },
@@ -745,13 +745,13 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because where the Burning Blade has been, the people they leave behind need more than a sword, and Dalinda Malem may need it most of all if anyone ever brings her home." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Burning Blade bow to demons in Thunder Axe Fortress, and I have waited a long time for someone who would walk into that place without flinching." },
         { id = "h_default", key = true, text = "Vahlarriel Demonslayer. I hunt the Burning Blade, the cult that bends the knee to demons, and their trail runs straight through Thunder Axe Fortress. One of ours, Dalinda Malem, went missing there." },
-        { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "Bring Dalinda back to me alive, and whatever she's learned inside that fortress may be worth more than anything we could take by force." },
+        { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "Bring Dalinda back to me alive, and whatever she's learned inside that fortress may serve us better than anything we could take by force." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Ishnu-alah, druid. The Burning Blade has fouled the earth around Thunder Axe Fortress, and you will feel it in your bones before you see it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You walk quietly, and I've learned to value that, because the Burning Blade post sentries at Thunder Axe who are better at listening than at fighting." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Burning Blade's sorcerers at Thunder Axe throw fel fire, and I'd welcome someone who knows how to throw something back." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "I've been counting the Burning Blade's patrols, and they're thinner than they were before you came. Whatever you've been doing out at Thunder Axe, don't stop." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Our druids say the elements were wounded when the Well of Eternity fell, and I wonder whether you can hear the scars." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Our druids say the elements were wounded when the Well of Eternity fell, and I wonder whether you can hear them still aching." },
       },
       again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
       choices = {
@@ -906,7 +906,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I have seen what the Light and the loa can mend, and I have seen what neither can, so do your work where it is needed and don't waste words on me." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Misha does not care for the smell of the arcane, but she has learned to tolerate it, and so have I." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'd do well in the wilds, for you already know how to move without being heard, and that's a lesson most of the Horde never learns." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You carry the stink of demons. My father's people drank from that cup once, and I've seen what it did to them, so speak carefully." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You stink of demons. My father's people drank from that cup once, and I've seen what it did to them, so speak carefully." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one carrying the Light. Misha doesn't like your smell, and I'm not sure I do either, but I've learned not to judge a creature by its scent alone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I have seen orcs and tauren walk with the elements, never one of the mountain folk, so I'll hear you out." },
       },
@@ -1056,13 +1056,13 @@ P:NPC {
     war_left = {
       lines = { { id = "wl_default", text = "A village with nothing in it worth taking, and the warlocks wanted it burned anyway, so the grunts burned it laughing. I walked into the hills that night and didn't come back until Thrall gave me a reason, and I've never told Misha, because she'd think less of me for staying as long as I did." } },
       choices = {
-        { text = "You left. That's what matters, Rexxar.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "You walked away, Rexxar. Most of them never did.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     war_left_no = {
       lines = { { id = "wln_default", text = "That's mine to carry, and I don't hand it to strangers on the road. Ask me again when Misha stops watching your hands." } },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "Misha can watch all she likes.", next = "BACK" } },
     },
     war_daelin = {
       lines = {

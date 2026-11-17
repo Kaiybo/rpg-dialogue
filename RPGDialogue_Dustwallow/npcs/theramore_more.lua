@@ -400,7 +400,7 @@ P:NPC {
     },
     x_cook = {
       lines = {
-        { id = "xc_default", text = "Do you now? Then you'll know the trick is patience and a lid that fits, and no amount of seasoning will save a stew you rushed. Bring me a better recipe than mine and I'll cook it for the whole Guard." },
+        { id = "xc_default", text = "Do you now? Then you'll know it wants patience and a lid that fits, and no amount of seasoning will save a stew you rushed. Bring me a better recipe than mine and I'll cook it for the whole Guard." },
       },
       choices = {
         { text = "A pinch of salt and a lot of time.", next = "BACK", fx = { affinity = 2 } },
@@ -514,7 +514,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." } },
       choices = {
         { text = "My craft is for demons, not soldiers. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A weapon wounds. What matters is who holds it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A weapon wounds. Blame whoever holds it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -627,7 +627,7 @@ P:NPC {
         { id = "xs_default", text = "I've never been asked that, and I'll confess I don't know. Flesh is flesh, I suppose, and if you're torn I'll stitch you, though I'd ask you to stand outside the tent while my soldiers sleep." },
       },
       choices = {
-        { text = "Fair enough, Doctor.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll wait outside the tent, Doctor.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

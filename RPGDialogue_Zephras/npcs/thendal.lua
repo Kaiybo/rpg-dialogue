@@ -80,7 +80,7 @@ P:NPC {
     },
     relic = {
       lines = {
-        { id = "re_default", text = "Every young shen'dorei who comes of age is given a relic that others carried before them. When our time comes, our ashes go to the winds and the relic goes on to the next of us, so nobody truly owns one; we only hold it for a while." },
+        { id = "re_default", text = "Every young shen'dorei who comes of age is given a relic that others carried before them. When our time comes, our ashes go to the winds and the relic goes on to the next of us, so nobody owns one; we only hold it for a while." },
       },
       choices = {
         { text = "Who carried mine before me?", next = "relic_who" },
@@ -191,7 +191,7 @@ P:NPC {
     gifts = {
       big = true,
       lines = {
-        { id = "gf_default", text = "Does she, now? How many times must I tell that girl not to coax the young into wasting our gifts for a laugh! Walk on air when you need to, child, because if you spend it carelessly it won't be there when the ground truly gives way." },
+        { id = "gf_default", text = "Does she, now? How many times must I tell that girl not to coax the young into wasting our gifts for a laugh! Walk on air when you need to, child, because if you spend it carelessly it won't be there when the ground really does give way." },
       },
       choices = {
         { text = "Our gifts are sacred. I'll use mine with care.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -250,7 +250,7 @@ P:NPC {
     village_out = {
       big = true,
       lines = {
-        { id = "vo_default", text = "Strange, if I'm honest, and the children stare at you because they've never seen a face that wasn't ours. Some of the elders think we've opened a door we can't close, and some think we should have opened it centuries ago." },
+        { id = "vo_default", text = "Strange, to put it plainly. The children stare at you because they've never seen a face that wasn't ours. Some of the elders think we've opened a door we can't close, and some think we should have opened it centuries ago." },
         { id = "vo_tauren", when = { race = "Tauren" },
           text = "Strange, and you are stranger than most, if you'll forgive me; the children think you're a kind of very polite ursera. Your people have taken in our Windshapers, though, and that earns you a welcome here whatever the elders grumble." },
       },
@@ -517,7 +517,7 @@ P:NPC {
         { id = "xf_default", text = "Because our dead go to the winds, and their relics pass to the young, and that's how we know a life has ended well. You carry your ending around with you, and I don't know whether to pity that or envy it." },
       },
       choices = {
-        { text = "Neither. I endure, and that's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Neither. I get up each morning and keep walking.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Pity it. Your way is kinder.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -546,7 +546,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "The Council hears a great deal, and I hear what the Council does. Ask." } },
-    background = { { id = "tp_bg", text = "I sit on the Council of Elders, and I read the winds, which is a quieter job than it sounds.", next = "council" } },
+    background = { { id = "tp_bg", text = "I sit on the Council of Elders, and I read the winds, which is a colder job than it sounds, up on that ridge.", next = "council" } },
     advice = { { id = "tp_ad", text = "Go to Shen'dar with your eyes open, and trust Aonda before you trust anyone in robes." } },
     shal_nan = { { id = "tp_shal", text = "He gave up his rule when the Shrine of the Four Winds was begun. Then he gave up us, or we lost him.", next = "shalnan" } },
     al_aketh = { { id = "tp_aketh", text = "Zealots of a Windlord our spirits wouldn't even name. Brutal, and growing bolder." } },
@@ -746,7 +746,7 @@ P:NPC {
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter, with eyes trained like mine. You'll understand, then, that watching is a kind of work, whatever Myriaal says about it." },
+      text = "A hunter, with eyes trained like mine. You'll understand, then, that watching is work, whatever Myriaal says about it." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your companion keeps glancing at the edge of the isle. Animals sense the wind's trouble before we do, so I'd trust {pet}'s nose more than mine." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -896,7 +896,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the pylon, the grove, and how to keep still, which is rarer than you'd think." } },
-    advice = { { id = "tp_ad", text = "Be grateful for what you have. Yearning only teaches you to be unhappy." } },
+    advice = { { id = "tp_ad", text = "Be grateful for what you have. I spent years wishing for the mainland, and all it gave me was a crick in my neck from staring at clouds." } },
     windstones = { { id = "tp_stones", text = "They hold the winds' strength, and they grow more precious as the pylons weaken." } },
     _none = { { id = "tp_none", text = "That's beyond what I can see from here, and I can see a long way." } },
   },

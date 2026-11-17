@@ -36,7 +36,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "It came from a dwarf, and the dwarf came from Ironforge, and that's close enough for a traveling man. It sharpens, which is what matters, and I'll not charge you Ironforge prices for it." } },
+      lines = { { id = "xwarcl_default", text = "It came from a dwarf, and the dwarf came from Ironforge, and that's close enough for a traveling man. It sharpens, it hasn't snapped on anybody yet, and I'll not charge you Ironforge prices for it." } },
       choices = {
         { text = "I'll take it, and I'll take your word.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll take it, but I'll not believe a word.", next = "BACK", fx = { align = { honor = -1 } } },

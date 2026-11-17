@@ -14,7 +14,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hut", text = "Few walk this far north, and fewer stop at my door. Say what brings you, traveler." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back to this old hut, then. Sit, if you can stand the quiet." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back to this old hut, then. Sit, if you can stand the smell of goat." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -33,7 +33,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "I'd like his amulet back more than any prayer, if I'm honest, but I'll not turn one away. Pray that he went quickly, and that he wasn't afraid, because those are the things I think about when the hut is quiet." } },
+      lines = { { id = "xhpriest_default", text = "I'd like his amulet back more than any prayer, but I'll not turn one away. Pray that he went quickly, and that he wasn't afraid, because those are the things I think about when the hut is quiet." } },
       choices = {
         { text = "I'll pray for him, and bring his amulet home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't help him. Vengeance on the beasts will.", next = "BACK", fx = { align = { light = -1 } } },
@@ -370,7 +370,7 @@ P:NPC {
     third = "{name} met Swart, the shaman trainer at Razor Hill.",
   },
   greetings = {
-    { id = "g_hi", text = "The wind is dry today, and it carries you here. Welcome." },
+    { id = "g_hi", text = "Welcome. The wind's dry today, and it blew you in with half the Barrens on your boots." },
   },
   start = "hello",
   nodes = {
@@ -519,7 +519,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I'll teach anyone to stay alive, and you've had more practice dying than most. The scars I carry came from human knights with hammers like yours, so if you want my respect, earn it out there, not in here." } },
+      lines = { { id = "xfpala_default", text = "I'll teach anyone to stay alive, and you've had more practice dying than most. The marks on my hide came from human knights with hammers like yours, so if you want my respect, earn it out there, not in here." } },
       choices = {
         { text = "Then I'll earn it on the field, not with words.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'm dead already. Respect is a luxury.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -530,7 +530,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not mid-lesson, no, because a recruit who knows he'll be healed stops being careful. Heal them after, when they've felt it and remembered it, and they'll live longer for both of us." } },
       choices = {
-        { text = "Fair enough. Pain teaches, and I'll heal after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hit me, then. I'll heal after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I won't make anyone suffer to teach them, Tarshaw.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -611,7 +611,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. You stand like a knight of Lordaeron, recruit, and I learned in the camps what those knights stood like. Show me how you fight." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my recruits learn faster when they know someone will pick them back up." },
-        { id = "h_default", key = true, text = "I'm Tarshaw Jaggedscar, and I teach the warriors of Razor Hill how to stay alive long enough to be useful. The scars are from the ones who taught me." },
+        { id = "h_default", key = true, text = "I'm Tarshaw Jaggedscar, and I teach the warriors of Razor Hill how to stay alive long enough to be useful. Most of these scars came from the ones who taught me, and one from a boar." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back for more lessons, warrior? Good, because the scorpids out there won't wait for you to get better." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman wearing mail, good. Thrall fights in plate with a hammer in his hand, and I've never once seen him wait for the spirits to swing it for him." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my yard. I've seen your kind turn into a bear in the middle of a fight, and the quilboar on the other end never saw it coming." },

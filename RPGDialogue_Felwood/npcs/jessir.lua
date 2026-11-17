@@ -37,7 +37,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Jessir Moonbow, and I came from Darnassus to meet two friends here, Arko'narin and a paladin named Trey Lightforge. They went into Jaedenar to see whether the Shadow Council has truly returned, and they should have been back days ago." },
+        { id = "h_default", key = true, text = "I am Jessir Moonbow, and I came from Darnassus to meet two friends here, Arko'narin and a paladin named Trey Lightforge. They went into Jaedenar to see whether the Shadow Council has really returned, and they should have been back days ago." },
         { id = "h_rescue", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rescue From Jaedenar"), days = 3 } },
           text = "You were the one who got Arko out of Shadow Hold? She ran through here with Trey's sword and wouldn't even stop for the druids to see to her wounds. She told me what you both found in there, and she didn't cry, which frightens me more than if she had." },
         { id = "h_retribution", when = { questActive = TODO_QUEST("Retribution of the Light") },

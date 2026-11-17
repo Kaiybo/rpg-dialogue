@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_camp", text = "This is Grom'gol, and everyone in Grom'gol works. Are you here to work?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again? Fine, there's always more to do than hands to do it." },
+    { id = "g_back", when = { metBefore = true }, text = "You again? Good, because the last grunt I sent to the river came back without his boots, and I need hands." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Grom'gol did your work for you. Now you're back, so work." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here. Good, because the jungle has gotten no kinder." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've worked hard for Grom'gol. That's the only praise I give, and I just gave it." },
@@ -584,7 +584,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Kin'weelay complained that the spirits are rude, and laughed about it. Beneath the joking there is a witch doctor who takes the unseen very seriously indeed.",
+    first = "Kin'weelay complained that the spirits are rude, and laughed about it. Beneath the joking there is a witch doctor who takes the unseen very seriously.",
     third = "{name} met Kin'weelay, a Darkspear witch doctor sent from Orgrimmar to help Nimboya with what cannot be seen.",
   },
 
@@ -946,8 +946,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still lingers in the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still lingers in the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, which is why it watches the trees more closely than you do." },
+        { id = "xhuntcl_default", text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, which is why it watches the trees more closely than you do." },
       },
       choices = {
         { text = "Clean kills only. The beasts deserve that much.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1106,7 +1106,7 @@ P:NPC {
     },
     orc_mage = {
       lines = {
-        { id = "om_default", text = "I won't pretend I'm easy with it; the last of our people to reach for power without asking ended in chains and fel. But you came and told me plainly, which is a kind of asking, and I'll judge you by what you do with it." },
+        { id = "om_default", text = "I'm not easy with it; the last of our people to reach for power without asking ended in chains and fel. But you came and told me plainly, and that counts as asking, near enough, and I'll judge you by what you do with it." },
       },
       choices = {
         { text = "That's fair, far seer.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },

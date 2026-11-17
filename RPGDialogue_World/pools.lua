@@ -154,7 +154,7 @@ P:Pool {
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "You'll not be wanting the stew, I'd guess. Sit by the fire anyway; a fire's good for everyone, breathing or not." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "Mind your horns on the beam by the stairs. Everyone your size hits it once, and the beam has the scars to prove it." },
+      text = "Mind your horns on the beam by the stairs. Everyone your size hits it once, and the beam has the dents to prove it." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, good. You'll know a decent ale when you taste one, and I'll want your honest opinion of mine." },
   },
@@ -214,7 +214,7 @@ P:Pool {
     trade_prices = {
       big = true,
       lines = {
-        { id = "tp_default", text = "What it cost me, what it cost to get here, and a bit on top so my children eat. When the roads are bad the middle part goes up, and I'll be honest, the bit on top sometimes goes up with it." },
+        { id = "tp_default", text = "What it cost me, what it cost to get here, and a bit on top so my children eat. When the roads are bad the middle part goes up, and between us, the bit on top sometimes sneaks up with it." },
       },
       choices = {
         { text = "A fair price is the only kind worth charging.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -363,7 +363,7 @@ P:Pool {
     { id = "n_cl_scholo", cat = "dungeon", when = { cleared = { "Scholomance", "Stratholme" } },
       text = "You've been in the north, among the Scourge's own halls, and you still walk straight. The priests say that takes more than a strong arm, and I believe them." },
     { id = "n_cl_mc", cat = "dungeon", when = { cleared = "Molten Core" },
-      text = "There's talk in the barracks that the Firelord himself fell beneath Blackrock, and that you were there. I can't picture it, I'll be honest, but I'll stand a little straighter while you pass." },
+      text = "There's talk in the barracks that the Firelord himself fell beneath Blackrock, and that you were there. I can't picture it, and the sergeant says it's all ale talk, but I'll stand a little straighter while you pass." },
     { id = "n_pt_company", cat = "party", when = { party = { size = 4 } },
       text = "That's a full company at your back, {g:sir|ma'am}. Keep them in step through the streets, if you would, because the last lot that came through five abreast knocked over a fruit cart and I'm still hearing about it." },
     { id = "n_pt_noheal", cat = "party", when = { party = { size = { min = 2 }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true } },
@@ -379,7 +379,7 @@ P:Pool {
     { id = "n_nefarian", cat = "carry", when = { carrying = { 19002, 19003 } },
       text = "Nefarian's head. I never thought I'd see the day; the whole city will want to see it hung up, and so do I." },
     { id = "n_away", cat = "away", when = { away = 7 }, place = "before",
-      text = "You've been gone {away}, by my reckoning. Welcome back inside the walls." },
+      text = "You've been gone {away}, by my reckoning. Welcome back inside the walls, where the worst thing that bites is the sergeant." },
     { id = "n_word_threat", cat = "word", when = { word = "intimidated" }, place = "before",
       text = "Word at the barracks is you leaned on someone in town, and leaned hard. The watch doesn't care for that, so mind yourself." },
     { id = "n_word_lie", cat = "word", when = { word = "caughtLying" }, place = "before",
@@ -437,13 +437,13 @@ P:Pool {
     { id = "n_nefarian", cat = "carry", when = { carrying = { 19002, 19003 } },
       text = "Nefarian's head, in your hands. My grandfather would have wept to see Blackrock's master brought low by the Horde." },
     { id = "n_away", cat = "away", when = { away = 7 }, place = "before",
-      text = "You've been gone {away}. Welcome back; the watch kept the walls while you were away." },
+      text = "You've been gone {away}. Welcome back; the walls are still standing, and so am I, though my feet have opinions about it." },
     { id = "n_word_threat", cat = "word", when = { word = "intimidated" }, place = "before",
       text = "Word in the barracks is you've been scaring folk. Strength belongs on the battlefield, not in the market." },
     { id = "n_word_angry", cat = "word", when = { word = "angered" }, place = "before",
       text = "I hear you made someone here very angry. If it turns to blows, it's me who has to sort it out." },
     { id = "n_word_help", cat = "word", when = { word = "helped" }, place = "before",
-      text = "The grunts say you did this place a good turn. Lok'tar; that's worth more than a title." },
+      text = "The grunts say you did this place a good turn. Lok'tar! Don't let it go to your head, though; the latrine trench still needs digging." },
   },
 }
 
@@ -477,7 +477,7 @@ P:Pool {
     { id = "g_guild", when = { guild = true, timesTalked = { max = 1 } },
       text = "You're with {guild}, aren't you? I've heard the name in the market, and mostly good things." },
     { id = "g_late", when = { timeOfDay = "night" },
-      text = "Out at this hour? Mind the shadows; the watch can't be everywhere at once." },
+      text = "Out at this hour? Mind the alleys; the watch can't be everywhere at once, and half of it's at the tavern." },
   },
 }
 

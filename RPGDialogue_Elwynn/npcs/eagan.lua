@@ -150,7 +150,7 @@ P:NPC {
         { text = "Teach me a cleaner cut?", next = "skin", when = { profession = "Skinning" } },
         { text = "Would you skin me, if I were a bear?", next = "druid", when = { class = "DRUID" } },
         { text = "Could a quiet step help with your wolves?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do your wolves truly sense a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can your wolves really smell a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do wolves fight a warrior, Eagan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How would you have a hunter take these wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever say a word over the wolves you kill, Eagan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -202,7 +202,7 @@ P:NPC {
     pity = {
       lines = { { id = "p_default", text = "Sorry for them? They'd eat me if I let them, and I don't let them." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Then keep them off your doorstep.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Seems a hard way to see it.", next = "pity_hard", fx = { align = { light = 1 }, trait = { kind = 1 }, affinity = -1 } },
       },
     },

@@ -242,7 +242,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Because somebody has to, and Phin trusted me with this, and if I let fear decide for me then I'd never do anything at all. I've been scared since the day we got here, honestly, and I've found I can be scared and still keep walking." } },
+      lines = { { id = "xapriest_default", text = "Because somebody has to, and Phin trusted me with this, and if I let fear decide for me then I'd never do anything at all. I've been scared since the day we got here, so scared I couldn't eat the first week, and I've found I can be scared and still keep walking." } },
       choices = {
         { text = "That's true courage. The Light walks with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear is telling you something. Let someone else take him.", next = "BACK", fx = { align = { light = -1 } } },
@@ -299,7 +299,7 @@ P:NPC {
         { text = "Are you frightened of what that courier carries, Kinelory?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? Talking helps, honestly, so please do." } },
+      again = { { id = "h_again", text = "Something else? Talking helps, so please do; it's better than listening to the kobolds." } },
     },
     xrogue = {
       big = true,
@@ -427,7 +427,7 @@ P:NPC {
     },
     xpriest = {
       big = true,
-      lines = { { id = "xpriest_default", text = "Truly, and for my notes, which would have been the greater loss to scholarship, if not to me personally. The kobolds kept me awake every night chanting about wax, and I'll confess I said a prayer or two, though I've never been sure who listens to a gnome in a gorge." } },
+      lines = { { id = "xpriest_default", text = "Absolutely, and for my notes, which would have been the greater loss to scholarship, if not to me personally. The kobolds kept me awake every night chanting about wax, and I'll confess I said a prayer or two, though I've never been sure who listens to a gnome in a gorge." } },
       choices = {
         { text = "Someone always listens, Professor. Take heart.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Nobody listens. Your own wits got you through.", next = "BACK", fx = { align = { light = -1 } } },
@@ -488,7 +488,7 @@ P:NPC {
         { text = "Have you studied the kobolds while you've been stuck here?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Are the kobolds really so dangerous, Professor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the kobolds take anything besides candles, Professor?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Were you truly afraid for your life, Professor?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Were you really afraid for your life, Professor?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What do you want to know about the gorge, Professor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What were you studying before the kobolds came, Professor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you never met a warlock before, Professor?", next = "xlock", when = { class = "WARLOCK" } },

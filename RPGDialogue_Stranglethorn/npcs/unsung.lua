@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Kizz Bluntstrike sells maces in Booty Bay and talks about them the way a poet talks about roses. The sales pitch never stops, but the steel is honest.",
+    first = "Kizz Bluntstrike sells maces in Booty Bay and talks about them the way a poet talks about roses. The sales pitch never stops, and the maces never bend.",
     third = "{name} met Kizz Bluntstrike, who sells maces on the boardwalks of Booty Bay.",
   },
 
@@ -121,7 +121,7 @@ P:NPC {
         { text = "Who buys maces in a pirate town?", next = "buyers" },
         { text = "I'm told my faith forbids edged weapons.", next = "priest", when = { class = "PRIEST" } },
         { text = "A mace is a dwarf's weapon, goblin.", next = "dwarf", when = { race = "Dwarf" } },
-        { text = "What could a mace offer someone who fights from the shadows, Kizz?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What could a mace offer a rogue who'd rather stab, Kizz?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do warlocks really buy maces for their circles, Kizz?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why carry a mace instead of a sword, Kizz?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is there really nothing in your shop for a hunter, Kizz?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -186,7 +186,7 @@ P:NPC {
       choices = {
         { text = "It's about not shedding blood needlessly.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
         { text = "A rule's a rule; I don't need a reason.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Honestly, I just like the weight.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 }, affinity = 1 } },
+        { text = "Mostly I just like how it swings.", next = "BACK", fx = { align = { order = -1 }, trait = { witty = 1 }, affinity = 1 } },
       },
     },
     dwarf = {
@@ -493,7 +493,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "You have no idea, because they come in smelling of moss with roots in their pockets and seeds in their hair, and then they want a vial. I sell them the vial, they fill it with something green, and I spend the afternoon wiping up after them." } },
       choices = {
         { text = "A little dirt never hurt anyone, Glyx. It's honest earth.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Fair enough. A clean shop deserves respect. I'll mind the counter.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll wipe my boots and keep the moss off your counter.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -856,7 +856,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I'd rather not start checking for paw prints as well. Your {pet} looks well behaved, I'll admit, but I've written its name down all the same, and I'll be checking the vault floor tonight." },
       },
       choices = {
-        { text = "Fair enough. Rules are rules, even for beasts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your doors, your rules. My cat waits outside.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "My beast goes where it likes. It's earned the right.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1367,7 +1367,7 @@ P:NPC {
         { id = "hu_default", text = "Until it doesn't, friend. Ask Hemet how many times his pet saved him while he fumbled for an arrow, and then come back and look at my hand axes." },
       },
       choices = {
-        { text = "My pet has my back. That's enough.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "My pet has my back, and it doesn't fumble.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Fair point. Show me a hand axe.", next = "BUSINESS", fx = { affinity = 1 } },
       },
     },

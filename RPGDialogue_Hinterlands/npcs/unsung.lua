@@ -209,7 +209,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Born on the Peak, raised with the birds, and I'll die on the Peak, with any luck, somewhere near the roost." } },
-    advice = { { id = "tp_ad", text = "Never stand downwind of a hungry gryphon, friend. Trust me on this." } },
+    advice = { { id = "tp_ad", text = "Never stand downwind of a gryphon that's just eaten, friend. I lost a good cloak that way, an' most o' my dignity." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask Falstad's folk; they hear more than I do." } },
   },
 }
@@ -233,7 +233,7 @@ P:NPC {
 
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
-      text = "Ye've soot under yer nails, so ye're a smith or a miner or both. Good, because I'm tired of selling flux to folk who think it's a kind of pipeweed." },
+      text = "Ye've soot under yer nails, so ye're a smith or a miner or both. Good, because I'm tired of selling flux to folk who think it's some sort o' pipeweed." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, all the way up here. If ye're after gears and springs, I've none; this is a forge shop, not a tinkerer's, so don't go poking at the bellows." },
   },
@@ -260,7 +260,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Hard as the road up, which is hard indeed, wi' Witherbark watchin' from the trees an' every cart half its weight in iron. The smiths say they cannae make enough armour for the riders, an' I say they cannae make it wi'out me, an' we both grumble about it." } },
+      lines = { { id = "xwarcl_default", text = "Hard as the road up, which is hard as a troll's skull, wi' Witherbark watchin' from the trees an' every cart half its weight in iron. The smiths say they cannae make enough armour for the riders, an' I say they cannae make it wi'out me, an' we both grumble about it." } },
       choices = {
         { text = "Your work matters as much as any warrior's. Be proud.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Hauling coal isn't fighting. Warriors earn the glory.", next = "BACK", fx = { align = { honor = -1 } } },

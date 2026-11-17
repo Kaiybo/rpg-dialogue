@@ -105,7 +105,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Big brother says they want to call up the elemental lords through the old stones out there, and they talk about it like other folk talk about the weather. I don't understand half of it, but I understand a crazy with a dagger, and that's enough for me." } },
+      lines = { { id = "xapriest_default", text = "Big brother says they want to call up the elemental lords through the old stones out there, and they talk about it like other folk talk about the weather. I don't understand half of it, but I understand a crazy with a dagger, and I don't go past the old stones after supper anymore, not even for a dare." } },
       choices = {
         { text = "Some might still listen to reason. Try that before the dagger.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Crazies don't listen. Bring them down and burn their papers.", next = "BACK", fx = { align = { light = -1 } } },
@@ -356,7 +356,7 @@ P:NPC {
           text = "Vyral the Vile hides in Twilight's Run, a cave in the northeast where the cult keeps its secrets. Bring me his signet ring, and go carefully; the cave is full of horrors." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The land of Silithus weeps, {name}, and perhaps your prayers can reach the places where its tears have dried to sand." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior. The land feels the weight of your step, {name}, and it asks whether you come to defend it or only to fight upon it." },
+          text = "A warrior. Even the scorpids hear a warrior's boots coming, {name}, and the land asks whether you come to defend it or only to fight upon it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The spirits of the beasts here are restless, {name}, for the crystals and the cult have driven them from their old paths." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome among your own. The Circle needs every claw and every root it can find in Silithus, for the land here has forgotten what it was." },
@@ -396,7 +396,7 @@ P:NPC {
       },
     },
     spirits_fear = {
-      lines = { { id = "sf_default", text = "Of being woken. Of something behind the wall that was never truly asleep. They will not say more, and I don't press them; a frightened spirit is like a frightened child, and must be soothed before it can speak." } },
+      lines = { { id = "sf_default", text = "Of being woken. Of something behind the wall that was never fully asleep. They will not say more, and I don't press them; a frightened spirit is like a frightened child, and must be soothed before it can speak." } },
       choices = { { text = "Then soothe them, Huum.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     geolords = {
@@ -545,7 +545,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Things that look like nothing much, mostly, which is the hard part. They want tools that don't scar the land and blades that don't shine in the sun, and once a whole crate of bronze stakes for the Hold's tents, which still puzzles me." } },
+      lines = { { id = "xdruid_default", text = "Things that look like nothing much, mostly, which is what makes them such a nuisance to make. They want tools that don't scar the land and blades that don't shine in the sun, and once a whole crate of bronze stakes for the Hold's tents, which still puzzles me." } },
       choices = {
         { text = "Make what they ask. The Circle knows its business.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Ask why. A craftsman should know what his work is for.", next = "BACK", fx = { align = { order = -1 } } },
@@ -632,7 +632,7 @@ P:NPC {
       },
     },
     rogue = {
-      lines = { { id = "r_default", text = "Then you know the trick: it isn't the coat, it's the walk. Wear my medallion like you've worn it for years, and the stones will never know." } },
+      lines = { { id = "r_default", text = "Then you know folk notice the walk long before they notice the coat. Wear my medallion like you've worn it for years, and the stones will never know." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     x_mage = {

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-17)
+- New people to talk to: Do'gol, Mudcrush Durtfeet, Nat Pagle, Tharg. New files: restart the game fully (a /reload won't load them).
+- Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
+
 ## 1.24.0 (2026-11-17)
 - Lady Jaina has a great deal more to say: harder questions about Thrall, Bolvar, Magni, Tyrande and Stratholme (a Persuade), and what she wants from you.
 

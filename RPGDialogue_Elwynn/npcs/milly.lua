@@ -135,7 +135,7 @@ P:NPC {
           when = { origin = "human_westfall_farmhand" } },
         { text = "I'll pray the Light watches over your vineyard.", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Could a rogue help you get your harvest back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would you truly accept a warlock's help, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really take a warlock's help, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many Defias are in the vineyard, Milly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can I come at the Defias quietly through the vineyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have the Defias hurt the vines, or only stolen the grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -221,7 +221,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I grow grapes, the Abbey buys them, and this year the Defias took them. That's my whole story.", next = "happened" } },
-    advice = { { id = "tp_ad", text = "Never leave a harvest in the field overnight. I learned that one the hard way, didn't I." } },
+    advice = { { id = "tp_ad", text = "Never leave a harvest in the field overnight, because the Defias will have it in sacks by dawn, and I've the empty rows to prove it." } },
     defias = { { id = "t_defias", text = "They took my harvest and my sleep. Ask me again when they give either back." } },
     northshire_abbey = { { id = "t_abbey", text = "The brothers buy our wine. Brother Neals counts every barrel twice." } },
     _none = { { id = "t_none", text = "Grapes I know, but that I don't." } },

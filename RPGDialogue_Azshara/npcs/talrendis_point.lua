@@ -219,7 +219,7 @@ P:NPC {
       choices = {
         { text = "The Alliance and Horde could learn from that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Peace that needs watching isn't peace at all.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { order = -1 } } },
-        { text = "Do they truly trust you, Loh'atu?", tag = "Persuade", next = "trust",
+        { text = "Do they really trust you, Loh'atu?", tag = "Persuade", next = "trust",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Tauren" }, { questDone = TODO_QUEST("Spiritual Unrest") } } } },
           fail = { next = "trust_fail", fx = { affinity = -1 } } },
       },
@@ -236,7 +236,7 @@ P:NPC {
     },
     trust_fail = {
       lines = { { id = "tf_default", text = "That is between me and my hosts, friend. A guest who speaks about the house behind its back does not stay a guest for long." } },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "I understand.", next = "BACK" } },
     },
 
     land = {
@@ -426,7 +426,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ishnu-alah. If you need to fly, the hippogryphs are rested." },
+    { id = "g_default", text = "Ishnu-alah. If you need to fly, the hippogryphs are rested. Don't offer them bread, though; the Sentinels have spoiled them rotten." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the Point, and the hippogryphs lift their heads at your step. They choose their friends carefully." },
   },
 
@@ -514,7 +514,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Poorly, if I'm honest. They will not eat the grass past the ridge, and one of them sickened after drinking from the stream below the Legashi camp. I keep them on water carried up from the sea, and I ask Elune each night to make the Sentinels' work go quicker." } },
+      lines = { { id = "xdruid_default", text = "Poorly. They will not eat the grass past the ridge, and one of them sickened after drinking from the stream below the Legashi camp. I keep them on water carried up from the sea, and I ask Elune each night to make the Sentinels' work go quicker." } },
       choices = {
         { text = "Drive the satyrs back and the land will mend. That's our work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Move the roost somewhere safer. The beasts come first.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -584,7 +584,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I keep the hippogryphs of Talrendis Point and see that they come home. There is little else to my story." } },
-    advice = { { id = "tp_ad", text = "Fly in daylight when you can. Azshara's storms come up fast, and the sea does not give back what it takes." } },
+    advice = { { id = "tp_ad", text = "Fly in daylight when you can. Azshara's storms come up fast, and I've already fished two soaked Sentinels out of the bay this season." } },
     sentinels = { { id = "tp_sent", text = "My sisters keep the bridge, and I keep the birds that bring them help. It is a fair division of labour." } },
     _none = { { id = "tp_none", text = "I keep birds, not secrets. Ask the Sentinels, or the tauren by the fire." } },
   },

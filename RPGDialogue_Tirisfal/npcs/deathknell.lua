@@ -152,7 +152,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "More of them than you'd think, because a mind that has heard the Lich King's voice isn't easily frightened by an imp's. Maximillion teaches it here, and I bury the ones who fail his lessons, so I'd ask you to study hard for both our sakes." },
-        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking me about warlocks, when your people knew the demons long before ours did. Maximillion teaches it here, and I expect he'd be glad of a student who can tell him what the old Horde learned the hard way." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking me about warlocks, when your people knew the demons long before ours did. Maximillion teaches it here, and I expect he'd be glad of a student who can tell him what the old Horde paid for that knowledge." },
       },
       choices = {
         { text = "I'll master it carefully, and keep to the rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -190,7 +190,7 @@ P:NPC {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin. I'll admit the Light makes me uneasy, though it used to make me feel safe, so step back a little while you're glowing, if you don't mind." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest. Whatever you prayed to before, it didn't save you, and the shadows were here when you woke. Think about that." },
+      text = "A priest. Whatever you prayed to before, it didn't save you, and it was the dark that was waiting when you clawed out of the grave. Think about that." },
   },
 
   start = "hello",
@@ -229,7 +229,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here. You talk to spirits, I'm told, and the spirits talk back, which is more than the Light ever did for me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my chapel. You serve the land, I gather, and the land around here has been rather busy serving the Scourge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen and still looking for tracks. The Light never taught anyone to read a trail, so you've kept the more useful habit." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Another priest, with a new voice answering your prayers, I hope. Whatever you called on before let you die, so I trust you've noticed the shadows were the only thing waiting when you woke." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Another priest, with a new voice answering your prayers, I hope. Whatever you called on before let you die, so I trust you noticed who was waiting when you crawled out of the dirt." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mindless", min = 20 } }, text = "You've laid a good many of the mindless ones to rest, and Deathknell is quieter for it. They were lost long before you found them, so don't let it trouble you." },
       },
       choices = {
@@ -241,7 +241,7 @@ P:NPC {
         { text = "The Light still answers me, Sarvis.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I deal in fel and shadow, like you.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I studied magic in life. Does it still matter?", next = "mage", when = { class = "MAGE" } },
-        { text = "I'd rather work from the shadows.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'd rather work where nobody's looking.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Is there anything worth hunting near Deathknell, Sarvis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll get to work.", next = "END" },
       },
@@ -318,7 +318,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Because spirits have opinions, and I've had enough of things with opinions about me. The shadow asks nothing and judges nothing, and after the Light I find that restful; your elements may be kinder, but I'd rather not wait to find out." } },
       choices = {
         { text = "The spirits judge fairly. You might be surprised, Sarvis.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Power that asks nothing is worth having.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Suits me. I'll take power that asks nothing back.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -492,7 +492,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I take any help that kills Crusaders and doesn't eat my sentries. Keep your demon in front of you when you go to Solliden, and if it turns, you'll be the one to put it down." },
-        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The converts at Solliden are farm boys who still believe the Light will save them, and a demon at their door will teach them otherwise. I won't pretend it's pretty work, but it's work, and you seem made for it." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The converts at Solliden are farm boys who still believe the Light will save them, and a demon at their door will teach them otherwise. It isn't pretty work, but it's work, and you seem made for it." },
       },
       choices = {
         { text = "If it turns, I'll put it down myself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -541,7 +541,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "It has room for anyone who'll bear it, though I won't pretend it's comfortable for any of us. A soldier who stands firm while it burns is learning the same lesson I am, and the pain is a forge whether you pray or not." } },
+      lines = { { id = "xwarcl_default", text = "It has room for anyone who'll bear it, though it burns every one of us like a brand. A soldier who stands firm while it burns is learning the same lesson I am, and the pain is a forge whether you pray or not." } },
       choices = {
         { text = "Then I'll stand in it, and let it burn.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I'll stand on my own feet, Aramis, not the Light's.", next = "BACK", fx = { align = { light = -1 } } },
@@ -584,7 +584,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I can still tell a soldier by how they stand, {class}, and you stand like someone who means to stay standing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You walk softly, which is a kindness in a church where most of the risen still stumble into the pews." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll have felt the Light sting, as I have, or you'll have turned away from it, and either way you'll know what I mean when I say it burns." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I won't pretend the Light approves of your trade, but I've learned not to speak for it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I doubt the Light approves of your trade, but I've learned not to speak for it." },
       },
       choices = {
         { text = "Why do you hold on to the Light, Aramis, when it hurts?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -649,7 +649,7 @@ P:NPC {
     why = {
       big = true,
       lines = {
-        { id = "y_default", text = "I don't know, and I've stopped needing to know. It answers, and it hurts, and it answers again, and that's enough faith for one dead man." },
+        { id = "y_default", text = "I don't know, and I've stopped needing to know. It answers, and it hurts, and it answers again, and I've stopped asking it for more than that." },
       },
       choices = {
         { text = "It's enough for me too.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },

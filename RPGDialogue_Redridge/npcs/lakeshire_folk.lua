@@ -326,7 +326,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Quickly, please; I've lost count once today already." },
-        { id = "h_again2", text = "Go on, and I'll keep one eye on the road." },
+        { id = "h_again2", text = "Go on, and I'll keep one eye on the road. The other's still swollen from a gnoll's elbow, so it's no use anyway." },
       },
       choices = {
         { text = "How bad is it?", next = "bad" },
@@ -939,7 +939,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Peacebloom and silverleaf, mostly, and a bit of earthroot when I can find it, because the healer swears by it for a fever. I grow the flowers for nobody in particular, but the herbs I grow for everybody, and that's the difference." } },
       choices = {
-        { text = "Your herbs are a kind of prayer, Martie. Keep growing them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your herbs do the Light's work too, Martie. Keep growing them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Herbs are just plants. The healer does the real work.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Martie.", next = "BACK" },
       },
@@ -991,7 +991,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, dear? Just step around the seedling trays." },
-        { id = "h_again2", text = "Go on, then. The weeds will wait; they always do." },
+        { id = "h_again2", text = "Go on, then. The weeds will wait, and so will that great lump of a boar, right until I turn my back." },
       },
       choices = {
         { text = "What grows well here?", next = "grow" },
@@ -1202,7 +1202,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, dear? You can talk while I get on with the chopping." },
-        { id = "h_again2", text = "Go on. The onions won't cut themselves, but they'll wait." },
+        { id = "h_again2", text = "Go on. The onions won't cut themselves, and my eyes are streaming already, so don't take it personal." },
       },
       choices = {
         { text = "How are the soldiers?", next = "soldiers" },

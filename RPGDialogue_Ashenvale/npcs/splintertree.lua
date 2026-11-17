@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_forest", text = "Look at this forest, truly look at it. Whatever happens tomorrow, it was beautiful today." },
+    { id = "g_forest", text = "Look at this forest, really look at it. Whatever happens tomorrow, it was beautiful today." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see; the Hunt hasn't eaten you yet, and that is good." },
     { id = "g_narache", when = { origin = "tauren_narache_hunter" }, text = "A Narache hunter's child, I'd know that careful step anywhere. Your mother would have said her thanks over every beast in this forest, and I try to do the same, though the Warsong's axes make it hard to hear myself." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the forest has turned its colors a little since then, though I doubt the Warsong noticed. I'm glad you came back to see it." },
@@ -64,7 +64,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhrogue_default", text = "I have, and they have seen me, and so far we have each pretended not to. They take only what they need from the deer, the same as I do, so I leave them to their watching, though the Warsong would call that treason." } },
       choices = {
-        { text = "Your quiet truce is worth more than a report.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Leave them be. Your truce keeps arrows out of us.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'll report them to the Warsong. That's my duty.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -95,8 +95,8 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel it too, the way the ancient spirits of this forest watch us, and how little they welcome what we do here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. So many hunters come back hurt from the trees that I am glad of anyone who can mend them, whatever voice answers your prayers." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "You carry the arcane with you, and I can feel it like heat off a stone. Please be careful with your fire in this forest, because it is the most beautiful thing I know, and it would burn very quickly." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. This forest still bears the scars of the demons who walked here not so long ago, and I wonder what it thinks of you. I will not turn you away, but I would ask you to keep your servant close." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "The arcane comes off you like heat off a stone, and I can feel it from here. Please be careful with your fire in this forest, because it is the most beautiful thing I know, and it would burn very quickly." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. This forest still has burned ground where the demons walked not so long ago, and I wonder what it thinks of you. I will not turn you away, but I would ask you to keep your servant close." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk lightly, and the forest does not seem to mind you, which is more than I can say for the Warsong and their axes. I think you would make a fine hunter, if you ever put the knives down." },
         { id = "h_default", key = true,
           text = "I am Senani Thunderheart. I came here to hunt and stayed because this forest is the most beautiful thing I have ever seen, and that we are at war in it is a sorrow I carry." },
@@ -301,7 +301,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What now? Make it quick, because I've wagons to count." },
-        { id = "h_again2", text = "Still here? Then ask your question and let me count." },
+        { id = "h_again2", text = "Still here? Then ask, and let me count. Three wagons short again, and I'd bet my tusks the peons sold the axles to a goblin." },
       },
       choices = {
         { text = "Do the elves' spirits ever bother your caravans?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -449,7 +449,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else you be needin', mon? Keep your voice down out here." },
-        { id = "h_again2", text = "Ask it quick, and then back to watchin' the trees." },
+        { id = "h_again2", text = "Ask it quick, mon. Last fella who stood here chattin' took an arrow in the backside, and he still be sittin' sideways." },
       },
       choices = {
         { text = "Do the forest spirits warn the night elf runners about you?", next = "xhsham", when = { class = "SHAMAN" } },

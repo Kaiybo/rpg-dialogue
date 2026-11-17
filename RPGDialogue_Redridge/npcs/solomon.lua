@@ -452,7 +452,7 @@ P:NPC {
         { id = "as_default2", text = "Suspicions are for people who have time to entertain them. I have orcs on the ridge and a stack of letters to answer, so ask me something useful." },
       },
       choices = {
-        { text = "Fair enough, Magistrate.", next = "BACK" },
+        { text = "As you say, Magistrate.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

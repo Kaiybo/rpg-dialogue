@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again. Say your business and get on the road, because I've no time for anyone I can't count on." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll be honest with you, {class}, I don't like warlocks, but I like the Scourge less, and I'm short of soldiers by about two hundred." },
+          text = "I'll say it plain, {class}: I don't like warlocks, but I like the Scourge less, and I'm short of soldiers by about two hundred." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, good, {class}, for the last time I asked Stormwind for spellcasters they sent me a priestess and an alchemist and told me to make do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -268,7 +268,7 @@ P:NPC {
     },
     refugee = {
       lines = {
-        { id = "rf_default", text = "Then this is your home we're fighting over, and I won't pretend it isn't hard to look at. If you've family buried up here, tell me where, and my patrols will mind the place when they pass." },
+        { id = "rf_default", text = "Then this is your home we're fighting over, and Light knows it's hard to look at. If you've family buried up here, tell me where, and my patrols will mind the place when they pass." },
       },
       choices = {
         { text = "Thank you, Commander.", next = "BACK", fx = { affinity = 3, standing = { chillwind_camp = 1 } } },
@@ -522,7 +522,7 @@ P:NPC {
         { id = "l_default", text = "The Light's way is to protect the living, and if that means stirring a necromancer's soup until it chokes him, then I'll stir. I'll pray first, mind you, and stir after." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Pray first, stir after. I'll remember that.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather it burned clean.", next = "BACK", fx = { affinity = 1, align = { light = 1, order = 1 } } },
       },
     },
@@ -584,7 +584,7 @@ P:NPC {
       },
       choices = {
         { text = "The dead fall either way, Priestess.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "Fair enough. My arts stay well away from your jars.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Understood. My arts stay well away from your jars.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -595,7 +595,7 @@ P:NPC {
       { id = "tp_knows", text = "Between the commander's reports and Arbington's grumbling, I hear most of what goes on in this camp. Ask me about any of these, friend." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll put the jars down a moment, and that's a rare honour. Here's what I can tell you about, and gladly." },
     },
-    background = { { id = "tp_ba", text = "I'm a priestess of the Light and the commander's second, and that's enough of a life for anybody up here." } },
+    background = { { id = "tp_ba", text = "I'm a priestess of the Light and the commander's second, and between the two I haven't had a full night's sleep since Stratholme." } },
     advice = { { id = "tp_ad", text = "Keep a clean cloth over your mouth near the cauldrons, and say a prayer before you open any jar I give you." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "They're Kel'Thuzad's work, or his servants', eight pots across Lordaeron keeping the land sick. We can't break them, but we can spoil the recipe." } },
     andorhal = { { id = "tp_andorhal", text = "Andorhal's dead were people once, and I keep that in my prayers. I keep the rest of me for burning them." } },
@@ -914,7 +914,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I'd hire a dozen if Valorfist would let me keep them in camp, but the commander says his soldiers aren't for private use. So I keep my own sword under the blanket and sleep very lightly indeed." } },
+      lines = { { id = "xwarcl_default", text = "I'd hire a dozen if Valorfist would let me keep them in camp, but the commander says his soldiers aren't for private use. So I keep my own sword under the blanket and sleep with one eye open and both boots on." } },
       choices = {
         { text = "I'll guard the camp, Barov, not a frightened man's bedroom.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "For the right fee, I'll stand wherever you like, Barov.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -935,7 +935,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Caer Darrow, its people and a school full of necromancers, if you must keep accounts. I won't pretend the Barovs were blameless, but neither will I pretend I could have stopped my father's dealings with a sword I barely knew how to hold." } },
+      lines = { { id = "xapala_default", text = "Caer Darrow, its people and a school full of necromancers, if you must keep accounts. The Barovs were far from blameless, but I'll not claim I could have stopped my father's dealings with a sword I barely knew how to hold." } },
       choices = {
         { text = "A man of honour would have tried anyway.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "No man can answer for his father's sins.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -966,7 +966,7 @@ P:NPC {
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Alliance" },
           text = "So the Darkmaster's dead, and someone finally had the decency to finish what my family started when they let him in. I'd like to say I feel something about it, and I do, and the something is mostly relief." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Last Barov") },
-          text = "So Alexi's gone, truly gone at last. I thought I'd feel something about it, but I find I mostly feel rich, and that will have to do." },
+          text = "So Alexi's gone, properly gone at last. I thought I'd feel something about it, but I find I mostly feel rich, and that will have to do." },
         { id = "h_sleep", when = { metBefore = true },
           text = "I sleep with my back to the cliff and a sword under my blanket, because of the assassins, you understand. He sends them, and in his place I'd do the same." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -1042,7 +1042,7 @@ P:NPC {
         { id = "dr_default", text = "Left them to what, a wedding? They'd already signed, and there was nothing to save but my own neck, so I saved it. Judge me from inside a Barov's house some evening and see how brave you feel." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "I'll not judge you, then.", next = "BACK" },
         { text = "I'd have stayed.", next = "BACK", fx = { affinity = -1, trait = { brave = 1 } } },
       },
     },
@@ -1143,7 +1143,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. There's an easy warmth to her that seems to have been earned the hard way.",
+    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. She laughs easily, and the burn scar up her sword arm suggests she's earned the right.",
     third = "{name} met Argent Officer Pureheart, who speaks for the Argent Dawn at Chillwind Camp.",
   },
 
@@ -1359,7 +1359,7 @@ P:NPC {
     },
     x_shaman = {
       lines = {
-        { id = "xs_default", text = "The Dawn has room for anyone who stands against the Scourge, and I've watched Horde shamans lay the dead to rest as surely as any priest of mine. I don't understand your spirits, but I understand what they do to a ghoul, and that's enough for me." },
+        { id = "xs_default", text = "The Dawn has room for anyone who stands against the Scourge, and I've watched Horde shamans lay the dead to rest as surely as any priest of mine. I don't understand your spirits, but I've seen what they do to a ghoul, and I'll stand beside anyone who does that." },
       },
       choices = {
         { text = "The spirits and the Light want the same thing here.", next = "BACK", fx = { affinity = 2 } },
@@ -1704,7 +1704,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Light's Hope is the only place up here my gryphons don't mind landing, and the knights there say it's because the ground is holy, which I find very reassuring." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
-          text = "A warrior! Oh, the gryphons do grumble about the weight of plate, {class}, but they're very brave birds, and they'd carry an anvil if you asked them nicely." },
+          text = "A warrior! Oh, the gryphons do grumble about plate, {class}, but they're very brave birds, and they'd carry an anvil if you asked them nicely." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
@@ -1756,7 +1756,7 @@ P:NPC {
     },
     gryphons = {
       lines = {
-        { id = "gy_default", text = "Better than you'd think, honestly, though they won't land anywhere near Andorhal however nicely I ask. I give them extra feed when the wind blows from the north, and they forgive me for bringing them here." },
+        { id = "gy_default", text = "Better than you'd think, though they won't land anywhere near Andorhal however nicely I ask. I give them extra feed when the wind blows from the north, and they forgive me for bringing them here." },
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },

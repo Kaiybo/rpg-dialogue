@@ -160,7 +160,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Someone who chose a dangerous road and is still walking it, which takes a kind of courage, I'll grant. Turn that power on the Scourge and the Crusade will call you damned, but I'll be fishing here, and I'll think better of you than they do." } },
+      lines = { { id = "xlock_default", text = "Someone who chose a dangerous road and is still walking it, which takes nerve, I'll grant. Turn that power on the Scourge and the Crusade will call you damned, but I'll be fishing here, and I'll think better of you than they do." } },
       choices = {
         { text = "I'll use it only against the dead. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My power isn't for your approval, old man.", next = "BACK", fx = { align = { light = -1 } } },
@@ -195,9 +195,9 @@ P:NPC {
       },
     },
     son_go = {
-      lines = { { id = "sg_default", text = "Perhaps, when I've found the courage to be his father again, and not just a story his mother told. Ask me another day." } },
+      lines = { { id = "sg_default", text = "Perhaps, when I've found the courage to be his father again, instead of a story his mother told. Ask me another day." } },
       choices = {
-        { text = "What are you truly afraid he'll say?", tag = "Persuade", next = "son_fear",
+        { text = "What are you afraid he'll say?", tag = "Persuade", next = "son_fear",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { trait = "kind" } } } },
           fail = { next = "son_shut", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
@@ -257,7 +257,7 @@ P:NPC {
       lines = {
         { id = "xf_default", text = "I defended an orc when my own people called him a monster, and I've had a long time by this river to wonder where mercy ought to end. You came here to talk with an old man instead of raising a hand to him, so I'll judge you by that, as I'd judge anyone." },
         { id = "xf_knight", when = { origin = "forsaken_risen_knight" }, text = "You were a knight once, before the plague; I can see it in the way you stand, even now. I may well have known your name, and I'm sorry that I can't recall it." },
-        { id = "xf_paladin", when = { race = "Scourge", class = "PALADIN" }, text = "You carry the Light, and you carry it dead. I'd have called that impossible once, but I've been wrong about a great many things, so tell me, child: does it burn?" },
+        { id = "xf_paladin", when = { race = "Scourge", class = "PALADIN" }, text = "The Light answers you, and you a dead man. I'd have called that impossible once, but I've been wrong about a great many things, so tell me, child: does it burn?" },
       },
       choices = {
         { text = "It burns. I carry it anyway.", next = "BACK", when = { class = "PALADIN" }, fx = { affinity = 3, trait = { brave = 1 } } },
@@ -355,7 +355,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The land? Perhaps, given a hundred years and a great many fires. But I hunted these woods when I was living, and I'll tell you plainly that I don't care if a single tree grows here again, so long as nothing that killed me walks here either." } },
       choices = {
-        { text = "The land deserves healing, Blightcaller, not just vengeance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The land needs healing, Blightcaller, as much as it needs vengeance.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Vengeance first. The trees can wait a hundred years.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },

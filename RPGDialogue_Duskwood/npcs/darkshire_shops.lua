@@ -364,7 +364,7 @@ P:NPC {
     third = "{name} met Morg Gnarltree, Darkshire's armorer.",
   },
   greetings = {
-    { id = "g_default", text = "Armour, mail and plate. Let me see what you're wearing first." },
+    { id = "g_default", text = "Armour, mail and plate. Let me see what you're wearing first, and for Light's sake scrape the ghoul off it before it touches my counter." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Turn round, and let me see the damage." },
   },
   notice = {
@@ -524,7 +524,7 @@ P:NPC {
     third = "{name} met Matt Johnson, Darkshire's mining trainer.",
   },
   greetings = {
-    { id = "g_default", text = "Here to learn mining? You'll be the first this month." },
+    { id = "g_default", text = "Here to learn mining? You'll be the first this month, and the last one quit after he dug into somebody's grave by mistake." },
     { id = "g_back", when = { metBefore = true }, text = "Still digging, are you? Good, because somebody in this wood ought to be." },
   },
   notice = {
@@ -701,7 +701,7 @@ P:NPC {
     third = "{name} met Danielle Zipstitch, who sells tailoring supplies upstairs in Madame Eva's house in Darkshire.",
   },
   greetings = {
-    { id = "g_default", text = "Up the stairs already! Mind the cat, and mind the thread on the floor." },
+    { id = "g_default", text = "Up the stairs already! Mind the cat, who'll steal your lunch, and mind the thread on the floor, which the cat also steals." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more thread, or more gossip? I've plenty of both." },
   },
   notice = {
@@ -814,7 +814,7 @@ P:NPC {
         { text = "Who buys your cloth?", next = "cloth" },
         { text = "Do you sew anything a warrior might wear, Danielle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you buy spider silk from the wood, Danielle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does Madame Eva truly quarrel with priests, Danielle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Madame Eva really quarrel with priests, Danielle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the Night Watch wear your cloth, Danielle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do Eva's visitors say about the forest on the stairs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What gossip comes through your floorboards, Danielle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -954,7 +954,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "The forest, the stairs, the wind on the shutters, and Danielle laughing when I jump, if I'm honest. I keep telling myself that fear is only good sense that hasn't been proven wrong yet." } },
+      lines = { { id = "xdruid_default", text = "The forest, the stairs, the wind on the shutters, and Danielle laughing when I jump, which she does every single time. I keep telling myself that fear is only good sense that hasn't been proven wrong yet." } },
       choices = {
         { text = "Fear keeps you alive here. Trust it and stay careful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fear is a cage. Step outside sometime and breathe.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1242,7 +1242,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Business worries me, friend. The dead don't buy much. Your spirits might help sales, though." } },
       choices = {
-        { text = "Sell honestly, Kzixx. That's good business.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Honest scales, Kzixx, or the Watch hears about it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sell to the dead, then. They've coin in their graves.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

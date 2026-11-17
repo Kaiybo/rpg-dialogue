@@ -9,7 +9,7 @@ P:Pool {
   },
   greetings = {
     { id = "g_bay", text = "This is Booty Bay. Spend money, don't start trouble, and we'll get along fine." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Tavern's up that way. Everything else is shut, or ought to be." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Tavern's up that way. Everything else is shut, or ought to be, and if you hear singing under the pier, that's a drunk, not a mermaid." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
@@ -131,7 +131,7 @@ P:Pool {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Smart town, then.", next = "BACK" },
       },
     },
     arena = {
@@ -165,7 +165,7 @@ P:Pool {
   },
   topics = {
     bloodsail = { { id = "t_bloodsail", text = "Let 'em come. We've got cannons and a grudge." } },
-    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us, and that's all I need to know about the Cartel." } },
+    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us, and docks a copper every time a gull messes on the cannons. That's all I need to know about the Cartel." } },
     _none = { { id = "t_none", text = "Ask Krazek up at the tavern. He'll tell you whatever you want to know, and then he'll bill you for it." } },
   },
 }

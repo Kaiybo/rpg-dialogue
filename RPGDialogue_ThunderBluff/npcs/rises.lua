@@ -37,12 +37,12 @@ P:NPC {
       },
     },
     xcl_wc2 = {
-      lines = { { id = "xcl_wc2_default", text = "As far as we can tell, the druid's dream leaked into the water and the water leaked into everything else. The changes are fast and unpredictable, which in a living thing is a sign of something powerful at work, and if it could be understood it might be very useful indeed, though I wouldn't say so to Hamuul." } },
+      lines = { { id = "xcl_wc2_default", text = "As far as we can tell, the druid's dream leaked into the water and the water leaked into everything else. The changes are fast and unpredictable, which in a living thing is a sign of something powerful at work, and if it could be understood it might be very useful, though I wouldn't say so to Hamuul." } },
       choices = { { text = "I'll keep that between us, Zamah.", next = "BACK" } },
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Because the Silver Hand was Lordaeron's, and Lordaeron hunted us when we woke. Some of its knights still ride the Plaguelands against us. You carry their Light, and the Dark Lady likes to know whose loyalties outlived the grave." } },
+      lines = { { id = "xfpala_default", text = "Because the Silver Hand was Lordaeron's, and Lordaeron hunted us when we woke. Some of its knights still ride the Plaguelands against us. You call on their Light, and the Dark Lady likes to know whose loyalties outlived the grave." } },
       choices = {
         { text = "Mine belong to the Dark Lady. Write that down.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My loyalty is to the Light, apothecary. Note that.", next = "BACK", fx = { align = { order = -1 } } },
@@ -226,7 +226,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "More often than their pride would let them say. A plainstrider's kick or a quilboar's spear in the thigh, and they limp up the lift hoping I won't notice. The shaman mend them well enough, but I've seen a troll priest close a wound in a single breath, and I won't pretend that didn't impress an old hunter." } },
+      lines = { { id = "xhpriest_default", text = "More often than their pride would let them say. A plainstrider's kick or a quilboar's spear in the thigh, and they limp up the lift hoping I won't notice. The shaman mend them well enough, but I've seen a troll priest close a wound in a single breath, and it impressed even this old hunter." } },
       choices = {
         { text = "I'll mend any hunter who limps up that lift.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Pain teaches them caution. Let them limp a while.", next = "BACK", fx = { align = { light = -1 } } },
@@ -463,7 +463,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the warriors' ring. Come in, then, because the braves of the bluffs could use a lesson in patience from you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, for my students learn to take a blow before they learn to give one, and someone must patch them up afterward." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll stand as a bear before the herd one day, so you're closer to my warriors than you know, and I'll expect the same restraint of you that I expect of them." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Strength is for protecting the herd, and your magic is a kind of strength, so I'll expect you to use it that way." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Strength is for protecting the herd, and magic is strength too, of a sort, so I'll expect you to use it that way." },
         { id = "h_grim", when = { origin = "tauren_grimtotem_born" }, text = "You were born Grimtotem, and the whole city knows it, so I'll say plainly that you're welcome in my ring. Your old kin will come for you one day because you left, and I mean you to be standing when they do." },
         { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked out of the Barrens with the rest of us, young one, and you'll remember the centaur better than my students do. Stand firm, then, because you know already what it costs when the herd breaks." },
       },

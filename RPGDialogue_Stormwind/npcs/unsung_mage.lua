@@ -56,7 +56,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because the arcane nearly destroyed my people once, long ago, and the Sentinels have long memories. I don't share their fear entirely, but I won't pretend I don't understand it." } },
+      lines = { { id = "xmage_default", text = "Because the arcane nearly destroyed my people once, long ago, and the Sentinels have long memories. I don't share their fear entirely, but I understand it well enough." } },
       choices = {
         { text = "Their caution is wise. Magic should never be trusted lightly.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Fear never built anything, Lilyssia. Mages build.", next = "BACK", fx = { align = { light = -1 } } },
@@ -229,7 +229,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "We do, though we call them other things, and they walk the shadows of Ashenvale far more quietly than any human. Our Sentinels and your SI:7 would understand each other well, I think, if they ever stopped watching each other." } },
+      lines = { { id = "xrogue_default", text = "We do, though we call them other things, and they walk the glades of Ashenvale far more quietly than any human. Our Sentinels and your SI:7 would understand each other well, I think, if they ever stopped watching each other." } },
       choices = {
         { text = "Allies should trust each other, not spy on each other.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Allies always watch each other. That's simple sense.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -982,7 +982,7 @@ P:NPC {
       },
     },
     makers2 = {
-      lines = { { id = "m2_default", text = "I never went there, if I'm honest, and I miss its workshops more than its towers. That sounds cold, I know, but a merchant mourns in her own way." } },
+      lines = { { id = "m2_default", text = "I never went there myself, and I miss its workshops more than its towers. That sounds cold, I know, but a merchant mourns in her own way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     choose = {

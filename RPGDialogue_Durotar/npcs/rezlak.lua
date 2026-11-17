@@ -25,7 +25,7 @@ P:NPC {
 
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
-      text = "Whoa, you're jingling, pal. Somebody's been doing well for themselves, and I respect that more than you know." },
+      text = "Whoa, you're jingling, pal. Somebody's been doing well for themselves, and I respect a full purse, pal." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "Is that grease under your fingernails? An engineer! Finally somebody on this road who knows a sprocket from a spoon." },
   },

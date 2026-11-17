@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Durotar |cff8a8a8a1.17.0|r
+## Title: RPG Dialogue: Durotar |cff8a8a8a1.18.0|r
 ## Notes: The Valley of Trials, Razor Hill and Sen'jin Village: recruits and lazy peons, a commander on the crossroads, a lawman hunting cultists, and the old witch doctor who taught Vol'jin.
 ## Author: RPG Dialogue
-## Version: 1.17.0
+## Version: 1.18.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.durotar
@@ -17,3 +17,7 @@ npcs\razorhill.lua
 npcs\senjin.lua
 npcs\roadside.lua
 npcs\unsung.lua
+npcs\hanazua.lua
+npcs\larprowltusk.lua
+npcs\rezlak.lua
+npcs\rhinag.lua

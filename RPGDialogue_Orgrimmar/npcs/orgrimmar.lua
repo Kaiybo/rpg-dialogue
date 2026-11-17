@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the city kept turning without you, but I'm glad to see you walk back through the gate. Sit, and tell me what the world looks like beyond Durotar." },
     { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you last stood in this hall, and you carry yourself like someone who has seen a great deal of fighting since. The Horde grows stronger every time a warrior like you comes home." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When we first spoke you were barely blooded, and now I can see the battles on you. You've grown into the kind of warrior I hoped this Horde would make." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've been doing honest work for Orgrimmar, and I hear of it more often than you'd think. That kind of name is worth more than any title I could give you." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've been doing honest work for Orgrimmar, and I hear of it more often than you'd think. A name like that will open more doors than any title I could give you." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone in this city caught you in a lie not long ago. I was a slave to men who lied to me every day of my youth, so understand that I'll be listening carefully." },
   },
 
@@ -32,7 +32,7 @@ P:NPC {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "A warlock. The Horde has a long, bitter history with your arts, and I'll judge you by what you do with them, as will everyone else." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "The Forsaken stand with us. I won't pretend I understand the Dark Lady, but I understand being made into something you never chose." },
+      text = "The Forsaken stand with us. I don't claim to understand the Dark Lady, but I understand being made into something you never chose." },
   },
 
   start = "hello",
@@ -43,7 +43,7 @@ P:NPC {
       choices = {
         { text = "A word given is worth more than shared blood, Warchief.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Alliances like ours last only as long as they're useful.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Do you truly trust the Forsaken, Warchief?", next = "xpt_thrall2" },
+        { text = "Do you really trust the Forsaken, Warchief?", next = "xpt_thrall2" },
         { text = "Something else, Warchief.", next = "BACK" },
       },
     },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "xrogue_default", text = "Then you serve it in a way many forget, and I won't be one of them. When I escaped Durnholde, a quiet friend and an unlocked door freed me as surely as any battle, so I know the worth of work done in the dark, so long as it's done for the Horde and never against it." },
       },
       choices = {
-        { text = "The shadows win battles before they start, Warchief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Knives in the dark win battles before they start, Warchief.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I'd still rather stand in the open for the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "What does the Horde stand for?", next = "horde" },
       },
@@ -253,7 +253,7 @@ P:NPC {
       },
     },
     paladin_why = {
-      lines = { { id = "py_default", text = "Penance, then. I know something of carrying the weight of what you were made into. Just don't let the guilt become another master, because you've had enough of those, and so have I." } },
+      lines = { { id = "py_default", text = "Penance, then. I know something of hating what others made you into. Just don't let the guilt become another master, because you've had enough of those, and so have I." } },
       choices = { { text = "I'll try, Warchief.", next = "BACK", fx = { affinity = 2 } } },
     },
     frostwolf = {
@@ -464,7 +464,7 @@ P:NPC {
         { id = "fk_scourge", when = { race = "Scourge" }, text = "You'll know better than I do what it is to be what you are, so forgive me if I speak of your people as a stranger, because that's still what I am to them. I took the Forsaken in because I know what it is to be made into someone else's weapon." },
       },
       choices = {
-        { text = "Do you truly trust the Dark Lady?", tag = "Persuade", next = "sylvanas_truth",
+        { text = "Do you really trust the Dark Lady?", tag = "Persuade", next = "sylvanas_truth",
           check = { pass = { any = { { disposition = { min = 65 } }, { trait = "discreet" }, { origin = "orc_frostwolf" } } } },
           fail = { next = "sylvanas_no", fx = { affinity = -1 } } },
         { text = "What does she want from the Horde?", next = "forsaken2" },
@@ -697,8 +697,8 @@ P:NPC {
 
   greetings = {
     { id = "g_hall", text = "Come, sit. The Warchief talk to everybody, but Vol'jin only talk to the interesting ones, so let's see which you be." },
-    { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Stand up straight, mon. You carry the tribe's name everywhere you walk now." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back, good. That mean you still alive, and still interesting." },
+    { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Stand up straight, mon. Every orc in this city judge the whole tribe by your posture now." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back, good. That mean you still alive, and still worth the talking to." },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, mon, and Vol'jin was starting to wonder if the jungle ate you. Sit, and tell me something interesting." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, mon, you grown some teeth since we last talk. Vol'jin likes it when the interesting ones get dangerous too." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The talk in the city says somebody believed a story you told them, and maybe they shouldn't have. Vol'jin don't judge, mon, but he do count his rings after you leave." },
@@ -725,7 +725,7 @@ P:NPC {
     },
     xcl_zg = {
       big = true,
-      lines = { { id = "xcl_zg_default", text = "Quiet for now, mon. The Gurubashi call that Soulflayer into the world because they want their empire back, and they forget that a god who drink blood never stop at the enemy's. My people lose our place in that jungle long ago, and I won't pretend I grieve for the ones who drive us out, but no troll should be food for Hakkar." } },
+      lines = { { id = "xcl_zg_default", text = "Quiet for now, mon. The Gurubashi call that Soulflayer into the world because they want their empire back, and they forget that a god who drink blood never stop at the enemy's. My people lose our place in that jungle long ago, and I shed no tears for the ones who drive us out, but no troll should be food for Hakkar." } },
       choices = {
         { text = "Even the Gurubashi deserved better than to be his food.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Those trolls chose their god, Vol'jin. Let them pay his price.", next = "BACK", fx = { align = { light = -1 } } },
@@ -906,7 +906,7 @@ P:NPC {
         { id = "zc_default", text = "Zalazane be my enemy, and that be all you need to know about him, mon." },
         { id = "zc_quick", text = "You reach for a chief's heart quick, mon. Slow down, and maybe one day I show you." },
       },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "So be it.", next = "BACK" } },
     },
   },
 
@@ -961,7 +961,7 @@ P:NPC {
       },
     },
     xpt_neeru2 = {
-      lines = { { id = "xpt_neeru2_default", text = "There is always a cost, friend, and the trick is making certain someone else pays it. That was a joke, mostly; the demons take whatever they can, and a good warlock simply gives them nothing they can use." } },
+      lines = { { id = "xpt_neeru2_default", text = "There is always a cost, friend, and a clever warlock makes certain someone else pays it. That was a joke, mostly; the demons take whatever they can, and a good warlock simply gives them nothing they can use." } },
       choices = {
         { text = "I'll remember that, Neeru.", next = "BACK" },
       },
@@ -1051,7 +1051,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_lock", tags = { "news" }, when = { party = { class = "WARLOCK" } },
-          text = "Your friend {companion} carries the smell of sulfur and doesn't seem ashamed of it. Most orcs in this city look away from my sort, so it warms me to see someone who keeps such honest company." },
+          text = "Your friend {companion} smells of sulfur and doesn't seem ashamed of it. Most orcs in this city look away from my sort, so it warms me to see someone who keeps such honest company." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. How very unusual. I make it my business to know everyone in Orgrimmar who handles a dangerous fire, and you are certainly one of them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. How refreshing; most of the Horde's spellcasters come to the Cleft of Shadow for something less wholesome than prayer." },
         { id = "h_default", key = true,
@@ -1261,7 +1261,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "Better than you'd think, once the ale's poured. The orcs boast and the tauren listen, and by the end of the night they're singing the same song in two languages." } },
       choices = {
-        { text = "That friendship is worth more than any war.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd take that friendship over any war.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Friendship is fine, but it's the war that binds us.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1283,7 +1283,7 @@ P:NPC {
         { id = "xmage_default", text = "My hearth's burned fine for years without a spell, and it'll burn fine after you've gone. Sit down, eat your meat, and let the fire do its own work for once." },
       },
       choices = {
-        { text = "Fair enough. I'll leave your fire alone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Understood. I'll keep my hands off your fire.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A spell would burn hotter and longer.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "What's good to eat tonight?", next = "best" },
       },
@@ -1431,7 +1431,7 @@ P:NPC {
         { id = "xrogue_default", text = "Would you? No, don't, because then they'd only knock me down harder tomorrow. I was a warrior once and I fought fair, and look where it got me, so maybe you've got the right idea after all." },
       },
       choices = {
-        { text = "Some lessons are best taught from the shadows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Some lessons go down better with a knife at the throat.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Next time, I'll stand beside you openly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Why does everyone attack you?", next = "why" },
       },
@@ -1451,7 +1451,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Maybe it would, but out there nobody knocks you down, and I'm not sure I'd know who I was anymore. In here at least I know I'll get back up, and that's the one thing I'm still good at." } },
       choices = {
-        { text = "Getting back up every time is a kind of honour, Gamon.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You keep getting up, Gamon. That takes guts.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Pride's no use to you. Walk away and start over somewhere.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

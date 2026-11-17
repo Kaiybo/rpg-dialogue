@@ -67,7 +67,7 @@ P:NPC {
       lines = { { id = "ee_default", text = "Mud ate a boot once, with a foot still in it, but the foot belonged to a raptor, so it does not count. Raptors taste like boots anyway." } },
       choices = {
         { text = "Threatening people is no way to get fed.", next = "eat_stance", fx = { align = { light = 1 } } },
-        { text = "Fair enough. A threat gets things done.", next = "eat_stance", fx = { align = { light = -1 } } },
+        { text = "A threat gets things done, Mudcrush.", next = "eat_stance", fx = { align = { light = -1 } } },
         { text = "What else do you eat?", next = "eat_stance" },
       },
     },
@@ -109,7 +109,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Mud was born hungry and Mud is still hungry. That is the whole story, and Mud tells it every day." } },
-    advice = { { id = "tp_ad", text = "Eat first, then fight. Nobody fights good hungry, except Mud, and Mud is special." } },
+    advice = { { id = "tp_ad", text = "Eat first, then fight. Nobody fights good hungry, except Mud, and Mud is special, and Mud also ate a frog this morning by mistake." } },
     _none = { { id = "tp_none", text = "Mud does not know, and Mud does not care, unless it is food." } },
   },
 }

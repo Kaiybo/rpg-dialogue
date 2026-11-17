@@ -76,7 +76,7 @@ P:NPC {
         { id = "xlock_default", text = "I blame the power and anyone who trusts it, though I'll admit some of you are fighting the Blade too. Fight at my recruits' side, and keep your imp off their heels, and I'll judge you by that." },
       },
       choices = {
-        { text = "Fair enough. I'll fight beside them, not behind them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll fight at their shoulder, where they can see me.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your blame is your own business, warrior.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -116,11 +116,11 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Stand back from the ring, then, because my recruits will want to show off for you, and you'll be busy soon enough." },
         { id = "h_default", key = true, text = "I am Frang, and I teach the warriors of the Den to fight like the Horde fights, shoulder to shoulder and never turning their backs. Everything else they learn out in the valley, mostly from boars." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back from the valley, are you? Tell me what the quilboar taught you today, and then I will teach you something they cannot." },
-        { id = "h_low", when = { maxLevel = 5 }, text = "You are greener than a cactus apple, but everyone starts green. The trick is not to stay that way, so get out there and come back hurt." },
+        { id = "h_low", when = { maxLevel = 5 }, text = "You are greener than a cactus apple, but everyone starts green. Just don't stay that way, so get out there and come back hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my Den! Good, because when my recruits fall down you can tell the earth to hold them up, and save me some shouting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my Den! Good, because a recruit who's been knocked down by a bear learns to get up faster than one who's only been knocked down by me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. I teach shoulder to shoulder and never turning your back, so you'll find little here for you except a sore lesson." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I've seen the scars the Blade's demons leave on recruits, and I've buried two of them this season." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I've seen what the Blade's imps leave of a recruit's face, and I've buried two of them this season." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in my training ground. Your beast can sit by the wall, and you can stand with my recruits, because it won't hurt you to learn to take a hit." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in the Den! Stand back from my ring, because my recruits throw each other, and I won't have them throwing a spellcaster." },
       },
@@ -191,7 +191,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, mon, you be one of mine. Sit down, catch your breath, and tell Ken'jai what the valley did to you." },
-    { id = "g_other", text = "You be hurt, you come to Ken'jai, and if you be not hurt yet, give it a day in this valley." },
+    { id = "g_other", text = "You be hurt, you come to Ken'jai, and if you be not hurt yet, give it a day in this valley. The boars here bite ankles, and the recruits run into cactus backwards." },
     { id = "g_loa", when = { origin = "troll_loa_speaker" }, text = "Ah, the one the loa talk to, come to the valley. Tell them Ken'jai say hello and keep the jokes kind, mon, because my recruits be bleeding enough without the spirits laughing at them." },
   },
   notice = {
@@ -384,7 +384,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "I keep linen and water aside for whoever's doing the mending, because the young ones never think of it. If you're short, take what you need and pay me later, but bring the empty skins back, because water's dear in this valley." } },
       choices = {
         { text = "I'll pay you back and return every skin, Duokna.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Healing's worth more than your linen. I'll take what I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your linen's for bleeding grunts. I'll take what I need.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -423,7 +423,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Bread, if you're tired of the conjured kind, which tastes like sand, from what the trolls say. And thread, because those robes tear on every cactus in the valley, and a mage with a torn robe looks very silly indeed." },
+        { id = "xmage_default", text = "Bread, if you're tired of the conjured kind, which tastes like sand, from what the trolls say. And thread, because those robes tear on every cactus in the valley, and a mage with a torn robe looks like a scarecrow." },
       },
       choices = {
         { text = "Thread and bread, then. I'll buy honest goods.", next = "BACK", fx = { align = { order = 1 } } },
@@ -435,7 +435,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Everything except the totems, because every one of you thinks the spirits will carry the rest. The spirits won't fill your waterskin, so take one from me and stop asking the river." } },
       choices = {
-        { text = "Fair enough. Good planning honors the spirits as much as prayer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A full waterskin honours the spirits too. I'll take one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The land provides when I need it, so I travel light.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -731,7 +731,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "To read tracks, and to learn which creatures should be left alone and which ones need to be hunted. A rogue who knows the land as well as the shadows will last longer out here than one who only knows locks." },
+        { id = "xrogue_default", text = "To read tracks, and to learn which creatures should be left alone and which ones need to be hunted. A rogue who knows the land as well as the back alleys will last longer out here than one who only knows locks." },
       },
       choices = {
         { text = "Then teach me the land. I'll respect it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -882,7 +882,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Some of it, though you'll never be as quiet with a boar breathing at your heels. Tracking and stalking aren't so different, because both are about knowing where your prey will look and being somewhere else, and the best hunters in Durotar learned that the hard way." },
+        { id = "xhuntcl_default", text = "Some of it, though you'll never be as quiet with a boar breathing at your heels. Tracking and stalking aren't so different, because both are about knowing where your prey will look and being somewhere else, and the best hunters in Durotar all have a boar scar to show for it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a terrible thief, by the way, because it can't keep still when it's pleased with itself." },
       },
       choices = {
@@ -897,15 +897,15 @@ P:NPC {
         { id = "xmage_default", text = "Some of you can turn invisible with a spell, I'm told, which is cheating, if you ask me. Learn to keep quiet without it, and you'll be twice as useful as those who rely on their tricks." },
       },
       choices = {
-        { text = "Then I'll learn the quiet way. It's honest work.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A spell does the job. The hard way is wasted effort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll learn to stalk on my own two feet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A spell does the job. Crawling through cactus is wasted effort.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Sometimes, when someone needs a curse and a knife on the same target, though the shadows don't care for that green light of yours. Work with my people if you like, but keep your demon out of sight, because it'll get us both killed." },
+        { id = "xlock_default", text = "Sometimes, when someone needs a curse and a knife on the same target, though that green glow of yours lights up a dark alley like a bonfire. Work with my people if you like, but keep your demon out of sight, because it'll get us both killed." },
       },
       choices = {
         { text = "I'll keep the imp out of sight. Agreed.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1069,7 +1069,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Every day, mon, because I grew up with the sea in my ears and the smell of jungle rain. But the grunts here need mendin' more than I need the sea, so I stay, and I dream of the waves when I sleep." } },
       choices = {
-        { text = "Duty keeps you here, and that's worth more than the sea.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Duty keeps you here. The sea can wait for you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your heart belongs by the sea. You should follow it home.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1135,7 +1135,7 @@ P:NPC {
     },
     forsaken = {
       lines = { { id = "f_default", text = "Tai'jin trusts what you do, mon, more than what you be. If you heal the grunts and do not poison them, then you be a priest to me, cold hands or not." } },
-      choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Ha. Something else, then.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
@@ -1240,7 +1240,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Used carelessly it does, mon, and the elves found that out the hard way long before any troll learned a spell. That be why I teach my students slowly, though they always want the fireball before they learn to put it out." } },
+      lines = { { id = "xdruid_default", text = "Used carelessly it does, mon, and the elves blew up half their world finding that out long before any troll learned a spell. That be why I teach my students slowly, though they always want the fireball before they learn to put it out." } },
       choices = {
         { text = "Slow and careful is the right way to teach any power.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Power should be used freely. Let the students learn by burning.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1252,7 +1252,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I study the arcane, and I never study anything as strange as you, mon. Where you learn your first prayer?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, mon. The loa and the arcane don't talk much, but I be curious what yours say to you." },
         { id = "h_default", key = true, text = "I be Un'Thuwa, and I teach the arcane to trolls, and to orcs brave enough to try it. Most of the village fish or fight, but there be a few of us who rather study." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, come to see a troll do magic the hard way. You ask the elements for help and I make them listen, so let's not argue about which be better." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, come to see a troll do magic the stubborn way. You ask the elements for help and I make them listen, so let's not argue about which be better." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon, in my hut. You bend your own body and I bend the arcane, and I be curious which of us has the harder time keepin' our shape." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my hut! You can't learn from me, mon, but you be welcome to admire the books, as long as you don't pocket any." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I teach the arcane, warlock, and I don't touch what you touch. Keep that imp out of my hut, please, because it be eyeing my scrolls." },
@@ -1281,7 +1281,7 @@ P:NPC {
       choices = { { text = "Before the elves? Really?", next = "learn_elves" } },
     },
     learn_elves = {
-      lines = { { id = "le_default", text = "Big and proud, mon, with temples and witch doctors and mages in Zul'Aman and the jungles of Stranglethorn. The Darkspear were never one of the great tribes, but we remember the stories, and a story be a kind of spellbook too." } },
+      lines = { { id = "le_default", text = "Big and proud, mon, with temples and witch doctors and mages in Zul'Aman and the jungles of Stranglethorn. The Darkspear were never one of the great tribes, but we remember the stories, and a good story teach as much as any spellbook." } },
       choices = {
         { text = "Old stories are worth keeping.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Old stories don't matter. What you do now matters.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },

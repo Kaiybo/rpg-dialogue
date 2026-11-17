@@ -33,7 +33,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not once, no. They took the cloth from honest folk first, and I'm only putting it back to use. Your spirits might call that balance." } },
       choices = {
-        { text = "Using what thieves stole is fair enough. It's honest work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Putting stolen cloth back to use is honest work.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Better to burn it. Don't touch what bandits wore.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -307,7 +307,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Nobody, if I'm honest, unless you count the crows. The Defias come through after dark and take what they like, and we stand in the rows next morning pretending not to see the footprints." } },
+      lines = { { id = "xapala_default", text = "Nobody, unless you count the crows. The Defias come through after dark and take what they like, and we stand in the rows next morning pretending not to see the footprints." } },
       choices = {
         { text = "Then I'll stand in the rows tonight, Gerard.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Hire guards, then. A vineyard should pay for its own safety.", next = "BACK", fx = { align = { light = -1 } } },

@@ -291,7 +291,7 @@ P:NPC {
       choices = {
         { text = "Stormwind pays its debts.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Stormwind deserves no better than what it pays for.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Let's leave Stormwind's purse out of it.", next = "BACK" },
       },
     },
     horde = {
@@ -549,7 +549,7 @@ P:NPC {
         { id = "w_default", text = "Everyone asks! My people wander the plains, and I found a bigger plain: flatter, wetter, and the centaur can't follow me onto it." },
       },
       choices = {
-        { text = "Ha. Fair enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Ha! And centaur can't swim, can they?", next = "BACK", fx = { affinity = 2 } },
         { text = "What did your family say?", next = "why_family" },
       },
     },
@@ -942,7 +942,7 @@ P:NPC {
       { id = "tp_knows", text = "Pick a subject, any subject; I've got a rumor for every one of them and a price for most." },
     },
     background = { { id = "tp_bg", text = "I started out running messages, and now I am the messages. That's not bad for a goblin with no inheritance." } },
-    advice = { { id = "tp_ad", text = "Information's worth more than gold, and it spoils faster, so use it quick." } },
+    advice = { { id = "tp_ad", text = "News spoils faster than fish in this heat, so use it quick, before somebody else does." } },
     kurzen = { { id = "tp_kurzen", text = "The rebels up north buy from me, but Kurzen's lot stopped buying anything a while back, and that's never a good sign." } },
     bloodsail = { { id = "tp_bloodsail", text = "Bad for shipping, bad for business, bad for my nerves. The Baron pays well to make them less of all three." } },
     _none = { { id = "tp_none", text = "That, I don't know. Come back tomorrow and I will." } },
@@ -1077,7 +1077,7 @@ P:NPC {
           text = "Stoley's been dodging me long enough. Go and see him, and be friendly about it, at first." },
         { id = "h_knuckle", when = { metBefore = true }, text = "Won three hands of knucklebones this morning and lost one. The one I lost, I'll be collecting on." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at my table, eh? Don't go conjuring any extra dice, friend, because I count every pair in this tavern, and I'd know." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll be honest with you, I'd rather owe money to the Bloodsail than to a demon, and I've owed plenty to the Bloodsail." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Between you and me, I'd rather owe money to the Bloodsail than to a demon, and I've owed plenty to the Bloodsail." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? There are a few names on my list who've been dodging me for months, and you look like the sort who could knock on a door without needing it opened." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and they tell me your kind can track anything at all. I've a debtor or two who would be very surprised to hear that." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? I've no shape to change into that'd get me out of a debt, and neither have you, so we'll get along fine." },
@@ -2206,7 +2206,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Openly when we can, because a Bloodsail ship at the bottom of the bay can't plot anything. Still, they've spies in every tavern on this coast, so I'm not above a bit of sneaking myself when it gets us the news we need." } },
       choices = {
         { text = "Fight them in the open. Let them see who's coming.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Turn their spies against them. Sneaking wins wars.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Turn their spies against them, and let them stab each other.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2372,8 +2372,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. The trick is keeping the stock alive, and frankly that's where I always lose money." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. The trick is keeping the stock alive, and frankly that's where I always lose money. Now don't look at me like that, pal, because I'd never try to buy {pet}, at least not while you're standing right there." },
+        { id = "xhuntcl_default", text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. Keeping the stock alive is another matter, and last month a panther ate the parrots, the cage and very nearly the cabin boy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. Keeping the stock alive is another matter, and last month a panther ate the parrots, the cage and very nearly the cabin boy. Now don't look at me like that, pal, because I'd never try to buy {pet}, at least not while you're standing right there." },
       },
       choices = {
         { text = "A beast deserves a clean hunt, not a cage in Undermine.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -2625,7 +2625,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Every sailor in Booty Bay has a story about the sea spirits, and each one gets better with the third drink. My favorite says a water elemental drank half a ship's rum and went home happy, and I'd very much like to meet that fellow." } },
       choices = {
         { text = "Toast them with care. The sea's spirits aren't a joke.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A good story's worth more than the truth of it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Nobody pays for the truth. They pay for a good story.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -3128,7 +3128,7 @@ P:NPC {
         { id = "xmg_default", text = "I've tasted that conjured bread, and it's bread the way a painted fish is a fish. A cook's food remembers where it came from, mate, and yours remembers nothing at all." },
       },
       choices = {
-        { text = "It keeps me alive. That's enough.", next = "BACK", fx = { affinity = -1 } },
+        { text = "It keeps me alive, and it never goes stale.", next = "BACK", fx = { affinity = -1 } },
         { text = "Fair. Cook me something real, then.", next = "BACK", fx = { affinity = 2 } },
       },
     },
@@ -3349,7 +3349,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because animals come off the boats as well as on, and I've had a Barrens hyena loose in the hold of the Ratchet boat and a crocolisk asleep on my scales. Everything that walks through Booty Bay goes past me first, and that includes things with four legs. Your {pet} looks well behaved enough, so it can go on the good list, provided it stays off my crates." },
       },
       choices = {
-        { text = "Fair enough. Rules keep a busy dock safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep my beast leashed on your dock.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "My beast goes where I go, list or no list.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

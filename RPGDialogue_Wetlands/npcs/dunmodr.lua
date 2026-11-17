@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Keep yer head down, friend, for the Dark Irons have archers on the walls. What brings ye tae Dun Modr?" },
+    { id = "g_default", text = "Keep yer head down, friend, for the Dark Irons have archers on the walls. What brings ye tae Dun Modr, besides bad luck an' a bad map?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece. That's more than most manage on this road." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' Dun Modr's still standin', just about. Any word o' reinforcements on yer travels?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown fierce since I sent ye out tae look for Rustlocke. Longbraid could use a hundred like ye." },

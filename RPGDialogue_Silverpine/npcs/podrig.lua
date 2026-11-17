@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. I've recounted since you were last here, so if anything's gone missing, I'll know." },
     { id = "g_order", when = { questActive = TODO_QUEST("Supplying the Sepulcher") }, text = "The order goes to Karos Razok first, for the bat, and then to Gordon Wendham in the Undercity. Don't lose it, because I'll have to write it again." },
     { id = "g_crate", when = { questActive = TODO_QUEST("Return to Podrig") }, text = "Have you got Gordon's crate? You appear to be on official business, which is how I like people to appear." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and in that time we lost six blades and a shield in the woods. I'm keeping a list." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and in that time we lost six blades and a shield in the woods, plus one helmet a ghoul is still wearing. I'm keeping a list." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're better armed than when you first ran errands for me. I'd like to know where it came from, purely for the records." },
     { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been useful about the Sepulcher. Useful people are the only kind my ledger has room for." },
   },

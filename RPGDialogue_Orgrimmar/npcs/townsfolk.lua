@@ -20,7 +20,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Your vault is where you left it, and so is everything in it. I'd know if it weren't." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Put it in or take it out, and I'll write it down either way." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Put it in or take it out, and I'll write it down either way. If it's another sack of murloc eyes, though, I'm charging you for the smell." },
     { id = "g_goblin", when = { race = "Goblin" }, text = "A goblin at an orc's counter. Count it twice if you like, but you'll find I counted it three times." },
   },
 
@@ -91,14 +91,14 @@ P:NPC {
         { id = "xmage_default", text = "The Warchief doesn't like wards he can't see, and neither do I. Iron, stone and grunts who don't drink on duty have served this bank well enough, and I'll keep it that way." },
       },
       choices = {
-        { text = "Iron and stone, then. Fair enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Iron and stone, then. I'll not argue with a banker.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Wards would serve you better than tired grunts.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "How can every bank reach the same vault?", next = "vault" },
       },
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Every druid I've met keeps a little, though they're shy about it, and it's mostly seeds and herbs they swear can't be bought anywhere else. I keep their chests by the cool wall, because I learned the hard way that seeds sprout in a warm vault." } },
+      lines = { { id = "xdruid_default", text = "Every druid I've met keeps a little, though they're shy about it, and it's mostly seeds and herbs they swear can't be bought anywhere else. I keep their chests by the cool wall, because one summer I opened a chest and found it full of sprouts and a very fat beetle." } },
       choices = {
         { text = "A sensible druid plans for lean seasons, like any good banker.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The land provides. A druid shouldn't hoard anything at all.", next = "BACK", fx = { align = { order = -1 } } },
@@ -206,7 +206,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Buying or selling? Either way, read the slip before you sign it." },
+    { id = "g_hi", text = "Buying or selling? Either way, read the slip before you sign it. The last fellow who didn't sold his own boots." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did it sell? Then you're welcome; and if it didn't, price it lower." },
   },
 
@@ -335,7 +335,7 @@ P:NPC {
     deposit = {
       lines = { { id = "d_default", text = "So nobody lists a hundred rusty swords for a fortune and clogs the house for a day. Sell it and you get the deposit back; leave it unsold and the house keeps it for its trouble." } },
       choices = {
-        { text = "That seems fair enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "That sounds square to me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It's a tax on the poor, and you know it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Who keeps the deposits?", next = "deposit_tax" },
       },
@@ -480,7 +480,7 @@ P:NPC {
         { id = "xmage_default", text = "Plenty, once they learn that a teleport only goes where the Horde has a city and my beasts go wherever it has a perch. Treat them well, too, because a wind rider remembers a rider who kicks, and it'll take the long way round next time." },
       },
       choices = {
-        { text = "I'll treat them well. They carry the Horde.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll treat them well. The Horde rides on their backs.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A beast is a beast. It goes where I say.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -695,7 +695,7 @@ P:NPC {
       big = true,
       lines = { { id = "cb_default", text = "Freer, perhaps, and also always at each other's throats. The Warchief's Horde is the first that chose to be one, and I'd rather record a hundred small guilds who chose it than one great clan that was forced." } },
       choices = {
-        { text = "Unity is worth more than old names.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old clan names won't hold this city together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A people without their clans has lost something.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
@@ -734,7 +734,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Keep moving, citizen, and keep your weapon sheathed in the Warchief's city." },
+    { id = "g_hi", text = "Keep moving, citizen, and keep your weapon sheathed in the Warchief's city. And mind the kodo dung by the gate, because nobody's been paid to shovel it this week." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still in one piece, I see. Good; the Horde needs you that way." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, citizen, and nobody filed a report. Next time you vanish from the Warchief's city, at least tell a guard." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "The last time I saw you, you couldn't hold a shield level, and now you walk like a veteran. The Horde makes warriors out of the ones who keep at it." },
@@ -832,7 +832,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Good, because I've got enough recruits waving their axes outside the Broken Tusk. Keep your knives hidden and your business quiet, and if I catch you cutting purses in the Drag, you'll find out how little I care for quiet work." },
+        { id = "xrogue_default", text = "Good, because I've got enough recruits waving their axes outside the Broken Tusk. Keep your knives hidden and your business quiet, and if I catch you cutting purses in the Drag, you'll find out how little I care for sneaks." },
       },
       choices = {
         { text = "No purses will be cut, Overlord. You have my word.", next = "BACK", fx = { align = { order = 1 } } },
@@ -937,7 +937,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "vendor", tier = "service",
   communities = { "orgrimmar" }, temper = { "warm" }, values = { "loyal", "proud" },
   impression = {
-    first = "Ogunaro Wolfrunner raises the Horde's riding wolves and speaks of each one by name. He will sell a wolf to any orc and to anyone the city has truly accepted, and he means both rules.",
+    first = "Ogunaro Wolfrunner raises the Horde's riding wolves and speaks of each one by name. He will sell a wolf to any orc and to anyone the city has properly accepted, and he means both rules.",
     third = "{name} met Ogunaro Wolfrunner, the kennel master who raises the riding wolves of Orgrimmar.",
   },
 
@@ -1018,7 +1018,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "They'll carry anyone the city has truly accepted, and a troll or Forsaken mage who's earned that can ride one of mine, though not before. Don't ever freeze one to stop it running, because I'll hear about it, and so will the wolf." },
+        { id = "xmage_default", text = "They'll carry anyone the city has properly accepted, and a troll or Forsaken mage who's earned that can ride one of mine, though not before. Don't ever freeze one to stop it running, because I'll hear about it, and so will the wolf." },
       },
       choices = {
         { text = "I'd never harm a wolf, Ogunaro.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1033,12 +1033,12 @@ P:NPC {
         { id = "h_default", key = true, text = "Ogunaro Wolfrunner, kennel master. I raise the wolves the Horde rides to war, and every one of them was raised by my hand. Have you come to look, or have you come to buy?" },
         { id = "h_orc", when = { race = "Orc", minLevel = 40 }, text = "You're ready for one of my wolves, and they can tell. Come and choose, though the truth is the wolf will choose you." },
         { id = "h_friend", when = { ["not"] = { race = "Orc" }, reputation = { faction = "Orgrimmar", min = "exalted" } },
-          text = "The whole city speaks well of you, and that's enough for me to sell you a wolf, whoever your people are. Come and choose one." },
+          text = "The whole city speaks well of you, so I'll sell you a wolf, whoever your people are. Come and choose one." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The wolves smell something on you they can't name, and look, they've gone quiet, which is more respect than they show most orcs." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The wolves know your kind, because the Frostwolves have run with shamans for as long as there have been Frostwolves, and see, they're already watching you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you'll be wanting a wolf to ride into battle, I'd wager. Every warrior does, once they've crossed the Barrens on their own feet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. My wolves don't like the smell of burnt air, so keep your hands still while you're in the kennels." },
-        { id = "h_frostwolf", when = { origin = "orc_frostwolf" }, text = "A Frostwolf, in my kennels! Look at them, they've all come to the bars, because they smell Alterac snow on you even after all this way. I've never raised a white one, and I won't pretend I'm not jealous." },
+        { id = "h_frostwolf", when = { origin = "orc_frostwolf" }, text = "A Frostwolf, in my kennels! Look at them, they've all come to the bars, because they smell Alterac snow on you even after all this way. I've never raised a white one, and I'm green with jealousy." },
       },
       again = { { id = "h_again", text = "Anything else? The wolves are listening, so ask nicely." } },
       choices = {
@@ -1132,7 +1132,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "It does. The guards had a priest who glowed like that when he blessed them, and never once did he bless us. But you didn't stand on that wall, and the fish don't know the difference, so cast your line and we'll leave the past on the bank." } },
       choices = {
-        { text = "I'll leave it there with you. Fair enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll leave it there with you, then.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The past is the past. It's not my concern.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1159,7 +1159,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Closer than most hunters think. You read the water the way you read tracks, you wait where the prey wants to be, and you never take more than you'll eat, because the river remembers greed the same way the plains do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a fish, I think, by the way it's watching my bucket. Fair enough; it's earned one more than most of the grunts who walk past." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a fish, I think, by the way it's watching my bucket. Go on, then; it's earned one more than most of the grunts who walk past." },
       },
       choices = {
         { text = "Take only what you'll eat. That's the rule I live by.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1182,7 +1182,7 @@ P:NPC {
         { id = "xrogue_default", text = "Patience, aye, though a fish doesn't hold a grudge when you catch it. I learned to fish in the internment camps, from an old orc who said the river was the one thing the humans couldn't lock up, and I've been patient ever since." },
       },
       choices = {
-        { text = "Then let patience bring peace, not just prey.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then let patience bring you peace as well as fish.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Patience is a weapon, and I use it like one.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Why did you take up fishing?", next = "why" },
       },
@@ -1232,7 +1232,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? Keep your voice low; voices carry over water." } },
       choices = {
-        { text = "Is fishing a kind of prayer to you, Lumak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you pray out here, Lumak, or just fish?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the water spirits help or hinder a fisherman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you take only what the water can spare, Lumak?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
@@ -1398,7 +1398,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin with a pick? The rock won't care about your Light, but it'll test your back, if the dead still have backs that ache." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll not want to learn mining, I expect, but you'll want to know which caves the Burning Blade have taken, and I can tell you that." },
-        { id = "h_default", key = true, text = "Makaru, and I teach mining. The city was built from the stone of these hills, and every forge in the Valley of Honor burns ore that somebody dug out with a pick." },
+        { id = "h_default", key = true, text = "Makaru, and I teach mining. The city was built from the stone of these hills, and every forge in the Valley of Honor burns ore that somebody dug out with a pick and a bad back." },
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "A smith! Then you know what bad ore does to a blade, so learn to dig your own and never trust a stranger's bars." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the miners' hall. You'll ask the earth's leave before you dig, I suppose, and I won't laugh at you for it, because the hills here have dropped a roof on more than one miner who didn't." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid among the miners. You'll not like what a pick does to a hillside, I expect, so say your piece about it now and let's be done with it." },
@@ -1472,7 +1472,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the sparks; they don't care who you are." },
+    { id = "g_hi", text = "Mind the sparks. One burned a hole in a grunt's breeches last week, and he's still looking for whoever laughed." },
     { id = "g_back", when = { metBefore = true }, text = "Back at my forge. Did that blade hold, or have you come to tell me otherwise?" },
   },
 
@@ -1667,7 +1667,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Customer! Or student! Either way, don't touch the red one." },
-    { id = "g_back", when = { metBefore = true }, text = "Still got all your fingers? Excellent, that means you're doing it right!" },
+    { id = "g_back", when = { metBefore = true }, text = "Still got all your fingers? Excellent, that puts you ahead of my last three apprentices!" },
   },
 
   notice = {
@@ -1915,7 +1915,7 @@ P:NPC {
         { id = "xwarlock_default", text = "No, mon, I won't, and don't you ask me twice. A demon in my stables would set every beast screaming, and the loa would laugh at me for being so foolish." },
       },
       choices = {
-        { text = "Fair enough. It stays with me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Not a word from me, then.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your beasts should get used to it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "What's the strangest beast you've kept?", next = "strange" },
       },
@@ -1924,7 +1924,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Some do, mon, and I let those ones run in the canyon whenever I can, because a beast that never runs forget what it be. The others be happy with a full trough and a voice in the morning, and I don't think less of them for it." } },
       choices = {
-        { text = "A beast in good hands is cared for, and that's enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fed, brushed and walked. A beast needs no more than that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Every beast belongs in the wild. The pens are only cages.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

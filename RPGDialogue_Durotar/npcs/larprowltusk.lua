@@ -112,7 +112,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A Darkspear scout, mon. I watch, I listen, and I come back, and most scouts only manage two of those." } },
-    advice = { { id = "tp_ad", text = "Lower your voice, mon. More fights be lost to loud words than to dull spears." } },
+    advice = { { id = "tp_ad", text = "Lower your voice, mon. The Kolkar hear a loud mouth from a mile off, and so do the vultures." } },
     echo_isles = { { id = "tp_isles", text = "I can see them from the shore, mon, but I don't look long. A scout keep his eyes on the danger in front of him." } },
     _none = { { id = "tp_none", text = "That be nothing I scouted, mon. Ask somebody who sit by a fire, not in a bush." } },
   },

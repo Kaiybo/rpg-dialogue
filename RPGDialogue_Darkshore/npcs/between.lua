@@ -50,7 +50,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xma_default", text = "Too much, and not nearly enough to tempt a mortal like you, I hope. The Highborne who lived here poured their arcane into every stone, and the Deth'ryll satyrs are what comes of that hunger in the end." },
+        { id = "xma_default", text = "Too much, and not nearly enough to tempt a mortal like you, I hope. The Highborne who lived here poured their arcane into every stone, and the Deth'ryll satyrs are what comes of that hunger, given a few thousand years." },
       },
       choices = {
         { text = "Then I'll help you see it sealed away.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -93,7 +93,7 @@ P:NPC {
       },
       choices = {
         { text = "If I fight them, I'll fight them face to face.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'll strike from the shadows. They won't see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll come at them from behind. They won't see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -103,7 +103,7 @@ P:NPC {
         { id = "h_cond", when = { race = "NightElf" }, text = "You're one of the Kaldorei, so you'll feel it too, I think, the old sorrow in these stones. Our people built this place before the sea took so much of the shore." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Deth'ryll satyrs would scatter if enough of your kind came to Bashal'Aran, and I would be glad to see it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The satyrs of Bashal'Aran leave tracks like goats and a stink like the Legion, and you will know them when you find them." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then perhaps you can feel what lingers in Bashal'Aran, for I have felt it every night since the satyrs came." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then perhaps you can feel what still haunts Bashal'Aran, for I have felt it every night since the satyrs came." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here at Bashal'Aran. I did not think to see one of your order among our ruins, but I will not refuse the help." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up through the ruins without stirring a single satyr, which is more than I can manage. Bashal'Aran could use someone who walks as quietly as you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I watch Bashal'Aran's ruins while the satyrs pick at what my people left. Can your spirits hear the old city?" },
@@ -121,7 +121,7 @@ P:NPC {
         { text = "Can I help you drive the satyrs from Bashal'Aran?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the satyrs hide in the ruins, Asterion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Satyrs are demon-touched. I can deal with their kind.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "What lingers in these ruins, Asterion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What haunts these ruins, Asterion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the satyrs be driven out, or destroyed?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have a quiet blade do in Bashal'Aran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can you still hear the old city, Asterion?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -576,7 +576,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Too many to count when they're all howling, but they come in twos and threes along the path, if we're quick. Stay in front of me and don't stop to finish the stragglers, because the road is what matters." } },
+      lines = { { id = "xwarcl_default", text = "Too many to count when they're all howling, but they come in twos and threes along the path, if we're quick. Stay in front of me and don't stop to finish the stragglers, because we're here for the road, not the wolves." } },
       choices = {
         { text = "I'll stay in front and keep you safe.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll finish every one. No stragglers behind us.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -796,7 +796,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I'd trust anyone who'd walk me there, truly, and I'd trust a paladin more than most. Only mind the cubs in the woods, for I'd rather you didn't fight them while I'm snoring." } },
+      lines = { { id = "xapala_default", text = "I'd trust anyone who'd walk me there, and I'd trust a paladin more than most. Only mind the cubs in the woods, for I'd rather you didn't fight them while I'm snoring." } },
       choices = {
         { text = "I'll get you home to Liladris, I swear it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll take you part way. Then you're on your own.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -827,7 +827,7 @@ P:NPC {
       },
       again = {
         { id = "h_again1", text = "Ask, quickly, before I nod off." },
-        { id = "h_again2", text = "Yes? I'm listening, truly I am." },
+        { id = "h_again2", text = "Yes? I'm listening, I swear it." },
       },
       choices = {
         { text = "Why do you keep falling asleep?", next = "sleep" },

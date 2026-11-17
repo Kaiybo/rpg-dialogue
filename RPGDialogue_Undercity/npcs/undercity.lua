@@ -112,7 +112,7 @@ P:NPC {
         { text = "Tell me about Arthas.", next = "arthas" },
         { text = "I carry the Light, my lady, though it burns.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "I still pray to the Light, my lady.", next = "priest", when = { race = "Scourge", class = "PRIEST" } },
-        { text = "I'd serve you from the shadows, my lady.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'd serve you as a knife in the dark, my lady.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I served the Cult once, before the end.", next = "cult", when = { race = "Scourge", class = "WARLOCK" } },
         { text = "My people spoke for yours. Was it a mistake?", next = "tauren", when = { race = "Tauren" } },
         { text = "My spells are yours, my lady.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -392,7 +392,7 @@ P:NPC {
       lines = { { id = "f2_default", text = "It was like standing in a burnt house you once lived in, knowing every room and owning none of them. Most of my people still feel it, and the ones who say they don't are lying, so I let them lie and give them work instead." } },
       choices = {
         { text = "I still feel it, my lady.", next = "BACK", fx = { affinity = 1 }, when = { race = "Scourge" } },
-        { text = "Work is a kind of mercy, then.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Then the work keeps you from thinking.", next = "BACK", fx = { trait = { practical = 1 } } },
         { text = "Something else, my lady.", next = "BACK" },
       },
     },
@@ -444,7 +444,7 @@ P:NPC {
         { id = "ho_living", when = { race = { "Orc", "Tauren", "Troll" } }, text = "You're one of them, so I'll be careful, though not so careful that I'll lie to you. The Horde took us in because the tauren asked, and I know precisely how much that kindness weighed against our usefulness." },
       },
       choices = {
-        { text = "What do you truly think of Thrall?", tag = "Persuade", next = "thrall_truth",
+        { text = "What do you really think of Thrall?", tag = "Persuade", next = "thrall_truth",
           check = { pass = { any = { { disposition = { min = 70 } }, { origin = "forsaken_deathstalker_recruit", disposition = { min = 55 } }, { trait = "discreet" }, { race = "Scourge", disposition = { min = 60 } } } } },
           fail = { next = "thrall_no", fx = { affinity = -1 } } },
         { text = "And Cairne Bloodhoof?", next = "cairne" },
@@ -509,7 +509,7 @@ P:NPC {
       },
     },
     ask_me_pay = {
-      lines = { { id = "akp_default", text = "You get to go on being useful to me, which in this city is worth more than gold. Ask Varimathras what became of those who stopped being useful, if you can find any of them to ask." } },
+      lines = { { id = "akp_default", text = "You get to go on being useful to me, which in this city pays better than gold. Ask Varimathras what became of those who stopped being useful, if you can find any of them to ask." } },
       choices = { { text = "Understood, my lady.", next = "BACK" } },
     },
     ask_me_life = {
@@ -609,7 +609,7 @@ P:NPC {
       },
       choices = {
         { text = "I hunt for the Dark Lady, Varimathras, not for appetite.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every hunter hungers, dreadlord. I won't pretend otherwise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every hunter hungers, dreadlord. Mine's no secret.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -769,7 +769,7 @@ P:NPC {
   nodes = {
     xpt_faranell = {
       big = true,
-      lines = { { id = "xpt_faranell_default", text = "Only a little of their time and a few of their prayers, said over subjects in the next room. If faith truly holds the rot at bay in the Forsaken, the Royal Apothecary Society should know it, and if it doesn't, the priests should know that too." } },
+      lines = { { id = "xpt_faranell_default", text = "Only a little of their time and a few of their prayers, said over subjects in the next room. If faith really holds the rot at bay in the Forsaken, the Royal Apothecary Society should know it, and if it doesn't, the priests should know that too." } },
       choices = {
         { text = "Knowledge is worth having, whatever it costs your subjects.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Prayers aren't instruments for your experiments, Faranell.", next = "BACK", fx = { align = { light = 1 } } },
@@ -848,7 +848,7 @@ P:NPC {
         { text = "What use are your potions to a warrior, Faranell?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What are you making?", next = "making" },
         { text = "I need poisons for my blades. Can you help?", next = "rogue", when = { class = "ROGUE" } },
-        { text = "I trained in Dalaran. Your work is a kind of magic.", next = "mage", when = { class = "MAGE" } },
+        { text = "I trained in Dalaran. Your work looks like magic to me.", next = "mage", when = { class = "MAGE" } },
         { text = "Do your brews work on demons?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "My people's elders treat the Forsaken. Do you work with them?", next = "tauren", when = { race = "Tauren" } },
         { text = "Do you need samples from the beasts I hunt, Faranell?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -1016,7 +1016,7 @@ P:NPC {
         { id = "h_prodigal", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich") },
           text = "Somewhere out there, a lich calls himself by an old friend's name. Find out if it's true, though I'd rather it weren't." },
         { id = "h_returns", tags = { "news" }, when = { questActive = TODO_QUEST("The Prodigal Lich Returns") },
-          text = "It's Thule, truly him. End it, and bring me his head, and the last thing I owe him will be paid." },
+          text = "It's Thule, him and no other. End it, and bring me his head, and the last thing I owe him will be paid." },
         { id = "h_returns_done", when = { questDone = TODO_QUEST("The Prodigal Lich Returns") },
           text = "So he's gone. I thought I'd feel something, but all I felt was the wand in my pocket, and I still carry it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Magic Quarter. Dalaran's scholars insisted the Horde knew nothing but fel and axes, and I'm glad to see they were wrong about something besides Arugal." },
@@ -1155,7 +1155,7 @@ P:NPC {
       lines = { { id = "xpt_norman_default", text = "More than you'd think and fewer than we'd like. Most of the orcs who come down here stand very close to the door, but now and again a troll sits at my counter with a Forsaken friend and tells jokes until closing, and I count those as good nights." } },
       choices = {
         { text = "The living and the dead should stand together against the Scourge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The living will never truly trust the dead, and they shouldn't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The living will never trust the dead, and they shouldn't.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Thanks, Norman.", next = "BACK" },
       },
     },
@@ -1179,7 +1179,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "Some do, because the last Light they saw was in the hands of men burning the plague-dead in Lordaeron's streets, and you can't blame them for remembering. Others just stare, and staring's allowed down here, so long as nobody takes your chair." } },
       choices = {
         { text = "Let them stare. I'll show them the Light isn't their enemy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They're right to remember. I won't pretend the Light was kind.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're right to remember. The Light was not kind to us.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1220,7 +1220,7 @@ P:NPC {
         { text = "Do rogues get a chair here too, Norman?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A warm fire would suit your common room, Norman.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is there a chair for my demon too, Norman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do the regulars truly mind a paladin among them, Norman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do the regulars really mind a paladin among them, Norman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do many living folk travel with the Forsaken, Norman?", next = "xpt_norman", when = { party = { race = "Scourge" } } },
         { text = "Just resting.", next = "END" },
       },

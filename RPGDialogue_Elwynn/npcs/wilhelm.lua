@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "affliction" },
   impression = {
     first = "Brother Wilhelm works in the forge smoke and seems to measure people by how straight they stand when they leave. He mends souls, he says, and slowly.",
-    third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath truly weighs.",
+    third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath costs in practice.",
   },
 
   greetings = {
@@ -135,7 +135,7 @@ P:NPC {
         { text = "Ironforge has plenty of anvils, Brother. I came to learn.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "Du Lac says a paladin is a warrior who prays.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you know what goes on in the inn's cellar?", next = "cellar" },
-        { text = "Can a paladin truly see through a rogue, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can a paladin really see through a rogue, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What could a mage learn from a paladin, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think a warlock can ever be redeemed, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour hunters, Brother Wilhelm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -168,7 +168,7 @@ P:NPC {
     oath = {
       big = true,
       lines = {
-        { id = "o_default", text = "Mercy. Anyone can be brave in a crowd. Being patient with someone who's wronged you, alone, with nobody watching. That's the hard part." },
+        { id = "o_default", text = "Mercy, because anyone can be brave in a crowd. Being patient with a man who's wronged you, alone and with nobody watching, is what costs a paladin sleep." },
         { id = "o_squire", when = { origin = "human_paladin_squire" },
           text = "You squired for the Silver Hand. You've seen good knights forget mercy. Don't think it can't happen to you. It's how it always happens." },
       },

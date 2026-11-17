@@ -143,7 +143,7 @@ P:NPC {
         { id = "h_talker_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Swamp Talker"), days = 3 } },
           text = "So the orders turned up in a murloc's cave, where they'd been all along. I'll not pretend that's comfort, but at least nobody can say Stonard didn't send them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Stonard's walls need warriors, but my scouts need someone to pull them out of the mud when the swamp turns on them, and that may be your job today." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. I've sent scouts to strange places, but none ever came back with a report like you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who calls on the Light. I've sent scouts to strange places, but none ever came back with a report like you." },
       },
       again = {
         { id = "h_again", text = "Next item. Keep it short; I've dispatches waiting." },
@@ -931,7 +931,7 @@ P:NPC {
       lines = { { id = "i_default", text = "Not ill, broken, and they feed me through a tube now like a sick wolf pup. If it's death that's coming for me, it's going to have to try harder." } },
       choices = {
         { text = "Why stay in Stonard?", next = "ill_stay" },
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Then death had better bring friends.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
     ill_stay = {
@@ -980,7 +980,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A soldier who carried orders south and didn't finish the road. That's the part of my story that matters now.", next = "ambush" } },
+    background = { { id = "tp_ba", text = "A soldier who carried orders south and didn't finish the road. The murlocs kept my boots, if you were wondering.", next = "ambush" } },
     advice = { { id = "tp_ad", text = "Never walk beside the water in this swamp. The murlocs wait where you can't see them, under the surface, and they don't make a sound until they're on you." } },
     _none = { { id = "tp_none", text = "Before my time, or after it, but either way, not mine." } },
   },
@@ -1188,8 +1188,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I cook, I pour, and I make beds. Ask the Commander if you want a story; I only want to know if you're hungry." } },
+    background = { { id = "tp_ba", text = "I cook, I pour, and I make beds. Ask the Commander if you want a story; I only want to know if you're hungry, and if you are, scrape your boots first." } },
     advice = { { id = "tp_ad", text = "Dry your boots by the fire every night, or the swamp will take your toes before the crocolisks get a chance." } },
-    _none = { { id = "tp_none", text = "I feed scouts, and the scouts know things, so ask them." } },
+    _none = { { id = "tp_none", text = "I feed scouts, and the scouts know things, so ask them. Wait until they've eaten, though, or they bite." } },
   },
 }

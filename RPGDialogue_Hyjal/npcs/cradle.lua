@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "form" },
 
   impression = {
-    first = "Maerion Thaelemaches is a night elf demon hunter who calls the victory at Hyjal a kind of defeat and seems to mean it. He watches everything, says less than he knows, and expects to be distrusted.",
+    first = "Maerion Thaelemaches is a night elf demon hunter who calls the victory at Hyjal a defeat with better songs, and seems to mean it. He watches everything, says less than he knows, and expects to be distrusted.",
     third = "{name} met Maerion Thaelemaches, a grim night elf demon hunter keeping his own vigil in the Cradle of Tranquility.",
   },
 
@@ -336,7 +336,7 @@ P:NPC {
     maerion_trust = {
       big = true,
       lines = {
-        { id = "mt_default", text = "I trust that he hates them more than he loves himself, which is a kind of trust. Whether that is enough, I will learn when it fails, and so will he." },
+        { id = "mt_default", text = "I trust that he hates them more than he loves himself, and that will have to do. Whether it holds, I will learn when it fails, and so will he." },
       },
       choices = {
         { text = "That's not trust. That's a gamble.", next = "BACK", fx = { align = { honor = 1 } } },

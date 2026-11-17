@@ -134,7 +134,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I'm on the night watch. The orcs like the dark, an' so do I, for it means I can see their fires." },
         { id = "h_warm", when = { disposition = { min = 70 } },
-          text = "There ye are! The lads on the wall have been askin' when ye'd be back, an' so have I, if I'm honest about it." },
+          text = "There ye are! The lads on the wall have been askin' when ye'd be back, an' so have I, though I'll deny it if they ask." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "I've a wall tae hold an' no time for them that cannae be trusted on it. Speak quick." },
         { id = "h_xward", when = { origin = "dwarf_military_ward" },
@@ -376,7 +376,7 @@ P:NPC {
     },
     xshaman = {
       big = true,
-      lines = { { id = "xsh_default", text = "Are they, now? I'll be honest, I've not made my mind up about Ironforge dwarves talkin' to the stones, for it's no' the way I was raised. But if the earth here's angry, I'd like to know whether it's angry at the Dragonmaw or at us." },
+      lines = { { id = "xsh_default", text = "Are they, now? I've not made my mind up about Ironforge dwarves talkin' to the stones, for it's no' the way I was raised. But if the earth here's angry, I'd like to know whether it's angry at the Dragonmaw or at us." },
       },
       choices = {
         { text = "At the Dragonmaw. They chain its dragons.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -851,7 +851,7 @@ P:NPC {
         { id = "g2_default", text = "I'm no' grumpy, I'm busy. Grumpy's only what busy looks like from the outside; inside, it's mostly prayer an' wet socks." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll pray your socks dry out, then.", next = "BACK", fx = { affinity = 2 } },
         { text = "Who looks after you, then?", next = "grumpy_self" },
       },
     },
@@ -959,7 +959,7 @@ P:NPC {
         { id = "gk_default2", text = "Kind o' ye, I'm sure, but I'm no' one o' yer drowned sailors to be fussed over. Save it for them that need it." },
       },
       choices = {
-        { text = "Fair enough, Brother.", next = "BACK" },
+        { text = "Then I'll leave you to your socks, Brother.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -973,7 +973,7 @@ P:NPC {
       },
     },
     xwarlock_light = {
-      lines = { { id = "xwlt_default", text = "Nobody who comes askin', an' that's the hard part o' the job. Come askin' some day, without the smell, an' we'll talk about it properly." } },
+      lines = { { id = "xwlt_default", text = "Nobody who comes askin', an' that's the worst o' the job, worse than the smell. Come askin' some day, without the smell, an' we'll talk about it properly." } },
       choices = {
         { text = "Maybe someday.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1117,7 +1117,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I was at Dun Modr when the Dark Irons came, an' I saw the ground split under us, so I'd sooner ye stood back a step, if it's all the same tae ye." },
       },
       again = {
-        { id = "h_again", text = "Ask away, for I'm no' goin' anywhere, truly." },
+        { id = "h_again", text = "Ask away, for I'm no' goin' anywhere till this rain stops, an' it never stops." },
         { id = "h_again2", text = "What else? Talkin' keeps my mind off the back." },
       },
       choices = {
@@ -1417,7 +1417,7 @@ P:NPC {
     },
     statuette = {
       lines = {
-        { id = "st_default", text = "Crates, barrels, and one silver statuette of King Terenas, young, as a paladin with his hammer raised. Worth more than the ship, some say. The murlocs only want it because it shines." },
+        { id = "st_default", text = "Crates, barrels, and one silver statuette of King Terenas, young, as a paladin with his hammer raised. Worth more than the ship and her crew together, some say, and the crew agree, sadly. The murlocs only want it because it shines." },
       },
       choices = {
         { text = "I'll find it.", next = "BUSINESS", fx = { affinity = 2, standing = { menethil = 1 } } },
@@ -2031,10 +2031,10 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "For the town, let's say, and for some old friends in Stormwind who like to know who comes and goes. It's quiet work, and it isn't the kind a paladin would enjoy." } },
+      lines = { { id = "xapala_default", text = "For the town, let's say, and for some old friends in Stormwind who like to know who comes and goes. It's letters and keyholes and a lot of bad ale in bad taverns, and no paladin I know would enjoy it." } },
       choices = {
         { text = "Honest work should be done in the open, Mikhail.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Quiet work keeps the kingdom safe. I understand.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Somebody has to read the letters. I understand.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else, Mikhail.", next = "BACK" },
       },
     },

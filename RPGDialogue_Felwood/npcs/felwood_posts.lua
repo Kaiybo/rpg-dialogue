@@ -124,7 +124,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk softly, which my birds appreciate, because a hippogryph startled in this forest does not always come down where you meant it to." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You carry the smell of the same fire that burned this forest, warlock, and my birds have noticed it before I have. Stand back a little, please, while I calm them." },
+          text = "You smell of the same fire that burned this forest, warlock, and my birds have noticed it before I have. Stand back a little, please, while I calm them." },
         { id = "h_default", key = true,
           text = "I am Mishellena, and I keep the hippogryphs of Talonbranch Glade. From here they carry the Alliance to Ashenvale and Darkshore and to Everlook in the snows, and away from the corruption, for a little while." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -196,7 +196,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You want a wind rider? Good, because nobody should stay in this cursed forest a moment longer than they must." },
+    { id = "g_default", text = "You want a wind rider? Good, because nobody should stay in this cursed forest a moment longer than they must, and the wyverns agree. One bit a grunt last week for dawdling at the saddle." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind rider for you, Alliance. Your elves keep their birds at Talonbranch Glade, away to the northeast, and you can walk there." },
   },
 
@@ -319,7 +319,7 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why keep a post in this forest at all?", next = "post" },
         { text = "How do your wind riders stand it here?", next = "riders" },
-        { text = "The power's the same. What matters is who holds the leash.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The power's the same. It depends who holds the leash.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does anyone try to steal your wind riders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do your wind riders feel the forest's sickness, Brakkar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have your wind riders come down in Felwood, Brakkar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -430,7 +430,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I sell bread and water to anyone of the Horde who is hungry, and a warlock gets as hungry as anyone. What I cannot do is tell you the earth here forgives, because it does not, and I would not want you to learn that the hard way." } },
+      lines = { { id = "xlock_default", text = "I sell bread and water to anyone of the Horde who is hungry, and a warlock gets as hungry as anyone. What I cannot do is tell you the earth here forgives, because it does not, and I would not want you to find out by drinking from it." } },
       choices = {
         { text = "I'll respect this land. It has suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The earth doesn't get a say in what I do.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -481,7 +481,7 @@ P:NPC {
           text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it brought in from outside, because nothing that grows in Felwood is fit to eat." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here where nothing grows clean. The Earth Mother would welcome any healing you can give this soil, whatever name you give it in." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and a tauren besides. You'll understand, I think, why I sell nothing that grew in Felwood, because even the water here tastes of rot." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The land here is sick and does not heal, and yet you were sick once, and something healed you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The land here is sick and does not heal, and yet you were sick once, and something healed you." },
       },
       again = {
         { id = "h_again", text = "Is there something more I can find for you on these shelves, friend?" },
@@ -495,7 +495,7 @@ P:NPC {
         { text = "You'd sell goods to a warlock, knowing what fel did here?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why carry all the water in? Can't the springs be cleansed?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can Felwood's soil be healed at all, Bale?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Is the water here truly that dangerous, Bale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is the water here really that dangerous, Bale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can nothing in Felwood be hunted for food?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is nothing here fit to eat, even with care?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you worry that someone will steal your supplies, Bale?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "reputation" },
 
   impression = {
-    first = "Duke Hydraxis of the Waterlords is a water elemental who rules a rock in the Bay of Storms and wages war on fire, earth and air. He judged me as a tool, honestly, and seemed to find me barely adequate.",
+    first = "Duke Hydraxis of the Waterlords is a water elemental who rules a rock in the Bay of Storms and wages war on fire, earth and air. He judged me as a tool and seemed to find me barely adequate.",
     third = "{name} met Duke Hydraxis, lord of the Hydraxian Waterlords, on his island in the Bay of Storms.",
   },
 
@@ -25,7 +25,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You make water out of nothing, mage, and drink it, and think nothing of it. That is a thin echo of us, poured into a cup." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
-      text = "You carry the air about you like a perfume, elf. The servants of the wind are not friends of the Waterlords; remember that, while you stand on my shore." },
+      text = "You reek of the wind, elf, like a cheap perfume. The servants of the wind are not friends of the Waterlords; remember that, while you stand on my shore." },
     { id = "n_rep", cat = "reputation", when = { reputation = { faction = "Hydraxian Waterlords", min = "friendly" } },
       text = "The Waterlords know your name now, and remember it, which is more than we do for most of your kind." },
   },
@@ -367,7 +367,7 @@ P:NPC {
   nodes = {
     xpt_loramus = {
       big = true,
-      lines = { { id = "xpt_loramus_default", text = "Dangerous to everyone but the demons, who are the only ones who profit from the bargain in the end. I have hunted demons since before your kingdoms had names, and I've never met a warlock who believed they'd be the one to slip, so watch yours closely." } },
+      lines = { { id = "xpt_loramus_default", text = "Dangerous to everyone but the demons, who are the only ones who always profit from the bargain. I have hunted demons since before your kingdoms had names, and I've never met a warlock who believed they'd be the one to slip, so watch yours closely." } },
       choices = {
         { text = "Fel magic should be burned out, whoever uses it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A strong warlock keeps the demons leashed. Power is power.", next = "BACK", fx = { align = { light = -1 } } },
@@ -429,7 +429,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Ruins, bones and debts, mortal. The Highborne opened this land to demons ten thousand years ago, and something of that door still lingers around Eldarath and the old palaces. Your spirits feel it as a wrongness and look away, while I look straight at it, and that is the whole difference between us." } },
+      lines = { { id = "xhsham_default", text = "Ruins, bones and debts, mortal. The Highborne opened this land to demons ten thousand years ago, and something of that door still hangs open around Eldarath and the old palaces. Your spirits feel it as a wrongness and look away, while I look straight at it, and that is the whole difference between us." } },
       choices = {
         { text = "Then I'll look at it too, whatever my elders say.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Spirits keep their distance for a reason. That's wisdom, not fear.", next = "BACK", fx = { align = { order = 1 } } },
@@ -487,7 +487,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. You hide from the eyes of mortals, but not from mine, and certainly not from the things that walk unseen along this shore." },
         { id = "h_default", key = true,
-          text = "Can you see them, mortal? The shapes at the edge of the tide, the shadows that are not shadows? No; I thought not. Your kind have eyes and see nothing with them, which spares you a great deal, and is why I live here and you are only visiting." },
+          text = "Can you see them, mortal? The shapes at the edge of the tide, the shapes that cast no shadow? No; I thought not. Your kind have eyes and see nothing with them, which spares you a great deal, and is why I live here and you are only visiting." },
         { id = "h_story", when = { questActive = TODO_QUEST("Loramus") },
           text = "So you wish to fight demons. Then sit, and hear what you are fighting, and do not interrupt me, {race}; I tell this only once." },
         { id = "h_ward", when = { questActive = TODO_QUEST("Breaking the Ward") },
@@ -599,7 +599,7 @@ P:NPC {
       },
     },
     razelikh_name = {
-      lines = { { id = "rn_default", text = "With a weapon that bears his true name. Forge such a thing, and he and all who serve him become as mortal as you. Finding the name is the hard part, mortal; forging it is merely difficult." } },
+      lines = { { id = "rn_default", text = "With a weapon that bears his true name. Forge such a thing, and he and all who serve him become as mortal as you. Finding the name will cost you years, mortal; forging it is merely difficult." } },
       choices = {
         { text = "Then I'll find it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "And then I'll face him in his lair.", next = "razelikh_laugh" },
@@ -819,18 +819,18 @@ P:NPC {
       },
       choices = {
         { text = "Do the waters of this bay obey you, great one?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Are you truly a god?", next = "god" },
+        { text = "Are you really a god?", next = "god" },
         { text = "Who threatens your children?", next = "sons" },
         { text = "This was a temple of Elune, once.", next = "temple" },
         { text = "I seek the name of a demon lord.", next = "name", when = { questActive = TODO_QUEST("The Name of the Beast") } },
         { text = "My people know gods too. The loa.", next = "troll_ar", when = { race = "Troll" } },
         { text = "What do the deep folk sing of the Highborne?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the burning ones trouble the sea?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Do the deep folk truly worship you, Arkkoroc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the deep folk really worship you, Arkkoroc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a warrior kill the beast that slew your sons?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the deep folk hunt as I do, Arkkoroc?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Would the deep folk welcome a druid in the water?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Do you truly think yourself a god, Arkkoroc?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you honestly think yourself a god, Arkkoroc?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does Arkkoroc admire a sneaking small thing?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },

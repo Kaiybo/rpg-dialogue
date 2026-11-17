@@ -27,7 +27,7 @@ P:Pool {
     { text = "I'll leave you to your walk.", next = "END" },
   },
   topics = {
-    highborne = { { id = "t_highborne", text = "We were the Highborne, once, and proud of it. Pride is a hard thing to carry once there is nothing left to be proud of." } },
+    highborne = { { id = "t_highborne", text = "We were the Highborne, once, and proud of it. I still catch myself smoothing a robe that rotted away ten thousand years ago." } },
     _none = { { id = "t_none", text = "I am sorry, stranger, I do not remember. So much is gone, and I am never sure which parts." } },
   },
 }

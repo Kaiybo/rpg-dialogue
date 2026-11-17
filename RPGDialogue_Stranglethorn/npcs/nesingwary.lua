@@ -84,7 +84,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Every beast I've taken was a fair fight, an' I've the scars tae prove it, so if their spirits want a word, they know where tae find me. I reckon a tiger respects a hunter more than a farmer, an' that's enough for me." } },
+      lines = { { id = "xhsham_default", text = "Every beast I've taken was a fair fight, an' I've a chewed ear tae prove it, so if their spirits want a word, they know where tae find me. I reckon a tiger respects a hunter more than a farmer, an' I'll settle for that." } },
       choices = {
         { text = "A fair fight honors the beast. I can respect that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Trophies are trophies. Spirits don't enter into it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -318,7 +318,7 @@ P:NPC {
       },
     },
     rifle_hold = {
-      lines = { { id = "rh_default", text = "No, but ye may admire it from there, or a wee bit closer, an' that's enough. Barnil'll have tae clean it again just from you lookin'." } },
+      lines = { { id = "rh_default", text = "No, but ye may admire it from there, or a wee bit closer, but no further than the rug. Barnil'll have tae clean it again just from you lookin'." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     k_druid = {
@@ -605,7 +605,7 @@ P:NPC {
       },
     },
     fight_offer = {
-      lines = { { id = "fo_default", text = "Ha! An' leave the master tae cook for himself? He'd be dead by Thursday, but it's kind of ye tae ask, truly." } },
+      lines = { { id = "fo_default", text = "Ha! An' leave the master tae cook for himself? He'd be dead by Thursday, but it's kind o' ye tae ask, it is." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -684,7 +684,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "My father did, in his own fashion, and he'd kneel by every kill and say nothing for a while. I used to think he was only tired, but I do it too now, so perhaps it was something your people would understand." } },
       choices = {
-        { text = "That silence is a kind of prayer. Keep doing it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "That silence sounds like a prayer to me. Keep doing it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A kill is a kill. Kneeling won't skin it faster.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -805,7 +805,7 @@ P:NPC {
 
     track = {
       lines = {
-        { id = "t_default", text = "You don't. You find where the water is, sit downwind, and wait for the jungle to go quiet. The quiet is the tiger." },
+        { id = "t_default", text = "You don't. You find where the water is, sit downwind, and wait for the jungle to go quiet. When the frogs stop croaking, that's the tiger." },
       },
       choices = {
         { text = "And then?", next = "track_then" },
@@ -943,7 +943,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Because they served whoever paid them best, and in Stormwind, that changed by the week. I don't say all mages are like that, but the ones who prospered at court learned to bend, and I never could." } },
       choices = {
-        { text = "Integrity is worth more than favor. You were right.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You kept your conscience and lost the court. Good trade.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "The court needs mages who bend. That's how order holds.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -1024,7 +1024,7 @@ P:NPC {
       choices = {
         { text = "One honest vote is still a vote.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
         { text = "You're right, and the House of Nobles isn't worth saving.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Let's leave the nobles to their squabbling.", next = "BACK" },
       },
     },
     nobles_who = {

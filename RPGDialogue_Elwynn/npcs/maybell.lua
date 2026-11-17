@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     xpt_maybell = {
       big = true,
-      lines = { { id = "xpt_maybell_default", text = "I think about it every time one rides past, if I'm honest, and then I think about Tommy Joe on the other side of the river and I stay put. Running off is only romantic if you're running toward something, and he's right here." } },
+      lines = { { id = "xpt_maybell_default", text = "I think about it every time one rides past, and then I think about Tommy Joe on the other side of the river and I stay put. Running off is only romantic if you're running toward something, and he's right here." } },
       choices = {
         { text = "Your family needs you. Don't throw that away lightly.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Follow your heart, Maybell. Rules are no reason to stay.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Escape"), days = 3 } },
           text = "I keep waiting for someone to catch me. Then I think of him, and I find I don't much care." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Escape"), days = 7 } },
-          text = "I hate lying to my family, truly I do. But it's a smaller lie than pretending I don't love him." },
+          text = "I hate lying to my family, I really do. But it's a smaller lie than pretending I don't love him." },
         { id = "h_far", when = { minLevel = 25, questDone = TODO_QUEST("The Escape") },
           text = "You came all the way back here? From wherever adventurers go? Then you should know: nobody's caught us yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -324,7 +324,7 @@ P:NPC {
         { id = "tr_default2", text = "I don't know you well enough for that one, I'm sorry. It's the only thing in the whole vineyard that's just mine." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Keep it, then. I won't pry.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

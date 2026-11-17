@@ -66,7 +66,7 @@ P:NPC {
     xmage = {
       lines = {
         { id = "xma_default", text = "It would, and it'd bring the roof down on the silver and you both. Use yer fire on the kobolds and not the timbers, and mind the candles on their heads, for they're daft enough to catch alight on their own." },
-        { id = "xma_gnome", when = { race = "Gnome" }, text = "I heard how Gnomeregan was cleared in the end, and I'd rather my mine wasn't cleared the same way. Burn the kobolds by all means, but leave the timbers standin', for I want that silver back." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "I heard how Gnomeregan got cleared, and I'd rather my mine wasn't cleared the same way. Burn the kobolds by all means, but leave the timbers standin', for I want that silver back." },
       },
       choices = {
         { text = "I'll burn only what needs burning, Mountaineer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -120,7 +120,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here in the loch? The kobolds in the Silver Stream are the only ones I know who talk tae the earth, an' they mostly ask it for candles." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak up." },
+        { id = "h_again", text = "What else? Speak up, for a kobold caught me by the ear wi' a pick last week an' it's still ringin'." },
         { id = "h_again2", text = "Ask yer question, but keep it short; the Loch road needs watchin'." },
       },
       choices = {
@@ -135,14 +135,14 @@ P:NPC {
         { text = "Have the kobolds cost your mountaineers any lives?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did you fight beside paladins in the Second War, Mountaineer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a warlock be welcome in Loch Modan, Stormpike?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do the kobolds truly listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do the kobolds really listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I kept the high passes in Dun Morogh, Stormpike.", next = "xorig_pass", when = { origin = "dwarf_mountaineer" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
     xorig_pass = {
       lines = {
-        { id = "xop_default", text = "Did ye, now? Then ye've had trolls at yer back an' troggs at yer feet, same as I had at yer age, an' ye'll know the trick is never tae let either see ye cold. Why'd ye leave the passes, then, when they need every axe they've got?" },
+        { id = "xop_default", text = "Did ye, now? Then ye've had trolls at yer back an' troggs at yer feet, same as I had at yer age, an' ye'll know never tae let either catch ye with cold fingers. Why'd ye leave the passes, then, when they need every axe they've got?" },
       },
       choices = {
         { text = "The trouble was moving south. I went after it.", next = "xorig_pass2", fx = { trait = { brave = 1 } } },
@@ -152,7 +152,7 @@ P:NPC {
     },
     xorig_pass2 = {
       lines = {
-        { id = "xop2_default", text = "Fair enough, an' the loch's no' so different, only wetter an' fuller o' kobolds. Cold work an' honest work, that's what the passes teach ye, an' ye'll find plenty o' both up at the Silver Stream." },
+        { id = "xop2_default", text = "Aye, well, the loch's no' so different, only wetter an' fuller o' kobolds. There's cold work an' plenty of it up at the Silver Stream, an' the pay's no better than the passes." },
       },
       choices = {
         { text = "Then point me at it.", next = "BACK", fx = { affinity = 1 } },
@@ -327,7 +327,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Somethin' else, friend?" },
-        { id = "h_again2", text = "Ask away. The gate's no' goin' anywhere." },
+        { id = "h_again2", text = "Ask away. The gate's no' goin' anywhere, an' neither am I till my relief sobers up." },
       },
       choices = {
         { text = "Where do the troggs come from?", next = "troggs" },
@@ -633,7 +633,7 @@ P:NPC {
         { id = "xwl_gnome", when = { race = "Gnome" }, text = "An imp, from a fellow gnome! I suppose after Gnomeregan we all took whatever help we could find, but please keep it well away from my blasting powder." },
       },
       choices = {
-        { text = "Fair enough. I'll fetch them myself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll fetch them myself.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The imp goes where I go. It'll behave.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who is Gnoarn?", next = "gnoarn" },
       },
@@ -674,7 +674,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I'm listening, mostly." },
-        { id = "h_again2", text = "Yes, yes, what is it? I've a theory brewing." },
+        { id = "h_again2", text = "Yes, yes, what is it? I've a theory brewing, and possibly a small fire, so be quick." },
       },
       choices = {
         { text = "How did you lose everything?", next = "lost" },

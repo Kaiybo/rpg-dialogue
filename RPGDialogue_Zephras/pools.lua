@@ -43,7 +43,7 @@ P:Pool {
     al_aketh = { { id = "t_aketh", text = "Grey robes and shaved heads. Report them, and don't argue with them." } },
     two_orders = { { id = "t_orders", text = "That's not my place. My place is between them, holding a spear sideways." } },
     windstones = { { id = "t_stones", text = "Men have killed Peacekeepers for windstones. Keep yours out of sight on the road." } },
-    _none = { { id = "t_none", text = "Ask at Valanaar; the elders like questions, and I like quiet." } },
+    _none = { { id = "t_none", text = "Ask at Valanaar; the elders like questions, and I like my lunch, which is going cold." } },
   },
 }
 
@@ -57,10 +57,10 @@ P:Pool {
     { id = "n_stranger", cat = "guest", when = { ["not"] = { race = "Skyborne" } },
       text = "A mainlander! Sit by the fire. You'll be all anyone in the common room talks about tonight, I warn you now." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "That's enough, I think. The wind's bad enough without you swaying in it." },
+      text = "No more for you, I think. The wind's bad enough without you swaying in it." },
   },
   lines = {
-    { id = "l_default", text = "A good fire, warm bread, and a blanket someone's grandmother wove: that's what we have, and it's enough." },
+    { id = "l_default", text = "A good fire, warm bread, and a blanket someone's grandmother wove. The bread's yesterday's, but the wind hasn't stolen it yet, which makes it a good day on this isle." },
     { id = "l_feathers", text = "If you want hippogryph feathers for your hair, ask about; somebody always has a few to spare, and wearing one is half the fashion on the isle." },
     { id = "l_food", text = "Try the gustberry pie, or a bit of skycheddar if you're brave. Stormapples, too, from the Windfield Orchard down in the lowlands." },
     { id = "l_refugees", text = "Half my rooms go to folk from the fallen places, and they pay when they can. I'd sooner have a full house of the unlucky than an empty one." },

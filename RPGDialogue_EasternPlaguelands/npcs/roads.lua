@@ -94,7 +94,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "No, and I think of it more than I ought to, because the dead there still walk the lanes every night as if the battle never ended. If the Light has any mercy left for Darrowshire, I pray it reaches those who stayed with the wounded first." } },
       choices = {
-        { text = "It will. I'll carry the Light to Darrowshire myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It will. I'll take the Light to Darrowshire myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Mercy comes after the Scourge is broken, not before.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -154,7 +154,7 @@ P:NPC {
           text = "A hunter. We had a fellow in Darrowshire who kept hounds for the harvest-fair hunts, {class}, and the night the town fell, those hounds howled for an hour before any of us saw a ghoul." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. My brother fought orcs in the Second War, {class}, and he'd have been surprised to see one of you at Light's Hope, but not unhappy, I think." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll not turn you away, {class}, for the Dawn doesn't, but I saw the Cult of the Damned's necromancers at Darrowshire, and you'll forgive me if it takes a moment to remember you're not one of them." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin who died and came back with the Light still in hand. Joseph would have given anything to see that, because he always said the Light never truly leaves those who stand their ground." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin who died and came back with the Light still in hand. Joseph would have given anything to see that, because he always said the Light never leaves those who stand their ground." },
       },
       choices = {
         { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
@@ -543,7 +543,7 @@ P:NPC {
         { text = "Why does everyone call you Smokey?", next = "name" },
         { text = "Do you ever use fel in your brews, Smokey?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What exactly do you want cut off the dead?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Isn't brewing with Scourge parts a kind of desecration, Smokey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Isn't brewing with Scourge parts desecration, Smokey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Dawn's knights approve of your work, Smokey?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your brew do anything for a soldier's armour?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you brew with plagued beasts too, Smokey?", next = "xhuntcl", when = { class = "HUNTER" } },

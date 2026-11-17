@@ -193,12 +193,12 @@ P:NPC {
       lines = { { id = "d_default", text = "No, that's Gryan's work. Mine is making sure there's someone left to thank him." } },
       choices = {
         { text = "They say you've fed Defias at this door.", next = "fed" },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "I'll leave that be. Something else.", next = "BACK" },
       },
     },
     fed = {
       big = true,
-      lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since. That's a kind of peace." } },
+      lines = { { id = "fe_default", text = "I have. A hungry boy in a red mask is still a hungry boy, and he said thank you, and he's left my hens alone ever since, which is more than I can say for the fox." } },
       choices = {
         { text = "That's real kindness.", next = "BACK", fx = { affinity = 2, align = { light = 2 }, trait = { kind = 1 } } },
         { text = "He'll rob someone else tomorrow.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 }, opinion = { defias = "hardline" } } },
@@ -268,7 +268,7 @@ P:NPC {
         { id = "fp_default2", text = "What's said at my table stays at my table, dear, whoever says it. That's the other rule of this house, and it's older than the first." },
       },
       choices = {
-        { text = "Fair enough, Salma.", next = "BACK" },
+        { text = "Suits me, Salma.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

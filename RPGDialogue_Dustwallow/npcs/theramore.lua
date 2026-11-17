@@ -52,7 +52,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I think it's hopeful, if I'm honest. Thrall told me the shamans were his people's conscience before the Legion came, and if Ironforge can learn something from them, perhaps Alliance and Horde can learn a little more from each other." } },
+      lines = { { id = "xdsham_default", text = "I think it's hopeful. Thrall told me the shamans were his people's conscience before the Legion came, and if Ironforge can learn something from them, perhaps Alliance and Horde can learn a little more from each other." } },
       choices = {
         { text = "The elements belong to no one. That's worth remembering.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I learned it for Ironforge, my lady, not for the Horde.", next = "BACK", fx = { align = { order = 1 } } },
@@ -62,7 +62,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Less than people do, if I'm honest, but the raptors have taken more than one courier on the road to Sentry Point. I'd rather we learned the marsh's ways than burned it back, though not everyone in Theramore agrees with me." },
+        { id = "xhuntcl_default", text = "Less than people do, to my mind, but the raptors have taken more than one courier on the road to Sentry Point. I'd rather we learned the marsh's ways than burned it back, though not everyone in Theramore agrees with me." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this must be {pet}. Theramore was built by people who came from very far away, and I'd like to think there's room here for every companion they brought." },
       },
       choices = {
@@ -117,7 +117,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_jaina", tags = { "news" }, when = { race = "Human", party = { race = { "Dwarf", "Gnome", "NightElf" } }, faction = "Alliance" },
-          text = "You've brought {companion} with you, I see, and I'm glad of it. Theramore was built by people who learned the hard way that no race survives this world alone." },
+          text = "You've brought {companion} with you, I see, and I'm glad of it. Theramore was built by people who buried enough friends to know no race survives this world alone." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "Archmage Tervosh tells me the black dragon of the Wyrmbog is dead, and that you were there when she fell. Theramore has lived under Onyxia's shadow since the day we landed, so I'll thank you myself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance. The marsh is full of creatures that would rather we'd never come, and I'm grateful to anyone who keeps them from our gates without hating them for it." },
@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_thrall", when = { heardLine = "thrall.h_default" },
           text = "You've stood before Thrall, so you know he's no monster. Not everyone in Stormwind wants to hear that from me." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
-          text = "Whatever Tervosh has you chasing, see it through. Someone has been working against us from the shadows, and I mean to learn who." },
+          text = "Whatever Tervosh has you chasing, see it through. Someone has been working against us from inside these walls, and I mean to learn who." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Still awake? So am I. The tower's quiet at night, and it's the only time I can hear myself think about anything but the next letter." },
         { id = "h_warm", when = { disposition = { min = 75 } },
@@ -319,7 +319,7 @@ P:NPC {
     },
     father_no = {
       lines = {
-        { id = "fn_default", text = "I appreciate it, truly, but no. Some things I'll only say once, and I've already said them to myself." },
+        { id = "fn_default", text = "I appreciate it, but no. Some things I'll only say once, and I've already said them to myself." },
         { id = "fn_mage", when = { class = "MAGE" },
           text = "Dalaran taught us both to keep our own counsel, I think. Ask me something else, please, and I'll answer it gladly." },
       },
@@ -340,7 +340,7 @@ P:NPC {
     },
     x_warlock = {
       lines = {
-        { id = "xwl_default", text = "Dalaran had its reasons, and I studied with the people who wrote those rules, so I won't pretend I'm comfortable with what you carry. But I've made peace with orcs whose fathers drank demon blood, and it would be a poor sort of peace if I couldn't spare a little of it for you." },
+        { id = "xwl_default", text = "Dalaran had its reasons, and I studied with the people who wrote those rules, so I'm not comfortable with what you keep at your heel. But I've made peace with orcs whose fathers drank demon blood, and it would be a poor sort of peace if I couldn't spare a little of it for you." },
       },
       choices = {
         { text = "Then trust me as you trust the orcs.", next = "x_warlock_trust" },
@@ -370,7 +370,7 @@ P:NPC {
     jd_deeper = {
       hub = true,
       lines = {
-        { id = "jdp_default", text = "Hard questions are the only kind worth my time lately, so ask. I may not answer all of them, but I won't lie to you, and that's more than most of my letters can say." },
+        { id = "jdp_default", text = "Hard questions are the only kind worth my time lately, so ask. I may not answer all of them, but I won't lie to you, which puts you ahead of most of my correspondents." },
         { id = "jdp_warm", when = { disposition = { min = 70 } }, text = "Ask whatever you like. You've earned straight answers in this tower, and I find I'd rather give them to you than to another courier." },
       },
       again = {
@@ -608,7 +608,7 @@ P:NPC {
     },
     jd_gnome = {
       lines = {
-        { id = "jgn_default", text = "Gnomeregan's mages used to send letters to Dalaran that nobody there could follow, because they put the equations in the margins and the conclusions somewhere else entirely. I'm truly sorry about your city, and if you're rebuilding your notes from memory, you're braver than most archmages I've known." },
+        { id = "jgn_default", text = "Gnomeregan's mages used to send letters to Dalaran that nobody there could follow, because they put the equations in the margins and the conclusions somewhere else entirely. I'm sorry about your city, and if you're rebuilding your notes from memory, you're braver than most archmages I've known." },
       },
       choices = {
         { text = "Would you look over my notes someday, my lady?", next = "jd_gnome2" },
@@ -909,7 +909,7 @@ P:NPC {
     { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down; if not, be quick." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Tell me you found something." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the inn case hasn't moved an inch in that time. I'm glad you're back, because I've run out of people who look for evidence instead of culprits." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in the city tells me you were caught in a lie, and I'll be honest about what that means to me. I build cases on testimony, so from now on I'll be checking yours twice." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in the city tells me you were caught in a lie, and I'll tell you plainly what that means to me. I build cases on testimony, so from now on I'll be checking yours twice." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you put the fear into one of our citizens, and I'll remind you that threats are the Guard's business in Theramore, not yours. Keep it outside the walls." },
   },
 
@@ -1426,7 +1426,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Worse, love. They won't whistle aboard ship, they won't sail without a coin under the mast, and one of them wouldn't touch his stew last month because a gull looked at it funny. A demon in the common room and I'd lose the lot of them to the docks." } },
       choices = {
-        { text = "Fair enough. I'll keep him outside for your sake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then he waits outside, and the gulls can stare at him.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Superstition's their problem. He stays where I stay.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1463,7 +1463,7 @@ P:NPC {
         { text = "Do many soldiers come here after a watch, Janene?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting for your kitchen, Janene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many of the Silver Hand come through Theramore, Janene?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Are the sailors truly that superstitious, Janene?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Are the sailors really that superstitious, Janene?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the soldiers here mind sharing a table with me, Janene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },

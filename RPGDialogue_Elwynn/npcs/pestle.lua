@@ -163,7 +163,7 @@ P:NPC {
     },
     candles_why = {
       lines = {
-        { id = "cw_default", text = "The candles are out here. So are the herbs, and the quiet, and an old friend or two. The city is very loud for a man who counts drops." },
+        { id = "cw_default", text = "The candles are out here. So are the herbs, and the crickets, and an old friend or two. The city is very loud for a man who counts drops." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },

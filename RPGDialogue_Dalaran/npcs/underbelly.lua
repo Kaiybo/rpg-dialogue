@@ -95,7 +95,7 @@ P:NPC {
       },
       choices = {
         { text = "Put it back. This city's suffering enough.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Fair enough. Finders keepers.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Finders keepers, I always say.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

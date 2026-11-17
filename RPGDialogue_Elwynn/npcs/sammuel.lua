@@ -141,7 +141,7 @@ P:NPC {
         { text = "I was a novice here, Brother.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I fled Lordaeron as a child.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
-        { text = "Does the Light truly watch over rogues, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Light really watch over rogues, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can the Light and the arcane share a roof, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour warriors, Brother Sammuel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },

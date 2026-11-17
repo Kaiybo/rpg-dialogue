@@ -213,7 +213,7 @@ P:NPC {
     work_yashiro = {
       big = true,
       lines = {
-        { id = "wy_default", text = "Yashiro walks alone, fights alone, and doesn't ask anyone's leave. I like him more than I should, if I'm honest, since he does exactly what I'd do if Omnuron would let me. He means to light fires in Dae'gun until the demons come out to answer them." },
+        { id = "wy_default", text = "Yashiro walks alone, fights alone, and doesn't ask anyone's leave. I like him more than I should, since he does exactly what I'd do if Omnuron would let me. He means to light fires in Dae'gun until the demons come out to answer them." },
       },
       choices = {
         { text = "An orc fighting demons on your mountain is a gift.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -265,7 +265,7 @@ P:NPC {
       lines = {
         { id = "on_default", text = "Nice try. I don't complain about the Skylord to strangers, and I especially don't complain about him to strangers who ask like that." },
       },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "Then I'll ask a less nosy question.", next = "BACK" } },
     },
 
     supply = {

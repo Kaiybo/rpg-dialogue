@@ -60,7 +60,7 @@ P:NPC {
     xrogue = {
       lines = {
         { id = "xro_default", text = "Then you would see more than I have, for I watch openly and whatever does this waits until I am gone. Keep to the shadow of the trees near the well and stay until dawn, and tell me what comes to drink." },
-        { id = "xro_nightelf", when = { race = "NightElf" }, text = "You walk as the Sentinels' scouts do, and the shadows suit you. Keep to the trees beside the well and stay until dawn, and tell me what comes to drink." },
+        { id = "xro_nightelf", when = { race = "NightElf" }, text = "You walk as the Sentinels' scouts do, soft on the heel. Keep to the trees beside the well and stay until dawn, and tell me what comes to drink." },
       },
       choices = {
         { text = "I'll watch and report, and touch nothing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -116,7 +116,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Speak softly near the well." },
-        { id = "h_again2", text = "Ask what you like. The water is patient, and so am I." },
+        { id = "h_again2", text = "Ask what you like. The water is patient, and so am I, though my knees are less so after a night kneeling on wet stone." },
       },
       choices = {
         { text = "What's wrong with the wells?", next = "wells" },
@@ -382,7 +382,7 @@ P:NPC {
       { id = "tp_knows", text = "I keep watch on Teldrassil's troubles from this village, and there are more of them than I would like. Ask me of any of these." },
     },
     background = { { id = "tp_bg", text = "I'm a druid of Dolanaar, and the Gnarlpine are my charge now, whether I wanted it or not." } },
-    advice = { { id = "tp_ad", text = "Don't fight a furbolg in its own hills. Draw it out where you can see the trees around you." } },
+    advice = { { id = "tp_ad", text = "Don't fight a furbolg in its own hills. Draw it out where you can see the trees, and stand upwind, because they reek of wet fur and fel moss." } },
     fel_moss = { { id = "tp_moss", text = "It is the Gnarlpine's ruin, for wherever it grows, they turn." } },
     furbolgs = { { id = "tp_furbolgs", text = "They were peaceful, once. Ask me again when Ursal is dead." } },
     cenarion_circle = { { id = "tp_circle", text = "I serve the Circle as best I can from Dolanaar. They have bigger worries than furbolgs. Somebody has to have this one." } },
@@ -534,7 +534,7 @@ P:NPC {
         { text = "Who tends the wounded the Gnarlpine leave behind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin face the Gnarlpine, Tallonkai?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a mage welcome in Dolanaar, Tallonkai?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Have the young Sentinels truly never seen a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have the young Sentinels really never seen a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why does your dreamcatcher matter so much, Tallonkai?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } },
         { text = "Do you need a blade against the Gnarlpine, Tallonkai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -576,7 +576,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "My dresser is still in Starbreeze Village, if that tells you anything. These days I stay wherever the Gnarlpine aren't." } },
+    background = { { id = "tp_bg", text = "My dresser is still in Starbreeze Village, with my good cloak in it, and some Gnarlpine is probably sleeping on both. These days I stay wherever the Gnarlpine aren't." } },
     advice = { { id = "tp_ad", text = "Help where the forest needs it. Dolanaar notices who does." } },
     _none = { { id = "tp_none", text = "Ask Athridas; he knows the furbolgs. I know only what they've done." } },
   },
@@ -767,7 +767,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I carry the Council's orders. If I had a story, I'd have had to file it." } },
+    background = { { id = "tp_bg", text = "I bear the Council's orders. If I had a story, I'd have had to file it in triplicate." } },
     advice = { { id = "tp_ad", text = "Don't make bargains with anything that has hooves and smiles." } },
     _none = { { id = "tp_none", text = "The Council hasn't spoken on that, so neither will I." } },
   },
@@ -871,7 +871,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Most of them, sooner or later, and a few stay longer than they meant to because the Gnarlpine trouble them more than they say. I don't ask why they look tired, but I keep the tea hot." } },
       choices = {
-        { text = "The Gnarlpine trouble me too, and I won't pretend otherwise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Gnarlpine trouble me too, and I've the claw marks to show for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A druid should keep their worries and not burden your inn.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -905,7 +905,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit, and have some tea. Nobody here will ask why you look tired, and your spirits may rest too." },
       },
       again = {
-        { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some." },
+        { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some, though I'd skip the moonberry; it's gone a bit fizzy." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
@@ -947,7 +947,7 @@ P:NPC {
       { id = "tp_knows", text = "Everyone passing between Shadowglen and Darnassus stops here, and they leave a little news behind with the crumbs. Ask me what you like." },
     },
     background = { { id = "tp_bg", text = "I keep a fire lit between Shadowglen and Darnassus. It's a good place for a fire." } },
-    advice = { { id = "tp_ad", text = "Rest when you can. A body and mind left without peace give out at the worst moment." } },
+    advice = { { id = "tp_ad", text = "Rest when you can, and take your boots off to do it. I've seen Sentinels lose toenails to Teldrassil's damp." } },
     _none = { { id = "tp_none", text = "I hear only the gentle gossip. Ask a Sentinel for the other kind." } },
   },
 }
@@ -994,7 +994,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Anyone can learn, though you'll wake with bark printed on your back and dew in every joint. The trick is to stop fighting the ground and let it hold you, which I suspect is the hardest lesson there is for a paladin." } },
+      lines = { { id = "xapala_default", text = "Anyone can learn, though you'll wake with bark printed on your back and dew in every joint. You have to stop fighting the ground and let it hold you, which I suspect is the hardest lesson there is for a paladin." } },
       choices = {
         { text = "Then I'll learn to bear it, as I bear everything else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll take the armor off and trust the woods instead.", next = "BACK", fx = { align = { order = -1 } } },

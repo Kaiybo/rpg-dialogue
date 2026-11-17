@@ -60,7 +60,7 @@ P:Pool {
     { id = "n_xguard", cat = "origin", when = { origin = "human_city_guard" },
       text = "You were in the Stormwind City Guard, weren't you? You've still got that way of looking at a crowd as if you're counting it, and I can't say I blame you, these days." },
     { id = "n_xgnomeregan", cat = "origin", when = { origin = "gnome_gnomeregan_refugee" },
-      text = "You came out of Gnomeregan, didn't you? I'm sorry, truly, because every town I know has a gnome or two lodging somewhere now, mending clocks and dreaming about home." },
+      text = "You came out of Gnomeregan, didn't you? I'm sorry for it, because every town I know has a gnome or two lodging somewhere now, mending clocks and dreaming about home." },
     { id = "n_xhyjal", cat = "origin", when = { origin = "nightelf_hyjal_survivor" },
       text = "Forgive me, but were you at that battle on the mountain, where your people stopped the demon? My cousin heard a soldier tell of it once, and he's never been quite the same since." },
     { id = "n_xleague", cat = "origin", when = { origin = "dwarf_explorers_league" },
@@ -166,7 +166,7 @@ P:Pool {
     { id = "g_cathedral", when = { subzone = "Cathedral Square" }, text = "The Light's blessing on you. Speak softly in the square, would you; there's a service on most hours of the day." },
     { id = "g_canals", when = { subzone = "The Canals" }, text = "Careful on these stones, because they're slick, and the canal's a good deal deeper than it looks." },
     { id = "g_dwarf", when = { subzone = "Dwarven District" }, text = "Hear that hammering? The smiths in this district never stop, and after a while you can't sleep without it." },
-    { id = "g_mage", when = { subzone = "Mage Quarter" }, text = "Don't touch anything that glows in the Mage Quarter. I learned that the hard way, and my eyebrows took a month to grow back." },
+    { id = "g_mage", when = { subzone = "Mage Quarter" }, text = "Don't touch anything that glows in the Mage Quarter. I touched one once, and my eyebrows took a month to grow back." },
     { id = "g_park", when = { subzone = "The Park" }, text = "Lovely in the Park today, isn't it? It's the only place in the city where you can hear the birds over the carts." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Back in Stormwind after {away} away, are you? The canals haven't changed, but the price of bread has, and not in your favor." },
     { id = "g_away_long", when = { away = 45 }, text = "Light bless me, it's you! You've been gone {away}, and I'd half heard you'd taken ship for Kalimdor and never come back." },
@@ -198,7 +198,7 @@ P:Pool {
     { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
       text = "Forgive me for staring. A few years ago nobody here had ever seen one of your people, and now I see you at the fountains, looking at our houses as if they're very new." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "One of the Gnomeregan folk! I'm sorry about your city, truly. Two of your tinkers lodge on our street, and they've mended every clock we own, whether the clocks needed it or not." },
+      text = "One of the Gnomeregan folk! I'm sorry about your city. Two of your tinkers lodge on our street, and they've mended every clock we own, whether the clocks needed it or not." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Come down from Ironforge on the tram, have you? Your cousins in the Dwarven District will tell you our ale is terrible, and you're not to believe them." },
     { id = "n_drunk", cat = "drunk", when = { drunk = { min = 2 } },
@@ -428,7 +428,7 @@ P:Pool {
     { id = "n_orc_mage", cat = "class", when = { race = "Orc", class = "MAGE" },
       text = "An orc with a staff and no axe? My grandmother would have spat, but she spat at everything. Burn the Alliance with it and I'll call you brother." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "Mind your horns on the doorways, friend. We build low in this city, and the tauren keep finding out the hard way." },
+      text = "Mind your horns on the doorways, friend. We build low in this city, and the tauren keep finding out with their foreheads." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "You've come up out of the Cleft; I can smell it on you. The Warchief lets your kind stay down there, and my mother still spits when she walks past the stair." },
     { id = "n_shaman", cat = "class", when = { race = "Orc", class = "SHAMAN" },
@@ -453,7 +453,7 @@ P:Pool {
     knows = {
       { id = "t_kn1", text = "Everything that crosses Durotar passes through these gates in the end, and I sit by the gates. Here's what's come in." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've stood for the Horde, so I'll tell you all of it, even what the grunts whisper." },
-      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and you can find out the rest the hard way." },
+      { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and you can dig up the rest yourself." },
     },
     burning_blade = { { id = "t_blade", text = "Fools who want the demons back, as if we didn't drink enough of that poison the first time. They hide in the canyons and under the city, and we hunt them wherever they hide." } },
     _none = { { id = "t_none", text = "I don't know it. Ask in the Valley of Wisdom; the shaman there know more than is good for anyone." } },
@@ -1095,7 +1095,7 @@ P:Pool {
   },
   notice = {
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
-      text = "You look like the valley's been chewing on you. Was it centaur arrows or just the land itself? Out here it's hard to tell the two apart." },
+      text = "You look like the valley's been chewing on you. Was it centaur arrows or the thornbushes? Out here they leave the same holes." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, all the way out here! It gets lonely being the only voice at prayers in a land this dead, so Brother Anton will be glad of you." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
@@ -1748,7 +1748,7 @@ P:Pool {
   },
   topics = {
     knows = {
-      { id = "t_kn1", text = "News crosses the plains as slowly as a kodo walks, but it arrives in the end. Here's what has reached the village." },
+      { id = "t_kn1", text = "News crosses the plains as slowly as a kodo walks, but it does get here, eventually. Here's what has reached the village." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've walked these plains as a friend, so I'll tell you everything I know." },
     },
     venture_company = { { id = "t_venture", text = "Goblins with saws and drills, cutting down our trees and fouling our water for money. They call it business, and we call it something less polite." } },
@@ -1815,7 +1815,7 @@ P:Pool {
   lines = {
     { id = "l_quilboar", text = "The Razorfen quilboar keep their great thorny warrens to the south. They worship something down in the brambles, and they hate everyone who isn't quilboar." },
     { id = "l_dwarves", text = "There are dwarves digging in Bael Modan to the east. They're looking for something old, and they don't much care whose land they dig it out of." },
-    { id = "l_camp", text = "This camp isn't much to look at, but it's a safe place in the Barrens. Out here, that's worth more than gold." },
+    { id = "l_camp", text = "This camp isn't much to look at, but it's a safe place in the Barrens. Out here, that's rarer than shade." },
   },
   topics = {
     knows = {

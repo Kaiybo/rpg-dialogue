@@ -29,7 +29,7 @@ P:Pool {
   },
   react = {
     { id = "r_stealth", on = "stealth", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
-      text = "Out of the shadows, please. We've had quite enough things creeping through our sewers lately." },
+      text = "Out from behind there, please. We've had quite enough things creeping through our sewers lately." },
   },
   lines = {
     { id = "l_default", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
@@ -37,7 +37,7 @@ P:Pool {
     { id = "l_constructs", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "The constructs on the upper streets went still once the trouble in the Citadel was put down. I still give them a wide berth, and so should you." },
     { id = "l_dome", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
-      text = "I stood watch under the dome for years, so it's strange to see weather again. I haven't decided whether I like it yet." },
+      text = "I stood watch under the dome for years, and the first time it rained after, I shouted for a magus to fix the leak. The lads haven't let me forget it." },
     { id = "l_helped", when = { all = { { killed = { name = "Shade of the Archmage", min = 1 } }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
       text = "Word is you went up through the sewers to the top of the Citadel and came back down again. The watch is grateful, though we'd never say so to your face." },
     { id = "l_horde", when = { all = { { faction = "Horde" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
@@ -49,7 +49,7 @@ P:Pool {
   },
   topics = {
     alterac = { { id = "t_alterac", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
-      text = "Syndicate in the hills and ogres in the old capital. The dome kept them out for years, and now we do." } },
+      text = "Syndicate in the hills and ogres in the old capital. The dome kept them out for years, and now we do, on half pay and cold porridge." } },
     syndicate = { { id = "t_syndicate", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "Alterac's leftover nobles and their cutthroats. They'd strip the lead off our roofs if we let them near." } },
     _none = { { id = "t_none", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },

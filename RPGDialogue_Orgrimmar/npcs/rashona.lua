@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_drag", text = "Mind the bolts on the floor, {class}. Every one of them is a bandage someday." },
     { id = "g_wool", when = { questActive = TODO_QUEST("A Donation of Wool") }, text = "Wool, is it? Set it on the table and I'll count it in front of you." },
     { id = "g_rune", when = { questDone = TODO_QUEST("A Donation of Runecloth") }, text = "Runecloth from you again, I hope. The healers never stop asking for it." },
-    { id = "g_away", when = { away = 21 }, text = "You've been gone {away}, and the pile's gone down twice in that time. Bandages go fast in a city full of soldiers." },
+    { id = "g_away", when = { away = 21 }, text = "You've been gone {away}, and the pile's gone down twice in that time. Bandages go fast in a city full of soldiers who think a sparring match isn't finished until somebody bleeds." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "Look at you, carrying yourself like a veteran now. I hope you've been bleeding less than you used to, at least." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk on the Drag say you've been helping people out. I'd expect nothing less from someone who knows where the cloth goes." },
   },
@@ -76,7 +76,7 @@ P:NPC {
     },
     goblins = {
       lines = { { id = "g_default", text = "Because the goblins sell it at goblin prices, {class}, and the Horde's purse isn't bottomless. Every bolt you donate is a bolt the quartermasters don't have to haggle for." } },
-      choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+      choices = { { text = "Goblin prices. Say no more. Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
     },
     donors = {
       lines = { { id = "d_default", text = "Recognition, mostly, and I make sure the city knows whose cloth it was. Orgrimmar remembers the ones who gave, and it remembers the ones who could have and didn't." } },
@@ -94,7 +94,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I sew, I count, and I make sure the cloth goes where it's needed. That's all the story there is, and it's enough." } },
-    advice = { { id = "tp_ad", text = "Carry spare bandages. Everyone thinks they won't need them, right up until they do." } },
+    advice = { { id = "tp_ad", text = "Carry spare bandages. The grunt bleeding next to you will never have brought his own." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about cloth and I'll talk your ear off." } },
   },
 }

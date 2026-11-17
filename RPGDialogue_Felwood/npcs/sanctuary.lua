@@ -34,7 +34,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_eridan_default", text = "I think it has to be, because if a forest this old can be poisoned past saving, then nothing is safe anywhere. The demons left their filth in the water and the roots, and every seed I plant that comes up green is one small argument against despair." } },
       choices = {
-        { text = "Keep planting. Hope is worth more than any spell.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep planting. Somebody has to.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some places are lost. Burn it and start over.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -115,7 +115,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "I don't know, and I'd love to find out, because nothing I've tried has made one take yet. The corruption is in the roots and the water both, so perhaps it needs a blessing as much as a salve, or perhaps I'm only hoping out loud again." } },
       choices = {
-        { text = "Hope is a kind of prayer too. Keep planting, Eridan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep planting, Eridan, and I'll say a prayer over the rows.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Blessings won't touch the satyrs. Kill them, and the soil follows.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -180,7 +180,7 @@ P:NPC {
         { text = "Do you think Felwood can be healed, Eridan?", next = "xpt_eridan", when = { party = { class = "DRUID" } } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do you truly believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have me do to the Jadefire satyrs, Eridan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would the Sunken Temple matter to the Emerald Circle?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
@@ -189,7 +189,7 @@ P:NPC {
     what = {
       big = true,
       lines = {
-        { id = "w_default", text = "It was the demons' war. To weaken Hyjal's defenders, a dreadlord poisoned the forest around the mountain with a cursed skull. The beasts twisted and the ancients turned, and the land itself sickened, and it has not stopped." },
+        { id = "w_default", text = "It was the demons' war. To weaken Hyjal's defenders, a dreadlord poisoned the forest around the mountain with a cursed skull. The beasts twisted and the ancients turned, and the soil went sour under them, and it has not stopped." },
       },
       choices = {
         { text = "Can it be undone?", next = "what_undone" },
@@ -220,7 +220,7 @@ P:NPC {
     },
     seeds_doubt = {
       lines = {
-        { id = "sd_default", text = "Most mornings, if I'm honest, and I've never said so inside the sanctuary. I plant the seed because my hands remember how to hope even when the rest of me has forgotten, and I've decided that has to be enough." },
+        { id = "sd_default", text = "Most mornings, and I've never said so inside the sanctuary. I plant the seed because my hands remember how to hope even when the rest of me has forgotten, and I've decided that has to be enough." },
       },
       choices = {
         { text = "It is enough.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -268,7 +268,7 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "You carry the same power that did this to the forest. I'll accept your help, but I'll be watching while I do." },
+      text = "You wield the same power that did this to the forest. I'll accept your help, but I'll be watching while I do." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A child of the Earth Mother, here in all this poison! She'd weep to see it, so help me dry her tears." },
   },
@@ -402,9 +402,9 @@ P:NPC {
         { text = "What did the Shadow Council reach for, Greta?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is a warrior safer from Felwood's temptations, Greta?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What has the fel done to Felwood's beasts, Greta?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Can Felwood truly be healed, Greta?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Can Felwood really be healed, Greta?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Do you truly think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Do you really think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Would Felwood's corruption tempt a Forsaken paladin, Greta?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
       },
@@ -478,7 +478,7 @@ P:NPC {
   nodes = {
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Not on its own, I think, but a mage knows magic better than most, and the corruption here is a kind of magic gone very wrong. If you can help me understand why the salves work on some plants and not on others, you'd be worth ten druids who only know how to hope." } },
+      lines = { { id = "xmage_default", text = "Not on its own, I think, but a mage knows magic better than most, and the corruption here is magic gone very badly wrong. If you can help me understand why the salves work on some plants and not on others, you'd be worth ten druids who only know how to hope." } },
       choices = {
         { text = "I'll study the corruption to help you mend it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd rather study it for its own sake.", next = "BACK", fx = { align = { light = -1 } } },
@@ -571,7 +571,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! Oh, you could help me so much, because you know how to find things that don't want to be found, and the cleanest plants in Felwood are the best hidden." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock of the Horde, here among the menders! I won't pretend that doesn't worry me a little, but I'll take any hands willing to help, and I mean that." },
+          text = "A warlock of the Horde, here among the menders! That makes the back of my neck prickle a little, but I'll take any hands willing to help, and I mean that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! You've a light step, and I could use someone who can get close to things that would rather not be got close to, if you'll forgive me for saying so." },
         { id = "h_default", key = true,
@@ -607,7 +607,7 @@ P:NPC {
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
         { text = "How can a paladin help mend Felwood, Maybess?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Can a mage's magic truly heal a forest, Maybess?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Can a mage's magic really heal a forest, Maybess?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -670,7 +670,7 @@ P:NPC {
     },
     alliance = {
       lines = {
-        { id = "a_default", text = "Of course, though not from my hands; our peoples aren't ready for that, and I won't pretend otherwise. Arathandris to the south makes the same salve, and the plants won't care whose banner you fly." },
+        { id = "a_default", text = "Of course, though not from my hands; our peoples aren't ready for that, and the Sentinels would have words. Arathandris to the south makes the same salve, and the plants won't care whose banner you fly." },
       },
       choices = { { text = "Thank you, Maybess.", next = "BACK", fx = { affinity = 1, opinion = { peace = "for" } } } },
     },
@@ -831,7 +831,7 @@ P:NPC {
           text = "A mage. I spent a morning watching one clean flower by the road, and I'd wager you've spent mornings watching stranger things, so perhaps we're more alike than we look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance! Then you have patience, which is the one thing the curse can't take from us, and the thing it tests hardest." },
-        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but your kind know the land's voice as well as anyone, so speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock of the Alliance, and in my camp. Stormwind permits your kind, I know, but I will be honest with you: I would rather you left your demon outside the sanctuary." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -851,7 +851,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Maybess works with your people, to the north, but the curse doesn't care whose prayers it hears, so I'll hear you out." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, come to Felwood. The curse here is older than you are, sister or brother, but it is not older than the forest, and the forest remembers being green." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! I asked for help cleansing Felwood and expected archers, and I certainly didn't expect one of the Forsaken with the Light in hand." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I ask the Alliance for help and I won't pretend I expected that help to carry totems, but speak." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I ask the Alliance for help and I never expected that help to come clanking with totems, but speak." },
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {

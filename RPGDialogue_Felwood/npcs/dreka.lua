@@ -137,7 +137,7 @@ P:NPC {
         { id = "xs_default", text = "The spirits here are too sick to tell anyone anything, shaman. I asked the post's own shaman when I first came, and he told me Felwood screams so loudly he can't hear a single voice in it." },
       },
       choices = {
-        { text = "Then I'll find him the hard way.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then I'll track him down myself.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

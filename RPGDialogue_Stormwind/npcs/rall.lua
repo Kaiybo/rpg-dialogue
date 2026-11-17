@@ -24,7 +24,7 @@ P:NPC {
     { id = "n_unready", cat = "readiness", place = "before", when = { class = "PALADIN", durability = { max = 0.25 } },
       text = "You've come into the Cathedral in pieces. Readiness is a virtue too. Mend that, then we'll speak of the Light." },
     { id = "n_proud", cat = "humility", when = { class = "PALADIN", minLevel = 30 },
-      text = "You've grown strong since your first test. Strength is the easy part. Tell me you haven't forgotten the hard part." },
+      text = "You've grown strong since your first test. Strength is the easy part. Tell me you still remember why you picked up the sword." },
   },
 
   start = "hello",

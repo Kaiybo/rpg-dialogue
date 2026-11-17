@@ -143,7 +143,7 @@ P:NPC {
         { text = "Do you blame the Stonemasons for what Westfall became?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does Westfall still give you for dyes, Hewen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would sell best to someone in my line of work?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Is Sentinel Hill truly mending more than making, Christopher?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Is Sentinel Hill mending more than it makes, Christopher?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -251,7 +251,7 @@ P:NPC {
     xmage = {
       lines = { { id = "xma_default", text = "I'd sell you water if you were thirsty, but I'll not trade good thread for something that vanishes come morning. Bring me silver, which doesn't." } },
       choices = {
-        { text = "Fair enough. Silver it is.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Silver it is, then. I'll count it twice.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Pity. Conjured coin would've fooled you.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Why are your prices so high?", next = "price" },
       },

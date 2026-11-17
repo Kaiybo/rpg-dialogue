@@ -310,7 +310,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Why do mages chase power?", next = "power" },
         { text = "Has anything ever been stolen from this library?", next = "library" },
-        { text = "Is the Light a kind of magic?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Is the Light just another sort of magic?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Where do I go when you're done with me?", next = "after", when = { class = "MAGE", maxLevel = 12 } },
         { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
         { text = "Gnomes learn magic by taking it apart first.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
@@ -445,7 +445,7 @@ P:NPC {
   notices = { "stealth" },
   impression = {
     first = "Jorik Kerridan works behind the Abbey where the Brothers needn't see him, and that seems to suit everybody. He was listening for my footsteps long before I reached him.",
-    third = "{name} met Jorik Kerridan, who teaches the quiet arts behind Northshire Abbey, well out of the Brothers' sight.",
+    third = "{name} met Jorik Kerridan, who teaches lockpicks and knifework behind Northshire Abbey, well out of the Brothers' sight.",
   },
 
   greetings = {
@@ -480,9 +480,9 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "That the fight you see coming is the one you'll win, and the one you don't see is the one that kills you. Watch the shadows as well as the front, and you'll live longer than most of Llane's lot." } },
+      lines = { { id = "xwarcl_default", text = "That the fight you see coming is the one you'll win, and the one you don't see is the one that kills you. Watch the hedges and the hayloft as well as the front, and you'll live longer than most of Llane's lot." } },
       choices = {
-        { text = "I'll watch the shadows as well as the front.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll watch the hedges as well as the front.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Face me in the open, and I'll win.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -578,7 +578,7 @@ P:NPC {
         { text = "What can a rogue teach a warrior, Jorik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How did you hear my beast before me?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Brothers know what you teach back here, Jorik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is your trade truly so far from mine, Jorik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is your trade really so far from mine, Jorik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could your students learn to move as quietly as a cat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do spirits make a shaman easy to track, Jorik?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
@@ -1316,7 +1316,7 @@ P:NPC {
         { text = "Where would you have gone?", next = "where" },
         { text = "Tell me about the Cathedral.", next = "cathedral", when = { class = "PRIEST" } },
         { text = "I've been far. Want to hear about it?", next = "stories", when = { minLevel = 30 } },
-        { text = "Can a rogue truly walk in the Light, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can a rogue really walk in the Light, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does Zaldimar disapprove of your teaching, Priestess?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the chanting below trouble your prayers, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light have time for warriors, Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1808,7 +1808,7 @@ P:NPC {
     },
     kaldorei = {
       lines = { { id = "kaldorei_l", text = "And misses things a human sees, like when a farmer's lying about his harvest. Your people are hard to fool in the forest and easy to fool in a tavern, and I'd fix that before Goldshire does it for you." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Then I'll count my coin twice in the tavern.", next = "BACK", fx = { affinity = 1 } } },
     },
     trainers = {
       lines = { { id = "trainers_l", text = "Josetta's kind, Wefhellt's vain and Du Lac thinks I'm a coward because I won't fight her in the yard. I won't fight her because she'd win, which isn't cowardice, it's arithmetic." } },
@@ -1849,7 +1849,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It's very dangerous indeed, so I make introductions carefully, and I'm not sure a shaman needs one." } },
+      lines = { { id = "xdsham_default", text = "It's dangerous enough to cost a man his eyebrows and worse, so I make introductions carefully, and I'm not sure a shaman needs one." } },
       choices = {
         { text = "Then I'll leave your secrets alone, Remen.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Dangerous knowledge is worth having. Introduce me.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1888,7 +1888,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because there are things down here that don't like surprises, and if you surprise one of them, I won't be able to call it back in time. Sylvius's students learn that the hard way, and I'm tired of cleaning up after them." } },
+      lines = { { id = "xrogue_default", text = "Because there are things down here that don't like surprises, and if you surprise one of them, I won't be able to call it back in time. Sylvius's students keep finding that out, and I'm tired of mopping up after them." } },
       choices = {
         { text = "Then I'll knock next time, Marcot. Your rules, your cellar.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll come and go as I please. Surprises are my trade.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1940,7 +1940,7 @@ P:NPC {
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
         { text = "Gnomeregan had warlocks long before Goldshire did.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "Why would a warlock want a rogue to knock?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Is curiosity truly how most warlocks began?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is curiosity really how most warlocks began?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the circle for, Marcot?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does my beast sense what you keep in the cellar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you keep any knowledge here about the old forests?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1986,7 +1986,7 @@ P:NPC {
       lines = { { id = "t_default", text = "You could. They'd pray, Farley would sell them a drink, and we'd still be here on Tuesday, so have one yourself, upstairs." } },
       choices = {
         { text = "I'll be watching.", next = "BACK", fx = { align = { light = 1, order = 1 }, affinity = -1 } },
-        { text = "Fair enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Suits me. Pour me one too.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     practise = {

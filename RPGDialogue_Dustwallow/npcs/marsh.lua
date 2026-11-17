@@ -10,14 +10,14 @@ P:NPC {
     third = "{name} met Tabetha, a reclusive mage living in the southern marshes of Dustwallow.",
   },
   greetings = {
-    { id = "g_main", text = "Come in, come in, and wipe your boots, though in this marsh I suppose there's little point." },
+    { id = "g_main", text = "Come in, come in, and wipe your boots, though in this marsh I suppose there's little point, and mind the frog in the kettle, he's a guest." },
     { id = "g_back", when = { metBefore = true }, text = "You found your way back through the mire! Most don't bother twice." },
   },
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A great deal, honestly, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
+      lines = { { id = "xwarcl_default", text = "A great deal, as it happens, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
       choices = {
         { text = "I'll guard any caster gladly. That's what a sword is for.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Mages ought to fight their own battles, Tabetha.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -121,7 +121,7 @@ P:NPC {
       choices = {
         { text = "Does all your magic out here disturb the marsh's spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does all the mana in this swamp do to a spellcaster?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Does the marsh truly not mind a mage drawing on it?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Does the marsh really not mind a mage drawing on it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why live out in the swamp?", next = "b1_1" },
         { text = "Do you know Lady Jaina?", next = "b2_1" },
         { text = "What dangers should I watch for?", next = "b3_1" },
@@ -400,7 +400,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ogron like {pet}! {pet} not scared of Ogron, and that very rare, because most things run when they see ogre." },
       },
       choices = {
-        { text = "You've earned my trust, Ogron. That's enough for me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You've earned my trust, Ogron. Fish and all.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll trust you when Reethe's caught, and not before.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -620,7 +620,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, good. If you came up the north road you'll have seen the raptor tracks, and you can tell me whether they're getting closer to the tower, because I swear they are." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out at Sentry Point! Most of what comes up this road wants to kill us, so it's a rare thing to see someone who might patch us up instead." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Lady Proudmoore keeps the peace with the Horde and I keep my orders, but I won't pretend it doesn't steady me to see one of the Silver Hand on this road." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Lady Proudmoore keeps the peace with the Horde and I keep my orders, but it steadies me, I'll admit, to see one of the Silver Hand on this road." },
         { id = "h_default", key = true, text = "Private Hendel, Theramore Guard, posted at Sentry Point. We watch the northern road so Theramore knows what's coming before it arrives, and lately what's coming is trouble." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "You're asking after the diplomat? Plenty of people have, and I've told every one of them I saw nothing out of the ordinary." },
         { id = "h_druidcl", when = { class = "DRUID" },

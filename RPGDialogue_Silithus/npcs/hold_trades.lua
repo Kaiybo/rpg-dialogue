@@ -20,7 +20,7 @@ P:NPC {
 
   notice = {
     { id = "n_ench", cat = "craft", when = { profession = "Enchanting" },
-      text = "You carry the faint shimmer of an enchanter about you, it's in your fingers. You'll want to see what I have, then, and I've a formula or two you won't find in Darnassus." },
+      text = "There's arcane dust under your fingernails, enchanter, and you've wiped some on your sleeve. You'll want to see what I have, then, and I've a formula or two you won't find in Darnassus." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "A mage, all the way out here! Mind your spells near my table, if you would; a stray spark among these dusts would be a very bright mistake." },
   },
@@ -32,7 +32,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "I think both take something unseen and bind it into the world, but I'm only an enchanter, and I sell rods and dust, not theology. The sand scours everything here, so whatever you've bound into your armour, I'd keep it under a cloak when the storms come." } },
       choices = {
         { text = "The Light is faith, not a craft. They aren't alike.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Power is power. It's all just binding in the end.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Power is power. I'll bind whatever pays.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -162,7 +162,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I sell supplies to enchanters. I came to the Hold because they needed them here more than anywhere else." } },
-    advice = { { id = "tp_ad", text = "Keep your dusts sealed, always. One sandstorm and you'll be enchanting with a pinch of desert." } },
+    advice = { { id = "tp_ad", text = "Keep your dusts sealed, always. One sandstorm and you'll be enchanting with a pinch of desert and a dead beetle." } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle holds the line against the hives. I make sure the people holding it have what they need." } },
     _none = { { id = "tp_none", text = "I'm afraid I know very little outside my craft." } },
   },
@@ -418,7 +418,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Poorly, if I'm honest, and the wolves worst of all. I keep wet cloths over the cages at midday and walk them only at dusk, and still they pine for forests they've never seen, which seems a cruel thing to be born with." } },
+      lines = { { id = "xdruid_default", text = "Poorly, and the wolves worst of all. I keep wet cloths over the cages at midday and walk them only at dusk, and still they pine for forests they've never seen, which seems a cruel thing to be born with." } },
       choices = {
         { text = "Send them north. No beast should suffer here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They're fighting animals. Hardship will make them stronger.", next = "BACK", fx = { align = { light = -1 } } },

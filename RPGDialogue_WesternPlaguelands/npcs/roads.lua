@@ -35,7 +35,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "With the right tabard and a little of my work, dearie, the guards at Hearthglen would salute you. The trick is the swagger, for a Crusader walks as if the Light owes him money, and you've the shoulders for it already." } },
+      lines = { { id = "xwarcl_default", text = "With the right tabard and a little of my work, dearie, the guards at Hearthglen would salute you. It's all in the swagger, for a Crusader walks as if the Light owes him money, and you've the shoulders for it already." } },
       choices = {
         { text = "I'd rather walk in under my own colours and fight.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A disguise wins more fights than a charge. I'll take it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -103,11 +103,11 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "A disguise fools the eyes, dearie, and a seeming fools the heart, which is where the Crusade keep their judgement. The priests taught me that, though they'd burn me for saying so, and I find that very funny indeed." } },
+      lines = { { id = "xrogue_default", text = "A disguise fools the eyes, dearie, and a seeming fools the heart, which is where the Crusade keep their judgement. The priests taught me that, though they'd burn me for saying so, and I find that very funny." } },
       choices = {
         { text = "Deceiving zealots is fair game.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Lies catch up with everyone, even yours.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Interesting. Something else.", next = "BACK" },
+        { text = "Clever. Something else.", next = "BACK" },
       },
     },
     xmage = {
@@ -121,7 +121,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enough to stay out of it, dearie, for every warlock I've known paid in the end, and the price was never coin. Seemings are safer, since the worst a bad illusion ever does is show you your own face." } },
+      lines = { { id = "xlock_default", text = "Enough to stay out of it, dearie, for every warlock I've known paid eventually, and the price was never coin. Seemings are safer, since the worst a bad illusion ever does is show you your own face." } },
       choices = {
         { text = "I'll stop before the price comes due.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I know the price, and I'll pay it gladly.", next = "BACK", fx = { align = { light = -1 } } },
@@ -190,7 +190,7 @@ P:NPC {
   nodes = {
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Some of them want to rest, and some of them want to be remembered first, and the hard part is telling which is which. I'm helping the ones who want remembering, and I think your people would understand that." } },
+      lines = { { id = "xdruid_default", text = "Some of them want to rest, and some of them want to be remembered first, and telling which is which takes longer than you'd think. I'm helping the ones who want remembering, and I think your people would understand that." } },
       choices = {
         { text = "Help them remember. Then let them rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The past is past. Let them all rest now.", next = "BACK", fx = { align = { light = -1 } } },
@@ -240,7 +240,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Because remembering properly matters, and the ground was here for all of it, before Andorhal and before the plague, and it'll be here after. I like to think the spirits keep a sort of history of their own, and that every brave thing done at Darrowshire is still written in it somewhere." } },
       choices = {
-        { text = "Then we honour the dead by remembering them truly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then we honour the dead by remembering them as they were.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The past is gone, Chromie. Only today matters.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Chromie.", next = "BACK" },
       },

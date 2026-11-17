@@ -109,7 +109,7 @@ P:NPC {
         { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and I'd very much like to know what they mean to do with them." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, this far east? You'll know better than most what the Forsaken's plagues did to Lordaeron, so you'll understand why I lose sleep over them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "You came through the trees without a sound, and my lookouts will hear about it in the morning. Out here a quiet traveller is worth more than a loud one, so I'm glad you're on our side." },
+          text = "You came through the trees without a sound, and my lookouts will hear about it in the morning. Out here a quiet traveller lives longer than a loud one, so I'm glad you're on our side." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage this close to Felwood, and I hope your masters warned you what the demons left in that soil. Some nights it rises into the air, and it doesn't care whose lungs it fills." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forest Song could use another sword, because I've Forsaken on one side and demons on the other." },
@@ -117,7 +117,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because if the Forsaken are carrying their plague into these woods, I'll want someone who knows what it looks like." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you know the dead, and you'll know what it means that the Forsaken are walking these woods." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Forest Song, and welcome. The Forsaken carry their sickness into the eastern woods and the demons foul the canyon, so I'll take every healer of the land the Circle can spare." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Forest Song, with Demon Fall Canyon just to the south of us. I'll be honest, I'd sooner have you where I can see you than down there among the demons." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Forest Song, with Demon Fall Canyon just to the south of us. I'd sooner have you where I can see you than down there among the demons." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Felguard", "Mannoroc", "Infernal" }, min = 30 } },
           text = "You've been down into Demon Fall Canyon, and by the count my lookouts keep, a good many demons didn't come back up with you. That's the best news Forest Song has had in a month." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I hold Forest Song with the Forsaken on one side and demons on the other. Your spirits might help me count arrows." },
@@ -299,7 +299,7 @@ P:NPC {
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
-        { id = "h_again2", text = "Go on, then." },
+        { id = "h_again2", text = "Go on, then. My fingers are split from the string, so I'll take any excuse to rest them." },
       },
       choices = {
         { text = "Let me see your bows.", next = "BUSINESS" },
@@ -322,7 +322,7 @@ P:NPC {
         { id = "bows_default", text = "Patient wood and a patient maker, and Ashenvale has the first if not always the second. I let my staves season a full year, so if you want one sooner you'll have to buy someone else's." },
       },
       choices = {
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Right. Something else, then.", next = "BACK" },
       },
     },
     alone = {
@@ -458,7 +458,7 @@ P:NPC {
       },
       again = {
         { id = "h_again1", text = "Say what else is on your mind, and say it before the tide turns." },
-        { id = "h_again2", text = "Speak, I'm listening." },
+        { id = "h_again2", text = "Speak, I'm listening. Mind the naga bones by the fire pit; the grunt who swore he'd bury them has done nothing of the sort." },
       },
       choices = {
         { text = "What has the sea brought ashore since the naga came?", next = "xhsham", when = { class = "SHAMAN" } },

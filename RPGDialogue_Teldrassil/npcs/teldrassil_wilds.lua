@@ -131,7 +131,7 @@ P:NPC {
         { text = "What's wrong with the timberlings, Denalan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the timberlings stalk prey like true beasts now?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can a sickness like the timberlings' be healed, Denalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Are the timberlings truly evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are the timberlings evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could fel magic be what's twisting the timberlings?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What is wrong with the plants, Denalan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune guide your work.", next = "END" },
@@ -416,7 +416,7 @@ P:NPC {
       },
       choices = {
         { text = "Your cooking, of course. I'll stay.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Conjured bread keeps me fed. That's enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Conjured bread keeps me fed, and it never goes stale.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "What is the oldest recipe you keep?", next = "recipe" },
       },
     },

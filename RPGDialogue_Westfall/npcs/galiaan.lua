@@ -111,7 +111,7 @@ P:NPC {
           text = "You walk light, like someone used to wind in your face, and that's useful in a scout. I'm not recruiting, mind; I'm only noticing." },
         { id = "h_human_hunter", when = { race = "Human", class = "HUNTER" },
           text = "A human who tracks with a beast at heel. Not many of your folk take to it. The ones who do make the best scouts I've seen." },
-        { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye, though it hides everything under dust. I've stopped minding the dust." },
+        { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye, though it hides everything under dust. I've dust in my boots, my bedroll, and my bread, and I've stopped minding." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Defias front moves, so I hope you move with it, rather than standing in one place to be found." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The militia lose more men to fever and wounds than to the Defias, so you are welcome on my side of the map." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You will want to charge the Defias front, I expect, so let me show you where it actually is first." },
@@ -172,7 +172,7 @@ P:NPC {
     silk = {
       lines = { { id = "si_default", text = "The cloth's the rank: leather on the road, silk on the ones who give orders. Silk never comes up to the farms. It stays under Moonbrook and sends the leather out." } },
       choices = {
-        { text = "Then the silk's what matters.", next = "BACK", fx = { learn = { "moonbrook" }, trait = { curious = 1 } } },
+        { text = "Then I'll stick to asking about the silk.", next = "BACK", fx = { learn = { "moonbrook" }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

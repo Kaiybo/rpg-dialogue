@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_stonetalon", when = { questActive = TODO_QUEST("The Spirits of Stonetalon") }, text = "Seereth waits in the Greatwood Vale. Follow the road west from the Crossroads, and listen to the trees as you go." },
     { id = "g_away", when = { away = 21 }, text = "You have been away {away}. The land has been speaking of someone with your step, out in the wide places." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "The spirits notice you more than they did, {class}. Strength draws their eyes, so be sure you are worth the watching." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear warm words about you in the hall. Warm words are a kind of offering, and the spirits like them as well as we do." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear warm words about you in the hall. The spirits hear warm words as plainly as we do, and they like them nearly as much." },
   },
 
   notice = {

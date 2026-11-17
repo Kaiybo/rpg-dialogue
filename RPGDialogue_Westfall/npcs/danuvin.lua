@@ -109,7 +109,7 @@ P:NPC {
           fx = { hear = "stormwind_abandoned_westfall" } },
         { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN" } },
           text = "You've had real training, I can see, and good. Half my lot learned to fight last spring, from me, with hoes." },
-        { id = "h_drill", when = { metBefore = true }, text = "I drilled the new ones till they dropped, let them sleep, then drilled them again. By harvest they'll be soldiers, or else very tired farmers." },
+        { id = "h_drill", when = { metBefore = true }, text = "I drilled the new ones till they dropped, let them sleep, then drilled them again. By harvest they'll be soldiers, or else very tired farmers with sore feet and no sense of humour left." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! My recruits pray the way they fight, loudly and without much skill, so you'd be a help to them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman on Sentinel Hill. My farmers will stare, so let them. If your lightning drops gnolls, I'll count their paws the same as anyone's." },
       },

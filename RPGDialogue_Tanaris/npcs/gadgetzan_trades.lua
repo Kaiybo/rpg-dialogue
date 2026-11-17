@@ -147,7 +147,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you sell that a druid would call cruel?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Does anything from the land itself pass through your auction?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the elements ever turn up in your auction lots?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what's up for auction.", next = "BUSINESS" },
         { text = "How is this house different from the city ones?", next = "neutral" },
         { text = "What sells best out here?", next = "sells" },
@@ -318,7 +318,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The beasts settle when your kind are about, which is more than I can say for the Water Company's collectors." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, good, because two of my beasts came back from the dunes with a fever, and the Water Company won't sell me a drop extra to cool them." },
         { id = "h_default", key = true,
-          text = "Laziphus, stable master. Hunters leave their beasts with me while they travel, and I keep them fed, watered and out of the sun, which in Tanaris is the hard part." },
+          text = "Laziphus, stable master. Hunters leave their beasts with me while they travel, and I keep them fed, watered and out of the sun, which in Tanaris means a lot of buckets and a lot of complaining, mostly from the raptors." },
         { id = "h_noon", when = { timeOfDay = "day" },
           text = "Come into the shade if you're talking to me, because I'm not standing out in that sun for anybody. The animals have the right idea; they haven't moved since breakfast." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -406,7 +406,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Careful where you step, that crate's live. No, the other one, that one's fine." },
+    { id = "g_default", text = "Careful where you step, that crate's live. No, the other one. Actually, step around both, and don't sneeze." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see! That's the first sign of a promising engineer." },
   },
 
@@ -627,7 +627,7 @@ P:NPC {
       },
       choices = {
         { text = "The basilisks were there first. Mine around them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Ore's worth more than a basilisk's nap. Drive them off.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The ore matters more than a basilisk's nap. Drive them off.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

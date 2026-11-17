@@ -367,7 +367,7 @@ P:NPC {
       choices = {
         { text = "A fight should be won face to face.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
         { text = "Winning is all that matters.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Point taken. Something else.", next = "BACK" },
       },
     },
   },
@@ -473,7 +473,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Because the King knows, an' the guards know, an' they've decided they'd rather have us where they can see us. If ye report it, ye'll be tellin' them what they already know, an' I'll be wonderin' why ye bothered." } },
       choices = {
-        { text = "The law knows. That's enough. I'll leave you be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The law knows. I'll leave it there, and you be.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Knowing isn't the same as approving. I'll keep an eye on you.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll be on my way.", next = "BACK" },
       },
@@ -704,7 +704,7 @@ P:NPC {
         { text = "Do warlocks really fish, Grimnur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would a warrior thank you for fishing lessons?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters really take to fishing easily, Grimnur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is fishing a kind of prayer, Grimnur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is fishing like prayer, Grimnur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can a paladin learn anything from fishing, Grimnur?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever fish the waters of Loch Modan, Grimnur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you ever wish the water came to your cave, Grimnur?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -740,7 +740,7 @@ P:NPC {
         { id = "wy_default", text = "Because fish are food, an' food's life when ye're far from an inn. An' because sittin' quiet by the water is the only time some adventurers ever stop tae think, an' most o' them need it." },
       },
       choices = {
-        { text = "Quiet hours are worth more than any catch.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The sitting's the best part. The fish are a bonus.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'd rather be doing something useful.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
@@ -838,7 +838,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because a green glow tends to attract things that aren't fish, and I've had enough surprises in this cavern. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool." } },
       choices = {
-        { text = "Fair enough. I'll stick to your ordinary lures.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Ordinary lures for me, then. I'll leave the imp-fishing to you.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The things that aren't fish sound more interesting.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -928,7 +928,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I fixed water pumps in Gnomeregan, and now I fix reels, and honestly, it's not so different." } },
+    background = { { id = "tp_bg", text = "I fixed water pumps in Gnomeregan, and now I fix reels, and it's not so different, except reels don't flood." } },
     advice = { { id = "tp_ad", text = "Bring spare line. You'll always need more than you think." } },
     _none = { { id = "tp_none", text = "Hmm, I don't know that one! Ask Grimnur; he knows everything that's not about gadgets." } },
   },

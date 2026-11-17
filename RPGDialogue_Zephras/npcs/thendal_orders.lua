@@ -290,7 +290,7 @@ P:NPC {
     },
     danger = {
       lines = {
-        { id = "da_default", text = "The wind spirits who brought us here abandoned us, and left us exposed in a realm that was never truly ours. Our people once lived across several island sanctuaries in this corner of Skywall, and now we can't even say for certain that anyone remains outside this one." },
+        { id = "da_default", text = "The wind spirits who brought us here abandoned us, and left us exposed in a realm that was never ours to begin with. Our people once lived across several island sanctuaries in this corner of Skywall, and now we can't even say for certain that anyone remains outside this one." },
       },
       choices = {
         { text = "Abandoned? Others say they vanished.", next = "abandoned" },

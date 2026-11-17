@@ -41,7 +41,7 @@ P:NPC {
         { id = "xlock_more1", text = "Plain coal from the hills is the fire I trust, and a Thunderbrew's lager is honest or bust." },
       },
       choices = {
-        { text = "Fair enough. An honest brew deserves an honest fire.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep my fel off your fire, Grimbooze.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your loss. It would brew twice as fast.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Grimbooze.", next = "BACK" },
       },
@@ -174,7 +174,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     defias = {
-      lines = { { id = "d_default", text = "The Defias come by with their masks and their blades, and they buy a few barrels for drinking in raids. They pay for it, mostly, and leave me alone, for a man with good lager is worth more than stone." } },
+      lines = { { id = "d_default", text = "The Defias come by with their masks and their blades, and they buy a few barrels for drinking in raids. They pay for it, mostly, and leave me alone, since even a cutthroat won't torch the only still between here and Goldshire." } },
       choices = {
         { text = "You sell to outlaws?", next = "defias_sell" },
         { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } },

@@ -235,7 +235,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because nobody knows where to look by the third week of winter, and that's when they all come to me. Forage all you like in summer, but I'll keep a sack of flour on the shelf for when you change your mind." } },
       choices = {
-        { text = "Fair enough. A careful traveller plans for winter.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Keep the flour, then. A careful traveller plans for winter.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'd sooner trust the forest than a sack of flour.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -272,7 +272,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Some do, but every one I've met says conjured bread tastes like nothing at all, and sooner or later they come back here for a real loaf. I count on it, if I'm honest." } },
+      lines = { { id = "xmage_default", text = "Some do, but every one I've met says conjured bread tastes like nothing at all, and sooner or later they come back here for a real loaf with a proper crust. I count on it, and so does my rent." } },
       choices = {
         { text = "Real bread for real work. I'll buy honestly from you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Conjured bread fills the belly. Your shop's a luxury.", next = "BACK", fx = { align = { order = -1 } } },
@@ -321,7 +321,7 @@ P:NPC {
       },
       choices = {
         { text = "What do adventurers forget most?", next = "forget" },
-        { text = "What should I carry on a long road?", next = "road" },
+        { text = "What should I pack for the road?", next = "road" },
         { text = "Let me see.", next = "BUSINESS" },
         { text = "Don't you ever wonder who's buying your rope?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Don't mages simply conjure their own water and bread?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -583,7 +583,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I dream of it every night, a gold-lettered sign with my name on it. Your spirits might bring luck to a wagon, if you ask nicely." } },
       choices = {
-        { text = "Keep at it honestly, Tharynn. The sign will come.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep at it, Tharynn. The sign will come.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Dreams are cheap. Sell more and dream less.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -688,7 +688,7 @@ P:NPC {
         { text = "Why trade supplies?", next = "trade" },
         { text = "What do crafters buy most?", next = "crafters" },
         { text = "Show me.", next = "BUSINESS" },
-        { text = "Do mages truly write more than they cast?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do mages really write more than they cast?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why won't you keep a warlock's goods?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would a warrior take up a craft at all?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do many hunters take up leatherwork?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -802,8 +802,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Oiled leather, stitched tight, with no buckles where a buckle would rattle, and that's the whole secret. I made a set for one of Sylvius's students and he walked right past me in my own shop, which I took as a compliment." } },
       choices = {
-        { text = "I'll use it honestly, Krighton, and pay what it's worth.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Quiet armor's worth more than coin. I'll find a bargain.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll pay your price, Krighton, and use it for honest work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I need armor that doesn't clank. I'll find a bargain.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -949,7 +949,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Whichever you can still swing when you're tired, because that's when the fight's decided. Lyria's students learn that the hard way, and then they come back to me with a sore wrist and the right question." } },
+      lines = { { id = "xwarcl_default", text = "Whichever you can still swing when you're tired, because that's when the fight's decided. Lyria's students find that out on their first long sparring day, and then they come back to me with a sore wrist and the right question." } },
       choices = {
         { text = "I'll choose the blade I can swing when I'm tired.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll take the heaviest you've got and grow into it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -988,7 +988,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Some nights, when a farm boy buys a sword he can barely lift and I know he's going after Hogger. Most nights I tell myself a good blade ends a fight quicker than a bad one, and that's a kind of mercy, though Kurran says I'm just good at excuses." } },
+      lines = { { id = "xapriest_default", text = "Some nights, when a farm boy buys a sword he can barely lift and I know he's going after Hogger. Most nights I tell myself a good blade ends a fight quicker than a bad one, and that's mercy of a sort, though Kurran says I'm just good at excuses." } },
       choices = {
         { text = "Your craft can serve good ends, Corina.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Every blade you sell will draw blood. Own it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1289,7 +1289,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "None of them, if I'm honest, because these are road horses and they've never heard steel ring. The old grey might, since his rider was a soldier, but I'd not ask him to go again." } },
+      lines = { { id = "xwarcl_default", text = "None of them, because these are road horses and they've never heard steel ring. The old grey might, since his rider was a soldier, but I'd not ask him to go again." } },
       choices = {
         { text = "Then I'll leave the old grey in peace.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A horse is a horse. He'll go if he's told.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1370,8 +1370,8 @@ P:NPC {
         { text = "Do you have a favorite?", next = "favorite" },
         { text = "Who do you look after, mostly?", next = "guests" },
         { text = "The stable, please.", next = "BUSINESS" },
-        { text = "Do mages truly neglect their mounts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Would your horses truly shy from a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do mages really neglect their mounts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would your horses really shy from a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Which of your horses would carry a warrior to battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the hunters' beasts get on with your horses?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think beasts have souls, Erma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1508,7 +1508,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your lot heal with a touch and think linen's beneath you, until the Light runs thin on a long road." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your lot heal with a touch and think linen's beneath you, until the Light runs thin halfway to Redridge." },
         { id = "h_default", text = "Michelle Belle, and I teach bandaging. It's not glamorous, but it's why you'll still be alive next week." },
         { id = "h_josetta", text = "Josetta prays over the wounded; I wrap them. Between us, most of Goldshire's adventurers go home on their own feet." },
         { id = "h_faint", when = { metBefore = true }, text = "Most of my students faint the first time. The ones who don't, I keep a closer eye on." },
@@ -1709,7 +1709,7 @@ P:NPC {
       },
       choices = {
         { text = "Who's Remen Marcot?", next = "cellar_marcot" },
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Then I'll keep my nose out of the cellar.", next = "BACK" },
       },
     },
     cellar_marcot = {
@@ -1803,7 +1803,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Because it bites and doesn't pretend otherwise, which is more than I can say for most of the folk upstairs. Your bears and cats would bite too, if you hadn't charmed them out of it." } },
       choices = {
         { text = "My beasts aren't charmed. They choose to stand with me.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Bound or charmed, a beast obeys, and that's what matters.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Bound or charmed, a beast obeys. I don't fuss over the leash.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1851,7 +1851,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Every day, and that's why I'm still alive, because the ones who stopped fearing them are the ones the Brothers bury. You pray to something you hope is kind, and I bind something I know isn't, and I'd call mine the more honest arrangement." } },
       choices = {
         { text = "Then I'll pray for you, whether you want it or not.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Honesty with a demon beats lies to yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "At least you know what your demon wants. I'll take that.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1976,7 +1976,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the quiet part already. It's a good thing for a busy head, friend, and I'd guess yours is busier than most." } },
+      lines = { { id = "xlock_default", text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the keeping-quiet part already. It's a good thing for a busy head, friend, and I'd guess yours is busier than most." } },
       choices = {
         { text = "It might do me good. I'll try it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My head's busy for good reason. I've no time for ponds.", next = "BACK", fx = { align = { light = -1 } } },
@@ -2035,7 +2035,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "It might be, now you say it, because I come down at dawn and wait and hope, and some days something answers and some days it doesn't. The difference is that I've never once blamed the lake." } },
       choices = {
-        { text = "Patience like that is a kind of faith, Lee.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Patience like that is near enough to faith, Lee.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Waiting isn't faith, Lee. It's only waiting.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Lee.", next = "BACK" },
       },
@@ -2079,7 +2079,7 @@ P:NPC {
         { text = "Wouldn't freezing the pond be a clever way to fish?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can fishing teach a warrior anything?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is fishing really so like hunting, Lee?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is fishing a kind of prayer to you, Lee?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you pray out here, Lee, or just fish?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is Crystal Lake safe these days, Lee?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is the lake fished out, or does it still give plenty?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think fishing would suit a warlock, Lee?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -2089,7 +2089,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_quiet", text = "It's the quietest work in Elwynn, because nobody shouts at a fisherman. Nobody but the fish, and they don't shout loud." },
+        { id = "w_quiet", text = "Nobody shouts at a fisherman, so it's the calmest work in Elwynn. The fish don't shout, though the ducks have opinions about my bread." },
       },
       choices = {
         { text = "Where's the best spot?", next = "why_spot" },
@@ -2408,7 +2408,7 @@ P:NPC {
         { id = "h_fix", when = { metBefore = true }, text = "Half my work is fixing what adventurers stitched themselves. The other half is telling them it wasn't so bad." },
         { id = "h_helene", when = { heardLine = "helene.h_default" }, text = "Helene told you every coat's worth something? It's true, until an adventurer stitches it himself, and then it's worth less." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue. You'll want soft boots that don't creak, and I make the quietest boots in Goldshire." },
+          text = "A rogue. You'll want soft boots that don't creak, and mine don't, though I can't promise the same for your knees." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You won't want my leather, I suppose, but a good pair of boots is never wasted, even on a scholar." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your bracers are cracking at the buckle; I can see it from here, and so will a gnoll." },
@@ -2484,7 +2484,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "Leatherworker. The house by the lake is mine. My husband's at the front, and Helene keeps me company." } },
-    advice = { { id = "tp_ad", text = "Buy boots a little big. Feet swell on a long road, and pride doesn't." } },
+    advice = { { id = "tp_ad", text = "Buy boots a little big, because feet swell on the march, and blisters will beat you before any gnoll does." } },
     _none = { { id = "tp_none", text = "Can you stitch it? If you can't, I'm afraid I'm no help to you." } },
   },
 }

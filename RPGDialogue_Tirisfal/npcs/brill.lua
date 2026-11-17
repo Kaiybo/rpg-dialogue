@@ -390,7 +390,7 @@ P:NPC {
 
   greetings = {
     { id = "g_lab", text = "Careful where you put your hands. Some of these bottles are only mostly safe." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, my helper. Have you brought me something interesting?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, my helper. Have you brought me something that still twitches?" },
     { id = "g_away", when = { away = 14 }, text = "Ah, my helper, back after {away}! I've been brewing all the while, and I have a great many new things for you to fetch." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since I first sent you out for samples, and stronger helpers can bring back far more interesting ones. I'm thrilled." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Someone in Brill swallowed one of your little tales, I hear. I do admire a good deception, since my whole profession depends on people not asking what's in the bottle." },
@@ -414,7 +414,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Whether it can be poisoned, quite simply, because the Scourge bound our souls once and a cure for that would be worth more than any plague. Bring me your thoughts on it, and perhaps a hair or two, and I'll write your name very small in the margin of my notes." } },
+      lines = { { id = "xhpriest_default", text = "Whether it can be poisoned, quite simply, because the Scourge bound our souls once and a cure for that would make a plague look like a head cold. Bring me your thoughts on it, and perhaps a hair or two, and I'll write your name very small in the margin of my notes." } },
       choices = {
         { text = "A cure for binding souls is worth the work. I'll help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Leave my soul out of your bottles, Johaan.", next = "BACK", fx = { align = { light = -1 } } },
@@ -516,7 +516,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "Reagents, only reagents, for a remedy against the Scourge. The plague-touched earth grows things nowhere else in Lordaeron will, and I'd be a poor apothecary if I let that go to waste, so could you gather a few for me, gently, roots and all?" } },
       choices = {
         { text = "Gently, then, roots and all, for the war on the Scourge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Not until I know what they're truly for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Not until I know what they're really for.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -575,7 +575,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "I prayed for them every night I stood guard at their mills, and then the plague came in the grain and they asked me to die for them, so I did. I've stopped praying, but I find I still say their names before I sleep, or before I sit still, since I don't sleep anymore." } },
       choices = {
-        { text = "Say their names, Coleman. That's a kind of prayer too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Say their names, Coleman. Somebody ought to.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They used you. You owe them nothing, not even their names.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -659,7 +659,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Fire would clear them, and I won't pretend the thought doesn't warm what's left of me, but the mills are dry as tinder and I bled for those mills. Burn the risen family if you must, and leave the millstones standing; I paid for them with my life." },
+        { id = "xmage_default", text = "Fire would clear them, and the thought does warm what's left of me, but the mills are dry as tinder and I bled for those mills. Burn the risen family if you must, and leave the millstones standing; I paid for them with my life." },
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "You were studying magic while I was hauling grain sacks for the Agamands, I expect, and both of us ended up in the same ground. It's a funny sort of fairness, and I mean to enjoy it while it lasts." },
       },
       choices = {
@@ -819,7 +819,7 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I used to bolt my door against folk like you, back when I had a door and something worth taking. Now I'd almost welcome a thief to worry about, because worrying was such a living sort of feeling." },
       },
       choices = {
-        { text = "I'll stay in the shadows and come back quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll keep out of sight and come back quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "If the Crusade stops me, they'll see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "What do you miss most, Gretchen?", next = "miss" },
       },
@@ -857,7 +857,7 @@ P:NPC {
     { id = "g_inn", text = "Welcome to the Gallows' End! Sit anywhere you like; nobody here bites. Well, nobody here bites guests." },
     { id = "g_home", when = { homeInn = { "Brill", "Gallows' End Tavern" } }, text = "Your room's kept. Don't mind the bats; they pay rent in silence." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "A Brill face come home! You'll have drunk in this room when everyone in it still breathed, I'd wager, so sit anywhere you like and pretend it's harvest night." },
-    { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! Your room's kept, and the bats have been on their best behaviour, more or less." },
+    { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! Your room's kept, and the bats have been on their best behaviour, apart from what they did to the rug." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been gone {away}, and I was starting to think you'd found yourself a better tavern. Sit down, and the first drink's on the house for coming home." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of my regulars couldn't stop talking about you last night, and they don't usually talk at all. Whatever you said to them, it did some good." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody came in here last week muttering about you, and muttering's bad for business. Keep your quarrels out of the Gallows' End, if you please." },
@@ -883,7 +883,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "More often than they ask for drinks, honestly, though they never call it praying. They sit at the bar and tell me who they lost, and I listen, which is what I'd want a priest to do, and I'll leave the shadows and the Light to you." } },
+      lines = { { id = "xhpriest_default", text = "More often than they ask for drinks, though they never call it praying. They sit at the bar and tell me who they lost, and I listen, which is what I'd want a priest to do, and I'll leave the shadows and the Light to you." } },
       choices = {
         { text = "Listening is holy work, Renee. You do it well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Grief keeps them weak. They should let it go.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1141,8 +1141,8 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "You walk like someone who was a thief before you died, all soft heels and an eye on the exits. I don't carry anything worth taking, so you may as well sit by the fire and learn something honest." },
       },
       choices = {
-        { text = "Fair enough. I'll sit by the fire and learn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A rogue keeps to the shadows, Eleanor, not the firelight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll sit by the fire and learn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Firelight's bad for a rogue, Eleanor. People remember your face.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Why camp, when there are inns?", next = "why" },
       },
     },

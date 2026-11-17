@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = { "DRUID", "SHAMAN" } },
       text = "You feel the fire differently than most, I think. It isn't only wood burning, is it?" },
     { id = "n_form", cat = "form", when = { form = { "bear", "cat", "travel" } },
-      text = "Even the beasts come to the fire, in the end. Rest your shape a while, friend; nothing here will hunt you." },
+      text = "Even the beasts come to the fire when the nights turn cold. Rest your shape a while, friend; nothing here will hunt you." },
   },
 
   start = "hello",
@@ -44,7 +44,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The fire keeps talking, so I might as well." },
-        { id = "h_again2", text = "Ask what you will. The evening is long." },
+        { id = "h_again2", text = "Ask what you will. The evening is long, and the kettle has barely started to grumble." },
       },
       choices = {
         { text = "Why light the fire every night?", next = "fire" },

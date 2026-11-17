@@ -42,7 +42,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A handful, and every one o' them a legend in this inn, at least until they sobered up. The trick is runnin' through gnoll country with Barleybrew in yer belly, and the gnolls can smell it, so they come runnin' too." } },
+      lines = { { id = "xwarcl_default", text = "A handful, and every one o' them a legend in this inn, at least until they sobered up. The sport is runnin' through gnoll country with Barleybrew in yer belly, and the gnolls can smell it, so they come runnin' too." } },
       choices = {
         { text = "I'll run it sober, or not at all.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Pour it strong. I'll run it the proper dwarven way.", next = "BACK", fx = { align = { order = -1 } } },
@@ -180,7 +180,7 @@ P:NPC {
         { id = "nw_default", text = "It's a warrior's challenge, so the reward's for warriors, but I'll not stop anyone fool enough to drink with me. Ye'll get a cheer and a headache, and Furen's shield stays in Stormwind." },
       },
       choices = {
-        { text = "A cheer and a headache. Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A cheer and a headache. I've paid more for less.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -282,7 +282,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "No, because worrying's bad for the hands. Some go to work for the crown, some go to work for themselves, and a few end up in the lake, and none of it's on me, priest, so you can keep the sermon." } },
       choices = {
         { text = "It's on you a little, Lucius. Think on that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fair enough. They chose their road, not you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They chose their road. That's not on you.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Lucius.", next = "BACK" },
       },
     },
@@ -291,7 +291,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Marris knows well enough, and he pretends not to, because a guard who can move quiet comes home from the hills more often. Justice is a fine thing in Stormwind, paladin, but out here it's a luxury." } },
       choices = {
         { text = "The law should hold here just as it does in Stormwind.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Out here, results matter more than the law. Fair enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Out here, results count for more than the law.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Lucius.", next = "BACK" },
       },
     },
@@ -332,7 +332,7 @@ P:NPC {
         { text = "You train rogues. Ever met a mage worth his salt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do rogues and warriors ever work together, Lucius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter learn something from a rogue, Lucius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "We both work in the shadows, Lucius.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "We both deal in things decent folk won't name, Lucius.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you ever worry what becomes of the folk you train?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Marshal Marris know what you teach down here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "My people walk unseen in the forest. Could I teach your students?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -770,7 +770,7 @@ P:NPC {
     },
     lake_best = {
       lines = {
-        { id = "lb_default", text = "Right here off the dock, honestly, where the guards can see you. The deep water east of the bridge is better, but a fish isn't worth an arrow in the back." },
+        { id = "lb_default", text = "Right here off the dock, where the guards can see you. The deep water east of the bridge is better, but a fish isn't worth an arrow in the back." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -871,7 +871,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Don't tempt me, friend, because I'd be first in line and Bailiff Conacher would be second. The Magistrate's ruled no ale till the road's clear, and I've got to live here after you've gone." } },
       choices = {
-        { text = "Fair enough. Laws are laws.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Laws are laws. I'll keep to them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Rules bend for ale, Wental.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Why no ale, then?", next = "noale" },
       },
@@ -928,7 +928,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else can I do for you? And no, still no ale." },
-        { id = "h_again2", text = "Go on. The bread's warm and I've time." },
+        { id = "h_again2", text = "Go on. The bread's warm, and I'm guarding it from those two children off the dock, who think I can't count loaves." },
       },
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },
@@ -1300,7 +1300,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Quick, the foreman's looking." },
-        { id = "h_again2", text = "Go on, then. I could use the rest." },
+        { id = "h_again2", text = "Go on, then. I could use the rest, and I've a blister on my palm the size of a copper." },
       },
       choices = {
         { text = "How's the bridge coming?", next = "bridge" },

@@ -10,7 +10,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
   impression = {
-    first = "Gryan Stoutmantle came home from the war to find Westfall in thieves' hands, and he means to take it back one farm at a time. He carries the whole hill on his shoulders without a word about the weight.",
+    first = "Gryan Stoutmantle came home from the war to find Westfall in thieves' hands, and he means to take it back one farm at a time. He sleeps in his boots, eats what the militia eat, and hasn't owned a dry pair of socks since spring.",
     third = "{name} met Gryan Stoutmantle at Sentinel Hill, who raised the People's Militia to reclaim his homeland.",
   },
 
@@ -106,7 +106,7 @@ P:NPC {
         { id = "h_count", when = { metBefore = true }, text = "I walked the wall at dawn and counted the militia, then counted them again. It's still not enough, but every one of them is still here, and that makes it a good morning in these parts." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look out there, at farms that had a lamp in every window once. I count the dark ones every night, and I'd like very much to stop counting." },
         { id = "h_warm", when = { disposition = { min = 70 } },
-          text = "There you are. The lads were asking after you, and so was I, if I'm honest; Sentinel Hill feels a little steadier with you on it." },
+          text = "There you are. The lads were asking after you, and so was I, though don't tell them I said so; Sentinel Hill feels a little steadier with you on it." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "I'll take any help Westfall can get, but I'll not pretend I'm glad to see you. Speak your piece." },
       },
@@ -187,7 +187,7 @@ P:NPC {
     },
     everything = {
       lines = { { id = "e_default", text = "True enough, so you pick something worth the trying. I picked here." } },
-      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+      choices = { { text = "Understood. Something else.", next = "BACK" } },
     },
     lordaeron = {
       big = true,
@@ -433,7 +433,7 @@ P:NPC {
       },
     },
     after_city = {
-      lines = { { id = "ac_default", text = "Now that the hard part's done? Likely enough, since they'll want their tithe. Let them come, and let them see what we kept alive without them." } },
+      lines = { { id = "ac_default", text = "Now that the digging and the burying's done? Likely enough, since they'll want their tithe. Let them come, and let them see what we kept alive without them." } },
       choices = {
         { text = "You've earned the right to say so.", next = "BACK", fx = { affinity = 2, opinion = { westfall = "abandoned" } } },
         { text = "Something else.", next = "BACK" },
@@ -659,7 +659,7 @@ P:NPC {
     },
     gr_spring = {
       lines = {
-        { id = "gxsp_default", text = "By spring? Then Light help me, I'll finally do it. I've a plan for Moonbrook I've shown nobody but Danuvin, a night march down the old cart road with every man on the hill, and I've never dared it because it needs twice the swords I have, so if the Keep truly sends them, we take the town back in one night and the farmers walk home behind us." },
+        { id = "gxsp_default", text = "By spring? Then Light help me, I'll finally do it. I've a plan for Moonbrook I've shown nobody but Danuvin, a night march down the old cart road with every man on the hill, and I've never dared it because it needs twice the swords I have, so if the Keep actually sends them, we take the town back in one night and the farmers walk home behind us." },
       },
       choices = {
         { text = "I hope it comes to that, Commander.", next = "BACK" },
@@ -687,7 +687,7 @@ P:NPC {
     },
     gr_ask2 = {
       lines = {
-        { id = "gxa2_default", text = "Fair enough, and I'll take an honest answer over a pretty one any day. What I need from you is this: when you go back to the city, tell anyone who'll listen what you saw out here, the empty farms and the masks and the scarecrows that walk, because the Keep believes reports and it doesn't believe farmers." },
+        { id = "gxa2_default", text = "That's a straight answer, and I'll take it over a pretty one any day. What I need from you is this: when you go back to the city, tell anyone who'll listen what you saw out here, the empty farms and the masks and the scarecrows that walk, because the Keep believes reports and it doesn't believe farmers." },
       },
       choices = {
         { text = "I'll tell them, Commander. What should I say?", next = "gr_ask3" },
@@ -790,7 +790,7 @@ P:NPC {
     },
     gr_doubt = {
       lines = {
-        { id = "gxdb_default", text = "Every night, if I'm honest, and you've earned honest. Lordaeron needed every sword it had and I took mine home because my own land was burning, and some nights I think I was right and some nights I think I ran, and nothing I do on this hill settles it." },
+        { id = "gxdb_default", text = "Every night, and since you asked it straight, I'll answer it straight. Lordaeron needed every sword it had and I took mine home because my own land was burning, and some nights I think I was right and some nights I think I ran, and nothing I do on this hill settles it." },
       },
       choices = {
         { text = "You came home to save what could be saved.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

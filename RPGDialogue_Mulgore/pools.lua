@@ -4,16 +4,16 @@ local P = RPGDialogueAPI:Pack("rpgd.mulgore")
 P:Pool {
   id = "guard_bloodhoof", role = "guard", community = "bloodhoof",
   barks = {
-    { id = "b_plains", text = "The grass is high this year, which is good for the kodo, and good for hiding gnolls, too." },
+    { id = "b_plains", text = "The grass is high this year, which is good for the kodo, and good for hiding gnolls, and very good for hiding whatever the kodo left behind." },
     { id = "b_wells", text = "Don't drink from the wells to the north, not until Mull says so." },
   },
   greetings = {
     { id = "g_village", text = "Here in Bloodhoof Village, the bluffs are to the north and the gnolls to the west, and the goblins are everywhere they shouldn't be." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Mulgore is quiet at night, and too quiet, some nights. Stay near the fires." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "At night the gnolls come sniffing round the cookfires for scraps. Stay near the fires, and keep your boots inside the tent." },
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 8 },
-      text = "First time out of Narache? The plains are wide. Walk them slowly; there's no shame in it." },
+      text = "First time out of Narache? The plains are wide, and the swoops will steal anything shiny, so walk slowly and keep your pack shut." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "One of the sky-folk from Gev'rek. Thunder Bluff called you friends, so you're friends here. Earth Mother keep you." },
   },
@@ -34,7 +34,7 @@ P:Pool {
 P:Pool {
   id = "guard_narache", role = "guard", community = "narache",
   barks = {
-    { id = "b_quilboar", text = "Bristleback scouts are on the ridge again; they never learn." },
+    { id = "b_quilboar", text = "Bristleback scouts are on the ridge again; you can smell them before you see them, and they never learn." },
   },
   greetings = {
     { id = "g_camp", text = "Camp Narache welcomes you. Walk tall here, as the Greatmother would have wanted." },
@@ -52,6 +52,6 @@ P:Pool {
     knows = {
       { id = "t_kn1", text = "The camp is small, but the hunters come back with stories, and I hear every one. I can tell you about these." },
     },
-    _none = { { id = "t_none", text = "Ask the Chief. He knows this land better than any of us." } },
+    _none = { { id = "t_none", text = "Ask the Chief. He knows this land better than any of us, and he'll tell you about it twice if you let him." } },
   },
 }

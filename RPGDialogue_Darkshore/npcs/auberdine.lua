@@ -337,7 +337,7 @@ P:NPC {
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid, thank Elune! I need someone who can feel what is wrong with this place, not merely see it." },
+      text = "A druid, thank Elune! I need someone who can feel what is wrong with this place, rather than just poke at it." },
   },
 
   start = "hello",
@@ -458,7 +458,7 @@ P:NPC {
         { text = "What signs of the corruption should a hunter look for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there anything a priest can do for the furbolgs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin deal with the corrupted furbolgs?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you truly believe the furbolgs can be saved, Terenthis?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do you really believe the furbolgs can be saved, Terenthis?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -537,7 +537,7 @@ P:NPC {
   greetings = {
     { id = "g_temple", text = "The Temple of the Moon sent me to help Auberdine, though the sea, it turns out, has its own ideas about what help means." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the tide has brought in all sorts while you were away. Elune keep you, it's good to see a familiar face." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the village has spoken warmly of you, and in a place this troubled, warmth is a kind of healing. Elune bless you for it." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the village has spoken warmly of you, and in a place this troubled, a kind word goes further than a poultice. Elune bless you for it." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words passed between you and someone in Auberdine. The sea makes everyone uneasy, but do try to mend things gently." },
   },
 
@@ -648,7 +648,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the creatures washed up on the shore, and I would like your eye on them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Whether you pray to the Light or to Elune, you are welcome to stand beside me on this sad beach." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, here on our shore! The Temple speaks of your order with respect, though few of us have met one." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like someone who's used to not being seen, and I'll not ask why. The Sisterhood tends everyone who comes to Auberdine, the quiet ones included." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like someone who's used to not being seen, and I'll not ask why. The Sisterhood tends everyone who comes to Auberdine, the ones who come in by the back door included." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Temple sent me to tend Auberdine's people, and instead I tend the dead creatures the sea casts up. Forgive me if I am wary of spirit-talk." },
       },
       again = {
@@ -743,7 +743,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I count murloc sign, mostly, and it grows. Your water spirits might tell me where they come from before my Sentinels must find out the hard way." } },
+      lines = { { id = "xdsham_default", text = "I count murloc sign, mostly, and it grows. Your water spirits might tell me where they come from before my Sentinels find out by stepping on one." } },
       choices = {
         { text = "Then I will help you watch the beach, Glynda.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Murlocs are murlocs. Kill them and be done.", next = "BACK", fx = { align = { order = -1 } } },
@@ -782,7 +782,7 @@ P:NPC {
     },
     warrior_gl = {
       lines = {
-        { id = "wgl_default", text = "I'll put you anywhere I can, but the watch here isn't a line; it's a shore, a road and a boat, and the murlocs come from the water while the furbolgs come from the trees. Can you stand facing two ways at once?" },
+        { id = "wgl_default", text = "I'll put you anywhere I can, but the watch here has to cover the shore and the road with the same tired Sentinels, and the murlocs come from the water while the furbolgs come from the trees. Can you stand facing two ways at once?" },
         { id = "wgl_watch", when = { origin = "nightelf_auberdine_watch" },
           text = "You've stood this watch before; I remember you, I think, or someone with your stance. The murlocs have grown bolder since you left, and I don't have anyone left to tell it to who'd understand." },
       },
@@ -842,7 +842,7 @@ P:NPC {
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "They say in Auberdine that you went down into Blackfathom Deeps and cut your way to the very bottom. The murlocs on my beach haven't noticed yet, but the naga have, and they've been keeping to deeper water since." },
         { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
-          text = "The reports say hostile moonkin are gathering around a large red crystal along the eastern mountains. Find out whether it truly exists, and whatever you do, don't touch it." },
+          text = "The reports say hostile moonkin are gathering around a large red crystal along the eastern mountains. Find out whether it really exists, and whatever you do, don't touch it." },
         { id = "h_cascade", when = { questActive = TODO_QUEST("As Water Cascades") },
           text = "Fill this tube at our moonwell and pour it over the crystal, for water that potent should tell us what it's made of. Be careful; if it came from Felwood, as I suspect, it could be dangerous." },
         { id = "h_murkdeep", tags = { "news" }, when = { questActive = TODO_QUEST("WANTED: Murkdeep!") },
@@ -893,7 +893,7 @@ P:NPC {
     moonkin2 = {
       lines = { { id = "m2_default", text = "Pity them if you like, but keep your distance while you do. Auberdine's safety means I have to take a more realistic view than the people who write poems about them." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll mind that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll pity them anyway.", next = "BACK", fx = { align = { order = -1 }, trait = { kind = 1 } } },
       },
     },
@@ -1045,7 +1045,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you will. I have nothing but time, and the water." },
-        { id = "h_again2", text = "Go on, please; I'm listening, truly." },
+        { id = "h_again2", text = "Go on, please; I'm listening, I promise." },
       },
       choices = {
         { text = "Tell me about Anaya.", next = "anaya" },
@@ -1123,7 +1123,7 @@ P:NPC {
 
   greetings = {
     { id = "g_rest", text = "Your spirit is tired, I can tell. Rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
-    { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again! The sea air is good for you, mostly." },
+    { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again! The sea air is good for you, mostly, when the wind isn't coming off that dead thresher on the beach." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and your spirit looks more tired than ever. Sit, and I'll bring you tea, and this time do try to drink it." },
     { id = "g_away_long", when = { away = 60 }, text = "It's been {away} since you slept to the sound of these waves, and I wondered if they'd ever sing you to sleep again. Welcome back, friend." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard such kind words about you from my guests. Elune smiles on those who leave others smiling, and so do I." },
@@ -1300,7 +1300,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Sailors talk once their stomachs settle, and I've heard a fair bit across this bar. Ask, and I'll tell you what I know." },
     },
-    background = { { id = "tp_bg", text = "I keep the inn by the docks, and I've heard every traveller's story twice. Mine isn't nearly as interesting." } },
+    background = { { id = "tp_bg", text = "I keep the inn by the docks, and I've heard every traveller's story twice. Mine is mostly about leaky barrels." } },
     advice = { { id = "tp_ad", text = "Sleep on the landward side of the inn if you want quiet, and on the water side if you want to dream." } },
     _none = { { id = "tp_none", text = "Ask the elder, love; he knows everything worth knowing in Auberdine." } },
   },

@@ -284,7 +284,7 @@ P:NPC {
     embalmer = {
       big = true,
       lines = {
-        { id = "em_default", text = "It's a nursery tale, about a kind alchemist who couldn't let his wife go. We tell it to make children come home before dark, and I truly thought it was only a story." },
+        { id = "em_default", text = "It's a nursery tale, about a kind alchemist who couldn't let his wife go. We tell it to make children come home before dark, and until this month I thought it was only a story." },
       },
       choices = {
         { text = "I carried his supplies. I didn't know.", next = "embalmer_guilt" },

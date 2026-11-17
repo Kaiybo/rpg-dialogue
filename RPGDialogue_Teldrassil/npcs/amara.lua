@@ -43,7 +43,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Road to Darnassus"), days = 3 } },
           text = "You have served Dolanaar and Darnassus well, and as one of the Sentinels of Teldrassil, I salute you. The carts came through this morning without a single arrow in them." },
         { id = "h_later", when = { questLater = { TODO_QUEST("The Road to Darnassus"), days = 7 } },
-          text = "A few new ambushers crept back into that den, as they always do, but fewer and more frightened. I owe the quiet to you." },
+          text = "A few new ambushers crept back into that den, as they always do, but fewer and more frightened. I've slept the night through twice this week, and I owe that to you." },
         { id = "h_human", when = { race = "Human" },
           text = "A human, on the road to Darnassus! You will find our city grander than your stories, and our welcome slower, so be patient with it." },
         { id = "h_orc_note", when = { faction = "Horde" },
@@ -160,6 +160,6 @@ P:NPC {
     sisterhood_of_elune = { { id = "tp_sisters", text = "The Sisterhood keeps the Temple, and some of us keep the roads. Elune does not mind which.", next = "both" } },
     sentinels = { { id = "tp_sentinels", text = "They hold the forest's edges so the Temple can keep its peace. I ride with them gladly." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were not always like this, and I pray they will not always be. Until then, the road comes first." } },
-    _none = { { id = "tp_none", text = "I keep a road, {class}, not a library. Ask the priestesses in Darnassus." } },
+    _none = { { id = "tp_none", text = "I keep a road, {class}, not a library, and my saddle's softer than most books besides. Ask the priestesses in Darnassus." } },
   },
 }

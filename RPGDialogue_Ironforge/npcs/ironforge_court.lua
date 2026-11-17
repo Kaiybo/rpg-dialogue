@@ -47,7 +47,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "A puzzle, and a welcome one. If you can truly hear the stone, you might hear what's happening under Gnomeregan without anyone walking back into that radiation. I'd never ask you to go, of course, but I'd dearly like to know what the earth says about the troggs, and about whoever let them in." } },
+      lines = { { id = "xdsham_default", text = "A puzzle, and a welcome one. If you can really hear the stone, you might hear what's happening under Gnomeregan without anyone walking back into that radiation. I'd never ask you to go, of course, but I'd dearly like to know what the earth says about the troggs, and about whoever let them in." } },
       choices = {
         { text = "I'll listen for Gnomeregan, High Tinker. I owe your people that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The earth isn't a listening device for gnome engineers.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_betrayal", tags = { "news" }, when = { questActive = TODO_QUEST("The Grand Betrayal") },
           text = "Thermaplugg, my own advisor, is down in the city still, ruling the poor sick souls we left behind. I sentenced him, and now someone has to carry the sentence down there." },
         { id = "h_betrayal_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Grand Betrayal") },
-          text = "So Thermaplugg is finished. I expected to feel lighter, and instead I mostly feel tired, but thank you all the same, truly." },
+          text = "So Thermaplugg is finished. I expected to feel lighter, and instead I mostly feel tired, but thank you all the same." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "A people whose island the winds carried into the sky! I have so many questions, about winds and loads and whether the islands creak. Do they creak?" },
         { id = "h_refugee", when = { origin = "gnome_gnomeregan_refugee" },
@@ -164,7 +164,7 @@ P:NPC {
     },
     xorig_rear2 = {
       lines = {
-        { id = "xor2_default", text = "Some came up after you, and some we're still waiting for, and I won't pretend to know which is which until we're back inside. When we go home, and we will, I'd like the rearguard at the front this time, if you'll have the honour." },
+        { id = "xor2_default", text = "Some came up after you, and some we're still waiting for, and I can't say which is which until we're back inside. When we go home, and we will, I'd like the rearguard at the front this time, if you'll have the honour." },
       },
       choices = {
         { text = "I'll be there, High Tinker.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -366,7 +366,7 @@ P:NPC {
     lock = {
       big = true,
       lines = {
-        { id = "lk_default", text = "Ah. Yes. I'd heard some of our people had taken up the darker sort of study, and I'd hoped it was a rumor I could file under rumors. I won't pretend I like it, but I'd like to understand it, if you'll explain." },
+        { id = "lk_default", text = "Ah. Yes. I'd heard some of our people had taken up the darker sort of study, and I'd hoped it was a rumor I could file under rumors. I don't like it, but I'd like to understand it, if you'll explain." },
         { id = "lk_texts", when = { origin = "gnome_forbidden_texts" },
           text = "The sealed stacks, the ones the Assembly voted to lock and then forgot the vote on? Oh dear, I signed that order myself, I think, and now here you are, reading what I locked." },
       },
@@ -493,7 +493,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The ones who held, not the ones who charged, for a dwarven wall is worth more than a dwarven hero. In the War o' the Three Hammers it was a shield line that turned the Dark Irons back from our gates, and I may be the last who still reads its captains' names." } },
+      lines = { { id = "xwarcl_default", text = "The ones who held, not the ones who charged, for a hero who charges alone only earns a nicer tombstone. In the War o' the Three Hammers it was a shield line that turned the Dark Irons back from our gates, and I may be the last who still reads its captains' names." } },
       choices = {
         { text = "A shield line deserves more honour than any hero.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Lines hold, but it's heroes who win wars.", next = "BACK", fx = { align = { order = -1 } } },
@@ -540,7 +540,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "That they came late an' stayed long, for it took Lordaeron's priests a good while to convince a dwarf the Light was worth more than a good hammer. Once convinced, they were stubborn about it, which is the dwarven way, an' they stood with Uther's companies through the worst of the Second War." } },
+      lines = { { id = "xapala_default", text = "That they came late an' stayed long, for it took Lordaeron's priests a good while to convince a dwarf the Light could do anything a good hammer couldnae. Once convinced, they were stubborn about it, which is the dwarven way, an' they stood with Uther's companies through the worst of the Second War." } },
       choices = {
         { text = "Then I'll be as stubborn in my oaths as they were.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Stubbornness lost Lordaeron. A paladin should know when to bend.", next = "BACK", fx = { align = { order = -1 } } },
@@ -880,7 +880,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Muninn Magellas, High Explorer of the Explorers' League. We map the world, catalogue what lives in it and dig up what used to, and while my Prospectors do the digging, I do the worrying." },
         { id = "h_discs", tags = { "news" }, when = { questActive = TODO_QUEST("The Platinum Discs") },
-          text = "Discs from Uldaman, and they speak? Do you understand what this might mean, where we came from and what we truly are? Let me sit down." },
+          text = "Discs from Uldaman, and they speak? Do you understand what this might mean, where we came from and what we really are? Let me sit down." },
         { id = "h_brann", key = true, when = { minLevel = 30 },
           text = "Brann should be here for this. He's been gone too long in the field, even for Brann. I keep a chair for him all the same." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -955,7 +955,7 @@ P:NPC {
     hope = {
       big = true,
       lines = {
-        { id = "h2_default", text = "Where the dwarves came from, truly came from. There are halls in the old places that weren't built to our size, and I want to know whose they were." },
+        { id = "h2_default", text = "Where the dwarves came from, before there were clans or kings. There are halls in the old places that weren't built to our size, and I want to know whose they were." },
       },
       choices = {
         { text = "I hope you find out.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -965,7 +965,7 @@ P:NPC {
     buried = {
       lines = { { id = "b_default", text = "Spoken like someone who's never held a thing older than their kingdom in their hands. Do that once, and then tell me again." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Maybe I will, someday.", next = "BACK", fx = { affinity = 1 } },
         { text = "I stand by it.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -1038,7 +1038,7 @@ P:NPC {
     },
     hunter = {
       lines = {
-        { id = "hu_default", text = "It could, it could indeed! Half my Prospectors couldn't tell a raptor's track from a basilisk's, and they find out the difference the hard way. The Badlands camp and the Wetlands digs are always short of someone who can read the ground." },
+        { id = "hu_default", text = "It could, it certainly could! Half my Prospectors couldn't tell a raptor's track from a basilisk's, and they find out the difference when something bites them. The Badlands camp and the Wetlands digs are always short of someone who can read the ground." },
         { id = "hu_bear", when = { origin = "dwarf_bear_tracker" },
           text = "A tracker out of the high snows, too, if I read that coat right. Ironband's men lose their way between the loch and the dig every winter, and they'd follow you anywhere." },
       },
@@ -1111,7 +1111,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Some say ye're the best tool we've ever had for findin' a buried hall. Others say ye'll make the earth uneasy an' we'll lose diggers for it. I say if ye can tell me which wall's about tae fall, I'll take ye on a dig, an' if ye cannae, ye can carry a shovel like everyone else." } },
       choices = {
         { text = "I'll carry a shovel like anyone. No special treatment.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My gift's worth more than a shovel. Value it accordingly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "My gift beats a shovel. Value it accordingly.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1159,7 +1159,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Holy? No. Old, aye, an' some of it with runes I'd rather no' read aloud, so I send those tae the Mystic Ward an' let them worry. The League digs for knowledge, an' I'll leave the prayin' tae those who've the time for it." } },
       choices = {
         { text = "Prayer and study both have their place. Neither should be scorned.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fair enough. Knowledge first. The prayers can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Knowledge first, then. The prayers can wait.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I'll leave you to your reading.", next = "BACK" },
       },
     },
@@ -1314,7 +1314,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let's compare readings sometime.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "I'll trust your reading, then. Something else.", next = "BACK" },
       },
     },
   },
@@ -1395,8 +1395,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Every government does, an' anyone who tells ye otherwise is either a fool or one o' them. Stormwind has its SI:7, an' we've our own ways, but I'll no' discuss them in a hall wi' this many echoes." } },
       choices = {
-        { text = "Quiet work in the King's service is honourable work.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Quiet work pays best when it serves nobody's flag.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Unsung work in the King's service is still honourable.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Secret work pays best when it serves nobody's flag.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1483,7 +1483,7 @@ P:NPC {
         { text = "A Wildhammer's camped above your quarry.", next = "farsen", when = { questDone = TODO_QUEST("Farsen's Watch") } },
         { text = "Send me after the troggs, Senator. I'm a warrior.", next = "warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I'm a gnome, Senator. These troggs took my city.", next = "gnome", when = { race = "Gnome" } },
-        { text = "Does the Senate truly use spies, Senator?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Senate really use spies, Senator?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Senate fund the Mystic Ward, Senator?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why does Ironforge still train warlocks at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many troggs are in the quarry, Senator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1570,11 +1570,11 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gn_default", text = "Aye, an' I'm sorry for it, truly; I'd no' wish those brutes on anyone. They came up through yer city first an' through my quarry second, so ye an' I have the same enemy, an' that's a start." },
+        { id = "gn_default", text = "Aye, an' I'm sorry for it; I'd no' wish those brutes on anyone. They came up through yer city first an' through my quarry second, so ye an' I have the same enemy, an' that's a start." },
       },
       choices = {
         { text = "The Senate should have helped us sooner.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "Ironforge took us in. That's enough help.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Ironforge took us in. We can't ask for more.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Something else, Senator.", next = "BACK" },
       },
     },

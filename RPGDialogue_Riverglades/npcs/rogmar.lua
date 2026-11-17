@@ -134,7 +134,7 @@ P:NPC {
 
     why = {
       lines = {
-        { id = "wh_default", text = "Because the Twilight's Hammer is here, and wherever it grows, it grows toward us in the end. Better we meet it in these glades than at the gates of Orgrimmar." },
+        { id = "wh_default", text = "Because the Twilight's Hammer is here, and wherever it grows, it grows toward us sooner or later. Better we meet it in these glades than at the gates of Orgrimmar." },
       },
       choices = {
         { text = "The Hammer came here after the Second War?", next = "why_old" },
@@ -166,7 +166,7 @@ P:NPC {
     farholde = {
       big = true,
       lines = {
-        { id = "fa_default", text = "The Brotherhood of the Horse, on their island. The old Horde burned Sunnyglade and laid siege to them, and they remember it every time they see a green face, which is fair enough, but I have no time for their grudge while the Hammer grows.",
+        { id = "fa_default", text = "The Brotherhood of the Horse, on their island. The old Horde burned Sunnyglade and laid siege to them, and they remember it every time they see a green face, which I understand, but I have no time for their grudge while the Hammer grows.",
           fx = { learn = { "brotherhood_horse", "siege_of_farholde" } } },
         { id = "fa_alliance", when = { faction = "Alliance" },
           text = "You're one of theirs, or near enough. Then tell the Knight Commander this: we kill the same cultists, and I don't need his thanks, only his riders out of my way." },
@@ -207,7 +207,7 @@ P:NPC {
     bo_trust = {
       big = true,
       lines = {
-        { id = "bt_default", text = "They hate the cult more than they love anything, and that's enough for me. The Hammer drags them up to its altars when it can catch them, which is why I want Krol'dok finished." },
+        { id = "bt_default", text = "They hate the cult more than they love their dinner, and with ogres that's saying something. The Hammer drags them up to its altars when it can catch them, which is why I want Krol'dok finished." },
       },
       choices = {
         { text = "A shared enemy makes a good ally.", next = "BACK", fx = { align = { order = -1 } } },
@@ -548,7 +548,7 @@ P:NPC {
         { id = "wo_default", text = "'Cause it be good wood, mon, already cut and stacked nice by de humans, and it make fine spears. Dey cut it to build walls against us, so I take it to make spears against dem, and dat seem fair to Tan'jani." },
       },
       choices = {
-        { text = "Fair enough. Take what the enemy leaves out.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Take what the enemy leaves out. Their loss.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Stealing from woodcutters is beneath a warrior.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Don't the humans notice?", next = "wood_notice" },
       },

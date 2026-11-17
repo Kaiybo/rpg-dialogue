@@ -37,7 +37,7 @@ P:NPC {
     { id = "n_nelf_priest", cat = "class", when = { class = "PRIEST", race = "NightElf" },
       text = "Sister, brother, whichever the moon made you, you've been out in the world, and it shows in how you stand. Come and tell me what you've seen." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
-      text = "You carry the smell of the arcane in with you, like smoke on a cloak. I'll answer your questions, mage, but forgive me if I keep my hands folded." },
+      text = "You've brought the arcane in on your sleeves; it smells like old candle smoke. I'll answer your questions, mage, but forgive me if I keep my hands folded." },
   },
 
   start = "hello",
@@ -106,7 +106,7 @@ P:NPC {
     warlock_a = {
       big = true,
       lines = {
-        { id = "wa_default", text = "Very well: you carry the same fire that burned Zin-Azshari, and you carry it into a temple built by those who survived it. I will not send you out, because Elune turns no one from her door, but I won't pretend I'm comfortable." },
+        { id = "wa_default", text = "Very well: you carry the same fire that burned Zin-Azshari, and you carry it into a temple built by those who survived it. I will not send you out, because Elune turns no one from her door, but you'll forgive me if I stand nearer to it." },
       },
       choices = {
         { text = "I bind it so it can't bind anyone else.", next = "BACK", fx = { align = { light = 1 } } },
@@ -163,7 +163,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask? I have time; the moon is patient, and so am I." },
-        { id = "h_again2", text = "Go on. Questions are a kind of prayer, if they're honest." },
+        { id = "h_again2", text = "Go on. Elune has heard stranger questions than yours, mostly from children." },
         { id = "h_again3", when = { class = "PRIEST" }, text = "Ask, young priest. A teacher who tires of questions should stop teaching." },
       },
       choices = {
@@ -177,7 +177,7 @@ P:NPC {
         { text = "Is there a place for a mage in Elune's house?", next = "mage_a", when = { class = "MAGE" } },
         { text = "You've noticed what I carry. Say it.", next = "warlock_a", when = { class = "WARLOCK" } },
         { text = "The Light makes a soldier of me, Priestess.", next = "paladin_a", when = { class = "PALADIN" } },
-        { text = "Does Elune truly look kindly on the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does Elune really look kindly on the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the priestesses pray for warriors, Alathea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does Elune smile on the hunt, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do druids and priestesses guard against the same old danger, Priestess?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -246,7 +246,7 @@ P:NPC {
       lines = {
         { id = "gi_default", text = "Her grace, which turns aside the blows meant for you, and her stars, which the priestesses called down on the Legion ten thousand years ago. Neither is given to the merely clever; she gives them to the devoted." },
         { id = "gi_done", when = { questDone = TODO_QUEST("Stars of Elune") },
-          text = "You carry her stars now. Use them as the old priestesses did, against what truly threatens the forest, and never to settle a quarrel." },
+          text = "You carry her stars now. Use them as the old priestesses did, against what really threatens the forest, and never to settle a quarrel." },
       },
       choices = {
         { text = "What did the old priestesses face?", next = "gifts_old" },
@@ -357,7 +357,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "A teacher in this Temple hears a great deal from the young priests who pass through it. Ask, and I'll tell you what I can in good conscience." } },
-    background = { { id = "tp_bg", text = "I teach Elune's priests, and some of the Light's, when Laurena sends them. It's quiet work, and the most important I know." } },
+    background = { { id = "tp_bg", text = "I teach Elune's priests, and some of the Light's, when Laurena sends them. Mostly it means teaching young priests not to fidget through the long hymns." } },
     advice = { { id = "tp_ad", text = "Heal the one in front of you before you worry about the one across the sea. Prayer can wait a breath; bleeding can't." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We've healed and guarded our people since before the Sundering. Ask me about it properly and I'll tell you more.", next = "sisterhood" } },
     highborne = { { id = "tp_highborne", text = "They reached for power and called the Legion down on us. That is why I keep my hands folded around the arcane.", next = "arcane" } },
@@ -390,7 +390,7 @@ P:NPC {
     { id = "n_novice", cat = "origin", when = { origin = "nightelf_priestess" },
       text = "A novice of the Temple, back from the world. You've got the look we all get in the first years, as if you're listening for something just past the edge of hearing, and I'll tell you a secret: it doesn't go away, but you stop minding it." },
     { id = "n_human", cat = "light", when = { race = "Human", class = { "PALADIN", "PRIEST" } },
-      text = "You carry the Light like a lantern, the way your people do. Ours is more like moonlight on water, but I've seen both find the way home." },
+      text = "Your Light burns like a lantern, the way your people's does. Ours is more like moonlight on water, but I've seen both find the way home." },
   },
 
   start = "hello",
@@ -446,7 +446,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "We hear whatever anyone needs to say, and Elune doesn't ask for your trade before she listens. I won't pretend I'd approve of everything you've done, but I would rather you said it here than carried it into Ashenvale alone." },
+        { id = "xrogue_default", text = "We hear whatever anyone needs to say, and Elune doesn't ask for your trade before she listens. I doubt I'd approve of everything you've done, but I would rather you said it here than carried it into Ashenvale alone." },
       },
       choices = {
         { text = "Then I'll speak, and try to do better.", next = "BACK", fx = { align = { light = 1 } } },
@@ -907,7 +907,7 @@ P:NPC {
         { text = "Do the Temple's priests ever leave Darnassus?", next = "leave" },
         { text = "What does the moonlight show you, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the arcane change the moonlight somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Can the pool truly tell you anything about a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can the pool really tell you anything about a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you watch the beasts as closely as the moonlight?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does the moonlight tell a priest, Lariia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does my armor really spoil your watching, Lariia?", next = "xapala", when = { class = "PALADIN" } },
@@ -961,7 +961,7 @@ P:NPC {
 
   impression = {
     first = "Sister Aquinne is still studying at the Temple and takes every task the priestesses give her as a sacred trust. She spoke of Lady Sathrah as if mourning someone she had known.",
-    third = "{name} met Sister Aquinne, a young sister of the Temple of the Moon who keeps to the quiet of the Temple Gardens.",
+    third = "{name} met Sister Aquinne, a young sister of the Temple of the Moon who spends her days weeding the Temple Gardens.",
   },
 
   greetings = {
@@ -1051,7 +1051,7 @@ P:NPC {
     },
     sky_a = {
       lines = {
-        { id = "sk_default", text = "In the sky? Truly, islands just floating up there? I've only read about Eldre'Thalas in old books, and none of them said anything about sky, so I'm afraid you'll have to tell me everything." },
+        { id = "sk_default", text = "In the sky? Islands, just floating up there? I've only read about Eldre'Thalas in old books, and none of them said anything about sky, so I'm afraid you'll have to tell me everything." },
       },
       choices = {
         { text = "Wind spirits held them up. Now they're gone.", next = "sky_a2" },
@@ -1246,7 +1246,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Everything here is guarded, recorded and returned, and the Sentinels outside see to the guarding. I won't pretend no one has tried, but I'll tell you that no one has succeeded." } },
+      lines = { { id = "xapala_default", text = "Everything here is guarded, recorded and returned, and the Sentinels outside see to the guarding. Plenty have tried, I'll admit, and not one of them has succeeded." } },
       choices = {
         { text = "An honest record is the best guard of all.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Locks are fine, but I trust my own hands more.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1341,7 +1341,7 @@ P:NPC {
         { text = "Do hunters keep anything unusual in your vault?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you do if a box started whispering?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the priestesses keep relics in your vault?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is the vault truly safe from thieves, Idriana?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is the vault really safe from thieves, Idriana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do druids really leave their things here while they dream?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do mages trouble the bank often, Idriana?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does everything require a reason, Idriana?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

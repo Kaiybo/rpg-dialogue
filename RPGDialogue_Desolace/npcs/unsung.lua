@@ -60,7 +60,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Less to thieves than to the dust, honestly, and the dust doesn't even have the decency to run off with it. The Captain's men keep a close eye on the store, so most of the light fingers here belong to the centaurs, and they prefer whole wagons." } },
+      lines = { { id = "xrogue_default", text = "Less to thieves than to the dust, and the dust doesn't even have the decency to run off with it. The Captain's men keep a close eye on the store, so most of the light fingers here belong to the centaurs, and they prefer whole wagons." } },
       choices = {
         { text = "I'd never steal from the last green spot in Desolace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A good thief would have taken it before you noticed.", next = "BACK", fx = { align = { order = -1 } } },
@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Not badly, just carefully, because the Burning Blade are only a few days' walk south and everyone's heard what goes on at Thunder Axe. Spend your coin, keep your temper, and they'll come round, the way they did with me when I first set up shop." } },
       choices = {
-        { text = "Fair enough. I'll earn their trust slowly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Coin spent, temper kept. I can manage that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Their fear isn't my problem to fix.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -121,7 +121,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, I don't stock holy water, but I've got bandages, bread and enough water skins to get you to the bottom of Desolace and back, which round here is about the same as a miracle." },
         { id = "h_default", key = true,
           text = "Christi Galvanis, general goods. Nijel's Point is the last bit of green before the whole of Desolace turns to dust, so whatever you need for the trip down, buy it from me, because nobody else is going to sell it to you." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, browsing my shelves with both hands in plain sight. I appreciate the courtesy, truly, because in Desolace most thieves can't be bothered to pretend." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, browsing my shelves with both hands in plain sight. I appreciate the courtesy, because in Desolace most thieves can't be bothered to pretend." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I don't suppose you could conjure me a shipment that arrives on time, because the caravan certainly can't." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want more water than you think and less armor than you're wearing, though I don't expect you'll take my advice on the second." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, browsing my shelves. Soul shards I don't stock, and I'll thank you not to ask where I'd even get them." },
@@ -291,7 +291,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Honestly, it needs someone the young ones can look up to, because they came out here thinking it would be glory and found it's mostly dust and waiting. You stand a bit straighter than most, and they notice that more than you'd think." } },
+      lines = { { id = "xapala_default", text = "It needs someone the young ones can look up to, because they came out here thinking it would be glory and found it's mostly dust and waiting. You stand a bit straighter than most, and they notice that more than you'd think." } },
       choices = {
         { text = "Then I'll drill with them. Discipline keeps a soldier alive.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "They should know the truth. Glory is a story told to recruits.", next = "BACK", fx = { align = { order = -1 } } },
@@ -382,7 +382,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I cooked in an inn in Stormwind, once, and came out here because the outpost needed a cook. I've never regretted it, not really." } },
+    background = { { id = "tp_bg", text = "I cooked in an inn in Stormwind, once, and came out here because the outpost needed a cook. I've never regretted it, except when the sand gets in the dough, which is most days." } },
     advice = { { id = "tp_ad", text = "Eat before you go down, dear, and take bread with you. Always." } },
     _none = { { id = "tp_none", text = "I'm sure I don't know, dear. Ask Christi at the store; she hears all the gossip." } },
   },

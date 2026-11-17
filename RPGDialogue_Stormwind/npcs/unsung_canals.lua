@@ -74,7 +74,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A plain one, honestly, a little more strength or a little more stamina, rather than fire that runs down the blade. The old masters of Dalaran used to say that an enchantment should help the hand, not show off for it." } },
+      lines = { { id = "xwarcl_default", text = "A plain one, mind you, a little more strength or a little more stamina, rather than fire that runs down the blade. The old masters of Dalaran used to say that an enchantment should help the hand, not show off for it." } },
       choices = {
         { text = "Then a plain enchantment, honestly made, is what I'll take.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I want the fire down the blade. Let them see it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -242,7 +242,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "The illusion dust, oddly, because the Defias pay twice its worth to hide their camps from the Westfall patrols. I won't sell it to anyone I don't know, which loses me money, but I sleep well." } },
       choices = {
-        { text = "Good. Sleeping well is worth more than coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Good. Let the Defias sleep in the dirt.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Coin's coin. You could sleep on the money.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -550,7 +550,7 @@ P:NPC {
         { id = "xrogue_default", text = "I make dark cloaks with deep hoods for anyone who asks, and half of them say they're for the rain. Rema puts an extra pocket inside the left breast if you ask her nicely, and I don't ask what goes in it, because I sell clothes and not questions." },
       },
       choices = {
-        { text = "The rain, Lisbeth. Truly. I'll pay for the pocket.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The rain, Lisbeth, I swear it. I'll pay for the pocket.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "An extra pocket for free would be kind.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Lisbeth.", next = "BACK" },
       },
@@ -617,7 +617,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Stout cloth, a long cut and colours that hold, because nobody wants to see a faded Silver Hand on the field. The old knights were very particular about it, and I think they were right." } },
       choices = {
         { text = "The colours should hold. They stand for something.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It's only cloth, Lisbeth. What matters is under it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "It's only cloth, Lisbeth. Nobody looks at a hem.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

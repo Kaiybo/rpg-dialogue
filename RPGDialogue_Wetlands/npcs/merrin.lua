@@ -127,7 +127,7 @@ P:NPC {
       lines = {
         { id = "tw_default", text = "Because the League needed diggers, an' he's no digger, an' I couldnae have stood him watchin' me fret about him the whole time. We agreed I'd write, an' he'd wait, an' it seemed a fine plan till the raptors came." },
         { id = "tw_warm", when = { disposition = { min = 65 } },
-          text = "If I'm honest, I wanted somethin' that was mine, a find wi' my name on it in the League's books. I'll no' tell Tarrel that, an' I'll thank ye no' tae either." },
+          text = "Truth be told, I wanted somethin' that was mine, a find wi' my name on it in the League's books. I'll no' tell Tarrel that, an' I'll thank ye no' tae either." },
       },
       choices = {
         { text = "Your work matters. He'll understand.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

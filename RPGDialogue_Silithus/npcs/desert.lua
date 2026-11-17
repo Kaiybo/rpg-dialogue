@@ -71,7 +71,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Because they fell fighting in this desert's wars, old and new, and the sands still carry the hum of what they fought. I think they feel the hives stirring as surely as I do, and they cannot rest while the living stand guard without them." } },
+      lines = { { id = "xhsham_default", text = "Because they fell fighting in this desert's wars, old and new, and the sand still thrums with that old fighting, like a shield after the blow. I think they feel the hives stirring as surely as I do, and they cannot rest while the living stand guard without them." } },
       choices = {
         { text = "The dead deserve peace. Help them rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them stay restless. The living may need them yet.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -240,7 +240,7 @@ P:NPC {
       },
     },
     druid = {
-      lines = { { id = "d_default", text = "Slowly, if at all. The land here was scarred by a war before our grandmothers were born, and the hives keep the scars open. But I've seen grass come back around the graves, a little each spring, and that's what keeps me here." } },
+      lines = { { id = "d_default", text = "Slowly, if at all. The land here was scarred by a war before our grandmothers were born, and the hives keep picking at it like a scab. But I've seen grass come back around the graves, a little each spring, and that's what keeps me here." } },
       choices = {
         { text = "Then we'll tend it, a little at a time.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -495,7 +495,7 @@ P:NPC {
       },
     },
     code_muddle = {
-      lines = { { id = "cm_default", text = "Every third word from the second chapter, then every other word from the first, or possibly the other way round. I get there in the end, so don't look at me like that." } },
+      lines = { { id = "cm_default", text = "Every third word from the second chapter, then every other word from the first, or possibly the other way round. I get there eventually, so don't look at me like that." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     bulletin = {
@@ -523,7 +523,7 @@ P:NPC {
     },
     x_warlock = {
       lines = {
-        { id = "xw_default", text = "Welcomed you? They'd have handed you a robe and a candle and a seat near the front, and then they'd have watched you very closely indeed. The Hammer loves anyone who can talk to things that shouldn't be talked to, right up until you start asking what those things are saying back." },
+        { id = "xw_default", text = "Welcomed you? They'd have handed you a robe and a candle and a seat near the front, and then they'd have watched you very closely, mind. The Hammer loves anyone who can talk to things that shouldn't be talked to, right up until you start asking what those things are saying back." },
       },
       choices = {
         { text = "I'd have taken the robe and robbed them blind.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -625,7 +625,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "Holy or unholy, I couldn't say, but there's glyphs on these ruins older than any temple in Ironforge, and some o' them were carved to keep somethin' in. I'll not have a priest of any sort chantin' near them until I know what that somethin' is." } },
       choices = {
-        { text = "Fair enough. I'll leave your glyphs be until you know.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll leave your glyphs be until you know.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Ancient wards aren't yours to keep, dwarf. I'll read them myself.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -944,7 +944,7 @@ P:NPC {
       choices = {
         { text = "Why would dragons watch over Silithus now?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the dragons over Silithus trouble the winds?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What happened to Natalia, in the end?", next = "natalia" },
+        { text = "What became of Natalia?", next = "natalia" },
         { text = "Dragons? Over Silithus?", next = "skies" },
         { text = "How many languages did you say?", next = "languages" },
         { text = "What do you want with silithid brains?", next = "brains", when = { any = { { questActive = TODO_QUEST("Breaking the Code") }, { questDone = TODO_QUEST("Breaking the Code") } } } },
@@ -955,7 +955,7 @@ P:NPC {
         { text = "What sort of dragons fly over Silithus, Frankal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What would a warrior do against a dragon, Frankal?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why doesn't your monkey like me, Frankal?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Have you truly seen dragons over Silithus, Frankal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have you really seen dragons over Silithus, Frankal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you watch your sky.", next = "END" },
       },
     },

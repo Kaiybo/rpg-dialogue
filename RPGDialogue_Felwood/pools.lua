@@ -8,7 +8,7 @@ P:Pool {
     { id = "b_laugh", text = "The Forsaken alchemist is laughing again. Earth Mother, give me patience." },
   },
   greetings = {
-    { id = "g_post", text = "This is Bloodvenom Post, the only Horde fire in Felwood, so keep close to it." },
+    { id = "g_post", text = "This is Bloodvenom Post, the only Horde fire in Felwood, so keep close to it, and upwind of the latrine trench if you can manage both." },
   },
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },

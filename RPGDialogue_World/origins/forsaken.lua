@@ -18,7 +18,7 @@ P:Origin {
       blurb = "I studied in the violet city before Archimonde flattened it, and my notes rotted in the rubble with the rest of me. The spells came back when I did, which is more than I can say for my manners.",
       nudge = { trait = { curious = 1 } }, home = "undercity" },
     { id = "forsaken_chapel_priest", name = "Once a priest of Lordaeron's chapels", class = "PRIEST",
-      blurb = "I gave sermons on the Light to farmers who are now ghouls. The Light still answers me, though it hurts, and I've decided to treat the pain as a kind of conversation.",
+      blurb = "I gave sermons on the Light to farmers who are now ghouls. The Light still answers me, though it hurts, and I've decided to treat the pain as the Light talking back.",
       nudge = { trait = { pious = 1 }, align = { light = 1 } } },
     { id = "forsaken_risen_knight", name = "A Silver Hand knight, risen", class = "PALADIN",
       blurb = "I took the oath in Uther's day and died in Lordaeron when the oath meant nothing. I still say the words, and the Light still comes, and neither of us understands why.",

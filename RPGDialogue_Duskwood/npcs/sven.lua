@@ -137,7 +137,7 @@ P:NPC {
         { text = "Who's squatting on your farm, Sven?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Morbent Fel's wards are crude work. I could break them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would justice look like for your family, Sven?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Was Duskwood truly green once, Sven?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Was Duskwood really green once, Sven?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -300,7 +300,7 @@ P:NPC {
     stalvan = { { id = "tp_stalvan", text = "The tutor? That was before my trouble. Everyone in Duskwood has a murder, and that one belongs to Smitts." } },
     morbent_fel = {
       { id = "tp_morbent_next", when = { questDone = TODO_QUEST("Return to Sven") }, text = "He's the riders' friend on the hill. Ask me what you want to know.", next = "morbent" },
-      { id = "tp_morbent", text = "There's a man in a house above the graves, and the dead walk because he wants them to. That's enough to know." },
+      { id = "tp_morbent", text = "There's a man in a house above the graves, and the dead walk because he wants them to. You don't need to know more than that." },
     },
     dark_riders = { { id = "tp_riders", text = "Black horses and black cloaks, out of Deadwind Pass. Somebody sends them, and I'll find out who." } },
     carevins = { { id = "tp_carevins", text = "They feed this camp, and Elaine sends whoever's passing with the supplies. I don't know why they bother, but I'm glad they do." } },

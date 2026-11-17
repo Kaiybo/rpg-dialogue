@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_grief", when = { questDone = TODO_QUEST("Fallen in the Fen") }, text = "Come in, {g:lad|lass}. I'm still workin'; it keeps my hands from shakin'." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the pile o' girdles hasn't shrunk a bit. Good tae see ye." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've filled out yer armour since I first fitted it. I'll need tae let the straps out." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk in Lakeshire speak well o' ye. That's worth more than a good breastplate, an' I should know." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk in Lakeshire speak well o' ye. That'll turn more trouble than a good breastplate, an' I should know, for I make the breastplates." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear ye were caught in a lie. A dwarf's word is his armour, {g:lad|lass}; keep yers mended." },
   },
 

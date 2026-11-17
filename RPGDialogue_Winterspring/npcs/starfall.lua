@@ -140,18 +140,18 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xm_default", text = "That's exactly what the Highborne said, word for word, I'd imagine. The crystal grants great power only to those truly worthy of it, and the trouble is that everyone believes they are." },
+        { id = "xm_default", text = "That's exactly what the Highborne said, word for word, I'd imagine. The crystal grants great power only to those worthy of it, and the trouble is that everyone believes they are." },
       },
       choices = {
         { text = "Then the wise mage leaves it alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Some mages truly are worthy of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some mages really are worthy of it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I'm a watcher of old stones, and Starfall is where I watch from. That's enough of a story for me." } },
+    background = { { id = "tp_bg", text = "I'm a watcher of old stones, and Starfall is where I watch from. Anything more and I'd have to start keeping a diary." } },
     advice = { { id = "tp_ad", text = "Don't go to Kel'Theril at night, and don't stay longer than you have to. The spirits there don't forgive company." } },
     highborne = { { id = "tp_hb", text = "Our ancestors, or some of them, and the ones who brought the sea down on all of us. Kel'Theril is one small piece of what they did." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall have gone bad lately, worse than the cold ever made them. Donova Snowden at the hot springs knows more of it than I do." } },

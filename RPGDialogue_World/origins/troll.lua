@@ -27,7 +27,7 @@ P:Origin {
       blurb = "Kul Tiras is camped on the coast north of us and the Kolkar raid from the south, so Sen'jin needs spears more than prayers. I've held the village gate more nights than I can count, mon.",
       nudge = { trait = { brave = 1 }, align = { order = 1, honor = 1 } }, home = "senjin" },
     { id = "troll_revantusk_envoy", name = "Revantusk warrior from the Hinterlands", class = "WARRIOR",
-      blurb = "My tribe holds the Hinterlands coast against the Witherbark and every old Amani grudge. The Revantusk sent me to see what the Horde is worth as an ally, and so far it's worth more than the Amani ever were.",
+      blurb = "My tribe holds the Hinterlands coast against the Witherbark and every old Amani grudge. The Revantusk sent me to see what the Horde is worth as an ally, and so far it's been better company than the Amani ever were.",
       nudge = { trait = { skeptical = 1 }, align = { honor = 1, order = -1 } }, home = "revantusk" },
     { id = "troll_raptor_rider", name = "Raptor rider of Sen'jin", class = "HUNTER",
       blurb = "Darkspear have ridden raptors longer than anyone can remember, mon. I raised mine from an egg in the pens at Sen'jin, and she'll bite anyone but me.",

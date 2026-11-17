@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_desk", text = "Make it quick, friend; I've half of Elwynn on this desk." },
-    { id = "g_liked", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Good to see you, truly. Don't let it go to your head." },
+    { id = "g_liked", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Good to see you, and I mean it. Don't let it go to your head." },
     { id = "g_distrust", when = { townStanding = { town = "goldshire", max = -20 } }, text = "Keep your hands where my guards can see them, and we'll get along." },
     { id = "g_mine", when = { questActive = TODO_QUEST("The Fargodeep Mine") }, text = "Fargodeep won't scout itself." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the pile on this desk didn't shrink an inch while you were away. Pull up a chair, friend." },
@@ -161,10 +161,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid in Goldshire! We've wolves an' kobolds an' murlocs to spare, so if ye've a way of turning them, I'd hear it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage, and I'll be honest that I've no idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
+          text = "A mage, and I've no blessed idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in my town square. You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I'll be honest, the last shamans I saw were burning farms on the Horde's side. But I need hands, and yours look steady." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Light's sake, the last shamans I saw were burning farms for the Horde. But I need hands, and yours look steady." },
       },
       again = {
         { id = "h_again", text = "What else? The desk isn't getting any emptier." },
@@ -437,9 +437,9 @@ P:NPC {
     },
     hunter = {
       lines = {
-        { id = "hunter_l", text = "Can you, now? The Riverpaw move at night and leave the forest floor looking like a herd of pigs went through it, so any fool can follow them; the trick is knowing where they'll be tomorrow." },
+        { id = "hunter_l", text = "Can you, now? The Riverpaw move at night and leave the forest floor looking like a herd of pigs went through it, so any fool can follow them, and what I need is somebody who knows where they'll be tomorrow." },
         { id = "hunter_human", when = { race = "Human" },
-          text = "A human with a bow and a beast; Eastvale breeds a few of you, I suppose. The Riverpaw leave a trail any fool can follow, so the trick is knowing where they'll be tomorrow." },
+          text = "A human with a bow and a beast; Eastvale breeds a few of you, I suppose. The Riverpaw leave a trail any fool can follow, so I need someone who can guess where they'll be tomorrow." },
       },
       choices = {
         { text = "They'll be near water. Gnolls always are.", next = "hunter2", fx = { trait = { curious = 1 } } },
@@ -539,7 +539,7 @@ P:NPC {
     },
     dg_letter2 = {
       lines = {
-        { id = "dxl2_default", text = "With me and a desk, apparently, and whoever wanders through that door. I'm not a man who sees plots in the shadows, I leave that to McBride, but somebody in that city has decided Elwynn can manage on promises, and I'd dearly like to know who." },
+        { id = "dxl2_default", text = "With me and a desk, apparently, and whoever wanders through that door. I'm not a man who sees plots under every bed, I leave that to McBride, but somebody in that city has decided Elwynn can manage on promises, and I'd dearly like to know who." },
       },
       choices = {
         { text = "So would I, Marshal.", next = "BACK", fx = { trait = { curious = 1 } } },
@@ -551,7 +551,7 @@ P:NPC {
         { id = "dxln_default", text = "What Stormwind said is between Stormwind and this desk. Take a number if you want the gossip, and you'll find the line's very long and moves very slowly." },
       },
       choices = {
-        { text = "Fair enough, Marshal.", next = "BACK" },
+        { text = "Then I'll stop asking, Marshal.", next = "BACK" },
       },
     },
 

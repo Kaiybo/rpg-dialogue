@@ -227,13 +227,13 @@ P:NPC {
       },
       choices = {
         { text = "Knowledge should be shared freely.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "A pledge kept is worth more than a secret.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A pledge is a pledge. Keep it, secret or not.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Who would steal your secrets?", next = "pledge_who" },
       },
     },
     pledge_who = {
       lines = {
-        { id = "pw_default", text = "Goblins, chiefly, who'll sell anything to anyone, and a few gnomes who've forgotten whose side they're on. We learned the hard way what happens when you trust the wrong engineer." },
+        { id = "pw_default", text = "Goblins, chiefly, who'll sell anything to anyone, and a few gnomes who've forgotten whose side they're on. We found out what happens when you trust the wrong engineer, and his name was Thermaplugg." },
       },
       choices = { { text = "Thermaplugg.", next = "BACK", fx = { affinity = 1, learn = { "gnomeregan" } } } },
     },
@@ -306,7 +306,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Possibly! If you can feel a tunnel about to collapse before it collapses, that's worth more than three sensors, all of which have broken. But I'd need you to report through the proper channels, in writing, with timestamps, which I suspect isn't how the earth usually communicates." } },
+      lines = { { id = "xdsham_default", text = "Possibly! If you can feel a tunnel about to collapse before it collapses, that beats three sensors, all of which have broken. But I'd need you to report through the proper channels, in writing, with timestamps, which I suspect isn't how the earth usually communicates." } },
       choices = {
         { text = "I'll report properly, timestamps and all, Castpipe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The earth won't wait for paperwork, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
@@ -480,7 +480,7 @@ P:NPC {
         { id = "cb_default", text = "Find a white card on one of the poor souls near the entrance and run it through the A terminal by the Train Depot. It'll give you yellow, and yellow gets you blue, and so on; it's very logical, once you stop crying." },
       },
       choices = {
-        { text = "Very logical indeed.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Logical, apart from the crying.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -648,7 +648,7 @@ P:NPC {
     },
     xcl_gnome = {
       big = true,
-      lines = { { id = "xcl_gnome_default", text = "Then you've seen what the radiation does to good gnomish steel, all pitted and green and humming when it oughtn't. I'd love to study it, truly, but the High Tinker's forbidden anyone to bring the tainted metal up to Tinker Town, and I suppose he's right, though it pains me terribly." } },
+      lines = { { id = "xcl_gnome_default", text = "Then you've seen what the radiation does to good gnomish steel, all pitted and green and humming when it oughtn't. I'd love to study it, I really would, but the High Tinker's forbidden anyone to bring the tainted metal up to Tinker Town, and I suppose he's right, though it pains me terribly." } },
       choices = {
         { text = "The High Tinker is right. Some things should stay down there.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Study it anyway, Klockmort. Knowledge is worth a little risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -702,7 +702,7 @@ P:NPC {
         { text = "Can you look at my work?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Could your alloys make better plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Why are Furen's notes so important, Klockmort?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Could magic truly make an alloy stronger than mithril?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could magic really make an alloy stronger than mithril?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you want my broken blades, Klockmort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do your rifle barrels keep getting heavier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is the greatest invention worth all this searching, Klockmort?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

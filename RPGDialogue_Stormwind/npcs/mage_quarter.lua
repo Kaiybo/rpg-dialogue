@@ -357,7 +357,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "We did, to the Light as the humans taught us long ago, though many of my people put more faith in the Sunwell. Now the Sunwell is defiled and the prayers remain, which I suppose says something about where faith truly lives." } },
+      lines = { { id = "xapriest_default", text = "We did, to the Light as the humans taught us long ago, though many of my people put more faith in the Sunwell. Now the Sunwell is defiled and the prayers remain, and I've stopped trying to decide what that means." } },
       choices = {
         { text = "Faith outlasts every fountain of power. That's its strength.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith survived because it asked nothing of you. Power did.", next = "BACK", fx = { align = { light = -1 } } },
@@ -387,7 +387,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk very quietly, and I notice it because my apprentices walk like a herd of goats. Do you need something from the Sanctum?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I can feel the fel on you, faint as old smoke, and I won't pretend it doesn't trouble me. Even so, I'd rather talk to you than about you." },
+          text = "I can feel the fel on you, faint as old smoke, and it troubles me. Even so, I'd rather talk to you than about you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind always arrives in such a rush, with your armour clanking and your hand on your sword, as if the room might attack." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the hunters walk beside the Sentinels and the night sabers walk beside them, so I feel a little less far from home." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, in my classroom. Our peoples parted long ago, cousin, and I sometimes wonder what you see when you look at me." },
@@ -496,7 +496,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     others = {
-      lines = { { id = "others_l", text = "Jennea is brilliant and impatient, Maginor is brilliant and knows it, and Larimaine is brilliant at portals and nothing else. I am the patient one, which in this building is a kind of eccentricity." } },
+      lines = { { id = "others_l", text = "Jennea is brilliant and impatient, Maginor is brilliant and knows it, and Larimaine is brilliant at portals and nothing else. I am the patient one, which in this building makes me the odd one out." } },
       choices = {
         { text = "And the cellar under the Lamb?", next = "others_lamb" },
         { text = "Something else.", next = "BACK" },
@@ -990,7 +990,7 @@ P:NPC {
       },
       choices = {
         { text = "Affection is stronger than any binding.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Obedience is all that matters, in the end.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A demon that obeys is all I need.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1167,7 +1167,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Oh, they know, and they pretend not to, and every so often an apprentice creeps down the stairs for a look and goes back up very pale. I think it's good for them, honestly, because a mage should know what's waiting at the far end of ambition." } },
+      lines = { { id = "xmage_default", text = "Oh, they know, and they pretend not to, and every so often an apprentice creeps down the stairs for a look and goes back up very pale. I think it's good for them, and it keeps them from pinching my biscuits for a week afterwards." } },
       choices = {
         { text = "Some things a mage is better off never knowing.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Knowing is never wasted, Spackle. Not even about demons.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1200,7 +1200,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "It did at first, but then I worked out that the books will be sold anyway, and at least I keep a ledger. I've never sold one to anybody who couldn't already summon something, so I like to think I'm only improving their manners." } },
       choices = {
         { text = "Improving a demon's manners still feeds the demon, Spackle.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Better a careful dealer than a reckless one.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'd rather buy from a careful dealer than a reckless one.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
