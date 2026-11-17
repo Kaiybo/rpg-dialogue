@@ -20,3 +20,4 @@ npcs\unsung.lua
 npcs\faldirs_cove.lua
 npcs\mackreel.lua
 npcs\zaruk.lua
+npcs\arathi_folk.lua

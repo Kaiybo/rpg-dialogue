@@ -14,6 +14,8 @@ pack.lua
 pools.lua
 npcs\stonard.lua
 npcs\stonard_more.lua
+npcs\stonard_trades.lua
+npcs\stonard_trainers.lua
 npcs\swamp_wilds.lua
 npcs\katar.lua
 npcs\tokkar.lua

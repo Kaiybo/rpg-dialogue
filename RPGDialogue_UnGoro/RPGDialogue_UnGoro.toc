@@ -19,3 +19,4 @@ npcs\larion.lua
 npcs\karna.lua
 npcs\spark_nilminer.lua
 npcs\petra.lua
+npcs\ame01.lua

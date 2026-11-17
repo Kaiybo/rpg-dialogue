@@ -13,11 +13,15 @@
 pack.lua
 pools.lua
 npcs\sanctuary.lua
+npcs\emerald_circle.lua
 npcs\bloodvenom.lua
 npcs\talonbranch.lua
+npcs\talonbranch_folk.lua
 npcs\timbermaw.lua
+npcs\timbermaw_hold.lua
 npcs\felwood_posts.lua
 npcs\jessir.lua
 npcs\arkonarin.lua
 npcs\dreka.lua
 npcs\arei.lua
+npcs\irontree_ancients.lua

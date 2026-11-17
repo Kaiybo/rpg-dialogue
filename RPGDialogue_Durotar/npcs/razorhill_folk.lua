@@ -1,0 +1,388 @@
+-- Razor Hill, the rest of the town: Cook Torka (feeds the garrison and grumbles about it), Takrin Pathseeker
+-- (the scout who signs up recruits for the Barrens) and Shoja'my (the troll stable master).
+-- Voice: bibles/razorhill_folk.md
+local P = RPGDialogueAPI:Pack("rpgd.durotar")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+---------------------------------------------------------------------------
+-- Cook Torka
+---------------------------------------------------------------------------
+P:NPC {
+  key = "torka", id = TODO_NPC("Cook Torka"), name = "Cook Torka",
+  bible = "bibles/razorhill_folk.md", role = "questgiver", tier = "quest",
+  communities = { "razor_hill" }, temper = { "gruff", "harried" }, values = { "dutiful", "practical" },
+  notices = { "hunger", "craft", "race" },
+
+  impression = {
+    first = "Cook Torka feeds every grunt in Razor Hill and complains about each of them by name. He's gruff, he's always behind, and he's secretly proud that nobody in the barracks has ever gone hungry on his watch.",
+    third = "{name} met Cook Torka, the harried orc cook who keeps Razor Hill's garrison fed.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "If you're here to eat, you're early, and if you're here to help, you're late. Either way, stand out of the smoke." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've got another job, and you've got legs." },
+    { id = "g_eggs", when = { questActive = TODO_QUEST("Break a Few Eggs") }, text = "Eggs! Taillasher eggs, from the Echo Isles! Breakfast doesn't wait for you to finish admiring the view." },
+    { id = "g_pears", when = { questActive = TODO_QUEST("This Fruit Could Bite Back") }, text = "The prickly pears grow west of town, past the quilboar camps. Mind the spines, because the fruit fights back nearly as hard as the boars do." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I fed the whole garrison every day of it without your help. Not that anyone noticed." },
+  },
+
+  notice = {
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "You smell of a cookfire, and not a bad one. If you've learned to cook, you know what this job is like, so don't complain to me about yours." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren! Don't look at the stew like that, it's boar, not kodo, and I'd swear it on my ladle." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "The Horde's got a lot of mouths to feed, and I'm the one stuck feeding them. Torka, cook to the Razor Hill garrison, and if you've got two hands and no orders, I've got a use for both." },
+        { id = "h_eggs_done", when = { questDone = TODO_QUEST("Break a Few Eggs") },
+          text = "You brought the eggs and you didn't drop a single one. You might be weak, but at least you're not clumsy, which is more than I can say for half the grunts." },
+        { id = "h_pears_done", when = { questDone = TODO_QUEST("This Fruit Could Bite Back") },
+          text = "The pear jam went over well with the grunts, and I saved the seeds for planting. Someday we'll have prickly pears growing all around Orgrimmar, and you can say you started it." },
+        { id = "h_orc", when = { race = "Orc" },
+          text = "An orc who isn't standing in my line yet. Either you've eaten already, or you've got a job for me, and I hope it's the first one." },
+        { id = "h_troll", when = { race = "Troll" },
+          text = "A troll! Your people at Sen'jin keep telling me my food needs more pepper. I keep telling them it needs more grunts to eat it before it goes cold." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Quickly, the pot's starting to stick." },
+        { id = "h_again2", text = "Go on, ask, but don't touch the ladle." },
+      },
+      choices = {
+        { text = "Why taillasher eggs?", next = "eggs" },
+        { text = "Prickly pears? In Durotar?", next = "pears" },
+        { text = "Is it hard, feeding the garrison?", next = "garrison" },
+        { text = "What do the grunts complain about most?", next = "complaints" },
+        { text = "I'm a cook too, Torka.", next = "xcook", when = { profession = "Cooking" } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    eggs = {
+      lines = { { id = "eg_default", text = "Because the raptor eggs are big enough to feed a squad, and the chickens in this town are too scrawny to feed a peon. The Bloodtalon taillashers on the Echo Isles guard their nests to the death, which is why I send you and not me." } },
+      choices = {
+        { text = "To the death? Thanks, Torka.", next = "eg_death" },
+        { text = "Where on the isles?", next = "eg_where", fx = { learn = { "echo_isles" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eg_death = {
+      lines = { { id = "egd_default", text = "Their death, usually, if you're any good, and if you're not, I'll have a spare portion tonight. Don't make that face, I'm a cook, not a nursemaid." } },
+      choices = {
+        { text = "Fair point. I'll bring the eggs.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eg_where = {
+      lines = { { id = "egw_default", text = "All over the islands southeast of Sen'jin, but they bury some too deep to dig out safely. Take the ones on top, and stay away from the trolls in the middle, because those aren't the friendly kind." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    pears = {
+      lines = { { id = "pe_default", text = "A cactus out west that grows a sweet fruit, of all the things to find in this dust. The hunters and fishers bring me plenty of meat, but a grunt who never tastes anything sweet gets mean, and meaner than usual is a problem." } },
+      choices = {
+        { text = "Past the quilboar camps?", next = "pe_boar" },
+        { text = "Orcs like sweet things?", next = "pe_sweet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pe_boar = {
+      lines = { { id = "peb_default", text = "Right through the Razormane grounds, yes, and the quilboar don't share. Be careful, because the fruit's as spiny as the quilboars and you'll be picking needles out of your hands either way." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pe_sweet = {
+      lines = { { id = "pes_default", text = "Everyone likes sweet things, they just don't admit it in front of a sergeant. I've seen Gar'Thok steal a spoon of jam when he thought I was looking at the fire." } },
+      choices = {
+        { text = "Your secret is safe with me.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "I'm telling the whole barracks.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+
+    garrison = {
+      big = true,
+      lines = { { id = "ga_default", text = "Hard? Every grunt eats like it's his last meal, because out here it might be. The ones posted on the Tiragarde road get fed first, and the ones who sit in the barracks get what's left, and I don't care who outranks who." } },
+      choices = {
+        { text = "That's right. Those on the line eat first.", next = "ga_more", fx = { align = { honor = 1 } } },
+        { text = "Rank has its privileges. Feed the officers first.", next = "ga_more", fx = { align = { honor = -1 } } },
+        { text = "Who complains about that?", next = "complaints" },
+      },
+    },
+    ga_more = {
+      lines = { { id = "gam_default", text = "Nobody complains to my face twice, I'll tell you that. A full belly holds the line better than a sharp axe, and I've been in enough lines to know." } },
+      choices = {
+        { text = "You were a soldier?", next = "ga_soldier" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ga_soldier = {
+      lines = { { id = "gas_default", text = "Everybody my age was a soldier, whether they meant to be or not. I cooked for a warband in the old days, and afterward in the camps, and the food in the camps was worse than anything I'd ever burn." } },
+      choices = {
+        { text = "Then you've earned a better kitchen.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    complaints = {
+      lines = { { id = "co_default", text = "The trolls say it needs pepper, the tauren want to know what's in it, the Forsaken don't eat and still have opinions, and the orcs just want more. Nobody ever says it was good, because good means they ate it all and forgot to say so." } },
+      choices = {
+        { text = "For what it's worth, it smells good.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xcook = {
+      lines = { { id = "xc_default", text = "Then you know the first rule: the fire doesn't care how tired you are. Tell me, what do you put in a boar stew that nobody else does?" } },
+      choices = {
+        { text = "A little scorpid meat, for the bite.", next = "xcook2", fx = { trait = { curious = 1 } } },
+        { text = "Nothing fancy. Boar, salt, patience.", next = "xcook2", fx = { trait = { practical = 1 } } },
+      },
+    },
+    xcook2 = {
+      lines = { { id = "xc2_default", text = "Hmph, not bad, not bad at all. Don't go spreading it around Razor Hill that Torka liked somebody's cooking, because then everybody will want to help and nobody will want to fetch eggs." } },
+      choices = { { text = "I won't tell a soul.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "Food, fire, and which grunt steals from the pot. Ask." } },
+    background = { { id = "tp_bg", text = "Warband cook, camp cook, garrison cook. Same pot, different walls." } },
+    advice = { { id = "tp_ad", text = "Eat when you can. The Barrens won't feed you, and neither will I if you're late." } },
+    echo_isles = { { id = "tp_echo", text = "Best eggs in Durotar and the worst trolls. I send others." } },
+    _none = { { id = "tp_none", text = "You can't eat it, so I don't care about it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Takrin Pathseeker
+---------------------------------------------------------------------------
+P:NPC {
+  key = "takrin", id = TODO_NPC("Takrin Pathseeker"), name = "Takrin Pathseeker",
+  bible = "bibles/razorhill_folk.md", role = "questgiver", tier = "quest",
+  communities = { "razor_hill" }, temper = { "easy", "watchful" }, values = { "dutiful", "loyal" },
+  notices = { "class", "level" },
+
+  impression = {
+    first = "Takrin Pathseeker sizes people up the way a scout reads a trail, quickly and without fuss. He finds strong young recruits for his friend Kargal at the Barrens outpost and has a good word for every road west of Razor Hill.",
+    third = "{name} met Takrin Pathseeker, the Razor Hill scout who sends promising recruits to Kargal Battlescar in the Barrens.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hmm, you look pretty strong. Stay a moment, I may have a road for you." },
+    { id = "g_back", when = { metBefore = true }, text = "Back from the road, or not on it yet? Either way, sit, and tell me what you saw." },
+    { id = "g_letter", when = { questActive = TODO_QUEST("Conscript of the Horde") }, text = "Kargal's waiting on that letter. The western road, over the bridge, and the outpost on the far side." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}. A scout notices who leaves and who comes back, and I'm glad you came back." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = { "HUNTER", "ROGUE" } },
+      text = "You walk quiet and keep your eyes moving. Good, the Barrens eat the loud ones first." },
+    { id = "n_level", cat = "level", when = { minLevel = 10, maxLevel = 14 },
+      text = "You've outgrown the valley and you're getting restless in the town. I can see it, and I've got just the cure for it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Takrin Pathseeker, scout. I walk the roads between here and the Barrens and come back to tell Razor Hill what's on them. My friend Kargal at the Barrens outpost needs new recruits, and I'm always looking." },
+        { id = "h_letter_done", when = { questDone = TODO_QUEST("Conscript of the Horde") },
+          text = "Kargal signed your letter and sent you on to the Crossroads, I hear. Good, they need strong arms there more than he does, though he'll never tell you so." },
+        { id = "h_young", when = { maxLevel = 9 },
+          text = "You're still a bit green for the Barrens, friend. Finish your work in Durotar first, and come and find me when the scorpids stop giving you trouble." },
+        { id = "h_forsaken", when = { race = "Scourge" },
+          text = "A Forsaken, a long way from your own roads. The Barrens are hot and dry, so you'll either love them or fall apart in them, and I'd like to know which." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Scouts are good listeners when they're not running." },
+        { id = "h_again2", text = "Ask away. The road will still be there in a moment." },
+      },
+      choices = {
+        { text = "What's this about recruits?", next = "recruit" },
+        { text = "What lies on the road west?", next = "road" },
+        { text = "Tell me about Kargal Battlescar.", next = "kargal" },
+        { text = "What does a scout actually do?", next = "scout" },
+        { text = "I'm a hunter. Any tracks I should know?", next = "xhunt", when = { class = "HUNTER" } },
+        { text = "Another time, Takrin.", next = "END" },
+      },
+    },
+
+    recruit = {
+      big = true,
+      lines = { { id = "re_default", text = "Kargal holds the outpost across the bridge with too few grunts, and the centaur and the quilboar both know it. I know you want to do what's right for the Horde, so take this letter to him and see if he'll sign it." } },
+      choices = {
+        { text = "The Horde calls, and I'll answer.", next = "re_more", fx = { align = { order = 1 } } },
+        { text = "I'll go west for my own reasons, not for orders.", next = "re_more", fx = { align = { order = -1 } } },
+        { text = "What's in it for me?", next = "re_more", fx = { trait = { greedy = 1 } } },
+      },
+    },
+    re_more = {
+      lines = { { id = "rem_default", text = "Kargal will sign it, and then he'll tell you the Crossroads need you more than he does, because they do. That's the way of the Barrens: every post sends you to the next one, and you see the whole land that way." } },
+      choices = {
+        { text = "Then I'll see it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    road = {
+      lines = { { id = "rd_default", text = "Follow the western road out of Razor Hill, over the river and the bridge, and you'll see the outpost on the far side. After that it's the Barrens, flat and gold and full of things that want to eat you." } },
+      choices = {
+        { text = "What sort of things?", next = "rd_things" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rd_things = {
+      lines = { { id = "rdt_default", text = "Plainstriders, zhevra, lions that hunt in pairs, and the Razormane quilboar, who are worse than all of them together. And the Kolkar centaur, who ride fast and think every acre belongs to them." } },
+      choices = {
+        { text = "I'll keep my eyes open.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Sounds like good hunting.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+
+    kargal = {
+      lines = { { id = "ka_default", text = "An old warrior, scarred from his face to his feet, and the best friend a scout could ask for. He says I'm the best scout he knows, which is generous, because I'm the only scout he knows." } },
+      choices = {
+        { text = "How did you meet?", next = "ka_meet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ka_meet = {
+      lines = { { id = "kam_default", text = "In the camps, years ago, when we were both too thin to lift an axe. He carried my share of the water one bad summer, and I've been finding him recruits ever since to pay him back." } },
+      choices = {
+        { text = "That's a good debt to keep.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    scout = {
+      lines = { { id = "sc_default", text = "Walk out, look, walk back, and tell the truth about what you saw, even when nobody wants to hear it. The walking is easy. The truth part is what gets scouts in trouble." } },
+      choices = {
+        { text = "What truth didn't they want?", next = "sc_truth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sc_truth = {
+      lines = { { id = "sct_default", text = "That the humans at Tiragarde Keep weren't packing up to leave, for one. Gar'Thok didn't like hearing it, but he liked it better than finding out on his own." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    xhunt = {
+      lines = { { id = "xh_default", text = "Watch for centaur hoofprints doubled back on themselves, because the Kolkar ride in circles before they strike. And if your {pet} gets nervous near the river, trust it before you trust me." } },
+      choices = {
+        { text = "Thanks, Takrin.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "Roads, tracks, and which outpost is short of grunts this week." } },
+    background = { { id = "tp_bg", text = "Camp-born, road-raised. I've walked more of Durotar than most of its scorpids." } },
+    advice = { { id = "tp_ad", text = "Carry more water than you think you need. Everybody laughs at that until the Barrens." } },
+    burning_blade = { { id = "tp_bb", text = "I give their caves a wide berth, and so should you until you're strong enough not to." } },
+    _none = { { id = "tp_none", text = "Never seen tracks of that one. Ask me another." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Shoja'my
+---------------------------------------------------------------------------
+P:NPC {
+  key = "shojamy", id = TODO_NPC("Shoja'my"), name = "Shoja'my",
+  title = "Stable Master",
+  bible = "bibles/razorhill_folk.md", role = "stablemaster", tier = "service",
+  communities = { "razor_hill" }, temper = { "warm", "teasing" }, values = { "loyal", "practical" },
+  notices = { "pet" },
+
+  impression = {
+    first = "Shoja'my keeps Razor Hill's stables and talks to every beast in them as if they were her nieces and nephews. She's a Darkspear among orcs, and she gives as good as she gets.",
+    third = "{name} met Shoja'my, the troll stable master of Razor Hill.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hey, mon, you bring me a beast or you just come to smell the straw?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Your beasts miss you, or maybe they miss my feed. Hard to tell." },
+    { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Ooh, look at {pet}! Come here, beautiful, let Shoja'my see your teeth." },
+  },
+
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "{pet} be favorin' the left foot a little, mon. Nothin' bad, just a thorn or a bad step in the scrub, but let it rest tonight." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I be Shoja'my, and these be my stables, though the orcs think they be in charge of them. I keep the beasts that hunters cannot carry with them, and I feed them better than the grunts get fed." },
+        { id = "h_hunter", when = { class = "HUNTER" },
+          text = "A hunter! Good, I like hunters, you be the only ones who ever come back for the beasts you leave. Who you want me to look after today?" },
+        { id = "h_orc", when = { race = "Orc" },
+          text = "An orc who come to the stables and not the barracks. Either you be a hunter, or you be hidin' from Cook Torka's chores, and both be fine with me." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? The beasts be listenin'." },
+        { id = "h_again2", text = "Ask, ask, I be shovelin' anyway." },
+      },
+      choices = {
+        { text = "I need to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "How did a troll end up running Razor Hill's stables?", next = "how" },
+        { text = "What beasts do you keep?", next = "beasts" },
+        { text = "How should I care for my {pet}?", next = "care", when = { class = "HUNTER" } },
+        { text = "Take care, Shoja'my.", next = "END" },
+      },
+    },
+
+    how = {
+      big = true,
+      lines = { { id = "how_default", text = "The orcs be good with wolves and bad with everything else, mon, and the hunters keep bringin' boars and crabs and cats. Somebody had to be good with everything else, and the Darkspear be good with beasts." } },
+      choices = {
+        { text = "Trolls and orcs together. That's the Horde working.", next = "how2", fx = { align = { order = 1 } } },
+        { text = "You deserve better than an orc town's stables.", next = "how2", fx = { align = { order = -1 } } },
+        { text = "Do they treat you well?", next = "how2" },
+      },
+    },
+    how2 = {
+      lines = { { id = "how2_default", text = "They treat me fine, mon, because they need me, and I need them, and that be how the Horde work when it work. Some of the old grunts call me 'the troll girl', so I call them 'the green boys', and we all get along." } },
+      choices = {
+        { text = "That sounds like a fair trade.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    beasts = {
+      lines = { { id = "be_default", text = "Wolves, mostly, and cats and boars and one crab that bite everybody but me. A hunter left it six weeks ago and never come back, so now it be my crab." } },
+      choices = {
+        { text = "Does the crab have a name?", next = "be_crab" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    be_crab = {
+      lines = { { id = "bec_default", text = "I call it Gar'Thok, mon, because it be grumpy and it pinch, but do not tell the real Gar'Thok. He would not laugh." } },
+      choices = {
+        { text = "Not a word.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    care = {
+      lines = { { id = "ca_default", text = "Feed {pet} what it like, not what be cheap, and talk to it in the evenings even when you be tired. A beast that know your voice will fight for it." } },
+      choices = {
+        { text = "I will. Thank you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "Beasts, mon, and the hunters who forget them." } },
+    background = { { id = "tp_bg", text = "Darkspear, from the isles, and the only troll in Razor Hill who know a wolf's moods." } },
+    advice = { { id = "tp_ad", text = "Never feed a wolf from your hand while it be hungry, mon. It will not mean to take the fingers." } },
+    _none = { { id = "tp_none", text = "That not eat hay or meat, mon, so I not know it." } },
+  },
+}

@@ -14,6 +14,7 @@ pack.lua
 pools.lua
 npcs\thoriumpoint.lua
 npcs\thoriumpoint_flights.lua
+npcs\thoriumpoint_brotherhood.lua
 npcs\gorge_roads.lua
 npcs\zamael.lua
 npcs\nilith.lua

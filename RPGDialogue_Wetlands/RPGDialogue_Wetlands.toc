@@ -20,3 +20,4 @@ npcs\dunmodr.lua
 npcs\greenwarden.lua
 npcs\halloran.lua
 npcs\merrin.lua
+npcs\menethil_folk.lua

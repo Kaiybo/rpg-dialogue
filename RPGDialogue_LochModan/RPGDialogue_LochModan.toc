@@ -18,3 +18,4 @@ npcs\thelsamar_shops.lua
 npcs\hornhelm.lua
 npcs\farstrider.lua
 npcs\bluntnose.lua
+npcs\loch_folk.lua

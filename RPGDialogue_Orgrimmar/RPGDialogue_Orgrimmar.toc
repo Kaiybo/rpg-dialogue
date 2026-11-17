@@ -22,3 +22,6 @@ npcs\cleft_of_shadow.lua
 npcs\spirits_and_wisdom.lua
 npcs\the_drag.lua
 npcs\valley_of_honor.lua
+npcs\cleft_errands.lua
+npcs\warlock_errand.lua
+npcs\drag_and_honor.lua
