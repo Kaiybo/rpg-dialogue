@@ -18,10 +18,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "You could, and you'd learn more in one night than my Sentinels have in a month, because the Forsaken know our footsteps by now. Bring me what they're brewing and who's brewing it, and don't touch anything with your bare hands." } },
+      choices = {
+        { text = "I'll bring you proof, and spill no blood doing it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring proof, and leave their brewers dead in the mist.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The druids would rather you didn't try, because the last ones who thought they could master Felwood's sickness were the Shadow Council at Jaedenar, and you can see what it made of them. Help me learn what the Forsaken are brewing, and leave the soil to those who can listen to it." } },
+      choices = {
+        { text = "I'll leave it to the druids, as you ask.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the druids can't cleanse it, someone else should try.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and I'd very much like to know what they mean to do with them." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, this far east? You'll know better than most what the Forsaken's plagues did to Lordaeron, so you'll understand why I lose sleep over them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came through the trees without a sound, and my lookouts will hear about it in the morning. Out here a quiet traveller is worth more than a loud one, so I'm glad you're on our side." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You're a mage this close to Felwood, and I hope your masters warned you what the demons left in that soil. Some nights it rises into the air, and it doesn't care whose lungs it fills." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
@@ -32,6 +54,8 @@ P:NPC {
         { text = "What lies east of Forest Song?", next = "east" },
         { text = "How do you keep the outpost supplied?", next = "post" },
         { text = "I saw what the plague did at home.", next = "lordaeron", when = { race = "Human" } },
+        { text = "Could I get close to the Forsaken camps for you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could arcane magic cleanse the corruption in Felwood?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Keep the outpost safe.", next = "END" },
       },
     },
@@ -100,10 +124,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Nothing, if you mean to shoot a man across a tavern, which I suppose is what your sort do. A bow wants a long draw and patient wood, and a rogue wants to be gone before the arrow lands, so we've never got on." } },
+      choices = {
+        { text = "I'd rather face a man than shoot him from hiding.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Gone before it lands is the whole point.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because Astranaar's Sentinels stare at anyone who smells of the arcane, and I don't, since I've no opinion on it worth the breath. Sit by the fire if you like, but don't warm it with a spell, because my staves season badly near magic." } },
+      choices = {
+        { text = "I'll mind your staves and sit by the plain fire.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "One small spell won't hurt your precious staves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Bhaldaran, and I make bows, which is all most people need to know about me. I live out here because the wood's better and the company's quieter." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, at last, someone who'll appreciate the grain. Have a look at the longbows, and don't let your pet chew on the racks." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You'll be a rogue, then, and rogues always want a bow short enough to hide under a cloak. I'll make you one if you insist, but it'll shoot like it's ashamed of itself." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You're a mage, so you'll not need anything I make, I expect. Either you've come for the quiet or you've lost your way, and I can help with the second." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -114,6 +160,8 @@ P:NPC {
         { text = "What makes a good bow?", next = "bows" },
         { text = "Isn't it lonely out here?", next = "alone" },
         { text = "I'd like the best longbow you have.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What's wrong with a short bow, Bhaldaran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why would a mage come out here for the quiet?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

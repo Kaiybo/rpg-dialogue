@@ -26,9 +26,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "No, but I've learned not to guess, and a wise shopkeeper counts the shelves either way. If you want to be useful, find out which of the Warsong scouts has been watching my carts on the eastern road, and I'll count you a friend." } },
+      choices = {
+        { text = "I'll find the scout and drive him off in the open.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find him, and his own camp will lose a cart.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I'd settle for someone who could ride beside them and turn the Warsong's arrows, because my drivers are carters and not soldiers. The Sentinels can't guard every cart, and the hippogryphs carry too little to feed a whole town." } },
+      choices = {
+        { text = "I'll ride with your next cart and keep it safe.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Carts are your trouble, Haljan, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Haljan Oakheart, and I keep the general goods here in Astranaar: bread, water, bags and thread. With the orcs on the roads, half my work is getting the goods here in the first place." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I keep my eye on the satchels when your sort come in, no offence meant, because a shop under siege can't spare a single loaf. If you're buying, though, you're as welcome as anyone." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You're a mage, and you'll travel light, I expect, though even mages need thread and a good bag. If you know a spell that keeps the Warsong off my eastern road, you'd be the most popular person in Astranaar." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away." },
@@ -38,6 +60,8 @@ P:NPC {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "How do supplies reach Astranaar?", next = "supply" },
         { text = "Is Astranaar safe?", next = "safe" },
+        { text = "Do you really think I'd rob a village under siege?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there a spell that could help your carts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Haljan.", next = "END" },
       },
     },
@@ -103,9 +127,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not much, though the Sentinels tell me I should, since they fight in the open under Elune's eye. The orcs who killed my friends at the lumber camps didn't give them a fair fight, so I won't weep if you don't give them one." } },
+      choices = {
+        { text = "I'll fight them fairly. That's what separates us from them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They earned a knife in the dark. I'll give it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I'd trust your frost and I'd not trust your fire, because the Warsong burn enough of this forest without our allies helping them. The Sentinels mutter about the arcane, but I've stopped caring what kills an orc so long as the trees live." } },
+      choices = {
+        { text = "No fire in the forest, then. Frost will serve.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fire wins battles. The trees can grow back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Xai'ander, and I sell weapons in Astranaar. Every blade I sell might be the one that keeps an orc axe off a tree, so I don't sell bad ones." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You carry yourself like a rogue, and that suits me, because an orc can't swing an axe at what he never sees coming. I've daggers in the back sharp enough for the work." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage won't buy my blades, but I'll speak with one all the same, because frost stops an orc's charge as well as steel does." },
       },
       again = {
         { id = "h_again", text = "What else? I've blades to sharpen." },
@@ -115,6 +161,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "You sound angry about the orcs.", next = "angry" },
         { text = "What weapon suits Ashenvale?", next = "suits" },
+        { text = "Do you care how an orc dies, Xai'ander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you trust a mage beside your Sentinels?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -177,9 +225,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Often enough, because my people turned from the arcane after the Sundering, and some of them have never stopped flinching at it. I think it's sad that something so beautiful should frighten us, but I wasn't alive when the Well drowned, so perhaps I don't understand." } },
+      choices = {
+        { text = "Their caution is earned. I'll give them no reason to flinch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fear shouldn't rule what's beautiful. Let them stare.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A little, because the satyrs who creep out of the dark woods at night were once my people, and they started with a bargain much like yours. But you came in and asked about cloth like anyone else, and I'd like to believe that counts for something." } },
+      choices = {
+        { text = "It counts. I'll never become what they became.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their bargain failed. Mine won't, and I'll go further.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Aeolynn, and I sell cloth armor here in Astranaar. It isn't much protection against an orc's axe, I know, but it keeps the rain off, and the priestesses tell me it suits them better than mail." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You'll want a robe with deep sleeves for your reagents, I expect, and I've a few with good hems for these wet paths. I sewed for the moon festivals once, so I know how to make a mage look lovely, though the Sentinels may still stare." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I've a deep violet cloth that hides scorch marks well, if you're looking for something dark to wear. Forgive me, but your imp keeps looking at my silks, and I'd rather it didn't." },
       },
       again = {
         { id = "h_again", text = "Something else?" },
@@ -189,6 +259,8 @@ P:NPC {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What was Ashenvale like before the war?", next = "before" },
         { text = "Where does your cloth come from?", next = "cloth" },
+        { text = "Do the Sentinels stare at mages often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does my craft frighten you, Aeolynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Aeolynn.", next = "END" },
       },
     },
@@ -251,9 +323,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every one of them, and they come back from the eastern woods so hungry I could weep, though they never say where they've been. I pack them honey cakes for the road, because a scout lying still in the ferns for half a day needs more than water." } },
+      choices = {
+        { text = "A scout's work is hard. They deserve every cake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Scouts should learn to go hungry. It keeps them sharp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It fills the stomach and does nothing for the heart, dear, because nobody kneaded it and nobody waited for it to rise. The Sentinels eat my bread on the bridge and think of home for a moment, and I don't believe a spell can do that." } },
+      choices = {
+        { text = "You're right. Bread made by hand is worth more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Bread is bread, and mine never goes stale.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Maliynn, and I keep Astranaar fed: bread, fruit, cheese and water for the road. The Sentinels come in from the forest hungry, and so does everyone else, so I'm never short of customers." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You crept in so quietly I nearly dropped the bread, dear, and you're far too thin for someone who sneaks about for a living. Sit down and eat something before you vanish again." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You've been living on that conjured bread, I can tell by your cheeks, dear. Sit down and have something that came out of a proper oven." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? There's more in the oven." },
@@ -263,6 +357,8 @@ P:NPC {
         { text = "Let me see your food.", next = "BUSINESS" },
         { text = "Do the Sentinels eat here often?", next = "sentinels" },
         { text = "How do you keep the shop stocked?", next = "stock" },
+        { text = "Do the scouts who watch the Warsong camps eat here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What's wrong with conjured bread, Maliynn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Maliynn.", next = "END" },
       },
     },
