@@ -7,7 +7,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "ar_obreen", id = TODO_NPC("Shakes O'Breen"), name = "Shakes O'Breen",
   bible = "bibles/faldirs_cove.md", role = "questgiver", tier = "quest",
-  communities = { "faldirs_cove" }, temper = { "proud", "sharp" }, values = { "proud", "greedy", "loyal" },
+  communities = { "faldirs_cove", "blackwater" }, temper = { "proud", "sharp" }, values = { "proud", "greedy", "loyal" },
   notices = { "race", "kit" },
 
   impression = {
@@ -59,6 +59,7 @@ P:NPC {
         { text = "Who's Seahorn?", next = "seahorn" },
         { text = "Tell me about your crew.", next = "crew" },
         { text = "What's this treasure you're after?", next = "treasure" },
+        { text = "Tell me about the Blackwater Raiders.", next = "ob_raiders" },
         { text = "Any work for a rogue on your crew?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Fair winds, Captain.", next = "END" },
       },
@@ -100,6 +101,7 @@ P:NPC {
       },
       choices = {
         { text = "And whose fault was it?", next = "seahorn_fault" },
+        { text = "What will Seahorn do when he hears?", next = "ob_temper" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +132,10 @@ P:NPC {
       lines = {
         { id = "cs_default", text = "He was captain of the Maiden's Folly, and he went down with her, or near enough. The naga killed the survivors in the water, and he washed up here alone, so go gently with him." },
       },
-      choices = { { text = "Something else, Captain.", next = "BACK" } },
+      choices = {
+        { text = "Does he blame you?", next = "ob_steelgut_blame" },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
     },
 
     treasure = {
@@ -158,6 +163,136 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+
+    -- Deeper: the Raiders (sub-hub), the Harbinger, the code and the salvage shares, the letters to Seahorn.
+    ob_raiders = {
+      hub = true,
+      lines = {
+        { id = "or_default", text = "The Blackwater Raiders, matey, the finest fleet that ever flew a goblin's colours, and I've the honour of being its most lost captain this week. Ask what you like; it beats watching the tide not come in." },
+      },
+      again = {
+        { id = "or_again", text = "More about the fleet? Gladly, it's the only thing I'm proud of right now." },
+        { id = "or_again2", text = "Ask on, matey. The naga aren't due till dusk." },
+      },
+      choices = {
+        { text = "Tell me about the Harbinger.", next = "ob_harbinger" },
+        { text = "How do the Raiders split salvage like this?", next = "ob_code" },
+        { text = "Do the Bloodsail sail this far north?", next = "ob_bloodsail" },
+        { text = "Would the Raiders take Horde coin up here?", next = "ob_sides", when = { faction = "Horde" } },
+        { text = "Do the Raiders work with Alliance ships?", next = "ob_sides", when = { faction = "Alliance" } },
+        { text = "Steelgut says he won his ship on a bet.", next = "ob_dwarf", when = { race = "Dwarf" } },
+        { text = "Back to the matter at hand, Captain.", next = "hello" },
+      },
+    },
+    ob_harbinger = {
+      lines = {
+        { id = "oh_default", text = "Fastest brig in the fleet, matey, and the only ship I've ever loved more than gold. I took her off the Bloodsail six years back with eleven men and a borrowed cannon, and I renamed her the Harbinger so they'd know what she meant every time they saw her coming." },
+      },
+      choices = {
+        { text = "What did you do with her old crew?", next = "ob_prize" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ob_prize = {
+      big = true,
+      lines = {
+        { id = "op_default", text = "Put them ashore at Jaguero Isle with a barrel of water and a rowboat with one oar. Seahorn said I was soft, and the Baron said I'd wasted good ransom, and I still say the sea had enough bodies that day." },
+      },
+      choices = {
+        { text = "Mercy suits a captain. You did right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Baron's right. Ransom them or sink them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ob_code = {
+      lines = {
+        { id = "oc_default", text = "By the code, matey: a tenth to the Baron, two shares to the captain, one to every hand, and a share and a half to the family of any sailor who doesn't come home. Steelgut's crew is owed a great deal of gold I haven't found yet." },
+      },
+      choices = {
+        { text = "Will you pay the dead men's shares?", next = "ob_shares" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ob_shares = {
+      big = true,
+      lines = {
+        { id = "os_default", text = "Every copper, if the Professor's machine finds anything worth finding. I'll pay them out of my own two shares if I have to, though you'll not tell my crew I said that, or they'll want theirs doubled." },
+      },
+      choices = {
+        { text = "The code's the code. Pay them in full.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Codes are for fair weather. Look after your own crew first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ob_bloodsail = {
+      lines = {
+        { id = "ob_default", text = "Not often, but their scouts turn up wherever there's treasure, like gulls at a fish market. I'd half hoped the naga would get them before they got us, but the naga don't seem to care whose colours a sailor wears." },
+        { id = "ob_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Less, now Firallon's gone, and they say a stranger did that, which I'd believe of you, matey. His captains will be fighting over his chair all season, and that's a season they won't spend chasing my wreck." },
+      },
+      choices = {
+        { text = "Seahorn's been watching for them in the south.", next = "BACK", fx = { learn = { "bloodsail" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ob_sides = {
+      big = true,
+      lines = {
+        { id = "osd_default", text = "Coin's coin, matey, and a Raider doesn't ask what flag it was minted under. The Baron's toll keeps the peace between your lot and the other lot, and I'm happy to ferry either of you to anywhere that pays." },
+        { id = "osd_horde", when = { faction = "Horde" }, text = "Up here? With Hammerfall over the hills, and the Alliance in Refuge Pointe? I'd sell to both and tell neither, matey, which is the Raider way, and it's kept me in boots for twenty years." },
+        { id = "osd_alliance", when = { faction = "Alliance" }, text = "Menethil's merchants hire us more than they'd like to admit, matey, and Stromgarde's lot at Refuge Pointe would hire us if they had the coin. The Horde at Hammerfall pay too, so I keep my mouth shut in both camps." },
+      },
+      choices = {
+        { text = "Selling to both sides is just good sense.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A man who sells to both sides is trusted by neither.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ob_dwarf = {
+      lines = {
+        { id = "odw_default", text = "He did, at Skindle's bar, and I was the fool who bet against him. I said no dwarf could keep his breakfast down on a deck for a month, and he kept it down for six out of pure stubbornness, so you could say his ship is half my fault as well." },
+      },
+      choices = {
+        { text = "Then you owe him more than gold.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Ha! Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    ob_temper = {
+      lines = {
+        { id = "ote_default", text = "He'll laugh first, matey, because Seahorn laughs at everything, and then he'll stop laughing, which is worse. I've written him two letters already and burned both, because neither one sounded like a captain who deserves to keep his ship." },
+      },
+      choices = {
+        { text = "Tell me what you wrote, O'Breen.", tag = "Intimidate", next = "ob_letters",
+          check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "ROGUE" } }, { trait = "stern" } } } },
+          fail = { next = "ob_letters_no", fx = { affinity = -1 } } },
+        { text = "Write a third one, Captain.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    ob_letters = {
+      lines = {
+        { id = "ol_default", text = "All right, all right, put that look away. The first said the reef came out of nowhere, which is true, and the second said I saw the water drop and signalled anyway, which is also true, and I can't send either without the other." },
+      },
+      choices = {
+        { text = "Send the second one. Seahorn deserves the truth.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then tell him to his face.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    ob_letters_no = {
+      lines = {
+        { id = "oln_default", text = "Ha! I've stared down Bloodsail captains and a naga sea witch this week, matey, and you're nowhere near as frightening as either. My letters are my business until Seahorn reads one." },
+      },
+      choices = { { text = "Something else, then.", next = "BACK" } },
+    },
+    ob_steelgut_blame = {
+      big = true,
+      lines = {
+        { id = "osb_default", text = "He doesn't say it, which is worse than saying it, because dwarves can be silent at you for a whole season. I'd take it kindly if he'd shout at me once, so we could both get on with things." },
+      },
+      choices = {
+        { text = "Go to him and own it, Captain. Don't wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave him be. Grief keeps its own hours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -173,7 +308,7 @@ P:NPC {
 P:NPC {
   key = "ar_steelgut", id = TODO_NPC("Captain Steelgut"), name = "Captain Steelgut",
   bible = "bibles/faldirs_cove.md", role = "questgiver", tier = "quest",
-  communities = { "faldirs_cove" }, temper = { "gruff", "fierce" }, values = { "loyal", "brave" },
+  communities = { "faldirs_cove", "blackwater" }, temper = { "gruff", "fierce" }, values = { "loyal", "brave" },
   notices = { "drink", "kit" },
 
   impression = {
@@ -220,6 +355,8 @@ P:NPC {
         { text = "Tell me about the Maiden's Folly.", next = "ship" },
         { text = "How did you survive?", next = "survive" },
         { text = "What do you know of the naga?", next = "naga" },
+        { text = "Tell me about the Blackwater Raiders, Captain.", next = "sg_raiders" },
+        { text = "What will you do now, Captain?", next = "sg_after" },
         { text = "How does a dwarf end up captaining a ship?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Rest easy, Captain.", next = "END" },
       },
@@ -286,6 +423,126 @@ P:NPC {
         { text = "That's a fine story, Captain.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+
+    -- Deeper: the Raiders (sub-hub), Seahorn, the code, life aboard the Folly, what's next, what he saw.
+    sg_raiders = {
+      hub = true,
+      lines = {
+        { id = "sr_default", text = "The Raiders, aye. Goblin coin, tauren laughter an' every sort o' fool on the ropes, an' I was proud tae be one o' them. Ask, if ye must." },
+      },
+      again = {
+        { id = "sr_again", text = "More? The fire's still warm, so go on." },
+        { id = "sr_again2", text = "Ask yer question. I'll answer it, if it's no' about the water." },
+      },
+      choices = {
+        { text = "What's Fleet Master Seahorn like?", next = "sg_seahorn" },
+        { text = "Do the Raiders really keep a code?", next = "sg_code" },
+        { text = "What was life like aboard the Folly?", next = "sg_life" },
+        { text = "Have you fought the Bloodsail, Captain?", next = "sg_bloodsail" },
+        { text = "Does a dwarf captain mind Horde passengers?", next = "sg_horde", when = { faction = "Horde" } },
+        { text = "Something else, Captain.", next = "hello" },
+      },
+    },
+    sg_seahorn = {
+      lines = {
+        { id = "ssh_default", text = "A tauren who laughs like a cannon an' gave a dwarf a ship when every goblin in the Bay said it was a waste o' good timber. I owe him the Folly, an' now I've got tae tell him she's on the bottom wi' every soul aboard her but mine." },
+      },
+      choices = {
+        { text = "He'll give you another ship.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sg_code = {
+      lines = {
+        { id = "scd_default", text = "Aye, an' the first line o' it is that ye follow yer captain's signal, no matter what ye see in the water. O'Breen signalled, an' I followed, an' that's the code doin' just what it's meant tae do." },
+      },
+      choices = {
+        { text = "Even when it sinks you?", next = "sg_code_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sg_code_stance = {
+      big = true,
+      lines = {
+        { id = "scs_default", text = "Even then. A fleet where every captain does as he likes is just a lot o' boats that happen tae be near each other, an' the Bloodsail would eat it alive. I'd follow that signal again, an' I hate that I would." },
+      },
+      choices = {
+        { text = "The code's what makes a fleet. You were right to follow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A code that drowns good sailors is a bad code.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sg_life = {
+      lines = {
+        { id = "slf_default", text = "Loud, mostly. My boys sang every watch, badly, an' the cook made a stew from whatever we hadnae sold, an' the cabin lad from Menethil kept a pet crab in my boot. I'd give my beard tae have that crab pinch me one more time." },
+      },
+      choices = {
+        { text = "Tell me about the cabin lad.", next = "sg_lad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sg_lad = {
+      lines = {
+        { id = "sld_default", text = "Fourteen, an' lied tae me that he was sixteen, an' I let him, because he could tie a knot faster than any dwarf alive. His mother's in Menethil, an' I've no' found the words for her yet, so dinnae ask me what I'll say." },
+      },
+      choices = { { text = "Something else, Captain.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    sg_bloodsail = {
+      lines = {
+        { id = "sbs_default", text = "Off the Cape o' Stranglethorn, twice, an' once against Keelhaul himself. He tried tae board us at dawn an' we put a cannonball through his rail before he got the hooks across, so he'll remember the Folly, an' I'll remember him." },
+        { id = "sbs_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Twice off the Cape, an' once against Keelhaul himself, an' I hear somebody's sent him an' Firallon both tae the bottom since. If that was ye, then I'll drink tae it, an' I havnae drunk tae anythin' in weeks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } },
+      },
+    },
+    sg_horde = {
+      lines = {
+        { id = "sho_default", text = "I did, the first year. Then an orc in my hold stood a whole storm bailin' wi' his own helmet while my Ironforge passengers prayed, an' I stopped mindin' much after that, so long as the fare's paid an' nobody draws in my cabin." },
+      },
+      choices = {
+        { text = "That sounds like an orc.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sg_after = {
+      big = true,
+      lines = {
+        { id = "saf_default", text = "That's the question, isn't it? Seahorn would give me another deck if I asked, an' my cousins in Dun Morogh would give me a forge an' a chair by the fire, an' I cannae make up my mind which would be the coward's choice." },
+        { id = "saf_dwarf", when = { race = "Dwarf" }, text = "Ye'll know the pull o' the mountain as well as I do. Seahorn would give me another deck, an' Dun Morogh would give me a forge, an' I cannae tell which is the coward's choice, so tell me, as one dwarf tae another." },
+      },
+      choices = {
+        { text = "Ask Seahorn for a new ship. The fleet needs you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Go home. You owe the sea nothing more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What did you see in the water, Captain?", next = "sg_saw_ask" },
+      },
+    },
+    sg_saw_ask = {
+      lines = {
+        { id = "ssa_default", text = "In the water? Nothin' I'd tell a stranger by a fire, for they'd think the grief had taken my wits along wi' my ship." },
+      },
+      choices = {
+        { text = "I've seen strange things too. You can tell me.", tag = "Persuade", next = "sg_saw",
+          check = { pass = { any = { { disposition = { min = 60 } }, { race = "Dwarf" }, { questDone = TODO_QUEST("Drowned Sorrows") } } } },
+          fail = { next = "sg_saw_no", fx = { affinity = -1 } } },
+        { text = "Then keep it, Captain.", next = "BACK" },
+      },
+    },
+    sg_saw = {
+      lines = {
+        { id = "ssw_default", text = "Lights, down under the reef, green as a Lordaeron bog, an' a voice singin' in a tongue I didnae know. The singin' stopped when I went black, an' when I woke on the sand I could still hear the end o' it, an' sometimes I still do." },
+      },
+      choices = {
+        { text = "The naga sorceresses. Tell O'Breen.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sg_saw_no = {
+      lines = {
+        { id = "ssn_default", text = "Have ye now. Everybody's seen strange things, {g:lad|lass}, but no' everybody's sat by this fire wonderin' if they're mad, so leave it be." },
+      },
+      choices = { { text = "Something else, then.", next = "BACK" } },
     },
   },
 

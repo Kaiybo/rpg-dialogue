@@ -169,3 +169,124 @@ P:Pool {
     _none = { { id = "t_none", text = "Ask Krazek up at the tavern. He'll tell you whatever you want to know, and then he'll bill you for it." } },
   },
 }
+
+-- 0.75.0: Booty Bay's dockside folk, who live in the Blackwater Raiders' shadow. The engine matches
+-- community pools on the NPC's communities, and an unnamed NPC only gets its town's (booty_bay), so
+-- this is a citizen pool for the town with the Raiders' flavour rather than a "blackwater" pool.
+local TODO_QUEST = P.TODO_QUEST
+
+P:Pool {
+  id = "citizen_bootybay_raiders", role = "citizen", community = "booty_bay",
+  barks = {
+    { id = "b_sails", text = "Black sails coming in on the tide! Somebody fetch the Fleet Master before he hears it from the parrot." },
+    { id = "b_red", text = "If you see a red sail out past the shark's teeth, shout, and then run, in that order." },
+    { id = "b_song", text = "The Raiders were singing on the pier till dawn again, and not one of them knows the second verse." },
+  },
+  greetings = {
+    { id = "g_dock", text = "Mind the ropes, friend, the Raiders coil them wherever they drop them. Welcome to the Bay." },
+    { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Evening! The Blackwater lads are ashore tonight, so the tavern's loud and the pier's slippery, and I'd keep clear of both." },
+    { id = "g_helped", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "You're the one who sent Firallon to the bottom! The Raiders have been toasting you all week, and some of them even remembered your name." },
+  },
+  notice = {
+    { id = "n_bloodsail_rep", cat = "status", when = { reputation = { faction = "Bloodsail Buccaneers", min = "neutral" } },
+      text = "Funny, there's a whiff of red bandana about you. I'd not let the Raiders smell it, friend, because they've got better noses than the Bruisers." },
+    { id = "n_rep", cat = "status", when = { reputation = { faction = "Booty Bay", min = "honored" } },
+      text = "The Raiders nod to you on the pier, I've seen it. That's worth more in this town than a purse full of gold, though I'd take the purse as well." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Another tauren! The Fleet Master will want to buy you a drink and tell you about the plains, so you've been warned." },
+  },
+  lines = {
+    { id = "l_raiders", text = "The Blackwater Raiders keep the Bloodsail off our piers, and the Baron keeps the Raiders paid. As long as both of those stay true, the rest of us can get some sleep." },
+    { id = "l_fin", when = { ["not"] = { questDone = TODO_QUEST("Stranglethorn Fever") } }, text = "Poor Fin Fizracket's still sweating out the fever on the docks. Swam in a jungle pond, the fool, and now nobody will sit downwind of him." },
+  },
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "You're new off the boat, or new enough, anyway. Ask me anything about the Bay, friend, because I've lived under these cliffs my whole life and I've seen every kind of fool come through the shark's teeth." },
+        { id = "h_horde", when = { faction = "Horde" }, text = "Horde, eh? You'll be off the Ratchet boat, then. The Raiders like your lot well enough, because you pay your tolls and you hate the Bloodsail, so what can I tell you?" },
+        { id = "h_alliance", when = { faction = "Alliance" }, text = "Alliance, eh? The Raiders will call you a landlubber till you've bought them a round, and after that they'll call you a landlubber who buys rounds. What do you want to know?" },
+      },
+      again = {
+        { id = "a_more", text = "Something else? Ask away, the tide's not in yet." },
+        { id = "a_gossip", text = "More? I've gossip enough to fill a ship's hold, so go on." },
+      },
+      choices = {
+        { text = "Who are the Blackwater Raiders?", next = "raiders" },
+        { text = "What do folk here think of the Bloodsail?", next = "bloodsail" },
+        { text = "Is Fleet Master Seahorn as loud as they say?", next = "seahorn" },
+        { text = "Do the Raiders ever take on new hands?", next = "hire" },
+        { text = "Seen any Bloodsail spies about town?", next = "spies", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "Take care, friend.", next = "END" },
+      },
+    },
+    raiders = {
+      lines = {
+        { id = "ra_default", text = "The Baron's fleet, more or less: pirates who sail for the Steamwheedle Cartel instead of against it. They escort the merchant ships, they collect the toll, and they sink the Bloodsail whenever they can catch them." },
+      },
+      choices = {
+        { text = "Pirates working for merchants? Odd.", next = "raiders_odd" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raiders_odd = {
+      big = true,
+      lines = {
+        { id = "rao_default", text = "Odd, maybe, but it works, friend. A pirate who's paid every month doesn't need to rob anybody, and one who's paid by the Cartel can't rob anybody in the Cartel's port, so we get the cannons without the trouble." },
+      },
+      choices = {
+        { text = "Paid pirates are still pirates. I'd not trust them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good. Even pirates need someone to answer to.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bloodsail = {
+      lines = {
+        { id = "bs_default", text = "That they'd burn this town to the waterline if they thought there was a copper in the ashes. Fleet Master Firallon wants the Baron's balcony, and he's been trying to buy it with knives for years." },
+        { id = "bs_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Less than we did, now Firallon's at the bottom! They'll find another fleet master, mind, so don't go hanging up your sword just yet." },
+      },
+      choices = {
+        { text = "Firallon? Who's he?", next = "bloodsail_firallon" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } },
+      },
+    },
+    bloodsail_firallon = {
+      lines = {
+        { id = "bf_default", text = "The Bloodsail's fleet master, with Keelhaul and Stillwater for his captains, and a ship off our coast you can see from the top of the Salty Sailor on a clear day. First Mate Crazz will tell you more than you want to know, and twice as loud." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+    },
+    seahorn = {
+      lines = {
+        { id = "se_default", text = "Louder, friend! He laughs at the top of the tavern and the glasses rattle at the bottom. He's a tauren who went to sea and never came back, and he'd fight a kraken for any one of his sailors." },
+      },
+      choices = {
+        { text = "A tauren pirate. I've seen everything now.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spies = {
+      lines = {
+        { id = "sp_default", text = "You've the look of someone who'd notice, so I'll say it quietly: somebody in this town tells the Bloodsail when the Raiders sail. I'd not say who, because I don't know, and because the last fellow who guessed out loud went off the pier." },
+      },
+      choices = {
+        { text = "I'll keep my eyes open.", next = "BACK", fx = { standing = { booty_bay = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hire = {
+      lines = {
+        { id = "hi_default", text = "Always, because the Bloodsail keep making vacancies. Go up the stairs at the Salty Sailor and ask for the Fleet Master, and if he likes your face he'll find you a job, though the Raiders will want you to prove it on a Bloodsail deck first." },
+      },
+      choices = {
+        { text = "I'll pay the Fleet Master a visit.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    bloodsail = { { id = "t_bloodsail", text = "Red sails, red bandanas and no mercy. The Raiders are all that stands between them and our piers, so I buy every Raider I meet a drink." } },
+    _none = { { id = "t_none", text = "Couldn't tell you, friend. Ask one of the Raiders on the pier; they've sailed everywhere and lied about most of it." } },
+  },
+}
