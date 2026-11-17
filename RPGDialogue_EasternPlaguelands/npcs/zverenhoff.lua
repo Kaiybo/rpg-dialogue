@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_archive", when = { questActive = TODO_QUEST("The Archivist") }, text = "Galford and his archive, in Stratholme. Burn it all, and try not to read anything first; zealotry is catching." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I've deciphered precisely two more pages of that dreadful book in the meantime. Your news is bound to be better." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've become a good deal more formidable since we first spoke. The Dawn notices these things, and so do I." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round here at the chapel. Well done; a mind changed is worth more than a skull split, in my experience." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone round here at the chapel. Well done; a mind changed is worth more than a skull split, in my experience." },
   },
 
   notice = {

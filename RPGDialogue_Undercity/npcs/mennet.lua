@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_fenwick", when = { questActive = TODO_QUEST("Fenwick Thatros") }, text = "The decrepit dock on Lordamere, I'm told. Fenwick Thatros won't be expecting you, which is rather the point." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. I had people keep an eye on you, naturally, but it's nicer to see you in person." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown dangerous since you first came to my summons. I take a certain professional pride in that." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you told someone a very good lie recently. I'll want to hear how you did it, purely for teaching purposes." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you told someone a very good lie recently. I'll want to hear how you did it, purely for teaching purposes." },
     { id = "g_word_caught", when = { word = "caughtLying" }, text = "I hear someone caught you in a lie. A shame; the trick is not to be caught, and I'd assumed you knew it." },
   },
 
