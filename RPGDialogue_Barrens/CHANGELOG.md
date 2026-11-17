@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.21.0 (2026-11-17)
 - 26 new people: Far Watch, the Crossroads and the Disciples of Naralex (Kargal Battlescar, Ak'Zeloth, Thun'grim Firegaze, Uzzek, Ebru, Nalpak, Falla Sagewind, Lizzarik), and Ratchet, Fray Island and the roads south (Strahad Farsan, Klannoc Macleod, Twiggy Flathead, Gilthares Firebough, Doan Karhan). New files: restart the game fully (a /reload won't load them).
 - New story "The Kolkar and the water": Regthar lets you decide what happens to Krom'zar's stragglers; Thork and Jorn react.

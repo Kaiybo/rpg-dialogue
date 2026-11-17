@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.11.1 (2026-11-17)
 - Writing pass on the characters added in 0.74.0: stock phrases ("fair enough", "truly", "worth more than") rewritten.
 

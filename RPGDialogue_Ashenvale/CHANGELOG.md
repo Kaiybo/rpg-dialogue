@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.22.0 (2026-11-17)
 - Senani at Splintertree reacts to the new story "The axes of Ashenvale".
 

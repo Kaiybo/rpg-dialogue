@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.20.0 (2026-11-17)
 - Zureetha and Orgnil react to the new story "The Burning Blade's long reach".
 
