@@ -17,6 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_cell", text = "You took your time, but it doesn't matter now. You're here." },
     { id = "g_after", when = { questDone = TODO_QUEST("Missing In Action") }, text = "There's my escort, still standing, I see. Good, so am I." },
+    { id = "g_blackrock_resolved", when = { thread = { id = "blackrock_down", state = "resolved" } }, text = "Word's come down from Morgan's Vigil that the Spire's lost three of its masters and fewer orcs are coming over the passes. I've slept through two nights running since I heard, and I'd forgotten I could." },
   },
 
   notice = {

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- Stories (0.80.0): Master Gadrin carries part of the Echo Isles Story and greets you by its ending.
+
 ## 1.20.0 (2026-11-17)
 - Zureetha and Orgnil react to the new story "The Burning Blade's long reach".
 

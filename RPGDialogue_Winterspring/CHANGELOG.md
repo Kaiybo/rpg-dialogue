@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-17)
+- Stories (0.80.0): Donova Snowden decides how the Winterfall Story ends; she and Himmik greet you by that ending.
+
 ## 1.23.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

@@ -310,6 +310,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Gnarlpine are not your enemies by choice, so remember that when you draw on them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned the cost of the arcane long ago, but I'll judge you by what you do, not by what the Highborne did." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gnarlpine", min = 40 } },
+        { id = "h_shores_resolved", tags = { "news" }, when = { thread = { id = "both_shores", state = "resolved" } },
+          text = "Thundris Windweaver wrote to me from Auberdine about a satyr and the Blackwood's food, and I have read his letter more times than I should. If the Gnarlpine were given their sickness by a hand, then I was right to grieve for them and wrong to think it was only the moss." },
           text = "You have killed a great many Gnarlpine, and I'll not pretend it doesn't grieve me, though I know it had to be done. They were our friends once, so when you think of them, remember that too." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak plainly, then, as I do. The Gnarlpine were never our enemies, and I would know whether your spirits can tell me what poisoned them." },
       },

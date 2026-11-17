@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-17)
+- Stories (0.80.0): Primal Torntusk greets you once the Hinterlands Story ends.
+
 ## 1.24.0 (2026-11-17)
 - New people to talk to (see the main changelog for 0.74.0). New files: restart the game fully (a /reload won't load them).
 

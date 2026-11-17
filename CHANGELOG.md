@@ -2,6 +2,23 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+Twelve new Stories for the journal, across both continents and both factions. **New files: restart the game fully (a /reload won't load them).**
+
+- **The hexed of the Echo Isles** (Horde): Master Gadrin, Lar Prowltusk, Gar'Thok and Vol'jin on the Darkspear lost to Zalazane's hex. Vol'jin asks what the hexed are to the tribe now, and your answer decides the ending.
+- **The Soulflayer's priests** (both): the Zandalarian Emissary, Mok'thardin or Nimetz, and Yeh'kinya on the drums in Zul'Gurub.
+- **The hills above Jintha'Alor**: Falstad and Fraggar for the Alliance, Otho and Primal Torntusk for the Horde.
+- **The sickness of Felwood** (both): from the Deadwood furbolgs to the Shadow Council in Jaedenar, through Talonbranch Glade or Bloodvenom Post.
+- **The Winterfall's firewater** (both): Donova Snowden, the Timbermaw and Himmik. Donova asks what to tell Everlook, and your answer decides the ending.
+- **The rot on both shores** (Alliance): Teldrassil's moonwells and the Gnarlpine, the timberlings, and the Blackwood furbolgs of Darkshore.
+- **Who lost Gnomeregan** (Alliance): everyone in Ironforge blames someone different. Mekkatorque asks what to tell his people, and your answer decides the ending.
+- **The watch on the Dark Portal** (both): Nethergarde Keep and Stonard keep watch on the Portal and the Dragonmaw.
+- **The Blackrock come down the mountain** (Alliance): Redridge's watch, Keeshan and Maxwell at Morgan's Vigil.
+- **Gadgetzan's water** (both): the Wastewanderers hold half the springs. Marin Noggenfogger asks whether to pay them or guard the pipes, and your answer decides the ending.
+- **The clans of Desolace**: Nijel's Point and Shadowprey Village both keep the centaur clans fighting each other.
+- **The ruins in the hills**: Feathermoon and Camp Mojache watch the Gordunni, each other and Dire Maul.
+- The people who carry these Stories greet you differently once one has ended.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

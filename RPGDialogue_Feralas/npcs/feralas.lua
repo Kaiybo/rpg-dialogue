@@ -781,6 +781,8 @@ P:NPC {
         { id = "h_cl_dm", tags = { "news" }, when = { killed = { name = "King Gordok" }, faction = "Horde" }, text = "They say you went into the ruins the Gordok call home and pulled down their king. Good, because every Gordunni in these hills looks at that ruin like it's a throne, and now it's an empty chair." },
         { id = "h_default", key = true,
           text = "Rok Orhan. Belgrom Rockmaul sent me to break the Gordunni ogres of Feralas, and they're many, and foul, and nearly broken." },
+        { id = "h_eldre_resolved", tags = { "news" }, when = { thread = { id = "eldre_thalas", state = "resolved" }, faction = "Horde" },
+          text = "The Gordunni are still arguing over who gets Gordok's chair, and I hope they argue all year. Keep your eyes on the hills, and on the island too, because the elves haven't stopped watching us." },
         { id = "h_threat", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("A Threat in Feralas") }, { questActive = TODO_QUEST("The Ogres of Feralas") } } },
           text = "The Gordunni hold the hills north of camp, so thin them. Every ogre you drop is one fewer club at our gate." },
         { id = "h_belgrom", when = { questActive = TODO_QUEST("A Threat in Feralas") },

@@ -36,6 +36,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Felgur Twocuts. I was sent to gather what I could on the centaur of Desolace, and what I've gathered is that there are too many of them and they all hate us." },
+        { id = "h_clans_resolved", tags = { "news" }, when = { thread = { id = "desolace_clans", state = "resolved" }, faction = "Horde" },
+          text = "Hratha's dead and your centaur friends are drunk on it. The rest of the clans are still killing each other, which is how I like them, so sit down and tell me which camps moved." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("The Kolkar of Desolace") },
           text = "You're here on Regthar's orders? Then you're here to deal with the centaur. Good; sit, listen, and don't expect this to end quickly." },
         { id = "h_bounty_before", when = { questBefore = TODO_QUEST("Centaur Bounty") },

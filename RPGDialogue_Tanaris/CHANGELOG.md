@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-17)
+- Stories (0.80.0): Marin Noggenfogger decides how the Gadgetzan's water Story ends; Bilgewhizzle and Yeh'kinya greet you by how their Stories ended.
+
 ## 1.25.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

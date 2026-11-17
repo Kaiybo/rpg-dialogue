@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.17.0 (2026-11-17)
+- Stories (0.80.0): Athridas greets you once the Teldrassil and Darkshore Story ends.
+
 ## 1.16.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

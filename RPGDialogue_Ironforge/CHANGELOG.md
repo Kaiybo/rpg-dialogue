@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- Stories (0.80.0): Mekkatorque decides how the Gnomeregan Story ends; he and Gnoarn greet you by that ending.
+
 ## 1.21.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 
