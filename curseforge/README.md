@@ -36,7 +36,7 @@ On the project's **Images** tab, upload `banner.png` and a few in-game screensho
 Either:
 
 - **By hand (works now):** `python3 tools/build_zip.py`, then upload `tools/out/RPGDialogue-<version>.zip` on the **Files** tab. Pick the **Forever** game version, release type **Beta**, and paste that version's section of `CHANGELOG.md` as the changelog.
-- **Automatically, from a git tag:** see step 4.
+- **Automatically, on each push or tag:** see step 4.
 
 ## 4. Automatic uploads
 
