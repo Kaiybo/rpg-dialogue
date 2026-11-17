@@ -83,6 +83,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Badly, though they hide it well. I keep them on clean water from the Emerald Sanctuary and send them high over the forest, never low, because the air near the Bloodvenom falls makes them sick. One day I hope to fly them over a green Felwood again, the way I did when I was young." } },
+      choices = {
+        { text = "We will heal Felwood. You'll fly over green woods again.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Felwood may be lost for good. Guard the beasts you have.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mishellena.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -99,6 +108,7 @@ P:NPC {
           text = "A priest of the Alliance, and welcome to the roost. My birds settle when someone prays near them, I think, and Felwood leaves them little enough peace." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in armour that rings like a bell! Stand easy by the roost, please, because my birds take all that steel for a predator until they learn your step." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, at Talonbranch. Thank Elune; my hippogryphs breathe easier with one of you near, and so do I, with Jaedenar so close to the road." },
       },
       again = {
         { id = "h_again", text = "Is there more you would ask? The birds are patient, but the light is fading." },
@@ -114,6 +124,7 @@ P:NPC {
         { text = "Does Talonbranch need a sword more than a prayer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the Sentinels need from a warrior here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What has the corruption done to Felwood's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How do the hippogryphs bear Felwood's corruption?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -227,6 +238,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They cough every morning and they fight me when I steer them north over Jaedenar. Bloodvenom Post was built for the Horde's business here, and I do that business, but I'll tell you plain that if your Earth Mother could clear this sky, my beasts would thank her before I did." } },
+      choices = {
+        { text = "Then I'll help cleanse it. The beasts shouldn't suffer for us.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Horde has its business here. The beasts will manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brakkar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -241,6 +261,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My wind riders won't drink from the river and neither should you, so if you've a blessing for clean water, start with the troughs." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll not like Felwood, tauren, and you'll like flying over it less, because the air down near Jaedenar burns the throat." },
       },
       again = {
         { id = "h_again", text = "What else? The beasts are waiting." },
@@ -256,6 +277,7 @@ P:NPC {
         { text = "Do your wind riders feel the forest's sickness, Brakkar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have your wind riders come down in Felwood, Brakkar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your wind riders trust a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do your wind riders suffer in this air?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -366,6 +388,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothing I'd trust, though the Emerald Circle tells me some corners are coming back. I've seen orcs eat the fruit from the Irontree and wake up shouting, and I'll not have that on my conscience, so everything I sell comes in on the wind riders, and it costs what it costs." } },
+      choices = {
+        { text = "You're right. Nothing from this forest should reach the Horde.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Circle's mending it. Trust what they've cleansed.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Never mind the stores.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -380,6 +411,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it brought in from outside, because nothing that grows in Felwood is fit to eat." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here where nothing grows clean. The Earth Mother would welcome any healing you can give this soil, whatever name you give it in." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and a tauren besides. You'll understand, I think, why I sell nothing that grew in Felwood, because even the water here tastes of rot." },
       },
       again = {
         { id = "h_again", text = "Is there something more I can find for you on these shelves, friend?" },
@@ -395,6 +427,7 @@ P:NPC {
         { text = "Can Felwood's soil be healed at all, Bale?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is the water here truly that dangerous, Bale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can nothing in Felwood be hunted for food?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is nothing here fit to eat, even with care?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

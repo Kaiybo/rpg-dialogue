@@ -403,6 +403,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not a bit, because the dragons I work were trying to eat somebody when they died. Your Circle might say every creature has its place, and I'll grant that the blue ones up the coast are clever enough to talk, but scale's scale once it's off the beast, and it'll turn a blade like nothing else in Azeroth." } },
+      choices = {
+        { text = "Fair enough. A hide is a hide once the beast is gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some of those dragons think and speak. Work their scales with care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Never mind the scales.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -420,6 +429,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want dragonscale, I suppose, though plate's more your style; still, if you mean to go hunting dragons, I'd rather you went in armour than in hope." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my camp! Well, dragons don't care about banners and neither do I, so welcome, though I'll offer my condolences before you go hunting anything with scales." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? You'll be the one to ask, then: does it sting, wearing dragonscale when you can turn into a bear and grow your own hide?" },
       },
       again = { { id = "h_again", text = "What else? I've a hide soaking, so make it quick." },
                 { id = "h_again2", text = "Go on, I'm listening, and so's the dragon whelp up on the ridge, probably." } },
@@ -434,6 +444,7 @@ P:NPC {
         { text = "Does a dragonscale craftsman ever pray, Peter?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why shouldn't a warrior hunt dragons, Peter?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have hunters brought you dragonscale before?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Does it trouble you, working the hides of dragons?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Farewell, Peter.", next = "END" },
       },
     },
@@ -565,6 +576,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Worse, much worse! The Legashi dug at the Highborne stones and poured something nasty into the ground, and everywhere they stepped the grass went grey. Kim'jael just counted crates and kept his head down, but a druid would've cried, I think, if a druid had seen it." } },
+      choices = {
+        { text = "You took their coin and looked away. That was wrong, Kim'jael.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You stayed alive with bullies around you. That's no crime.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -585,6 +605,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Would you say something holy over my equipment, once it's back? The elves who hired me said a few words over it too, and every one of them was a curse." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and Horde at that! Good, maybe you can put a curse on those elves who called me little rat, or a blessing on me, whichever's cheaper." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Oh, a druid! You've got that leafy look about you, which I like, because leaves don't shout at Kim'jael or call him little rat." },
       },
       again = {
         { id = "h_again", text = "Something more? Talk fast, friend; every minute here costs me a little." },
@@ -603,6 +624,7 @@ P:NPC {
         { text = "Do you want vengeance on the elves, Kim'jael?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why didn't you fight the elves yourself, Kim'jael?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How did you lose all your equipment, Kim'jael?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Did the satyrs treat the land as badly as they treated you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Later, Kim'jael.", next = "END" },
       },
     },
@@ -932,6 +954,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Knowledge, lad or lass, and maybe a few relics for the Hall o' Explorers. Tymor reckons the Highborne wrote down what they did before yer people's world broke, and if the rubbings tell us how they did it, maybe we'll know better than to try it again, which yer Circle would like, I'd think." } },
+      choices = {
+        { text = "Leave the Highborne stones alone. Some knowledge deserves burying.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better to learn from their mistakes than repeat them. Keep digging.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Never mind the rubbings.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -950,6 +981,7 @@ P:NPC {
           text = "A priest, out on the cliffs! Say a word for the gyrocopter, would ye, because the wind off this coast has opinions, an' so do the naga below." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I'd offer ye a ride, but the gyrocopter's a wee thing, an' all that plate would put the both of us in the bay." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the Circle, flyin' with me over this coast? I've seen yer kind sprout feathers and keep pace wi' me gryphon, and I'll not pretend I wasn't jealous." },
       },
       again = { { id = "h_again", text = "Anythin' else, before the naga notice the noise?" } },
       choices = {
@@ -964,6 +996,7 @@ P:NPC {
         { text = "Why does the Explorers' League care about this cursed coast?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What dangers wait in the Ruins of Eldarath, Xiggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you seen much from the air over Azshara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What does the Explorers' League want with these ruins?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },

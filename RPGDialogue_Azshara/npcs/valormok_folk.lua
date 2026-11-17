@@ -82,6 +82,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not the fruit, not the mushrooms and not the fish from the bay, if you ask me. A shaman told me the land's sick under the roots, and you druids would know better than me, but I'd rather pay for every sack the wind riders bring than feed this camp poison." } },
+      choices = {
+        { text = "You're right to be careful. This land isn't healed yet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some of it's clean. Waste nothing that the land still gives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -96,6 +105,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, so what we need is sharp eyes and full bellies, and that's what I sell." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll take milk with your bread, and no grog, because a priest who can't keep his head is no use to a camp with naga in the water." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Good, you'll know what's safe to eat in these woods, and I'd be glad to hear it, because I haven't trusted a single berry since we got here." },
       },
       again = {
         { id = "h_again", text = "Anything else? The bread's going stale while we talk." },
@@ -111,6 +121,7 @@ P:NPC {
         { text = "Why no grog in Valormok, Kurll?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why won't you serve grog to warriors, Kurll?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What meat is safe to eat in Azshara, Kurll?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is any of the food out here safe to eat?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -223,6 +234,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because their mage led us out here and then turned on us, and the elves in these woods have been picking off orcs ever since. You might speak for the forest, tauren, but the elves speak for it too, with arrows, and I'd sooner give you something sharp than hear you defend them." } },
+      choices = {
+        { text = "Not every elf betrayed you. Judge the mage, not her kind.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They chose their side. Sharpen the axes, Gruul.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Gruul.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -237,6 +257,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Gruul Darkblade, weaponsmith for Valormok. Axes, swords, maces, whatever you swing, and I'll have it sharp before you go hunting elves or naga, because both of them are hunting us." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at my forge. You'll not want your mace sharpened, I'd guess, but the elves who killed our warriors won't stop for prayers, so carry something with an edge." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, with claws of your own when you need them. You'll not want my axes, I'd wager, but your friends will, and the elves here aren't shy about killing tauren." },
       },
       again = {
         { id = "h_again", text = "Ask what you came to ask, and I'll keep the whetstone moving while you do." },
@@ -252,6 +273,7 @@ P:NPC {
         { text = "Would you have me curse the Thalassian elves, Gruul?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What makes a good edge against elves, Gruul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you make weapons for hunters too, Gruul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why do you hate the elves so much, Gruul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

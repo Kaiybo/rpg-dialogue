@@ -251,6 +251,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nafien does not know. The druids say the corruption can be cleansed from trees and water, but the Deadwood drank it into their blood, and they do not want to be cured anymore. Nafien hunts them because they would kill the Timbermaw, and he takes no joy in it, but a druid might yet find what Nafien could not." } },
+      choices = {
+        { text = "I'll look for a cure. They were furbolgs once, like you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy is too late for them. Protect your people, Nafien.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Nafien.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -265,6 +274,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, Nafien thinks, and you will not like this hunt. Nafien does not like it either, but the Deadwood are past our shamans' help, and they have tried." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Then you have sat beside the dying, and you will understand why Nafien takes no joy in the hunting he must do." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The Timbermaw remember when the Circle and the furbolgs were friends, and Nafien remembers it too, though many of his people have forgotten." },
       },
       again = {
         { id = "h_again1", text = "What else?" },
@@ -281,6 +291,7 @@ P:NPC {
         { text = "Do the Timbermaw honour the Deadwood dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there any rite left for the Deadwood dead, Nafien?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How do the Deadwood fight, Nafien?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is there a cure for the Deadwood's madness?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good hunting, Nafien.", next = "END" },
       },
     },
@@ -406,6 +417,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Want with it? Niby likes it! The fel in the ground is delicious, the satyrs are excellent company and nobody makes Niby wash. You druids want to scrub it all green and boring again, which is very rude, but Niby is almighty enough to forgive you, probably." } },
+      choices = {
+        { text = "Felwood will be cleansed, Niby, and you'll have to leave.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair point. A forest can be green and still have imps.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -420,6 +440,7 @@ P:NPC {
         { id = "h_default", text = "I am Niby the Almighty, master of fel secrets, keeper of terrible knowledge, and yes, I am small, so don't mention it. Felwood is full of demonic remains, and Niby knows exactly what they're good for." },
         { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock! At last, someone who appreciates a demon's wisdom, and who might do as Niby says without all the whining." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest? Niby supposes even the Almighty must suffer visitors who pray, so pray quietly, and don't point any of that holy light at my imp." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! How dull, a mortal who turns into animals when Niby could teach you to command demons instead. Still, Niby is gracious, and Niby will hear you out." },
       },
       again = {
         { id = "h_again1", text = "Niby is waiting, and Niby is very busy." },
@@ -436,6 +457,7 @@ P:NPC {
         { text = "What would a demon want with a priest, Niby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a great master need a warrior, Niby?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is Impsy really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What does a demon want with Felwood, Niby?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Farewell, Almighty One.", next = "END" },
       },
     },

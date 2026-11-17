@@ -86,6 +86,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A few, and fewer every season, since the road through the Timbermaw tunnels is long. I like the strangers, honestly; druids talk about the Dream and the balance all day long, and a traveler will tell me what bread costs in Stormwind or Orgrimmar, which is a nice change." } },
+      choices = {
+        { text = "Moonglade should stay hidden. The fewer strangers, the safer.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let strangers come. Moonglade could teach them a great deal.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Daeolyn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -97,6 +106,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, welcome! You needn't keep to the shadows here, because nobody in Nighthaven is looking for anyone, and that's the whole charm of the place." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The druids get a bit prickly about magic, but I've always thought a mage's company makes the evenings shorter, and Nighthaven's evenings are very long." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome to my wares like anyone else the grove lets in, though I'd thank you to keep your companion outside, because it frightens the moths." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, home in Nighthaven. The grove's always a little brighter when one of the Circle comes back from the road, and I'll see you have what you need for the next one." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? The grove is in no hurry." },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Does the grove truly let in anyone at all, Daeolyn?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do many warriors come through Nighthaven, Daeolyn?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What does a hunter need for the roads out of Moonglade?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you get many travelers who aren't druids?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Farewell, Daeolyn.", next = "END" },
       },
     },
@@ -234,6 +245,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I ask myself that each season. They heal better than any herb in Kalimdor, and I hate to keep them from the wounded, but some of what grows near the Dream should never be crushed into a potion. So I sell what grows freely and leave the rest, and I'll trust the Circle to tell me if I'm wrong." } },
+      choices = {
+        { text = "Sell what heals. Hoarding medicine helps no one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep the rarest ones here. Some things shouldn't leave the glade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Malvor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -245,6 +265,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, among my herbs. You'll know your poisons, I expect, and I'm afraid Moonglade's plants are too sleepy and too gentle to give you any." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Do be careful casting near the herb beds, because the plants here dream, I think, and I'd hate to see what the arcane does to their dreams." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The herbs pull away from you a little, can you see it? I don't think they mean any offence, because they're only very sensitive to fel." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, among the herbs. You'll feel it too, I think, how close the Dream lies to the soil here, and how the plants grow as if they're listening." },
       },
       again = {
         { id = "h_again", text = "Is there another herb on your mind, or something else entirely?" },
@@ -260,6 +281,7 @@ P:NPC {
         { text = "Do Moonglade's herbs really shrink from the fel, Malvor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the herbs of Moonglade really dream, Malvor?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts of Moonglade eat your herbs?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Should Moonglade's herbs be sold to anyone who asks?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Farewell, Malvor.", next = "END" },
       },
     },
@@ -379,6 +401,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some do, more than you'd think. The Sentinels taught a good many of us before the Circle took us in, and a druid on the Felwood road who can shoot a satyr from a distance lives longer than one who can't. Your claws are good, but an arrow reaches further." } },
+      choices = {
+        { text = "A druid should fight with the land's gifts, not with bows.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Use whatever keeps you alive. The satyrs won't fight fair.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Narianna.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -390,6 +421,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want a bow for when the dagger doesn't reach, and I'll not ask what you're aiming at, so long as it's outside the grove." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, at a bowyer's stall. You'll be telling me a fireball does the same work as an arrow, I expect, and you'd be right, but my arrows don't run out of mana." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I've nothing to sell you, since you can't draw a bow, though I'd say the druids would sooner see you try than summon something." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You've claws and moonfire, so you'll not need a bow, I suppose, but the roads out of Moonglade are cruel ones, and I'd still feel better if you carried something." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -405,6 +437,7 @@ P:NPC {
         { text = "Do the druids really dislike summoning so much, Narianna?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why would a warrior need a bow, Narianna?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What makes your bows better than a city bowyer's?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do the Circle's druids ever take up the bow?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Farewell, Narianna.", next = "END" },
       },
     },

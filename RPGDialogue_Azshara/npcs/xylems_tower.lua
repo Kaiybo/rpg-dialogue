@@ -93,6 +93,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because ignorance doesn't keep anyone safe, druid. The Highborne's work lies all along this coast whether I study it or not, and I would rather understand it than let some fool of a satyr stumble onto it first. Your Circle buries what frightens it, and I write it down, and one day you'll be glad someone did." } },
+      choices = {
+        { text = "Some things should stay buried. You play with old fire.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better a scholar holds it than a satyr. Study on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -121,6 +130,7 @@ P:NPC {
         { id = "h_cool", when = { disposition = { max = 34 } },
           text = "Oh, it's you. Say what you came to say; I'm in the middle of something that will explode if I leave it too long." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my tower! You've climbed farther than most, figuratively speaking, since Sanath did the climbing for you." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at my tower? I suppose you've come to scold me for studying the Highborne, as your Circle so loves to do, so let's have it over quickly." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, please; a thought is cooling on my desk." },
@@ -143,6 +153,7 @@ P:NPC {
         { text = "What does an archmage make of a priest's power, Xylem?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What use has an archmage for a warrior?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts does your research involve, Archmage?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why study the magic that broke this land?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },
@@ -441,6 +452,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Quiet, mostly, and lonely, with nothing but the wind and the Highborne stones for company. My master's work is dangerous, and I do not always agree with what he digs up, but I gave my word to serve him, and a servant who breaks his word is no better than a thief." } },
+      choices = {
+        { text = "Your word holds you. Keep it, even if he's wrong.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If his work endangers the land, walk away. No oath is worth that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sanath.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -459,6 +479,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, how dreary. I suppose you've come to pray at my master's tower, as if the arcane needed any help from the Light, and as if I needed one more visitor in robes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Your robes are dreadful and your posture is worse, but I'm obliged to send you up, so do try not to pray at my master; he hates it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and you don't even need me to send you up the tower, I'd wager, since you could simply fly. My master would find that very irritating." },
       },
       again = {
         { id = "h_again", text = "Still here? What else, then?" },
@@ -477,6 +498,7 @@ P:NPC {
         { text = "Does your master hate all priests, Sanath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does your master need a warrior's help, Sanath?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Will your master let my beast into the tower?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What's it like, serving the archmage?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to your sulking.", next = "END" },
       },
     },

@@ -280,6 +280,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I believe it can, but not quickly, and not by druids alone. The satyrs and the Shadow Council poisoned it on purpose, and they're still here, so we cleanse a grove and they foul the next one. Every seed you plant in clean soil is a small victory, and I've learned to be grateful for small ones." } },
+      choices = {
+        { text = "Then we plant, and keep planting. The land will answer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Strike at the Shadow Council first. Healing means little while they live.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Greta.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -306,6 +315,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin of the Alliance, with the Light shining off your armour. The Light is a power too, so I'll say to you what I say to everyone: don't let what's here tempt you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I'll be plain with you: I watch what every spellcaster reaches for in these woods, because the Shadow Council reached too, and Felwood is what they caught." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and here at the Sanctuary. Good; we need every pair of hands, and every one that can call the roots back to life is worth ten that only hold a sword." },
       },
       again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone while you do." } },
       choices = {
@@ -319,6 +329,7 @@ P:NPC {
         { text = "What did the Shadow Council reach for, Greta?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is a warrior safer from Felwood's temptations, Greta?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What has the fel done to Felwood's beasts, Greta?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can Felwood truly be healed, Greta?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Do you truly think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
@@ -448,6 +459,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Patience, more than anything. The corrupted plants here can be cleansed if they're tended with care, and the Cenarion water we use is precious, so I'd rather you healed one grove slowly than burned through a whole season's supply in a day." } },
+      choices = {
+        { text = "Slow and careful, then. I'll tend each grove properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We haven't time to go slowly. The corruption is spreading.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Maybess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -469,6 +489,7 @@ P:NPC {
         { id = "h_daily", when = { metBefore = true },
           text = "Every day a little salve, and every day a little less poison. I'll not live to see it all clean, but somebody will." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Good, because mending is what we do here, and you'll understand that better than most. Will you lend Felwood a hand while you're passing through?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, here to mend Felwood. You're very welcome at the Sanctuary, and the Emerald Circle has work enough for you to last a season." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask while my hands are busy; they work better when I'm talking." },
@@ -486,6 +507,7 @@ P:NPC {
         { text = "What does Felwood need mending most, Maybess?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What use is a warrior in mending a forest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where would I find clean plants in Felwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What does the Emerald Circle need most from me?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
@@ -669,6 +691,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Slowly, and only if we are stubborn. The demons and their servants poured fel into this land for a reason, and the felwood itself remembers the taint, so we cleanse a patch at a time and guard it fiercely. I have outlasted worse hopes than this one, and I mean to outlast this too." } },
+      choices = {
+        { text = "Then we'll be stubborn together. Felwood will be green again.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some ground is too far gone. Wall it off and save the rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Arathandris.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -691,6 +722,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I asked the Alliance for help cleansing Felwood and expected archers, so forgive me if I stare a little at all that plate." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Maybess works with your people, to the north, but the curse doesn't care whose prayers it hears, so I'll hear you out." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, come to Felwood. The curse here is older than you are, sister or brother, but it is not older than the forest, and the forest remembers being green." },
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {
@@ -703,6 +735,7 @@ P:NPC {
         { text = "Does the Alliance send its spies into Felwood?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you accept a Horde priest's help against the curse?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a hunter make a good cleanser, Arathandris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can the corruption be undone, Arathandris?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
         { text = "How are your people holding up against the curse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
