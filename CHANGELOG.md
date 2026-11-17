@@ -16,6 +16,11 @@ Coming home, and a town that talks. No new files: /reload is enough if you have 
 
 Packs: every pack gets a minor version (World 1.30.0).
 
+### Fixes before release
+- **A /reload no longer wipes "you've been away".** Reloading (or stepping out of the gate and back) within a few hours of coming home used to make the town forget you had just returned.
+- **Time logged out counts properly.** Logging back in somewhere other than the town you logged out in no longer resets that town's clock to the login time.
+- **Standing from word can't be farmed.** Repeating the same reply or check with the same person moves a town's standing only once a day.
+
 ## 0.66.0 (2026-11-17)
 Bug fixes and quality control. No new files: /reload is enough.
 
