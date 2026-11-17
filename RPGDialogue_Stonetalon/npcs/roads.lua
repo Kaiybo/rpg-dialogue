@@ -175,7 +175,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm an engineer, pal, between employers, with very big plans and a very small hut." } },
     venture_company = { { id = "tp_venture_company", text = "The Venture Company's got the best shredder plans this side of Undermine and the worst security, pal, so I'm liberatin' 'em in the name of free trade. They'd do the same to me, and they'd charge me for the privilege." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'm selling these plans, once I've got 'em, to the highest bidder with the shortest memory. Every engineer in the Cartel wants a shredder, and every one of 'em's too cheap to build their own." } },
-    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of engineers who'd kill for a good shredder design, and some of 'em literally would. That's why I'm selling through a cousin, at a reasonable markup." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of engineers who'd kill for a good shredder design, and some of 'em would, given the chance. That's why I'm selling through a cousin, at a reasonable markup." } },
     ratchet = { { id = "tp_ratchet", text = "Ratchet's Gazlowe's town, and he don't ask where your goods come from as long as the duty gets paid. My kinda place, chum." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's legit, and the Venture boys ain't, and I'm somewhere in the middle, with a hut and a pair of binoculars. Business is business, kid." } },
     _none = { { id = "tp_none", text = "Couldn't tell ya, pal, and I don't do anything for free, including not knowing things." } },
