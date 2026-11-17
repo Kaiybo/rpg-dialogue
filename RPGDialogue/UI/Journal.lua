@@ -569,9 +569,39 @@ local function create()
   frame.notes:SetWidth(W - 74)
   frame.notes:SetHeight(300)
   frame.notes:SetPoint("TOPLEFT")
-  frame.notes:SetScript("OnTextChanged", function(self) ns.char.notes = self:GetText() end)
+  frame.notes:SetMaxLetters(0)
+  frame.notes:SetTextInsets(4, 4, 4, 4)
+  frame.notes:EnableMouse(true)
+  frame.notes.hint = frame.notes:CreateFontString(nil, "OVERLAY", "GameFontDisable")
+  frame.notes.hint:SetPoint("TOPLEFT", 6, -6)
+  frame.notes.hint:SetPoint("RIGHT", -6, 0)
+  frame.notes.hint:SetJustifyH("LEFT")
+  frame.notes.hint:SetText(L.J_NOTES_HINT)
+  local function notesHint(self) self.hint:SetShown(self:GetText() == "" and not self:HasFocus()) end
+  frame.notes:SetScript("OnTextChanged", function(self, user)
+    if ns.char then ns.char.notes = self:GetText() end
+    notesHint(self)
+    J.FitNotes()
+  end)
+  frame.notes:SetScript("OnEditFocusGained", notesHint)
+  frame.notes:SetScript("OnEditFocusLost", function(self)
+    if ns.char then ns.char.notes = self:GetText() end
+    notesHint(self)
+  end)
   frame.notes:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
+  -- Keep the cursor in view while writing past the bottom of the page.
+  frame.notes:SetScript("OnCursorChanged", function(self, _, y, _, h)
+    local top, view = frame.scroll:GetVerticalScroll(), frame.scroll:GetHeight()
+    y = -(y or 0)
+    if y < top then frame.scroll:SetVerticalScroll(y)
+    elseif y + (h or 0) > top + view then frame.scroll:SetVerticalScroll(y + (h or 0) - view) end
+  end)
   frame.notes:Hide()
+  -- A click anywhere on the page starts writing (an empty multi-line box is only one line tall
+  -- to the mouse on some clients).
+  frame.content:SetScript("OnMouseDown", function()
+    if current == "notes" then frame.notes:SetFocus(); frame.notes:SetCursorPosition(#(frame.notes:GetText() or "")) end
+  end)
 
   -- Origin (Myself page): a line saying where you stand and a button that opens the picker.
   frame.originLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
@@ -958,6 +988,22 @@ function J.Render(blocks)
   end
 end
 
+-- The notes box fills the page and grows with its text; the scroll child follows it.
+function J.FitNotes()
+  if not frame or current ~= "notes" then return end
+  local view = math.max(100, (frame.scroll:GetHeight() or 0) - 4)
+  local textH = 0
+  if (frame.notes:GetText() or "") ~= "" then
+    -- Rough height: lines x line height; the box grows on its own too, this sets the floor.
+    local _, size = frame.notes:GetFont()
+    local _, n = (frame.notes:GetText() or ""):gsub("\n", "")
+    textH = (n + 2) * ((size or 13) + 4)
+  end
+  local h = math.max(view, textH)
+  frame.notes:SetHeight(h)
+  frame.content:SetHeight(h)
+end
+
 function J.Show(tab)
   if not frame then create() end
   local target = ALIASES[tab] or tab or current
@@ -984,10 +1030,14 @@ function J.Show(tab)
   frame.scroll:SetPoint("BOTTOMRIGHT", -36, isSheet and 44 or 14)
   frame.pageTitle:SetText(L["J_TAB_" .. current:upper()])
   frame.pageCount:SetText("")
+  frame.content:EnableMouse(isNotes)
   if isNotes then
     J.Render({})
     frame.notes:SetText(ns.char.notes or "")
+    frame.notes.hint:SetShown(frame.notes:GetText() == "" and not frame.notes:HasFocus())
+    J.FitNotes()
   else
+    frame.notes:ClearFocus()
     J.Render(J.Blocks(current, frame.search:GetText()))
   end
   frame.scroll:SetVerticalScroll(0)

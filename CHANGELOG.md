@@ -38,6 +38,10 @@ Night elf Sentinels have a conversation of their own. No new files: a /reload is
 - **Sentinels** in Darnassus, Dolanaar, Auberdine, Astranaar, Maestra's Post, Feathermoon, Stonetalon Peak and Talrendis Point no longer use the human town-watch talk (no more bread thieves or soggy boots). Ask who the Sentinels are, how long they have kept watch, why they are nearly all women, who commands them, what troubles their woods (different in each zone), what they make of the Horde and of their new allies (they answer humans, dwarves, gnomes and kin differently).
 - Opinion questions: whether a vow is worth ten thousand thankless years, how to deal with the Warsong, whether the young races will keep faith, and (night elves only) whether Teldrassil feels right.
 - Hunters can ask to learn tracking; Sentinel scouts and survivors of Hyjal (origins) get their own replies.
+The journal's Notes page works.
+
+### Fixed
+- **Notes**: the page looked blank and clicking it did nothing. Now a hint tells you to click, a click anywhere on the page puts the cursor in, the page grows as you write and scrolls to follow the cursor, and your notes save as you type and when you click away.
 
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
