@@ -23,6 +23,19 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcl_wc = {
+      big = true,
+      lines = { { id = "xcl_wc_default", text = "And you came back with all your limbs, which the deviate creatures down there do not usually allow. Serpentbloom grows in those caves and carries a toxin the Society finds very instructive, so a quieter cavern makes my collectors' work a good deal safer. The tauren speak of the place as a wound, and I speak of it as a laboratory, and we are both quite sincere." } },
+      choices = {
+        { text = "The Society should study it, whatever it finds.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "That place should be healed, Zamah, not harvested.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What makes the creatures there deviate?", next = "xcl_wc2" },
+      },
+    },
+    xcl_wc2 = {
+      lines = { { id = "xcl_wc2_default", text = "As far as we can tell, the druid's dream leaked into the water and the water leaked into everything else. The changes are fast and unpredictable, which in a living thing is a sign of something powerful at work, and if it could be understood it might be very useful indeed, though I wouldn't say so to Hamuul." } },
+      choices = { { text = "I'll keep that between us, Zamah.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Because the Silver Hand was Lordaeron's, and Lordaeron hunted us when we woke. Some of its knights still ride the Plaguelands against us. You carry their Light, and the Dark Lady likes to know whose loyalties outlived the grave." } },
@@ -117,6 +130,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know a sick beast from a healthy one, which makes you more useful to the Society than most of the tauren I've asked." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, down here among the Pools of Vision. The tauren will assume you've come to bless the water, and I'd rather you didn't, because blessed water spoils my samples." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and so another of Hamuul's watchers. His students on Elder Rise are always terribly polite to me, which in my experience is how the living say they don't trust you." },
+        { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "You've been to the bottom of the Wailing Caverns, I'm told, and come out unpoisoned, which is remarkable considering what grows down there." },
       },
       choices = {
         { text = "Do the tauren trust a priest's healing, Zamah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -132,6 +146,7 @@ P:NPC {
         { text = "The tauren look at my imp as if it were plague.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why do the druids distrust you, Zamah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why does the Society keep notes on paladins, Zamah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I went to the bottom of the Wailing Caverns, Zamah.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {

@@ -27,6 +27,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_wc = {
+      big = true,
+      lines = { { id = "xcl_wc_default", text = "Then you've seen what's been crawling up out of those hills. Deviate beasts and twisted raptors have been coming out of the caves for years, along with serpents the size of a kodo and the druids in snakeskin robes who were meant to be healing the place. Every caravan I lose on the northern road I lose to something from those caves, so whatever you did down there, the road will feel it." } },
+      choices = {
+        { text = "The Horde should guard those caves until the land heals.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "That's tauren business, Thork. I've done my part.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who were those druids in snakeskin?", next = "xcl_wc2" },
+      },
+    },
+    xcl_wc2 = {
+      lines = { { id = "xcl_wc2_default", text = "The tauren say they were disciples of a night elf named Naralex, who went down to heal the Barrens and fell asleep in his own dream. His followers went down after him and came back up wrong, and now they call themselves the Druids of the Fang. I don't pretend to understand druids, but I know a deserter when I see one." } },
+      choices = { { text = "Then I hope the dreamer stays awake, Thork.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The kind I haven't seen before. Every orc my age remembers the Silver Hand riding past the camp fences with that glow, and now it walks into my fort wearing Horde colours. If you hold these roads with me, I'll call you an ally and mean it." } },
@@ -115,6 +128,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the Crossroads. Every kind of trouble meets here, and I'm not yet sure which kind you are." },
         { id = "h_default", key = true,
           text = "I'm Thork, and I keep the Crossroads for the Warchief. Every road in the Barrens meets here, and so does every kind of trouble." },
+        { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "My scouts say someone went deep into the Wailing Caverns, and the howling from the hills has changed its tune since. If that was you, I'd like to hear about it." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to the Crossroads") },
           text = "So they sent you to me. Good, I've more work than warriors. Rest a night, and then we'll see what you're made of." },
         { id = "h_disrupt", when = { questActive = TODO_QUEST("Disrupt the Attacks") },
@@ -138,6 +152,7 @@ P:NPC {
         { text = "I work from the shadows, Thork. Is there a use for that here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the Kolkar scouts move, Thork?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'm a warlock, Thork. Will that be trouble at the Crossroads?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I went to the bottom of the Wailing Caverns, Thork.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "I'm loyal to the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I look out for myself first, and the Horde second.", next = "END", fx = { align = { honor = -1 } } },
         { text = "Give me a post on the wall, Thork.", next = "warrior", when = { class = "WARRIOR" } },
@@ -617,6 +632,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_wc = {
+      big = true,
+      lines = { { id = "xcl_wc_default", text = "Then the nightmare under the Barrens may finally be loosening its grip. Naralex went down to make this land green again, but his dream turned sour and poisoned the oases from below, and that was the power Thunder Bluff sent me to find. I'll write to Hamuul tonight, because he'll want to know that a stranger's hand did what the Circle's could not." } },
+      choices = {
+        { text = "Naralex meant well. He deserves to be saved, not blamed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "His good intentions poisoned half the Barrens. He should answer for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Will the oases heal now?", next = "xcl_wc2" },
+      },
+    },
+    xcl_wc2 = {
+      lines = { { id = "xcl_wc2_default", text = "Slowly, if they heal at all. The deviate creatures will breed for years yet, and water remembers poison longer than earth does, but a wound that stops being torn open can start to close. I'll be watching the Lushwater and the Stagnant Oasis to see which way they go." } },
+      choices = { { text = "Then I'll look in on them when I pass, Tonga.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "To a tauren, yes. The Earth Mother gives life, and the Light is a stranger to us, and you are a stranger still: death that carries the Light. Yet you do not feel like the poison in the oases, and I am curious what you are instead." } },
@@ -695,6 +723,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. Thunder Bluff sent me to find a strange power in the Barrens, and I did not expect to meet another one at the Crossroads." },
         { id = "h_default", key = true,
           text = "My name is Tonga Runetotem. Thunder Bluff sent me to find where a strange power in the Barrens was coming from, and I found it, though I wish I hadn't." },
+        { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "The oases have run a little clearer this week, and the wrongness I felt in the green has faded. I've heard you went down into the caverns, and I'd very much like to know what you found." },
         { id = "h_oases", tags = { "news" }, when = { questActive = TODO_QUEST("The Barrens Oases") },
           text = "The oases are the heart of the Barrens, and something is poisoning them. Bring me samples from the water, and we'll see how deep the sickness goes." },
         { id = "h_stagnant", when = { questActive = TODO_QUEST("The Stagnant Oasis") },
@@ -719,6 +748,7 @@ P:NPC {
         { text = "Can a priest help heal the poisoned oases, Tonga?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a rogue learn what's happening in the caverns?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Am I a strange power, Tonga?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I reached Naralex in the Wailing Caverns, Tonga.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "Farewell, Tonga.", next = "END" },
       },
       again = {
@@ -798,6 +828,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfd = {
+      big = true,
+      lines = { { id = "xcl_rfd_default", text = "Destroyed, yes, since he was already dead, though I'll allow the distinction is academic. The Scourge sent him to make the quilboar into servants, and he very nearly managed it, which tells you what the Lich King thinks Kalimdor is for. The Forsaken know better than anyone what it is to be one of his tools, and we take a certain pleasure in breaking them." } },
+      choices = {
+        { text = "His power could have been studied first, apothecary.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Every servant of the Lich King deserves to be destroyed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What does the Society want from the Downs?", next = "xcl_rfd2" },
+      },
+    },
+    xcl_rfd2 = {
+      lines = { { id = "xcl_rfd2_default", text = "Samples, naturally, and notes on how the plague behaves in quilboar, since it clearly behaves differently than it does in humans. A cure needs a disease to study, and the Downs were a very generous source while they lasted, though I'm sure the tauren would rather not hear the details." } },
+      choices = { { text = "Then I'll leave the details with you, apothecary.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Doubt is a scientific virtue. The Silver Hand served Terenas and the living, and many of its knights still hunt us in Lordaeron. You carry their Light, and I'm merely curious whether you carry their loyalties too. The Society would love to know." } },
@@ -893,6 +936,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. How quaint. Some of us remember the Silver Hand from before the plague, and we wonder which side of that memory you stand on." },
         { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful, and a great deal does, it turns out." },
+        { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Word reached me that the lich in Razorfen Downs has been dealt with. The Society will be pleased, and I confess so am I, because the Scourge are an embarrassment to all of us who left them behind." },
         { id = "h_spores", tags = { "news" }, when = { questActive = TODO_QUEST("Fungal Spores") },
           text = "Spores from the fungus out by the water are what I need, and don't breathe near them. Well, you do still breathe, I suppose, so I'll simply advise against it." },
         { id = "h_zamah", when = { questActive = TODO_QUEST("Apothecary Zamah") },
@@ -919,6 +963,7 @@ P:NPC {
         { text = "Does the Society have any use for priests, Helbrim?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Society trust mages, Helbrim?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you doubt my loyalty to the Dark Lady, Helbrim?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Amnennar the Coldbringer is destroyed, apothecary.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
         { text = "Good luck with your work.", next = "END" },
       },
       again = {

@@ -110,6 +110,21 @@ P:NPC {
         { text = "Something else, Overseer.", next = "BACK" },
       },
     },
+    xcl_mc = {
+      big = true,
+      lines = { { id = "xcl_mc_default", text = "Ye'll forgive an old Dark Iron for sittin' down. I spent most o' my life makin' weapons for that thing's armies, an' every one o' us at Thorium Point remembers the heat o' his voice through the stone. He's no' dead, mind, for ye cannae kill fire, but he's been sent back down, an' that's further than any dwarf ever pushed him." } },
+      choices = {
+        { text = "Your people were his slaves. The blame for what they made is his.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your people forged his weapons. They should answer for that too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What did his voice sound like through the stone?", next = "xcl_mc2" },
+      },
+    },
+    xcl_mc2 = {
+      lines = { { id = "xcl_mc2_default", text = "Like a furnace that knew yer name an' wanted it. Some o' the older lads still wake up shoutin', an' we let them, because there's no shame in it among us." } },
+      choices = {
+        { text = "Then I hope they sleep easier now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 40 } }, text = "Ye've been cuttin' down a great many Dark Irons in the Gorge, I'm told. They were my kin once, so I'll no' cheer, but I'll no' grieve either, for they chose the mountain." },
@@ -122,6 +137,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, an' ye'll be eyein' our forges for the enchantments in 'em. We learned that work under the Firelord's eye, an' we keep it for ourselves now." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! We Dark Irons didnae have much use for trees down in the depths, ye understand, but I'll confess the lads have grown fond o' that scrubby bush by the gate." },
+        { id = "h_cl_mc", tags = { "news" }, when = { cleared = "Molten Core" },
+          text = "They're sayin' Ragnaros has been beaten down in his own Core an' sent back intae the deep fire. I'll believe it when the forges stop tremblin', but I'm halfway tae believin' it already." },
         { id = "h_default", key = true,
           text = "Overseer Oilfist, of the Thorium Brotherhood. We're Dark Iron, an' we served Ragnaros in the depths o' that mountain, makin' arms for his armies, until we stopped." },
         { id = "h_kids", when = { metBefore = true },
@@ -151,6 +168,7 @@ P:NPC {
         { text = "What beasts hunt in the Searing Gorge, Overseer?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What do the Dark Irons up the road keep that they shouldn't, Overseer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Will your Brotherhood trust a Forsaken paladin, Overseer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Ragnaros has fallen in the Molten Core, Overseer.", next = "xcl_mc", when = { cleared = "Molten Core" } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -655,6 +673,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then the hand at the top is cut off, and the ones who killed my father have no master left to answer to but themselves. I've spent every waking hour on the torch and the flame, and now I find I don't know what I'll do when there's nobody left to hate." } },
+      choices = {
+        { text = "Let it go now. Your father wouldn't want this for you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Finish it. Everyone who touched him should pay.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "What will you do once the torch is finished?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "Go home, perhaps, if there's a home left for me, and sit somewhere quiet without ash on everything. I haven't thought that far, and I suppose that's because I'm afraid to." } },
+      choices = {
+        { text = "I hope you find somewhere quiet, Kalaran.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 30 } }, text = "I hear the Dark Iron have learned to fear your name, and I'm glad of it, though fear is only the beginning of what they owe." },
@@ -663,6 +696,8 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Then you'll know the fire of this Gorge does not burn by chance, and that it answers to those with the will to command it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Then you understand that some debts can only be paid in fire, and that the people who owe them rarely pay willingly." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll understand vengeance better than most, I think, since your kind deal in quiet knives and long memories." },
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" },
+          text = "Thaurissan is dead, they say, and the Dark Iron who butchered my father served him. I thought I would feel something more than this, and I'm still waiting for it." },
         { id = "h_default", key = true,
           text = "I am Kalaran Windblade, and the Dark Iron took my father from me, butchered him, here in this gorge. I mean to see them pay, and I can't do it alone.",
           fx = { hear = "kalaran_father" } },
@@ -690,6 +725,7 @@ P:NPC {
         { text = "Would healing the Gorge truly be a strange mercy, Kalaran?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Vengeance isn't justice, Kalaran. I'm a paladin.", next = "k_paladin", when = { class = "PALADIN" } },
+        { text = "Thaurissan is dead, Kalaran. I was there.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
         { text = "Vengeance won't bring your father back, Kalaran.", next = "END", fx = { align = { light = 1 } } },
       },
     },

@@ -29,6 +29,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Then you done a thing the old empires never could. Hakkar ate the Gurubashi from the inside once already, and they had to drive his priests out to save themselves, and if the Vilebranch had ever got his blood in their bowls, they'd have come down on Revantusk with a god at their backs, so I be owin' you twice now." } },
+      choices = {
+        { text = "The Zandalari called for help, and honour said to answer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honour had nothing to do with it. I went for what the city held.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Do the Revantusk owe the Gurubashi anything?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "Owe them? No, for they be jungle trolls and we be forest trolls, and they sold their own to a blood god long before my grandmothers were born. But a troll who forgets where trolls come from be half a troll, and the Zandalari remember for all of us, so I don't spit when I say Gurubashi." } },
+      choices = {
+        { text = "Then I'll speak of them carefully too.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The Revantusk accept anyone who hate the Vilebranch as much as we do, and you be welcome to carry your Light up to Jintha'Alor and burn them wit' it. My people will stare, because we remember what the Light did to the Amani, but the Horde be the Horde, and I keep my word." } },
@@ -94,6 +109,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My mate be caged at Jintha'Alor while you walk free, and I be wantin' to know if your claws be as sharp as they say." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Vilebranch have priests too, {class}, with blood on their hands up to the elbow, so you show me you be the other kind, and I be glad to have you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Vilebranch", min = 40 } }, text = "The drums at Jintha'Alor beat slower these nights, and I know why. Every Vilebranch you put down be a debt paid, and Revantusk be keepin' count with you." },
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" },
+          text = "The Gurubashi lost their Soulflayer, and the word come up the coast on every boat with your name tied to it. Revantusk got no love for the jungle trolls, but even I be knowin' what it cost to walk into that city." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wit' the Light, comin' to Revantusk. The Amani fought the humans and the elves and their holy men for longer than anyone remember, and now a Light-bearer stand in my village and call me ally, so the world be very strange these days." },
       },
       again = {
@@ -119,6 +136,7 @@ P:NPC {
         { text = "Should we rescue your mate, or punish the Vilebranch first?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How do I show you I'm the other kind, Primal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will the Revantusk accept a Forsaken paladin as an ally, Primal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I stood in Zul'Gurub when Hakkar fell, Primal.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
       },
     },
@@ -521,6 +539,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Good, because his priests were buyin' up every scrap of mojo from here to Booty Bay, and I sold them nothin', though they asked twice. Zul'jin would have spat on a jungle god that made slaves of its own people, and the Amani always had more sense than to bleed for somethin' that hungry." } },
+      choices = {
+        { text = "No god has the right to feed on its own worshippers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. Hakkar's priests only reached for it too fast.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What happens to his priests' mojo now?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "It go bad, the way milk go bad when the cow be dead, and anyone holdin' it will find it bites them back. If somebody tries to sell you a Gurubashi charm this year, you leave it on the stall and walk away, because nothin' Hakkar touched be clean." } },
+      choices = {
+        { text = "I'll leave his charms well alone, then.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Zul'jin hate everything that wear the Light, mon, because the elves and their friends took his eye and his people's land along with it. He not be here, though, and I need the coin, so I tell you what I tell everybody: mind the candles and pay fair." } },
@@ -559,6 +592,8 @@ P:NPC {
           text = "The Vilebranch soothsayers and scalpers gather by the temples of Shaol'watha and Agol'watha, north and east of here. Thin them out, mon, and the hills breathe easier." },
         { id = "h_cousins_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cannibalistic Cousins"), days = 3 } },
           text = "The smoke over Agol'watha be thinner today, and I know whose work that be. Zul'jin himself would nod at you, and he don't nod for much." },
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" },
+          text = "The candles on my platform all bent south one night, every one of them, and then they stood up straight like nothin' happened. I hear Hakkar fell that same night, and they tell me you were there, so you better sit and tell Yayo'jin what you saw." },
         { id = "h_malkhor", when = { questDone = TODO_QUEST("Separation Anxiety") },
           text = "I prepared Malkhor for the earth with my own hands. His brother wept the whole night, and that be how it should be." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -581,6 +616,7 @@ P:NPC {
         { text = "What do you sell?", next = "goods" },
         { text = "What do the spirits say lately?", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "Our loa are the same, mystic.", next = "troll", when = { race = "Troll" } },
+        { text = "I saw the Soulflayer die in Zul'Gurub.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Does dark magic trouble the Revantusk, mystic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do trolls practice the arcane, Yayo'jin?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },

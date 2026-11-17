@@ -23,6 +23,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sfk = {
+      big = true,
+      lines = { { id = "xcl_sfk_default", text = "Then I owe you, and so does every deathstalker who's had to walk this road at night. Adamant and Vincent went into that keep before I ever joined the Sepulcher, and the older stalkers still talk about it in low voices, so now they'll have something better to talk about." } },
+      choices = {
+        { text = "Tell them it was done for the deathstalkers who went before.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Tell them whatever makes the road easier. The truth won't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Will the worgen scatter, now that Arugal's gone?", next = "xcl_sfk2" },
+      },
+    },
+    xcl_sfk2 = {
+      lines = { { id = "xcl_sfk2_default", text = "Rane Yorick says they will, and Rane Yorick is never wrong, except about how dangerous things are, which he always says are less dangerous than they are. I'll keep my blade out either way, because a scattered worgen still has teeth." } },
+      choices = {
+        { text = "Keep your blade out, Erland. That's wise.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I've no idea, if I'm honest, but they fear something, because they howl at the Sepulcher and never come close. I'd like to believe it's a paladin's glow that keeps them off, and I'd like it even more if you'd let me believe it as far as Rane's farm." } },
@@ -56,6 +71,8 @@ P:NPC {
           text = "Deathstalker Erland, of the Sepulcher. I'm to report to Rane Yorick down the road, but the worgen have been thick along it, and one deathstalker alone is only a meal." },
         { id = "h_escort", tags = { "news" }, when = { questActive = TODO_QUEST("Escorting Erland") },
           text = "You'll walk with me? Good, then stay close, keep your blade out, and if you hear howling, don't stop to admire it." },
+        { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Horde" },
+          text = "Is it true that Arugal's dead? The worgen on the road last night seemed less sure of themselves, and I'd like to believe it was that and not my imagination." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You're no friend of the Sepulcher, so I'll keep my hand on my knife while we talk. Still, you've not drawn on me, and the worgen won't care which flag either of us flies." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here! Good, because I'd much rather the worgen were frightened of your lightning than hungry for my legs." },
@@ -78,6 +95,7 @@ P:NPC {
         { text = "Could a demon track a worgen, Erland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you want a shield beside you on the road, Erland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the worgen really fear the Light, Erland?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "It's true, Erland. Arugal is dead, and his keep is quiet.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
         { text = "Good luck on the road.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Speak low; the trees are listening." } },

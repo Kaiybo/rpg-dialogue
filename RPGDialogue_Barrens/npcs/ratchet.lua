@@ -22,6 +22,19 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcl_dm = {
+      big = true,
+      lines = { { id = "xcl_dm_default", text = "Yeah, and I'll tell you what bugs me about it. VanCleef was a builder, same as me, and he and his masons rebuilt Stormwind and never got paid, so they took their tools and went to war. I built Orgrimmar for Thrall, and he paid me on time every time, which is why I'm running a port and not hiding in a mine with a rag over my face." } },
+      choices = {
+        { text = "Always pay the builders. Stormwind had it coming.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "VanCleef was owed, Gazlowe, but that doesn't make him right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Were the goblins down there Steamwheedle?", next = "xcl_dm2" },
+      },
+    },
+    xcl_dm2 = {
+      lines = { { id = "xcl_dm2_default", text = "Not a chance, pal. They were freelancers and Venture Company leftovers, the kind of goblins who'd build a cannon for anyone with gold and never ask where it's pointed, and they give the rest of us a bad name." } },
+      choices = { { text = "Sounds like the Cartel has standards after all, Gazlowe.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Ratchet welcomes coin. I've built for orcs, sold to humans and haggled with pirates, so a dead paladin is barely a novelty. Just don't go smiting anybody on my docks, because the Cartel charges for cleanup, and it's not cheap." } },
@@ -124,6 +137,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, huh? Great, I've always got work for somebody who hits hard and doesn't ask me why." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Keep that beast of yours off my docks, pal, because the last one ate half a crate of fish and I'm still getting complaints." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Great, because Ratchet's always got somebody bleeding on the docks, and the pirates sure aren't paying for bandages." },
+        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "The Deadmines" }, text = "Heard you went down into the Deadmines and put VanCleef out of business. Can't say I'm crying, pal, but whoever built that juggernaut down there knew what they were doing." },
       },
       choices = {
         { text = "Did Thrall use the spirits to build Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -139,6 +153,7 @@ P:NPC {
         { text = "A warlock walks into Ratchet. Do the bruisers care?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Would Ratchet pay for a priest, Gazlowe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Ratchet welcome paladins, Gazlowe?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I cleared out VanCleef's crew in the Deadmines, Gazlowe.", next = "xcl_dm", when = { cleared = "The Deadmines" } },
         { text = "I'll see you around, Gazlowe.", next = "END" },
       },
       again = {

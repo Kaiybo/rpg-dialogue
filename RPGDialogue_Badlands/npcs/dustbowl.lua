@@ -77,6 +77,21 @@ P:NPC {
         { text = "Something else, Prospector.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "Then ye walked the halls Hammertoe was so desperate tae see, an' ye saw the end o' them, which he never did. He'd have wanted every carvin' copied an' every door opened, an' I'd have told him tae slow down, an' he'd have ignored me, same as always." } },
+      choices = {
+        { text = "Hammertoe found the way. The League should honour his name.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He chased old stones to his death, Ryedol. It wasn't worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What will you do now, Ryedol?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "Finish the survey, send it tae Ironforge wi' his name on the top, an' then maybe dig somewhere quiet for a while. Somewhere wi' grass, I think, for I've had my fill o' dust." } },
+      choices = {
+        { text = "Grass sounds good. I hope you find some.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Shadowforge", min = 30 } }, text = "Word from the dig road is ye've been thinnin' out the Shadowforge, an' I'll drink tae that tonight, though no' too much, for Hammertoe's sake." },
@@ -87,6 +102,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, aye? Then ye'll be lighter on yer feet than Hammertoe ever was, an' that might be what it takes tae get in an' out o' that dig alive." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, out here in the Badlands? There's nae a green thing for miles, friend, unless ye count the lichen on Hammertoe's old pack, an' I'd not count it." },
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
+          text = "Ye went in where Hammertoe went, an' ye went all the way down an' came back out. I keep tellin' myself that's somethin' like justice, an' some days I almost believe it." },
         { id = "h_default", key = true,
           text = "Prospector Ryedol, Explorers' League. We came out here tae dig for the past, an' the past dug back; my partner, Hammertoe, went into the digsite an' didn't come out." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("A Dwarf and His Tools") },
@@ -108,6 +125,7 @@ P:NPC {
         { text = "Would you like me to pray for Hammertoe, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's in Uldaman that's worse than demons, Prospector?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the League make anything of a dwarf who hears the stone?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I went down into Uldaman, Ryedol, to the very bottom.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -266,6 +284,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "Then you've seen the old stone servants walk without any elemental I could name inside them, which is maddening! My rock elementals are bound by force and they resent every moment of it, but whatever moves Archaedas was made to serve, and gladly, as far as anyone can tell." } },
+      choices = {
+        { text = "Binding a creature against its will is cruelty, Lotwil.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're rocks, Lotwil. Bind as many as you like.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Could you build something like Archaedas?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "Not in this century, and Lucien would resign if I tried. The titans worked from an understanding I can only guess at from the scraps they left, and guessing is how one ends up with a smouldering assistant." } },
+      choices = {
+        { text = "Then do try to keep Lucien from smouldering.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Rock", min = 30 } }, text = "You've been breaking rather a lot of rock elementals out there, I hear, which is terribly wasteful, though I don't suppose you kept any of the pieces for me?" },
@@ -275,6 +308,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! I didn't hear you come in, which is either very impressive or very worrying. You're not after my samples, are you?" },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Splendid, a fellow practitioner of the natural sciences, though you'd call them something prettier, I expect. Tell me, can you feel the elementals in these rocks the way I measure them?" },
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman" },
+          text = "I'm told you've been to the very bottom of Uldaman and survived the stone keepers! I've a dozen questions about how they move, and Lucien says I'm only allowed to ask you three." },
         { id = "h_default", key = true,
           text = "Lotwil Veriatus, founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here." },
         { id = "h_rock", tags = { "news" }, when = { questActive = TODO_QUEST("Study of the Elements: Rock") },
@@ -302,6 +337,7 @@ P:NPC {
         { text = "Why do you think the beasts avoid the elementals?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would holy light make a rock elemental flinch, Lotwil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why doesn't your elemental like prayer, Lotwil?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "I've been to the bottom of Uldaman, Lotwil.", next = "xcl_ulda", when = { cleared = "Uldaman" } },
         { text = "For science.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },

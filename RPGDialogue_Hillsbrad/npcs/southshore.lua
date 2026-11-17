@@ -28,6 +28,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sm = {
+      big = true,
+      lines = { { id = "xcl_sm_default", text = "When the plague came, the Crusade marched through Hillsbrad promising to burn the dead out of Lordaeron, and some of our own lads went north with them. A few came home and couldn't say what they'd seen, and the rest never came home at all, so I'll thank you for whatever justice you carried in there." } },
+      choices = {
+        { text = "They'll answer to the Alliance's law, as every army should.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Law didn't stop them, and a sword did. That's enough for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Did any of those lads ever say why they left?", next = "xcl_sm2" },
+      },
+    },
+    xcl_sm2 = {
+      lines = { { id = "xcl_sm2_default", text = "One did, a cooper's son from the east end, though he only said it the once, in his cups. He said the inquisitors never asked whether a man was sick, only whether he'd confess, and after the third village he couldn't tell the two apart any more." } },
+      choices = {
+        { text = "I'm glad he got out. Not everyone did.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Worry's a strong word, but I'll own the first thing I thought of was the orcs that burned these hills in the Second War, for their shamans came first. Then I remembered you're standing in my town and not burning it, so I'll judge you by that, same as I judged the refugees." } },
@@ -97,6 +112,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Southshore. I'll not turn you away, because I've turned away too many already, but the folk here lost their homes to things very like your little friend, so keep it on a short leash." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the quiet has your boot prints all over it. Southshore owes you for that, and I won't forget it." },
+        { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Alliance" },
+          text = "Word's come down the north road that someone went into the Scarlet Monastery and walked back out again, and Raleigh up at the inn hasn't stopped pacing since. If that was you, I'd like a word before the rumours get here first." },
       },
       again = {
         { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
@@ -114,6 +131,7 @@ P:NPC {
         { text = "The dead are so close. How do your people bear it?", next = "priest", when = { class = "PRIEST" } },
         { text = "I've seen the ruins of Alterac.", next = "alterac_seen", when = { questDone = TODO_QUEST("Crushridge Warmongers") } },
         { text = "I'm doing Lieutenant Orinelle's murloc work.", next = "errand", when = { questActive = TODO_QUEST("Farren's Proof") } },
+        { text = "I've come back from the Scarlet Monastery, Marshal.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Alliance" } },
         { text = "I'll help.", next = "BUSINESS", fx = { affinity = 2, standing = { southshore = 1 } } },
         { text = "Your militia needs drilling, Marshal. I can do it.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "I've been hunting in the Alterac foothills.", next = "xhunter", when = { class = "HUNTER" } },

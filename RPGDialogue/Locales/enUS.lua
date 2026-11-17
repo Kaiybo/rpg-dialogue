@@ -215,6 +215,8 @@ L.DIARY_LEVEL_60 = "There's nothing left that anyone can teach me. Now it's only
 L.DIARY_LEVEL_3 = "{name} reached level %s."
 L.DIARY_DUNGEON = "Went down into %s. I'll write more when my hands stop shaking."
 L.DIARY_DUNGEON_3 = "{name} went down into %s."
+L.DIARY_CLEARED = "We reached the bottom of %s and put down whatever was waiting there. Word will get out before I do, I expect, so I'll write it here first while it's still mine."
+L.DIARY_CLEARED_3 = "{name} fought through to the end of %s."
 L.J_TAB_SHEET = "Myself"
 L.J_TAB_NOTES = "Notes"
 L.J_UNDATED = "Earlier"
@@ -266,6 +268,7 @@ L.DEED_FIRST_DEATH = "Died for the first time"
 L.DEED_LEVEL = "Reached level %s"
 L.DEED_ZONE = "First visit: %s"
 L.DEED_DUNGEON = "Entered %s"
+L.DEED_CLEARED = "Cleared %s"
 L.DEED_KILL = "Defeated %s"
 
 -- M6

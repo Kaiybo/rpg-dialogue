@@ -26,6 +26,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sfk = {
+      big = true,
+      lines = { { id = "xcl_sfk_default", text = "Then the Sepulcher has one front fewer, and I'll gladly take it. Arugal was a mage of Dalaran who loosed those beasts on this forest and let them have the Baron's house, and I've never understood why a man who feared the Scourge so much would make something worse to fight it." } },
+      choices = {
+        { text = "Arugal was a fool, but he meant well, and that counts for something.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Meaning well counts for nothing. He deserved worse than he got.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What became of the two deathstalkers you sent in?", next = "xcl_sfk2" },
+      },
+    },
+    xcl_sfk2 = {
+      lines = { { id = "xcl_sfk2_default", text = "Adamant came back thin and furious and asking for his blade, and he has it again, and that's enough said about Adamant. Vincent did not come back, and his name is cut into the crypt wall with the others the Sepulcher owes." } },
+      choices = {
+        { text = "Then I'll remember Vincent's name too.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Against the Scourge first, because your Light does more to them than any blade of ours, and against Arugal's worgen second. Dalaran's mages would find you curious, and I'd rather they didn't find you at all, so keep clear of their camp unless I send you." } },
@@ -60,6 +75,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my Sepulcher. The Warchief's people keep surprising me, and I'm not easily surprised." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my deathstalkers come back in pieces, and I'd rather they came back in one." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Moonrage", min = 40 } }, text = "The Moonrage packs are fewer than they were, and my deathstalkers can walk the north road again without looking over their shoulders every step. You've done the Sepulcher real service." },
+        { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Horde" },
+          text = "Arugal is dead, and the howling from the keep has gone ragged and leaderless overnight. I sent two deathstalkers into those walls before you ever came to the Sepulcher, and I'm told you went in after them." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, at the Sepulcher. I have worgen, Scourge, gnolls and Dalaran's mages to fight, and a paladin who can stand against all four is worth more to me than a dozen Deathguard." },
       },
       choices = {
@@ -73,6 +90,7 @@ P:NPC {
         { text = "I can track worgen through these woods.", next = "hunter", when = { class = "HUNTER" } },
         { text = "My demons could hold one of your fronts, High Executor.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Where should a paladin stand in Silverpine, High Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Shadowfang Keep has no master now, High Executor.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { sepulcher = 1 } } },
       },
       again = {
@@ -339,6 +357,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sfk = {
+      big = true,
+      lines = { { id = "xcl_sfk_default", text = "Ah, you called me Archmage, how very kind. Arugal was the cleverest student of his year and the worst listener, and when the Scourge came he reached for the worgen because nobody would stop him, and nobody would stop him because the council was too busy arguing over whose fault the plague was." } },
+      choices = {
+        { text = "The council should have reined him in. That was their duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Nobody could have stopped him. Councils never stop anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Did you know Arugal well, before all this?", next = "xcl_sfk2" },
+      },
+    },
+    xcl_sfk2 = {
+      lines = { { id = "xcl_sfk2_default", text = "Well enough to dislike him, and not well enough to stop him, which is what I'd have carved on my tomb if anyone had bothered to give me one. He always finished his work first, and he never once checked it." } },
+      choices = {
+        { text = "Then I'm sorry you were right, Archmage.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "That faith can hold where wards fail, and that the knights of Lordaeron might have seen the plague for what it was if anyone had asked them. Nobody asked, and now you and I are dead, and the Kirin Tor have a dome over a ruin, and I find it hard to be gracious about it." } },
@@ -377,6 +410,8 @@ P:NPC {
           text = "Before I trust you with real work, show me you can survive the forest. It's a low bar, and yet many trip on it." },
         { id = "h_folly", tags = { "news" }, when = { questActive = TODO_QUEST("Arugal's Folly") },
           text = "Arugal was a Kirin Tor mage who called up beasts he couldn't control, and now they run Silverpine. That is what Dalaran calls a solution." },
+        { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Horde" },
+          text = "Arugal is dead, and I didn't even get to watch it happen, which is a disappointment, frankly. I told the Kirin Tor he would come to this, and nobody listened, and now nobody needs to." },
         { id = "h_intentions", when = { any = { { questActive = TODO_QUEST("Dalar's Analysis") }, { questActive = TODO_QUEST("Dalaran's Intentions") } } },
           text = "Dalaran's mages are in Ambermill. I want to know why. Bring me what they're carrying, and I'll read it better than they wrote it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Kirin Tor never trusted shamans, and I always thought it was because they couldn't explain what you did, and they hated anything they couldn't explain." },
@@ -397,6 +432,7 @@ P:NPC {
         { text = "Do mages ever trust rogues, Archmage?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How should I hunt Arugal's worgen, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What did you warn the Kirin Tor about the Light?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Arugal is dead, Archmage. I was there.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
       again = {

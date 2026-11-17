@@ -111,8 +111,26 @@ P:NPC {
         { text = "Let me ask something else, General.", next = "BACK" },
       },
     },
+    xcl_dm = {
+      big = true,
+      lines = {
+        { id = "xcl_dm_default", text = "Less crowded, perhaps, but a city that old is never truly empty. The Highborne raised it in Azshara's day, and it outlived the Sundering when so much else drowned, and since then the satyrs have nested in its gardens and the ogres in its courts." },
+      },
+      choices = {
+        { text = "It should be sealed, General, and its magic left to rot.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "There's knowledge in those halls, and it's worth the risk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Do any Highborne still live inside, General?", next = "xcl_dm2" },
+      },
+    },
+    xcl_dm2 = {
+      lines = { { id = "xcl_dm2_default", text = "The ogres whisper that someone in the western halls still lights lamps at night, and my Sentinels have seen lights there that no ogre would bother with. If any of the old Highborne survive, they have hidden from Elune's people for ten thousand years, and I do not think they will be glad to be found." } },
+      choices = {
+        { text = "Then let them stay hidden, for now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul", faction = "Alliance" }, text = "My scouts say you went into the ruins of Eldre'Thalas, the place the ogres call Dire Maul, and came back out of its depths. Few of my Sentinels have walked those halls and lived, so forgive me if I look at you more carefully now." },
         { id = "h_default", key = true,
           text = "Shandris Feathermoon, General of the Sentinels. This stronghold watches over Feralas for the High Priestess. The naga stir along the coast, and the ogres in the hills; we watch them both." },
         { id = "h_tyrande", when = { heardLine = "tyrande.h_default" },
@@ -148,6 +166,7 @@ P:NPC {
         { text = "What would you have a rogue do here, General?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What ground would you have me hold, General?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Sentinels trust a shaman, General?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been through Dire Maul, General. Eldre'Thalas is less crowded now.", next = "xcl_dm", when = { cleared = "Dire Maul", faction = "Alliance" } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },
@@ -704,8 +723,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_dm = {
+      big = true,
+      lines = {
+        { id = "xcl_dm_default", text = "Then the Gordunni lost the only ogre they were ever afraid of, and an ogre with nobody to fear makes stupid choices. Belgrom sent me here to break them, and you've done a piece of it in one night, so I'll be telling him your name." },
+      },
+      choices = {
+        { text = "The Gordok fought hard for their king. I'll grant them that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They're ogres, and they deserve whatever comes next.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Who rules the Gordok now?", next = "xcl_dm2" },
+      },
+    },
+    xcl_dm2 = {
+      lines = { { id = "xcl_dm2_default", text = "I've heard their custom says whoever kills the king takes his place, so the ogres in there may be calling you their king right now. If that's so, I'd laugh myself sick, and then I'd ask you to order them all off a cliff." } },
+      choices = {
+        { text = "Ogres can keep their crowns, Rok Orhan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_dm", tags = { "news" }, when = { killed = { name = "King Gordok" }, faction = "Horde" }, text = "They say you went into the ruins the Gordok call home and pulled down their king. Good, because every Gordunni in these hills looks at that ruin like it's a throne, and now it's an empty chair." },
         { id = "h_default", key = true,
           text = "Rok Orhan. Belgrom Rockmaul sent me to break the Gordunni ogres of Feralas, and they're many, and foul, and nearly broken." },
         { id = "h_threat", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("A Threat in Feralas") }, { questActive = TODO_QUEST("The Ogres of Feralas") } } },
@@ -749,6 +786,7 @@ P:NPC {
         { text = "Where do the Gordunni hide, Rok Orhan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "How badly are the Gordunni hurting your braves, Rok Orhan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would the Light help you break the Gordunni, Rok Orhan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "King Gordok is dead, Rok Orhan. I killed him in Dire Maul.", next = "xcl_dm", when = { killed = { name = "King Gordok" }, faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { mojache = 1 } } },
       },
     },

@@ -26,6 +26,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfc = {
+      big = true,
+      lines = { { id = "xcl_rfc_default", text = "Then report it properly, and I'll send it on to Orgrimmar under Razor Hill's seal. The Burning Blade we fight at Skull Rock and the cultists under the city are the same rot, and Nazgrel taught me that rot left in the cellar always reaches the roof. You've cut some of it out, and Durotar is safer tonight for it." } },
+      choices = {
+        { text = "I did my duty, commander. That's all a grunt needs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I went down for the fight, commander, not the orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Does Skull Rock connect to the chasm?", next = "xcl_rfc2" },
+      },
+    },
+    xcl_rfc2 = {
+      lines = { { id = "xcl_rfc2_default", text = "Not by any tunnel my scouts have found, though they've looked. The cultists come and go between them by the roads like anyone else, hooded and quiet, which means someone in the city lets them pass, and I'd like to know who." } },
+      choices = { { text = "I'll keep my eyes open on the road, commander.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'll take anyone's report if it's accurate. The Silver Hand guarded the camps my people were penned in, and I swore I'd never take an order from that glow again. I won't have to, since you take orders from me. Keep it that way." } },
@@ -89,6 +102,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my grunts come back from Tiragarde with Kul Tiran arrows in them, and I've no use for a grunt who can't stand." },
         { id = "h_default", key = true,
           text = "Gar'Thok, commander of Razor Hill. I served under Nazgrel before this. Now I hold Durotar's crossroads, and I hold them well." },
+        { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "My runners tell me you went down into Ragefire Chasm and came back up, and that pleases me, because the Warchief's city should have nothing beneath it that doesn't answer to him." },
         { id = "h_betrayers", tags = { "news" }, when = { questActive = TODO_QUEST("Vanquish the Betrayers") },
           text = "Kul Tirans hold a keep on our coast. They call it a garrison and I call it a knife at our throat, so pull it out." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Admiral's Orders") },
@@ -115,6 +129,7 @@ P:NPC {
         { text = "Where could a mage be useful to Razor Hill?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you still give orders to a warlock, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you take a Forsaken paladin's report, commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Ragefire Chasm is cleared, commander.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "Lok'tar, commander.", next = "END", fx = { affinity = 1, standing = { razor_hill = 1 } } },
       },
       again = {
@@ -198,6 +213,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfc = {
+      big = true,
+      lines = { { id = "xcl_rfc_default", text = "Some of them are, and that's more than I've managed. The Searing Blade are the Burning Blade's young, the ones the old cult raises in the dark beneath our feet, and they've been feeding a demon down there since the city was built. I hunt them in the hills because I can reach them there, but the ones I really want are closer than that, and they smile at me in the street." } },
+      choices = {
+        { text = "Bring proof to the Warchief, and let him judge them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Kill them where they stand, Orgnil, inside the walls or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who sends the cultists their orders?", next = "xcl_rfc2" },
+      },
+    },
+    xcl_rfc2 = {
+      lines = { { id = "xcl_rfc2_default", text = "Someone with a name the Horde respects, or they'd never move so freely. I've heard the Shadow Council whispered by cultists who were dying and past caring what they said, and the Council was meant to have died with Gul'dan. If it lives, then Ragefire was only the cellar of something much bigger." } },
+      choices = { { text = "Then I'll keep listening for that name.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I suspect everyone; it keeps me alive. The Burning Blade wear Horde colours and serve demons, and the Silver Hand once wore holy colours and kept orcs in cages. Colours tell me nothing. Deeds do, so go and do some." } },
@@ -273,6 +301,7 @@ P:NPC {
           text = "I'm Orgnil Soulscar. The Burning Blade crawl through Durotar like lice in a pelt, and I find them, and I end them." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Orgnil") },
           text = "So Gadrin sent you. Good; the old witch doctor has an eye for the useful ones." },
+        { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "You went into Ragefire Chasm, under the Warchief's own city, and cut down the Searing Blade where they nested. Those are the ones I've wanted for years, because they don't hide in the hills like the rest." },
         { id = "h_storms", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Storms") },
           text = "The cultists talk of storms, and not the kind that bring rain. Find out what they mean." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good! The Burning Blade foul everything they touch, and you'll smell their fel stink around Skull Rock long before you see them." },
@@ -293,6 +322,7 @@ P:NPC {
         { text = "Where do the Burning Blade hide, Orgnil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a hunter track a demon, Orgnil?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you suspect me, Orgnil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The cultists under Orgrimmar are dead, Orgnil.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "I'll hunt them with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
       again = {

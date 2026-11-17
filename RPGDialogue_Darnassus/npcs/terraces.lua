@@ -1412,8 +1412,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xcl_kraul = {
+      big = true,
+      lines = {
+        { id = "xcl_kraul_default", text = "Then you've seen what Heralath only wrote about: the thorns, the quilboar priests, and Charlga Razorflank at the heart of it all. He believed the quilboar could be talked with if only someone took the time to learn their gods, and I'd like to believe he was right, even now." },
+        { id = "xcl_kraul_after", when = { questDone = TODO_QUEST("Mortality Wanes") }, text = "Then you've walked the same tunnels he died in, and you went further than he ever could. He believed the quilboar could be talked with if someone only learned their gods, and the Kraul answered him the way it answers everyone." },
+      },
+      choices = {
+        { text = "He was right. Even the quilboar deserve to be understood.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some things can't be reasoned with, and the Kraul is one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What did Heralath write about their boar god?", next = "xcl_kraul2" },
+      },
+    },
+    xcl_kraul2 = {
+      lines = { { id = "xcl_kraul2_default", text = "That Agamaggan was a great boar demigod who fell fighting the Burning Legion, and that the Kraul's thorns grew from his blood where he died. The quilboar think the brambles are still his body, so to them every one of us who cuts a path through is cutting their god, and Heralath said that explained a great deal." } },
+      choices = {
+        { text = "Thank you. I'll remember his work, Treshala.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_kraul", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Alliance", ["not"] = { questDone = TODO_QUEST("Mortality Wanes") } }, text = "Someone told me you've been down to the bottom of Razorfen Kraul, and that's the very warren Heralath wrote about in his last letters. Please, did you see anything of him down there?" },
+        { id = "h_cl_kraul2", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Alliance", questDone = TODO_QUEST("Mortality Wanes") }, text = "You went all the way down into the Kraul, past the place where Heralath fell, and you came back out. I'm glad someone did, and I'm gladder it was you." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Forgive me if I seem far away, {class}, because my thoughts are usually somewhere in the Barrens with Heralath." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Heralath always said the Barrens needed knights more than scholars, though he went anyway, and he took only a staff." },
         { id = "h_default", text = "I'm Treshala Fallowbrook. My husband, Heralath, went south to the Barrens to study the quilboar and the rumors about their fallen boar god, and I wait here for his letters." },
@@ -1448,6 +1468,7 @@ P:NPC {
         { text = "Is the Barrens as dangerous as Heralath feared?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you refuse help, even mine, Treshala?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you fear for Heralath, Treshala?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been down to the bottom of Razorfen Kraul, Treshala.", next = "xcl_kraul", when = { cleared = "Razorfen Kraul", faction = "Alliance" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },

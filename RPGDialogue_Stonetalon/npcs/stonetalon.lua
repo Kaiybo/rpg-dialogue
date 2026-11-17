@@ -1324,8 +1324,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_mara = {
+      big = true,
+      lines = {
+        { id = "xcl_mara_default", text = "Then the earth to the south may begin, very slowly, to forgive us all. I sent Marandis and her sisters down from this peak to watch over Maraudon, and I have spent every season since listening for the day they would stop sending bad news, and that day may have come." },
+      },
+      choices = {
+        { text = "Let the earth heal in its own time. I only cleared the way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "She was a threat, and I removed it. Healing is your concern.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How long will Desolace take to heal, Keeper?", next = "xcl_mara2" },
+      },
+    },
+    xcl_mara2 = {
+      lines = { { id = "xcl_mara2_default", text = "Longer than you will live, I think, and perhaps longer than I will. A grove is patient, though, and so is a keeper, and the first green shoot in Desolace will be worth all the waiting." } },
+      choices = {
+        { text = "Then I hope you see that first green shoot, Keeper.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon" }, text = "The wind from Desolace smells cleaner this week, little one, and the dryads say the princess of Maraudon has fallen. I would ask whether that was your doing, but I can see the stone dust still on your boots." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin among the dead, little one. The Light walks strange roads, and the trees have never seen it walk this one." },
         { id = "h_default", key = true,
           text = "Albagorm, keeper of the grove. I watch over this peak and its forest, and lately I watch the vale to the south, where the fires came." },
@@ -1359,6 +1377,7 @@ P:NPC {
         { text = "Have humans ever come up here before?", next = "human", when = { race = "Human" } },
         { text = "Can the Light heal burned land?", next = "priest", when = { class = "PRIEST" } },
         { text = "What would you ask of a paladin, Keeper Albagorm?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Princess Theradras is dead, Keeper. I fought her in Maraudon.", next = "xcl_mara", when = { cleared = "Maraudon" } },
         { text = "I'll help the grove.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Hamuul Runetotem sends his respects, Keeper.", next = "tauren_al", when = { race = "Tauren", class = "DRUID" } },
         { text = "My people's druids honour the Circle too.", next = "sky_al", when = { race = "Skyborne", class = "DRUID" } },

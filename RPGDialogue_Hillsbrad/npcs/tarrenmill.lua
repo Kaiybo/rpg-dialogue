@@ -27,6 +27,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sm = {
+      big = true,
+      lines = { { id = "xcl_sm_default", text = "Good, because every crusader who dies in Tirisfal is one fewer to stiffen Southshore's flank. The Crusade likes to think it stands apart from the Alliance, but a human with a torch is a human with a torch, and my deathguards don't stop to ask which banner it marches under." } },
+      choices = {
+        { text = "They were fanatics, but they fought bravely. I'll grant them that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Their bravery doesn't matter. They died, and that's all I wanted.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Will the Crusade send more against Tarren Mill?", next = "xcl_sm2" },
+      },
+    },
+    xcl_sm2 = {
+      lines = { { id = "xcl_sm2_default", text = "They've tried it twice since I took this post, a few torchbearers with prayers on their lips, and the Deathguard sent them back up the hill in pieces. Without their leaders they'll come less often, and when they do come they'll be angrier and stupider, which I can work with." } },
+      choices = {
+        { text = "Then I'll be ready for the angry ones.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Hillsbrad Fields, where the farmers have been handed swords and told they are soldiers. Kill the ones who fight, let the rest run to Southshore with the story, and the Marshal will spend a month deciding what to do while we take another field." } },
@@ -123,6 +138,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Southshore's patrols keep to the shore road, and I need someone who can follow them unseen and who doesn't mind what happens at the end of the trail." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Light abandoned Lordaeron's dead, so I care very little which god or shadow you pray to, so long as my soldiers stand back up after you're done with them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 40 } }, text = "The farms below the Mill are emptier than they were, and Southshore's grain carts have started coming back half full. Your work, I'm told. Keep at it, for arithmetic favours the patient." },
+        { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
+          text = "The Crusade's monastery has lost its masters, I'm told, and the bat riders say you were among those who saw to it. Tirisfal will breathe easier, and I'll have fewer zealots coming down out of Alterac to bother my line." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -139,6 +156,7 @@ P:NPC {
         { text = "The Darkspear hunt well. Point me at something.", next = "troll", when = { race = "Troll" } },
         { text = "My people do not make war on farmers.", next = "tauren", when = { race = "Tauren" } },
         { text = "Hillsbrad's farms are burning.", next = "after_battle", when = { questDone = TODO_QUEST("Battle of Hillsbrad") } },
+        { text = "I've cut through the Scarlet Monastery, High Executor.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "BUSINESS", fx = { affinity = 2 } },
         { text = "The Light answers me, High Executor, even now.", next = "xpaladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "The spirits of this land are restless.", next = "xshaman", when = { class = "SHAMAN" } },

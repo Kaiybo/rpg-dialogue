@@ -105,11 +105,28 @@ P:NPC {
         { text = "Something else, John.", next = "BACK" },
       },
     },
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then ye've seen the Grim Guzzler, an' I envy ye, for it's the finest tavern under any mountain an' those Dark Irons brew a stout that'd make a Thunderbrew weep. It's a shame about the rest o' the place, mind, what wi' the lava an' the golems an' the folk who want ye dead." } },
+      choices = {
+        { text = "Good ale doesn't excuse a cruel people, John.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A people who brew like that can't be all bad.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Were you ever down there yourself, John?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "Once, a long time ago, an' I'll no' say how or why, for it's no' a story that flatters me. I came out wi' a cask an' all my fingers, an' I've counted myself lucky on both counts ever since." } },
+      choices = {
+        { text = "Keep your secrets, then, and your fingers.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my cave! *hic* Tell the fire spirits out there tae calm down, would ye, because they've been rumblin' under the Steppes since before I moved in, an' I'd like a quiet night." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp in my cave? *hic* Mind it keeps off the cask, for the last thing I need is fel in my ale, an' the second last thing is a burnin' beard." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye chill a cask, friend? A cold ale in the Burnin' Steppes is worth more than all the gold in the Depths, an' I've been dreamin' of one for years." },
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" },
+          text = "They say ye walked right intae Thaurissan's throne room an' out again wi' the Emperor dead behind ye! *hic* I'm havin' a drink for that, an' ye can't stop me." },
         { id = "h_default", key = true,
           text = "Ragged John, they call me, on account of my good looks. I've a cave, a cask and a story, and only the first two are for sale." },
         { id = "h_business", tags = { "news" }, when = { questActive = TODO_QUEST("The True Masters") },
@@ -152,6 +169,7 @@ P:NPC {
         { text = "Where do the Blackrock worgs run, John?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Was it always ash here, John, or do you remember it green?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the fire spirits of the Steppes trouble you, John?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I've been to the bottom of Blackrock Depths, John.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -659,12 +677,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ubrs = {
+      big = true,
+      lines = { { id = "xcl_ubrs_default", text = "Then you've seen the black dragonflight's own nursery, which is the most important place in all of dragonkin studies and the least safe! General Drakkisath kept that whole floor running like a goblin factory, so I expect there's a terrible muddle up there now, scientifically speaking." } },
+      choices = {
+        { text = "Even dragon whelps don't choose who hatched them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Those eggs should be smashed before a single one hatches.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do you actually want the eggs for?", next = "xcl_ubrs2" },
+      },
+    },
+    xcl_ubrs2 = {
+      lines = { { id = "xcl_ubrs2_default", text = "Study, of course, and my patron wants them too, which pays for the study. I measure the warmth and the shell and the way the essence moves inside, and nobody's ever done it properly, because nobody else has been mad enough to try." } },
+      choices = {
+        { text = "Do be careful with them, Tinkee.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Is it true imps can breathe fire? I've been trying to build a whelp-proof furnace, and an imp would make a lovely test subject, if it doesn't mind." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the fire elementals around the mountain would hold still long enough for me to measure them? No? I didn't think so either, but I had to ask." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ooh, are you here to steal my schematics? You can't, because I keep them in my head, mostly, and the rest are on fire." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you do frost? My device is supposed to freeze dragon eggs, but you could probably do it with a flick of your wrist, and I'd love to compare results." },
+        { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire" },
+          text = "You've been up to the very top of the Spire, where the rookery is? Oh, did you see the eggs, and were any of them glowing? I need to know whether they glow." },
         { id = "h_default", key = true,
           text = "Tinkee Steamboil, scholar of dragonkin! The Burning Steppes are dangerous, but a real scholar will do almost anything to learn something new, and I've learned so much here already." },
         { id = "h_essence", when = { questActive = TODO_QUEST("Broodling Essence") },
@@ -707,6 +742,7 @@ P:NPC {
         { text = "What have you learned about the dragons of the Steppes, Tinkee?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why do you want to measure fire elementals, Tinkee?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you really test your furnace on my imp, Tinkee?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I've been to the top of Blackrock Spire, Tinkee.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
     },
@@ -1100,11 +1136,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_lbrs = {
+      big = true,
+      lines = { { id = "xcl_lbrs_default", text = "Then you've seen where my best stock comes from, and where most of my suppliers stop coming back from! The Blackrock raise those worgs for war and the poor things never hear a kind word, so every pup I gentle is one less beast that ends up eating a scout." } },
+      choices = {
+        { text = "You're giving those pups a kinder life, Kibler. Keep at it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A worg's a beast of war. Train them mean and sell them dear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Where do the pups end up after you sell them?", next = "xcl_lbrs2" },
+      },
+    },
+    xcl_lbrs2 = {
+      lines = { { id = "xcl_lbrs2_default", text = "All over! Stormwind nobles, Orgrimmar captains, a baron in Gadgetzan who dresses his in a tiny hat. I don't ask what side anyone's on, because a worg doesn't either, and that's good business." } },
+      choices = {
+        { text = "I'd like to see the one in the tiny hat.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The worg pups go quiet when your sort walks in, which is either respect or fear, and Opus says it's fear, but Opus says a lot of things." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not here to pinch a worg pup out of the cage, are you? They bite, they howl, and they always find their way back to me." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you turn things into sheep? I've had clients ask for a sheep that used to be a worg, and I haven't the faintest idea where to start." },
+        { id = "h_cl_lbrs", tags = { "news" }, when = { cleared = "Lower Blackrock Spire" },
+          text = "Word is you went all the way through the lower Spire and came out with the overlord dead behind you! Did you see any worg pups in there? Asking for business reasons, purely." },
         { id = "h_default", key = true,
           text = "Kibler, at your service, animal lover by nature and salesman by trade. I find exotic beasts for the rich and famous and teach them to behave like proper pets, more or less." },
         { id = "h_pups", when = { questActive = TODO_QUEST("Kibler's Exotic Pets") },
@@ -1137,6 +1190,7 @@ P:NPC {
         { text = "Is it right to sell pups stolen from the Blackrock orcs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a worg pup really fight beside a soldier?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do the worg pups go quiet around me, Kibler?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I've been through the lower Spire, Kibler.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire" } },
         { text = "Goodbye, Kibler.", next = "END" },
       },
     },

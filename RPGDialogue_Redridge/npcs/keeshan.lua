@@ -28,6 +28,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_ubrs = {
+      big = true,
+      lines = { { id = "xcl_ubrs_default", text = "They'll boast anyway, because an orc boasts with his last breath, but I'd give a month's pay to hear the camp at Stonewatch go quiet when the news reaches it. The men I served with died to hold Redridge, and this is the first news in a year that makes it feel like it counted." } },
+      choices = {
+        { text = "It counted from the start, Corporal. Honour them by living well.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Counting doesn't matter. Killing orcs does, and I'll keep at it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What did the orcs say about the Spire?", next = "xcl_ubrs2" },
+      },
+    },
+    xcl_ubrs2 = {
+      lines = { { id = "xcl_ubrs2_default", text = "That Rend sat at the top like a king, and that dragons came and went from the peak, though I took that for drunk talk at the time. I'm not so sure now that it was the drink talking, and I'd rather not think too hard about it." } },
+      choices = {
+        { text = "You're safe now, Corporal. Leave the Spire to me.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They didn't need to. Their chanting was enough. You're a dwarf, and you're no orc, but the sound of spirits still turns my stomach." } },
@@ -75,6 +90,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
+          text = "You've been to the top of Blackrock Spire and come down again, and I was a prisoner of the Blackrock long enough to know what that costs. They used to boast about the Spire in my hearing every night, as though I'd never live to see it." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. I spent a long while in those hills with nothing but the wolves for company, so I've a soft spot for anyone who speaks their tongue." },
         { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and they kept me alive, because orcs like a prisoner who can talk." },
@@ -108,6 +125,7 @@ P:NPC {
         { text = "What did you learn of the Blackrock's wolves, Corporal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Their shadowcasters and I use the same arts, Corporal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Blackrock shamans hurt you, Keeshan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Rend Blackhand's Spire is broken, Corporal. They won't boast about it now.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
         { text = "Let's get moving.", next = "END" },
       },
     },

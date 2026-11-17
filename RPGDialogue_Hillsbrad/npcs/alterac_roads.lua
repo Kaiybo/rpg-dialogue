@@ -220,6 +220,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sfk = {
+      big = true,
+      lines = { { id = "xcl_sfk_default", text = "Then the Kirin Tor's worst mistake in Silverpine is finally closed, and I'll write it into the council's record myself before someone tidies it away. Arugal called those creatures out of somewhere to fight the Scourge when the rest of us were losing, and they took Pyrewood and Baron Silverlaine's house and, in the end, his reason." } },
+      choices = {
+        { text = "Write all of it down. Dalaran owes Silverpine the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bury the record. Nobody gains from knowing Dalaran's shame.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What were the worgen, before Arugal summoned them?", next = "xcl_sfk2" },
+      },
+    },
+    xcl_sfk2 = {
+      lines = { { id = "xcl_sfk2_default", text = "Nobody knows, and that's what keeps me awake, because Arugal didn't write it down, or if he did, his notes are in that keep with the rest of his madness. I'll say this much, though: whatever he called on was old, and older than anything the Kirin Tor were teaching." } },
+      choices = {
+        { text = "Then perhaps some questions are best left unanswered.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some of my colleagues certainly do, and they say so at length over dinner, because they cannot imagine power that is asked for rather than taken. I'm less sure, for I've seen a bound elemental slip its wards, and I've wondered since whether it was simply refusing to be spoken to rudely." } },
@@ -300,6 +315,8 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, at the walls of Dalaran. The Kirin Tor have spent centuries bending the elements to formula, {class}, and I find myself curious what they'd say if the elements could argue back." },
         { id = "h_default", key = true,
           text = "Archmage Ansirem Runeweaver of the Kirin Tor, at your service, within reason. Dalaran is closed while we rebuild, and I keep an eye on those who would rather it stayed broken." },
+        { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Alliance" },
+          text = "There's a rumour in the camps that Arugal is dead and his keep has gone quiet, and I find I want very badly for it to be true. If you were the one who climbed those stairs, I'd rather hear it from you than from the guards." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing outside Dalaran's dome. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, at Dalaran's very gate. You'll understand if I keep my hand near my staff, because the last of your school I knew well was Kel'Thuzad, and look what came of him." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -322,6 +339,7 @@ P:NPC {
         { text = "What hunts the hills around Dalaran these days, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does Dalaran's magic harm the land around it, Archmage?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the Kirin Tor think shamans lesser casters, Archmage?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Arugal is dead, Archmage. I climbed his tower myself.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Alliance" } },
         { text = "Good day, Archmage.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? I have a little patience left, and the dome has none." } },

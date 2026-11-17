@@ -32,6 +32,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_stocks = {
+      big = true,
+      lines = { { id = "xcl_stocks_default", text = "Darkshire cares about one prisoner in that place, and the rest may rot or riot as they please. Ward sold our dead to a necromancer and I sentenced him for it, and the House of Nobles took him from us on a point of law, which I have not forgiven and do not intend to." } },
+      choices = {
+        { text = "The law is the law, my lord, even when it's slow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Darkshire's justice should be Darkshire's, whatever the House says.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "What would you have done with Ward?", next = "xcl_stocks2" },
+      },
+    },
+    xcl_stocks2 = {
+      lines = { { id = "xcl_stocks2_default", text = "Hanged him at the edge of Raven Hill, where the families could see it done, and buried him somewhere nobody would think to dig. It isn't mercy, I know, but I'm a mayor and not a priest, and Darkshire ran out of mercy for men like him some time ago." } },
+      choices = {
+        { text = "Then I hope Councilman Millstipe gets his way.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Rarely, and never with enough. I'm courteous, but desperate. A shaman's help would be welcome." } },
@@ -76,6 +91,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
+          text = "I'm told you've been down through Stormwind's Stockade and put its riot to rest. If you passed a cell with Dextren Ward in it, I hope you looked him in the eye for Darkshire, because the House of Nobles never will." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "Althea speaks well of you, which means you told her pikes are worth more than paper. Perhaps they are, this week, but I'll still be writing to Stormwind when the pikes need replacing." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -134,6 +151,7 @@ P:NPC {
         { text = "Will Stormwind ever send soldiers to Darkshire, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your town fears me, Lord Ebonlocke.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Has Stormwind answered your requests, Lord Ebonlocke?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Stockade is quiet now, my lord. Does Darkshire care?", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "Good day, my lord.", next = "END" },
       },
     },

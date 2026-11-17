@@ -32,6 +32,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_mc = {
+      big = true,
+      lines = { { id = "xcl_mc_default", text = "Won? You have smothered one flame, the greatest of them, but fire does not die, it waits. The Firelord will gather himself again in time, and when he does I want the Waterlords standing over the place he returns to." } },
+      choices = {
+        { text = "Then we drown every ember he left. No mercy for fire.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Fire has its place. Banish it, but don't unmake it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Why do the Waterlords hate fire so?", next = "xcl_mc2" },
+      },
+    },
+    xcl_mc2 = {
+      lines = { { id = "xcl_mc2_default", text = "Fire boils us, mortal, and turns our substance into steam that drifts away without a mind. Every elemental lord makes war on the others, but only fire makes war by unmaking, and I will not forgive Ragnaros for the servants I lost beneath Blackrock." } },
+      choices = {
+        { text = "Understood, Duke. Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "What I would have of anyone: that you go where I send you and break what I tell you to break. The servants of Ragnaros burn in the Molten Core beneath Blackrock, and your Light will not quench them, but your hammer may, if your faith is as stubborn as the sea." } },
@@ -120,6 +135,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_mc", tags = { "news" }, when = { cleared = "Molten Core" }, text = "Ragnaros has been driven back into the burning deep, and the Firelord's heat has left the waters near Blackrock. You did that, mortal, and I acknowledge it, which is not a thing I say lightly." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. You bring the Light to my island, mortal, and the tide does not care for it, but it cares even less for fire, and I have heard your kind can be relentless." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -168,6 +184,7 @@ P:NPC {
         { text = "What use is a warrior to the Waterlords?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the Waterlords value a hunter's patience?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would the Waterlords have of a paladin, Duke?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Ragnaros is banished, Duke. Is your war won?", next = "xcl_mc", when = { cleared = "Molten Core" } },
         { text = "I'll take my leave, Duke.", next = "END" },
       },
     },
@@ -348,6 +365,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_dm = {
+      big = true,
+      lines = { { id = "xcl_dm_default", text = "I know Prince Tortheldrin, by name and by crime, and the pylons that keep a creature of the Nether chained in the city's heart so the Shen'dralar can drink from it. That is the sickness of the Highborne in one sentence: they would rather leash a horror than live without its power." } },
+      choices = {
+        { text = "Leashing a demon is still serving it. Their power must end.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the leash holds, I'd use the power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Are any of the Highborne in Dire Maul worth saving?", next = "xcl_dm2" },
+      },
+    },
+    xcl_dm2 = {
+      lines = { { id = "xcl_dm2_default", text = "A few of them keep books, and books are not sins, though they lead to one often enough. I spent my youth among people like that, and I left before the worst of it, which is the only wisdom I can boast of." } },
+      choices = {
+        { text = "Then you chose well. Something else, Loramus.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Some do, the small ones, the ones that remember being burned. The greater ones only grow curious, and curiosity is worse, because it makes them patient. Your Light is a fine weapon, paladin, but it is not a shield against what you cannot see, and I see a great deal." } },
@@ -433,6 +465,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul" }, text = "You've been through Eldre'Thalas, which your people call Dire Maul, and come back with the Nether still clinging to you. The Highborne who stayed in that city have fed on it for ten thousand years, mortal, and I wonder how much of them you left." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. You glow like a lamp to my eyes, and the things at the tide line can see it too, so stand behind me if you'd rather they didn't come for you first." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -480,6 +513,7 @@ P:NPC {
         { text = "How does a warrior fight what he can't see?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What do you see in Azshara's woods that I can't?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do demons fear a paladin's Light, Loramus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I've been through Dire Maul, Loramus. What do you know of it?", next = "xcl_dm", when = { cleared = "Dire Maul" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },

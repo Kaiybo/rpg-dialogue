@@ -382,6 +382,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_strat = {
+      big = true,
+      lines = { { id = "xcl_strat_default", text = "Then I'll be making more soup than usual, because the Dawn will want to march in while the dead are still confused, and nobody fights well hungry. Most of the people who sat where you're sitting went in to find someone, a brother or a sweetheart, and most of them came back with only a ring or a buckle." } },
+      choices = {
+        { text = "Then I'll go back and bring out what I can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I went in for its masters, not for keepsakes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Did anyone ever bring back the person they sought?", next = "xcl_strat2" },
+      },
+    },
+    xcl_strat2 = {
+      lines = { { id = "xcl_strat2_default", text = "Once, a young woman came back with her father, and he was Forsaken by then and didn't know her for an hour. They sat at that table by the window and talked until morning, and then he went back to the Undercity and she went back to Stormwind, and I still don't know if it was a happy ending." } },
+      choices = {
+        { text = "Maybe it was the only kind on offer.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "One or two of the older Silver Hand men gave me a look when I said a shaman was staying, until I told them you were from Ironforge, and then they only looked more confused. They'll get used to you, for they got used to Leonid in the chapel, and if they can manage that, they can manage anything." } },
@@ -462,6 +477,8 @@ P:NPC {
           text = "A druid, at my inn! You'll want a window that faces the hills, I expect, though I'll warn you the view hasn't been green in a long while." },
         { id = "h_default", key = true,
           text = "Jessica Chambers, and this is the inn at Light's Hope, such as it is. I keep the beds clean and the pot full for the Argent Dawn and anyone else who comes in from the plaguelands, and I don't ask anyone's colours." },
+        { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
+          text = "You've the look of someone who came back from Stratholme, and I've learned that look well in this room. Sit down, there's soup, and you can tell me or not, and either is fine." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Late to be on the road out here, friend, and later still to be alone. There's a bed if you want it, and the guards walk the walls all night." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -487,6 +504,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you ever miss green hills, Jessica?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "I've come back from Stratholme. Its masters are dead.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "I'd like to rest here.", next = "BUSINESS" },
         { text = "How is this place still safe?", next = "safe" },
         { text = "Who comes through here?", next = "guests" },

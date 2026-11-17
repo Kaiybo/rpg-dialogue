@@ -27,6 +27,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Then every troll in the south lost its god in one night, an' I'll wager the ones up here felt it too. The Vilebranch witch doctors have been talkin' all year o' blood an' somethin' risin' in the south, so there'll be a good many frightened priests at Jintha'Alor this mornin'." } },
+      choices = {
+        { text = "Hakkar threatened every land, so I fought for all of them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I went for the treasure, High Thane. The world can thank me later.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Will the Hinterlands trolls be weaker without Hakkar?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "Weaker, aye, though a wounded troll fights the harder for it, an' I've buried enough riders tae know. The Amani lost their empire tae Quel'Thalas an' then lost their war beside the Horde, an' here they are still, so I'll nae count them finished till the last o' their altars is cold." } },
+      choices = {
+        { text = "Then I'll keep my blade sharp, High Thane.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Welcome? Ye're kin twice over, {g:lad|lass}, once by blood an' once by the sky, an' I'll fight any dwarf in this keep who says otherwise. Ye'll fly wi' us against the Vilebranch an' drink wi' us after, an' if the storm answers ye, ye'll call it down on the trolls an' no' on my gryphons!" } },
@@ -69,6 +84,8 @@ P:NPC {
           text = "Ye've been tae Ironforge an' stood before Bronzebeard, have ye? He's a fine king, for a dwarf who never leaves the ground." },
         { id = "h_sharpbeak", tags = { "news" }, when = { questRecent = { TODO_QUEST("Saving Sharpbeak"), days = 3 } },
           text = "Sharpbeak's home! The whole aviary sang last night. Ye've a friend in every Wildhammer on this peak now, an' a few o' the gryphons too." },
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" },
+          text = "Ha! There's a tale come up from Stranglethorn that the blood god o' the Gurubashi's been put down in his own city, an' that ye were in the thick of it. Sit down an' tell me, for there's nae a dwarf in Aerie Peak who won't drink tae that." },
         { id = "h_xkin", when = { origin = "dwarf_wildhammer_kin" },
           text = "Ha! There's Aerie Peak in yer face, for all ye were raised under a mountain. Kin's kin, an' the eyrie's open to ye any time ye like." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -100,6 +117,7 @@ P:NPC {
         { text = "Do the Wildhammer have any place for the Light, Thane?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin's hammer do the most good, Thane?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Am I welcome here, High Thane, as a shaman of Ironforge?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I was in Zul'Gurub when Hakkar fell, High Thane.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "I'm here to fight trolls.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { aerie_peak = 1 } } },
       },
     },
@@ -467,6 +485,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Then ye've done a hard an' needful thing, though it'll nae feel clean. The Soulflayer drank from every altar where a troll ever spilled blood in his name, an' the spirits tell me the Vilebranch altars were among them, so when he fell, they felt the stones at Jintha'Alor go cold." } },
+      choices = {
+        { text = "Then I'll cleanse those altars too, if the spirits ask it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the trolls keep their altars. My part in this is done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Do the spirits say whether Hakkar can return?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "They say a god that feeds on blood is never wholly gone, so long as there's someone willin' tae feed it. That's nae a prophecy, mind, only an old dwarf's worry, but I'd keep an eye on any troll who still keeps a knife by his altar." } },
+      choices = {
+        { text = "I'll watch the altars, and the knives beside them.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It cares what the warrior does when he gets where he's goin'. The Vilebranch shed blood on their altars an' the land weeps for it, an' a warrior who sheds blood tae stop them might be forgiven, so long as he doesnae grow tae like it." } },
@@ -514,6 +547,8 @@ P:NPC {
           text = "Fraggar Thundermantle, an' I speak for the spirits o' this land. The Vilebranch spill blood on their altars an' call it worship, but the land remembers every drop." },
         { id = "h_necklace", tags = { "news" }, when = { questActive = TODO_QUEST("Troll Necklace Bounty") },
           text = "Bring me the trolls' necklaces, for each one's a charm against the spirits I serve, an' each one I take is a little less o' their dark work." },
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" },
+          text = "Somethin' shifted in the land a few nights past, like a fever breakin', an' the spirits went quiet for the first time in a long while. They tell me it was blood that broke it, far tae the south, an' they tell me ye know the place." },
         { id = "h_skulk", when = { questActive = TODO_QUEST("Skulk Rock Clean-up") },
           text = "Skulk Rock is fouled. Clean it, an' the spirits there can rest again." },
         { id = "h_eyes", when = { metBefore = true }, text = "My eyes grow dimmer each winter, an' the spirits grow louder tae make up for it. I think they're bein' kind." },
@@ -539,6 +574,7 @@ P:NPC {
         { text = "Does the land care if a warrior walks on it, Fraggar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you hear the beasts of the Hinterlands, Fraggar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can the Light and the spirits stand together, Fraggar?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I fought the Soulflayer in Zul'Gurub, Fraggar.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },

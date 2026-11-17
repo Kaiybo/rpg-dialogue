@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sfk = {
+      big = true,
+      lines = { { id = "xcl_sfk_default", text = "They will, because a summoning outlives its summoner far more often than students like to believe. He meant to save Lordaeron from the Scourge, and he reached for something older and wilder than he understood, and there's the whole lesson of magic in one man's ruin." } },
+      choices = {
+        { text = "Then some powers should never be touched, Master Dumas.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He failed for want of control, not because the power was wrong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What drove Arugal mad?", next = "xcl_sfk2" },
+      },
+    },
+    xcl_sfk2 = {
+      lines = { { id = "xcl_sfk2_default", text = "Guilt, the scholars say, when the worgen turned on the very people he'd called them to save, and he took the beasts for his children rather than admit the mistake. I'd call it pride wearing grief's clothes, but I didn't know the man well enough to swear to it." } },
+      choices = {
+        { text = "Pride or grief, it ended the same way.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "All power is dangerous without discipline. The orcs taught us that, when their shamans turned warlock. I'd be watchful, dwarf, of your own path." } },
@@ -99,6 +114,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep" },
+          text = "Arugal is dead, I hear, and you were the one standing over him in Silverpine. I knew his name from Dalaran long before I knew what he'd become, so forgive me if I don't call it a victory." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Sanctum. You draw your power from without, and we from within, and I've always found the comparison instructive, if you'll indulge me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Be careful with the fire you carry, {class}, for the Light burns the untrained as surely as any spell." },
         { id = "h_default", text = "Maginor Dumas, Master Mage of the Sanctum. My advice to you is this: as you travel the world, be wary of magic, for it will burn the untrained, and most of the world is untrained." },
@@ -139,6 +156,7 @@ P:NPC {
         { text = "Should a paladin fear the Light he carries, Master Dumas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you call my people's ancient mages reckless, Master Dumas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is shamanism dangerous, Master Dumas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Arugal is dead, Master Dumas, but his worgen still prowl Silverpine.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },

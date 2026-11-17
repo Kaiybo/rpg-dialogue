@@ -124,6 +124,11 @@ function T.Kill(guid, name)
   k.total = (k.total or 0) + 1
   if type(name) == "string" and name ~= "" and not C.IsSecret(name) then
     k.byName[name] = (k.byName[name] or 0) + 1
+    for place, bosses in pairs(W.DUNGEON_BOSSES or {}) do
+      for i = 1, #bosses do
+        if bosses[i] == name then T.Deed("cleared:" .. place); break end
+      end
+    end
   end
 end
 

@@ -425,8 +425,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_bfd = {
+      big = true,
+      lines = {
+        { id = "xcl_bfd_default", text = "Then the Twilight's Hammer have lost whatever beast they were feeding in the dark, and the naga will have to choose between a new master and the open sea. I've sent warriors into that cave who never came back, so I'll remember your face, whatever else the Horde forgets." },
+      },
+      choices = {
+        { text = "Remember your dead, Karang, not me. They went first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Remember me well. I'll want that favour back someday.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What did the naga want down there?", next = "xcl_bfd2" },
+      },
+    },
+    xcl_bfd2 = {
+      lines = { { id = "xcl_bfd2_default", text = "I've asked the prisoners, when we take any, and they say only that their mistress serves something greater than herself. A naga who admits to having a master is a frightening thing, so I stopped asking and started building the walls higher." } },
+      choices = {
+        { text = "Higher walls sound wise. Strength to Zoram'gar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Horde" }, text = "The runners say you went down into Blackfathom and came back up with naga blood on your boots. Zoram'gar has bled for this strand a long time, so it's good to hear the Deeps finally lost a fight." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The water spirits along this shore have been uneasy since the naga came up out of the bay, and I'd value your ear on it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest who walks with the Horde. The naga leave our wounded bleeding in the surf, so whatever answers your prayers, Light or loa or shadow, I'll be glad of your hands here." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and a long way from any library. The naga have sorceresses of their own out on the strand, so I hope your fire burns hotter than their water." },
@@ -450,6 +468,7 @@ P:NPC {
         { text = "Where do the naga come from?", next = "naga" },
         { text = "Do you send word to Splintertree?", next = "splinter" },
         { text = "Then plainly: what do you need?", next = "orc", when = { race = "Orc" } },
+        { text = "Blackfathom Deeps has lost, Karang. I've been to its bottom.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Horde" } },
         { text = "Strength to Zoram'gar.", next = "END" },
         { text = "What does Zoram'gar need from a warrior, Karang?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What hunts along the Zoram Strand, Karang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },

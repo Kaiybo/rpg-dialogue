@@ -29,6 +29,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_lbrs = {
+      big = true,
+      lines = { { id = "xcl_lbrs_default", text = "Bleeding isn't beaten, and they've more warriors in that mountain than Lakeshire has people, so I'll keep my guard on the bridge all the same. Still, every orc who dies at home is one who never comes down the Burning Steppes road, and that's a thing I can put in my report." } },
+      choices = {
+        { text = "Hold the line here, Marshal. Lakeshire comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop guarding bridges. Take the fight back to the mountain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who commands the orcs inside the Spire?", next = "xcl_lbrs2" },
+      },
+    },
+    xcl_lbrs2 = {
+      lines = { { id = "xcl_lbrs2_default", text = "An overlord called Wyrmthalak, the scouts say, though he answers to Warchief Rend Blackhand above him, and Rend answers to something nobody's been able to name. I don't need names to count orcs, but I'd like to know who's counting them for the other side." } },
+      choices = {
+        { text = "If I learn the name, you'll have it, Marshal.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If I had the men, yes. Give me numbers, shaman. Your spirits won't win this, but they might help." } },
@@ -90,6 +105,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_lbrs", tags = { "news" }, when = { cleared = "Lower Blackrock Spire", faction = "Alliance" },
+          text = "The guards tell me you've been inside Blackrock Spire itself, where the orcs that raid my lake come from. I'll believe it from you, and I'll sleep a little better tonight, which is more than I've managed in a month." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Hah, good. I've got gnolls in the hills and orcs on the ridge, and I'll take help from anyone with claws." },
         { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake and orcs who never sleep. What do you need?" },
@@ -132,6 +149,7 @@ P:NPC {
         { text = "Who buries your guards who fall in the hills, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Lakeshire strike Stonewatch, Marshal, or hold the walls?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can Lakeshire hold against the Blackrock, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I went into Blackrock Spire, Marshal. The Blackrock clan is bleeding.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire", faction = "Alliance" } },
         { text = "I'll keep my eyes east.", next = "END" },
       },
     },

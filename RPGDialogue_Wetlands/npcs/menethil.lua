@@ -78,9 +78,26 @@ P:NPC {
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Good, an' I'll no' pretend otherwise. His Dark Iron hold Dun Modr up north an' they've been sniffin' at Thandol Span for years, an' every one o' them took orders from that throne. A headless army still bites, mind, but it bites in the wrong direction more often." } },
+      choices = {
+        { text = "Now's the time to push north and take Dun Modr back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hold the walls, Captain, and let the Dark Iron tear each other apart.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who holds Dun Modr for them now?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "Their own captains, an' I'll no' guess at names I havenae got. My scouts see them diggin' an' forgin' up there, an' Thandol Span's the only road between us an' Arathi, so I watch it like a hawk." } },
+      choices = {
+        { text = "Then I'll keep an eye on the Span when I pass.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good; I've sailors on the wall who need tae see what a holy hammer looks like comin' down on an orc." },
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
+          text = "I hear Thaurissan's dead in his own hall. The Dark Iron at Dun Modr havenae heard yet, or if they have, they're no' showin' it, but they will." },
         { id = "h_default", key = true,
           text = "Captain Stoutfist. I hold Menethil for Ironforge an' the Alliance both. The Dragonmaw have come down out o' the hills into Dun Algaz, an' if they hold it, the road to Loch Modan's shut." },
         { id = "h_report", tags = { "news" }, when = { questActive = TODO_QUEST("Report to Captain Stoutfist") },
@@ -136,6 +153,7 @@ P:NPC {
         { text = "Menethil could use a mage on the walls, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Where would a paladin serve Menethil best, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you put a warlock on your wall, Captain?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Thaurissan is dead, Captain. I saw it done.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -1729,10 +1747,27 @@ P:NPC {
         { text = "Something else, Flagongut.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "Then ye've seen the real thing, an' I've seen a fossil an' a wet map. The League's been after Uldaman since before I joined, an' Hammertoe's notes were the first proof we had that it was there at all, so I'll raise a cup tonight to the dwarf who wrote them." } },
+      choices = {
+        { text = "Some places should stay sealed, out of respect for the dead.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Dig it all up, Flagongut. The past belongs to the living.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Will you go and see it yourself?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "When the road's clear an' my knees agree, aye. Until then I'll read every report Stormpike sends out o' the Hall an' pretend the mud on my boots came from somewhere more interestin'." } },
+      choices = {
+        { text = "I hope your road clears soon.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for half the bones I dig up deserve a few words, an' the League never thinks tae send anybody who can say them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be no use wi' a trowel, but I'd let ye guard my maps, for they're the only good thing I've drawn all month." },
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
+          text = "Word reached even this tavern that ye went to the bottom o' Uldaman. Here I sit wi' raptors on the road, an' you walk into the greatest dig in Khaz Modan. Archaeology!" },
         { id = "h_default", text = "Flagongut, Explorers' League. I came here on my way to the dig at Whelgar's, an' then the raptors took the road. So I'm diggin' through a tavern, for now." },
         { id = "h_prospector", tags = { "news" }, when = { questActive = TODO_QUEST("The Absent Minded Prospector") },
           text = "Word from our man across the sea? About time. He'd lose his own beard if it weren't attached, but he finds things nobody else can." },
@@ -1766,6 +1801,7 @@ P:NPC {
         { text = "Is anything in your finds dangerous, Flagongut?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the League's digs ever turn up anything fel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why does the League want shamans on its digs, Flagongut?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been to the bottom of Uldaman, Flagongut.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },

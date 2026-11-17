@@ -62,10 +62,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ubrs = {
+      big = true,
+      lines = { { id = "xcl_ubrs_default", text = "Broken for now. Windsor told us what Drakkisath was guarding and who was giving him orders from higher still, and the Black Dragonflight doesn't run short of generals. Still, every soldier on this ridge will sleep a little sounder tonight, and I'll take that." } },
+      choices = {
+        { text = "Then we finish it, Marshal, and take the war to their master.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We've done our part. Let Stormwind deal with the dragons now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What was Drakkisath guarding up there?", next = "xcl_ubrs2" },
+      },
+    },
+    xcl_ubrs2 = {
+      lines = { { id = "xcl_ubrs2_default", text = "Something that opens the way to the dragons' own lair, if Windsor's right, and he usually is. I'd sooner nobody went through that door unprepared, so tell me before you try it, deputy." } },
+      choices = {
+        { text = "I'll tell you before I go anywhere near it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackrock", min = 40 } }, text = "The scouts tell me you've been cutting down Blackrock orcs all across the Steppes, and the camps are quieter for it. Keep at it, but don't get careless, because Rend notices when his numbers drop." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stormwind pretends your kind don't exist, and out here I'm too short of soldiers to pretend anything at all." },
+        { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
+          text = "General Drakkisath is dead in the high halls of the Spire, and you were there to see it. I'll write the report tonight, deputy, and for once I'll enjoy writing it." },
         { id = "h_default", key = true,
           text = "Marshal Maxwell, commanding what's left of Stormwind's presence in the Burning Steppes. We hold this ridge, we watch the mountain, and we write reports that nobody in the capital reads." },
         { id = "h_masters", tags = { "news" }, when = { questActive = TODO_QUEST("The True Masters") },
@@ -108,6 +125,7 @@ P:NPC {
         { text = "Would you put a warlock on your line, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Stormwind ever send anything to help this land, Marshal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does it trouble you, Marshal, that I fight with the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Drakkisath is dead, Marshal. The upper Spire is broken.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
         { text = "I'll see what I can do, Marshal.", next = "END", fx = { affinity = 1, standing = { morgans_vigil = 1 } } },
       },
     },

@@ -27,6 +27,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then you've been where the Dark Irons have hidden since the Second War, when they threw in with the Horde and made Ironforge pay for it. They held Reginald Windsor in that mountain too, an old comrade of mine, and I'll not pretend to mourn the man who kept him there." } },
+      choices = {
+        { text = "A soldier doesn't gloat over a dead enemy, General.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He made war on us. I'm glad he's dead, and I'll say so.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Will the Dark Irons trouble Stormwind now?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "Less than they'll trouble Ironforge, I'd wager, because their quarrel was always with Magni's people first. Still, a city of angry dwarves under a mountain full of fire doesn't go quiet because its emperor dies, so I'll keep a watch on the Redridge road." } },
+      choices = {
+        { text = "Keep them watched, General. I'll go back if I'm needed.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = {
@@ -76,6 +91,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
+          text = "Word came up from the Burning Steppes that Thaurissan is dead in his own throne room, and that you were standing in it. I marched under Turalyon to the foot of that mountain once, and none of us ever went down into it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I could use a dozen of you on the walls, and the Keep sends me letters about the budget instead." },
         { id = "h_default", key = true,
           text = "General Marcus Jonathan, High Commander of Stormwind's defence. I keep the city's walls and its army, such as the kingdom can spare of it." },
@@ -122,6 +139,7 @@ P:NPC {
         { text = "Where would a paladin serve Stormwind best, General?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would the army ever march beside druids, General?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has the army any place for warlocks, General?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Emperor Thaurissan is dead, General. I went down into the Depths.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "Good day, General.", next = "END", fx = { affinity = 1 } },
       },
     },

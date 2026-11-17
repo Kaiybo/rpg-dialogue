@@ -417,6 +417,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Its master, yes, but not its pupils, and the Scourge never has trouble finding more. Caer Darrow was a quiet town once, with the Barov family up in the keep, and they handed it to the Cult of the Damned to save their own skins." } },
+      choices = {
+        { text = "Even the Barovs might be redeemed, if they truly repent.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Barovs earned their fate. Let them rot with their keep.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What does the Dawn want with Scholomance now?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "To see it emptied and cleansed, so the island can belong to the living again. That will take more than one headmaster's death, but every lesson the Cult can't teach is one fewer necromancer walking out of that keep." } },
+      choices = {
+        { text = "Then I'll keep at it, Gregor.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "More than the banners would suggest. The Cult of the Damned keeps agents in the towns, and a cultist rarely confesses to a knight in shining plate, so the Dawn needs people who can listen at doors and follow a man home. I only ask that whatever you learn comes back to the Dawn, and not to the highest bidder." } },
@@ -504,6 +519,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" }, text = "Word has reached even Everlook that Darkmaster Gandling is dead and Scholomance has lost its headmaster. The Dawn owes you more than I can say, and I'll say it anyway, to anyone who'll listen." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, and welcome. The Dawn has learned that the Scourge's servants hide among the living, and it takes a quiet hand and a sharp eye to find them before they find us." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -541,6 +557,7 @@ P:NPC {
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
         { text = "What use does the Argent Dawn have for a rogue, Gregor?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Gandling is dead, Gregor. Scholomance has lost its master.", next = "xcl_scholo", when = { cleared = "Scholomance" } },
         { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },
       },
     },

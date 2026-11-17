@@ -357,6 +357,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ulda = {
+      big = true,
+      lines = { { id = "xcl_ulda_default", text = "Then you be seeing the dwarves' lost temple and the stone things that walk in it, and you be coming back with your head on. The Explorers' League be wanting that place badly, and Jarkal says better the Horde be knowing what's down there than the dwarves be keeping it secret." } },
+      choices = {
+        { text = "Old places belong to nobody. Leave Uldaman to the dead.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Horde should take what's down there before the dwarves do.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What do those caps do for your potions?", next = "xcl_ulda2" },
+      },
+    },
+    xcl_ulda2 = {
+      lines = { { id = "xcl_ulda2_default", text = "They be holding strength in the dark, mon, the way a root be holding water. Jarkal grinds them fine and mixes them with a little firebloom, and the potion keeps a warrior standing when he should be falling." } },
+      choices = {
+        { text = "Then I'll keep an eye out for the caps.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! Jarkal sell good reagents to your kind, though the best thing in this land for spells be the shards off the rock elementals, and Jarkal want those too." },
@@ -365,6 +380,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You be wanting poisons, I think, and Jarkal don't sell poison, mon, but Jarkal know where the reagents grow, and that be nearly the same thing." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! You be knowing your herbs, I think, so tell me why nothing out here grows but firebloom and spite." },
+        { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Horde" },
+          text = "You be going all the way to the bottom of Uldaman, mon, past the stone king himself? Then you be knowing where the best magenta caps grow, and Jarkal be very jealous." },
         { id = "h_default", key = true,
           text = "Jarkal Mossmeld, alchemist, and the only one between here and the Undercity who be selling potions the Expeditionary Force can trust. My stock be running low, though, and the Badlands be full of things I need, if you be brave enough to collect them." },
         { id = "h_uldaman", when = { questActive = TODO_QUEST("Uldaman Reagent Run") },
@@ -397,6 +414,7 @@ P:NPC {
         { text = "Are your potions really as good as a priest's prayers, Jarkal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does a mage want with rock elemental shards, Jarkal?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you sell potions to a Forsaken paladin, Jarkal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been to the bottom of Uldaman, Jarkal.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Horde" } },
         { text = "I'll bring you what you need.", next = "END", fx = { affinity = 1 } },
       },
     },

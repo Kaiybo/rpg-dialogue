@@ -27,6 +27,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Safer, maybe, but this jungle never forgets anything, and a troll empire doesn't go quiet because one god dies. Kurzen came here to fight trolls, remember, and somewhere along the way the jungle turned him into something I had to walk away from." } },
+      choices = {
+        { text = "Then strike the trolls while they're reeling. Stormwind should march now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let them bury their dead. We came here for Kurzen, not a slaughter.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Do you think the trolls had a hand in Kurzen's madness?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "I've asked myself that every night since we walked out of his camp. Brother Nimetz thinks it was something in the jungle itself, but I've seen what Gurubashi priests can do to a man's mind, and I've never ruled them out." } },
+      choices = {
+        { text = "Whatever it was, you were right to walk away.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Something did, and I'll not rule anything out. If your spirits can tell the jungle's voice from whatever's whispering to Kurzen, you'd be worth more to us than a squad." } },
@@ -44,6 +59,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" }, text = "One of my lads says you came back out of Zul'Gurub after its blood god fell, and I didn't believe him until I saw your face. That city ate whole patrols in the old days, and nobody ever learned where the bodies went." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kurzen", min = 30 } }, text = "The scouts say Kurzen's patrols are thinner on the river road, and they say it's your doing. Good work, but keep your head down, because the Colonel counts his dead too." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, here? Then you've seen what the trolls do to the jungle, and maybe what the jungle does to us." },
@@ -84,6 +100,7 @@ P:NPC {
         { text = "I could track Kurzen's patrols for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Could magic have turned Kurzen's mind?", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Do you think the spirits drove Kurzen mad, Lieutenant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Zul'Gurub's god is dead, Lieutenant. The jungle should be safer now.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -372,6 +389,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "I believe you, because I've treated men who only heard the drums from a distance and woke screaming for weeks. Whatever the Gurubashi priests served, it fed on the blood of the living, and I've spent years at this table trying to understand what such a hunger does to a mind." } },
+      choices = {
+        { text = "Places like that should be burned and forgotten, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Understanding it might cure the madness. Study what's left.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Will the madness fade now that Hakkar is gone?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "In some of them, perhaps, the ones whose minds were only bent and not broken. I've seen fevers break when their source was cut away, and if Zul'Gurub was the source, we may yet see men here sleep through the night." } },
+      choices = {
+        { text = "I hope you're right, Brother. Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I've wondered, though I'd sooner blame the trolls' witch doctors. If the land here is sick, you'd feel it before I could find it under a lens, so tell me honestly." } },
@@ -431,6 +463,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" }, text = "You've been to the heart of Zul'Gurub and come back whole, which I hadn't thought possible, and the Light be thanked for it. I'd like to hear what you saw there, if you have the stomach to tell me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Mind the glassware as you pass, friend, because there's residue in those flasks that I'd rather nobody carried out of this camp in a pocket." },
         { id = "h_default", key = true,
           text = "Brother Nimetz. I came with the Colonel's expedition to tend the sick, and now I study what made them sick in the mind." },
@@ -467,6 +500,7 @@ P:NPC {
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "What have you seen in the jungle, Brother?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the jungle itself have poisoned Kurzen's mind, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I saw Hakkar's altar, Brother. It was worse than you'd think.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
       },
     },

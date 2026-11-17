@@ -27,6 +27,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_st = {
+      big = true,
+      lines = { { id = "xcl_st_default", text = "A scout never rests, but at least now he'll come home with all his blood. Stonard has watched that temple since the day we raised our walls, and I've written more names in the dispatch book for it than for the Alliance." } },
+      choices = {
+        { text = "Honor their names somewhere better than a dispatch book.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Scouts die, Commander. That's what scouts are for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who else watches the temple besides Stonard?", next = "xcl_st2" },
+      },
+    },
+    xcl_st2 = {
+      lines = { { id = "xcl_st2_default", text = "Green dragonkin, if you can believe it, and they've never once asked our leave. My scouts say the dragonkin in the lower halls fight trolls and orcs alike, so I keep my people well clear of them." } },
+      choices = {
+        { text = "Clear of dragons is sound advice. Something else, Commander.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd send you anywhere I needed a soldier who heals and doesn't scare easily. Thrall's Grasp died in the lands past this swamp with no one to mend them, and I'll not turn away any help the Light sends, whatever face it wears." } },
@@ -91,6 +106,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar", faction = "Horde" }, text = "My scouts came back from the Pool of Tears with nothing to report, and that's never happened before. I'm told it's because you went to the bottom of the Sunken Temple, so I'll stop sending them in pairs." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. I could use one in Stonard, if only to dry out the dispatches before the ink runs, because the swamp gets into everything." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'd make a better scout than half of mine, because you'd come back with something besides mud on your boots." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because my scouts come back from the deep swamp spooked, and they'd sooner tell a shaman what they felt out there than tell me." },
@@ -135,6 +151,7 @@ P:NPC {
         { text = "Could magic carry your messages faster than runners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What has the swamp done to your scouts, Commander?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Would you send a paladin into the swamp, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Sunken Temple is cleared, Commander. Your scouts can rest.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar", faction = "Horde" } },
         { text = "Send me out.", next = "END", fx = { affinity = 1, standing = { stonard = 1 } } },
       },
     },
@@ -350,6 +367,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_st = {
+      big = true,
+      lines = { { id = "xcl_st_default", text = "Silent for now, and I'll take silent over singing. The Atal'ai who drowned in that temple were exiles even among their own people, driven out of Zul'Gurub for worshipping the Soulflayer, and exiles make the most stubborn believers." } },
+      choices = {
+        { text = "Fill the temple with stone so no troll prays there again.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave it to the swamp. Some ruins are best forgotten.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why does the Horde care about a drowned troll temple?", next = "xcl_st2" },
+      },
+    },
+    xcl_st2 = {
+      lines = { { id = "xcl_st2_default", text = "Because the Darkspear are Horde, and Hakkar hungers for troll blood above every other kind. If the Atal'ai ever woke their god, Vol'jin's people would be the first he called to him, and the Warchief knows it." } },
+      choices = {
+        { text = "Then the Horde was right to keep watch.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Perhaps. The trolls who built that place served a blood god, and blood gods fear little, but I would rather face the temple with the Light beside me than without it. Whether it answers you as it answers the living, I cannot say." } },
@@ -397,6 +429,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar", faction = "Horde" }, text = "You've walked to the bottom of the Sunken Temple and come back up through the Pool of Tears, and the swamp is quieter for it. I felt the change before the scouts did, the way you feel a fever break." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Good, because the temple needs someone who can get in and out without the Atal'ai noticing, and nobody I've sent has managed the second part." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The Atal'ai worked a magic older than anything Dalaran taught, and it called something into this swamp that your fireballs won't send back." },
         { id = "h_default", key = true,
@@ -431,6 +464,7 @@ P:NPC {
         { text = "What lies in the Temple of Atal'Hakkar, Fel'zerul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you feel under the Pool of Tears, Fel'zerul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Could the Light help against what stirs in the temple?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Atal'ai are broken, Fel'zerul. The temple is silent.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },

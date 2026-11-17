@@ -28,6 +28,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Then the school that taught Kel'Thuzad's students to raise our dead has lost its headmaster, and I'll write that to Stormwind in my own hand. Half the necromancers in Andorhal learned their trade on that island, so you've done more for my soldiers than a regiment of reinforcements would have." } },
+      choices = {
+        { text = "The credit belongs to everyone who went in with me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then make sure Stormwind knows my name, Commander.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Won't the Cult of the Damned just find another headmaster?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "They'll try, for the Cult has never been short of clever fools who want to live forever. But a school's only as good as its teacher, and Gandling taught them for years, so whoever takes his chair will be younger and greener and easier to kill." } },
+      choices = {
+        { text = "Then I'll be back for the next one.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If the earth around Andorhal still has anything to say, I'd like it said to someone on my side, because the Scourge has poisoned every field from here to the Bulwark. MacDonnell says the Light will cleanse it in time, but I've no time, and I'll take a dwarf with a totem if it brings my soldiers home." } },
@@ -79,6 +94,8 @@ P:NPC {
           text = "I've a report from Stormwind on my desk that I never asked for, {class}, and the agent who brought it walked a good deal like you. Sit down, and tell me who sent you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Cenarion Circle at Chillwind. Andorhal is no place for growing things, but I'll take any help you offer against the dead." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Skeletal", min = 40 } }, text = "My scouts say the bones are lying thicker in the fields around Andorhal and walking thinner, and I know who's been putting them down. Stormwind will hear your name in my next report." },
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Alliance" },
+          text = "The lake round Caer Darrow was quiet last night, and my scouts say the lights in the Scholomance are out for the first time since the plague. I've a feeling you know why, soldier, and I'd like to hear it." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, the dead don't wait on our conversations." },
@@ -100,6 +117,7 @@ P:NPC {
         { text = "Does SI:7 really operate this far north, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should the Scourge's farms be burned, or reclaimed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a shaman be of use against Andorhal, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Darkmaster Gandling is dead, Commander. The Scholomance has no master.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
         { text = "Point me at the dead.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, trait = { brave = 1 } } },
       },
     },
@@ -324,6 +342,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_strat = {
+      big = true,
+      lines = { { id = "xcl_strat_default", text = "Then you've seen what a Scourge city looks like from the inside, and I don't envy you the dreams. Every cauldron in these fields was brewed to a plan drawn up somewhere, and I always suspected Stratholme, so whatever you broke in there, my cauldrons will be the poorer for it." } },
+      choices = {
+        { text = "The Light burned them out. I only carried it in.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It wasn't the Light that did it, but steel and stubbornness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Will that city ever be clean enough to live in?", next = "xcl_strat2" },
+      },
+    },
+    xcl_strat2 = {
+      lines = { { id = "xcl_strat2_default", text = "Not in my lifetime, and probably not in yours, because the plague's in the stones and the wells and the bones under the streets. But the Light is patient where I'm not, and if they burn it house by house and pray over every cellar, I'd like to believe someone's grandchildren will sleep there." } },
+      choices = {
+        { text = "Then I'll pray for those grandchildren, High Priestess.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Offend it? The Light isn't so delicate, and neither am I, whatever the Cathedral's stuffier priests would have you believe. If your fire spirits will help me boil the plague out of those cauldrons, I'll stand beside you and pray loudly while they do it." } },
@@ -378,6 +411,8 @@ P:NPC {
           text = "The Writhing Haunt has a tauren in the house there, they tell me, a druid, and he's dying. Be kind to him if you pass, and then get me my sample." },
         { id = "h_gahrron", tags = { "news" }, when = { questActive = TODO_QUEST("Target: Gahrron's Withering") },
           text = "Gahrron's Withering is the last of the four and the worst of them, full of ghosts and wraiths. You'll want the Light close by when you go." },
+        { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme", faction = "Alliance" },
+          text = "I hear Stratholme has lost its masters, and Pureheart can't stop smiling about it. If you were the one who went in, {class}, the Light's been busy with you, and I'd like to shake your hand." },
         { id = "h_returned", when = { questRecent = { TODO_QUEST("Return to Chillwind Camp"), days = 2 } },
           text = "Arbington's been up all night with your sample, and he smells like a crypt, but he's happier than I've seen him in months. Well done, friend." },
         { id = "h_jars", when = { metBefore = true },
@@ -408,6 +443,7 @@ P:NPC {
         { text = "Is any of the wildlife here still clean?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can the cauldrons' plague be cleansed from the soil?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does a shaman's fire offend the Light, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been to the bottom of Stratholme, High Priestess.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Alliance" } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -551,6 +587,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Oh, thank goodness, and do sit down, but not on the notes, those are the notes. I've read what the Dawn could find of Gandling's lessons, and he wrote about his students the way I write about reagents, so I'm not sorry, not even academically." } },
+      choices = {
+        { text = "Burn every book he left behind. None of it is safe.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "His books should be studied. Knowledge is never wasted.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What did you read, that frightened you so?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "Lesson plans, mostly, with marks in the margin where a student had done well, and a student doing well meant a body that got up and walked. That's what I can't shake, you see, that it was a school, with timetables and prizes and a headmaster who expected punctuality." } },
+      choices = {
+        { text = "Then I'm glad that school won't open its doors again.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I honestly don't know, and that's what worries me, because nothing I've read says what happens when a shaman stands next to a vial of plague. I'd like to keep it that way, if you don't mind, so if you feel a spirit coming on, please step outside first." } },
@@ -610,6 +661,8 @@ P:NPC {
           text = "Krinkle Goodsteel in Gadgetzan makes molds for nasty things and charges accordingly. I'd pay him myself, but if I had any gold of my own, would I be living here?" },
         { id = "h_scarab", tags = { "news" }, when = { questActive = TODO_QUEST("Araj's Scarab") },
           text = "The key needs a head, and that's Araj's scarab, his signet. He ran the Scholomance before he took Andorhal, so it ought to open his old door, and I'm fairly confident of that, or at least moderately." },
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Alliance" },
+          text = "You went into the Scholomance, didn't you, and you came back out, and Gandling didn't. That is precisely the opposite of how I pictured it every night for a month." },
         { id = "h_key", when = { questDone = TODO_QUEST("The Key to Scholomance") },
           text = "You have the key, and you'll go in, won't you? I'd ask you to write and tell me what's inside, but I already know, and I'd rather not read it in your handwriting." },
         { id = "h_pay", when = { metBefore = true },
@@ -640,6 +693,7 @@ P:NPC {
         { text = "Fel and alchemy have more in common than you think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Need anything fetched quietly from Caer Darrow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the elements upset your work, Arbington?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Scholomance is finished, Arbington. Gandling is dead.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
         { text = "What have you read about the Scholomance that frightens you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do warriors break much of your glassware, Arbington?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -771,6 +825,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Quiet's a mercy, and more than they ever gave the servants. Father and Mother are still in there, I suppose, in whatever state Kel'Thuzad left them, and my sister Jandice too, and I'll confess I didn't send you in to bring any of them home." } },
+      choices = {
+        { text = "They were your family. You owe them a proper burial.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They chose Kel'Thuzad. They don't deserve your grief.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Did you ever love them, Weldon?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "I loved the house, which I realise is a terrible thing to say, but it was a beautiful house and they were not beautiful people. Jandice taught me to read, though, so if you saw her in there, I'd rather not know what she's become." } },
+      choices = {
+        { text = "I'll keep what I saw to myself, then.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd have you speak to anyone who'll confirm my claim, whether they're living, dead or merely elemental. Alexi has the Forsaken behind him, and I have a sword under my blanket and now you, so we'll see whose spirits win out." } },
@@ -838,6 +907,8 @@ P:NPC {
           text = "There are four deeds somewhere in the Scholomance, and you must find them before Alexi's hired cutthroats do. I spared his life once, because that corpse wore my brother's face, and I won't make that mistake again." },
         { id = "h_last", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Barov") },
           text = "The deeds are mine, and now only one thing stands between me and the fortune, sitting at the Bulwark like a vulture on a fence. End him for me." },
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Alliance" },
+          text = "So the Darkmaster's dead, and someone finally had the decency to finish what my family started when they let him in. I'd like to say I feel something about it, and I do, and the something is mostly relief." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Last Barov") },
           text = "So Alexi's gone, truly gone at last. I thought I'd feel something about it, but I find I mostly feel rich, and that will have to do." },
         { id = "h_sleep", when = { metBefore = true },
@@ -870,6 +941,7 @@ P:NPC {
         { text = "If I were Alexi's, you'd already be dead.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Barovs know Kel'Thuzad well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you have me speak to your brother's spirit, Weldon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been through Caer Darrow, Weldon. Your family's house is quiet.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Did your family really give Caer Darrow to the Cult?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1032,6 +1104,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_strat = {
+      big = true,
+      lines = { { id = "xcl_strat_default", text = "Then you've seen what Arthas left behind, and what moved into the rooms after him. The Dawn lost good people trying to map those streets, living and Forsaken both, and I'll be writing to whoever they left behind that the city has answered for them at last." } },
+      choices = {
+        { text = "Write their names first. They paid more than I did.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Write mine first. I'm the one who came back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who were they, the ones you lost there?", next = "xcl_strat2" },
+      },
+    },
+    xcl_strat2 = {
+      lines = { { id = "xcl_strat2_default", text = "A Forsaken scout who said he'd forgotten his own name, and two brothers from Stormwind who argued over every map we ever drew. They died together on the same street, and I've always thought they'd find that funny." } },
+      choices = {
+        { text = "I'd like to think they would.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "There is, though you have to dig to find it. I've seen seeds sprout by the camp's well, tiny and pale, and I've stood watch over them like they were my own children. Don't laugh; it's the only thing growing here." } },
@@ -1070,6 +1157,8 @@ P:NPC {
           text = "Wear the commission, and you'll find the Scourge carry stones, the dark power that binds them made solid. Bring those stones to me, and the Dawn will remember who helped." },
         { id = "h_everlook", tags = { "news" }, when = { questActive = TODO_QUEST("The Everlook Report") },
           text = "Gregor's report? He's a good man, and I sent him to Everlook to keep the Dawn's ear among the goblins. Let me read it while it's still warm." },
+        { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
+          text = "The word from Light's Hope is that Stratholme's masters have fallen, and the officers there are toasting with water because nobody remembered the wine. If you were in that city, sit at my table, and you needn't wear anyone's colours to do it." },
         { id = "h_gregor", when = { heardLine = "gregor.h_default" },
           text = "You've been to Everlook, then you've met Gregor Greystone, who's one of mine. Tell me he's eating properly, because he forgets." },
         { id = "h_tyrosus", when = { heardLine = "tyrosus.h_default" },
@@ -1104,6 +1193,7 @@ P:NPC {
         { text = "Why must a soldier's weapon stay by the door?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do Horde and Alliance hunters really work together here?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is there life left under the Plaguelands' rot?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I fought my way through Stratholme, Officer.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },

@@ -877,6 +877,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_stocks = {
+      big = true,
+      lines = { { id = "xcl_stocks_default", text = "Too few guards and too many Defias, and they all knew each other from Westfall, so they'd planned it long before the first cell door opened. I asked the House of Nobles for twelve more men in the spring, and they sent me a letter about the cost of lamp oil." } },
+      choices = {
+        { text = "Write it all down honestly, Warden. The Captain should know.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bury the report, Warden. What the Captain doesn't know can't hurt you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What happens to the prisoners who survived?", next = "xcl_stocks2" },
+      },
+    },
+    xcl_stocks2 = {
+      lines = { { id = "xcl_stocks2_default", text = "They go back in their cells, the Defias among them go into the deepest ones, and their sentences grow by whatever the magistrate feels like that morning. Some of them were only thieves before the riot, and now they're rioters as well, and I'm not sure the kingdom gained by it." } },
+      choices = {
+        { text = "They chose to riot, Warden. Let the sentences stand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A few of them deserve a second chance, Warden.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd rather not say, and I'd rather you didn't ask. The Defias are noisy prisoners, and the walls hold, mostly. That's all you need to know." } },
@@ -947,6 +963,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade" },
+          text = "Someone went all the way down to the lower tiers and put the whole riot to bed, and my guards keep saying your name, so I'll assume it was you. Thank you, and please don't tell the Captain how bad it got first." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 30 } }, text = "My guards tell me fewer Defias are coming down to the Stockade than going into the ground, and they tell me your name when they say it. I've no cells to spare, so I'll not complain." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If you're here about the riot, it's been dealt with, and if you're here about the prisoners, they've been dealt with too." },
         { id = "h_default", text = "Warden Thelwater, of the Stockade. I keep Stormwind's worst under its canals most days, and the other days I'd thank you not to mention." },
@@ -993,6 +1011,7 @@ P:NPC {
         { text = "Do the Stockade's cells ever see daylight, Warden?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "How do you keep a mage locked up, Warden?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What trouble at the Stockade, Warden?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your lower tiers are quiet now, Warden. How did it get so bad?", next = "xcl_stocks", when = { cleared = "The Stockade" } },
         { text = "I'll be discreet.", next = "END", fx = { affinity = 2 } },
       },
     },

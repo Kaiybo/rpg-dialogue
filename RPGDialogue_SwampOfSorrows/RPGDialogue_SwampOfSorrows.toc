@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Swamp of Sorrows |cff8a8a8a1.17.0|r
+## Title: RPG Dialogue: Swamp of Sorrows |cff8a8a8a1.18.0|r
 ## Notes: Stonard: one of the oldest orc settlements on Azeroth, mapping a swamp nobody charted, a warlock sent by Thrall to watch a sunken temple, and an old orc who won't admit he's sick.
 ## Author: RPG Dialogue
-## Version: 1.17.0
+## Version: 1.18.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.swampofsorrows

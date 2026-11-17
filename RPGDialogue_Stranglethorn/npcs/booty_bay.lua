@@ -35,6 +35,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Fallen is a strong word for a city that size, but its god is gone, and that god was what kept the priests united. Every goblin in this cove has spent good coin on the hope that the trolls stay at each other's throats, and I'd rather not lose that bet now." } },
+      choices = {
+        { text = "Then trade with them honestly, and help the jungle find its peace.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep them divided, Baron. Divided trolls are good for business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Who's going to claim Zul'Gurub now?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "The jungle, if nobody's quick about it, but the Zandalari have been sailing in and out of Yojamba Isle with a great deal of interest. They're trolls too, and old ones, and I'd sooner deal with them than with whatever the priests were feeding." } },
+      choices = {
+        { text = "The Zandalari seem honest enough. Something else, Baron.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Booty Bay has room for anyone who pays the dock fees. Still, a Bronzebeard who talks to the weather could be very useful to the Cartel, and I'd want to know who else is hiring you." } },
@@ -111,6 +126,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub" }, text = "Word reached my balcony that Hakkar is dead in Zul'Gurub and the Gurubashi priests are scattering into the jungle. That's good for shipping and bad for the price of troll relics, and I'm still deciding which matters more." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my balcony, polished to a shine. The Light is welcome in Booty Bay, friend, provided it pays its docking fees like everyone else." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde under my balcony. Keep your lightning away from my ships, and we'll get along nicely." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde under my balcony. Whatever you pray to, ask it to keep the Bloodsail off my harbor, and I'll pay a fair tithe." },
@@ -159,6 +175,7 @@ P:NPC {
         { text = "What does the Cartel make from the jungle's beasts, Baron?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does the Light count for anything in a Cartel port, Baron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Booty Bay have room for a dwarf shaman, Baron?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Hakkar is dead, Baron. Zul'Gurub has fallen.", next = "xcl_zg", when = { cleared = "Zul'Gurub" } },
         { text = "Good day, Baron.", next = "END" },
       },
     },

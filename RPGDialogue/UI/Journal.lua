@@ -60,6 +60,7 @@ local function deedName(id)
   if kind == "level" then return L.DEED_LEVEL:format(arg) end
   if kind == "zone" then return L.DEED_ZONE:format(arg) end
   if kind == "dungeon" then return L.DEED_DUNGEON:format(arg) end
+  if kind == "cleared" then return L.DEED_CLEARED:format(arg) end
   if kind == "kill" then
     local cap = ns.db.capture.npcs[tonumber(arg)]
     return L.DEED_KILL:format(cap and cap.name or ("#" .. arg))
