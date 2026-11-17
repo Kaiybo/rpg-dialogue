@@ -290,5 +290,9 @@ P:NPC {
     dark_riders = { { id = "tp_riders", text = "Don't say it so loud, they're still looking, I know they're still looking." } },
     night_watch = { { id = "tp_watch", text = "They'd only ask questions, and I don't have good answers, just true ones, which is worse." } },
     _none = { { id = "tp_none", text = "I don't know, I don't know anything, and that's how I've stayed alive this long!" } },
+    raven_hill = { { id = "tp_raven_hill", text = "I live out here near Raven Hill, yes, because nobody comes looking, nobody, not even the people I'm hiding from. The dead don't ask questions, and I like that in a neighbor, mostly." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I knew some masons once, honest men, good men, before Westfall, and I'm not saying more, not one more word about masons. Don't write that down." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade, no, no, I'm never going there, because I'd die there, they'd find me there. Please don't mention it again, please." } },
+    scourge = { { id = "tp_scourge", text = "There are worse things than worgen up north, I've heard, dead men in whole armies, and I'm glad, in a way, because at least they're up north. I'm not glad, I'm only saying." } },
   },
 }

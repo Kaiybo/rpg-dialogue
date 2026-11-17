@@ -111,5 +111,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry the meat on your back, not in your hand. A wolf goes for the hand first." } },
     morbent_fel = { { id = "tp_morbent", text = "Sven's business, mostly, though I'd not weep if somebody finished him.", next = "necro" } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Sven, if you can get more than three words out of him." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Sven wants the riders dead, and so do I, but I want Sven alive more. I keep the fire low and one eye on the road." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Game's thin near Raven Hill, because the wolves have more sense than we do and stay away. I don't hunt there, and neither should you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I won a knife at the Faire in Elwynn years back for throwing a ring over a bottle. It's the best knife I own, and I've skinned half of Duskwood with it." } },
   },
 }

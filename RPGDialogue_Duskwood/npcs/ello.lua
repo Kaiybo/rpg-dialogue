@@ -424,5 +424,16 @@ P:NPC {
       { id = "tp_embalmer", text = "It's a story nannies tell in Darkshire, about a husband, a dead wife and his own heart. I'd like it to stay a story." },
     },
     _none = { { id = "tp_none", text = "The council has no position on that, though it has far too many positions on everything else." } },
+    varian = { { id = "tp_varian", text = "I have written to the king more times than any man living, and since he went missing I write to the Highlord instead. The army has not come, and I begin to wonder whether my letters arrive at all." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar is a paladin of great honor, and I've no doubt he would send men if he could. Somebody in that Keep is telling him he can't, and I would very much like to know who." } },
+    prestor = {
+      { id = "tp_prestor", text = "Lady Prestor sends Darkshire the most beautiful refusals I have ever read. I keep them in a drawer, and some evenings I read them aloud to the council, for practice." },
+      { id = "tp_prestor2", when = { disposition = { min = 65 } }, text = "Between us, every refusal from the Keep since Lady Prestor came to court has had the same gracious turn of phrase. I accuse nobody, but I've stopped believing it's a coincidence." },
+    },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a thriving village under this council's care, and we lost it to the dead in a single winter. Its cemetery is the town's shame, and I'll not rest easy until it's quiet." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass, burn what they please and ride back again. The council has reported them to Stormwind eleven times, and I can show you the copies." } },
+    scourge = { { id = "tp_scourge", text = "Lordaeron fell to its dead within a year, and Darkshire has held out against its own for longer than that with farmers and lanterns. I should like someone in Stormwind to consider that before they tell me the army is stretched." } },
+    holy_light = { { id = "tp_holy_light", text = "Darkshire's chapel lights its candles every evening, and the Light has kept us better than the Crown has. I say that as a loyal man, mind you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I once petitioned the Darkmoon Faire to come to Darkshire and lift the town's spirits. They sent a most courteous letter declining, which I filed beside the Keep's." } },
   },
 }

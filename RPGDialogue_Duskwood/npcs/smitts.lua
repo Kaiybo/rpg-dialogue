@@ -350,5 +350,13 @@ P:NPC {
     ladimore = { { id = "tp_ladimore", text = "He was a knight of this town, before the war, and what walks the cemetery now is what's left of him. I don't talk about it at the bar." } },
     embalmer = { { id = "tp_embalmer", text = "It's a story we told children to keep them out of the graveyard. It worked on me, but it didn't work on him." } },
     _none = { { id = "tp_none", text = "That's not in my book, and my book's thick, so try Daltry at the Town Hall." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a fine village once, with a stone church and a cemetery so peaceful folk picnicked in it. I've the old drawings in my book, and nobody believes me when I show them." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders turned up in the same years the dead started walking, and I don't think that's coincidence. I've a page on them in my book, and it's all questions." } },
+    scourge = { { id = "tp_scourge", text = "Travellers from the north drink here on their way to Stormwind, and every one of them has a story about the Scourge he can't finish. I write them down after they've gone; it seems the decent thing." } },
+    varian = { { id = "tp_varian", text = "When the king went missing, the Watch stopped expecting the army and I stopped expecting good news. I pour the same beer either way." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor's name comes up in my tavern more than you'd expect for a town this far from court, and never fondly. I only pour and listen." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire won't come to Darkshire, and I don't blame them, but I've a copy of their song sheet behind the bar. On a bad night, Hann plays it on a spoon." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A Booty Bay captain once told me their rum is distilled from bad decisions. I bought a barrel to see if he was right, and he was." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light keeps Darkshire going as much as the Watch does, and the chapel lamp has never once gone out in all my years here. I check it every night on my way home." } },
   },
 }

@@ -319,5 +319,11 @@ P:NPC {
     ladimore = { { id = "tp_ladimore", text = "The Knight, reversed: a good man turned upside down by grief. He walks Raven Hill because he cannot forgive himself." } },
     embalmer = { { id = "tp_embalmer", text = "That is the Needle, and I see it more often than I'd like. Don't ask me whose hand holds it." } },
     _none = { { id = "tp_none", text = "The cards are silent on that, and they are rarely silent, so make of it what you will." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's fortune teller offered me a tent once, child, and I told her the cards had already shown me how badly that would end. She didn't ask what they showed, which proved my point." } },
+    raven_hill = { { id = "tp_raven_hill", text = "The spirits at Raven Hill are the loudest in Duskwood, child, and most of them only want to go home. Some of them are home, and that's the trouble." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The cards turn black when I ask about the riders, every card, every time. I've stopped asking, and I suggest you do the same." } },
+    scourge = { { id = "tp_scourge", text = "The spirits that drift down from the north are the saddest I've ever heard, child, because they weren't allowed to leave their bodies even after death. I light a candle for them, and it gutters every time." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, and the moon answers them, or so they say. The moon has only ever told me one thing, and that was to stay indoors." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I dreamed once of a green dragon sleeping in Twilight Grove, and the next morning a hunter told me he'd seen one there. The cards had nothing to say about it, which is how I know it matters." } },
   },
 }
